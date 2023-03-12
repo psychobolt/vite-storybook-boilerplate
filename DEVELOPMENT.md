@@ -18,6 +18,21 @@
 3. Follow the prompt instructions
 4. Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up environment variables for your CI
 
+## Syncing With Original Fork
+
+Occassionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with: 
+
+```sh
+git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
+```
+
+Anytime there are new updates, run:
+```sh
+git pull origin/base 
+# or with merge strategy: 
+# git merge origin/base
+```
+
 ## Scripts
 
 Coming soon

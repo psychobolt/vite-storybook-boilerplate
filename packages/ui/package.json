@@ -1,0 +1,42 @@
+{
+  "name": "ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "storybook dev",
+    "build": "tsc && vite build",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.0.0-rc.1",
+    "@storybook/addon-interactions": "7.0.0-rc.1",
+    "@storybook/addon-links": "7.0.0-rc.1",
+    "@storybook/blocks": "7.0.0-rc.1",
+    "@storybook/builder-vite": "7.0.0-rc.1",
+    "@storybook/core-common": "7.0.0-rc.1",
+    "@storybook/preview-web": "7.0.0-rc.1",
+    "@storybook/react": "7.0.0-rc.1",
+    "@storybook/react-vite": "7.0.0-rc.1",
+    "@storybook/testing-library": "0.0.14-next.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "prop-types": "15.8.1",
+    "storybook": "7.0.0-rc.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  }
+}
