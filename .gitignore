@@ -1,3 +1,11 @@
+node_modules
+.turbo
+.env
+storybook-static
+dist
+.next
+next-env.d.ts
+
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -10,6 +18,8 @@
 !.yarn/cache
 #.pnp.*
 
-node_modules
-.turbo
-.env
+# Logs
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
