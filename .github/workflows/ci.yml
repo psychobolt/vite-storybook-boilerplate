@@ -27,7 +27,10 @@ jobs:
             node-version: 16
             cache: 'yarn'
  
-        - name: Install dependencies
+        - name: Unpack binaries
+          run: yarn install
+
+        - name: Verify dependencies
           run: yarn bootstrap
  
         - name: Build
