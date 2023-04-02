@@ -2,7 +2,7 @@
   "name": "vite-storybook-boilerplate",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@3.5.0",
   "scripts": {
     "bootstrap": "yarn node --loader file://$(yarn node -p \"require.resolve('ts-node')\")/../../esm.mjs --loader ./.pnp.loader.mjs scripts/bootstrap.ts",
     "dev": "turbo run dev",
