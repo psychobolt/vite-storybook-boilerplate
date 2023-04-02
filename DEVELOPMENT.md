@@ -9,8 +9,9 @@
 3. Setup Yarn (https://yarnpkg.com/getting-started/install)
 4. Download and install [Visual Studio Code](https://code.visualstudio.com/)
 5. Open your project in VSCode and install the recommended extensions
-6. Run command `yarn bootstrap` in terminal to verify all dependencies
-7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
+6. Run command `yarn install` in terminal to unpack root binaries
+7. Run command `yarn bootstrap` in terminal to verify all dependencies
+8. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
 
 #### Setup Remote Cache (Optional)
 
