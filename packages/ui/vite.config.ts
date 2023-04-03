@@ -2,6 +2,11 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
+    },
+  },
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
