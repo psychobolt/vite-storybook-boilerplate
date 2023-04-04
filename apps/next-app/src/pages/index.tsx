@@ -9,6 +9,10 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const user = { name: 'Anonymous User' };
+
+const dummyFunc = () => {};
+
 export default function Home() {
   return (
     <>
@@ -18,7 +22,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header></Header>
+      <Header user={user} onLogin={dummyFunc} onLogout={dummyFunc} onCreateAccount={dummyFunc}></Header>
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
