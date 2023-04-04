@@ -18,14 +18,15 @@
       "require": "./dist/style.css"
     }
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "storybook dev",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc --project tsconfig.dts.json",
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.0.0",
