@@ -9,7 +9,7 @@ Coming Soon! A modern fast ⚡💨 starter plate for developing front-end compon
 - [Zero-Installs](https://yarnpkg.com/features/zero-installs)
 - [ES Module enabled](https://nodejs.org/api/esm.html#enabling)
 - A [Vercel](https://vercel.com/) deployable app built with ([Next.js](https://nextjs.org/))
-- A [Storybook](https://storybook.js.org) example
+- [Storybook](https://storybook.js.org) examples
 
 ## Development
 
