@@ -8,8 +8,9 @@ Coming Soon! A modern fast ⚡💨 starter plate for developing front-end compon
     - Run tasks and configurations with [Turborepo](https://turbo.build/repo)
 - [Zero-Installs](https://yarnpkg.com/features/zero-installs)
 - [ES Module enabled](https://nodejs.org/api/esm.html#enabling)
-- A [Vercel](https://vercel.com/) deployable app built with ([Next.js](https://nextjs.org/))
-- [Storybook](https://storybook.js.org) examples
+- A [Vercel](https://vercel.com/) deployable app built with [Next.js](https://nextjs.org/)
+- Additional demo app built with [Svelte](https://svelte.dev/)
+- HTML and React [Storybook](https://storybook.js.org) examples
 
 ## Development
 

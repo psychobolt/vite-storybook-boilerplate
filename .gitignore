@@ -2,6 +2,7 @@ node_modules
 .turbo
 .env
 storybook-static
+build
 dist
 .next
 next-env.d.ts
