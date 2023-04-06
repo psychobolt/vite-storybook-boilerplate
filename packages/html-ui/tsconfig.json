@@ -13,8 +13,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "html-ui": ["index.ts"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "stories"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
