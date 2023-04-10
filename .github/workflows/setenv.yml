@@ -18,7 +18,9 @@ jobs:
       ENV_VARS: ${{ steps.echo.outputs.ENV_VARS }}
     steps:
       - id: echo
-        run: >-
-          echo 'ENV_VARS="{\
-            \"CHROMATIC_PROJECT_TOKEN\": \"${{ secrets.CHROMATIC_PROJECT_TOKEN }}\"\
-          }"' >> $GITHUB_OUTPUT
+        env:
+          ENV_VARS: |
+            {
+              "CHROMATIC_PROJECT_TOKEN": "${{ secrets.CHROMATIC_PROJECT_TOKEN }}"
+            }
+        run: echo ENV_VARS=$ENV_VARS >> $GITHUB_OUTPUT
