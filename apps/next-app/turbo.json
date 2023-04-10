@@ -3,6 +3,7 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
+      "dependsOn": ["react-ui#build"],
       "outputs": [".next/**", "!.next/cache/**"]
     }
   }
