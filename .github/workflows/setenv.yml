@@ -20,5 +20,5 @@ jobs:
       - id: echo
         run: >-
           echo 'ENV_VARS="{\
-            \"CHROMATIC_PROJECT_TOKEN": \"${{ secrets.CHROMATIC_PROJECT_TOKEN }}\"\
+            \"CHROMATIC_PROJECT_TOKEN\": \"${{ secrets.CHROMATIC_PROJECT_TOKEN }}\"\
           }"' >> $GITHUB_OUTPUT
