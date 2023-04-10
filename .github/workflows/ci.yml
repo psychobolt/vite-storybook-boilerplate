@@ -47,7 +47,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Test
-        run: yarn Test
+        run: yarn test
 
   chromatic:
     name: Run Chromatic
