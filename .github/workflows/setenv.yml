@@ -5,8 +5,8 @@ on:
         required: true
         type: string
     outputs:
-      CHROMATIC_PROJECT_TOKEN:
-        value: ${{ jobs.setenv.outputs.CHROMATIC_PROJECT_TOKEN }}
+      ENV_VARS:
+        value: ${{ jobs.setenv.outputs.ENV_VARS }}
 
 jobs:
   setenv:
@@ -15,7 +15,10 @@ jobs:
     environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     outputs:
-      CHROMATIC_PROJECT_TOKEN: ${{ steps.step1.outputs.CHROMATIC_PROJECT_TOKEN }}
+      ENV_VARS: ${{ steps.echo.outputs.ENV_VARS }}
     steps:
-      - id: step1
-        run: echo 'CHROMATIC_PROJECT_TOKEN=blahblah' >> $GITHUB_OUTPUT
+      - id: echo
+        run: >-
+          echo 'ENV_VARS="{\
+            \"CHROMATIC_PROJECT_TOKEN": \"${{ secrets.CHROMATIC_PROJECT_TOKEN }}\"\
+          }"' >> $GITHUB_OUTPUT

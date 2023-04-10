@@ -6,9 +6,9 @@ on:
         type: string
     outputs:
       html-ui:
-        value: ${{ jobs.html-ui.outputs.CHROMATIC_PROJECT_TOKEN }}
+        value: ${{ jobs.html-ui.outputs.ENV_VARS }}
       react-ui:
-        value: ${{ jobs.react-ui.outputs.CHROMATIC_PROJECT_TOKEN }}
+        value: ${{ jobs.react-ui.outputs.ENV_VARS }}
 
 jobs:
   html-ui:
