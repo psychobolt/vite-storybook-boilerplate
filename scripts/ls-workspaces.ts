@@ -81,4 +81,4 @@ const workspaces = stdout.split('\n')
     ] : list;
   }, []);
 
-console.log(workspaces);
+console.log(JSON.stringify(workspaces));
