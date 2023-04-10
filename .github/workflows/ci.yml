@@ -23,7 +23,7 @@ jobs:
       - name: Unpack binaries
         run: yarn install
       - id: ls_packages
-        run: echo "packages=$(yarn ls-workspaces -l 'packages/*' -n '^(?!commons).+$') >> $GITHUB_OUTPUT"
+        run: echo "packages=$(yarn ls-workspaces -l 'packages/*' -n '^(?!commons).+$')" >> $GITHUB_OUTPUT
 
   setenv:
     name: Set All Environment Variables
