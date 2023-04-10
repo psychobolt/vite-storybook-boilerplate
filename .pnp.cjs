@@ -55,7 +55,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/node", "npm:18.15.11"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.42"],\
+            ["arg", "npm:5.0.2"],\
             ["execa", "npm:7.1.1"],\
+            ["glob-to-regexp", "npm:0.4.1"],\
             ["ts-node", "virtual:d94033978f92a009b88a3b11c4242ad15df328f906df1429de81ecb4229bb1ebcb5fde441891fd6a8f99cbd50d7f73f1bfdfd03c3be870523b5bce318f279fa3#npm:10.9.1"],\
             ["turbo", "npm:1.8.8"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
@@ -8179,6 +8181,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/arg-npm-4.1.3-1748b966a8-544af8dd3f.zip/node_modules/arg/",\
           "packageDependencies": [\
             ["arg", "npm:4.1.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.0.2", {\
+          "packageLocation": "./.yarn/cache/arg-npm-5.0.2-2f5805a547-6c69ada1a9.zip/node_modules/arg/",\
+          "packageDependencies": [\
+            ["arg", "npm:5.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17696,7 +17705,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["vite-storybook-boilerplate", "workspace:."],\
             ["@types/node", "npm:18.15.11"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.42"],\
+            ["arg", "npm:5.0.2"],\
             ["execa", "npm:7.1.1"],\
+            ["glob-to-regexp", "npm:0.4.1"],\
             ["ts-node", "virtual:d94033978f92a009b88a3b11c4242ad15df328f906df1429de81ecb4229bb1ebcb5fde441891fd6a8f99cbd50d7f73f1bfdfd03c3be870523b5bce318f279fa3#npm:10.9.1"],\
             ["turbo", "npm:1.8.8"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\

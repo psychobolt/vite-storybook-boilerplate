@@ -1,0 +1,21 @@
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+    outputs:
+      CHROMATIC_PROJECT_TOKEN:
+        value: ${{ jobs.setenv.outputs.CHROMATIC_PROJECT_TOKEN }}
+
+jobs:
+  setenv:
+    name: Set Environment Variables
+    timeout-minutes: 15
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    outputs:
+      CHROMATIC_PROJECT_TOKEN: ${{ steps.step1.outputs.CHROMATIC_PROJECT_TOKEN }}
+    steps:
+      - id: step1
+        run: echo 'CHROMATIC_PROJECT_TOKEN=blahblah' >> $GITHUB_OUTPUT

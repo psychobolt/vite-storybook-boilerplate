@@ -1,0 +1,22 @@
+on:
+  workflow_call:
+    inputs:
+      packages:
+        required: true
+        type: string
+    outputs:
+      html-ui:
+        value: ${{ jobs.html-ui.outputs.CHROMATIC_PROJECT_TOKEN }}
+      react-ui:
+        value: ${{ jobs.react-ui.outputs.CHROMATIC_PROJECT_TOKEN }}
+
+jobs:
+  html-ui:
+    uses: ./.github/workflows/setenv.yml
+    with:
+      environment: html-ui
+
+  react-ui:
+    uses: ./.github/workflows/setenv.yml
+    with:
+      environment: react-ui
