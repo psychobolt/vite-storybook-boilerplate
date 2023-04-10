@@ -1,24 +1,16 @@
 {
+  "extends": "commons/tsconfig.vite.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
     "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
-    "strict": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
-    "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
       "html-ui": ["index.ts"]
-    }
+    },
   },
-  "include": ["src", "stories"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "stories"]
 }

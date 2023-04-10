@@ -1,14 +1,6 @@
-import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import commonConfig from 'commons/vite.config';
 
 export default defineConfig({
-  build: {
-    lib: {
-      // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, 'src/index.ts'),
-      name: 'html-ui',
-      // the proper extensions will be added
-      fileName: 'index',
-    },
-  },
+  ...commonConfig
 });

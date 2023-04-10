@@ -1,23 +1,12 @@
 import type { StorybookConfig } from "@storybook/html-vite";
+import type { StorybookViteCommonConfig } from 'commons/.storybook/vite-main';
+import commonConfig from 'commons/.storybook/vite-main';
 
-const mainDir = '@(src|stories)';
-
-const config: StorybookConfig = {
-  stories: [
-    `../${mainDir}/**/*.mdx`,
-    `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`
-  ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-  ],
+const config: StorybookConfig | StorybookViteCommonConfig = {
+  ...commonConfig,
   framework: {
     name: "@storybook/html-vite",
     options: {},
-  },
-  docs: {
-    autodocs: "tag",
   },
 };
 

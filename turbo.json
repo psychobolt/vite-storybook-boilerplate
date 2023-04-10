@@ -5,18 +5,16 @@
       "cache": false,
       "persistent": true
     },
-    "build": {
-      "outputs": [
-        "dist/**",
-        "storybook-static/**",
-        ".next/**",
-        "!.next/cache/**",
-        "storybook-static/**"
-      ],
-      "dependsOn": ["^build"]
+    "build": {},
+    "build-storybook": {
+      "outputs": ["storybook-static/**"]
     },
     "test": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["build"]
+    },
+    "chromatic": {
+      "cache": false,
+      "dependsOn": ["build-storybook"]
     }
   }
 }

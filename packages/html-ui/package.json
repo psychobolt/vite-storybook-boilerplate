@@ -3,10 +3,26 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
   "scripts": {
     "dev": "storybook dev",
-    "build": "tsc && vite build",
-    "build-storybook": "storybook build"
+    "build": "vite build",
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic -d storybook-static --only-changed"
   },
   "devDependencies": {
     "@babel/core": "7.21.4",
@@ -18,10 +34,13 @@
     "@storybook/html": "7.0.2",
     "@storybook/html-vite": "7.0.2",
     "@storybook/testing-library": "0.0.14-next.2",
+    "chromatic": "6.17.3",
+    "commons": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "7.0.2",
-    "typescript": "4.9.3",
+    "turbo": "1.8.8",
+    "typescript": "4.9.5",
     "vite": "4.2.0"
   }
 }
