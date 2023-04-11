@@ -4,21 +4,16 @@ on:
       packages:
         required: true
         type: string
-    outputs:
-      html-ui:
-        value: ${{ jobs.html-ui.outputs.ENV_VARS }}
-      react-ui:
-        value: ${{ jobs.react-ui.outputs.ENV_VARS }}
 
 jobs:
   html-ui:
-    uses: ./.github/workflows/setenv.yml
+    uses: ./.github/workflows/chromatic.yml
     with:
       environment: html-ui
     secrets: inherit
 
   react-ui:
-    uses: ./.github/workflows/setenv.yml
+    uses: ./.github/workflows/chromatic.yml
     with:
       environment: react-ui
     secrets: inherit
