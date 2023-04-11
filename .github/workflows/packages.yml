@@ -15,8 +15,10 @@ jobs:
     uses: ./.github/workflows/setenv.yml
     with:
       environment: html-ui
+    secrets: inherit
 
   react-ui:
     uses: ./.github/workflows/setenv.yml
     with:
       environment: react-ui
+    secrets: inherit
