@@ -6,25 +6,7 @@ on:
   pull_request:
     types: [opened, synchronize]
  
-jobs:
-  ls_packages:
-    name: Get packages
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    outputs:
-      packages: ${{ steps.ls_packages.outputs.packages }}
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-      - name: Unpack binaries
-        run: yarn install
-      - id: ls_packages
-        run: echo "packages=$(yarn ls-workspaces -l 'packages/*' -n '^(?!commons).+$')" >> $GITHUB_OUTPUT
-        
+jobs:   
   build:
     name: Build and Test
     timeout-minutes: 15
@@ -50,11 +32,3 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
-
-  packages:
-    name: Run Package Jobs
-    uses: './.github/workflows/packages.yml'
-    needs: ls_packages
-    with:
-      packages: ${{ needs.ls_packages.outputs.packages }}
-    secrets: inherit
