@@ -6,6 +6,7 @@ build
 dist
 .next
 next-env.d.ts
+.svelte-kit
 
 .yarn/*
 !.yarn/patches
