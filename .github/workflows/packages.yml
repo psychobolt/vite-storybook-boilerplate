@@ -10,10 +10,12 @@ jobs:
     uses: ./.github/workflows/chromatic.yml
     with:
       environment: html-ui
+      path: packages/html-ui
     secrets: inherit
 
   react-ui:
     uses: ./.github/workflows/chromatic.yml
     with:
       environment: react-ui
+      path: packages/react-ui
     secrets: inherit

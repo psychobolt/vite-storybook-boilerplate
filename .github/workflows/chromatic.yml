@@ -4,6 +4,9 @@ on:
       environment:
         required: true
         type: string
+      path:
+        required: true
+        type: string
 
 jobs:
   chromatic:
@@ -12,9 +15,16 @@ jobs:
     environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - run: yarn turbo chromatic
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - name: Unpack binaries
+        run: yarn install
+      - run: cd ${{ inputs.path }} && yarn turbo chromatic
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
