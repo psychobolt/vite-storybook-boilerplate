@@ -13,9 +13,9 @@
 7. Run command `yarn bootstrap` in terminal to verify all dependencies
 8. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
 
-#### Setup Remote Cache (Optional)
+### Setup Remote Cache (Optional)
 
-##### Local Development 
+#### Local Development 
 
 1. Create and login to a Vercel account: https://vercel.com/
 2. Login to the default remote cache provider: ```yarn turbo login```
@@ -61,7 +61,7 @@ yarn turbo chromatic # See setup instructions below
 ##### Chromatic Setup
 
 1. Follow [instructions](https://www.chromatic.com/docs/setup) on creating a Chromatic project
-2. Create a .env file if not exist in `packages/your-package`
+2. Create a `.env` file if not exist in `packages/your-package`
 3. Add `CHROMATIC_PROJECT_TOKEN=your-project-token` to `packages/your-package/.env`
 
 #### Apps
@@ -71,14 +71,14 @@ yarn turbo chromatic # See setup instructions below
 ```sh
 cd apps/app-name
 yarn dev
-yanr build
+yarn build
 yarn command-name script-name
 ```
 
 ## CI Config (Optional)
 
 1. Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up environment variables for your CI
-3. Keep CI configs up-to-date and add additional environments whenever you add a package or app.
+3. Keep CI configs up-to-date and add additional environments whenever you create a internal package or app.
 
 ## Vercel Deployment (Optional)
 
