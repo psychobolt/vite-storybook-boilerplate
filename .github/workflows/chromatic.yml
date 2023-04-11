@@ -12,8 +12,11 @@ jobs:
   chromatic:
     name: Run Chromatic
     timeout-minutes: 15
-    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
