@@ -27,7 +27,8 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
+          node-version: latest
+          cache: yarn
       - name: Unpack binaries
         run: yarn install
       - run: cd ${{ inputs.path }} && yarn turbo chromatic

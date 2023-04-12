@@ -16,7 +16,8 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
+          node-version: latest
+          cache: yarn
       - name: Unpack binaries
         run: yarn install
       - id: ls_packages
@@ -37,12 +38,12 @@ jobs:
         id: changed_files
         uses: tj-actions/changed-files@v35
         with:
-          files: ${{ matrix.packages.path }}
+          files: ${{ matrix.packages.*.location }}/**
       - name: Write output
-        uses: cloudposse/github-action-matrix-outputs-write@0.3.1
+        uses: cloudposse/github-action-matrix-outputs-write@main
         with:
           matrix-step-name: ${{ github.job }}
-          matrix-key: ${{ matrix.packages.name }}
+          matrix-key: ${{ matrix.packages.*.name }}
           outputs: |-
             any_changed: ${{ steps.changed_files.outputs.any_changed }}
 
