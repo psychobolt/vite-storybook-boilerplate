@@ -25,9 +25,9 @@
 ### Commands
 
 ```sh
-yarn node ./script.js # Run a script file
-yarn run script-name # Run a task
-yarn turbo script-name # Run a turbo enabled task
+yarn ts-script scripts/script.ts # Run a script file
+yarn run task-name # Run a task
+yarn turbo task-name # Run a turbo enabled task
 ```
 
 See additional commands from yarn's [CLI guide](https://yarnpkg.com/cli)
@@ -50,12 +50,13 @@ yarn workspace workspace-name add -[D]E library-name # library name can be a int
 ##### Common Commands
 
 ```sh
-cd packages/package-name
-yarn dev
-yann build
-yarn build-storybook
-yarn command-name script-name
-yarn turbo chromatic # See setup instructions below
+#cd packages/package-name # if not using workspace command
+yarn [workspace package-name] dev
+yann [workspace package-name] build
+yarn [workspace package-name] build-storybook
+yarn [workspace package-name] watch
+yarn [workspace package-name] command-name script-name
+yarn [workspace package-name] turbo chromatic # See setup instructions below
 ```
 
 ##### Chromatic Setup
@@ -69,10 +70,10 @@ yarn turbo chromatic # See setup instructions below
 ##### Common Commands
 
 ```sh
-cd apps/app-name
-yarn dev
-yarn build
-yarn command-name script-name
+# cd apps/app-name # if not using workspace command
+yarn [workspace app-name] dev
+yarn [workspace app-name] build
+yarn [workspace app-name] command-name script-name
 ```
 
 ## CI Config (Optional)

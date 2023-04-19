@@ -5,6 +5,10 @@
       "cache": false,
       "persistent": true
     },
+    "watch": {
+      "cache": false,
+      "persistent": true
+    },
     "build": {},
     "build-storybook": {
       "outputs": ["storybook-static/**"]
