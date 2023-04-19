@@ -21,10 +21,11 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "yarn watch & storybook dev",
-    "build": "vite build",
+    "build": "yarn build-src && yarn build-dts",
+    "build-src": "vite build",
     "build-dts": "tsc --project tsconfig.dts.json",
     "build-storybook": "storybook build",
-    "watch": "yarn build -w & yarn build-dts --watch",
+    "watch": "yarn build-src -w & yarn build-dts --watch",
     "chromatic": "chromatic -d storybook-static --only-changed"
   },
   "dependencies": {
