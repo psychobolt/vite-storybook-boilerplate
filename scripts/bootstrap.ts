@@ -1,14 +1,14 @@
-import { execa } from 'execa';
+import { execaSync } from 'execa';
 import type { Workspace } from './ls-workspaces';
 
-const yarnCmd = (args, options?) => execa('yarn', args, { stdio: 'inherit', ...options });
+const yarnCmd = (args, options?) => execaSync('yarn', args, { stdio: 'inherit', ...options });
 
 console.log('Verifying main project dependencies....');
-await yarnCmd(['install']);
+yarnCmd(['install']);
 console.log();
 
 console.log('Verifying workspaces dependencies....');
-await yarnCmd(['workspaces', 'focus', '-A']);
+yarnCmd(['workspaces', 'focus', '-A']);
 console.log();
 
 console.log('Verify workspaces using node-modules...')
