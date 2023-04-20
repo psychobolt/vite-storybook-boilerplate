@@ -2,6 +2,7 @@ on:
   push:
     paths:
       packages/**
+  workflow_dispatch:
 
 jobs:
   ls_packages:
