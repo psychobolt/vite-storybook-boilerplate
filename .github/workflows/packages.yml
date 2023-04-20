@@ -38,12 +38,12 @@ jobs:
         id: changed_files
         uses: tj-actions/changed-files@v35
         with:
-          files: ${{ matrix.packages.*.location }}/**
+          files: ${{ matrix.packages.location }}/**
       - name: Write output
         uses: cloudposse/github-action-matrix-outputs-write@main
         with:
           matrix-step-name: ${{ github.job }}
-          matrix-key: ${{ matrix.packages.*.name }}
+          matrix-key: ${{ matrix.packages.name }}
           outputs: |-
             any_changed: ${{ steps.changed_files.outputs.any_changed }}
 
