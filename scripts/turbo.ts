@@ -1,7 +1,7 @@
 import { execa, execaSync } from 'execa';
 import arg from 'arg';
 
-import type { Workspace } from './ls-workspaces';
+import getWorkspaces from './ls-workspaces.ts';
 
 const { _: argv, ...options } = arg({
   '--background': Boolean
@@ -11,9 +11,7 @@ const cmd = async => (async ? execa: execaSync);
 const yarnCmd = (async?) => (args = [], config?) => cmd(async)('yarn', args, { stdio: 'inherit', ...config });
 const turboCmd = (args = [], config?) => yarnCmd(options['--background'])(['turbo', ...argv, '--no-color', ...args], config);
 
-const { stdout } = await yarnCmd()(['ls-workspaces', '--node-modules'], { stdio: 'pipe' });
-const workspaces: Workspace[] = JSON.parse(stdout);
-
+const workspaces = await getWorkspaces({ nodeLinker: 'node-modules' });
 const filters = [];
 workspaces.forEach(async workspace => {
   const env = {

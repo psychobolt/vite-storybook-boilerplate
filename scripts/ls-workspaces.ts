@@ -5,7 +5,7 @@ import { execa } from 'execa';
 import arg from 'arg';
 import globToRegExp from 'glob-to-regexp';
 
-export type Workspace = {
+type Workspace = {
   name: string,
   location: string
 };
@@ -38,7 +38,8 @@ async function getWorkspaces(options?) {
         ...config
       }),
       {}
-    )
+    ),
+    { permissive: true }
   );
 
   if (options) {
