@@ -40,6 +40,7 @@ See additional commands from yarn's [CLI guide](https://yarnpkg.com/cli)
 yarn bootstrap # Verify dependencies for all workspaces
 yarn dev # Start development services for all workspace projects
 yarn build # Build all workspace projects
+yarn up package-name [--exact] # Upgrade all instances of package to latest release
 
 # Add a library to a workspace. You can also # cd app/app-name or packages/package-name and run `yarn add -[D]E library-name`
 yarn workspace workspace-name add -[D]E library-name # library name can be a internal package

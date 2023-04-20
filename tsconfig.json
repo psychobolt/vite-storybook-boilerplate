@@ -1,11 +1,14 @@
 {
   "ts-node": {
+    "esm": true,
     "files": true
   },
   "compilerOptions": {
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true
   }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "ts-script": "node --loader file://$(yarn node -p \"require.resolve('ts-node')\")/../../esm.mjs --loader ./.pnp.loader.mjs",
     "ls-workspaces": "yarn run ts-script scripts/ls-workspaces.ts",
-    "bootstrap": "yarn run ts-script scripts/bootstrap.ts",
+    "bootstrap": "yarn run ts-script ./scripts/bootstrap.ts",
     "dev": "yarn run ts-script scripts/turbo.ts --background run dev",
     "build": "yarn run ts-script scripts/turbo.ts run build",
     "test": "yarn run ts-script scripts/turbo.ts run test",
@@ -26,7 +26,7 @@
     "glob-to-regexp": "0.4.1",
     "ts-node": "10.9.1",
     "turbo": "1.9.3",
-    "typescript": "4.9.5"
+    "typescript": "5.0.4"
   },
   "dependenciesMeta": {
     "ts-node@10.9.1": {
