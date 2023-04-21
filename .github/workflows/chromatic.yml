@@ -1,7 +1,7 @@
 on:
   workflow_call:
     inputs:
-      environment:
+      workspace:
         required: true
         type: string
       path:
@@ -13,7 +13,7 @@ jobs:
     name: Run Chromatic
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: ${{ inputs.workspace }}
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
@@ -31,4 +31,7 @@ jobs:
           cache: yarn
       - name: Unpack binaries
         run: yarn install
-      - run: cd ${{ inputs.path }} && yarn turbo chromatic
+      - name: Verify dependencies
+        run: yarn bootstrap
+      - name: Run Chromatic
+        run: yarn turbo chromatic --filter=${{inputs.workspace}}

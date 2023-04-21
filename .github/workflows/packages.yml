@@ -5,74 +5,36 @@ on:
   workflow_dispatch:
 
 jobs:
-  ls_packages:
-    name: Get packages
+  diff:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    outputs:
-      packages: ${{ steps.ls_packages.outputs.packages }}
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: lts/*
-          cache: yarn
-      - name: Unpack binaries
-        run: yarn install
-      - id: ls_packages
-        run: echo "packages=$(yarn ls-workspaces -l 'packages/*' -n '^(?!commons).+$')" >> $GITHUB_OUTPUT
-
-  diff:
-    runs-on: ubuntu-latest
-    needs: ls_packages
-    strategy:
-      matrix:
-        packages: ${{ fromJSON(needs.ls_packages.outputs.packages) }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Get changed files
-        id: changed_files
-        uses: tj-actions/changed-files@v35
+      - name: Collect Turborepo Changes
+        id: changes
+        uses: 94726/action-turborepo-changes@v1.1.0
         with:
-          files: ${{ matrix.packages.location }}/**
-      - name: Write output
-        uses: cloudposse/github-action-matrix-outputs-write@main
-        with:
-          matrix-step-name: ${{ github.job }}
-          matrix-key: ${{ matrix.packages.name }}
-          outputs: |-
-            any_changed: ${{ steps.changed_files.outputs.any_changed }}
-
-  changed:
-    runs-on: ubuntu-latest
-    needs: diff
-    steps:
-      - id: read
-        uses: cloudposse/github-action-matrix-outputs-read@main
-        with:
-          matrix-step-name: diff
-    outputs:
-      result: ${{ steps.read.outputs.result }}
+          from: HEAD^1
+      - name: Write to output
+        run: echo "package_names=${{steps.changes.outputs.package_names}}" >> $GITHUB_OUTPUT
 
   html-ui:
-    needs: changed
-    if: fromJSON(needs.changed.outputs.result).any_changed['html-ui'] == 'true'
+    needs: diff
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'html-ui')
     uses: ./.github/workflows/chromatic.yml
     with:
-      environment: html-ui
+      workspace: html-ui
       path: packages/html-ui
     secrets: inherit
 
   react-ui:
-    needs: changed
-    if: fromJSON(needs.changed.outputs.result).any_changed['react-ui'] == 'true'
+    needs: diff
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'react-ui')
     uses: ./.github/workflows/chromatic.yml
     with:
-      environment: react-ui
+      workspace: react-ui
       path: packages/react-ui
     secrets: inherit
