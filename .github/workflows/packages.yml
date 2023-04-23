@@ -23,7 +23,7 @@ jobs:
 
   html-ui:
     needs: diff
-    if: ${{ contains(fromJSON(needs.diff.outputs.package_names), 'html-ui') == 'true' }}
+    if: ${{ contains(fromJSON('${{needs.diff.outputs.package_names}}'), 'html-ui') == 'true' }}
     uses: ./.github/workflows/chromatic.yml
     with:
       workspace: html-ui
@@ -32,7 +32,7 @@ jobs:
 
   react-ui:
     needs: diff
-    if: ${{ contains(fromJSON(needs.diff.outputs.package_names), 'react-ui') == 'true' }}
+    if: ${{ contains(fromJSON('${{needs.diff.outputs.package_names}}'), 'react-ui') == 'true' }}
     uses: ./.github/workflows/chromatic.yml
     with:
       workspace: react-ui
