@@ -6,7 +6,7 @@
       "dependsOn": ["html-ui#build"]
     },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["html-ui#build", "^build"],
       "outputs": [".svelte-kit/**"]
     }
   }
