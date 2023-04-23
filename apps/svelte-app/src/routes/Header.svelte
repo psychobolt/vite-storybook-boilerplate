@@ -4,10 +4,6 @@
 	import github from '$lib/images/github.svg';
 </script>
 
-<div>
-	test
-</div>
-
 <header>
 	<div class="corner">
 		<a href="https://kit.svelte.dev">

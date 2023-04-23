@@ -7,7 +7,7 @@
     "@storybook/builder-vite": "7.0.2",
     "@storybook/types": "7.0.2",
     "typescript": "5.0.4",
-    "vite": "4.2.1",
+    "vite": "4.3.1",
     "vite-plugin-turbosnap": "1.0.1"
   },
   "devDependencies": {
