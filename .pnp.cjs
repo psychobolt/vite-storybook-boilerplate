@@ -11691,13 +11691,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["html-ui", [\
-        ["file:../../packages/html-ui#../../packages/html-ui::hash=c39b92&locator=svelte-app%40workspace%3Aapps%2Fsvelte-app", {\
-          "packageLocation": "./.yarn/cache/html-ui-file-f61ff04d71-7c24ead44d.zip/node_modules/html-ui/",\
-          "packageDependencies": [\
-            ["html-ui", "file:../../packages/html-ui#../../packages/html-ui::hash=c39b92&locator=svelte-app%40workspace%3Aapps%2Fsvelte-app"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["workspace:packages/html-ui", {\
           "packageLocation": "./packages/html-ui/",\
           "packageDependencies": [\
@@ -16599,7 +16592,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.37.0"],\
             ["eslint-config-prettier", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:8.8.0"],\
             ["eslint-plugin-svelte3", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:4.0.0"],\
-            ["html-ui", "file:../../packages/html-ui#../../packages/html-ui::hash=c39b92&locator=svelte-app%40workspace%3Aapps%2Fsvelte-app"],\
             ["prettier", "npm:2.8.4"],\
             ["prettier-plugin-svelte", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.10.0"],\
             ["sass", "npm:1.62.0"],\
