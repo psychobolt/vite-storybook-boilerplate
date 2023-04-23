@@ -8797,8 +8797,8 @@ __metadata:
 
 "html-ui@file:../../packages/html-ui::locator=svelte-app%40workspace%3Aapps%2Fsvelte-app":
   version: 0.0.0
-  resolution: "html-ui@file:../../packages/html-ui#../../packages/html-ui::hash=6a80e4&locator=svelte-app%40workspace%3Aapps%2Fsvelte-app"
-  checksum: 7fb42476ea2fb4703abfdcc6f470e9be53bf13c908967f90ad5872db67eabc08c1b6744954130679a1d11cc514fac2d5c25f2ee92d65615070a8ae689f19c7cf
+  resolution: "html-ui@file:../../packages/html-ui#../../packages/html-ui::hash=c39b92&locator=svelte-app%40workspace%3Aapps%2Fsvelte-app"
+  checksum: 7c24ead44d22bc52031315bf98801b8049e8ad3275cab58d55bd74bfc5f79dda4d8fe395ffa895ea6a912fdbc08fddffd1cb9b993e81fddeed5c7f9c4ad1d395
   languageName: node
   linkType: hard
 
