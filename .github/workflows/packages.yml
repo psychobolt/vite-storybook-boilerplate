@@ -3,6 +3,10 @@ on:
     paths:
       packages/**
   workflow_dispatch:
+    inputs:
+      change-from:
+        type: string
+        default: HEAD^1
 
 jobs:
   diff:
@@ -17,14 +21,14 @@ jobs:
         id: changes
         uses: 94726/action-turborepo-changes@v1.1.0
         with:
-          from: HEAD^1
+          from: ${{ github.event.inputs.change-from }}
       - name: Write to output
-        run: echo "package_names='${{steps.changes.outputs.package_names}}'" >> $GITHUB_OUTPUT
+        run: echo "package_names=${{toJSON(steps.changes.outputs.package_names)}}" >> $GITHUB_OUTPUT
 
   html-ui:
     needs: diff
-    if: ${{ contains(fromJSON(needs.diff.outputs.package_names), 'html-ui') == 'true' }}
     uses: ./.github/workflows/chromatic.yml
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'html-ui')
     with:
       workspace: html-ui
       path: packages/html-ui
@@ -32,7 +36,7 @@ jobs:
 
   react-ui:
     needs: diff
-    if: ${{ contains(fromJSON(needs.diff.outputs.package_names), 'react-ui') == 'true' }}
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'react-ui')
     uses: ./.github/workflows/chromatic.yml
     with:
       workspace: react-ui

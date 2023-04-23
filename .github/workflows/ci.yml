@@ -10,7 +10,7 @@ jobs:
   build:
     name: Build and Test
     timeout-minutes: 15
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
