@@ -10,6 +10,8 @@ type Workspace = {
   location: string
 };
 
+const invalidFilterExpression = /^[.*]$/g;
+
 async function getWorkspaces(options?) {
   const filters: Filters = {
     '--location': {
@@ -23,6 +25,21 @@ async function getWorkspaces(options?) {
       type: String,
       value: '',
       matcher: RegExp
+    },
+    '--filter': {
+      type: [String],
+      value: [],
+      matcher: (expressions: []) => {
+        const matchers = expressions.reduce((list, expression) => {
+          if (invalidFilterExpression.test(expression)) {
+            return list;
+          }
+          return [...list, globToRegExp(expression)];
+        }, []);
+        return {
+          test: value => matchers.reduce((prev, matcher) => prev && matcher.test(value), true)
+        };
+      },
     },
     '--node-modules': {
       type: Boolean,
@@ -66,14 +83,14 @@ async function getWorkspaces(options?) {
     }
   });
   
-  const passthrough = (workspace: Workspace, key) => {
-    const filter = filters[`--${key}`];
+  const passthrough = (workspace: Workspace, filterKey: string, propName?: string) => {
+    const filter = filters[`--${filterKey}`];
   
     if (!filter) {
       return true;
     }
   
-    if (filter.value && key === 'node-modules') {
+    if (filter.value && filterKey === 'node-modules') {
       const rcLocation = `${workspace.location}/.yarnrc.yml`;
       if (fs.existsSync(rcLocation)) {
         const contents = fs.readFileSync(`${workspace.location}/.yarnrc.yml`, 'utf-8').split('\n');
@@ -83,9 +100,9 @@ async function getWorkspaces(options?) {
       return false;
     }
     
-    return filter.value
-      ? (filter.matcher && (filter.matcher as RegExp).test(workspace[key])) || filter.value === workspace[key]
-      : true;
+    return !filter.value || (filter.value instanceof Array && filter.value.length === 0)
+      ? true
+      : (filter.matcher && (filter.matcher as RegExp).test(workspace[propName])) || filter.value === workspace[propName];
   };
   
   const { stdout } = await execa('yarn', ['workspaces', 'list', '--json']);
@@ -94,8 +111,9 @@ async function getWorkspaces(options?) {
     .reduce((list, line) => {
       const workspace: Workspace = JSON.parse(line);
       const keep = true
-        && passthrough(workspace, 'location')
-        && passthrough(workspace, 'name')
+        && passthrough(workspace, 'location', 'location')
+        && passthrough(workspace, 'name', 'name')
+        && passthrough(workspace, 'filter', 'name')
         && passthrough(workspace, 'node-modules');
       return keep ? [
         workspace,

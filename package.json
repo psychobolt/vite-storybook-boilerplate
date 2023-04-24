@@ -5,14 +5,15 @@
   "packageManager": "yarn@3.5.0",
   "scripts": {
     "ts-script": "node --loader file://$(yarn node -p \"require.resolve('ts-node')\")/../../esm.mjs --loader ./.pnp.loader.mjs",
+    "turbo": "yarn run ts-script scripts/turbo.ts",
     "ls-workspaces": "yarn run ts-script scripts/ls-workspaces.ts",
     "bootstrap": "yarn run ts-script ./scripts/bootstrap.ts",
-    "dev": "yarn run ts-script scripts/turbo.ts --background run dev",
-    "build": "yarn run ts-script scripts/turbo.ts run build",
-    "test": "yarn run ts-script scripts/turbo.ts run test",
-    "lint": "yarn run ts-script scripts/turbo.ts run lint",
-    "build-storybook": "yarn run ts-script scripts/turbo.ts run build-storybook",
-    "chromatic": "yarn run ts-script scripts/turbo.ts run chromatic"
+    "dev": "yarn run turbo --background run dev",
+    "build": "yarn run turbo run build",
+    "test": "yarn run turbo run test",
+    "lint": "yarn run turbo run lint",
+    "build-storybook": "yarn run turbo run build-storybook",
+    "chromatic": "yarn run turbo run chromatic"
   },
   "workspaces": [
     "packages/*",

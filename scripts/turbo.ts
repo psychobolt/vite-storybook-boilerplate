@@ -9,7 +9,7 @@ const { _: argv, ...options } = arg({
 
 const cmd = async => (async ? execa: execaSync);
 const yarnCmd = (async?) => (args = [], config?) => cmd(async)('yarn', args, { stdio: 'inherit', ...config });
-const turboCmd = (args = [], config?) => yarnCmd(options['--background'])(['turbo', ...argv, '--no-color', ...args], config);
+const turboCmd = (args = [], config?) => yarnCmd(options['--background'])(['exec', 'turbo', ...argv, '--no-color', ...args], config);
 
 const workspaces = await getWorkspaces({ nodeLinker: 'node-modules' });
 const filters = [];

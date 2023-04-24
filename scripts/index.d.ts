@@ -2,13 +2,17 @@ type Args = {
   [key: string]: string
 };
 
-type Matcher = (value: string) => RegExp;
+type Tester = {
+  test: (value: string) => boolean
+};
+
+type Matcher = (value: string | string[]) => RegExp | Tester;
 
 type Filter = {
   alias?: string,
   type: any,
-  value: string | boolean,
-  matcher?: RegExp | Matcher
+  value: string | boolean | RegExp[],
+  matcher?: RegExp | Matcher | Tester
 };
 
 type Filters = {
