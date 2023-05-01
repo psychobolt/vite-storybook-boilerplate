@@ -15,7 +15,7 @@
 #### Troubleshooting ESLint extension
 
 1. Ensure you are running VSCode with the node version you have yarn installed on.
-2. If above step doesn't work after restart, copy .pnp.loader.mjs to a safe location. e.g. Linux cp ./.pnp.loader.mjs /absolute/path/to/.pnp.loader.mjs. Then update __user settings__:
+2. If above step doesn't work after restart, copy `.pnp.loader.mjs` to a safe location. e.g. Linux `cp ./.pnp.loader.mjs /absolute/path/to/.pnp.loader.mjs`. Then update __user settings__:
 ```sh
     "eslint.runtime": "node"
     "eslint.execArgv": ["--loader", "/absolute/path/to/.pnp.loader.mjs"]
@@ -46,8 +46,9 @@ See additional commands from yarn's [CLI guide](https://yarnpkg.com/cli)
 
 ```sh
 yarn bootstrap # Verify dependencies for all workspaces
-yarn dev # Start development services for all workspace projects
+yarn dev # Start development services for all workspaces
 yarn build # Build all workspace projects for production
+yarn lint # Lint all workspaces
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
 
 # Add a library to a workspace. You can also # cd app/app-name or packages/package-name and run `yarn add -[D]E library-name`
@@ -64,6 +65,7 @@ yarn [workspace package-name] dev # Start up Storybook, watch, etc...
 yann [workspace package-name] build 
 yarn [workspace package-name] build-storybook
 yarn [workspace package-name] watch # Recompile package when a file changes
+yarn [workspace package-name] lint
 yarn [workspace package-name] command-name script-name
 yarn [workspace package-name] turbo chromatic # See setup instructions below
 ```
@@ -82,6 +84,7 @@ yarn [workspace package-name] turbo chromatic # See setup instructions below
 # cd apps/app-name # if not using workspace command
 yarn [workspace app-name] dev
 yarn [workspace app-name] build
+yarn [workspace app-name] lint
 yarn [workspace app-name] command-name script-name
 ```
 
