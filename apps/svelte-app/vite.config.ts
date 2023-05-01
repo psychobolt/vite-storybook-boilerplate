@@ -4,9 +4,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [sveltekit()],
 	css: {
-	  modules: {
-		localsConvention: 'camelCase',
-	  },
+		modules: {
+			localsConvention: 'camelCase'
+		}
 	},
 	resolve: {
 		alias: {

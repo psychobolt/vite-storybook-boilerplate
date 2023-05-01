@@ -1,20 +1,16 @@
-type Args = {
-  [key: string]: string
-};
+type Args = Record<string, any>;
 
-type Tester = {
+interface Tester {
   test: (value: string) => boolean
-};
+}
 
-type Matcher = (value: string | string[]) => RegExp | Tester;
+type Matcher = ((value: string, options?: any) => Tester) | ((value?: never[]) => Tester) | ((value?: string[]) => Tester);
 
-type Filter = {
-  alias?: string,
-  type: any,
-  value: string | boolean | RegExp[],
-  matcher?: RegExp | Matcher | Tester
-};
+interface Filter {
+  alias?: string
+  type: any
+  value: string | boolean | RegExp[]
+  matcher?: Matcher | RegExp | Tester
+}
 
-type Filters = {
-  [key: string]: Filter
-};
+type Filters = Record<string, Filter>;

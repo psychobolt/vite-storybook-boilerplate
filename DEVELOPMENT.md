@@ -4,14 +4,22 @@
 
 ### Local environment setup
 
-1. Init or checkout your repository with your chosen git client ([with a SSH url](https://git-scm.com/docs/git-clone#_git_urls))
-2. Install the latest LTS node (https://nodejs.org/en/) standalone or with nvm
-3. Setup Yarn (https://yarnpkg.com/getting-started/install)
-4. Download and install [Visual Studio Code](https://code.visualstudio.com/)
-5. Open your project in VSCode and install the recommended extensions
-6. Run command `yarn install` in terminal to unpack root binaries
-7. Run command `yarn bootstrap` in terminal to verify all dependencies
-8. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
+1. Install the latest LTS node (https://nodejs.org/en/) standalone or with nvm
+2. Setup Yarn (https://yarnpkg.com/getting-started/install)
+3. Download and install [Visual Studio Code](https://code.visualstudio.com/)
+4. Open your project in VSCode and install the recommended extensions
+5. Run command `yarn install` in terminal to unpack root binaries
+6. Run command `yarn bootstrap` in terminal to verify all dependencies
+7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
+
+#### Troubleshooting ESLint extension
+
+1. Ensure you are running VSCode with the node version you have yarn installed on.
+2. If above step doesn't work after restart, copy .pnp.loader.mjs to a safe location. e.g. Linux cp ./.pnp.loader.mjs /absolute/path/to/.pnp.loader.mjs. Then update __user settings__:
+```sh
+    "eslint.runtime": "node"
+    "eslint.execArgv": ["--loader", "/absolute/path/to/.pnp.loader.mjs"]
+```
 
 ### Setup Remote Cache (Optional)
 

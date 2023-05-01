@@ -1,9 +1,10 @@
 import { execaSync } from 'execa';
+import type { SyncOptions } from 'execa';
 import getWorkspaces from './ls-workspaces.ts';
 
 const argv = process.argv.slice(2);
-const yarnCmd = (args, options?) => execaSync('yarn', args, { stdio: 'inherit', ...options });
-const install = (options?) => yarnCmd(['install', ...argv], options);
+const yarnCmd = (args: string[], options?: SyncOptions) => execaSync('yarn', args, { stdio: 'inherit', ...options });
+const install = (options?: SyncOptions) => yarnCmd(['install', ...argv], options);
 
 console.log('Verifying main project dependencies....');
 install();

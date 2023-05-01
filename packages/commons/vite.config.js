@@ -1,6 +1,5 @@
-import { dirname } from 'path';
+import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { resolve } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -10,7 +9,7 @@ const entry = resolve(__dirname, '/src/index.ts');
 export default {
   resolve: {
     alias: {
-      [packageName]: entry,
+      [packageName]: entry
     }
   },
   build: {
@@ -19,7 +18,7 @@ export default {
       entry,
       name: packageName,
       // the proper extensions will be added
-      fileName: 'index',
-    },
-  },
+      fileName: 'index'
+    }
+  }
 };

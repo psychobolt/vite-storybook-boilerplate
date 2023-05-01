@@ -31,5 +31,7 @@ jobs:
         run: yarn bootstrap
       - name: Build
         run: yarn build
+      - name: Lint
+        run: lint
       - name: Test
         run: yarn test

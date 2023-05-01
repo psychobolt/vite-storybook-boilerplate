@@ -16,7 +16,7 @@ yarn create svelte@latest my-app
 
 ## Setup
 
-```yarn install```
+`yarn install`
 
 ## Developing
 

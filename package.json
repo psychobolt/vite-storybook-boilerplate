@@ -5,13 +5,14 @@
   "packageManager": "yarn@3.5.0",
   "scripts": {
     "ts-script": "node --loader file://$(yarn node -p \"require.resolve('ts-node')\")/../../esm.mjs --loader ./.pnp.loader.mjs",
-    "turbo": "yarn run ts-script scripts/turbo.ts",
-    "ls-workspaces": "yarn run ts-script scripts/ls-workspaces.ts",
-    "bootstrap": "yarn run ts-script ./scripts/bootstrap.ts",
+    "turbo": "yarn ts-script scripts/turbo.ts",
+    "ls-workspaces": "yarn ts-script scripts/ls-workspaces.ts",
+    "bootstrap": "yarn ts-script ./scripts/bootstrap.ts",
     "dev": "yarn run turbo --background run dev",
     "build": "yarn run turbo run build",
     "test": "yarn run turbo run test",
-    "lint": "yarn run turbo run lint",
+    "lint": "yarn g:lint & yarn run turbo run lint",
+    "g:lint": "cross-env ESLINT_USE_FLAT_CONFIG=true yarn ts-script $(yarn bin eslint) -c ${INIT_CWD}/eslint.config.ts $INIT_CWD",
     "build-storybook": "yarn run turbo run build-storybook",
     "chromatic": "yarn run turbo run chromatic"
   },
@@ -20,9 +21,13 @@
     "apps/*"
   ],
   "devDependencies": {
+    "@types/glob-to-regexp": "0.4.1",
     "@types/node": "18.15.11",
     "@yarnpkg/sdks": "3.0.0-rc.42",
     "arg": "5.0.2",
+    "commons": "workspace:*",
+    "cross-env": "7.0.3",
+    "eslint": "8.39.0",
     "execa": "7.1.1",
     "glob-to-regexp": "0.4.1",
     "ts-node": "10.9.1",
