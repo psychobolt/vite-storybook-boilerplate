@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/vite-react/tsconfig.json",
+  "extends": ["@tsconfig/vite-react/tsconfig.json", "commons/tsconfig.vite.json"],
   "compilerOptions": {
     "plugins": [
       { 
@@ -14,6 +14,5 @@
       "react-ui": ["index.ts"]
     }
   },
-  "include": ["src", "stories"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [".storybook/**/*", "**/*"]
 }
