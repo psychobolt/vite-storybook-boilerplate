@@ -6,7 +6,6 @@ on:
     inputs:
       change-from:
         type: string
-        default: HEAD^1
 
 jobs:
   diff:
@@ -23,7 +22,7 @@ jobs:
         id: changes
         uses: 94726/action-turborepo-changes@v1.1.0
         with:
-          from: ${{ github.event.inputs.change-from }}
+          from: ${{ github.event.inputs.change-from || 'HEAD^1' }}
 
   html-ui:
     needs: diff
