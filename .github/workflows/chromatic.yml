@@ -33,6 +33,5 @@ jobs:
         run: yarn install
       - name: Verify dependencies
         run: yarn bootstrap
-        working-directory: ${{inputs.path}}
       - name: Run Chromatic
         run: yarn turbo chromatic --filter=${{inputs.workspace}}
