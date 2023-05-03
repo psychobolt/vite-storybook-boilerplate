@@ -28,10 +28,10 @@ jobs:
       - name: Unpack binaries
         run: yarn install
       - name: Verify dependencies
-        run: yarn bootstrap
+        run: yarn bootstrap # TODO Filter packages
       - name: Build
-        run: yarn build
+        run: yarn build # TODO Filter packages
       - name: Lint
-        run: yarn lint
+        run: yarn lint # TODO Filter packages
       - name: Test
-        run: yarn test
+        run: yarn test # TODO Filter packages

@@ -5,8 +5,8 @@ export default defineConfig({
   ...commonConfig,
   css: {
     modules: {
-      localsConvention: 'camelCase',
-    },
+      localsConvention: 'camelCase'
+    }
   },
   build: {
     ...commonConfig.build,
@@ -19,9 +19,9 @@ export default defineConfig({
         // for externalized deps
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
-        },
-      },
-    },
-  },
+          'react-dom': 'ReactDOM'
+        }
+      }
+    }
+  }
 });

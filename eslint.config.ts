@@ -4,12 +4,8 @@ export default [
   ...commonConfig,
   {
     ignores: [
-      '.turbo/',
-      '.yarn/',
       'apps/',
-      'packages/',
-      '.pnp.cjs',
-      '.pnp.loader.mjs'
+      'packages/'
     ]
   }
 ];

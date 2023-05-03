@@ -19,7 +19,8 @@ const tsConfig: Config[] = [
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parserOptions: {
-        project: true
+        tsconfigRootDir: process.env.INIT_CWD,
+        project: './tsconfig.json',
       }
     },
     rules: {
@@ -36,6 +37,17 @@ const tsConfig: Config[] = [
     rules: {
       semi: ['error', 'always']
     }
+  },
+  {
+    ignores: [
+      '.turbo/',
+      '.yarn/',
+      'dist/',
+      'node_modules/',
+      'storybook-static/',
+      '.pnp.cjs',
+      '.pnp.loader.mjs'
+    ]
   }
 ]
 

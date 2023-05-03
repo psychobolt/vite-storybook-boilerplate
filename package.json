@@ -4,15 +4,18 @@
   "type": "module",
   "packageManager": "yarn@3.5.0",
   "scripts": {
-    "ts-script": "node --loader file://$(yarn node -p \"require.resolve('ts-node')\")/../../esm.mjs --loader ./.pnp.loader.mjs",
+    "ts-loader-path": "yarn node -p \"require.resolve('ts-node/esm')\"",
+    "ts-script": "yarn g:ts-script",
+    "g:ts-script": "cd $INIT_CWD && cross-env TS_NODE_PROJECT=${PROJECT_CWD}/tsconfig.json yarn node --loader file://$(yarn run -T ts-loader-path) --loader ${PROJECT_CWD}/.pnp.loader.mjs",
     "turbo": "yarn ts-script scripts/turbo.ts",
     "ls-workspaces": "yarn ts-script scripts/ls-workspaces.ts",
     "bootstrap": "yarn ts-script ./scripts/bootstrap.ts",
     "dev": "yarn run turbo --background run dev",
     "build": "yarn run turbo run build",
     "test": "yarn run turbo run test",
-    "lint": "yarn g:lint & yarn run turbo run lint",
-    "g:lint": "cross-env ESLINT_USE_FLAT_CONFIG=true yarn ts-script $(yarn bin eslint) -c ${INIT_CWD}/eslint.config.ts $INIT_CWD",
+    "eslint-path": "yarn bin eslint",
+    "lint": "yarn g:lint . & yarn run turbo run lint",
+    "g:lint": "cd $INIT_CWD && cross-env ESLINT_USE_FLAT_CONFIG=true yarn g:ts-script $(yarn run -T eslint-path) -c ${INIT_CWD}/eslint.config.ts",
     "build-storybook": "yarn run turbo run build-storybook",
     "chromatic": "yarn run turbo run chromatic"
   },
@@ -30,6 +33,7 @@
     "eslint": "8.39.0",
     "execa": "7.1.1",
     "glob-to-regexp": "0.4.1",
+    "sb": "7.0.8",
     "ts-node": "10.9.1",
     "turbo": "1.9.3",
     "typescript": "5.0.4"
@@ -38,5 +42,8 @@
     "ts-node@10.9.1": {
       "unplugged": true
     }
+  },
+  "resolutions": {
+    "esbuild-register": "workspace:*"
   }
 }

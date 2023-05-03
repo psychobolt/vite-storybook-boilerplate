@@ -12,5 +12,9 @@
   "eslint.options": {
     "overrideConfigFile": "./eslint.config.ts"
   },
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "eslint.workingDirectories": [
+    { "pattern": "./apps/*/" },
+    { "pattern": "./packages/*/" }
+  ]
 }
