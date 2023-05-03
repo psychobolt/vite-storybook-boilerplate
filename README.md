@@ -1,5 +1,7 @@
 # Vite Storybook Boilerplate
 
+[![Main workflow](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/ci.yml)
+
 A modern fast ⚡💨 starter plate for developing front-end components
 
 ## Features
