@@ -11,5 +11,7 @@
     "paths": {
       "html-ui": ["index.ts"]
     },
-  }
+
+  },
+  "include": [".storybook/**/*", "**/*"]
 }
