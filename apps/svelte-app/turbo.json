@@ -2,11 +2,7 @@
 	"$schema": "https://turbo.build/schema.json",
 	"extends": ["//"],
 	"pipeline": {
-		"dev": {
-			"dependsOn": ["html-ui#build"]
-		},
 		"build": {
-			"dependsOn": ["html-ui#build", "^build"],
 			"outputs": [".svelte-kit/**"]
 		}
 	}

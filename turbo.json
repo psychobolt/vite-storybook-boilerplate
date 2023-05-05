@@ -8,11 +8,15 @@
     },
     "watch": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "dependsOn": ["^build"]
     },
-    "build": {},
+    "build": {
+      "dependsOn": ["^build"]
+    },
     "build-storybook": {
-      "outputs": ["storybook-static/**"]
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build"]
     },
     "test": {
       "dependsOn": ["build"]
