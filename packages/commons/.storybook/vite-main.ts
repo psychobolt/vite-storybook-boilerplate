@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
-import { mergeConfig } from "vite";
+import { mergeConfig } from 'vite';
 import turbosnap from 'vite-plugin-turbosnap';
 
 export type StorybookViteCommonConfig = StorybookConfig & StorybookConfigVite;
@@ -13,16 +13,16 @@ const config: StorybookViteCommonConfig = {
     `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`
   ],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions'
   ],
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag'
   },
-  async viteFinal(config, { configType }) {
+  async viteFinal (config, { configType }) {
     return mergeConfig(config, {
-      plugins: configType === 'PRODUCTION' ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : [],
+      plugins: configType === 'PRODUCTION' ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : []
     });
   }
 };

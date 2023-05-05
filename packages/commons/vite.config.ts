@@ -1,10 +1,10 @@
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const _dirname = dirname(fileURLToPath(import.meta.url));
 
-const packageName = process.env.npm_package_name || '';
-const entry = resolve(__dirname, '/src/index.ts');
+const packageName = process.env.npm_package_name ?? '';
+const entry = resolve(_dirname, '/src/index.ts');
 
 export default {
   resolve: {

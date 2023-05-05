@@ -13,7 +13,7 @@ const compat = new FlatCompat({
   resolvePluginsRelativeTo: __dirname
 });
 
-const tsConfig: Config[] = [
+const config: Config[] = [
   ...compat.extends('standard-with-typescript'),
   {
     files: ['**/*.ts', '**/*.tsx'],
@@ -43,16 +43,13 @@ const tsConfig: Config[] = [
       '.turbo/',
       '.yarn/',
       'dist/',
+      'esm/',
       'node_modules/',
       'storybook-static/',
       '.pnp.cjs',
       '.pnp.loader.mjs'
     ]
   }
-]
-
-const config = [
-  ...tsConfig
 ];
 
-export default config
+export default config;

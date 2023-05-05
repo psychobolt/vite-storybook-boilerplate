@@ -51,6 +51,10 @@ yarn build # Build all workspace projects for production
 yarn lint # Lint all workspaces
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
 
+# Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:lint .",
+yarn g:ts-script ./path/to/script.ts
+yarn g:lint [glob]
+
 # Add a library to a workspace. You can also # cd app/app-name or packages/package-name and run `yarn add -[D]E library-name`
 yarn workspace workspace-name add -[D]E library-name # library name can be a internal package
 ```

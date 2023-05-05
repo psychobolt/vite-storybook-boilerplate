@@ -23,6 +23,7 @@
     "build": "vite build",
     "build-storybook": "storybook build",
     "watch": "yarn build -w",
+    "lint": "yarn g:lint",
     "chromatic": "chromatic -d storybook-static --only-changed"
   },
   "devDependencies": {
