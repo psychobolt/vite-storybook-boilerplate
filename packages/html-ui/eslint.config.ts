@@ -1,3 +1,1 @@
-import commonConfig from 'commons/eslint.config.ts';
-
-export default commonConfig;
+export { default } from 'commons/eslint.config.ts';

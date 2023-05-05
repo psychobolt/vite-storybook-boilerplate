@@ -2,6 +2,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import type { Linter } from 'eslint';
 import { FlatCompat } from '@eslint/eslintrc';
+import tsParser from '@typescript-eslint/parser';
 
 type Config = Linter.FlatConfig;
 
@@ -18,18 +19,19 @@ const config: Config[] = [
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
+      parser: tsParser,
       parserOptions: {
         tsconfigRootDir: process.env.INIT_CWD,
-        project: './tsconfig.json',
+        project: './tsconfig.json'
       }
     },
     rules: {
       '@typescript-eslint/semi': ['error', 'always'],
       '@typescript-eslint/explicit-function-return-type': 0,
-      '@typescript-eslint/strict-boolean-expressions': ['error', { 
+      '@typescript-eslint/strict-boolean-expressions': ['error', {
         allowNullableBoolean: true,
         allowNullableString: true,
-        allowAny: true,
+        allowAny: true
       }]
     }
   },
