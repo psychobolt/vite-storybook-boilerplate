@@ -3,7 +3,8 @@
 	"extends": ["//"],
 	"pipeline": {
 		"build": {
-			"outputs": [".svelte-kit/**"]
+			"outputs": [".svelte-kit/**"],
+			"dependsOn": ["html-ui#build"]
 		}
 	}
 }
