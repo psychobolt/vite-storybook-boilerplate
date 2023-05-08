@@ -97,7 +97,7 @@ async function getWorkspaces (options?: Options) {
       if (fs.existsSync(rcLocation)) {
         const contents = fs.readFileSync(`${workspace.location}/.yarnrc.yml`, 'utf-8').split('\n');
         const re = /^nodeLinker: node-modules$/;
-        return !!contents.find(line => re.test(line));
+        return !!contents.find(line => re.test(line.trim()));
       }
       return false;
     }
