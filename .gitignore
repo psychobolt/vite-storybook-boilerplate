@@ -9,7 +9,7 @@ esm
 next-env.d.ts
 .svelte-kit
 
-.yarn/*
+**/.yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
