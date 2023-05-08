@@ -1,5 +1,4 @@
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { resolve } from 'path';
 
 const packageName = process.env.npm_package_name ?? '';
 const entry = resolve(process.cwd(), './src/index.ts');
