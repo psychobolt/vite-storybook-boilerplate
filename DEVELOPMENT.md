@@ -60,14 +60,15 @@ yarn workspace workspace-name add -[D]E library-name # library name can be a int
 
 ```sh
 #cd (packages|apps)/workspace-name # if not using workspace command
-yarn [workspace workspace-name] turbo run dev # Start up Storybook, watch, etc...
-yann [workspace workspace-name] turbo run build
-yarn [workspace workspace-name] turbo run watch # Recompile package when a file changes 
-yarn [workspace workspace-name] build-storybook
+yarn [workspace workspace-name] start # Serve production build
+yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
+yann [workspace workspace-name] turbo run build # Build for production
+yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces) 
+yarn [workspace workspace-name] turbo run build-storybook # Build for production
 yarn [workspace workspace-name] test [--coverage]
 yarn [workspace workspace-name] lcov # Generate interactive coverage report (after running test coverage command above)
 yarn [workspace workspace-name] lint
-yarn [workspace workspace-name] turbo chromatic # See setup instructions below
+yarn [workspace workspace-name] chromatic # See setup instructions below
 ```
 
 ## Chromatic Setup

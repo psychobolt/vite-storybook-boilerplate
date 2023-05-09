@@ -19,10 +19,10 @@
       "dependsOn": ["^build"]
     },
     "test": {},
-    "lint": {},
-    "chromatic": {
-      "cache": false,
-      "dependsOn": ["build-storybook"]
-    }
+    "lcov": {
+      "inputs": ["coverage/coverage.json", "coverage/coverage-*.json"],
+      "outputs": ["coverage/**/lcov.info", "coverage/**/lcov-report/**"]
+    },
+    "lint": {}
   }
 }

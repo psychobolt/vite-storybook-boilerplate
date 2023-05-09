@@ -26,11 +26,12 @@
     "build-src": "vite build",
     "build-dts": "tsc --project tsconfig.dts.json",
     "build-storybook": "storybook build",
-    "serve": "yarn build-storybook && yarn http-server storybook-static",
+    "start": "yarn turbo run build-storybook && yarn http-server storybook-static",
     "test": "test-storybook",
+    "coverage": "rimraf coverage/ && yarn test --coverage",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:lint .",
-    "chromatic": "chromatic -d storybook-static --only-changed"
+    "chromatic": "yarn turbo run build-storybook && chromatic -d storybook-static --only-changed"
   },
   "dependencies": {
     "react": "18.2.0",

@@ -14,9 +14,7 @@
     "build": "yarn run turbo run build",
     "eslint-path": "yarn bin eslint",
     "lint": "yarn g:lint . & yarn run turbo run lint",
-    "g:lint": "cd $INIT_CWD && cross-env ESLINT_USE_FLAT_CONFIG=true yarn g:ts-script $(yarn run -T eslint-path) -c ${INIT_CWD}/eslint.config.ts",
-    "build-storybook": "yarn run turbo run build-storybook",
-    "chromatic": "yarn run turbo run chromatic"
+    "g:lint": "cd $INIT_CWD && cross-env ESLINT_USE_FLAT_CONFIG=true yarn g:ts-script $(yarn run -T eslint-path) -c ${INIT_CWD}/eslint.config.ts"
   },
   "workspaces": [
     "packages/*",
