@@ -10,7 +10,7 @@ on:
 
 jobs:
   chromatic:
-    name: Run Chromatic
+    name: Run Tests
     timeout-minutes: 15
     runs-on: ubuntu-latest
     environment: ${{ inputs.workspace }}

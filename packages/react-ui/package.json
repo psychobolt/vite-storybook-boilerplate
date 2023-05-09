@@ -22,11 +22,14 @@
   "scripts": {
     "dev": "yarn watch & storybook dev",
     "build": "yarn build-src && yarn build-dts",
+    "watch": "yarn build-src -w & yarn build-dts --watch",
     "build-src": "vite build",
     "build-dts": "tsc --project tsconfig.dts.json",
     "build-storybook": "storybook build",
+    "serve": "yarn build-storybook && yarn http-server storybook-static",
+    "test": "test-storybook",
+    "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:lint .",
-    "watch": "yarn build-src -w & yarn build-dts --watch",
     "chromatic": "chromatic -d storybook-static --only-changed"
   },
   "dependencies": {
@@ -34,18 +37,22 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-coverage": "0.0.8",
     "@storybook/addon-essentials": "7.0.8",
     "@storybook/addon-interactions": "7.0.8",
     "@storybook/addon-links": "7.0.8",
     "@storybook/blocks": "7.0.8",
     "@storybook/react": "7.0.8",
     "@storybook/react-vite": "7.0.8",
+    "@storybook/test-runner": "0.11.0-next.0",
     "@storybook/testing-library": "0.1.0",
     "@tsconfig/vite-react": "1.0.1",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "chromatic": "6.17.3",
     "commons": "workspace:*",
+    "http-server": "14.1.1",
+    "nyc": "15.1.0",
     "storybook": "7.0.8",
     "turbo": "1.9.3",
     "typescript": "5.0.4",

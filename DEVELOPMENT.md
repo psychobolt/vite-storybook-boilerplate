@@ -46,9 +46,6 @@ See additional commands from yarn's [CLI guide](https://yarnpkg.com/cli)
 
 ```sh
 yarn bootstrap # Verify dependencies for all workspaces
-yarn dev # Start development services for all workspaces
-yarn build # Build all workspace projects for production
-yarn lint # Lint all workspaces
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
 
 # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:lint .",
@@ -59,38 +56,25 @@ yarn g:lint [glob]
 yarn workspace workspace-name add -[D]E library-name # library name can be a internal package
 ```
 
-#### Internal Packages
-
-##### Common Commands
+#### Common
 
 ```sh
-#cd packages/package-name # if not using workspace command
-yarn [workspace package-name] dev # Start up Storybook, watch, etc...
-yann [workspace package-name] build 
-yarn [workspace package-name] build-storybook
-yarn [workspace package-name] watch # Recompile package when a file changes
-yarn [workspace package-name] lint
-yarn [workspace package-name] command-name script-name
-yarn [workspace package-name] turbo chromatic # See setup instructions below
+#cd (packages|apps)/workspace-name # if not using workspace command
+yarn [workspace workspace-name] turbo run dev # Start up Storybook, watch, etc...
+yann [workspace workspace-name] turbo run build
+yarn [workspace workspace-name] turbo run watch # Recompile package when a file changes 
+yarn [workspace workspace-name] build-storybook
+yarn [workspace workspace-name] test [--coverage]
+yarn [workspace workspace-name] lcov # Generate interactive coverage report (after running test coverage command above)
+yarn [workspace workspace-name] lint
+yarn [workspace workspace-name] turbo chromatic # See setup instructions below
 ```
 
-##### Chromatic Setup
+## Chromatic Setup
 
 1. Follow [instructions](https://www.chromatic.com/docs/setup) on creating a Chromatic project
 2. Create a `.env` file if not exist in `packages/your-package`
 3. Add `CHROMATIC_PROJECT_TOKEN=your-project-token` to `packages/your-package/.env`
-
-#### Apps
-
-##### Common Commands
-
-```sh
-# cd apps/app-name # if not using workspace command
-yarn [workspace app-name] dev
-yarn [workspace app-name] build
-yarn [workspace app-name] lint
-yarn [workspace app-name] command-name script-name
-```
 
 ## CI Config (Optional)
 

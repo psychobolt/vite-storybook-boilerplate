@@ -8,6 +8,7 @@ esm
 .next
 next-env.d.ts
 .svelte-kit
+coverage
 
 **/.yarn/*
 !.yarn/patches

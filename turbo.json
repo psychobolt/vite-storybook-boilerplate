@@ -18,9 +18,7 @@
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build"]
     },
-    "test": {
-      "dependsOn": ["build"]
-    },
+    "test": {},
     "lint": {},
     "chromatic": {
       "cache": false,
