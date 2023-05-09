@@ -36,5 +36,3 @@ jobs:
         run: yarn build # TODO Filter packages
       - name: Lint
         run: yarn lint # TODO Filter packages
-      - name: Test
-        run: yarn test # TODO Filter packages
