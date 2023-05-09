@@ -35,7 +35,9 @@ jobs:
         run: yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{inputs.workspace}} lint
-      - name: Run Test
-        run: yarn dlx wait-on http://127.0.0.1:6006 && yarn workspace ${{inputs.workspace}} test --coverage
+      - name: Run Coverage
+        run: |
+          yarn workspace ${{inputs.workspace}} start --port 6006 --silent & \
+          yarn dlx wait-on http://127.0.0.1:6006 && yarn workspace ${{inputs.workspace}} test --coverage
       - name: Run Chromatic
         run: yarn workspace ${{inputs.workspace}} chromatic
