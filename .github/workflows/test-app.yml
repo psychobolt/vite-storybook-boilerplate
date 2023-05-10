@@ -1,0 +1,20 @@
+on:
+  workflow_call:
+    inputs:
+      workspace:
+        required: true
+        type: string
+      path:
+        required: true
+        type: string
+
+jobs:
+  test:
+    name: Run Coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Run Lint
+        run: yarn workspace ${{ inputs.workspace }} lint
+      - name: Run Test
+        run: yarn workspace ${{ inputs.workspace }} test --coverage

@@ -15,7 +15,7 @@ jobs:
 
   html-ui:
     needs: diff
-    uses: ./.github/workflows/packages-test.yml
+    uses: ./.github/workflows/test-package.yml
     if: contains(fromJSON(needs.diff.outputs.package_names), 'html-ui')
     with:
       workspace: html-ui
@@ -25,7 +25,7 @@ jobs:
   react-ui:
     needs: diff
     if: contains(fromJSON(needs.diff.outputs.package_names), 'react-ui')
-    uses: ./.github/workflows/packages-test.yml
+    uses: ./.github/workflows/test-package.yml
     with:
       workspace: react-ui
       path: packages/react-ui

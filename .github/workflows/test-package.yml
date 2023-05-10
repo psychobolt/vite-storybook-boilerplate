@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  chromatic:
+  test:
     name: Run Tests
     timeout-minutes: 15
     runs-on: ubuntu-latest

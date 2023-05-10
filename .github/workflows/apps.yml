@@ -1,0 +1,29 @@
+name: Apps
+
+on:
+  push:
+    paths:
+      apps/**
+  workflow_dispatch:
+    inputs:
+      change-from:
+        type: string
+
+jobs:
+  diff:
+    uses: ./.github/workflows/diff.yml
+  
+  next-app:
+    needs: diff
+    uses: ./.github/workflows/test-app.yml
+    with:
+      workspace: next-app
+      path: apps/next-app
+
+  svelte-app:
+    needs: diff
+    uses: ./.github/workflows/test-app.yml
+    with:
+      workspace: svelte-app
+      path: apps/svelte-app
+    

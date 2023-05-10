@@ -33,27 +33,30 @@
 ### Commands
 
 ```sh
-yarn ts-script scripts/script.ts # Run a script file
-yarn run task-name # Run a task
-yarn turbo task-name # Run a turbo enabled task
+yarn bin-script # Execute a binary script
+yarn task-name # Run a task
+yarn run bin-or-task-name [-B]
 ```
 
-See additional commands from yarn's [CLI guide](https://yarnpkg.com/cli)
+See [information](https://yarnpkg.com/cli) on commands for Yarn.
 
-> Each project level has their own set of scripts. Please see documentation in projects directories (`apps` or `packages`).
+> Each project level has their own set of scripts. Please see documentation in projects directories (`apps` or `packages`). 
 
 #### Main Project
 
 ```sh
 yarn bootstrap # Verify dependencies for all workspaces
+yarn node ./path/to/script.js # Run a js script file
+yarn ts-script ./path/to/script.ts # Run a ts script file
+yarn turbo task-name # Run a turbo enabled task
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
 
 # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:lint .",
-yarn g:ts-script ./path/to/script.ts
 yarn g:lint [glob]
+yarn g:ts-script ./path/to/script.ts
 
 # Add a library to a workspace. You can also # cd app/app-name or packages/package-name and run `yarn add -[D]E library-name`
-yarn workspace workspace-name add -[D]E library-name # library name can be a internal package
+yarn [workspace workspace-name] add -[D]E library-name # library name can be a internal package
 ```
 
 #### Common
