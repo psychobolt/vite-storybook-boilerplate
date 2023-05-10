@@ -19,6 +19,9 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
       CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.path }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -32,19 +35,19 @@ jobs:
       - name: Unpack binaries
         run: yarn install
       - name: Verify dependencies
-        run: yarn bootstrap
+        run: yarn turbo bootstrap
       - name: Install Playwright
         run: yarn dlx playwright install --with-deps
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} lint
+        run: yarn turbo lint
       - name: Run Coverage
         run: |
-          yarn workspace ${{ inputs.workspace }} start --port 6006 --silent & \
-          yarn dlx wait-on http://127.0.0.1:6006 && yarn workspace ${{ inputs.workspace }} test --coverage
+          yarn start --port 6006 --silent & \
+          yarn dlx wait-on http://127.0.0.1:6006 && yarn test --coverage
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@v3
         with:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
       - name: Run Chromatic
-        run: yarn workspace ${{ inputs.workspace }} chromatic
+        run: yarn turbo chromatic
