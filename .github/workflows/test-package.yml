@@ -39,7 +39,7 @@ jobs:
       - name: Install Playwright
         run: yarn dlx playwright install --with-deps
       - name: Run Lint
-        run: yarn turbo lint
+        run: yarn lint
       - name: Run Coverage
         run: |
           yarn start --port 6006 --silent & \

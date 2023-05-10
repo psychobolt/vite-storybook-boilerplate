@@ -2,6 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "bootstrap": {
+      "cache": false,
       "dependsOn": ["^bootstrap"]
     },
     "//#bootstrap": {
@@ -25,12 +26,12 @@
       "dependsOn": ["^build"]
     },
     "test": {},
+    "//#lint": {
+      "inputs": ["**/*", "!packages/**", "!apps/**"]
+    },
     "lcov": {
       "inputs": ["coverage/coverage.json", "coverage/coverage-*.json"],
       "outputs": ["coverage/**/lcov.info", "coverage/**/lcov-report/**"]
-    },
-    "//#lint": {
-      "inputs": ["**/*", "!packages/**", "!apps/**"]
     }
   }
 }

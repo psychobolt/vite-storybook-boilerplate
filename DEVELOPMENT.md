@@ -69,7 +69,7 @@ yann [workspace workspace-name] turbo run build # Build for production
 yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces) 
 yarn [workspace workspace-name] turbo run build-storybook # Build for production
 yarn [workspace workspace-name] test [--coverage]
-yarn [workspace workspace-name] lcov # Generate interactive coverage report (after running test coverage command above)
+yarn [workspace workspace-name] turbo lcov # Generate interactive coverage report (after running test coverage command above)
 yarn [workspace workspace-name] lint
 yarn [workspace workspace-name] chromatic # See setup instructions below
 ```
