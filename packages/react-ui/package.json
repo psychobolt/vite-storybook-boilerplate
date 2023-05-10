@@ -20,6 +20,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
+    "bootstrap": "yarn install",
     "dev": "yarn watch & storybook dev",
     "build": "yarn build-src && yarn build-dts",
     "watch": "yarn build-src -w & yarn build-dts --watch",

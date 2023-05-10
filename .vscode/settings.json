@@ -6,7 +6,7 @@
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.nodePath": ".yarn/sdks",
-  "eslint.runtime": "scripts/eslint-runtime.js",
+  "eslint.runtime": "bin/eslint-runtime.js",
   "eslint.packageManager": "yarn",
   "eslint.experimental.useFlatConfig": true,
   "eslint.options": {

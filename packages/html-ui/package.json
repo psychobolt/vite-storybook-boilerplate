@@ -19,6 +19,7 @@
     }
   },
   "scripts": {
+    "bootstrap": "yarn install",
     "dev": "yarn watch & storybook dev",
     "build": "vite build",
     "watch": "yarn build -w",

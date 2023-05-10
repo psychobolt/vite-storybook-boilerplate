@@ -1,6 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
+    "bootstrap": {
+      "dependsOn": ["^bootstrap"]
+    },
+    "//#bootstrap": {
+      "dependsOn": []
+    },
     "dev": {
       "cache": false,
       "persistent": true,

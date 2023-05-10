@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "bootstrap": "yarn install",
     "build": "rimraf esm/ && tsc && tsc --project tsconfig.dts.json",
     "lint": "yarn g:lint ."
   },
