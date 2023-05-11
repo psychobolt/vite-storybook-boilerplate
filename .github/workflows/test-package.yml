@@ -35,7 +35,7 @@ jobs:
       - name: Unpack binaries
         run: yarn install
       - name: Verify dependencies
-        run: yarn turbo bootstrap
+        run: yarn bootstrap
       - name: Install Playwright
         run: yarn dlx playwright install --with-deps
       - name: Run Lint
@@ -50,4 +50,4 @@ jobs:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
       - name: Run Chromatic
-        run: yarn chromatic
+        run: yarn turbo chromatic

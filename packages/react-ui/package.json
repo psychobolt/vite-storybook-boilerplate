@@ -20,19 +20,19 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "bootstrap": "yarn install",
+    "bootstrap": "yarn g:bootstrap",
     "dev": "yarn watch & storybook dev",
     "build": "yarn build-src && yarn build-dts",
     "watch": "yarn build-src -w & yarn build-dts --watch",
     "build-src": "vite build",
     "build-dts": "tsc --project tsconfig.dts.json",
     "build-storybook": "storybook build",
-    "start": "yarn turbo run build-storybook && yarn http-server storybook-static",
+    "start": "turbo run build-storybook && http-server storybook-static",
     "test": "test-storybook",
     "coverage": "rimraf coverage/ && yarn test --coverage",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:lint .",
-    "chromatic": "yarn turbo run build-storybook && chromatic -d storybook-static --only-changed"
+    "chromatic": "chromatic -d storybook-static --only-changed"
   },
   "dependencies": {
     "react": "18.2.0",

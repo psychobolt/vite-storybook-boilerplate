@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "bootstrap": "yarn install",
+    "bootstrap": "yarn g:bootstrap",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

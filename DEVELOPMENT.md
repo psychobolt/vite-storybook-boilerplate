@@ -45,7 +45,7 @@ See [information](https://yarnpkg.com/cli) on commands for Yarn.
 #### Main Project
 
 ```sh
-yarn bootstrap # Verify dependencies for all workspaces
+yarn bootstrap # Verify dependencies for all workspaces after running the initial `yarn install`
 yarn node ./path/to/script.js # Run a js script file
 yarn ts-script ./path/to/script.ts # Run a ts script file
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
@@ -60,6 +60,7 @@ yarn g:ts-script ./path/to/script.ts
 ```sh
 #cd (packages|apps)/workspace-name # if not using workspace command
 yarn [workspace workspace-name] turbo task-name [--force] # Run a turbo enabled task
+yarn [workspace workspace-name] bootstrap
 yarn [workspace workspace-name] start # Serve production build
 yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
 yann [workspace workspace-name] turbo run build # Build for production

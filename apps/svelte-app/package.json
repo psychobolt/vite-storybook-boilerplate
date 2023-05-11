@@ -2,7 +2,7 @@
 	"name": "svelte-app",
 	"version": "0.0.1",
 	"scripts": {
-		"bootstrap": "yarn install",
+		"bootstrap": "turbo run //#bootstrap",
 		"dev": "vite dev --open",
 		"build": "vite build",
 		"preview": "vite preview",

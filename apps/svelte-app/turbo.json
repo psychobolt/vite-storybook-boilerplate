@@ -2,9 +2,6 @@
 	"$schema": "https://turbo.build/schema.json",
 	"extends": ["//"],
 	"pipeline": {
-		"bootstrap": {
-			"dependsOn": ["html-ui#bootstrap"]
-		},
 		"build": {
 			"outputs": [".svelte-kit/**"],
 			"dependsOn": ["html-ui#build"]
