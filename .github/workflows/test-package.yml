@@ -50,4 +50,4 @@ jobs:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
       - name: Run Chromatic
-        run: yarn turbo chromatic
+        run: yarn chromatic

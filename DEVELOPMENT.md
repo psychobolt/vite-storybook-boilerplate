@@ -48,21 +48,18 @@ See [information](https://yarnpkg.com/cli) on commands for Yarn.
 yarn bootstrap # Verify dependencies for all workspaces
 yarn node ./path/to/script.js # Run a js script file
 yarn ts-script ./path/to/script.ts # Run a ts script file
-yarn turbo task-name # Run a turbo enabled task
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
 
 # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:lint .",
 yarn g:lint [glob]
 yarn g:ts-script ./path/to/script.ts
-
-# Add a library to a workspace. You can also # cd app/app-name or packages/package-name and run `yarn add -[D]E library-name`
-yarn [workspace workspace-name] add -[D]E library-name # library name can be a internal package
 ```
 
 #### Common
 
 ```sh
 #cd (packages|apps)/workspace-name # if not using workspace command
+yarn [workspace workspace-name] turbo task-name [--force] # Run a turbo enabled task
 yarn [workspace workspace-name] start # Serve production build
 yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
 yann [workspace workspace-name] turbo run build # Build for production
@@ -72,6 +69,7 @@ yarn [workspace workspace-name] test [--coverage]
 yarn [workspace workspace-name] turbo lcov # Generate interactive coverage report (after running test coverage command above)
 yarn [workspace workspace-name] lint
 yarn [workspace workspace-name] chromatic # See setup instructions below
+yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library can be a private package
 ```
 
 ## Chromatic Setup
