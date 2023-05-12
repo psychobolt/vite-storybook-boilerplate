@@ -1,6 +1,8 @@
 {
 	"name": "svelte-app",
 	"version": "0.0.1",
+	"type": "module",
+	"packageManager": "yarn@3.5.0",
 	"scripts": {
 		"bootstrap": "turbo run //#bootstrap",
 		"dev": "vite dev --open",
@@ -32,6 +34,5 @@
 		"turbo": "1.9.3",
 		"typescript": "5.0.4",
 		"vite": "4.3.4"
-	},
-	"type": "module"
+	}
 }
