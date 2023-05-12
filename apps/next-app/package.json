@@ -2,7 +2,6 @@
   "name": "next-app",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "packageManager": "yarn@3.5.0",
   "scripts": {
     "bootstrap": "yarn g:bootstrap",
