@@ -28,7 +28,8 @@
     "start": "turbo run build-storybook && http-server storybook-static",
     "test": "test-storybook",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
-    "lint": "yarn g:lint",
+    "lint": "yarn g:prettier --check . && yarn g:lint",
+    "format": "yarn g:prettier --write .",
     "chromatic": "chromatic -d storybook-static --only-changed"
   },
   "devDependencies": {

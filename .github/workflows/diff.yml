@@ -1,7 +1,7 @@
 on:
   workflow_call:
     outputs:
-      package_names: 
+      package_names:
         value: ${{ jobs.diff.outputs.package_names }}
 
 jobs:
@@ -27,4 +27,3 @@ jobs:
         uses: 94726/action-turborepo-changes@v1.1.0
         with:
           from: ${{ github.event.inputs.change-from || 'HEAD^1' }}
-    

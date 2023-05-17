@@ -1,12 +1,12 @@
 name: CI
- 
+
 on:
   push:
     branches: ["main"]
   pull_request:
     types: [opened, synchronize]
- 
-jobs:   
+
+jobs:
   build:
     name: Build and Test
     timeout-minutes: 15

@@ -1,8 +1,8 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import type { Linter } from 'eslint';
-import { FlatCompat } from '@eslint/eslintrc';
-import tsParser from '@typescript-eslint/parser';
+import path from "path";
+import { fileURLToPath } from "url";
+import type { Linter } from "eslint";
+import { FlatCompat } from "@eslint/eslintrc";
+import tsParser from "@typescript-eslint/parser";
 
 type Config = Linter.FlatConfig;
 
@@ -11,47 +11,46 @@ const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __filename,
-  resolvePluginsRelativeTo: __dirname
+  resolvePluginsRelativeTo: __dirname,
 });
 
 const config: Config[] = [
-  ...compat.extends('standard-with-typescript'),
+  ...compat.extends("standard-with-typescript"),
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
         tsconfigRootDir: process.env.INIT_CWD,
-        project: './tsconfig.json'
-      }
+        project: "./tsconfig.json",
+      },
     },
     rules: {
-      '@typescript-eslint/semi': ['error', 'always'],
-      '@typescript-eslint/explicit-function-return-type': 0,
-      '@typescript-eslint/strict-boolean-expressions': ['error', {
-        allowNullableBoolean: true,
-        allowNullableString: true,
-        allowAny: true
-      }]
-    }
+      "@typescript-eslint/semi": ["error", "always"],
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/strict-boolean-expressions": [
+        "error",
+        {
+          allowNullableBoolean: true,
+          allowNullableString: true,
+          allowAny: true,
+        },
+      ],
+    },
   },
-  {
-    rules: {
-      semi: ['error', 'always']
-    }
-  },
+  ...compat.extends("prettier"),
   {
     ignores: [
-      '.turbo/',
-      '.yarn/',
-      'dist/',
-      'esm/',
-      'node_modules/',
-      'storybook-static/',
-      '.pnp.cjs',
-      '.pnp.loader.mjs'
-    ]
-  }
+      ".turbo/",
+      ".yarn/",
+      "dist/",
+      "esm/",
+      "node_modules/",
+      "storybook-static/",
+      ".pnp.cjs",
+      ".pnp.loader.mjs",
+    ],
+  },
 ];
 
 export default config;

@@ -1,3 +1,3 @@
 export default {
-  extension: ['.ts', '.tsx']
+  extension: [".ts", ".tsx"],
 };

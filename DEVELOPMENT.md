@@ -15,7 +15,8 @@
 #### Troubleshooting ESLint extension
 
 1. Ensure you are running VSCode with the node version you have yarn installed on.
-2. If above step doesn't work after restart, copy `.pnp.loader.mjs` to a safe location. e.g. Linux `cp ./.pnp.loader.mjs /absolute/path/to/.pnp.loader.mjs`. Then update __user settings__:
+2. If above step doesn't work after restart, copy `.pnp.loader.mjs` to a safe location. e.g. Linux `cp ./.pnp.loader.mjs /absolute/path/to/.pnp.loader.mjs`. Then update **user settings**:
+
 ```sh
     "eslint.runtime": "node"
     "eslint.execArgv": ["--loader", "/absolute/path/to/.pnp.loader.mjs"]
@@ -23,12 +24,12 @@
 
 ### Setup Remote Cache (Optional)
 
-#### Local Development 
+#### Local Development
 
 1. Create and login to a Vercel account: https://vercel.com/
-2. Login to the default remote cache provider: ```yarn turbo login```
+2. Login to the default remote cache provider: `yarn turbo login`
 3. Follow any prompt instructions
-4. Run ```yarn turbo link```
+4. Run `yarn turbo link`
 
 ### Commands
 
@@ -40,7 +41,7 @@ yarn run bin-or-task-name [-B]
 
 See [information](https://yarnpkg.com/cli) on commands for Yarn.
 
-> Each project level has their own set of scripts. Please see documentation in projects directories (`apps` or `packages`). 
+> Each project level has their own set of scripts. Please see documentation in projects directories (`apps` or `packages`).
 
 #### Main Project
 
@@ -50,8 +51,7 @@ yarn node ./path/to/script.js # Run a js script file
 yarn ts-script ./path/to/script.ts # Run a ts script file
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
 
-# Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:lint .",
-yarn g:lint [glob]
+# Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:ts-script ./path/to/script.ts",
 yarn g:ts-script ./path/to/script.ts
 ```
 
@@ -64,11 +64,12 @@ yarn [workspace workspace-name] bootstrap
 yarn [workspace workspace-name] start # Serve production build
 yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
 yann [workspace workspace-name] turbo run build # Build for production
-yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces) 
+yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces)
 yarn [workspace workspace-name] turbo run build-storybook # Build for production
 yarn [workspace workspace-name] test [--coverage]
 yarn [workspace workspace-name] turbo lcov # Generate interactive coverage report (after running test coverage command above)
 yarn [workspace workspace-name] lint
+yarn [workspace workspace-name] format
 yarn [workspace workspace-name] chromatic # See setup instructions below
 yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library can be a private package
 ```
@@ -82,7 +83,7 @@ yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library 
 ## CI Config (Optional)
 
 1. Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up environment variables for your CI
-3. Keep CI configs up-to-date and add additional environments whenever you create a internal package or app.
+2. Keep CI configs up-to-date and add additional environments whenever you create a internal package or app.
 
 ## Vercel Deployment (Optional)
 
@@ -91,15 +92,16 @@ yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library 
 
 ## Syncing With Original Fork (Optional)
 
-Occassionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with: 
+Occassionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
 
 ```sh
 git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
 ```
 
 Anytime there are new updates, run:
+
 ```sh
-git pull origin/base 
-# or with merge strategy: 
+git pull origin/base
+# or with merge strategy:
 # git merge origin/base
 ```

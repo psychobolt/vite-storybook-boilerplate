@@ -32,7 +32,8 @@
     "test": "test-storybook",
     "coverage": "rimraf coverage/ && yarn test --coverage",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
-    "lint": "yarn g:lint .",
+    "lint": "yarn g:prettier --check . && yarn g:lint .",
+    "format": "yarn g:prettier --write .",
     "chromatic": "chromatic -d storybook-static --only-changed"
   },
   "dependencies": {

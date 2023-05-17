@@ -1,13 +1,13 @@
-import { resolve } from 'path';
+import { resolve } from "path";
 
-const packageName = process.env.npm_package_name ?? '';
-const entry = resolve(process.cwd(), './src/index.ts');
+const packageName = process.env.npm_package_name ?? "";
+const entry = resolve(process.cwd(), "./src/index.ts");
 
 export default {
   resolve: {
     alias: {
-      [packageName]: entry
-    }
+      [packageName]: entry,
+    },
   },
   build: {
     lib: {
@@ -15,7 +15,7 @@ export default {
       entry,
       name: packageName,
       // the proper extensions will be added
-      fileName: 'index'
-    }
-  }
+      fileName: "index",
+    },
+  },
 };
