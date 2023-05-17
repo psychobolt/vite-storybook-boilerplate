@@ -31,8 +31,8 @@ jobs:
       - name: Unpack binaries
         run: yarn install
       - name: Verify dependencies
-        run: yarn bootstrap # TODO Filter packages
+        run: yarn bootstrap
       - name: Lint
-        run: yarn run -B turbo lint
+        run: yarn lint
       - name: Build
-        run: yarn build # TODO Filter packages
+        run: yarn build
