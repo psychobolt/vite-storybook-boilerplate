@@ -60,7 +60,7 @@
     "storybook": "7.0.12",
     "turbo": "1.9.8",
     "typescript": "5.0.4",
-    "typescript-plugin-css-modules": "5.0.0",
+    "typescript-plugin-css-modules": "5.0.1",
     "vite": "4.3.8"
   }
 }
