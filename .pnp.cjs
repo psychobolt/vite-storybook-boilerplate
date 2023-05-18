@@ -7431,10 +7431,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@tsconfig/vite-react", [\
-        ["npm:1.0.1", {\
-          "packageLocation": "./.yarn/cache/@tsconfig-vite-react-npm-1.0.1-d2575ed902-2d343c07e7.zip/node_modules/@tsconfig/vite-react/",\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/@tsconfig-vite-react-npm-2.0.0-854dfec611-1c63546bb3.zip/node_modules/@tsconfig/vite-react/",\
           "packageDependencies": [\
-            ["@tsconfig/vite-react", "npm:1.0.1"]\
+            ["@tsconfig/vite-react", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -18397,7 +18397,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/react-vite", "virtual:7b44b3aaa674fbd2ced26518769c736326204211af3582271e533e877e495cfce7f1860648826eba24fd9f757b3606ae56e72b94fe95ec8b9f612f80e8c26248#npm:7.0.12"],\
             ["@storybook/test-runner", "npm:0.11.0-next.0"],\
             ["@storybook/testing-library", "npm:0.1.0"],\
-            ["@tsconfig/vite-react", "npm:1.0.1"],\
+            ["@tsconfig/vite-react", "npm:2.0.0"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["chromatic", "npm:6.17.4"],\
