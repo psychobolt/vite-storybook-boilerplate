@@ -33,4 +33,4 @@ jobs:
       - name: Verify dependencies
         run: yarn bootstrap
       - name: Lint
-        run: yarn g:prettier --check --log-level debug . && yarn g:lint .
+        run: yarn lint
