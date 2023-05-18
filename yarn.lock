@@ -7002,9 +7002,10 @@ __metadata:
     eslint-plugin-import: 2.27.5
     eslint-plugin-n: 15.7.0
     eslint-plugin-promise: 6.1.1
+    prettier: 2.8.8
     prettier-config-standard: 5.0.0
     rimraf: 5.0.0
-    turbo: 1.9.3
+    turbo: 1.9.8
     typescript: 5.0.4
     vite: 4.3.4
     vite-plugin-turbosnap: 1.0.1
@@ -9621,7 +9622,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     storybook: 7.0.8
-    turbo: 1.9.3
+    turbo: 1.9.8
     typescript: 5.0.4
     vite: 4.3.4
   languageName: unknown
@@ -12153,7 +12154,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-ui: "workspace:*"
-    turbo: 1.9.3
+    turbo: 1.9.8
     typescript: 5.0.4
   languageName: unknown
   linkType: soft
@@ -13211,21 +13212,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:2.8.8, prettier@npm:^2.8.0":
+  version: 2.8.8
+  resolution: "prettier@npm:2.8.8"
+  bin:
+    prettier: bin-prettier.js
+  checksum: b49e409431bf129dd89238d64299ba80717b57ff5a6d1c1a8b1a28b590d998a34e083fa13573bc732bb8d2305becb4c9a4407f8486c81fa7d55100eb08263cf8
+  languageName: node
+  linkType: hard
+
 "prettier@npm:3.0.0-alpha.11":
   version: 3.0.0-alpha.11
   resolution: "prettier@npm:3.0.0-alpha.11"
   bin:
     prettier: bin/prettier.cjs
   checksum: ce0a252201cc3758825a0e03d895bd88c876daf6cc9aab1365ef3164075807535146ad3d338582f652337d23914480fac309d84b3558f9576b6d2bd8bdbed57b
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.8.0":
-  version: 2.8.8
-  resolution: "prettier@npm:2.8.8"
-  bin:
-    prettier: bin-prettier.js
-  checksum: b49e409431bf129dd89238d64299ba80717b57ff5a6d1c1a8b1a28b590d998a34e083fa13573bc732bb8d2305becb4c9a4407f8486c81fa7d55100eb08263cf8
   languageName: node
   linkType: hard
 
@@ -13643,7 +13644,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     storybook: 7.0.8
-    turbo: 1.9.3
+    turbo: 1.9.8
     typescript: 5.0.4
     typescript-plugin-css-modules: 5.0.0
     vite: 4.3.4
@@ -14993,7 +14994,7 @@ __metadata:
     svelte-check: ^3.0.1
     svelte-language-server: 0.15.9
     tslib: ^2.4.1
-    turbo: 1.9.3
+    turbo: 1.9.8
     typescript: 5.0.4
     vite: 4.3.4
   languageName: unknown
@@ -15445,58 +15446,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.9.3":
-  version: 1.9.3
-  resolution: "turbo-darwin-64@npm:1.9.3"
+"turbo-darwin-64@npm:1.9.8":
+  version: 1.9.8
+  resolution: "turbo-darwin-64@npm:1.9.8"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.9.3":
-  version: 1.9.3
-  resolution: "turbo-darwin-arm64@npm:1.9.3"
+"turbo-darwin-arm64@npm:1.9.8":
+  version: 1.9.8
+  resolution: "turbo-darwin-arm64@npm:1.9.8"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.9.3":
-  version: 1.9.3
-  resolution: "turbo-linux-64@npm:1.9.3"
+"turbo-linux-64@npm:1.9.8":
+  version: 1.9.8
+  resolution: "turbo-linux-64@npm:1.9.8"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.9.3":
-  version: 1.9.3
-  resolution: "turbo-linux-arm64@npm:1.9.3"
+"turbo-linux-arm64@npm:1.9.8":
+  version: 1.9.8
+  resolution: "turbo-linux-arm64@npm:1.9.8"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.9.3":
-  version: 1.9.3
-  resolution: "turbo-windows-64@npm:1.9.3"
+"turbo-windows-64@npm:1.9.8":
+  version: 1.9.8
+  resolution: "turbo-windows-64@npm:1.9.8"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.9.3":
-  version: 1.9.3
-  resolution: "turbo-windows-arm64@npm:1.9.3"
+"turbo-windows-arm64@npm:1.9.8":
+  version: 1.9.8
+  resolution: "turbo-windows-arm64@npm:1.9.8"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:1.9.3":
-  version: 1.9.3
-  resolution: "turbo@npm:1.9.3"
+"turbo@npm:1.9.8":
+  version: 1.9.8
+  resolution: "turbo@npm:1.9.8"
   dependencies:
-    turbo-darwin-64: 1.9.3
-    turbo-darwin-arm64: 1.9.3
-    turbo-linux-64: 1.9.3
-    turbo-linux-arm64: 1.9.3
-    turbo-windows-64: 1.9.3
-    turbo-windows-arm64: 1.9.3
+    turbo-darwin-64: 1.9.8
+    turbo-darwin-arm64: 1.9.8
+    turbo-linux-64: 1.9.8
+    turbo-linux-arm64: 1.9.8
+    turbo-windows-64: 1.9.8
+    turbo-windows-arm64: 1.9.8
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -15512,7 +15513,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: ebf06d3b9b1401a5baabace238cd1e0d8fc1dc062b4f7bd577f644298c555f326d15f331144641c0b43a60ae8058769bcbd9d1660874fa9927ec64b5be8ee9dc
+  checksum: 3bf5f6093302c9a1b512c5662922bfba90bbf99b0b523777ce7c2282f587df74c0fdc115a1659adeef37fca0643f02b01869b2cacc01b94591587193cba6459e
   languageName: node
   linkType: hard
 
@@ -16005,7 +16006,7 @@ __metadata:
     prettier: 3.0.0-alpha.11
     sb: 7.0.8
     ts-node: 10.9.1
-    turbo: 1.9.3
+    turbo: 1.9.8
     typescript: 5.0.4
   dependenciesMeta:
     ts-node@10.9.1:
