@@ -13240,12 +13240,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.0.0-alpha.11":
-  version: 3.0.0-alpha.11
-  resolution: "prettier@npm:3.0.0-alpha.11"
+"prettier@npm:3.0.0-alpha.9-for-vscode":
+  version: 3.0.0-alpha.9-for-vscode
+  resolution: "prettier@npm:3.0.0-alpha.9-for-vscode"
   bin:
     prettier: bin/prettier.cjs
-  checksum: ce0a252201cc3758825a0e03d895bd88c876daf6cc9aab1365ef3164075807535146ad3d338582f652337d23914480fac309d84b3558f9576b6d2bd8bdbed57b
+  checksum: 6255a64a56da2a3bdc29fe6676f6a639e1bf3e562878a0d645286c40a1584afb7cc9b55fd69b1f762a415fa85df9c9c157eed828d99f3a599e01c48648c9329e
   languageName: node
   linkType: hard
 
@@ -16022,7 +16022,7 @@ __metadata:
     execa: 7.1.1
     glob-to-regexp: 0.4.1
     playwright-chromium: 1.33.0
-    prettier: 3.0.0-alpha.11
+    prettier: 3.0.0-alpha.9-for-vscode
     sb: 7.0.8
     ts-node: 10.9.1
     turbo: 1.9.8
