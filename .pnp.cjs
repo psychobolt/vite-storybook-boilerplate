@@ -18869,16 +18869,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sass", [\
-        ["npm:1.62.0", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.62.0-bf9dbdfb5f-d5f606aa25.zip/node_modules/sass/",\
-          "packageDependencies": [\
-            ["sass", "npm:1.62.0"],\
-            ["chokidar", "npm:3.5.3"],\
-            ["immutable", "npm:4.3.0"],\
-            ["source-map-js", "npm:1.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:1.62.1", {\
           "packageLocation": "./.yarn/cache/sass-npm-1.62.1-c16d65fd28-1b1b3584b3.zip/node_modules/sass/",\
           "packageDependencies": [\
@@ -19808,7 +19798,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-svelte3", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:4.0.0"],\
             ["prettier", "npm:2.8.8"],\
             ["prettier-plugin-svelte", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.10.0"],\
-            ["sass", "npm:1.62.0"],\
+            ["sass", "npm:1.62.1"],\
             ["svelte", "npm:3.58.0"],\
             ["svelte-check", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.2.0"],\
             ["svelte-language-server", "npm:0.15.9"],\
@@ -21186,7 +21176,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["less", null],\
             ["postcss", "npm:8.4.23"],\
             ["rollup", "npm:3.21.3"],\
-            ["sass", "npm:1.62.0"],\
+            ["sass", "npm:1.62.1"],\
             ["stylus", null],\
             ["sugarss", null],\
             ["terser", null]\
