@@ -68,7 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["execa", "npm:7.1.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
             ["playwright-chromium", "npm:1.33.0"],\
-            ["prettier", "npm:3.0.0-alpha.11"],\
+            ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.0.8"],\
             ["ts-node", "virtual:d94033978f92a009b88a3b11c4242ad15df328f906df1429de81ecb4229bb1ebcb5fde441891fd6a8f99cbd50d7f73f1bfdfd03c3be870523b5bce318f279fa3#npm:10.9.1"],\
             ["turbo", "npm:1.9.8"],\
@@ -17643,10 +17643,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:3.0.0-alpha.11", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-3.0.0-alpha.11-8784c9b876-ce0a252201.zip/node_modules/prettier/",\
+        ["npm:3.0.0-alpha.9-for-vscode", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-3.0.0-alpha.9-for-vscode-84506180dc-6255a64a56.zip/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:3.0.0-alpha.11"]\
+            ["prettier", "npm:3.0.0-alpha.9-for-vscode"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -21169,7 +21169,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["execa", "npm:7.1.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
             ["playwright-chromium", "npm:1.33.0"],\
-            ["prettier", "npm:3.0.0-alpha.11"],\
+            ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.0.8"],\
             ["ts-node", "virtual:d94033978f92a009b88a3b11c4242ad15df328f906df1429de81ecb4229bb1ebcb5fde441891fd6a8f99cbd50d7f73f1bfdfd03c3be870523b5bce318f279fa3#npm:10.9.1"],\
             ["turbo", "npm:1.9.8"],\
