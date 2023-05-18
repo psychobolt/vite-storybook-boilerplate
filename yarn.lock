@@ -6719,18 +6719,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.17.3":
-  version: 6.17.3
-  resolution: "chromatic@npm:6.17.3"
+"chromatic@npm:6.17.4":
+  version: 6.17.4
+  resolution: "chromatic@npm:6.17.4"
   dependencies:
     "@discoveryjs/json-ext": ^0.5.7
     "@types/webpack-env": ^1.17.0
-    snyk-nodejs-lockfile-parser: ^1.47.4
+    snyk-nodejs-lockfile-parser: ^1.49.0
   bin:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: 4ac84633a15993302c1d82a49d76adb7622f79c76ed2282960816a99f82263c115ffb4a7c86d61047f07b5d4d252515a3433481732b0e87af4be6c33e29f381f
+  checksum: d49ebcc17f2f3010e95d06b5084b7802d293a4ad3cd571dc5b744f5e90763a19b643729fc3dcfe86beb44b6f542800378c7a4c1478b963d3adbdc58a1bfa9988
   languageName: node
   linkType: hard
 
@@ -9634,7 +9634,7 @@ __metadata:
     "@storybook/html-vite": 7.0.8
     "@storybook/test-runner": 0.11.0-next.0
     "@storybook/testing-library": 0.1.0
-    chromatic: 6.17.3
+    chromatic: 6.17.4
     commons: "workspace:*"
     http-server: 14.1.1
     nyc: 15.1.0
@@ -13656,7 +13656,7 @@ __metadata:
     "@tsconfig/vite-react": 1.0.1
     "@types/react": 18.0.28
     "@types/react-dom": 18.0.11
-    chromatic: 6.17.3
+    chromatic: 6.17.4
     commons: "workspace:*"
     http-server: 14.1.1
     nyc: 15.1.0
@@ -14476,7 +14476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"snyk-nodejs-lockfile-parser@npm:^1.47.4":
+"snyk-nodejs-lockfile-parser@npm:^1.49.0":
   version: 1.49.0
   resolution: "snyk-nodejs-lockfile-parser@npm:1.49.0"
   dependencies:
