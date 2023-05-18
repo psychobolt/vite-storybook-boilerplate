@@ -1,7 +1,5 @@
-coverage:
-  status:
-    project:
-      default:
-        flags:
-          - html-ui
-          - react-ui
+flags:
+  html-ui:
+    carryforward: true
+  react-ui:
+    carryforward: true
