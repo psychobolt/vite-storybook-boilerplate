@@ -13282,14 +13282,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-chromium@npm:1.33.0":
-  version: 1.33.0
-  resolution: "playwright-chromium@npm:1.33.0"
+"playwright-chromium@npm:1.34.0":
+  version: 1.34.0
+  resolution: "playwright-chromium@npm:1.34.0"
   dependencies:
-    playwright-core: 1.33.0
+    playwright-core: 1.34.0
   bin:
     playwright: cli.js
-  checksum: b613b1f4da73ee76205c096586dd0c0b2d4a61a5751e68dd833e400f41ff992ae0bd951cda61105d26d1716a037e97ed9869348e92cbd5a9277c2fb0b939fc76
+  checksum: acbfccb766c9ba1a6411264fe899a86e6e1e10a8299f2533e2a1a9c2bd13d5f7f3ed928290de239bd45d0ac5065f5412e4eb8188bcd53d5062102445250b8174
   languageName: node
   linkType: hard
 
@@ -13299,6 +13299,13 @@ __metadata:
   bin:
     playwright: cli.js
   checksum: 5fb7bda06a8b73b56b85b5a0b8f711211dde57a375d9379289e22239b2de879c6d93c8fdc9ba44b932bf100914ab1ca1a55697ad88440fdd0a39101fc020b77f
+  languageName: node
+  linkType: hard
+
+"playwright-core@npm:1.34.0":
+  version: 1.34.0
+  resolution: "playwright-core@npm:1.34.0"
+  checksum: 1821ab254b3c756e52c144c26cae7250dd5a1c779277cdd583bd289501d45cceaea40a8185ebf7eaa56b8291e4a042e3eef65f511da2306349c275794c9a582d
   languageName: node
   linkType: hard
 
@@ -16268,7 +16275,7 @@ __metadata:
     eslint: 8.41.0
     execa: 7.1.1
     glob-to-regexp: 0.4.1
-    playwright-chromium: 1.33.0
+    playwright-chromium: 1.34.0
     prettier: 3.0.0-alpha.9-for-vscode
     sb: 7.0.12
     ts-node: 10.9.1

@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.41.0"],\
             ["execa", "npm:7.1.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
-            ["playwright-chromium", "npm:1.33.0"],\
+            ["playwright-chromium", "npm:1.34.0"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.0.12"],\
             ["ts-node", "virtual:d94033978f92a009b88a3b11c4242ad15df328f906df1429de81ecb4229bb1ebcb5fde441891fd6a8f99cbd50d7f73f1bfdfd03c3be870523b5bce318f279fa3#npm:10.9.1"],\
@@ -17719,11 +17719,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["playwright-chromium", [\
-        ["npm:1.33.0", {\
-          "packageLocation": "./.yarn/cache/playwright-chromium-npm-1.33.0-f266536df7-b613b1f4da.zip/node_modules/playwright-chromium/",\
+        ["npm:1.34.0", {\
+          "packageLocation": "./.yarn/cache/playwright-chromium-npm-1.34.0-37369f0b40-acbfccb766.zip/node_modules/playwright-chromium/",\
           "packageDependencies": [\
-            ["playwright-chromium", "npm:1.33.0"],\
-            ["playwright-core", "npm:1.33.0"]\
+            ["playwright-chromium", "npm:1.34.0"],\
+            ["playwright-core", "npm:1.34.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17733,6 +17733,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.33.0-e4d08e3262/node_modules/playwright-core/",\
           "packageDependencies": [\
             ["playwright-core", "npm:1.33.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.34.0", {\
+          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.34.0-26f3933eb5/node_modules/playwright-core/",\
+          "packageDependencies": [\
+            ["playwright-core", "npm:1.34.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -21566,7 +21573,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.41.0"],\
             ["execa", "npm:7.1.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
-            ["playwright-chromium", "npm:1.33.0"],\
+            ["playwright-chromium", "npm:1.34.0"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.0.12"],\
             ["ts-node", "virtual:d94033978f92a009b88a3b11c4242ad15df328f906df1429de81ecb4229bb1ebcb5fde441891fd6a8f99cbd50d7f73f1bfdfd03c3be870523b5bce318f279fa3#npm:10.9.1"],\
