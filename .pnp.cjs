@@ -3394,10 +3394,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@fontsource/fira-mono", [\
-        ["npm:4.5.10", {\
-          "packageLocation": "./.yarn/cache/@fontsource-fira-mono-npm-4.5.10-4c99c6554e-0bf058ff1d.zip/node_modules/@fontsource/fira-mono/",\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/@fontsource-fira-mono-npm-5.0.0-f660a161ab-0420c8c9fb.zip/node_modules/@fontsource/fira-mono/",\
           "packageDependencies": [\
-            ["@fontsource/fira-mono", "npm:4.5.10"]\
+            ["@fontsource/fira-mono", "npm:5.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -20842,7 +20842,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/svelte-app/",\
           "packageDependencies": [\
             ["svelte-app", "workspace:apps/svelte-app"],\
-            ["@fontsource/fira-mono", "npm:4.5.10"],\
+            ["@fontsource/fira-mono", "npm:5.0.0"],\
             ["@neoconfetti/svelte", "npm:1.0.0"],\
             ["@sveltejs/adapter-auto", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.1.0"],\
             ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.0"],\
