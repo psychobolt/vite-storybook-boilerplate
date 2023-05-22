@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@eslint/eslintrc": "2.0.3",
-    "@storybook/builder-vite": "7.0.12",
-    "@storybook/types": "7.0.12",
+    "@storybook/builder-vite": "7.0.13",
+    "@storybook/types": "7.0.13",
     "@tsconfig/recommended": "1.0.2",
     "@types/eslint": "8.37.0",
     "@types/node": "18.16.14",
