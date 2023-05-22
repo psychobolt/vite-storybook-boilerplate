@@ -14,7 +14,17 @@
   },
   "editor.tabSize": 2,
   "eslint.workingDirectories": [
-    { "pattern": "./apps/*/" },
-    { "pattern": "./packages/*/" }
+    {
+      "pattern": "./apps/*/"
+    },
+    {
+      "pattern": "./packages/*/"
+    }
+  ],
+  "stylelint.stylelintPath": ".yarn/sdks/stylelint",
+  "stylelint.packageManager": "yarn",
+  "stylelint.validate": [
+    "css",
+    "scss"
   ]
 }

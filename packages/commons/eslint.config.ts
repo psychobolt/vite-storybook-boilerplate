@@ -28,6 +28,7 @@ const config: Config[] = [
     rules: {
       "@typescript-eslint/semi": ["error", "always"],
       "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/no-confusing-void-expression": 0, // TODO: remove when https://github.com/storybookjs/testing-library/issues/10 is resolved
       "@typescript-eslint/strict-boolean-expressions": [
         "error",
         {
@@ -35,7 +36,7 @@ const config: Config[] = [
           allowNullableString: true,
           allowAny: true,
         },
-      ],
+      ]
     },
   },
   ...compat.extends("prettier"),
@@ -45,6 +46,7 @@ const config: Config[] = [
       ".yarn/",
       "dist/",
       "esm/",
+      "cjs/",
       "node_modules/",
       "storybook-static/",
       ".pnp.cjs",

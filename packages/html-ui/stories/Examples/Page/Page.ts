@@ -1,9 +1,9 @@
 import "./page.css";
 import { createHeader } from "html-ui";
 
-type User = {
+interface User {
   name: string;
-};
+}
 
 export const createPage = () => {
   const article = document.createElement("article");
