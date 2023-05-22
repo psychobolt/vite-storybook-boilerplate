@@ -54,6 +54,9 @@ yarn up package-name [--exact] # Upgrade all instances of package to latest rele
 
 # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:ts-script ./path/to/script.ts",
 yarn g:ts-script ./path/to/script.ts
+yarn g:lint-js # Lint js files with eslint
+yarn g:lint-css # Lint [s]css files with stylelint
+yarn g:prettier [options] # Runs prettier format tool
 ```
 
 #### Common
