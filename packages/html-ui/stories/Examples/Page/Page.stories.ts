@@ -19,9 +19,11 @@ export const LoggedOut: StoryObj = {};
 export const LoggedIn: StoryObj = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const loginButton = await canvas.getByRole("button", {
-      name: /Log in/i,
-    });
-    await userEvent.click(loginButton);
+    const loginButton = await Promise.resolve(
+      canvas.getByRole("button", {
+        name: /Log in/i,
+      }),
+    );
+    await Promise.resolve(userEvent.click(loginButton));
   },
 };

@@ -4,6 +4,7 @@ node_modules
 storybook-static
 build
 dist
+cjs
 esm
 .next
 next-env.d.ts

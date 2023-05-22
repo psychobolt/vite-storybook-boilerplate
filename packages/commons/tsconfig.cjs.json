@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "outDir": "./cjs"
+  },
+  "include": ["**/*.d.ts", "stylelint.config.ts"],
+  "exclude": []
+}

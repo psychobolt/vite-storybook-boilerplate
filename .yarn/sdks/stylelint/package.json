@@ -1,0 +1,9 @@
+{
+  "name": "eslint",
+  "version": "15.6.2",
+  "main": "lib/index.js",
+  "bin": {
+    "stylelint": "bin/stylelint.js"
+  },
+  "type": "commonjs"
+}
