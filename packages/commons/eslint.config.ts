@@ -36,7 +36,7 @@ const config: Config[] = [
           allowNullableString: true,
           allowAny: true,
         },
-      ]
+      ],
     },
   },
   ...compat.extends("prettier"),
