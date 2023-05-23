@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.41.0"],\
             ["execa", "npm:7.1.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
-            ["playwright-chromium", "npm:1.34.0"],\
+            ["playwright-chromium", "npm:1.34.1"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.0.13"],\
             ["stylelint", "npm:15.6.2"],\
@@ -19328,11 +19328,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["playwright-chromium", [\
-        ["npm:1.34.0", {\
-          "packageLocation": "./.yarn/cache/playwright-chromium-npm-1.34.0-37369f0b40-acbfccb766.zip/node_modules/playwright-chromium/",\
+        ["npm:1.34.1", {\
+          "packageLocation": "./.yarn/cache/playwright-chromium-npm-1.34.1-9fbd4fe568-cc6180a5e3.zip/node_modules/playwright-chromium/",\
           "packageDependencies": [\
-            ["playwright-chromium", "npm:1.34.0"],\
-            ["playwright-core", "npm:1.34.0"]\
+            ["playwright-chromium", "npm:1.34.1"],\
+            ["playwright-core", "npm:1.34.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19345,10 +19345,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:1.34.0", {\
-          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.34.0-26f3933eb5/node_modules/playwright-core/",\
+        ["npm:1.34.1", {\
+          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.34.1-212a96b9ad/node_modules/playwright-core/",\
           "packageDependencies": [\
-            ["playwright-core", "npm:1.34.0"]\
+            ["playwright-core", "npm:1.34.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -23959,7 +23959,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.41.0"],\
             ["execa", "npm:7.1.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
-            ["playwright-chromium", "npm:1.34.0"],\
+            ["playwright-chromium", "npm:1.34.1"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.0.13"],\
             ["stylelint", "npm:15.6.2"],\
