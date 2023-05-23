@@ -443,9 +443,9 @@ __metadata:
   linkType: hard
 
 "@fontsource/fira-mono@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@fontsource/fira-mono@npm:5.0.0"
-  checksum: 0420c8c9fb1128f94ed564e9bfb8aacec9e3eeed698034dd0141017366abf341db78fd93da54dee8bf66ee1ed7ffd96ddf0f5ea89ab93bda3357b1ca2b7369f7
+  version: 5.0.1
+  resolution: "@fontsource/fira-mono@npm:5.0.1"
+  checksum: ca12cb30d9be6cae87de7b3021844fd5e00913d0e89f820cc28c8d291899b9971adf0e58905a22ec821d515bb660ce73a898636287cc351a922f3da73b0646de
   languageName: node
   linkType: hard
 
