@@ -41,6 +41,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "7.0.13",
     "@storybook/blocks": "7.0.13",
     "@storybook/react": "7.0.13",
     "@storybook/react-vite": "7.0.13",

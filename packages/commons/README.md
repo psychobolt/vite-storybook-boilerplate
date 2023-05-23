@@ -79,10 +79,6 @@ See [source](tsconfig.js)
 
 See [source](.storybook/vite-main.ts)
 
-```sh
-yarn [workspace workspace-name] add -DE @storybook/addon-links @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-coverage
-```
-
 /your/project/.storybook/main.ts
 ```ts
 import commonConfig from "commons/.storybook/vite-main";

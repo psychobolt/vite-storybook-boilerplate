@@ -10400,6 +10400,7 @@ __metadata:
   resolution: "html-ui@workspace:packages/html-ui"
   dependencies:
     "@babel/core": 7.21.8
+    "@storybook/addon-essentials": 7.0.13
     "@storybook/blocks": 7.0.13
     "@storybook/builder-vite": 7.0.13
     "@storybook/html": 7.0.13
@@ -15337,6 +15338,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-ui@workspace:packages/react-ui"
   dependencies:
+    "@storybook/addon-essentials": 7.0.13
     "@storybook/blocks": 7.0.13
     "@storybook/react": 7.0.13
     "@storybook/react-vite": 7.0.13
