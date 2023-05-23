@@ -10920,6 +10920,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/addon-interactions", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.0.14"],\
             ["@storybook/addon-links", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.0.14"],\
             ["@storybook/builder-vite", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.0.14"],\
+            ["@storybook/global", "npm:5.0.0"],\
             ["@storybook/types", "npm:7.0.14"],\
             ["@tsconfig/recommended", "npm:1.0.2"],\
             ["@types/eslint", "npm:8.40.0"],\

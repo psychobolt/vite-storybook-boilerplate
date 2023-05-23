@@ -3937,7 +3937,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/global@npm:^5.0.0":
+"@storybook/global@npm:5.0.0, @storybook/global@npm:^5.0.0":
   version: 5.0.0
   resolution: "@storybook/global@npm:5.0.0"
   checksum: ede0ad35ec411fe31c61150dbd118fef344d1d0e72bf5d3502368e35cf68126f6b7ae4a0ab5e2ffe2f0baa3b4286f03ad069ba3e098e1725449ef08b7e154ba8
@@ -7450,6 +7450,7 @@ __metadata:
     "@storybook/addon-interactions": 7.0.14
     "@storybook/addon-links": 7.0.14
     "@storybook/builder-vite": 7.0.14
+    "@storybook/global": 5.0.0
     "@storybook/types": 7.0.14
     "@tsconfig/recommended": 1.0.2
     "@types/eslint": 8.40.0
