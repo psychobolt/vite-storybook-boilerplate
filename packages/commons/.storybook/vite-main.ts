@@ -1,7 +1,10 @@
+import { createRequire } from 'module';
 import type { StorybookConfig } from "@storybook/types";
 import type { StorybookConfigVite } from "@storybook/builder-vite";
 import { mergeConfig } from "vite";
 import turbosnap from "vite-plugin-turbosnap";
+
+const require = createRequire(import.meta.url);
 
 export type StorybookViteCommonConfig = StorybookConfig & StorybookConfigVite;
 
@@ -13,10 +16,10 @@ const config: StorybookViteCommonConfig = {
     `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`,
   ],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-coverage",
+    require.resolve("@storybook/addon-links/manager"),
+    require.resolve("@storybook/addon-essentials"),
+    require.resolve("@storybook/addon-interactions/manager"),
+    require.resolve("@storybook/addon-coverage/preset"),
   ],
   docs: {
     autodocs: "tag",
