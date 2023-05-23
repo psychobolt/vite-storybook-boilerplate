@@ -14,22 +14,59 @@ yarn [workspace workspace-name] add -DE commons
 
 See [source](vite.config.ts)
 
+/your/project/vite.config.ts
 ```js
 import commonConfig from "commons/esm/vite.config";
+
+export default {
+  ...commonConfig,
+  // your overrides
+};
 ```
 
 #### ESLint
 
 See [source](eslint.config.ts)
 
+/your/project/eslint.config.ts
 ```ts
-import commonConfig from "commons/eslint.config.ts";
+import commonConfig from "commons/eslint.config.ts"; // .ts is required here
+
+export default {
+  ...commonConfig,
+  // your overrides
+};
+```
+#### Prettier
+
+See [source](prettier.config.ts)
+
+/your/project/prettier.config.ts
+```ts
+import commonConfig from "commons/prettier.config";
+
+export default {
+  ...commonConfig,
+  // your overrides
+};
+```
+
+#### Stylelint
+
+See [source](stylelint.config.ts)
+
+/your/project/stylelint.config.cjs
+```cjs
+module.exports = {
+  extends: ['commons/cjs/stylelint.config']
+};
 ```
 
 #### TSConfig
 
 See [source](tsconfig.js)
 
+/your/project/tsconfig.json
 ```json
 {
   "extends": "commons/tsconfig.json"
@@ -40,12 +77,18 @@ See [source](tsconfig.js)
 
 ##### Vite
 
-```sh
-yarn add -DE @storybook/addon-coverage
-```
-
 See [source](.storybook/vite-main.ts)
 
-```js
+```sh
+yarn [workspace workspace-name] add -DE @storybook/addon-links @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-coverage
+```
+
+/your/project/.storybook/main.ts
+```ts
 import commonConfig from "commons/.storybook/vite-main";
+
+export default {
+  ...commonConfig,
+  // your overrides
+};
 ```
