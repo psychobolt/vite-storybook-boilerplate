@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Checkout bitbucket branch
-        run: git checkout origin/bitbucket
+        run: git checkout -b bitbucket origin/bitbucket
       - name: Pull latest changes from main branch
         run: git pull origin main --rebase
       - name: Update bitbucket branch
