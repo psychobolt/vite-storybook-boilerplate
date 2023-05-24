@@ -12,6 +12,11 @@ jobs:
   diff:
     uses: ./.github/workflows/diff.yml
 
+  commons:
+    needs: diff
+    uses: ./.github/workflows/test-commons.yml
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'commons')
+
   html-ui:
     needs: diff
     uses: ./.github/workflows/test-package.yml
