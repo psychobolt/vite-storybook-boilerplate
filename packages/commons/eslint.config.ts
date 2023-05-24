@@ -43,11 +43,11 @@ const config: Config[] = [
   ...compat.extends("standard-react"),
   ...compat.extends("plugin:mdx/recommended"),
   {
-    files: ['**/*.mdx'],
+    files: ["**/*.mdx"],
     rules: {
       "react/self-closing-comp": 0,
-      "no-unused-expressions": 0
-    }
+      "no-unused-expressions": 0,
+    },
   },
   ...compat.extends("prettier"),
   {

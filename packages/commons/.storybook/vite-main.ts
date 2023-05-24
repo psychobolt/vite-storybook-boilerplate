@@ -1,4 +1,4 @@
-import { createRequire } from 'module';
+import { createRequire } from "module";
 import type { StorybookConfig } from "@storybook/types";
 import type { StorybookConfigVite } from "@storybook/builder-vite";
 import { mergeConfig } from "vite";
