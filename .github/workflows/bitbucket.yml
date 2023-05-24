@@ -1,0 +1,35 @@
+name: Sync Bitbucket Repo
+
+on:
+  workflow_call:
+  push:
+    branches: ["main"]
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.BITBUCKET_SSH_KEY }}
+          name: bitbucket
+          config: |
+            Host bitbucket.org
+            User psychobolt
+            IdentityFile ~/.ssh/bitbucket
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Checkout bitbucket branch
+        run: git checkout origin/bitbucket
+      - name: Pull latest changes from main branch
+        run: git pull origin main --rebase
+      - name: Update bitbucket branch
+        run: git push origin
+      - name: Configure bitbucket upstream
+        run: git remote add bitbucket git@bitbucket.org:psychobolt/vite-storybook-boilerplate.git
+      - name: Push to bitbucket upstream
+        run: git push bitbucket
