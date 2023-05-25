@@ -36,7 +36,7 @@ jobs:
       - name: Resolve any deleted files
         run: |
           git status | grep 'deleted by us' | awk '{print $4}' | xargs git rm
-          git diff-index --quiet HEAD || git commit --no-edit
+          git commit --no-edit
       - name: Update bitbucket branch
         run: git push origin
       - name: Configure bitbucket upstream
