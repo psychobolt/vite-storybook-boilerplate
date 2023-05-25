@@ -19,7 +19,7 @@ jobs:
             bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw==
           config: |
             Host bitbucket.org
-            User psychobolt
+            User ${{ secrets.BITBUCKET_USER }}
             IdentityFile ~/.ssh/bitbucket
       - name: Check out code
         uses: actions/checkout@v3
@@ -35,11 +35,11 @@ jobs:
         run: git merge origin/main --no-commit --ff || true
       - name: Resolve any deleted files
         run: |
-          git status | grep 'deleted by us' | awk '{print $4}' | xargs git rm
-          git commit --no-edit
+          git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
+          git diff-index --quiet HEAD || git commit --no-edit
       - name: Update bitbucket branch
         run: git push origin
       - name: Configure bitbucket upstream
-        run: git remote add bitbucket git@bitbucket.org:psychobolt/vite-storybook-boilerplate.git
+        run: git remote add bitbucket ${{ secrets.BITBUCKET_REPO }}
       - name: Push to bitbucket upstream
         run: git push bitbucket
