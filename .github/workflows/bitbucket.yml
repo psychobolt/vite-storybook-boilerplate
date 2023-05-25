@@ -1,9 +1,9 @@
 name: Sync Bitbucket Repo
 
 on:
-  workflow_call:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   mirror:
