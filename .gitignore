@@ -10,6 +10,7 @@ esm
 next-env.d.ts
 .svelte-kit
 coverage
+*.secrets
 
 **/.yarn/*
 !.yarn/patches
