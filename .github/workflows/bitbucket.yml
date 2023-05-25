@@ -31,7 +31,7 @@ jobs:
       - name: Checkout bitbucket branch
         run: git checkout -b bitbucket origin/bitbucket
       - name: Merge with main branch
-        run: git merge origin/main --no-commit --ff
+        run: git merge origin/main --no-commit --ff || true
       - name: Resolve any deleted files
         run: |
           git status | grep 'deleted by us' | awk '{print $4}' | xargs git rm
