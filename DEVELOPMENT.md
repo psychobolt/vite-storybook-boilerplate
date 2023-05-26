@@ -59,10 +59,10 @@ yarn g:lint-css # Lint [s]css files with stylelint
 yarn g:prettier [options] # Runs prettier format tool
 ```
 
-#### Common
+#### Workspace Scope
 
 ```sh
-#cd (packages|apps)/workspace-name # if not using workspace command
+#cd (packages|apps)/workspace-name # option if not using workspace command, otherwise you'll run task on all workspaces
 yarn [workspace workspace-name] turbo task-name [--force] # Run a turbo enabled task
 yarn [workspace workspace-name] bootstrap
 yarn [workspace workspace-name] start # Serve production build
@@ -70,13 +70,17 @@ yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, 
 yann [workspace workspace-name] turbo run build # Build for production
 yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces)
 yarn [workspace workspace-name] turbo run build-storybook # Build for production
-yarn [workspace workspace-name] test [--coverage]
-yarn [workspace workspace-name] turbo lcov # Generate interactive coverage report (after running test coverage command above)
-yarn [workspace workspace-name] lint
-yarn [workspace workspace-name] format
-yarn [workspace workspace-name] chromatic # See setup instructions below
+yarn [workspace workspace-name] turbo run lcov # Generate interactive coverage report (after running test coverage command above)
+yarn [workspace workspace-name] turbo run lint
+yarn [workspace workspace-name] turbo run format
+yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
+yarn [workspace workspace-name] turbo run test [--coverage]
 yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library can be a private package
 ```
+
+You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turbo run format --filter=react-ui --filter=html-ui --filter=apps/**`.
+
+See [docs](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for more details.
 
 ## Chromatic Setup
 

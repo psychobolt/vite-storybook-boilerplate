@@ -22,6 +22,7 @@
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build"]
     },
+    "lint": {},
     "test": {},
     "lcov": {
       "inputs": ["coverage/coverage.json", "coverage/coverage-*.json"],
