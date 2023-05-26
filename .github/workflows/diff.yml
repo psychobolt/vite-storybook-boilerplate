@@ -3,7 +3,7 @@ name: List Updated Packages
 on:
   workflow_call:
     outputs:
-      workspace_names:
+      package_names:
         value: ${{ jobs.diff.outputs.package_names }}
 
 jobs:
