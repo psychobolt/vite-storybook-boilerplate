@@ -59,7 +59,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@types/glob-to-regexp", "npm:0.4.1"],\
-            ["@types/node", "npm:18.16.14"],\
+            ["@types/node", "npm:18.16.15"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.44"],\
             ["arg", "npm:5.0.2"],\
             ["commons", "workspace:packages/commons"],\
@@ -8123,6 +8123,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["npm:18.16.15", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.16.15-3f1564725f-65bc0fd036.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:18.16.15"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:18.16.3", {\
           "packageLocation": "./.yarn/cache/@types-node-npm-18.16.3-4036a5f5f3-816b39d45b.zip/node_modules/@types/node/",\
           "packageDependencies": [\
@@ -10923,7 +10930,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/types", "npm:7.0.17"],\
             ["@tsconfig/recommended", "npm:1.0.2"],\
             ["@types/eslint", "npm:8.40.0"],\
-            ["@types/node", "npm:18.16.14"],\
+            ["@types/node", "npm:18.16.15"],\
             ["@typescript-eslint/eslint-plugin", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:5.59.7"],\
             ["@typescript-eslint/parser", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:5.59.7"],\
             ["eslint", "npm:8.41.0"],\
@@ -18385,7 +18392,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/next-app/",\
           "packageDependencies": [\
             ["next-app", "workspace:apps/next-app"],\
-            ["@types/node", "npm:18.16.14"],\
+            ["@types/node", "npm:18.16.15"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["eslint", "npm:8.41.0"],\
@@ -22749,7 +22756,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.11"],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@tsconfig/node16", "npm:1.0.3"],\
-            ["@types/node", "npm:18.16.14"],\
+            ["@types/node", "npm:18.16.15"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
@@ -23751,7 +23758,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["vite", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.3.8"],\
             ["@types/less", null],\
-            ["@types/node", "npm:18.16.14"],\
+            ["@types/node", "npm:18.16.15"],\
             ["@types/sass", null],\
             ["@types/stylus", null],\
             ["@types/sugarss", null],\
@@ -23951,7 +23958,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["vite-storybook-boilerplate", "workspace:."],\
             ["@types/glob-to-regexp", "npm:0.4.1"],\
-            ["@types/node", "npm:18.16.14"],\
+            ["@types/node", "npm:18.16.15"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.44"],\
             ["arg", "npm:5.0.2"],\
             ["commons", "workspace:packages/commons"],\
