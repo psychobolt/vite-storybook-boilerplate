@@ -50,5 +50,11 @@ jobs:
         run: git push origin
       - name: Configure bitbucket upstream
         run: git remote add bitbucket ${{ secrets.BITBUCKET_REPO }}
+      - name: Fetch bitbucket upstream
+        run: git fetch bitbucket
+      - name: Switch to bitbucket/main
+        run: git branch -B bitbucket-main bitbucket/main
+      - name: Merge origin/bitbucket into bitbucket/main
+        run: git pull --rebase origin bitbucket
       - name: Push to bitbucket upstream
-        run: git push bitbucket
+        run: git push -u bitbucket bitbucket-main:main
