@@ -30,7 +30,5 @@ jobs:
           cache: yarn
       - name: Unpack binaries
         run: yarn install
-      - name: Verify dependencies
-        run: yarn bootstrap
       - name: Lint
-        run: yarn lint
+        run: yarn turbo run //#lint

@@ -27,7 +27,11 @@ const turboCmd = async (args: string[] = [], config?: SyncOptions) =>
 
 const filters = [];
 
-if (!argv.includes("link") && !argv.includes("login")) {
+if (
+  !argv.includes("link") &&
+  !argv.includes("login") &&
+  !argv.findIndex((arg) => arg.startsWith("//#"))
+) {
   const { stdout } = await turboCmd(
     [...argv.filter((arg) => !arg.startsWith("--dry-run")), "--dry-run=json"],
     { stdio: "pipe" },

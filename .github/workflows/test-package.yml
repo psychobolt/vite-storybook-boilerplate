@@ -31,12 +31,10 @@ jobs:
           cache: yarn
       - name: Unpack binaries
         run: yarn install
-      - name: Verify dependencies
-        run: yarn bootstrap
       - name: Install Playwright
         run: yarn dlx playwright install --with-deps
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} lint
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Coverage
         run: |
           yarn dlx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
