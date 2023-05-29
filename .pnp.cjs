@@ -18555,6 +18555,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.41.0"],\
             ["eslint-config-next", "virtual:6d874517dbbdc1af1c980c50428391e81611acf150df58e6c28df8a0d2a9b71cc9e3ef0df1991bbd889525dadf0f74c93b836fab7a8f9374c48fc57a22d92c6f#npm:13.4.4"],\
             ["next", "virtual:6d874517dbbdc1af1c980c50428391e81611acf150df58e6c28df8a0d2a9b71cc9e3ef0df1991bbd889525dadf0f74c93b836fab7a8f9374c48fc57a22d92c6f#npm:13.4.4"],\
+            ["opener", "npm:1.5.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:7b44b3aaa674fbd2ced26518769c736326204211af3582271e533e877e495cfce7f1860648826eba24fd9f757b3606ae56e72b94fe95ec8b9f612f80e8c26248#npm:18.2.0"],\
             ["react-ui", "workspace:packages/react-ui"],\

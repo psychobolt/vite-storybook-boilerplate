@@ -4,33 +4,31 @@ import arg from "arg";
 
 import getWorkspaces from "./ls-workspaces.ts";
 
+process.env.FORCE_COLOR = "0";
+
 const { _: argv, ...options } = arg(
   {
-    "--background": Boolean,
-    "--no-color": Boolean,
+    "--no-color": Boolean
   },
   { permissive: true },
 );
 
-const cmd = (async?: boolean) => (async ? execa : execaSync);
+const yarnCmd = (args: string[] = [], config?: SyncOptions) =>
+  execa("yarn", args, {
+    stdio: "inherit",
+    ...config,
+  });
 
-const yarnCmd =
-  (async?: boolean) =>
-  async (args: string[] = [], config?: SyncOptions) =>
-    await cmd(async)("yarn", args, { stdio: "inherit", ...config });
-
-const turboCmd = async (args: string[] = [], config?: SyncOptions) =>
-  await yarnCmd(options["--background"])(
-    ["exec", "turbo", ...args, "--no-color"],
-    config,
-  );
+const turboCmd = (args: string[] = [], config?: SyncOptions) =>
+  yarnCmd(["exec", "turbo", ...args], config);
 
 const filters = [];
+const tasks = [];
 
 if (
   !argv.includes("link") &&
   !argv.includes("login") &&
-  !argv.findIndex((arg) => arg.startsWith("//#"))
+  argv.findIndex((arg) => arg.startsWith("//#")) === -1
 ) {
   const { stdout } = await turboCmd(
     [...argv.filter((arg) => !arg.startsWith("--dry-run")), "--dry-run=json"],
@@ -41,17 +39,19 @@ if (
   const workspaces = await getWorkspaces({ nodeLinker: "node-modules" });
   for (const workspace of workspaces) {
     if (!packages.includes(workspace.name)) continue;
-    const env = {
-      NODE_ENV: process.env.NODE_ENV,
-      NODE_OPTIONS: "",
-    };
-    await turboCmd([...argv.filter((arg) => !arg.startsWith("--filter"))], {
+    tasks.push(turboCmd([...argv.filter((arg) => !arg.startsWith("--filter"))], {
       stdio: "inherit",
       cwd: `${process.cwd()}/${workspace.location}`,
-      env,
-    });
+      env: {
+        NODE_ENV: process.env.NODE_ENV,
+        NODE_OPTIONS: "",
+      }
+    }));
     filters.push(`--filter=!${workspace.name}`);
   }
 }
 
-await turboCmd([...argv, ...filters]);
+tasks.push(turboCmd([...argv, ...filters]));
+
+await Promise.all(tasks);
+

@@ -13847,6 +13847,7 @@ __metadata:
     eslint: 8.41.0
     eslint-config-next: 13.4.4
     next: 13.4.4
+    opener: 1.5.2
     react: 18.2.0
     react-dom: 18.2.0
     react-ui: "workspace:*"
@@ -14412,7 +14413,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"opener@npm:^1.5.1":
+"opener@npm:1.5.2, opener@npm:^1.5.1":
   version: 1.5.2
   resolution: "opener@npm:1.5.2"
   bin:

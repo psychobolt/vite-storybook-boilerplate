@@ -8,10 +8,10 @@
 2. Setup Yarn (https://yarnpkg.com/getting-started/install)
 3. Download and install [Visual Studio Code](https://code.visualstudio.com/)
 4. Open your project in VSCode and install the recommended extensions
-5. Restart VSCode and reopen the project.
-6. Run command `yarn install` in terminal to unpack root binaries
-7. Run command `yarn bootstrap` in terminal to verify all dependencies
-8. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
+5. Run command `yarn install` in terminal to unpack root binaries
+6. Run command `yarn bootstrap` in terminal to verify all dependencies
+7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
+8. Restart VSCode and reopen the project.
 
 #### Troubleshooting ESLint extension
 
@@ -62,7 +62,7 @@ yarn g:prettier [options] # Runs prettier format tool
 #### Workspace Scope
 
 ```sh
-#cd (packages|apps)/workspace-name # option if not using workspace command, otherwise you'll run task on all workspaces
+#cd (packages|apps)/workspace-name # option if not using yarn workspace command, otherwise you'll run task on all workspaces
 yarn [workspace workspace-name] turbo task-name [--force] # Run a turbo enabled task
 yarn [workspace workspace-name] bootstrap
 yarn [workspace workspace-name] start # Serve production build
