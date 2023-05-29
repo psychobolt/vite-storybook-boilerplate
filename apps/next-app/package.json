@@ -5,7 +5,7 @@
   "packageManager": "yarn@3.5.1",
   "scripts": {
     "bootstrap": "yarn g:bootstrap",
-    "dev": "opener http://localhost:3000/ && next dev",
+    "dev": "open-cli http://localhost:3000/ --background && next dev -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -17,7 +17,7 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
-    "opener": "1.5.2",
+    "open-cli": "7.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-ui": "workspace:*",
