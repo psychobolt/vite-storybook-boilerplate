@@ -28,8 +28,7 @@ const filters = [];
 const tasks = [];
 
 if (
-  !argv.includes("link") &&
-  !argv.includes("login") &&
+  argv.includes("run") &&
   argv.findIndex((arg) => arg.startsWith("//#")) === -1
 ) {
   const { stdout } = await turboCmd(
