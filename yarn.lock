@@ -8639,15 +8639,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-register@workspace:*, esbuild-register@workspace:packages/esbuild-register":
-  version: 0.0.0-use.local
-  resolution: "esbuild-register@workspace:packages/esbuild-register"
+"esbuild-register@npm:3.4.2":
+  version: 3.4.2
+  resolution: "esbuild-register@npm:3.4.2"
   dependencies:
     debug: ^4.3.4
   peerDependencies:
     esbuild: ">=0.12 <1"
-  languageName: unknown
-  linkType: soft
+  checksum: f65d1ccb58b1ccbba376efb1fc023abe22731d9b79eead1b0120e57d4413318f063696257a5af637b527fa1d3f009095aa6edb1bf6ff69d637a9ab281fb727b3
+  languageName: node
+  linkType: hard
+
+"esbuild-register@patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::locator=vite-storybook-boilerplate%40workspace%3A.":
+  version: 3.4.2
+  resolution: "esbuild-register@patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::version=3.4.2&hash=5e8f08&locator=vite-storybook-boilerplate%40workspace%3A."
+  dependencies:
+    debug: ^4.3.4
+  peerDependencies:
+    esbuild: ">=0.12 <1"
+  checksum: b5d85b87f45c32036ab95e879a1e5fae0bb75f93b7c8dea305f60ccc31c9165f6ffd45c04a61a0e76da15bd1e8c6609a6e720417b0752fb78305064c954c4dbd
+  languageName: node
+  linkType: hard
 
 "esbuild@npm:^0.17.0, esbuild@npm:^0.17.5":
   version: 0.17.18

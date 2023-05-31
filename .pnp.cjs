@@ -28,10 +28,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/commons"\
       },\
       {\
-        "name": "esbuild-register",\
-        "reference": "workspace:packages/esbuild-register"\
-      },\
-      {\
         "name": "html-ui",\
         "reference": "workspace:packages/html-ui"\
       },\
@@ -44,7 +40,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)|(^(?:apps\\\\/svelte-app)$)",\
     "fallbackExclusionList": [\
       ["commons", ["workspace:packages/commons"]],\
-      ["esbuild-register", ["virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#workspace:packages/esbuild-register", "workspace:packages/esbuild-register"]],\
       ["html-ui", ["workspace:packages/html-ui"]],\
       ["next-app", ["workspace:apps/next-app"]],\
       ["react-ui", ["workspace:packages/react-ui"]],\
@@ -6108,7 +6103,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/pretty-hrtime", "npm:1.0.1"],\
             ["chalk", "npm:4.1.2"],\
             ["esbuild", "npm:0.17.18"],\
-            ["esbuild-register", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#workspace:packages/esbuild-register"],\
+            ["esbuild-register", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::version=3.4.2&hash=5e8f08&locator=vite-storybook-boilerplate%40workspace%3A."],\
             ["file-system-cache", "npm:2.1.1"],\
             ["find-up", "npm:5.0.0"],\
             ["fs-extra", "npm:11.1.1"],\
@@ -6139,7 +6134,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/pretty-hrtime", "npm:1.0.1"],\
             ["chalk", "npm:4.1.2"],\
             ["esbuild", "npm:0.17.18"],\
-            ["esbuild-register", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#workspace:packages/esbuild-register"],\
+            ["esbuild-register", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::version=3.4.2&hash=5e8f08&locator=vite-storybook-boilerplate%40workspace%3A."],\
             ["file-system-cache", "npm:2.1.1"],\
             ["find-up", "npm:5.0.0"],\
             ["fs-extra", "npm:11.1.1"],\
@@ -6170,7 +6165,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/pretty-hrtime", "npm:1.0.1"],\
             ["chalk", "npm:4.1.2"],\
             ["esbuild", "npm:0.17.18"],\
-            ["esbuild-register", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#workspace:packages/esbuild-register"],\
+            ["esbuild-register", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::version=3.4.2&hash=5e8f08&locator=vite-storybook-boilerplate%40workspace%3A."],\
             ["file-system-cache", "npm:2.1.1"],\
             ["find-up", "npm:5.0.0"],\
             ["fs-extra", "npm:11.1.1"],\
@@ -12356,10 +12351,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["esbuild-register", [\
-        ["virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#workspace:packages/esbuild-register", {\
-          "packageLocation": "./.yarn/__virtual__/esbuild-register-virtual-eddffca7b4/1/packages/esbuild-register/",\
+        ["patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::version=3.4.2&hash=5e8f08&locator=vite-storybook-boilerplate%40workspace%3A.", {\
+          "packageLocation": "./.yarn/cache/esbuild-register-patch-f0186a0d9f-b5d85b87f4.zip/node_modules/esbuild-register/",\
           "packageDependencies": [\
-            ["esbuild-register", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#workspace:packages/esbuild-register"],\
+            ["esbuild-register", "patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::version=3.4.2&hash=5e8f08&locator=vite-storybook-boilerplate%40workspace%3A."]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::version=3.4.2&hash=5e8f08&locator=vite-storybook-boilerplate%40workspace%3A.", {\
+          "packageLocation": "./.yarn/__virtual__/esbuild-register-virtual-feb679cbb3/0/cache/esbuild-register-patch-f0186a0d9f-b5d85b87f4.zip/node_modules/esbuild-register/",\
+          "packageDependencies": [\
+            ["esbuild-register", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch::version=3.4.2&hash=5e8f08&locator=vite-storybook-boilerplate%40workspace%3A."],\
             ["@types/esbuild", null],\
             ["debug", "virtual:531b6e79f7bcef9fa432316ab3ce4b1417df151c8e8350181023a666d55724fcedfdfe50cba6ee7c25a5adbd4f024013f036b79fb10bed8621708e2f7d85e6c6#npm:4.3.4"],\
             ["esbuild", "npm:0.17.18"]\
@@ -12368,15 +12370,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/esbuild",\
             "esbuild"\
           ],\
-          "linkType": "SOFT"\
-        }],\
-        ["workspace:packages/esbuild-register", {\
-          "packageLocation": "./packages/esbuild-register/",\
-          "packageDependencies": [\
-            ["esbuild-register", "workspace:packages/esbuild-register"],\
-            ["debug", "virtual:531b6e79f7bcef9fa432316ab3ce4b1417df151c8e8350181023a666d55724fcedfdfe50cba6ee7c25a5adbd4f024013f036b79fb10bed8621708e2f7d85e6c6#npm:4.3.4"]\
-          ],\
-          "linkType": "SOFT"\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["escalade", [\
