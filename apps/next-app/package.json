@@ -2,7 +2,7 @@
   "name": "next-app",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "yarn@3.5.1",
+  "packageManager": "yarn@3.6.0",
   "scripts": {
     "bootstrap": "yarn g:bootstrap",
     "dev": "open-cli http://localhost:3000/ --background && next dev -p 3000",
