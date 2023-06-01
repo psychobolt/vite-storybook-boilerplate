@@ -39,7 +39,7 @@
     "sb": "7.0.18",
     "stylelint": "15.6.2",
     "ts-node": "10.9.1",
-    "turbo": "1.10.0",
+    "turbo": "1.10.1",
     "typescript": "5.0.4"
   },
   "dependenciesMeta": {
