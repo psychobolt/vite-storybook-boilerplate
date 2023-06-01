@@ -1,16 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "automerge": true,
-  "packageRules": [
-    {
-      "matchPaths": ["apps/svelte-app/**"],
-      "allowedPostUpgradeCommands": ["^yarn install$"],
-      "postUpgradeTasks": {
-        "commands": ["yarn install"],
-        "fileFilters": ["yarn.lock", ".pnp.cjs", ".yarn/cache/**"],
-        "allowedPostUpgradeCommands": []
-      }
-    }
-  ]
+  "automerge": true
 }
