@@ -5515,12 +5515,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.11":
-  version: 18.0.11
-  resolution: "@types/react-dom@npm:18.0.11"
+"@types/react-dom@npm:18.2.4":
+  version: 18.2.4
+  resolution: "@types/react-dom@npm:18.2.4"
   dependencies:
     "@types/react": "*"
-  checksum: 579691e4d5ec09688087568037c35edf8cfb1ab3e07f6c60029280733ee7b5c06d66df6fcc90786702c93ac8cb13bc7ff16c79ddfc75d082938fbaa36e1cdbf4
+  checksum: 8301f35cf1cbfec8c723e9477aecf87774e3c168bd457d353b23c45064737213d3e8008b067c6767b7b08e4f2b3823ee239242a6c225fc91e7f8725ef8734124
   languageName: node
   linkType: hard
 
@@ -5535,14 +5535,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.28":
-  version: 18.0.28
-  resolution: "@types/react@npm:18.0.28"
+"@types/react@npm:18.2.8":
+  version: 18.2.8
+  resolution: "@types/react@npm:18.2.8"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: e752df961105e5127652460504785897ca6e77259e0da8f233f694f9e8f451cde7fa0709d4456ade0ff600c8ce909cfe29f9b08b9c247fa9b734e126ec53edd7
+  checksum: 351fe2450d30bff2ceb6aa84788e948317555e5ea22cb44f6778e08c977aab1878a0119bd94bc3d1bec5f5af4a75ffaa2ce111df5cd9d4ce26bfd719e4d971c2
   languageName: node
   linkType: hard
 
@@ -13984,8 +13984,8 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@types/node": 18.16.16
-    "@types/react": 18.0.28
-    "@types/react-dom": 18.0.11
+    "@types/react": 18.2.8
+    "@types/react-dom": 18.2.4
     eslint: 8.41.0
     eslint-config-next: 13.4.4
     next: 13.4.4
@@ -15711,8 +15711,8 @@ __metadata:
     "@storybook/test-runner": 0.11.0-next.0
     "@storybook/testing-library": 0.1.0
     "@tsconfig/vite-react": 2.0.0
-    "@types/react": 18.0.28
-    "@types/react-dom": 18.0.11
+    "@types/react": 18.2.8
+    "@types/react-dom": 18.2.4
     chromatic: 6.18.0
     commons: "workspace:*"
     http-server: 14.1.1
