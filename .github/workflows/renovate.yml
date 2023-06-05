@@ -4,10 +4,14 @@ on:
   pull_request:
     branches: ["renovate/**"]
   workflow_dispatch:
+    inputs:
+      force:
+        type: boolean
+        default: false
 
 jobs:
   post-upgrade:
-    if: ${{ github.event.action == 'opened' }}
+    if: ${{ inputs.force || github.event.action == 'opened' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
