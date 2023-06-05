@@ -32,7 +32,7 @@ jobs:
           git config user.email 29139614+renovate[bot]@users.noreply.github.com
       - name: Update previous commit
         run: |
-          message=git log -1 --pretty=%B
+          message=$(git log -1 --pretty=%B)
           git reset --mixed HEAD^1
           git add .
           git commit -m $message
