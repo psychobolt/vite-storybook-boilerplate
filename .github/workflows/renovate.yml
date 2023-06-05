@@ -1,20 +1,20 @@
 name: Renovate
 
 on:
-  push:
-    branches: ["renovate/*"]
+  pull_request:
+    branches: ["renovate/**"]
   workflow_dispatch:
 
 jobs:
   post-upgrade:
-    if: github.event.head_commit.committer.name == 'renovate[bot]'
+    if: ${{ github.event.action == 'opened' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Check out code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 2
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
