@@ -1,0 +1,35 @@
+name: Renovate
+
+on:
+  push:
+    branches: ["renovate/*"]
+  workflow_dispatch:
+
+jobs:
+  post-upgrade:
+    if: github.event.head_commit.committer.name == 'renovate[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: yarn
+      - name: Unpack binaries
+        run: yarn install
+      - name: Configure git user
+        run: |
+          git config user.name renovate[bot]
+          git config user.email 29139614+renovate[bot]@users.noreply.github.com
+      - name: Update previous commit
+        run: |
+          message=git log -1 --pretty=%B
+          git reset --mixed HEAD^1
+          git add .
+          git commit -m $message
+          git push --force
