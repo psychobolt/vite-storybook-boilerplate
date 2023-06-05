@@ -25,7 +25,7 @@ jobs:
           node-version: lts/*
           cache: yarn
       - name: Unpack binaries
-        run: yarn install
+        run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
       - name: Configure git user
         run: |
           git config user.name renovate[bot]
