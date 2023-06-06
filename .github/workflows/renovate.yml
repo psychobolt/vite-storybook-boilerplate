@@ -12,6 +12,7 @@ on:
 
 jobs:
   post-upgrade:
+    if: ${{ inputs.force || github.event.action == 'opened' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
