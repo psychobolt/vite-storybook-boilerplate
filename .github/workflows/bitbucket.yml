@@ -34,10 +34,6 @@ jobs:
         run: yarn install
       - name: Lint
         run: yarn lint
-      - name: Configure git user
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Checkout bitbucket branch
         run: git checkout -b bitbucket origin/bitbucket
       - name: Merge with main branch

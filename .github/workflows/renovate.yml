@@ -25,16 +25,22 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
+      - name: Save HEAD commit message
+        id: head_commit
+        run: |
+          echo "message=\"$(git log -1 --pretty=%B)\"" >> "$GITHUB_OUTPUT"
+          echo "committer_name=\"$(git --no-pager log --format=format:'%an' -n 1)\"" >> "$GITHUB_OUTPUT"
+          echo "committer_email=\"$(git --no-pager log --format=format:'%ae' -n 1)\"" >> "$GITHUB_OUTPUT"
+      - name: Extract HEAD changes
+        run: git reset --mixed HEAD^1
       - name: Unpack binaries
         run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
       - name: Configure git user
         run: |
-          git config user.name renovate[bot]
-          git config user.email 29139614+renovate[bot]@users.noreply.github.com
+          git config user.name "${{ steps.head_commit.outputs.committer_name }}"
+          git config user.email "${{ steps.head_commit.outputs.committer_email }}"
       - name: Update previous commit
         run: |
-          message=$(git log -1 --pretty=%B)
-          git reset --mixed HEAD^1
           git add .
-          git commit -m $message
+          git commit -m "${{ steps.head_commit.outputs.message }}"
           git push --force
