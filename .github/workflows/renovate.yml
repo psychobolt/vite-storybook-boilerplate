@@ -37,10 +37,10 @@ jobs:
         run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
       - name: Configure git user
         run: |
-          git config user.name "${{ steps.head_commit.outputs.committer_name }}"
-          git config user.email "${{ steps.head_commit.outputs.committer_email }}"
+          git config user.name ${{ steps.head_commit.outputs.committer_name }}
+          git config user.email ${{ steps.head_commit.outputs.committer_email }}
       - name: Update previous commit
         run: |
           git add .
-          git commit -m "${{ steps.head_commit.outputs.message }}"
+          git commit -m ${{ steps.head_commit.outputs.message }}
           git push --force
