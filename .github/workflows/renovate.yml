@@ -23,7 +23,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           check-regexp: ^Build and Test .+$
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          allowed-conclusions: failure
+          allowed-conclusions: cancelled,failure
       - name: Check out code
         if: success()
         uses: actions/checkout@v3
