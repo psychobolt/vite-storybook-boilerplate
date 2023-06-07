@@ -3,7 +3,7 @@ name: Renovate
 on:
   pull_request:
     types: [opened, synchronize]
-    branches: ["renovate/**"]
+    branches: [main]
   workflow_dispatch:
     inputs:
       force:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   post-upgrade:
-    if: ${{ inputs.force || github.event.action == 'opened' || github.event.action == 'synchronize' }}
+    if: ${{ inputs.force || (startsWith(github.head_ref, 'renovate/') && github.event.action == 'opened' || github.event.action == 'synchronize') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
