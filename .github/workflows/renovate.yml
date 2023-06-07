@@ -47,15 +47,3 @@ jobs:
           git add .
           git commit -C HEAD --amend
           git push --force
-      - name: Trigger Build and Test workflow
-        if: success()
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: ci.yml
-          ref: ${{ github.head_ref }}
-      - name: Trigger Apps workflow
-        if: success()
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: apps.yml
-          ref: ${{ github.head_ref }}
