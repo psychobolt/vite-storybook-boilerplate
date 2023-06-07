@@ -14,32 +14,48 @@ jobs:
   post-upgrade:
     if: ${{ inputs.force || (startsWith(github.head_ref, 'renovate/') && github.event.action == 'opened' || github.event.action == 'synchronize') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
+    continue-on-error: true
     steps:
+      - name: Wait for CI workflow to complete
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          check-name: 'Build and Test'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 900
+          allowed-conclusions: failure
       - name: Check out code
+        if: success()
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
       - name: Setup Node.js environment
+        if: success()
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
           cache: yarn
       - name: Save HEAD commit message
+        if: success()
         id: head_commit
         run: |
           echo "message=\"$(git log -1 --pretty=%B)\"" >> "$GITHUB_OUTPUT"
           echo "committer_name=\"$(git --no-pager log --format=format:'%an' -n 1)\"" >> "$GITHUB_OUTPUT"
           echo "committer_email=\"$(git --no-pager log --format=format:'%ae' -n 1)\"" >> "$GITHUB_OUTPUT"
       - name: Extract HEAD changes
+        if: success()
         run: git reset --mixed HEAD^1
       - name: Unpack binaries
+        if: success()
         run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
       - name: Configure git user
+        if: success()
         run: |
           git config user.name ${{ steps.head_commit.outputs.committer_name }}
           git config user.email ${{ steps.head_commit.outputs.committer_email }}
       - name: Update previous commit
+        if: success()
         run: |
           git add .
           git commit -m ${{ steps.head_commit.outputs.message }}
