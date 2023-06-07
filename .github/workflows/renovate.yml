@@ -23,7 +23,6 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           check-regexp: ^Build and Test .+$
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 900
           allowed-conclusions: failure
       - name: Check out code
         if: success()
