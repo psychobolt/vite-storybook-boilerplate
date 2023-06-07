@@ -59,4 +59,3 @@ jobs:
         with:
           workflow: apps.yml
           ref: ${{ github.head_ref }}
-      
