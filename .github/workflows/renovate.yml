@@ -12,7 +12,7 @@ on:
 
 jobs:
   post-upgrade:
-    if: inputs.force || (startsWith(github.head_ref, 'renovate/') && github.actor == 'renovate[bot]')
+    if: inputs.force || (github.repository == 'psychobolt/vite-storybook/boilerplate' && startsWith(github.head_ref, 'renovate/') && github.actor == 'renovate[bot]')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     continue-on-error: true
@@ -47,3 +47,16 @@ jobs:
           git add .
           git commit -C HEAD --amend
           git push --force
+      - name: Trigger Build and Test workflow
+        if: success()
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: ci.yml
+          ref: ${{ github.head_ref }}
+      - name: Trigger Apps workflow
+        if: success()
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: apps.yml
+          ref: ${{ github.head_ref }}
+      
