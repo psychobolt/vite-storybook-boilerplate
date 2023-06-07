@@ -42,6 +42,8 @@ jobs:
       - name: Update previous commit
         if: success()
         run: |
+          git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+          git config user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
           git add .
           git commit -C HEAD --amend
           git push --force
