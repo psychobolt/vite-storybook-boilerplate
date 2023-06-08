@@ -1,9 +1,10 @@
 name: Renovate
 
 on:
-  pull_request:
+  push:
+    branches: [renovate/**]
     paths:
-      - "apps/svelte-app/yarn.lock"
+      - apps/svelte-app/yarn.lock
   workflow_dispatch:
     inputs:
       force:
