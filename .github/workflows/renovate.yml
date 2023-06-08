@@ -30,6 +30,7 @@ jobs:
         with:
           fetch-depth: 2
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.RENOVATE_GH_TOKEN }}
       - name: Setup Node.js environment
         if: success()
         uses: actions/setup-node@v3
@@ -45,5 +46,5 @@ jobs:
           git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"
           git config user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
           git add .
-          git commit -C HEAD
-          git push
+          git commit -C HEAD --amend
+          git push --force
