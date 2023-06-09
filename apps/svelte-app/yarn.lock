@@ -2225,6 +2225,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"html-ui@file:../../packages/html-ui::locator=svelte-app%40workspace%3A.":
+  version: 0.0.0
+  resolution: "html-ui@file:../../packages/html-ui#../../packages/html-ui::hash=cb9a90&locator=svelte-app%40workspace%3A."
+  checksum: f4446a2dae36c94c00e05d8b705d623cdfc575f96995a091941a820058b4084f562200f2df1d03f4b507f98ff80d887df3f2870539170e4af816111fab2aa4a9
+  languageName: node
+  linkType: hard
+
 "http-cache-semantics@npm:^4.1.0":
   version: 4.1.1
   resolution: "http-cache-semantics@npm:4.1.1"
@@ -4019,6 +4026,7 @@ __metadata:
     eslint: ^8.28.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-svelte3: ^4.0.0
+    html-ui: ../../packages/html-ui
     prettier: ^2.8.0
     prettier-plugin-svelte: ^2.8.1
     sass: 1.62.1

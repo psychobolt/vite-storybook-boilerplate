@@ -2,12 +2,8 @@
 	"$schema": "https://turbo.build/schema.json",
 	"extends": ["//"],
 	"pipeline": {
-		"dev": {
-			"dependsOn": ["html-ui#build"]
-		},
 		"build": {
-			"outputs": [".svelte-kit/**", ".vercel/**"],
-			"dependsOn": ["html-ui#build"]
+			"outputs": [".svelte-kit/**", ".vercel/**"]
 		}
 	}
 }

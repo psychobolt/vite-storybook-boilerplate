@@ -7,10 +7,5 @@ export default defineConfig({
 		modules: {
 			localsConvention: 'camelCase'
 		}
-	},
-	resolve: {
-		alias: {
-			'html-ui': '../../packages/html-ui/dist/'
-		}
 	}
 });
