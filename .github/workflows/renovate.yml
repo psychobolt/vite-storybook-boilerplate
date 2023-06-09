@@ -11,10 +11,12 @@ on:
         default: false
 
 jobs:
-  post-upgrade:
+  check:
     if: inputs.force || (github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.head_ref, 'renovate/') && github.actor == 'renovate[bot]')
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      conclusion: ${{ steps.build_status.conclusion }}
     steps:
       - name: Wait for CI workflow to complete
         uses: fountainhead/action-wait-for-check@v1.1.0
@@ -23,8 +25,13 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           checkName: Build and Test (ubuntu-latest)
           token: ${{ secrets.GITHUB_TOKEN }}
+  post-upgrade:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
       - name: Check out code
-        if: steps.build_status.conclusion == 'failure' || steps.build_status.conclusion == 'cancelled'
+        if: needs.check.outputs.conclusion == 'failure' || needs.check.outputs.conclusion == 'cancelled'
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
