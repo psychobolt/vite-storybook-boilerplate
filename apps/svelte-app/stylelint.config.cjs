@@ -1,3 +1,3 @@
 module.exports = {
-	extends: ['../../packages/commons/cjs/stylelint.config']
+	extends: ['commons/cjs/stylelint.config']
 };

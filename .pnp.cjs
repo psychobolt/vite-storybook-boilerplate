@@ -14994,13 +14994,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["html-ui", [\
-        ["file:../../packages/html-ui#../../packages/html-ui::hash=8ae35c&locator=svelte-app%40workspace%3Aapps%2Fsvelte-app", {\
-          "packageLocation": "./.yarn/cache/html-ui-file-06a91e18f5-5d006679a9.zip/node_modules/html-ui/",\
-          "packageDependencies": [\
-            ["html-ui", "file:../../packages/html-ui#../../packages/html-ui::hash=8ae35c&locator=svelte-app%40workspace%3Aapps%2Fsvelte-app"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["workspace:packages/html-ui", {\
           "packageLocation": "./packages/html-ui/",\
           "packageDependencies": [\
@@ -22792,10 +22785,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cookie", "npm:0.5.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:5.59.9"],\
             ["@typescript-eslint/parser", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:5.59.2"],\
+            ["commons", "workspace:packages/commons"],\
             ["eslint", "npm:8.39.0"],\
             ["eslint-config-prettier", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:8.8.0"],\
             ["eslint-plugin-svelte3", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:4.0.0"],\
-            ["html-ui", "file:../../packages/html-ui#../../packages/html-ui::hash=8ae35c&locator=svelte-app%40workspace%3Aapps%2Fsvelte-app"],\
+            ["html-ui", "workspace:packages/html-ui"],\
             ["prettier", "npm:2.8.8"],\
             ["prettier-plugin-svelte", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.10.0"],\
             ["sass", "npm:1.62.1"],\
