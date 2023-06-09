@@ -7570,17 +7570,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@sveltejs/adapter-vercel", [\
-        ["npm:3.0.0", {\
-          "packageLocation": "./.yarn/cache/@sveltejs-adapter-vercel-npm-3.0.0-8c69abb029-a7bb2a3543.zip/node_modules/@sveltejs/adapter-vercel/",\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/@sveltejs-adapter-vercel-npm-3.0.1-4893dfc7d9-c150ee83f1.zip/node_modules/@sveltejs/adapter-vercel/",\
           "packageDependencies": [\
-            ["@sveltejs/adapter-vercel", "npm:3.0.0"]\
+            ["@sveltejs/adapter-vercel", "npm:3.0.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@sveltejs-adapter-vercel-virtual-52fcb57b58/0/cache/@sveltejs-adapter-vercel-npm-3.0.0-8c69abb029-a7bb2a3543.zip/node_modules/@sveltejs/adapter-vercel/",\
+        ["virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@sveltejs-adapter-vercel-virtual-033bed95fa/0/cache/@sveltejs-adapter-vercel-npm-3.0.1-4893dfc7d9-c150ee83f1.zip/node_modules/@sveltejs/adapter-vercel/",\
           "packageDependencies": [\
-            ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.0"],\
+            ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.1"],\
             ["@sveltejs/kit", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:1.18.0"],\
             ["@types/sveltejs__kit", null],\
             ["@vercel/nft", "npm:0.22.6"],\
@@ -22779,7 +22779,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fontsource/fira-mono", "npm:5.0.0"],\
             ["@neoconfetti/svelte", "npm:1.0.0"],\
             ["@sveltejs/adapter-auto", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.1.0"],\
-            ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.0"],\
+            ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.1"],\
             ["@sveltejs/kit", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:1.18.0"],\
             ["@types/cookie", "npm:0.5.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:5.59.9"],\
