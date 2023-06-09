@@ -18,14 +18,14 @@ jobs:
     continue-on-error: true
     steps:
       - name: Wait for CI workflow to complete
-        uses: lewagon/wait-on-check-action@v1.3.1
+        uses: fountainhead/action-wait-for-check@v1.1.0
+        id: build_status
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          check-regexp: ^Build and Test .+$
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          allowed-conclusions: cancelled,failure
+          checkName: build
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check out code
-        if: success()
+        if: steps.build_status.conclusion == 'failure' || steps.build_status.conclusion == 'cancelled'
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
