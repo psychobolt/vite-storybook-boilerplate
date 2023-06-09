@@ -22,7 +22,7 @@ jobs:
         id: build_status
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          checkName: build
+          checkName: Build and Test (ubuntu-latest)
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check out code
         if: steps.build_status.conclusion == 'failure' || steps.build_status.conclusion == 'cancelled'
