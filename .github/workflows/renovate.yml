@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     outputs:
-      conclusion: ${{ steps.build_status.conclusion }}
+      conclusion: ${{ steps.build_status.outputs.conclusion }}
     steps:
       - name: Wait for CI workflow to complete
         uses: fountainhead/action-wait-for-check@v1.1.0
