@@ -32,6 +32,10 @@ jobs:
           cache: yarn
       - name: Unpack binaries
         run: yarn install
+      - name: Configure git user
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Lint
         run: yarn lint
       - name: Checkout bitbucket branch
