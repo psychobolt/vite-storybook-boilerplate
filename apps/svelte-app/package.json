@@ -42,7 +42,7 @@
 		"vite": "4.3.9"
 	},
 	"resolutions": {
-		"commons": "../../packages/commons",
-		"html-ui": "../../packages/html-ui"
+		"commons": "portal:../../packages/commons",
+		"html-ui": "portal:../../packages/html-ui"
 	}
 }

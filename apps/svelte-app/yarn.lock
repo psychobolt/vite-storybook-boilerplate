@@ -3845,9 +3845,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commons@file:../../packages/commons::locator=svelte-app%40workspace%3A.":
-  version: 0.0.0
-  resolution: "commons@file:../../packages/commons#../../packages/commons::hash=39c162&locator=svelte-app%40workspace%3A."
+"commons@portal:../../packages/commons::locator=svelte-app%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "commons@portal:../../packages/commons::locator=svelte-app%40workspace%3A."
   dependencies:
     "@eslint/eslintrc": 2.0.3
     "@storybook/addon-coverage": 0.0.8
@@ -3886,9 +3886,8 @@ __metadata:
     typescript: 5.1.3
     vite: 4.3.9
     vite-plugin-turbosnap: 1.0.2
-  checksum: b5ccbfec0b2888af0d46f916f20be3d25834c436eb55698a7e77c0567e260e59ab08d549c4b1e08d6f1e8666ee7dec439e558c57611adc10efad705ceee10588
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "compressible@npm:~2.0.16":
   version: 2.0.18
@@ -4315,9 +4314,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.411":
-  version: 1.4.425
-  resolution: "electron-to-chromium@npm:1.4.425"
-  checksum: 1ec2e80601eb49982c51f562f74dc9fa1a80f3006c7d508f3bc37d2d12c726df99ff60d7f013e38c374ae81414e0b76d5e7a97f406cdea8b5e8e3dfb51c23f72
+  version: 1.4.426
+  resolution: "electron-to-chromium@npm:1.4.426"
+  checksum: 9f9d37d7768b6ef1cda5356b6fb308b4a8ce5cd33992a1d7fadb7c0066595dd65ffbf0c17f8b440b16b07d7852d5be4cbbb7d7f1718f6593ef556dbe7b2c2518
   languageName: node
   linkType: hard
 
@@ -5942,12 +5941,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-ui@file:../../packages/html-ui::locator=svelte-app%40workspace%3A.":
-  version: 0.0.0
-  resolution: "html-ui@file:../../packages/html-ui#../../packages/html-ui::hash=8ae35c&locator=svelte-app%40workspace%3A."
-  checksum: 5d006679a977a57680e065c63a276c218a564e154f5015517e12383158be29af3bd82dd6e39c9c0ce788b08384a795b377c0b9d2d8d4ccc74a345925d39a2981
+"html-ui@portal:../../packages/html-ui::locator=svelte-app%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "html-ui@portal:../../packages/html-ui::locator=svelte-app%40workspace%3A."
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "http-cache-semantics@npm:^4.1.0":
   version: 4.1.1
