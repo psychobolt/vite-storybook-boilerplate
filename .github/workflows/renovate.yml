@@ -29,9 +29,9 @@ jobs:
     needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    if: needs.check.outputs.conclusion == 'failure' || needs.check.outputs.conclusion == 'cancelled'
     steps:
       - name: Check out code
-        if: needs.check.outputs.conclusion == 'failure' || needs.check.outputs.conclusion == 'cancelled'
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
