@@ -15,7 +15,6 @@ jobs:
     if: inputs.force || (github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.head_ref, 'renovate/') && github.actor == 'renovate[bot]')
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    continue-on-error: true
     steps:
       - name: Wait for CI workflow to complete
         uses: fountainhead/action-wait-for-check@v1.1.0
@@ -32,16 +31,13 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.RENOVATE_GH_TOKEN }}
       - name: Setup Node.js environment
-        if: success()
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
           cache: yarn
       - name: Unpack binaries
-        if: success()
         run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
       - name: Update previous commit
-        if: success()
         run: |
           git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"
           git config user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
