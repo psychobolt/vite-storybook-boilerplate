@@ -29,7 +29,7 @@ jobs:
     needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    if: needs.check.outputs.conclusion == 'failure' || needs.check.outputs.conclusion == 'cancelled'
+    if: inputs.force || needs.check.outputs.conclusion == 'failure' || needs.check.outputs.conclusion == 'cancelled'
     steps:
       - name: Check out code
         uses: actions/checkout@v3
