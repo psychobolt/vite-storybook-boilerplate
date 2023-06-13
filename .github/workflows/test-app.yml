@@ -28,10 +28,11 @@ jobs:
       - name: Verify dependencies
         run: yarn bootstrap
       - name: Run post upgrade
-        if: failure()
+        if: failure() &&  github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.head_ref, 'renovate/') && github.actor == 'renovate[bot]'
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: renovate.yml
+          inputs: '{ "force": true }'
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Build
