@@ -2,7 +2,6 @@ name: Apps
 
 on:
   push:
-    paths: apps/**
   workflow_dispatch:
     inputs:
       change-from:
@@ -35,7 +34,6 @@ jobs:
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: renovate.yml
-          inputs: '{ "force": true }'
 
   next-app:
     needs: [diff, install]
@@ -46,7 +44,7 @@ jobs:
       path: apps/next-app
 
   svelte-app:
-    needs: diff
+    needs: [diff, install]
     if: contains(fromJSON(needs.diff.outputs.package_names), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
     with:
