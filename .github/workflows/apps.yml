@@ -16,8 +16,6 @@ jobs:
     needs: diff
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    outputs:
-      diff_packages: ${{ steps.conclusion.outputs.PACKAGE_NAMES || '[]' }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -39,21 +37,18 @@ jobs:
         with:
           workflow: renovate.yml
           inputs: '{ "force": true }'
-      - name: Pass
-        id: conclusion
-        run: echo 'PACKAGE_NAMES="${{ needs.diff.outputs.package_names }}"' >> $GITHUB_OUTPUT
 
   next-app:
-    needs: install
-    if: contains(fromJSON(needs.install.outputs.diff_packages), 'next-app')
+    needs: diff
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'next-app')
     uses: ./.github/workflows/test-app.yml
     with:
       workspace: next-app
       path: apps/next-app
 
   svelte-app:
-    needs: install
-    if: contains(fromJSON(needs.install.outputs.diff_packages), 'svelte-app')
+    needs: diff
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
     with:
       workspace: svelte-app
