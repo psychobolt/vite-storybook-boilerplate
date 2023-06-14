@@ -1,35 +1,12 @@
 name: Renovate
 
 on:
-  pull_request:
-    paths:
-      - "**/yarn.lock"
   workflow_dispatch:
-    inputs:
-      force:
-        type: boolean
-        default: false
 
 jobs:
-  check:
-    if: inputs.force || (github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.head_ref, 'renovate/') && github.actor == 'renovate[bot]')
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    outputs:
-      conclusion: ${{ steps.build_status.outputs.conclusion }}
-    steps:
-      - name: Wait for CI workflow to complete
-        uses: fountainhead/action-wait-for-check@v1.1.0
-        id: build_status
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          checkName: Build and Test (ubuntu-latest)
-          token: ${{ secrets.GITHUB_TOKEN }}
   post-upgrade:
-    needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    if: inputs.force || needs.check.outputs.conclusion == 'failure' || needs.check.outputs.conclusion == 'cancelled'
     steps:
       - name: Check out code
         uses: actions/checkout@v3

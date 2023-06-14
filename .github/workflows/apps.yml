@@ -13,7 +13,6 @@ jobs:
     uses: ./.github/workflows/diff.yml
 
   install:
-    needs: diff
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -39,7 +38,7 @@ jobs:
           inputs: '{ "force": true }'
 
   next-app:
-    needs: diff
+    needs: [diff, install]
     if: contains(fromJSON(needs.diff.outputs.package_names), 'next-app')
     uses: ./.github/workflows/test-app.yml
     with:
