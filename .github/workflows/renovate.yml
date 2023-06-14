@@ -11,18 +11,8 @@ on:
         default: false
 
 jobs:
-  init:
-    runs-on: ubuntu-latest
-    outputs:
-      duplicate: ${{ steps.check_duplicated_workflow.outputs.should_skip }}
-    steps:
-      - id: check_duplicated_workflow
-        uses: fkirc/skip-duplicate-actions@v5
-        with:
-          do_not_skip: '["schedule"]'
   check:
-    needs: init
-    if: needs.init.outputs.duplicate != 'true' && (inputs.force || (github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.head_ref, 'renovate/') && github.actor == 'renovate[bot]'))
+    if: inputs.force || (github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.head_ref, 'renovate/') && github.actor == 'renovate[bot]')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     outputs:

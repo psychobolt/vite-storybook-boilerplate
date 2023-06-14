@@ -12,17 +12,48 @@ jobs:
   diff:
     uses: ./.github/workflows/diff.yml
 
-  next-app:
+  install:
     needs: diff
-    if: contains(fromJSON(needs.diff.outputs.package_names), 'next-app')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      diff_packages: ${{ steps.conclusion.outputs.PACKAGE_NAMES || '[]' }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: yarn
+      - name: Unpack binaries
+        run: yarn install
+      - name: Verify dependencies
+        run: yarn bootstrap
+      - name: Trigger post upgrade
+        id: trigger
+        if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: renovate.yml
+          inputs: '{ "force": true }'
+      - name: Pass
+        id: conclusion
+        run: echo 'PACKAGE_NAMES="${{ needs.diff.outputs.package_names }}"' >> $GITHUB_OUTPUT
+
+  next-app:
+    needs: install
+    if: contains(fromJSON(needs.install.outputs.diff_packages), 'next-app')
     uses: ./.github/workflows/test-app.yml
     with:
       workspace: next-app
       path: apps/next-app
 
   svelte-app:
-    needs: diff
-    if: contains(fromJSON(needs.diff.outputs.package_names), 'svelte-app')
+    needs: install
+    if: contains(fromJSON(needs.install.outputs.diff_packages), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
     with:
       workspace: svelte-app
