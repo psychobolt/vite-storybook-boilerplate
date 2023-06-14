@@ -3,7 +3,7 @@ name: Renovate
 on:
   pull_request:
     paths:
-      - '**/yarn.lock'
+      - "**/yarn.lock"
   workflow_dispatch:
     inputs:
       force:
