@@ -31,7 +31,9 @@ jobs:
       - name: Trigger post upgrade
         id: trigger
         if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
-        uses: ./.github/workflows/renovate.yml
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: renovate.yml
 
   next-app:
     needs: [diff, install]
