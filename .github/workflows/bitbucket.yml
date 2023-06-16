@@ -38,6 +38,8 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Lint
         run: yarn lint
+      - name: Queue workflow
+        uses: ahmadnassri/action-workflow-queue@v1
       - name: Checkout bitbucket branch
         run: git checkout -b bitbucket origin/bitbucket
       - name: Merge with main branch
