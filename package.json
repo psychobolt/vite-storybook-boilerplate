@@ -36,7 +36,7 @@
     "glob-to-regexp": "0.4.1",
     "playwright-chromium": "1.35.1",
     "prettier": "3.0.0-alpha.9-for-vscode",
-    "sb": "7.0.21",
+    "sb": "7.0.22",
     "stylelint": "15.7.0",
     "ts-node": "10.9.1",
     "turbo": "1.10.3",
