@@ -63,7 +63,7 @@ yarn g:prettier [options] # Runs prettier format tool
 
 ```sh
 #cd (packages|apps)/workspace-name # option if not using yarn workspace command, otherwise you'll run task on all workspaces
-yarn [workspace workspace-name] turbo task-name [--force] # Run a turbo enabled task
+yarn [workspace workspace-name] turbo task-name [--force] [-- --some-option] # Run a turbo enabled task
 yarn [workspace workspace-name] bootstrap
 yarn [workspace workspace-name] start # Serve production build
 yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
@@ -74,7 +74,7 @@ yarn [workspace workspace-name] turbo run lcov # Generate interactive coverage r
 yarn [workspace workspace-name] turbo run lint
 yarn [workspace workspace-name] turbo run format
 yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
-yarn [workspace workspace-name] turbo run test [--coverage]
+yarn [workspace workspace-name] turbo run test [-- --coverage]
 yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library can be a private package
 ```
 
