@@ -45,7 +45,7 @@
     "@storybook/blocks": "7.0.22",
     "@storybook/react": "7.0.22",
     "@storybook/react-vite": "7.0.22",
-    "@storybook/test-runner": "0.11.0-next.1",
+    "@storybook/test-runner": "0.11.0",
     "@storybook/testing-library": "0.1.0",
     "@tsconfig/vite-react": "2.0.0",
     "@types/react": "18.2.13",
