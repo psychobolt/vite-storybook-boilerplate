@@ -48,7 +48,7 @@
     "@storybook/test-runner": "0.11.0",
     "@storybook/testing-library": "0.1.0",
     "@tsconfig/vite-react": "2.0.0",
-    "@types/react": "18.2.13",
+    "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "chromatic": "6.19.9",
     "commons": "workspace:*",
