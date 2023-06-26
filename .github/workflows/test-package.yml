@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     name: Run Tests
-    timeout-minutes: 15
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     environment: ${{ inputs.workspace }}
     env:
