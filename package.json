@@ -2,7 +2,7 @@
   "name": "vite-storybook-boilerplate",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@3.6.0",
+  "packageManager": "yarn@3.6.1",
   "scripts": {
     "ts-loader-path": "yarn node -p \"require.resolve('ts-node/esm')\"",
     "ts-script": "yarn g:ts-script",
