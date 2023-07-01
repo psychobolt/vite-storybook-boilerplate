@@ -51,6 +51,6 @@
     "vite-plugin-turbosnap": "1.0.2"
   },
   "devDependencies": {
-    "turbo": "1.10.4"
+    "turbo": "1.10.7"
   }
 }
