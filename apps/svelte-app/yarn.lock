@@ -840,24 +840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:2.0.3":
-  version: 2.0.3
-  resolution: "@eslint/eslintrc@npm:2.0.3"
-  dependencies:
-    ajv: ^6.12.4
-    debug: ^4.3.2
-    espree: ^9.5.2
-    globals: ^13.19.0
-    ignore: ^5.2.0
-    import-fresh: ^3.2.1
-    js-yaml: ^4.1.0
-    minimatch: ^3.1.2
-    strip-json-comments: ^3.1.1
-  checksum: ddc51f25f8524d8231db9c9bf03177e503d941a332e8d5ce3b10b09241be4d5584a378a529a27a527586bfbccf3031ae539eb891352033c340b012b4d0c81d92
-  languageName: node
-  linkType: hard
-
-"@eslint/eslintrc@npm:^2.1.0":
+"@eslint/eslintrc@npm:2.1.0, @eslint/eslintrc@npm:^2.1.0":
   version: 2.1.0
   resolution: "@eslint/eslintrc@npm:2.1.0"
   dependencies:
@@ -4274,7 +4257,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "commons@portal:../../packages/commons::locator=svelte-app%40workspace%3A."
   dependencies:
-    "@eslint/eslintrc": 2.0.3
+    "@eslint/eslintrc": 2.1.0
     "@storybook/addon-coverage": 0.0.8
     "@storybook/addon-essentials": 7.0.24
     "@storybook/addon-interactions": 7.0.24
@@ -5456,7 +5439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.5.1, espree@npm:^9.5.2":
+"espree@npm:^9.5.1":
   version: 9.5.2
   resolution: "espree@npm:9.5.2"
   dependencies:
