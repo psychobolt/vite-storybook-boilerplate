@@ -10473,7 +10473,7 @@ __metadata:
     stylelint-config-prettier-scss: 1.0.0
     stylelint-config-standard-scss: 10.0.0
     svelte: 4.0.5
-    svelte-check: 3.4.4
+    svelte-check: 3.4.6
     svelte-language-server: 0.15.14
     tslib: 2.6.0
     turbo: 1.10.7
@@ -10482,9 +10482,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"svelte-check@npm:3.4.4":
-  version: 3.4.4
-  resolution: "svelte-check@npm:3.4.4"
+"svelte-check@npm:3.4.6":
+  version: 3.4.6
+  resolution: "svelte-check@npm:3.4.6"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.17
     chokidar: ^3.4.1
@@ -10492,13 +10492,13 @@ __metadata:
     import-fresh: ^3.2.1
     picocolors: ^1.0.0
     sade: ^1.7.4
-    svelte-preprocess: ^5.0.3
+    svelte-preprocess: ^5.0.4
     typescript: ^5.0.3
   peerDependencies:
     svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: 64000f22eb9a9d1495bc37a0698deef7a422d81c5f84df4cb296811c814324475f2885dc6345fee913cd6a4b33b472752740831fcd2f840679f927b1d3027802
+  checksum: d2baa7dc91f09ae726c76f174038411871c800dc1d8134a177390cc4f0d0f31a6da49f020d9d58f4211a3b7020209fc804884081ce9fc0a3870a25d345b0fc9e
   languageName: node
   linkType: hard
 
@@ -10539,7 +10539,53 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-preprocess@npm:^5.0.3, svelte-preprocess@npm:~5.0.3":
+"svelte-preprocess@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "svelte-preprocess@npm:5.0.4"
+  dependencies:
+    "@types/pug": ^2.0.6
+    detect-indent: ^6.1.0
+    magic-string: ^0.27.0
+    sorcery: ^0.11.0
+    strip-indent: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.10.2
+    coffeescript: ^2.5.1
+    less: ^3.11.3 || ^4.0.0
+    postcss: ^7 || ^8
+    postcss-load-config: ^2.1.0 || ^3.0.0 || ^4.0.0
+    pug: ^3.0.0
+    sass: ^1.26.8
+    stylus: ^0.55.0
+    sugarss: ^2.0.0 || ^3.0.0 || ^4.0.0
+    svelte: ^3.23.0 || ^4.0.0-next.0 || ^4.0.0
+    typescript: ">=3.9.5 || ^4.0.0 || ^5.0.0"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    coffeescript:
+      optional: true
+    less:
+      optional: true
+    postcss:
+      optional: true
+    postcss-load-config:
+      optional: true
+    pug:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    typescript:
+      optional: true
+  checksum: 2acd36ccdf5e8d624e753a3dbcd3ca947e87e01509ab3eb3d862551b4278ca684763baf87f0240eab1646c16b0d59fa82227079cce762908f29dd359d1ac69ca
+  languageName: node
+  linkType: hard
+
+"svelte-preprocess@npm:~5.0.3":
   version: 5.0.3
   resolution: "svelte-preprocess@npm:5.0.3"
   dependencies:
