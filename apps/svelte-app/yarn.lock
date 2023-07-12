@@ -2466,9 +2466,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:1.22.1":
-  version: 1.22.1
-  resolution: "@sveltejs/kit@npm:1.22.1"
+"@sveltejs/kit@npm:1.22.3":
+  version: 1.22.3
+  resolution: "@sveltejs/kit@npm:1.22.3"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^2.4.1
     "@types/cookie": ^0.5.1
@@ -2487,7 +2487,7 @@ __metadata:
     vite: ^4.0.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 32f831bd8a24cd3f6f6243d0a9ee9f0406dd2e2f7d45f8027e9c3eccf6556bb205b8eab665c3a8260a3d35077b31d30e09828f6c644cf6b072d3c4231d71d3f5
+  checksum: 8363261db7766a8d724a23ce20b8675092bddd6c0f16e7f54c532a4607729f772c02b1aa3d0b85e235ca9b1db56937203c948f498f27fa522210f5f07ef5c86e
   languageName: node
   linkType: hard
 
@@ -10457,7 +10457,7 @@ __metadata:
     "@neoconfetti/svelte": ^1.0.0
     "@sveltejs/adapter-auto": 2.1.0
     "@sveltejs/adapter-vercel": 3.0.1
-    "@sveltejs/kit": 1.22.1
+    "@sveltejs/kit": 1.22.3
     "@types/cookie": ^0.5.1
     "@typescript-eslint/eslint-plugin": 5.61.0
     "@typescript-eslint/parser": 5.61.0
