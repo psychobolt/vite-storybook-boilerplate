@@ -9466,20 +9466,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@sveltejs/adapter-vercel", [\
-        ["npm:3.0.2", {\
-          "packageLocation": "./.yarn/cache/@sveltejs-adapter-vercel-npm-3.0.2-de0d557b1d-543b97c02d.zip/node_modules/@sveltejs/adapter-vercel/",\
+        ["npm:3.0.3", {\
+          "packageLocation": "./.yarn/cache/@sveltejs-adapter-vercel-npm-3.0.3-d1f7ad3abe-a7b29b2050.zip/node_modules/@sveltejs/adapter-vercel/",\
           "packageDependencies": [\
-            ["@sveltejs/adapter-vercel", "npm:3.0.2"]\
+            ["@sveltejs/adapter-vercel", "npm:3.0.3"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.2", {\
-          "packageLocation": "./.yarn/__virtual__/@sveltejs-adapter-vercel-virtual-6d2a170165/0/cache/@sveltejs-adapter-vercel-npm-3.0.2-de0d557b1d-543b97c02d.zip/node_modules/@sveltejs/adapter-vercel/",\
+        ["virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.3", {\
+          "packageLocation": "./.yarn/__virtual__/@sveltejs-adapter-vercel-virtual-9b012feb8b/0/cache/@sveltejs-adapter-vercel-npm-3.0.3-d1f7ad3abe-a7b29b2050.zip/node_modules/@sveltejs/adapter-vercel/",\
           "packageDependencies": [\
-            ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.2"],\
+            ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.3"],\
             ["@sveltejs/kit", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:1.22.3"],\
             ["@types/sveltejs__kit", null],\
-            ["@vercel/nft", "npm:0.22.6"],\
+            ["@vercel/nft", "npm:0.23.0"],\
             ["esbuild", "npm:0.18.11"]\
           ],\
           "packagePeers": [\
@@ -11254,10 +11254,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@vercel/nft", [\
-        ["npm:0.22.6", {\
-          "packageLocation": "./.yarn/cache/@vercel-nft-npm-0.22.6-6ebf98d01c-03ab38477c.zip/node_modules/@vercel/nft/",\
+        ["npm:0.23.0", {\
+          "packageLocation": "./.yarn/cache/@vercel-nft-npm-0.23.0-ad6f12fb2f-2447a51f2a.zip/node_modules/@vercel/nft/",\
           "packageDependencies": [\
-            ["@vercel/nft", "npm:0.22.6"],\
+            ["@vercel/nft", "npm:0.23.0"],\
             ["@mapbox/node-pre-gyp", "npm:1.0.10"],\
             ["@rollup/pluginutils", "npm:4.2.1"],\
             ["acorn", "npm:8.8.2"],\
@@ -25073,7 +25073,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fontsource/fira-mono", "npm:5.0.0"],\
             ["@neoconfetti/svelte", "npm:1.0.0"],\
             ["@sveltejs/adapter-auto", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.1.0"],\
-            ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.2"],\
+            ["@sveltejs/adapter-vercel", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.3"],\
             ["@sveltejs/kit", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:1.22.3"],\
             ["@types/cookie", "npm:0.5.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:5.61.0"],\

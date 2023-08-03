@@ -5774,15 +5774,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@sveltejs/adapter-vercel@npm:3.0.2"
+"@sveltejs/adapter-vercel@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@sveltejs/adapter-vercel@npm:3.0.3"
   dependencies:
-    "@vercel/nft": ^0.22.6
+    "@vercel/nft": ^0.23.0
     esbuild: ^0.18.11
   peerDependencies:
     "@sveltejs/kit": ^1.5.0
-  checksum: 543b97c02dbff27da0947bc336b25babfb90662122766c3aa3da9ed09c38529440d6d9b7a4c476490a538a2b86c8c84c01c2fa43ddf870fb7f6e191edbd9ac8a
+  checksum: a7b29b20505d08c81714325061b38cc3644e364bc7fcb12b8897e854374371a765e3a360c2e974161cb447e94029c4053c84466b44e689d70275288637e61e64
   languageName: node
   linkType: hard
 
@@ -7104,9 +7104,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:^0.22.6":
-  version: 0.22.6
-  resolution: "@vercel/nft@npm:0.22.6"
+"@vercel/nft@npm:^0.23.0":
+  version: 0.23.0
+  resolution: "@vercel/nft@npm:0.23.0"
   dependencies:
     "@mapbox/node-pre-gyp": ^1.0.5
     "@rollup/pluginutils": ^4.0.0
@@ -7121,7 +7121,7 @@ __metadata:
     resolve-from: ^5.0.0
   bin:
     nft: out/cli.js
-  checksum: 03ab38477ca7006b3d5568a716128a5abb13a425205ea5cb23eed86967334a6c7fc9d36c58154e1ccd4e349e3ec0d725aa7496ef4159bf232ad706d842d85c29
+  checksum: 2447a51f2a89bd8f5ae738fec294ae4f97729d2a5f876ff0b92ec2a2d9daaba34413feac8436e667bda34189cfd8c8351b7ee2fa3097c1096c06387babf58fd6
   languageName: node
   linkType: hard
 
@@ -18818,7 +18818,7 @@ __metadata:
     "@fontsource/fira-mono": ^5.0.0
     "@neoconfetti/svelte": ^1.0.0
     "@sveltejs/adapter-auto": 2.1.0
-    "@sveltejs/adapter-vercel": 3.0.2
+    "@sveltejs/adapter-vercel": 3.0.3
     "@sveltejs/kit": 1.22.3
     "@types/cookie": ^0.5.1
     "@typescript-eslint/eslint-plugin": 5.61.0
