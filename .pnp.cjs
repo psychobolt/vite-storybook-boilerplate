@@ -223,28 +223,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:7.22.8", {\
-          "packageLocation": "./.yarn/cache/@babel-core-npm-7.22.8-9bdd6247dd-75ed701c14.zip/node_modules/@babel/core/",\
-          "packageDependencies": [\
-            ["@babel/core", "npm:7.22.8"],\
-            ["@ampproject/remapping", "npm:2.2.1"],\
-            ["@babel/code-frame", "npm:7.22.5"],\
-            ["@babel/generator", "npm:7.22.7"],\
-            ["@babel/helper-compilation-targets", "virtual:9bdd6247dd108494b0ae9fcf9bfcd39df5094f69f9ad6500fb0db94fd7247422aba6154e8ea6785f1dcc458d735493a96fbde81972d155cfa4860f50a11f1eb7#npm:7.22.6"],\
-            ["@babel/helper-module-transforms", "npm:7.22.5"],\
-            ["@babel/helpers", "npm:7.22.6"],\
-            ["@babel/parser", "npm:7.22.7"],\
-            ["@babel/template", "npm:7.22.5"],\
-            ["@babel/traverse", "npm:7.22.8"],\
-            ["@babel/types", "npm:7.22.5"],\
-            ["@nicolo-ribaudo/semver-v6", "npm:6.3.3"],\
-            ["convert-source-map", "npm:1.9.0"],\
-            ["debug", "virtual:352060d453a801a0fd16b073afb56a2607e33f96a5ff7faf9351853a737843ea6ad854442954d36ef1f89461751ed94f005ea67c746b39723d1da041a244f7d2#npm:4.3.4"],\
-            ["gensync", "npm:1.0.0-beta.2"],\
-            ["json5", "npm:2.2.3"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:7.22.9", {\
           "packageLocation": "./.yarn/cache/@babel-core-npm-7.22.9-509b29c82e-7bf069aece.zip/node_modules/@babel/core/",\
           "packageDependencies": [\
@@ -418,24 +396,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["browserslist", "npm:4.21.9"],\
             ["lru-cache", "npm:5.1.1"],\
             ["semver", "npm:6.3.1"]\
-          ],\
-          "packagePeers": [\
-            "@babel/core",\
-            "@types/babel__core"\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["virtual:9bdd6247dd108494b0ae9fcf9bfcd39df5094f69f9ad6500fb0db94fd7247422aba6154e8ea6785f1dcc458d735493a96fbde81972d155cfa4860f50a11f1eb7#npm:7.22.6", {\
-          "packageLocation": "./.yarn/__virtual__/@babel-helper-compilation-targets-virtual-9654b4e030/0/cache/@babel-helper-compilation-targets-npm-7.22.6-566055c10e-c7788c4809.zip/node_modules/@babel/helper-compilation-targets/",\
-          "packageDependencies": [\
-            ["@babel/helper-compilation-targets", "virtual:9bdd6247dd108494b0ae9fcf9bfcd39df5094f69f9ad6500fb0db94fd7247422aba6154e8ea6785f1dcc458d735493a96fbde81972d155cfa4860f50a11f1eb7#npm:7.22.6"],\
-            ["@babel/compat-data", "npm:7.22.6"],\
-            ["@babel/core", "npm:7.22.8"],\
-            ["@babel/helper-validator-option", "npm:7.22.5"],\
-            ["@nicolo-ribaudo/semver-v6", "npm:6.3.3"],\
-            ["@types/babel__core", null],\
-            ["browserslist", "npm:4.21.9"],\
-            ["lru-cache", "npm:5.1.1"]\
           ],\
           "packagePeers": [\
             "@babel/core",\
@@ -8464,7 +8424,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@storybook-html-virtual-a486250a09/0/cache/@storybook-html-npm-7.2.1-568840b276-66051c6630.zip/node_modules/@storybook/html/",\
           "packageDependencies": [\
             ["@storybook/html", "virtual:222e91f6d5a974161ea31ee6efc71fed8c6512e12095bc98e7ae279098a9d7ff95e294623284695057dd0ba84630fa125c07ffa2980854cdeeeb2803597dc9ab#npm:7.2.1"],\
-            ["@babel/core", "npm:7.22.8"],\
+            ["@babel/core", "npm:7.22.9"],\
             ["@storybook/core-client", "npm:7.2.1"],\
             ["@storybook/docs-tools", "npm:7.2.1"],\
             ["@storybook/global", "npm:5.0.0"],\
@@ -17390,7 +17350,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/html-ui/",\
           "packageDependencies": [\
             ["html-ui", "workspace:packages/html-ui"],\
-            ["@babel/core", "npm:7.22.8"],\
+            ["@babel/core", "npm:7.22.9"],\
             ["@storybook/addon-essentials", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.2.1"],\
             ["@storybook/blocks", "virtual:b26c3a7e8044b73722a420746596dc8a055dc1f8931c1745ad9512a7c79496f19597208dffabb5cfc5b85effd7b21eede031e7b10be163b4e66ed947ed8c45fa#npm:7.2.1"],\
             ["@storybook/builder-vite", "virtual:222e91f6d5a974161ea31ee6efc71fed8c6512e12095bc98e7ae279098a9d7ff95e294623284695057dd0ba84630fa125c07ffa2980854cdeeeb2803597dc9ab#npm:7.2.1"],\
