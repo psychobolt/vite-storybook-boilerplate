@@ -51,6 +51,7 @@
     "vite-plugin-turbosnap": "1.0.2"
   },
   "devDependencies": {
+    "playwright-chromium": "1.35.1",
     "turbo": "1.10.7"
   }
 }
