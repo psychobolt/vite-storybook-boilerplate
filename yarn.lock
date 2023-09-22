@@ -4710,7 +4710,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/client-logger@npm:7.0.7, @storybook/client-logger@npm:^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0":
+"@storybook/client-logger@npm:7.0.7":
   version: 7.0.7
   resolution: "@storybook/client-logger@npm:7.0.7"
   dependencies:
@@ -5229,19 +5229,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/instrumenter@npm:^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0":
-  version: 7.0.7
-  resolution: "@storybook/instrumenter@npm:7.0.7"
-  dependencies:
-    "@storybook/channels": 7.0.7
-    "@storybook/client-logger": 7.0.7
-    "@storybook/core-events": 7.0.7
-    "@storybook/global": ^5.0.0
-    "@storybook/preview-api": 7.0.7
-  checksum: 0303a2eabcce4e5367f629ea585c0c9d68c32908a2e902ef5fcbf12c503f1d59ec56eaa20b8ecc6300c6d4cd97bffbbde4407d5edaad0cc5520b50f99e2500f3
-  languageName: node
-  linkType: hard
-
 "@storybook/manager-api@npm:7.0.7":
   version: 7.0.7
   resolution: "@storybook/manager-api@npm:7.0.7"
@@ -5647,9 +5634,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.11.0":
-  version: 0.11.0
-  resolution: "@storybook/test-runner@npm:0.11.0"
+"@storybook/test-runner@npm:0.13.0":
+  version: 0.13.0
+  resolution: "@storybook/test-runner@npm:0.13.0"
   dependencies:
     "@babel/core": ^7.22.5
     "@babel/generator": ^7.22.5
@@ -5680,20 +5667,18 @@ __metadata:
     ts-dedent: ^2.0.0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: ced74b8aa60214cc8cdcfaf287c95f65c767d1e925844b4f9cf0cea99e11179a64d4e83cb3369d4c01aa6a3fcb5178479399482e321f8fd479b9ec1c79d1a2c9
+  checksum: 7297577aa02505ff70fb7b245f0ecd96595491665ecd517e06f90ce7c969ebbaea2818333d4b4816bb475e1b08b67c24411fdf50dcac75ec52cb02fa72ac4d81
   languageName: node
   linkType: hard
 
-"@storybook/testing-library@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@storybook/testing-library@npm:0.1.0"
+"@storybook/testing-library@npm:0.2.1":
+  version: 0.2.1
+  resolution: "@storybook/testing-library@npm:0.2.1"
   dependencies:
-    "@storybook/client-logger": ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
-    "@storybook/instrumenter": ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
-    "@testing-library/dom": ^8.3.0
-    "@testing-library/user-event": ^13.2.1
+    "@testing-library/dom": ^9.0.0
+    "@testing-library/user-event": ~14.4.0
     ts-dedent: ^2.2.0
-  checksum: a413110dafe80f8fe64da912fddb653bc3c695c94bd023b8cb918e519e9f94119bae559909bfb8ad229041a4f17a12b33425c61572270702c116d0b727b4d4ba
+  checksum: 2688361b634921219e4dc8e4acbc6622cfba6c224bd9bf17bf9bfb3655c906129cc82edd69354b9b1889b6f43c9c5e74bd51adb4407b68033d78279b93aee457
   languageName: node
   linkType: hard
 
@@ -6111,30 +6096,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^8.3.0":
-  version: 8.20.0
-  resolution: "@testing-library/dom@npm:8.20.0"
+"@testing-library/dom@npm:^9.0.0":
+  version: 9.3.3
+  resolution: "@testing-library/dom@npm:9.3.3"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/runtime": ^7.12.5
     "@types/aria-query": ^5.0.1
-    aria-query: ^5.0.0
+    aria-query: 5.1.3
     chalk: ^4.1.0
     dom-accessibility-api: ^0.5.9
-    lz-string: ^1.4.4
+    lz-string: ^1.5.0
     pretty-format: ^27.0.2
-  checksum: 1e599129a2fe91959ce80900a0a4897232b89e2a8e22c1f5950c36d39c97629ea86b4986b60b173b5525a05de33fde1e35836ea597b03de78cc51b122835c6f0
+  checksum: 34e0a564da7beb92aa9cc44a9080221e2412b1a132eb37be3d513fe6c58027674868deb9f86195756d98d15ba969a30fe00632a4e26e25df2a5a4f6ac0686e37
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^13.2.1":
-  version: 13.5.0
-  resolution: "@testing-library/user-event@npm:13.5.0"
-  dependencies:
-    "@babel/runtime": ^7.12.5
+"@testing-library/user-event@npm:~14.4.0":
+  version: 14.4.3
+  resolution: "@testing-library/user-event@npm:14.4.3"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 16319de685fbb7008f1ba667928f458b2d08196918002daca56996de80ef35e6d9de26e9e1ece7d00a004692b95a597cf9142fff0dc53f2f51606a776584f549
+  checksum: 852c48ea6db1c9471b18276617c84fec4320771e466cd58339a732ca3fd73ad35e5a43ae14f51af51a8d0a150dcf60fcaab049ef367871207bea8f92c4b8195e
   languageName: node
   linkType: hard
 
@@ -7608,7 +7591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aria-query@npm:^5.0.0, aria-query@npm:^5.1.3":
+"aria-query@npm:5.1.3, aria-query@npm:^5.1.3":
   version: 5.1.3
   resolution: "aria-query@npm:5.1.3"
   dependencies:
@@ -8912,6 +8895,8 @@ __metadata:
     "@storybook/addon-interactions": 7.2.1
     "@storybook/addon-links": 7.2.1
     "@storybook/builder-vite": 7.2.1
+    "@storybook/test-runner": 0.13.0
+    "@storybook/testing-library": 0.2.1
     "@storybook/types": 7.2.1
     "@tsconfig/recommended": 1.0.2
     "@types/eslint": 8.40.2
@@ -8929,6 +8914,7 @@ __metadata:
     eslint-plugin-promise: 6.1.1
     eslint-plugin-react: 7.32.2
     eslint-plugin-react-hooks: 4.6.0
+    playwright: 1.35.1
     playwright-chromium: 1.35.1
     postcss: 8.4.24
     postcss-scss: 4.0.6
@@ -12212,8 +12198,6 @@ __metadata:
     "@storybook/builder-vite": 7.2.1
     "@storybook/html": 7.2.1
     "@storybook/html-vite": 7.2.1
-    "@storybook/test-runner": 0.11.0
-    "@storybook/testing-library": 0.1.0
     chromatic: 6.19.9
     commons: "workspace:*"
     http-server: 14.1.1
@@ -14337,7 +14321,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lz-string@npm:^1.4.4":
+"lz-string@npm:^1.5.0":
   version: 1.5.0
   resolution: "lz-string@npm:1.5.0"
   bin:
@@ -17222,8 +17206,6 @@ __metadata:
     "@storybook/blocks": 7.2.1
     "@storybook/react": 7.2.1
     "@storybook/react-vite": 7.2.1
-    "@storybook/test-runner": 0.11.0
-    "@storybook/testing-library": 0.1.0
     "@tsconfig/vite-react": 2.0.0
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
@@ -20400,7 +20382,6 @@ __metadata:
     eslint: 8.44.0
     execa: 7.1.1
     glob-to-regexp: 0.4.1
-    playwright: 1.35.1
     playwright-chromium: 1.35.1
     prettier: 3.0.0-alpha.9-for-vscode
     sb: 7.2.1
