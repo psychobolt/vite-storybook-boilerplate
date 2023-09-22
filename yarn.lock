@@ -8967,8 +8967,6 @@ __metadata:
     typescript: 5.1.6
     vite: 4.3.9
     vite-plugin-turbosnap: 1.0.2
-  peerDependencies:
-    "@storybook/testing-library": 0.2.1
   languageName: unknown
   linkType: soft
 
