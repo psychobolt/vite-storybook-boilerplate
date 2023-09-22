@@ -34,6 +34,7 @@
     "eslint": "8.44.0",
     "execa": "7.1.1",
     "glob-to-regexp": "0.4.1",
+    "playwright": "1.35.1",
     "playwright-chromium": "1.35.1",
     "prettier": "3.0.0-alpha.9-for-vscode",
     "sb": "7.2.1",

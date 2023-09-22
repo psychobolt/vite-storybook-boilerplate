@@ -32,7 +32,7 @@ jobs:
       - name: Unpack binaries
         run: yarn install
       - name: Install Playwright
-        run: yarn dlx playwright install --with-deps
+        run: yarn playwright install --with-deps chromium
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Coverage

@@ -62,6 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.44.0"],\
             ["execa", "npm:7.1.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
+            ["playwright", "npm:1.35.1"],\
             ["playwright-chromium", "npm:1.35.1"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.2.1"],\
@@ -22107,6 +22108,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["playwright-core", "npm:1.33.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:1.35.1", {\
+          "packageLocation": "./.yarn/cache/playwright-npm-1.35.1-95370832b7-46e8ad6d44.zip/node_modules/playwright/",\
+          "packageDependencies": [\
+            ["playwright", "npm:1.35.1"],\
+            ["playwright-core", "npm:1.35.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["playwright-chromium", [\
@@ -27142,6 +27151,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.44.0"],\
             ["execa", "npm:7.1.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
+            ["playwright", "npm:1.35.1"],\
             ["playwright-chromium", "npm:1.35.1"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.2.1"],\

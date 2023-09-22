@@ -16519,6 +16519,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright@npm:1.35.1":
+  version: 1.35.1
+  resolution: "playwright@npm:1.35.1"
+  dependencies:
+    playwright-core: 1.35.1
+  bin:
+    playwright: cli.js
+  checksum: 46e8ad6d4429acd8e6c8e680ed8107b13c62a22bb95172666411aedb8e9abd8f9c379e4905493a330e29c3dcf63b9a49a528f2f081d682d9f5da078c54760634
+  languageName: node
+  linkType: hard
+
 "playwright@npm:^1.14.0":
   version: 1.33.0
   resolution: "playwright@npm:1.33.0"
@@ -20389,6 +20400,7 @@ __metadata:
     eslint: 8.44.0
     execa: 7.1.1
     glob-to-regexp: 0.4.1
+    playwright: 1.35.1
     playwright-chromium: 1.35.1
     prettier: 3.0.0-alpha.9-for-vscode
     sb: 7.2.1
