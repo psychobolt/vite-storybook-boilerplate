@@ -13,7 +13,7 @@
     "format": "yarn g:prettier --write ."
   },
   "dependencies": {
-    "@eslint/eslintrc": "2.1.0",
+    "@eslint/eslintrc": "2.1.2",
     "@storybook/addon-coverage": "0.0.8",
     "@storybook/addon-essentials": "7.2.1",
     "@storybook/addon-interactions": "7.2.1",
