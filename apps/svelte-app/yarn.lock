@@ -1564,9 +1564,9 @@ __metadata:
   linkType: hard
 
 "@fontsource/fira-mono@npm:^5.0.0":
-  version: 5.0.7
-  resolution: "@fontsource/fira-mono@npm:5.0.7"
-  checksum: 742e19d049fd5ba54e988f37706fe4fc1216b13818a9b1cfdb806e7fafe6c49a7ea262e64b82a0956b226aa60c9f90a0e5e522ca28fdec3c90ec85365f218691
+  version: 5.0.8
+  resolution: "@fontsource/fira-mono@npm:5.0.8"
+  checksum: 41f0a700a8953dc602d34fdbad6baad02f78f32fd1f7db19216b6b2649fb8581d71673a1dbd605d8fc2bc523e2276a496070e4e6e455e14d57e8fd41acb2aa51
   languageName: node
   linkType: hard
 
