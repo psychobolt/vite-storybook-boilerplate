@@ -39,7 +39,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "playwright": "1.35.1",
     "playwright-chromium": "1.35.1",
-    "postcss": "8.4.24",
+    "postcss": "8.4.30",
     "postcss-scss": "4.0.6",
     "prettier": "2.8.8",
     "prettier-config-standard": "5.0.0",

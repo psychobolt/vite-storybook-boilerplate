@@ -13770,7 +13770,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.6.0"],\
             ["playwright", "npm:1.35.1"],\
             ["playwright-chromium", "npm:1.35.1"],\
-            ["postcss", "npm:8.4.24"],\
+            ["postcss", "npm:8.4.30"],\
             ["postcss-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.0.6"],\
             ["prettier", "npm:2.8.8"],\
             ["prettier-config-standard", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:5.0.0"],\
@@ -22553,16 +22553,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:8.4.24", {\
-          "packageLocation": "./.yarn/cache/postcss-npm-8.4.24-07c10836e5-814e2126da.zip/node_modules/postcss/",\
-          "packageDependencies": [\
-            ["postcss", "npm:8.4.24"],\
-            ["nanoid", "npm:3.3.6"],\
-            ["picocolors", "npm:1.0.0"],\
-            ["source-map-js", "npm:1.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:8.4.30", {\
           "packageLocation": "./.yarn/cache/postcss-npm-8.4.30-b2330f9182-6c810c10c9.zip/node_modules/postcss/",\
           "packageDependencies": [\
@@ -22725,7 +22715,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["postcss-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.0.6"],\
             ["@types/postcss", null],\
-            ["postcss", "npm:8.4.24"]\
+            ["postcss", "npm:8.4.30"]\
           ],\
           "packagePeers": [\
             "@types/postcss",\
@@ -25234,7 +25224,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylelint-config-recommended-scss", "virtual:a88494ae26179818d7a8b3e0f3cef8fb07fbe2f0745ec6097a3bee4d4e48af3751de3f30092906b3867fe8cc3bb3e10d0cdf625ee04fedce1a3d8aaab67dedbc#npm:12.0.0"],\
             ["@types/postcss", null],\
             ["@types/stylelint", null],\
-            ["postcss", "npm:8.4.24"],\
+            ["postcss", "npm:8.4.30"],\
             ["postcss-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.0.6"],\
             ["stylelint", "npm:15.10.3"],\
             ["stylelint-config-recommended", "virtual:88a46fdabb2ae44a2b67a041a27ba37c687590a8bf4b459b6078911f2cdf441795a2ecaef6c9ee53dc5a710e59e14a058d91929961e7215a4a896717150bea67#npm:12.0.0"],\
@@ -25306,7 +25296,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylelint-config-standard-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:10.0.0"],\
             ["@types/postcss", null],\
             ["@types/stylelint", null],\
-            ["postcss", "npm:8.4.24"],\
+            ["postcss", "npm:8.4.30"],\
             ["stylelint", "npm:15.10.3"],\
             ["stylelint-config-recommended-scss", "virtual:a88494ae26179818d7a8b3e0f3cef8fb07fbe2f0745ec6097a3bee4d4e48af3751de3f30092906b3867fe8cc3bb3e10d0cdf625ee04fedce1a3d8aaab67dedbc#npm:12.0.0"],\
             ["stylelint-config-standard", "virtual:a88494ae26179818d7a8b3e0f3cef8fb07fbe2f0745ec6097a3bee4d4e48af3751de3f30092906b3867fe8cc3bb3e10d0cdf625ee04fedce1a3d8aaab67dedbc#npm:33.0.0"]\
