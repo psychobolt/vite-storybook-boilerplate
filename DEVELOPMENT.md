@@ -97,6 +97,7 @@ See [docs](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for 
 
 1. Create and login to a Vercel account: https://vercel.com/
 2. Follow [Vercel's guide](https://vercel.com/docs/concepts/monorepos#using-monorepos-with-vercel-dashboard) on deploying apps using their dashboard
+3. (Optional) Modify `scripts/opt-in-vercel.sh` to configure opt-in behavior for Vercel deployments
 
 ## Syncing With Original Fork (Optional)
 
