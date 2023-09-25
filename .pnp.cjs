@@ -60,7 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["commons", "workspace:packages/commons"],\
             ["cross-env", "npm:7.0.3"],\
             ["eslint", "npm:8.50.0"],\
-            ["execa", "npm:7.1.1"],\
+            ["execa", "npm:8.0.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
             ["playwright-chromium", "npm:1.35.1"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
@@ -16362,6 +16362,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strip-final-newline", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/execa-npm-8.0.1-0211bd404c-cac1bf8658.zip/node_modules/execa/",\
+          "packageDependencies": [\
+            ["execa", "npm:8.0.1"],\
+            ["cross-spawn", "npm:7.0.3"],\
+            ["get-stream", "npm:8.0.1"],\
+            ["human-signals", "npm:5.0.0"],\
+            ["is-stream", "npm:3.0.0"],\
+            ["merge-stream", "npm:2.0.0"],\
+            ["npm-run-path", "npm:5.1.0"],\
+            ["onetime", "npm:6.0.0"],\
+            ["signal-exit", "npm:4.1.0"],\
+            ["strip-final-newline", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["exit", [\
@@ -17172,6 +17188,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["get-stream", "npm:6.0.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/get-stream-npm-8.0.1-c921b4840e-01e3d3cf29.zip/node_modules/get-stream/",\
+          "packageDependencies": [\
+            ["get-stream", "npm:8.0.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["get-symbol-description", [\
@@ -17889,6 +17912,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/human-signals-npm-4.3.1-d723001512-6f12958df3.zip/node_modules/human-signals/",\
           "packageDependencies": [\
             ["human-signals", "npm:4.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/human-signals-npm-5.0.0-ed25a9f58c-6504560d5e.zip/node_modules/human-signals/",\
+          "packageDependencies": [\
+            ["human-signals", "npm:5.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -24536,6 +24566,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["signal-exit", "npm:4.0.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/signal-exit-npm-4.1.0-61fb957687-64c757b498.zip/node_modules/signal-exit/",\
+          "packageDependencies": [\
+            ["signal-exit", "npm:4.1.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["simple-update-notifier", [\
@@ -27554,7 +27591,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["commons", "workspace:packages/commons"],\
             ["cross-env", "npm:7.0.3"],\
             ["eslint", "npm:8.50.0"],\
-            ["execa", "npm:7.1.1"],\
+            ["execa", "npm:8.0.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
             ["playwright-chromium", "npm:1.35.1"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
