@@ -12,12 +12,12 @@ const nodeOptions = execSync("yarn node -p process.env.NODE_OPTIONS")
   .toString()
   .slice(0, -1);
 
-const tsNodePath = execSync("yarn bin ts-node").toString().slice(0, -1);
+const tsNodePath = execSync("yarn ts-loader-path").toString().slice(0, -1);
 
 const child = spawn("node", process.argv.slice(2), {
   env: {
     ...process.env,
-    NODE_OPTIONS: `--loader ${tsNodePath}/../../esm.mjs ${nodeOptions}`,
+    NODE_OPTIONS: `--loader ${tsNodePath} ${nodeOptions}`,
   },
   stdio: ["inherit", "inherit", "inherit", "ipc"],
 }).on("message", (data) => {

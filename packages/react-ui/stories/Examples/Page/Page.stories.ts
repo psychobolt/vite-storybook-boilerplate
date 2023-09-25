@@ -24,6 +24,6 @@ export const LoggedIn: Story = {
     const loginButton = canvas.getByRole("button", {
       name: /Log in/i,
     });
-    userEvent.click(loginButton);
+    await userEvent.click(loginButton);
   },
 };

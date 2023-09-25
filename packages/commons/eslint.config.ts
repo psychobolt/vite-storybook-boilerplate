@@ -57,6 +57,7 @@ const config: Config[] = [
       "dist/",
       "esm/",
       "cjs/",
+      "coverage/",
       "node_modules/",
       "storybook-static/",
       ".pnp.cjs",
