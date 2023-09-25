@@ -8931,14 +8931,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.19.9":
-  version: 6.19.9
-  resolution: "chromatic@npm:6.19.9"
+"chromatic@npm:7.2.0":
+  version: 7.2.0
+  resolution: "chromatic@npm:7.2.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 50552c3043d96e7badb0d16ddd1839c0601d0f5e0c2c573acda5d6b0d0fad96067f0c659ad0a2b278d8b28b46670549b4bcedfd2d350a9077975aff203c29193
+  checksum: 0f6bcd7e92137eee30690428737d19c539e4aacadd2227ec271b77f3803a9f1271f2deffaf234d362717923bef8c2f9e66f3f36585e358663e193ed49aa3886c
   languageName: node
   linkType: hard
 
@@ -12630,7 +12630,7 @@ __metadata:
     "@storybook/html": 7.2.1
     "@storybook/html-vite": 7.2.1
     "@storybook/testing-library": 0.2.1
-    chromatic: 6.19.9
+    chromatic: 7.2.0
     commons: "workspace:*"
     http-server: 14.1.1
     nyc: 15.1.0
@@ -17635,7 +17635,7 @@ __metadata:
     "@tsconfig/vite-react": 2.0.0
     "@types/react": 18.2.22
     "@types/react-dom": 18.2.7
-    chromatic: 6.19.9
+    chromatic: 7.2.0
     commons: "workspace:*"
     http-server: 14.1.1
     nyc: 15.1.0

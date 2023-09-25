@@ -13398,10 +13398,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["chromatic", [\
-        ["npm:6.19.9", {\
-          "packageLocation": "./.yarn/cache/chromatic-npm-6.19.9-8d244191ba-50552c3043.zip/node_modules/chromatic/",\
+        ["npm:7.2.0", {\
+          "packageLocation": "./.yarn/cache/chromatic-npm-7.2.0-73d18a7ded-0f6bcd7e92.zip/node_modules/chromatic/",\
           "packageDependencies": [\
-            ["chromatic", "npm:6.19.9"]\
+            ["chromatic", "npm:7.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17726,7 +17726,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/html", "virtual:222e91f6d5a974161ea31ee6efc71fed8c6512e12095bc98e7ae279098a9d7ff95e294623284695057dd0ba84630fa125c07ffa2980854cdeeeb2803597dc9ab#npm:7.2.1"],\
             ["@storybook/html-vite", "npm:7.2.1"],\
             ["@storybook/testing-library", "npm:0.2.1"],\
-            ["chromatic", "npm:6.19.9"],\
+            ["chromatic", "npm:7.2.0"],\
             ["commons", "workspace:packages/commons"],\
             ["http-server", "npm:14.1.1"],\
             ["nyc", "npm:15.1.0"],\
@@ -23594,7 +23594,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/vite-react", "npm:2.0.0"],\
             ["@types/react", "npm:18.2.22"],\
             ["@types/react-dom", "npm:18.2.7"],\
-            ["chromatic", "npm:6.19.9"],\
+            ["chromatic", "npm:7.2.0"],\
             ["commons", "workspace:packages/commons"],\
             ["http-server", "npm:14.1.1"],\
             ["nyc", "npm:15.1.0"],\
