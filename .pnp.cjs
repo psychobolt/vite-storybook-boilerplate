@@ -24617,10 +24617,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:1.63.6", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.63.6-f415fe5e15-3372319904.zip/node_modules/sass/",\
+        ["npm:1.68.0", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.68.0-960a5fc7e0-65ccede83c.zip/node_modules/sass/",\
           "packageDependencies": [\
-            ["sass", "npm:1.63.6"],\
+            ["sass", "npm:1.68.0"],\
             ["chokidar", "npm:3.5.3"],\
             ["immutable", "npm:4.3.0"],\
             ["source-map-js", "npm:1.0.2"]\
@@ -25867,7 +25867,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-ui", "workspace:packages/html-ui"],\
             ["prettier", "npm:2.8.8"],\
             ["prettier-plugin-svelte", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.10.0"],\
-            ["sass", "npm:1.63.6"],\
+            ["sass", "npm:1.68.0"],\
             ["stylelint", "npm:15.10.3"],\
             ["stylelint-config-prettier-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:1.0.0"],\
             ["stylelint-config-standard-scss", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:10.0.0"],\
@@ -27890,7 +27890,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lightningcss", null],\
             ["postcss", "npm:8.4.30"],\
             ["rollup", "npm:3.29.3"],\
-            ["sass", "npm:1.63.6"],\
+            ["sass", "npm:1.68.0"],\
             ["stylus", null],\
             ["sugarss", null],\
             ["terser", null]\
