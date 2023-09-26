@@ -62,7 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.50.0"],\
             ["execa", "npm:8.0.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
-            ["playwright-chromium", "npm:1.35.1"],\
+            ["playwright-chromium", "npm:1.38.1"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.2.1"],\
             ["stylelint", "npm:15.10.3"],\
@@ -13842,8 +13842,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-promise", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:6.1.1"],\
             ["eslint-plugin-react", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.33.2"],\
             ["eslint-plugin-react-hooks", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.6.0"],\
-            ["playwright", "npm:1.35.1"],\
-            ["playwright-chromium", "npm:1.35.1"],\
+            ["playwright", "npm:1.38.1"],\
+            ["playwright-chromium", "npm:1.38.1"],\
             ["postcss", "npm:8.4.30"],\
             ["postcss-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.0.6"],\
             ["prettier", "npm:2.8.8"],\
@@ -22760,21 +22760,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:1.35.1", {\
-          "packageLocation": "./.yarn/cache/playwright-npm-1.35.1-95370832b7-46e8ad6d44.zip/node_modules/playwright/",\
+        ["npm:1.38.1", {\
+          "packageLocation": "./.yarn/cache/playwright-npm-1.38.1-bcfd8e0403-4e01d4ee52.zip/node_modules/playwright/",\
           "packageDependencies": [\
-            ["playwright", "npm:1.35.1"],\
-            ["playwright-core", "npm:1.35.1"]\
+            ["playwright", "npm:1.38.1"],\
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
+            ["playwright-core", "npm:1.38.1"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["playwright-chromium", [\
-        ["npm:1.35.1", {\
-          "packageLocation": "./.yarn/cache/playwright-chromium-npm-1.35.1-6341b0751b-f13f6910cf.zip/node_modules/playwright-chromium/",\
+        ["npm:1.38.1", {\
+          "packageLocation": "./.yarn/cache/playwright-chromium-npm-1.38.1-8420534b6e-b977cd2edd.zip/node_modules/playwright-chromium/",\
           "packageDependencies": [\
-            ["playwright-chromium", "npm:1.35.1"],\
-            ["playwright-core", "npm:1.35.1"]\
+            ["playwright-chromium", "npm:1.38.1"],\
+            ["playwright-core", "npm:1.38.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -22787,10 +22788,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:1.35.1", {\
-          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.35.1-69a99ef963/node_modules/playwright-core/",\
+        ["npm:1.38.1", {\
+          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.38.1-db7591d5da/node_modules/playwright-core/",\
           "packageDependencies": [\
-            ["playwright-core", "npm:1.35.1"]\
+            ["playwright-core", "npm:1.38.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -27964,7 +27965,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.50.0"],\
             ["execa", "npm:8.0.1"],\
             ["glob-to-regexp", "npm:0.4.1"],\
-            ["playwright-chromium", "npm:1.35.1"],\
+            ["playwright-chromium", "npm:1.38.1"],\
             ["prettier", "npm:3.0.0-alpha.9-for-vscode"],\
             ["sb", "npm:7.2.1"],\
             ["stylelint", "npm:15.10.3"],\
