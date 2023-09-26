@@ -13858,7 +13858,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["turbo", "npm:1.10.14"],\
             ["typescript", "patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
             ["vite", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.4.9"],\
-            ["vite-plugin-turbosnap", "npm:1.0.2"]\
+            ["vite-plugin-turbosnap", "npm:1.0.3"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -27923,10 +27923,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["vite-plugin-turbosnap", [\
-        ["npm:1.0.2", {\
-          "packageLocation": "./.yarn/cache/vite-plugin-turbosnap-npm-1.0.2-1f73c2ba6a-c5da204cd9.zip/node_modules/vite-plugin-turbosnap/",\
+        ["npm:1.0.3", {\
+          "packageLocation": "./.yarn/cache/vite-plugin-turbosnap-npm-1.0.3-8b72fea739-a66d09ecaf.zip/node_modules/vite-plugin-turbosnap/",\
           "packageDependencies": [\
-            ["vite-plugin-turbosnap", "npm:1.0.2"]\
+            ["vite-plugin-turbosnap", "npm:1.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
