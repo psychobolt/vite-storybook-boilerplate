@@ -6794,7 +6794,7 @@ __metadata:
     playwright: 1.38.1
     playwright-chromium: 1.38.1
     postcss: 8.4.30
-    postcss-scss: 4.0.6
+    postcss-scss: 4.0.8
     prettier: 2.8.8
     prettier-config-standard: 5.0.0
     react: 18.2.0
@@ -13476,16 +13476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-scss@npm:4.0.6":
-  version: 4.0.6
-  resolution: "postcss-scss@npm:4.0.6"
-  peerDependencies:
-    postcss: ^8.4.19
-  checksum: 133a1cba31e2e167f4e841e66ec6a798eaf44c7911f9182ade0b5b1e71a8198814aa390b8c9d5db6b01358115232e5b15b1a4f8c5198acfccfb1f3fdbd328cdf
-  languageName: node
-  linkType: hard
-
-"postcss-scss@npm:^4.0.7":
+"postcss-scss@npm:4.0.8, postcss-scss@npm:^4.0.7":
   version: 4.0.8
   resolution: "postcss-scss@npm:4.0.8"
   peerDependencies:
