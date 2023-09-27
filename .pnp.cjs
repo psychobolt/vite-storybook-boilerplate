@@ -23121,10 +23121,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["npm:2.10.1", {\
-          "packageLocation": "./.yarn/cache/prettier-plugin-svelte-npm-2.10.1-b2b3234028-45f7993098.zip/node_modules/prettier-plugin-svelte/",\
+        ["npm:3.0.3", {\
+          "packageLocation": "./.yarn/cache/prettier-plugin-svelte-npm-3.0.3-ca7d94d75c-411e50afab.zip/node_modules/prettier-plugin-svelte/",\
           "packageDependencies": [\
-            ["prettier-plugin-svelte", "npm:2.10.1"]\
+            ["prettier-plugin-svelte", "npm:3.0.3"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -23145,10 +23145,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.10.1", {\
-          "packageLocation": "./.yarn/__virtual__/prettier-plugin-svelte-virtual-9fb4e25554/0/cache/prettier-plugin-svelte-npm-2.10.1-b2b3234028-45f7993098.zip/node_modules/prettier-plugin-svelte/",\
+        ["virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.3", {\
+          "packageLocation": "./.yarn/__virtual__/prettier-plugin-svelte-virtual-f74d243aee/0/cache/prettier-plugin-svelte-npm-3.0.3-ca7d94d75c-411e50afab.zip/node_modules/prettier-plugin-svelte/",\
           "packageDependencies": [\
-            ["prettier-plugin-svelte", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.10.1"],\
+            ["prettier-plugin-svelte", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.3"],\
             ["@types/prettier", null],\
             ["@types/svelte", null],\
             ["prettier", "npm:2.8.8"],\
@@ -25875,7 +25875,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-svelte3", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:4.0.0"],\
             ["html-ui", "workspace:packages/html-ui"],\
             ["prettier", "npm:2.8.8"],\
-            ["prettier-plugin-svelte", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:2.10.1"],\
+            ["prettier-plugin-svelte", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.0.3"],\
             ["sass", "npm:1.68.0"],\
             ["stylelint", "npm:15.10.3"],\
             ["stylelint-config-prettier-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:1.0.0"],\
