@@ -4500,15 +4500,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-coverage@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@storybook/addon-coverage@npm:0.0.8"
+"@storybook/addon-coverage@npm:0.0.9":
+  version: 0.0.9
+  resolution: "@storybook/addon-coverage@npm:0.0.9"
   dependencies:
     "@types/babel__core": ^7.1.19
     "@types/istanbul-lib-coverage": ^2.0.4
     babel-plugin-istanbul: ^6.1.1
     vite-plugin-istanbul: ^3.0.1
-  checksum: 8cf18a291699df1b630f77698abfd4d370dabfba55ae186e522b76b9bc76ce6a866cdd5d0e8c044dda135dd2873651d3ab9d2ddc93903222bdabf236ef64645e
+  checksum: 32b3780c5e98589e45842dc2227db258f8d3988dfc9c63cd5822a382b97c7e7fb47be9003ad9171699375802563af1ff708d729a22e5623d36a51d9b27963dd7
   languageName: node
   linkType: hard
 
@@ -9301,7 +9301,7 @@ __metadata:
   resolution: "commons@workspace:packages/commons"
   dependencies:
     "@eslint/eslintrc": 2.1.2
-    "@storybook/addon-coverage": 0.0.8
+    "@storybook/addon-coverage": 0.0.9
     "@storybook/addon-essentials": 7.2.1
     "@storybook/addon-interactions": 7.2.1
     "@storybook/addon-links": 7.2.1

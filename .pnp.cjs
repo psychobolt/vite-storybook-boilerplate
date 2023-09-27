@@ -7168,10 +7168,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@storybook/addon-coverage", [\
-        ["npm:0.0.8", {\
-          "packageLocation": "./.yarn/cache/@storybook-addon-coverage-npm-0.0.8-be3edae74b-8cf18a2916.zip/node_modules/@storybook/addon-coverage/",\
+        ["npm:0.0.9", {\
+          "packageLocation": "./.yarn/cache/@storybook-addon-coverage-npm-0.0.9-f16d7ab31e-32b3780c5e.zip/node_modules/@storybook/addon-coverage/",\
           "packageDependencies": [\
-            ["@storybook/addon-coverage", "npm:0.0.8"],\
+            ["@storybook/addon-coverage", "npm:0.0.9"],\
             ["@types/babel__core", "npm:7.20.0"],\
             ["@types/istanbul-lib-coverage", "npm:2.0.4"],\
             ["babel-plugin-istanbul", "npm:6.1.1"],\
@@ -13819,7 +13819,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["commons", "workspace:packages/commons"],\
             ["@eslint/eslintrc", "npm:2.1.2"],\
-            ["@storybook/addon-coverage", "npm:0.0.8"],\
+            ["@storybook/addon-coverage", "npm:0.0.9"],\
             ["@storybook/addon-essentials", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.2.1"],\
             ["@storybook/addon-interactions", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.2.1"],\
             ["@storybook/addon-links", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.2.1"],\
