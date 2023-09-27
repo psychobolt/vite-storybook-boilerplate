@@ -13850,7 +13850,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier-config-standard", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.0.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#npm:18.2.0"],\
-            ["rimraf", "npm:5.0.4"],\
+            ["rimraf", "npm:5.0.5"],\
             ["stylelint", "npm:15.10.3"],\
             ["stylelint-config-prettier-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:1.0.0"],\
             ["stylelint-config-standard-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:11.0.0"],\
@@ -24466,10 +24466,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:5.0.4", {\
-          "packageLocation": "./.yarn/cache/rimraf-npm-5.0.4-525827beb5-4423011967.zip/node_modules/rimraf/",\
+        ["npm:5.0.5", {\
+          "packageLocation": "./.yarn/cache/rimraf-npm-5.0.5-19228633fd-d66eef829b.zip/node_modules/rimraf/",\
           "packageDependencies": [\
-            ["rimraf", "npm:5.0.4"],\
+            ["rimraf", "npm:5.0.5"],\
             ["glob", "npm:10.3.7"]\
           ],\
           "linkType": "HARD"\
