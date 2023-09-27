@@ -42,7 +42,7 @@
     "postcss": "8.4.30",
     "postcss-scss": "4.0.8",
     "prettier": "2.8.8",
-    "prettier-config-standard": "5.0.0",
+    "prettier-config-standard": "7.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rimraf": "5.0.4",

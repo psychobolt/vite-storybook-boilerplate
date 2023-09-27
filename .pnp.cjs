@@ -13847,7 +13847,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.30"],\
             ["postcss-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.0.8"],\
             ["prettier", "npm:2.8.8"],\
-            ["prettier-config-standard", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:5.0.0"],\
+            ["prettier-config-standard", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.0.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:7e68c1ceb7f90a1fd9ce5e5ed7e860344a7b118e459fd74b89b39a04be1b9cc3b943ae3f911e7a14c6c0def18eeabb9bd25812c293f93086c92887bd75c8bfd1#npm:18.2.0"],\
             ["rimraf", "npm:5.0.4"],\
@@ -23092,17 +23092,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier-config-standard", [\
-        ["npm:5.0.0", {\
-          "packageLocation": "./.yarn/cache/prettier-config-standard-npm-5.0.0-c7f9845205-c84d2585cb.zip/node_modules/prettier-config-standard/",\
+        ["npm:7.0.0", {\
+          "packageLocation": "./.yarn/cache/prettier-config-standard-npm-7.0.0-178f545e61-911ef42987.zip/node_modules/prettier-config-standard/",\
           "packageDependencies": [\
-            ["prettier-config-standard", "npm:5.0.0"]\
+            ["prettier-config-standard", "npm:7.0.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:5.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/prettier-config-standard-virtual-969bb957ac/0/cache/prettier-config-standard-npm-5.0.0-c7f9845205-c84d2585cb.zip/node_modules/prettier-config-standard/",\
+        ["virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/prettier-config-standard-virtual-c1f8a0891e/0/cache/prettier-config-standard-npm-7.0.0-178f545e61-911ef42987.zip/node_modules/prettier-config-standard/",\
           "packageDependencies": [\
-            ["prettier-config-standard", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:5.0.0"],\
+            ["prettier-config-standard", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.0.0"],\
             ["@types/prettier", null],\
             ["prettier", "npm:2.8.8"]\
           ],\

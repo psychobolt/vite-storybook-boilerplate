@@ -9329,7 +9329,7 @@ __metadata:
     postcss: 8.4.30
     postcss-scss: 4.0.8
     prettier: 2.8.8
-    prettier-config-standard: 5.0.0
+    prettier-config-standard: 7.0.0
     react: 18.2.0
     react-dom: 18.2.0
     rimraf: 5.0.4
@@ -17411,12 +17411,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-config-standard@npm:5.0.0":
-  version: 5.0.0
-  resolution: "prettier-config-standard@npm:5.0.0"
+"prettier-config-standard@npm:7.0.0":
+  version: 7.0.0
+  resolution: "prettier-config-standard@npm:7.0.0"
   peerDependencies:
-    prettier: ^2.4.0
-  checksum: c84d2585cbe1652899585fbea49c98f90e687f2656da61d233a5a40b2125ccab0b0af173d99016175987e1db0846f225583a686439693a68a17c7ffaad2c88db
+    prettier: ^2.6.0 || ^3.0.0
+  checksum: 911ef42987fc80a12f6773a62eddc4fdd59362d15002af2b95854c89e9e31d31bda9d704c5b7dd5845ce901982a7d7c71a8fa216b698cf79b1f9e538f3aec45a
   languageName: node
   linkType: hard
 
