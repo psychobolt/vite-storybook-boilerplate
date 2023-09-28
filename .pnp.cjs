@@ -23088,13 +23088,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:2.8.6", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.8.6-24bd3d3356-8ac94fa67a.zip/node_modules/prettier/",\
-          "packageDependencies": [\
-            ["prettier", "npm:2.8.6"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:2.8.8", {\
           "packageLocation": "./.yarn/cache/prettier-npm-2.8.8-430828a36c-b49e409431.zip/node_modules/prettier/",\
           "packageDependencies": [\
@@ -23133,10 +23126,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier-plugin-svelte", [\
-        ["npm:2.10.0", {\
-          "packageLocation": "./.yarn/cache/prettier-plugin-svelte-npm-2.10.0-9aa2fe4b88-0e7f3e05e8.zip/node_modules/prettier-plugin-svelte/",\
+        ["npm:2.10.1", {\
+          "packageLocation": "./.yarn/cache/prettier-plugin-svelte-npm-2.10.1-b2b3234028-45f7993098.zip/node_modules/prettier-plugin-svelte/",\
           "packageDependencies": [\
-            ["prettier-plugin-svelte", "npm:2.10.0"]\
+            ["prettier-plugin-svelte", "npm:2.10.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -23147,13 +23140,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:2.10.0", {\
-          "packageLocation": "./.yarn/__virtual__/prettier-plugin-svelte-virtual-5e7e3d4f19/0/cache/prettier-plugin-svelte-npm-2.10.0-9aa2fe4b88-0e7f3e05e8.zip/node_modules/prettier-plugin-svelte/",\
+        ["virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:2.10.1", {\
+          "packageLocation": "./.yarn/__virtual__/prettier-plugin-svelte-virtual-9132e2b4e8/0/cache/prettier-plugin-svelte-npm-2.10.1-b2b3234028-45f7993098.zip/node_modules/prettier-plugin-svelte/",\
           "packageDependencies": [\
-            ["prettier-plugin-svelte", "virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:2.10.0"],\
+            ["prettier-plugin-svelte", "virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:2.10.1"],\
             ["@types/prettier", null],\
             ["@types/svelte", null],\
-            ["prettier", "npm:2.8.6"],\
+            ["prettier", "npm:2.8.8"],\
             ["svelte", "npm:3.58.0"]\
           ],\
           "packagePeers": [\
@@ -25901,7 +25894,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylelint-config-standard-scss", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:11.0.0"],\
             ["svelte", "npm:4.2.1"],\
             ["svelte-check", "virtual:f13de9851f92ebd1192ea4095c563bc0671c539c1f2a355844dfb58e3957644f86002fb22a0f83656a00d13ec91a8312ac38de174c63af7803bbe2ae0f54b98d#npm:3.5.2"],\
-            ["svelte-language-server", "npm:0.15.14"],\
+            ["svelte-language-server", "npm:0.15.19"],\
             ["tslib", "npm:2.6.2"],\
             ["turbo", "npm:1.10.14"],\
             ["typescript", "patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
@@ -25963,22 +25956,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["svelte-language-server", [\
-        ["npm:0.15.14", {\
-          "packageLocation": "./.yarn/cache/svelte-language-server-npm-0.15.14-caf402c954-a384e6cbbc.zip/node_modules/svelte-language-server/",\
+        ["npm:0.15.19", {\
+          "packageLocation": "./.yarn/cache/svelte-language-server-npm-0.15.19-b0cc51fd8c-8c868da695.zip/node_modules/svelte-language-server/",\
           "packageDependencies": [\
-            ["svelte-language-server", "npm:0.15.14"],\
+            ["svelte-language-server", "npm:0.15.19"],\
             ["@jridgewell/trace-mapping", "npm:0.3.18"],\
             ["@vscode/emmet-helper", "npm:2.8.4"],\
             ["chokidar", "npm:3.5.3"],\
             ["estree-walker", "npm:2.0.2"],\
             ["fast-glob", "npm:3.2.12"],\
             ["lodash", "npm:4.17.21"],\
-            ["prettier", "npm:2.8.6"],\
-            ["prettier-plugin-svelte", "virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:2.10.0"],\
+            ["prettier", "npm:2.8.8"],\
+            ["prettier-plugin-svelte", "virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:2.10.1"],\
             ["svelte", "npm:3.58.0"],\
-            ["svelte-preprocess", "virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:5.0.3"],\
-            ["svelte2tsx", "virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:0.6.11"],\
-            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"],\
+            ["svelte-preprocess", "virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:5.0.4"],\
+            ["svelte2tsx", "virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:0.6.11"],\
+            ["typescript", "patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
             ["vscode-css-languageservice", "npm:6.2.5"],\
             ["vscode-html-languageservice", "npm:5.0.5"],\
             ["vscode-languageserver", "npm:8.0.2"],\
@@ -25990,13 +25983,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["svelte-preprocess", [\
-        ["npm:5.0.3", {\
-          "packageLocation": "./.yarn/cache/svelte-preprocess-npm-5.0.3-e614fff5dc-fedec5f8ce.zip/node_modules/svelte-preprocess/",\
-          "packageDependencies": [\
-            ["svelte-preprocess", "npm:5.0.3"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
         ["npm:5.0.4", {\
           "packageLocation": "./.yarn/cache/svelte-preprocess-npm-5.0.4-ccb99d74c6-2acd36ccdf.zip/node_modules/svelte-preprocess/",\
           "packageDependencies": [\
@@ -26060,10 +26046,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:5.0.3", {\
-          "packageLocation": "./.yarn/__virtual__/svelte-preprocess-virtual-4b79d4fefd/0/cache/svelte-preprocess-npm-5.0.3-e614fff5dc-fedec5f8ce.zip/node_modules/svelte-preprocess/",\
+        ["virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:5.0.4", {\
+          "packageLocation": "./.yarn/__virtual__/svelte-preprocess-virtual-81cdc6cf34/0/cache/svelte-preprocess-npm-5.0.4-ccb99d74c6-2acd36ccdf.zip/node_modules/svelte-preprocess/",\
           "packageDependencies": [\
-            ["svelte-preprocess", "virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:5.0.3"],\
+            ["svelte-preprocess", "virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:5.0.4"],\
             ["@babel/core", null],\
             ["@types/babel__core", null],\
             ["@types/coffeescript", null],\
@@ -26089,7 +26075,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylus", null],\
             ["sugarss", null],\
             ["svelte", "npm:3.58.0"],\
-            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
+            ["typescript", "patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
           ],\
           "packagePeers": [\
             "@babel/core",\
@@ -26125,16 +26111,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:0.6.11", {\
-          "packageLocation": "./.yarn/__virtual__/svelte2tsx-virtual-09e8d545e7/0/cache/svelte2tsx-npm-0.6.11-fadda0bce7-d2849b1e00.zip/node_modules/svelte2tsx/",\
+        ["virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:0.6.11", {\
+          "packageLocation": "./.yarn/__virtual__/svelte2tsx-virtual-95c857f890/0/cache/svelte2tsx-npm-0.6.11-fadda0bce7-d2849b1e00.zip/node_modules/svelte2tsx/",\
           "packageDependencies": [\
-            ["svelte2tsx", "virtual:caf402c95439db4501c0282ecdbbdfc9937a457924bda56c7c13d18d701607e67e0ba5aa67003ba0dc0cb102932fd37cc674db2df8eb1ec626881505b61cfc11#npm:0.6.11"],\
+            ["svelte2tsx", "virtual:b0cc51fd8cb56a4313489a5eb7af2f0edb6a09f71c76f05f0fea1b2828898194db4d4a3ba905a0fc0d021540a2315cd4bf54ec0e7d9260b14c1f759f8f665bf7#npm:0.6.11"],\
             ["@types/svelte", null],\
             ["@types/typescript", null],\
             ["dedent-js", "npm:1.0.1"],\
             ["pascal-case", "npm:3.1.2"],\
             ["svelte", "npm:3.58.0"],\
-            ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
+            ["typescript", "patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
           ],\
           "packagePeers": [\
             "@types/svelte",\
