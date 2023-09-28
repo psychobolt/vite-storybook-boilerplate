@@ -15401,7 +15401,7 @@ __metadata:
     stylelint-config-prettier-scss: 1.0.0
     stylelint-config-standard-scss: 11.0.0
     svelte: 4.2.1
-    svelte-check: 3.4.6
+    svelte-check: 3.5.2
     svelte-language-server: 0.15.14
     tslib: 2.6.2
     turbo: 1.10.14
@@ -15410,9 +15410,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"svelte-check@npm:3.4.6":
-  version: 3.4.6
-  resolution: "svelte-check@npm:3.4.6"
+"svelte-check@npm:3.5.2":
+  version: 3.5.2
+  resolution: "svelte-check@npm:3.5.2"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.17
     chokidar: ^3.4.1
@@ -15426,7 +15426,7 @@ __metadata:
     svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: d2baa7dc91f09ae726c76f174038411871c800dc1d8134a177390cc4f0d0f31a6da49f020d9d58f4211a3b7020209fc804884081ce9fc0a3870a25d345b0fc9e
+  checksum: 2d0aa93a689992f912b3a47010fc6000720ab892d1fc9ca35769488ccc198ea1a876e7d820eb87613321f6752cd79e44b6e9e45eb241852753bc9ee576483830
   languageName: node
   linkType: hard
 
