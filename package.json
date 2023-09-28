@@ -35,7 +35,7 @@
     "execa": "8.0.1",
     "glob-to-regexp": "0.4.1",
     "playwright-chromium": "1.38.1",
-    "prettier": "3.0.0-alpha.9-for-vscode",
+    "prettier": "3.0.3",
     "sb": "7.2.1",
     "stylelint": "15.10.3",
     "ts-node": "10.9.1",

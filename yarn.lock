@@ -9328,7 +9328,7 @@ __metadata:
     playwright-chromium: 1.38.1
     postcss: 8.4.30
     postcss-scss: 4.0.8
-    prettier: 2.8.8
+    prettier: 3.0.3
     prettier-config-standard: 7.0.0
     react: 18.2.0
     react-dom: 18.2.0
@@ -17449,21 +17449,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.8, prettier@npm:^2.1.2, prettier@npm:^2.8.0":
+"prettier@npm:3.0.3":
+  version: 3.0.3
+  resolution: "prettier@npm:3.0.3"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: e10b9af02b281f6c617362ebd2571b1d7fc9fb8a3bd17e371754428cda992e5e8d8b7a046e8f7d3e2da1dcd21aa001e2e3c797402ebb6111b5cd19609dd228e0
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.1.2, prettier@npm:^2.8.0":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:
     prettier: bin-prettier.js
   checksum: b49e409431bf129dd89238d64299ba80717b57ff5a6d1c1a8b1a28b590d998a34e083fa13573bc732bb8d2305becb4c9a4407f8486c81fa7d55100eb08263cf8
-  languageName: node
-  linkType: hard
-
-"prettier@npm:3.0.0-alpha.9-for-vscode":
-  version: 3.0.0-alpha.9-for-vscode
-  resolution: "prettier@npm:3.0.0-alpha.9-for-vscode"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 6255a64a56da2a3bdc29fe6676f6a639e1bf3e562878a0d645286c40a1584afb7cc9b55fd69b1f762a415fa85df9c9c157eed828d99f3a599e01c48648c9329e
   languageName: node
   linkType: hard
 
@@ -19676,7 +19676,7 @@ __metadata:
     eslint-config-prettier: 9.0.0
     eslint-plugin-svelte3: 4.0.0
     html-ui: "*"
-    prettier: 2.8.8
+    prettier: 3.0.3
     prettier-plugin-svelte: 3.0.3
     sass: 1.68.0
     stylelint: 15.10.3
@@ -21232,7 +21232,7 @@ __metadata:
     execa: 8.0.1
     glob-to-regexp: 0.4.1
     playwright-chromium: 1.38.1
-    prettier: 3.0.0-alpha.9-for-vscode
+    prettier: 3.0.3
     sb: 7.2.1
     stylelint: 15.10.3
     ts-node: 10.9.1
