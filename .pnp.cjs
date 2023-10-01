@@ -13707,7 +13707,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.6.0"],\
             ["playwright", "npm:1.38.1"],\
             ["playwright-chromium", "npm:1.38.1"],\
-            ["postcss", "npm:8.4.30"],\
+            ["postcss", "npm:8.4.31"],\
             ["postcss-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.0.9"],\
             ["prettier", "npm:3.0.3"],\
             ["prettier-config-standard", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:7.0.0"],\
@@ -22704,6 +22704,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["source-map-js", "npm:1.0.2"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.4.31", {\
+          "packageLocation": "./.yarn/cache/postcss-npm-8.4.31-385051a82b-1d8611341b.zip/node_modules/postcss/",\
+          "packageDependencies": [\
+            ["postcss", "npm:8.4.31"],\
+            ["nanoid", "npm:3.3.6"],\
+            ["picocolors", "npm:1.0.0"],\
+            ["source-map-js", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["postcss-load-config", [\
@@ -22864,7 +22874,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["postcss-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:4.0.9"],\
             ["@types/postcss", null],\
-            ["postcss", "npm:8.4.30"]\
+            ["postcss", "npm:8.4.31"]\
           ],\
           "packagePeers": [\
             "@types/postcss",\
@@ -22890,7 +22900,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["postcss-scss", "virtual:f2a8c5129a8863cba62e27a1fc9bc2504dc95659f1329d88ef73be60ecf7d33dad616ae7fe2b3225410a2869df9a5f15a3dcf1bb657e505ab772f4dcde524aa0#npm:4.0.8"],\
             ["@types/postcss", null],\
-            ["postcss", "npm:8.4.30"]\
+            ["postcss", "npm:8.4.31"]\
           ],\
           "packagePeers": [\
             "@types/postcss",\
@@ -25488,7 +25498,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylelint-config-recommended-scss", "virtual:e0f7d28d8e852b8dc06e97abc52d934b9af1356d315c3c3e79eee84578de4885095f80443abac847df82d647bf70a63a81092ee75e2e64a1b448104b53917a46#npm:13.0.0"],\
             ["@types/postcss", null],\
             ["@types/stylelint", null],\
-            ["postcss", "npm:8.4.30"],\
+            ["postcss", "npm:8.4.31"],\
             ["postcss-scss", "virtual:f2a8c5129a8863cba62e27a1fc9bc2504dc95659f1329d88ef73be60ecf7d33dad616ae7fe2b3225410a2869df9a5f15a3dcf1bb657e505ab772f4dcde524aa0#npm:4.0.8"],\
             ["stylelint", "npm:15.10.3"],\
             ["stylelint-config-recommended", "virtual:f2a8c5129a8863cba62e27a1fc9bc2504dc95659f1329d88ef73be60ecf7d33dad616ae7fe2b3225410a2869df9a5f15a3dcf1bb657e505ab772f4dcde524aa0#npm:13.0.0"],\
@@ -25560,7 +25570,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylelint-config-standard-scss", "virtual:106eb38d37bdf0835a248eb856e5d0d53a53d814645a0195503394ae2d31331100a0eb7823924e940a30ba840c643306bfd0cc8ad79759e3161dade4909e19ba#npm:11.0.0"],\
             ["@types/postcss", null],\
             ["@types/stylelint", null],\
-            ["postcss", "npm:8.4.30"],\
+            ["postcss", "npm:8.4.31"],\
             ["stylelint", "npm:15.10.3"],\
             ["stylelint-config-recommended-scss", "virtual:e0f7d28d8e852b8dc06e97abc52d934b9af1356d315c3c3e79eee84578de4885095f80443abac847df82d647bf70a63a81092ee75e2e64a1b448104b53917a46#npm:13.0.0"],\
             ["stylelint-config-standard", "virtual:e0f7d28d8e852b8dc06e97abc52d934b9af1356d315c3c3e79eee84578de4885095f80443abac847df82d647bf70a63a81092ee75e2e64a1b448104b53917a46#npm:34.0.0"]\
