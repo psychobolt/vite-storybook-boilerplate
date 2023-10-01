@@ -13,16 +13,6 @@
 7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
 8. Restart VSCode and reopen the project.
 
-#### Troubleshooting ESLint extension
-
-1. Ensure you are running VSCode with the node version you have yarn installed on.
-2. If above step doesn't work after restart, copy `.pnp.loader.mjs` to a safe location. e.g. Linux `cp ./.pnp.loader.mjs /absolute/path/to/.pnp.loader.mjs`. Then update **user settings**:
-
-```sh
-    "eslint.runtime": "node"
-    "eslint.execArgv": ["--loader", "/absolute/path/to/.pnp.loader.mjs"]
-```
-
 ### Setup Remote Cache (Optional)
 
 #### Local Development

@@ -7,10 +7,9 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.nodePath": ".yarn/sdks",
   "eslint.runtime": "bin/eslint-runtime.js",
-  "eslint.packageManager": "yarn",
   "eslint.experimental.useFlatConfig": true,
   "eslint.options": {
-    "overrideConfigFile": "./eslint.config.ts",
+    "overrideConfigFile": "./eslint.config.ts"
   },
   "editor.tabSize": 2,
   "eslint.workingDirectories": [
