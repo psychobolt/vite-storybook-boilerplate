@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "outDir": "./esm"
+  },
+  "exclude": ["./.storybook/vite-main.ts", "./eslint.config.ts"]
+}

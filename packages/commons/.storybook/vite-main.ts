@@ -24,11 +24,12 @@ const config: StorybookViteCommonConfig = {
   docs: {
     autodocs: "tag",
   },
-  async viteFinal(config, { configType }) {
+  viteFinal(config, { configType }) {
     return mergeConfig(config, {
       plugins:
         configType === "PRODUCTION"
-          ? [turbosnap({ rootDir: config.root ?? process.cwd() })]
+          ? // @ts-expect-error https://github.com/IanVS/vite-plugin-turbosnap/issues
+            [turbosnap({ rootDir: config.root ?? process.cwd() })]
           : [],
     });
   },

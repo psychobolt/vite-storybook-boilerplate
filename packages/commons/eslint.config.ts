@@ -6,16 +6,21 @@ import tsParser from "@typescript-eslint/parser";
 
 type Config = Linter.FlatConfig;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const _filename = fileURLToPath(import.meta.url);
+const _dirname = path.dirname(_filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __filename,
-  resolvePluginsRelativeTo: __dirname,
+  baseDirectory: _filename,
+  resolvePluginsRelativeTo: _dirname,
 });
 
+const tsConfigs: Config[] = compat.extends("standard-with-typescript");
+
 const config: Config[] = [
-  ...compat.extends("standard-with-typescript"),
+  ...tsConfigs.map((tsConfig) => ({
+    files: ["**/*.ts", "**/*.tsx"],
+    ...tsConfig,
+  })),
   {
     files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {

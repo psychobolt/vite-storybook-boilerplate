@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.esm.json",
   "compilerOptions": {
     "declaration": true,
     "noEmit": false,
@@ -7,5 +7,9 @@
     "outDir": "esm"
   },
   "include": [".storybook/**/*", "**/*"],
-  "exclude": ["stylelint.config.ts"]
+  "exclude": [
+    "./.storybook/vite-main.ts",
+    "./eslint.config.ts",
+    "./stylelint.config.ts"
+  ]
 }
