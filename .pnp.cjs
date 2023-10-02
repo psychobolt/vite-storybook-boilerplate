@@ -9901,12 +9901,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@storybook/testing-library", [\
-        ["npm:0.2.1", {\
-          "packageLocation": "./.yarn/cache/@storybook-testing-library-npm-0.2.1-c448621808-2688361b63.zip/node_modules/@storybook/testing-library/",\
+        ["npm:0.2.2", {\
+          "packageLocation": "./.yarn/cache/@storybook-testing-library-npm-0.2.2-4b0286ed86-8ccdc1fbbb.zip/node_modules/@storybook/testing-library/",\
           "packageDependencies": [\
-            ["@storybook/testing-library", "npm:0.2.1"],\
+            ["@storybook/testing-library", "npm:0.2.2"],\
             ["@testing-library/dom", "npm:9.3.3"],\
-            ["@testing-library/user-event", "virtual:c4486218081dec33299d6804379a62ed1a3b2a59c7cfbe13b8a58f69bbd1d4a8eae769e3e7bd830a9078b6f8e637d7d4ed2b749b7814c6026b15f6c529c01342#npm:14.4.3"],\
+            ["@testing-library/user-event", "virtual:4b0286ed86a0514d587e18ff75a9e5899e7b97e56b5e291227325ba535166613130c0d046c006e26c770ec56e0d344ca8b2fa302b2ced0f6a45150fbed8bc279#npm:14.5.1"],\
             ["ts-dedent", "npm:2.2.0"]\
           ],\
           "linkType": "HARD"\
@@ -10368,17 +10368,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@testing-library/user-event", [\
-        ["npm:14.4.3", {\
-          "packageLocation": "./.yarn/cache/@testing-library-user-event-npm-14.4.3-2d1a75355f-852c48ea6d.zip/node_modules/@testing-library/user-event/",\
+        ["npm:14.5.1", {\
+          "packageLocation": "./.yarn/cache/@testing-library-user-event-npm-14.5.1-daca21fbcb-3e6bc9fd53.zip/node_modules/@testing-library/user-event/",\
           "packageDependencies": [\
-            ["@testing-library/user-event", "npm:14.4.3"]\
+            ["@testing-library/user-event", "npm:14.5.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:c4486218081dec33299d6804379a62ed1a3b2a59c7cfbe13b8a58f69bbd1d4a8eae769e3e7bd830a9078b6f8e637d7d4ed2b749b7814c6026b15f6c529c01342#npm:14.4.3", {\
-          "packageLocation": "./.yarn/__virtual__/@testing-library-user-event-virtual-415df03ddb/0/cache/@testing-library-user-event-npm-14.4.3-2d1a75355f-852c48ea6d.zip/node_modules/@testing-library/user-event/",\
+        ["virtual:4b0286ed86a0514d587e18ff75a9e5899e7b97e56b5e291227325ba535166613130c0d046c006e26c770ec56e0d344ca8b2fa302b2ced0f6a45150fbed8bc279#npm:14.5.1", {\
+          "packageLocation": "./.yarn/__virtual__/@testing-library-user-event-virtual-6761e8f613/0/cache/@testing-library-user-event-npm-14.5.1-daca21fbcb-3e6bc9fd53.zip/node_modules/@testing-library/user-event/",\
           "packageDependencies": [\
-            ["@testing-library/user-event", "virtual:c4486218081dec33299d6804379a62ed1a3b2a59c7cfbe13b8a58f69bbd1d4a8eae769e3e7bd830a9078b6f8e637d7d4ed2b749b7814c6026b15f6c529c01342#npm:14.4.3"],\
+            ["@testing-library/user-event", "virtual:4b0286ed86a0514d587e18ff75a9e5899e7b97e56b5e291227325ba535166613130c0d046c006e26c770ec56e0d344ca8b2fa302b2ced0f6a45150fbed8bc279#npm:14.5.1"],\
             ["@testing-library/dom", "npm:9.3.3"],\
             ["@types/testing-library__dom", null]\
           ],\
@@ -17621,7 +17621,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/builder-vite", "virtual:222e91f6d5a974161ea31ee6efc71fed8c6512e12095bc98e7ae279098a9d7ff95e294623284695057dd0ba84630fa125c07ffa2980854cdeeeb2803597dc9ab#npm:7.4.5"],\
             ["@storybook/html", "virtual:222e91f6d5a974161ea31ee6efc71fed8c6512e12095bc98e7ae279098a9d7ff95e294623284695057dd0ba84630fa125c07ffa2980854cdeeeb2803597dc9ab#npm:7.4.5"],\
             ["@storybook/html-vite", "npm:7.4.5"],\
-            ["@storybook/testing-library", "npm:0.2.1"],\
+            ["@storybook/testing-library", "npm:0.2.2"],\
             ["chromatic", "npm:7.2.0"],\
             ["commons", "workspace:packages/commons"],\
             ["http-server", "npm:14.1.1"],\
@@ -23520,7 +23520,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/blocks", "virtual:7b44b3aaa674fbd2ced26518769c736326204211af3582271e533e877e495cfce7f1860648826eba24fd9f757b3606ae56e72b94fe95ec8b9f612f80e8c26248#npm:7.4.5"],\
             ["@storybook/react", "virtual:7b44b3aaa674fbd2ced26518769c736326204211af3582271e533e877e495cfce7f1860648826eba24fd9f757b3606ae56e72b94fe95ec8b9f612f80e8c26248#npm:7.4.5"],\
             ["@storybook/react-vite", "virtual:7b44b3aaa674fbd2ced26518769c736326204211af3582271e533e877e495cfce7f1860648826eba24fd9f757b3606ae56e72b94fe95ec8b9f612f80e8c26248#npm:7.4.5"],\
-            ["@storybook/testing-library", "npm:0.2.1"],\
+            ["@storybook/testing-library", "npm:0.2.2"],\
             ["@tsconfig/vite-react", "npm:2.0.1"],\
             ["@types/react", "npm:18.2.24"],\
             ["@types/react-dom", "npm:18.2.8"],\
