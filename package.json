@@ -46,8 +46,5 @@
     "ts-node@10.9.1": {
       "unplugged": true
     }
-  },
-  "resolutions": {
-    "esbuild-register@^3.4.0": "patch:esbuild-register@npm%3A3.4.2#./.yarn/patches/esbuild-register-npm-3.4.2-c873c16acc.patch"
   }
 }
