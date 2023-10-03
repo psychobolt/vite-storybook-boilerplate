@@ -19,10 +19,8 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-      - name: Unpack binaries
-        run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
-      - name: Validate dependencies
-        run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap
+      - name: Install dependencies
+        run: yarn install && yarn bootstrap
       - name: Update previous commit
         run: |
           git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"

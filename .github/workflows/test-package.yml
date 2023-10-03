@@ -19,6 +19,7 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
       CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Check out code
         uses: actions/checkout@v4
