@@ -24,10 +24,8 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-      - name: Unpack binaries
-        run: yarn install
-      - name: Verify dependencies
-        run: yarn bootstrap
+      - name: Install dependencies
+        run: yarn install && yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Build

@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-      - name: Unpack binaries
+      - name: Install dependencies
         run: yarn install
       - name: Verify dependencies
         run: yarn bootstrap

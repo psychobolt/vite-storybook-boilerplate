@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-      - name: Unpack binaries
+      - name: Install dependencies
         run: yarn install
       - name: Run Lint
         run: yarn workspace commons lint

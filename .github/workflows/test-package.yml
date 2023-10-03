@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-      - name: Unpack binaries
+      - name: Install dependencies
         run: yarn install
       - name: Install Playwright
         run: yarn playwright install --with-deps chromium
