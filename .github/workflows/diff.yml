@@ -19,11 +19,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: lts/*
-          cache: yarn
       - name: Collect Turborepo Changes
         id: changes
         uses: 94726/action-turborepo-changes@v1.1.0
