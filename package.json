@@ -36,7 +36,7 @@
     "glob-to-regexp": "0.4.1",
     "playwright-chromium": "1.38.1",
     "prettier": "3.0.3",
-    "sb": "7.4.5",
+    "sb": "7.4.6",
     "stylelint": "15.10.3",
     "ts-node": "10.9.1",
     "turbo": "1.10.14",
