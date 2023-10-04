@@ -55,6 +55,6 @@ jobs:
       - name: Switch to bitbucket/main
         run: git checkout -B bitbucket-main bitbucket/main
       - name: Merge origin/bitbucket into bitbucket/main
-        run: git pull --rebase origin bitbucket
+        run: git merge bitbucket
       - name: Push to bitbucket upstream
         run: git push -u bitbucket bitbucket-main:main
