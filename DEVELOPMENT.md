@@ -41,6 +41,8 @@ yarn bootstrap # Verify dependencies for all workspaces after running the initia
 yarn node ./path/to/script.js # Run a js script file
 yarn ts-script ./path/to/script.ts # Run a ts script file
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
+yarn lint
+yarn format
 
 # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:ts-script ./path/to/script.ts",
 yarn g:ts-script ./path/to/script.ts
@@ -100,7 +102,5 @@ git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
 Anytime there are new updates, run:
 
 ```sh
-git pull origin/base
-# or with merge strategy:
-# git merge origin/base
+git merge base/main
 ```
