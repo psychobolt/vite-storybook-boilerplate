@@ -62,11 +62,12 @@ yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, 
 yann [workspace workspace-name] turbo run build # Build for production
 yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces)
 yarn [workspace workspace-name] turbo run build-storybook # Build for production
-yarn [workspace workspace-name] turbo run lcov # Generate interactive coverage report (after running test coverage command above)
 yarn [workspace workspace-name] turbo run lint
 yarn [workspace workspace-name] turbo run format
 yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
-yarn [workspace workspace-name] turbo run test [-- --coverage]
+yarn [workspace workspace-name] turbo run test
+yarn [workspace workspace-name] turbo run coverage # Collect code coverage (after running tests)
+yarn [workspace workspace-name] turbo run lcov # Generate interactive coverage report (after running command above)
 yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library can be a private package
 ```
 
