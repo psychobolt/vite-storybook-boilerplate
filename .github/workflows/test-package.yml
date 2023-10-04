@@ -7,6 +7,9 @@ on:
       path:
         required: true
         type: string
+      port:
+        required: true
+        type: number
 
 jobs:
   test:
@@ -39,8 +42,8 @@ jobs:
       - name: Run Coverage
         run: |
           yarn dlx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "yarn workspace ${{ inputs.workspace }} start --port 6006 --silent" \
-            "yarn dlx wait-on http://127.0.0.1:6006 && yarn workspace ${{ inputs.workspace }} coverage -- --url http://127.0.0.1:6006"
+            "yarn workspace ${{ inputs.workspace }} start --silent" \
+            "yarn dlx wait-on http://127.0.0.1:${{ inputs.port }} && yarn workspace ${{ inputs.workspace }} coverage
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@v3
         with:
