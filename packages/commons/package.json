@@ -8,7 +8,8 @@
     "build": "yarn build-esm && yarn build-cjs",
     "build-esm": "rimraf esm/ && tsc --project tsconfig.esm.json && tsc --project tsconfig.dts.json",
     "build-cjs": "rimraf cjs/ && tsc --project tsconfig.cjs.json && tsconfig-to-dual-package tsconfig.cjs.json",
-    "g:test-storybook": "test-storybook -c ${INIT_CWD}/.storybook --coverageDirectory $(yarn node -p \"path.relative(process.cwd(), '$INIT_CWD')\")/coverage/storybook",
+    "g:rimraf": "cd $INIT_CWD && rimraf",
+    "g:test-storybook": "cd $INIT_CWD && test-storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
     "format": "yarn g:prettier --write ."
   },
