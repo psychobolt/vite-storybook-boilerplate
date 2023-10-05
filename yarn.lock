@@ -7712,7 +7712,7 @@ __metadata:
     stylelint-config-prettier-scss: 1.0.0
     stylelint-config-standard-scss: 11.0.0
     tsconfig-to-dual-package: 1.2.0
-    turbo: 1.10.14
+    turbo: 1.10.15
     typescript: 5.2.2
     vite: 4.4.11
     vite-plugin-turbosnap: 1.0.3
@@ -10621,7 +10621,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     storybook: 7.4.6
-    turbo: 1.10.14
+    turbo: 1.10.15
     typescript: 5.2.2
     vite: 4.4.11
   languageName: unknown
@@ -13799,7 +13799,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-ui: "workspace:*"
-    turbo: 1.10.14
+    turbo: 1.10.15
     typescript: 5.2.2
   languageName: unknown
   linkType: soft
@@ -15449,7 +15449,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     storybook: 7.4.6
-    turbo: 1.10.14
+    turbo: 1.10.15
     typescript: 5.2.2
     typescript-plugin-css-modules: 5.0.1
     vite: 4.4.11
@@ -17061,7 +17061,7 @@ __metadata:
     svelte-check: 3.5.2
     svelte-language-server: 0.15.19
     tslib: 2.6.2
-    turbo: 1.10.14
+    turbo: 1.10.15
     typescript: 5.2.2
     vite: 4.4.11
   languageName: unknown
@@ -17632,58 +17632,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.10.14":
-  version: 1.10.14
-  resolution: "turbo-darwin-64@npm:1.10.14"
+"turbo-darwin-64@npm:1.10.15":
+  version: 1.10.15
+  resolution: "turbo-darwin-64@npm:1.10.15"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.10.14":
-  version: 1.10.14
-  resolution: "turbo-darwin-arm64@npm:1.10.14"
+"turbo-darwin-arm64@npm:1.10.15":
+  version: 1.10.15
+  resolution: "turbo-darwin-arm64@npm:1.10.15"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.10.14":
-  version: 1.10.14
-  resolution: "turbo-linux-64@npm:1.10.14"
+"turbo-linux-64@npm:1.10.15":
+  version: 1.10.15
+  resolution: "turbo-linux-64@npm:1.10.15"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.10.14":
-  version: 1.10.14
-  resolution: "turbo-linux-arm64@npm:1.10.14"
+"turbo-linux-arm64@npm:1.10.15":
+  version: 1.10.15
+  resolution: "turbo-linux-arm64@npm:1.10.15"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.10.14":
-  version: 1.10.14
-  resolution: "turbo-windows-64@npm:1.10.14"
+"turbo-windows-64@npm:1.10.15":
+  version: 1.10.15
+  resolution: "turbo-windows-64@npm:1.10.15"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.10.14":
-  version: 1.10.14
-  resolution: "turbo-windows-arm64@npm:1.10.14"
+"turbo-windows-arm64@npm:1.10.15":
+  version: 1.10.15
+  resolution: "turbo-windows-arm64@npm:1.10.15"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:1.10.14":
-  version: 1.10.14
-  resolution: "turbo@npm:1.10.14"
+"turbo@npm:1.10.15":
+  version: 1.10.15
+  resolution: "turbo@npm:1.10.15"
   dependencies:
-    turbo-darwin-64: 1.10.14
-    turbo-darwin-arm64: 1.10.14
-    turbo-linux-64: 1.10.14
-    turbo-linux-arm64: 1.10.14
-    turbo-windows-64: 1.10.14
-    turbo-windows-arm64: 1.10.14
+    turbo-darwin-64: 1.10.15
+    turbo-darwin-arm64: 1.10.15
+    turbo-linux-64: 1.10.15
+    turbo-linux-arm64: 1.10.15
+    turbo-windows-64: 1.10.15
+    turbo-windows-arm64: 1.10.15
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -17699,7 +17699,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 219d245bb5cc32a9f76b136b81e86e179228d93a44cab4df3e3d487a55dd2688b5b85f4d585b66568ac53166145352399dd2d7ed0cd47f1aae63d08beb814ebb
+  checksum: b494c8bf79355874919e76ee0e4a0a53616e0ae5c7126eb1add50e67d4cd1e445ed9aecf99cb6d81c592b7a43ba91cd7dbf30df70410a44cecedba8b5126095d
   languageName: node
   linkType: hard
 
@@ -18451,7 +18451,7 @@ __metadata:
     sb: 7.4.6
     stylelint: 15.10.3
     ts-node: 10.9.1
-    turbo: 1.10.14
+    turbo: 1.10.15
     typescript: 5.2.2
   dependenciesMeta:
     ts-node@10.9.1:

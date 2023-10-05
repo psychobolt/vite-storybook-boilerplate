@@ -54,7 +54,7 @@
     "http-server": "14.1.1",
     "nyc": "15.1.0",
     "storybook": "7.4.6",
-    "turbo": "1.10.14",
+    "turbo": "1.10.15",
     "typescript": "5.2.2",
     "typescript-plugin-css-modules": "5.0.1",
     "vite": "4.4.11"
