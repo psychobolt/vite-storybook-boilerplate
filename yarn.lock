@@ -16117,7 +16117,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.68.0, sass@npm:^1.58.3":
+"sass@npm:1.69.0":
+  version: 1.69.0
+  resolution: "sass@npm:1.69.0"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: eabea31ea3b1dd529c7eff345c8b6468afe6ab8011bd4f95caa2cffb8fb115cc055ea21de425be6197f7ed22516f5652eccb98d315d592ea152ada553f964b8a
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.58.3":
   version: 1.68.0
   resolution: "sass@npm:1.68.0"
   dependencies:
@@ -17053,7 +17066,7 @@ __metadata:
     html-ui: "*"
     prettier: 3.0.3
     prettier-plugin-svelte: 3.0.3
-    sass: 1.68.0
+    sass: 1.69.0
     stylelint: 15.10.3
     stylelint-config-prettier-scss: 1.0.0
     stylelint-config-standard-scss: 11.0.0
