@@ -31,7 +31,7 @@
     "arg": "5.0.2",
     "commons": "workspace:*",
     "cross-env": "7.0.3",
-    "eslint": "8.50.0",
+    "eslint": "8.51.0",
     "execa": "8.0.1",
     "glob-to-regexp": "0.4.1",
     "playwright-chromium": "1.38.1",
