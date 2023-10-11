@@ -42,6 +42,10 @@ const config: Config[] = [
       ],
     },
   },
+  ...compat.extends("standard").map((stdConfig: Config) => ({
+    files: ["**/*.cjs", "**/*.js"],
+    ...stdConfig,
+  })),
   ...compat.extends("standard-jsx"),
   ...compat.extends("standard-react"),
   ...compat.extends("plugin:mdx/recommended"),

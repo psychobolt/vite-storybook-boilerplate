@@ -6,11 +6,11 @@
 
 1. Install the latest LTS node (https://nodejs.org/en/) standalone or with nvm
 2. Setup Yarn (https://yarnpkg.com/getting-started/install)
-3. Download and install [Visual Studio Code](https://code.visualstudio.com/)
-4. Open your project in VSCode and install the recommended extensions
-5. Run command `yarn install` in terminal to unpack root binaries
-6. Run command `yarn bootstrap` in terminal to verify all dependencies
-7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) to set VSCode's TypeScript version to workspace's
+3. Run command `yarn install && yarn bootstrap` in terminal to install dependencies
+4. Download and install [Visual Studio Code](https://code.visualstudio.com/)
+5. Open your project in VSCode with latest LTS node (e.g. `code ./vite-storybook-boilerplate`)
+6. Check notifications (bottom right of VSCode status bar) and install all recommended extensions
+7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
 8. Restart VSCode and reopen the project.
 
 ### Setup Remote Cache (Optional)
