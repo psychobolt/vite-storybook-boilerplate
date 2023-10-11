@@ -17135,7 +17135,7 @@ __metadata:
     stylelint-config-standard-scss: 11.0.0
     svelte: 4.2.1
     svelte-check: 3.5.2
-    svelte-language-server: 0.15.19
+    svelte-language-server: 0.15.20
     tslib: 2.6.2
     turbo: 1.10.15
     typescript: 5.2.2
@@ -17172,9 +17172,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.15.19":
-  version: 0.15.19
-  resolution: "svelte-language-server@npm:0.15.19"
+"svelte-language-server@npm:0.15.20":
+  version: 0.15.20
+  resolution: "svelte-language-server@npm:0.15.20"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.17
     "@vscode/emmet-helper": 2.8.4
@@ -17196,7 +17196,7 @@ __metadata:
     vscode-uri: ~3.0.0
   bin:
     svelteserver: bin/server.js
-  checksum: 8c868da6951fc973d25f254f7c43abaab9f9cf4439f2a248f59c40c933cb2d775bb1d723cee82c1b22e8df8735cf059c8fda4ce12de27f42494ba36c62cd1ed3
+  checksum: 9626e6327920a6b99b7fc98b90434e6f5ebe2fbc676586e3235802e547c23c192d074ceacf01aec3eacf275cac009e70d6ece35a6c7094886f8be3cf7226af0f
   languageName: node
   linkType: hard
 
