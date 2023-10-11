@@ -10,8 +10,8 @@
 4. Download and install [Visual Studio Code](https://code.visualstudio.com/)
 5. Open your project in VSCode with latest LTS node (e.g. `code ./vite-storybook-boilerplate`)
 6. Check notifications (bottom right of VSCode status bar) and install all recommended extensions
-6. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
-7. Restart VSCode and reopen the project.
+7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
+8. Restart VSCode and reopen the project.
 
 ### Setup Remote Cache (Optional)
 
