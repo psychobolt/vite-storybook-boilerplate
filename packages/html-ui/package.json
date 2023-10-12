@@ -34,7 +34,7 @@
     "chromatic": "chromatic -d storybook-static --only-changed"
   },
   "devDependencies": {
-    "@babel/core": "7.23.0",
+    "@babel/core": "7.23.2",
     "@storybook/addon-essentials": "7.4.6",
     "@storybook/blocks": "7.4.6",
     "@storybook/builder-vite": "7.4.6",
