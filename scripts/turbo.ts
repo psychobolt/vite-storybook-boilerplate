@@ -39,7 +39,11 @@ if (
 
   const workspaces = await getWorkspaces({ nodeLinker: "node-modules" });
   for (const workspace of workspaces) {
-    if (!packages.includes(workspace.name)) continue;
+    if (
+      !packages.includes(workspace.name) ||
+      !(workspace.name === "." && packages.includes("//"))
+    )
+      continue;
     tasks.push(
       turboCmd([...argv.filter((arg) => !arg.startsWith("--filter"))], {
         stdio: "inherit",

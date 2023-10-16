@@ -4,6 +4,7 @@ import process from "process";
 import { execa } from "execa";
 import arg from "arg";
 import globToRegExp from "glob-to-regexp";
+import YAML from "yaml";
 
 interface Workspace {
   name: string;
@@ -50,9 +51,9 @@ async function getWorkspaces(options?: Options) {
         };
       },
     },
-    "--node-modules": {
-      type: Boolean,
-      value: false,
+    "--node-linker": {
+      type: String,
+      value: "",
     },
   };
 
@@ -77,7 +78,7 @@ async function getWorkspaces(options?: Options) {
 
     Object.entries(options).forEach(([option, value]) => {
       if (option === "nodeLinker") {
-        updateArg("--node-modules", value === "node-modules");
+        updateArg("--node-linker", value);
       }
     });
   }
@@ -103,16 +104,20 @@ async function getWorkspaces(options?: Options) {
       return true;
     }
 
-    if (filter.value === true && filterKey === "node-modules") {
+    if (filterKey === "node-linker") {
+      if (filter.value === "") return true;
+      const isPnp = filter.value === "pnp";
       const rcLocation = `${workspace.location}/.yarnrc.yml`;
       if (fs.existsSync(rcLocation)) {
-        const contents = fs
-          .readFileSync(`${workspace.location}/.yarnrc.yml`, "utf-8")
-          .split("\n");
-        const re = /^nodeLinker: node-modules$/;
-        return !!contents.find((line) => re.test(line.trim()));
+        const doc = YAML.parseDocument(
+          fs.readFileSync(`${workspace.location}/.yarnrc.yml`, "utf-8"),
+        );
+        const value = doc.get("nodeLinker");
+        return (
+          value === filter.value || (typeof value === "undefined" && isPnp)
+        );
       }
-      return false;
+      return isPnp;
     }
 
     return (filter.value ?? false) !== true ||
@@ -135,7 +140,7 @@ async function getWorkspaces(options?: Options) {
         passthrough(workspace, "location", "location") &&
         passthrough(workspace, "name", "name") &&
         passthrough(workspace, "filter", "name") &&
-        passthrough(workspace, "node-modules");
+        passthrough(workspace, "node-linker");
       return keep ? [workspace, ...list] : list;
     }, []);
 
