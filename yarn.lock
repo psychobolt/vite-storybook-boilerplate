@@ -10882,6 +10882,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"husky@npm:8.0.3":
+  version: 8.0.3
+  resolution: "husky@npm:8.0.3"
+  bin:
+    husky: lib/bin.js
+  checksum: 837bc7e4413e58c1f2946d38fb050f5d7324c6f16b0fd66411ffce5703b294bd21429e8ba58711cd331951ee86ed529c5be4f76805959ff668a337dbfa82a1b0
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -18599,6 +18608,7 @@ __metadata:
     eslint: 8.51.0
     execa: 8.0.1
     glob-to-regexp: 0.4.1
+    husky: 8.0.3
     playwright-chromium: 1.39.0
     prettier: 3.0.3
     sb: 7.4.6
@@ -18606,6 +18616,7 @@ __metadata:
     ts-node: 10.9.1
     turbo: 1.10.15
     typescript: 5.2.2
+    yaml: 2.3.3
   dependenciesMeta:
     ts-node@10.9.1:
       unplugged: true
@@ -19157,6 +19168,13 @@ __metadata:
   version: 4.0.0
   resolution: "yallist@npm:4.0.0"
   checksum: 343617202af32df2a15a3be36a5a8c0c8545208f3d3dfbc6bb7c3e3b7e8c6f8e7485432e4f3b88da3031a6e20afa7c711eded32ddfb122896ac5d914e75848d5
+  languageName: node
+  linkType: hard
+
+"yaml@npm:2.3.3":
+  version: 2.3.3
+  resolution: "yaml@npm:2.3.3"
+  checksum: cdfd132e7e0259f948929efe8835923df05c013c273c02bb7a2de9b46ac3af53c2778a35b32c7c0f877cc355dc9340ed564018c0242bfbb1278c2a3e53a0e99e
   languageName: node
   linkType: hard
 
