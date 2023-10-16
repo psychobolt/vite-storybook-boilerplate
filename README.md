@@ -15,6 +15,7 @@ A modern fast ⚡💨 starter plate for developing front-end components
 - [ES Module enabled](https://nodejs.org/api/esm.html#enabling)
 - [Vercel](https://vercel.com/) deployable apps built with [Next.js](https://nextjs.org/) and [Svelte](https://svelte.dev/)
 - Internal UI library examples
+- Pre-commit formatting hook configured with [Husky](https://typicode.github.io/husky/)
 
 ## Development
 
