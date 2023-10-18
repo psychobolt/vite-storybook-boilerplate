@@ -39,7 +39,7 @@
 		"tslib": "2.6.2",
 		"turbo": "1.10.15",
 		"typescript": "5.2.2",
-		"vite": "4.4.11"
+		"vite": "4.5.0"
 	},
 	"resolutions": {
 		"commons": "portal:../../packages/commons",
