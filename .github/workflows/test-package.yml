@@ -50,4 +50,4 @@ jobs:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
       - name: Run Chromatic
-        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic -- -d storybook-static
+        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic -- -d storybook-static --exit-once-uploaded
