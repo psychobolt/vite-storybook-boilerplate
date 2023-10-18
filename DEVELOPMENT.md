@@ -42,7 +42,7 @@ yarn node ./path/to/script.js # Run a js script file
 yarn ts-script ./path/to/script.ts # Run a ts script file
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
 yarn lint
-yarn format
+yarn format # This is automatically called on git commit
 
 # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:ts-script ./path/to/script.ts",
 yarn g:ts-script ./path/to/script.ts
@@ -63,7 +63,7 @@ yann [workspace workspace-name] turbo run build # Build for production
 yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces)
 yarn [workspace workspace-name] turbo run build-storybook # Build for production
 yarn [workspace workspace-name] turbo run lint
-yarn [workspace workspace-name] turbo run format
+yarn [workspace workspace-name] turbo run format # This is automatically called on git commit
 yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
 yarn [workspace workspace-name] turbo run test
 yarn [workspace workspace-name] turbo run coverage # Collect code coverage (after running tests)
