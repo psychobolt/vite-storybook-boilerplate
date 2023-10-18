@@ -40,9 +40,9 @@ jobs:
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Coverage
-        run: |
-          yarn dlx concurrently -k -s first -n "SB,TEST" \
-            "yarn workspace ${{ inputs.workspace }} start --silent" \
+        run: >-
+          yarn dlx concurrently -k -s first -n "SB,TEST"
+            "yarn workspace ${{ inputs.workspace }} start --silent"
             "yarn dlx wait-on http://127.0.0.1:${{ inputs.port }} && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@v3
