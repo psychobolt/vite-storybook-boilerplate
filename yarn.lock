@@ -5692,10 +5692,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.18.5":
-  version: 18.18.5
-  resolution: "@types/node@npm:18.18.5"
-  checksum: fc8c9b2bf226270cf9085a7dac76ce09dd7c3519ec9b687ee2b50385954ab3709c45ca82d002d1536e24286803cd194d7ab7008acebdcd6681b8b19d4277fa5c
+"@types/node@npm:18.18.6":
+  version: 18.18.6
+  resolution: "@types/node@npm:18.18.6"
+  checksum: a847639b8455fd3dfa6dbc2917274c82c9db789f1d41aaf69f94ac6c9e54c3c1dd29be6e1e1ccd7c17e54db3d78d7011bc4e70544c6447ceca253dccc0a187e1
   languageName: node
   linkType: hard
 
@@ -7800,7 +7800,7 @@ __metadata:
     "@storybook/types": 7.4.6
     "@tsconfig/recommended": 1.0.3
     "@types/eslint": 8.44.5
-    "@types/node": 18.18.5
+    "@types/node": 18.18.6
     "@typescript-eslint/eslint-plugin": 6.8.0
     "@typescript-eslint/parser": 6.8.0
     eslint: 8.51.0
@@ -13941,7 +13941,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@types/node": 18.18.5
+    "@types/node": 18.18.6
     "@types/react": 18.2.28
     "@types/react-dom": 18.2.13
     eslint: 8.51.0
@@ -18627,7 +18627,7 @@ __metadata:
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
     "@types/glob-to-regexp": 0.4.3
-    "@types/node": 18.18.5
+    "@types/node": 18.18.6
     "@yarnpkg/sdks": 3.0.0-rc.53
     arg: 5.0.2
     commons: "workspace:*"
