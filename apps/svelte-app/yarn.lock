@@ -3355,9 +3355,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:1.25.2":
-  version: 1.25.2
-  resolution: "@sveltejs/kit@npm:1.25.2"
+"@sveltejs/kit@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@sveltejs/kit@npm:1.26.0"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^2.4.1
     "@types/cookie": ^0.5.1
@@ -3366,18 +3366,18 @@ __metadata:
     esm-env: ^1.0.0
     kleur: ^4.1.5
     magic-string: ^0.30.0
-    mime: ^3.0.0
+    mrmime: ^1.0.1
     sade: ^1.8.1
     set-cookie-parser: ^2.6.0
     sirv: ^2.0.2
     tiny-glob: ^0.2.9
-    undici: ~5.25.0
+    undici: ~5.26.2
   peerDependencies:
     svelte: ^3.54.0 || ^4.0.0-next.0
     vite: ^4.0.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: fb8624674224b31cc6fd7e6f1ec5c0009388b999711a19cb9ad3e22c03893d560f66bbc70b478e9ca5078f21c882e79a283a63ffb3c959de77b85eef8770acc0
+  checksum: f008fc2e8c425c750240dacb0b2b80ab97adc0d7483ec033a652d6b3bdf6f0ed24c5c71f32864584c81e18ae7bdef66a27c471adcc65586e52945543eb84c545
   languageName: node
   linkType: hard
 
@@ -10439,15 +10439,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "mime@npm:3.0.0"
-  bin:
-    mime: cli.js
-  checksum: f43f9b7bfa64534e6b05bd6062961681aeb406a5b53673b53b683f27fcc4e739989941836a355eef831f4478923651ecc739f4a5f6e20a76487b432bfd4db928
-  languageName: node
-  linkType: hard
-
 "mimic-fn@npm:^2.1.0":
   version: 2.1.0
   resolution: "mimic-fn@npm:2.1.0"
@@ -10625,7 +10616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mrmime@npm:^1.0.0":
+"mrmime@npm:^1.0.0, mrmime@npm:^1.0.1":
   version: 1.0.1
   resolution: "mrmime@npm:1.0.1"
   checksum: cc979da44bbbffebaa8eaf7a45117e851f2d4cb46a3ada6ceb78130466a04c15a0de9a9ce1c8b8ba6f6e1b8618866b1352992bf1757d241c0ddca558b9f28a77
@@ -13144,7 +13135,7 @@ __metadata:
     "@neoconfetti/svelte": ^1.0.0
     "@sveltejs/adapter-auto": 2.1.0
     "@sveltejs/adapter-vercel": 3.0.3
-    "@sveltejs/kit": 1.25.2
+    "@sveltejs/kit": 1.26.0
     "@types/cookie": ^0.5.1
     "@typescript-eslint/eslint-plugin": 6.8.0
     "@typescript-eslint/parser": 6.8.0
@@ -13841,12 +13832,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:~5.25.0":
-  version: 5.25.3
-  resolution: "undici@npm:5.25.3"
+"undici@npm:~5.26.2":
+  version: 5.26.3
+  resolution: "undici@npm:5.26.3"
   dependencies:
     "@fastify/busboy": ^2.0.0
-  checksum: 65b814b7d8b06dab2d41c250d123663fe94edb78cf1a891cf3476569ea66dc425c7d4ba52b91d6f8ed6eba24613dd28e4a5070c372063532c3b997cd343ccc96
+  checksum: aaa9aadb712cf80e1a9cea2377e4842670105e00abbc184a21770ea5a8b77e4e2eadc200eac62442e74a1cd3b16a840c6f73b112b9e886bd3c1a125eb22e4f21
   languageName: node
   linkType: hard
 
