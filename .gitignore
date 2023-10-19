@@ -1,6 +1,7 @@
 node_modules
 .turbo
-.env
+.env.local
+.env.*.local
 storybook-static
 build
 dist
