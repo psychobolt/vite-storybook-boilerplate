@@ -28,7 +28,7 @@ const config: StorybookViteCommonConfig = {
     return mergeConfig(config, {
       plugins:
         configType === "PRODUCTION"
-          ? // @ts-expect-error https://github.com/IanVS/vite-plugin-turbosnap/issues
+          ? // @ts-expect-error https://github.com/IanVS/vite-plugin-turbosnap/issues/8
             [turbosnap({ rootDir: config.root ?? process.cwd() })]
           : [],
     });
