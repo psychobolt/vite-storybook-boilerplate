@@ -44,8 +44,8 @@ yarn up package-name [--exact] # Upgrade all instances of package to latest rele
 yarn lint
 yarn format # This is automatically called on git commit
 
-# Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:ts-script ./path/to/script.ts",
-yarn g:ts-script ./path/to/script.ts
+# Global tasks that can be hoisted to any workspace scope
+yarn g:ts-script ./path/to/script.ts # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:ts-script ./path/to/script.ts"
 yarn g:lint-js # Lint js files with eslint
 yarn g:lint-css # Lint [s]css files with stylelint
 yarn g:prettier [options] # Runs prettier format tool
@@ -54,7 +54,7 @@ yarn g:prettier [options] # Runs prettier format tool
 #### Workspace Scope
 
 ```sh
-#cd (packages|apps)/workspace-name # option if not using yarn workspace command, otherwise you'll run task on all workspaces
+#cd (packages|apps)/workspace-name # optional if not using yarn workspace command, otherwise you'll run task on all workspaces
 yarn [workspace workspace-name] turbo task-name [--force] [-- --some-option] # Run a turbo enabled task
 yarn [workspace workspace-name] bootstrap
 yarn [workspace workspace-name] start # Serve production build
@@ -80,6 +80,22 @@ See [docs](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for 
 1. Follow [instructions](https://www.chromatic.com/docs/setup) on creating a Chromatic project
 2. Create a `.env` file if not exist in `packages/your-package`
 3. Add `CHROMATIC_PROJECT_TOKEN=your-project-token` to `packages/your-package/.env`
+
+## Envrionment Variables
+
+### Using environment files
+
+```sh
+yarn [workspace] g:dotenv my-script-or-bin # Loads envronment variables with your script or bin
+```
+
+See [documentaion](https://github.com/entropitor/dotenv-cli) for usage.
+
+### Best Practices
+
+- Keep team shared secrets in a `.env` file. Utilize [`dotenv-vault`](https://www.dotenv.org/) e.g. (`yarn [workspace] g:dotenv-vault [pull/push]`), to sync environment variables with your CI or the team.
+- Keep personal secrets or local overrides in a `.env*.local` file.
+  By default, it is best practice to not commit `.env*` files. However, the exception is default variables for a project (e.g. `.env.defaults`, `.env.production`, `.env.development`, etc...).
 
 ## CI Config (Optional)
 

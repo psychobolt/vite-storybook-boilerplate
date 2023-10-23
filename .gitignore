@@ -1,7 +1,7 @@
+# packages
 node_modules
 .turbo
-.env.local
-.env.*.local
+.env
 storybook-static
 build
 dist
@@ -12,8 +12,15 @@ esm
 next-env.d.ts
 .svelte-kit
 coverage
-*.secrets
 
+# environment
+.env*
+.flaskenv*
+*.secrets
+!.env.defaults
+!.env.vault
+
+# yarn
 .pnp.*
 **/.yarn/*
 !.yarn/patches

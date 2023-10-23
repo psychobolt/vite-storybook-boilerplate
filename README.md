@@ -16,6 +16,7 @@ A modern fast ⚡💨 starter plate for developing front-end components
 - [Vercel](https://vercel.com/) deployable apps built with [Next.js](https://nextjs.org/) and [Svelte](https://svelte.dev/)
 - Internal UI library examples
 - Pre-commit formatting hook configured with [Husky](https://typicode.github.io/husky/)
+- Load and store environment variables using [dotenv-cli](https://github.com/entropitor/dotenv-cli)+[dotenv-flow](https://github.com/kerimdzhanov/dotenv-flow) and [dotenv-vault](https://www.dotenv.org/)
 
 ## Development
 

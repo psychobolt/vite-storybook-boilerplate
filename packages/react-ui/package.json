@@ -28,13 +28,13 @@
     "build-src": "vite build",
     "build-dts": "tsc --project tsconfig.dts.json",
     "build-storybook": "storybook build",
-    "start": "turbo run build-storybook && http-server storybook-static --port 6007",
+    "start": "turbo run build-storybook && yarn g:dotenv -- http-server storybook-static",
     "test": "yarn g:test-storybook",
-    "coverage": "yarn g:rimraf coverage/ && yarn test --coverage --url http://127.0.0.1:6007",
+    "coverage": "yarn g:rimraf coverage/ && yarn g:dotenv -- yarn test --coverage",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
     "format": "yarn g:prettier --write .",
-    "chromatic": "chromatic -d storybook-static --only-changed"
+    "chromatic": "yarn g:dotenv -- chromatic -d storybook-static --only-changed"
   },
   "dependencies": {
     "react": "18.2.0",
