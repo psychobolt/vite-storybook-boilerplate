@@ -1,38 +1,54 @@
 diff --git a/cli.js b/cli.js
-index 8ea2b15db9b225df3065eff4e09b35ad623a657a..6287cd1f37894411ad567d61f1f76fd30e82be17 100755
+index 8ea2b15db9b225df3065eff4e09b35ad623a657a..a9236d705298774a2b9c46346e722be2ab643876 100755
 --- a/cli.js
 +++ b/cli.js
-@@ -4,7 +4,8 @@ var spawn = require('cross-spawn')
- var path = require('path')
+@@ -5,6 +5,7 @@ var path = require('path')
  
  var argv = require('minimist')(process.argv.slice(2))
--var dotenv = require('dotenv')
-+var dotenv = require('dotenv');
+ var dotenv = require('dotenv')
 +var dotenvFlow = require('dotenv-flow')
  var dotenvExpand = require('dotenv-expand').expand
  
  function printHelp () {
-@@ -43,16 +44,14 @@ if (argv.e) {
-   } else {
+@@ -29,7 +30,7 @@ if (argv.help) {
+   process.exit()
+ }
+ 
+-const override = argv.o || argv.override;
++const override = argv.o || argv.override
+ 
+ if (argv.c && override) {
+   console.error('Invalid arguments. Cascading env variables conflicts with overrides.')
+@@ -44,15 +45,22 @@ if (argv.e) {
      paths.push(...argv.e)
    }
--} else {
+ } else {
 -  paths.push('.env')
--}
--
--if (argv.c) {
-+} else if (argv.c) {
-   paths = paths.reduce((accumulator, path) => accumulator.concat(
-     typeof argv.c === 'string'
-       ? [`${path}.${argv.c}.local`, `${path}.local`, `${path}.${argv.c}`, path]
-       : [`${path}.local`, path]
-   ), [])
++  paths = ['.env']
+ }
+ 
+ if (argv.c) {
+-  paths = paths.reduce((accumulator, path) => accumulator.concat(
+-    typeof argv.c === 'string'
+-      ? [`${path}.${argv.c}.local`, `${path}.local`, `${path}.${argv.c}`, path]
+-      : [`${path}.local`, path]
+-  ), [])
++  paths = paths.reduce(function (accumulator, path) {
++    var filepaths = dotenvFlow.listFiles({ path: path.replace(/\/(\..+)+/, ''), debug: argv.debug })
++    return accumulator.concat((
++      typeof argv.c === 'string'
++        ? [`${path}.${argv.c}.defaults`, path, `${path}.${argv.c}`, `${path}.local`, `${path}.${argv.c}.local`]
++        : [`${path}.defaults`, path, `${path}.local`]
++    ).filter(function (filepath) {
++      return filepaths.includes(filepath)
++    }))
++  }, [])
 +} else {
-+  paths = dotenvFlow.listFiles({ debug: argv.debug });
++  paths = dotenvFlow.listFiles({ debug: argv.debug })
  }
  
  function validateCmdVariable (param) {
-@@ -72,21 +71,17 @@ if (argv.v) {
+@@ -72,21 +80,17 @@ if (argv.v) {
    }
  }
  var parsedVariables = dotenv.parse(Buffer.from(variables.join('\n')))
@@ -45,7 +61,7 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..6287cd1f37894411ad567d61f1f76fd3
  if (argv.debug) {
 -  console.log(paths)
 -  console.log(parsedVariables)
-+  console.log(Object.assign({}, parsedFile.parsed, parsedVariables));
++  console.log(Object.assign({}, parsedFile.parsed, parsedVariables))
    process.exit()
  }
  
@@ -60,16 +76,3 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..6287cd1f37894411ad567d61f1f76fd3
  if (argv.p) {
    var value = process.env[argv.p]
    console.log(value != null ? value : '')
-diff --git a/package.json b/package.json
-index b6fa9e11b5ad5b8ba81ed25910b8b1bdb4d5994f..79831d0afd74eddbb0e443dc531169c0219b49d5 100644
---- a/package.json
-+++ b/package.json
-@@ -8,7 +8,7 @@
-   },
-   "dependencies": {
-     "cross-spawn": "^7.0.3",
--    "dotenv": "^16.3.0",
-+    "dotenv-flow": "^4.0.0",
-     "dotenv-expand": "^10.0.0",
-     "minimist": "^1.2.6"
-   },
