@@ -1,5 +1,5 @@
 diff --git a/cli.js b/cli.js
-index 8ea2b15db9b225df3065eff4e09b35ad623a657a..a9236d705298774a2b9c46346e722be2ab643876 100755
+index 8ea2b15db9b225df3065eff4e09b35ad623a657a..97bf39c0d11f430cb76155da9d05e23dc70d8e46 100755
 --- a/cli.js
 +++ b/cli.js
 @@ -5,6 +5,7 @@ var path = require('path')
@@ -19,7 +19,7 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..a9236d705298774a2b9c46346e722be2
  
  if (argv.c && override) {
    console.error('Invalid arguments. Cascading env variables conflicts with overrides.')
-@@ -44,15 +45,22 @@ if (argv.e) {
+@@ -44,15 +45,23 @@ if (argv.e) {
      paths.push(...argv.e)
    }
  } else {
@@ -33,12 +33,13 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..a9236d705298774a2b9c46346e722be2
 -      ? [`${path}.${argv.c}.local`, `${path}.local`, `${path}.${argv.c}`, path]
 -      : [`${path}.local`, path]
 -  ), [])
-+  paths = paths.reduce(function (accumulator, path) {
-+    var filepaths = dotenvFlow.listFiles({ path: path.replace(/\/(\..+)+/, ''), debug: argv.debug })
++  paths = paths.reduce(function (accumulator, input) {
++    var filepaths = dotenvFlow.listFiles({ path: input.replace(/\/(\..+)+/, ''), debug: argv.debug })
++    var filepath = path.resolve(path.relative(process.cwd(), input))
 +    return accumulator.concat((
 +      typeof argv.c === 'string'
-+        ? [`${path}.${argv.c}.defaults`, path, `${path}.${argv.c}`, `${path}.local`, `${path}.${argv.c}.local`]
-+        : [`${path}.defaults`, path, `${path}.local`]
++        ? [`${filepath}.${argv.c}.defaults`, filepath, `${filepath}.${argv.c}`, `${filepath}.local`, `${filepath}.${argv.c}.local`]
++        : [`${filepath}.defaults`, filepath, `${filepath}.local`]
 +    ).filter(function (filepath) {
 +      return filepaths.includes(filepath)
 +    }))
@@ -48,7 +49,7 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..a9236d705298774a2b9c46346e722be2
  }
  
  function validateCmdVariable (param) {
-@@ -72,21 +80,17 @@ if (argv.v) {
+@@ -72,21 +81,17 @@ if (argv.v) {
    }
  }
  var parsedVariables = dotenv.parse(Buffer.from(variables.join('\n')))
