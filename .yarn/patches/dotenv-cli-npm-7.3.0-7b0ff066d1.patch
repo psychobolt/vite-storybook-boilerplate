@@ -1,5 +1,5 @@
 diff --git a/cli.js b/cli.js
-index 8ea2b15db9b225df3065eff4e09b35ad623a657a..cf878b1682e77519301522fb5629a75fe4e15206 100755
+index 8ea2b15db9b225df3065eff4e09b35ad623a657a..2c83f3a22757924d5e99b82a454e2107743c222a 100755
 --- a/cli.js
 +++ b/cli.js
 @@ -5,6 +5,7 @@ var path = require('path')
@@ -40,17 +40,19 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..cf878b1682e77519301522fb5629a75f
  }
  
  function validateCmdVariable (param) {
-@@ -71,22 +80,25 @@ if (argv.v) {
+@@ -71,22 +80,27 @@ if (argv.v) {
      variables.push(...argv.v.map(validateCmdVariable))
    }
  }
 +
-+var vaultVariables = process.env.DOTENV_KEY ? vaultVariables = dotenv.config({ processEnv: {}, debug: argv.debug }) : {}
++var vaultVariables = process.env.DOTENV_KEY ? dotenv.config({ processEnv: {}, debug: argv.debug }) : {}
  var parsedVariables = dotenv.parse(Buffer.from(variables.join('\n')))
 +var parsedFile = dotenvFlow.load(paths, { debug: argv.debug, override })
 +var finalVariables = { parsed: Object.assign({}, parsedFile.parsed, vaultVariables.parsed, parsedVariables) }
 +if (argv.expand !== false) {
 +  dotenvExpand(finalVariables)
++} else {
++  Object.assign(process.env, finalVariables.parsed)
 +}
  
  if (argv.debug) {
