@@ -49,7 +49,7 @@
     "@tsconfig/vite-react": "2.0.1",
     "@types/react": "18.2.33",
     "@types/react-dom": "18.2.14",
-    "chromatic": "7.5.0",
+    "chromatic": "7.5.1",
     "commons": "workspace:*",
     "http-server": "14.1.1",
     "nyc": "15.1.0",
