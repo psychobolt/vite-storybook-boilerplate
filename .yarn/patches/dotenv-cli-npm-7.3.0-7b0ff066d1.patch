@@ -1,5 +1,5 @@
 diff --git a/cli.js b/cli.js
-index 8ea2b15db9b225df3065eff4e09b35ad623a657a..728e5f2dbdf32a6624cf864421e28954c11fad2d 100755
+index 8ea2b15db9b225df3065eff4e09b35ad623a657a..cf878b1682e77519301522fb5629a75fe4e15206 100755
 --- a/cli.js
 +++ b/cli.js
 @@ -5,6 +5,7 @@ var path = require('path')
@@ -10,15 +10,6 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..728e5f2dbdf32a6624cf864421e28954
  var dotenvExpand = require('dotenv-expand').expand
  
  function printHelp () {
-@@ -29,7 +30,7 @@ if (argv.help) {
-   process.exit()
- }
- 
--const override = argv.o || argv.override;
-+const override = argv.o || argv.override
- 
- if (argv.c && override) {
-   console.error('Invalid arguments. Cascading env variables conflicts with overrides.')
 @@ -44,15 +45,23 @@ if (argv.e) {
      paths.push(...argv.e)
    }
@@ -49,7 +40,7 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..728e5f2dbdf32a6624cf864421e28954
  }
  
  function validateCmdVariable (param) {
-@@ -71,22 +80,21 @@ if (argv.v) {
+@@ -71,22 +80,25 @@ if (argv.v) {
      variables.push(...argv.v.map(validateCmdVariable))
    }
  }
@@ -61,12 +52,16 @@ index 8ea2b15db9b225df3065eff4e09b35ad623a657a..728e5f2dbdf32a6624cf864421e28954
 +if (argv.expand !== false) {
 +  dotenvExpand(finalVariables)
 +}
-+Object.assign(process.env, finalVariables)
  
  if (argv.debug) {
 -  console.log(paths)
 -  console.log(parsedVariables)
-+  console.log(finalVariables)
++  if (process.env.CI) {
++    console.log('Only variables from source .env* are printed in CI mode...')
++    console.log(parsedFile.parsed)
++  } else {
++    console.log(finalVariables.parsed)
++  }
    process.exit()
  }
  

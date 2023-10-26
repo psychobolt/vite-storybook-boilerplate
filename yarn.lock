@@ -8761,7 +8761,7 @@ __metadata:
 
 "dotenv-cli@patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch::locator=vite-storybook-boilerplate%40workspace%3A.":
   version: 7.3.0
-  resolution: "dotenv-cli@patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch::version=7.3.0&hash=7c655b&locator=vite-storybook-boilerplate%40workspace%3A."
+  resolution: "dotenv-cli@patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch::version=7.3.0&hash=2e6860&locator=vite-storybook-boilerplate%40workspace%3A."
   dependencies:
     cross-spawn: "npm:^7.0.3"
     dotenv: "npm:^16.3.0"
@@ -8769,7 +8769,7 @@ __metadata:
     minimist: "npm:^1.2.6"
   bin:
     dotenv: cli.js
-  checksum: ffeee98c6fe25c0e1102bb8d9d1c05edc398ebd804dee03abfd3b67f82e6d82142b5163b413b666816592cccf8a6f3ab838bbdc5f0da681e536d3415292f39fd
+  checksum: 1285a65ce13a8d1cc96265c5463af5c654403304f0c0f3fc8f248ce706d1a016d6c5d5da4a16e65fdeaa24c32cc033fa49f9d6c55bd964f89defda52c5dc279f
   languageName: node
   linkType: hard
 
