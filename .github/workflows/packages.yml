@@ -24,7 +24,6 @@ jobs:
     with:
       workspace: html-ui
       path: packages/html-ui
-      port: 6006
     secrets: inherit
 
   react-ui:
@@ -34,5 +33,4 @@ jobs:
     with:
       workspace: react-ui
       path: packages/react-ui
-      port: 6007
     secrets: inherit
