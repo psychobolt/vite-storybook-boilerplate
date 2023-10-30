@@ -40,7 +40,7 @@ jobs:
         run: >-
           yarn dlx concurrently -k -s first -n "SB,TEST"
           "yarn workspace ${{ inputs.workspace }} start --silent"
-          "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv -p TARGET_URL) -l && yarn workspace ${{ inputs.workspace }} coverage"
+          "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv -p TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@v3
         with:
