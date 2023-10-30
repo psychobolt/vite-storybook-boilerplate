@@ -1919,7 +1919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/fira-mono@npm:^5.0.0":
+"@fontsource/fira-mono@npm:5.0.8":
   version: 5.0.8
   resolution: "@fontsource/fira-mono@npm:5.0.8"
   checksum: 41f0a700a8953dc602d34fdbad6baad02f78f32fd1f7db19216b6b2649fb8581d71673a1dbd605d8fc2bc523e2276a496070e4e6e455e14d57e8fd41acb2aa51
@@ -2445,7 +2445,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@neoconfetti/svelte@npm:^1.0.0":
+"@neoconfetti/svelte@npm:1.0.0":
   version: 1.0.0
   resolution: "@neoconfetti/svelte@npm:1.0.0"
   checksum: 9f2374fcb1748b161319f0070cf4fbc83703c8e4958a2a2a7d8b4eb240305939454f85b9781ad7ed2e5c9db4b88db4377c5a1be40172aca641c642a8d6710445
@@ -5528,6 +5528,13 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 4dee3d966fb527b98f0cbbdcf6977c9193fc3204ed539b7522fe5e64dfa45f9017bdda4ffb1f760062262fce7701a0ee1c2f6ce2e50af36c74d4e37052303172
+  languageName: node
+  linkType: hard
+
+"@types/cookie@npm:0.5.3":
+  version: 0.5.3
+  resolution: "@types/cookie@npm:0.5.3"
+  checksum: b785618f6b2fdceb6a20a17e1dfe99651b1e5c2c079f486de76dfb21b508f09d91913755e4a6dbdfe628882ea32466bb2e9318b114ce34efa5e624356494fcab
   languageName: node
   linkType: hard
 
@@ -17786,12 +17793,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@fontsource/fira-mono": ^5.0.0
-    "@neoconfetti/svelte": ^1.0.0
+    "@fontsource/fira-mono": 5.0.8
+    "@neoconfetti/svelte": 1.0.0
     "@sveltejs/adapter-auto": 2.1.0
     "@sveltejs/adapter-vercel": 3.0.3
     "@sveltejs/kit": 1.27.2
-    "@types/cookie": ^0.5.1
+    "@types/cookie": 0.5.3
     "@typescript-eslint/eslint-plugin": 6.9.1
     "@typescript-eslint/parser": 6.9.1
     commons: "workspace:*"

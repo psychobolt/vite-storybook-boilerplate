@@ -18,11 +18,11 @@ jobs:
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 0
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
           node-version: lts/*
           cache: yarn
@@ -32,7 +32,7 @@ jobs:
       - name: Trigger post upgrade
         id: trigger
         if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
-        uses: benc-uk/workflow-dispatch@v1
+        uses: benc-uk/workflow-dispatch@798e70c97009500150087d30d9f11c5444830385 # v1
         with:
           workflow: renovate.yml
 
