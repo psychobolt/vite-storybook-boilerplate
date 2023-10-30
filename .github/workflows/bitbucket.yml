@@ -11,7 +11,7 @@ jobs:
     timeout-minutes: 32
     steps:
       - name: Wait for CI workflow to succeed
-        uses: lewagon/wait-on-check-action@v1.3.1
+        uses: lewagon/wait-on-check-action@e106e5c43e8ca1edea6383a39a01c5ca495fd812 # v1.3.1
         with:
           ref: ${{ github.ref }}
           check-regexp: ^Build and Test .+$
@@ -29,7 +29,7 @@ jobs:
             User ${{ secrets.BITBUCKET_USER }}
             IdentityFile ~/.ssh/bitbucket
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 0
       - name: Configure git user
@@ -37,7 +37,7 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Queue workflow
-        uses: ahmadnassri/action-workflow-queue@v1
+        uses: ahmadnassri/action-workflow-queue@ecb80b5975f6e540c19d639a5891699ac0ecd1f6 # v1
       - name: Checkout bitbucket branch
         run: git checkout -b bitbucket origin/bitbucket
       - name: Merge with main branch

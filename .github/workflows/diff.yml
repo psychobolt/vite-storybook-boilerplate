@@ -16,11 +16,11 @@ jobs:
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 0
       - name: Collect Turborepo Changes
         id: changes
-        uses: 94726/action-turborepo-changes@v1.1.0
+        uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0
         with:
           from: ${{ github.event.inputs.change-from || 'HEAD^1' }}
