@@ -41,7 +41,7 @@
     "@storybook/html": "7.5.0-alpha.3",
     "@storybook/html-vite": "7.5.0-alpha.3",
     "@storybook/testing-library": "0.2.2",
-    "chromatic": "7.5.4",
+    "chromatic": "7.6.0",
     "commons": "workspace:*",
     "http-server": "14.1.1",
     "nyc": "15.1.0",
