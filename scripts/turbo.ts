@@ -16,7 +16,7 @@ const { _: argv } = arg(
 /* eslint-disable-next-line @typescript-eslint/promise-function-async */
 const yarnCmd = (args: string[] = [], config?: SyncOptions) =>
   execa("yarn", args, {
-    stdio: "inherit",
+    stdio: [process.stdin, process.stdout, process.stderr],
     ...config,
   });
 
@@ -39,11 +39,8 @@ if (
 
   const workspaces = await getWorkspaces({ nodeLinker: "node-modules" });
   for (const workspace of workspaces) {
-    if (
-      !packages.includes(workspace.name) ||
-      !(workspace.name === "." && packages.includes("//"))
-    )
-      continue;
+    const name = workspace.name === "." ? "//" : workspace.name;
+    if (!packages.includes(name)) continue;
     tasks.push(
       turboCmd([...argv.filter((arg) => !arg.startsWith("--filter"))], {
         stdio: "inherit",
@@ -56,6 +53,10 @@ if (
     );
     filters.push(`--filter=!${workspace.name}`);
   }
+}
+
+if (filters.length && argv.findIndex((arg) => arg === "--filter=!//") === -1) {
+  tasks.push(turboCmd([...argv, "--filter=//"]));
 }
 
 tasks.push(turboCmd([...argv, ...filters]));
