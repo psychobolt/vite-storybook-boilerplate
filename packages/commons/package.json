@@ -19,6 +19,7 @@
     "@storybook/addon-essentials": "7.5.2",
     "@storybook/addon-interactions": "7.5.2",
     "@storybook/addon-links": "7.5.2",
+    "@storybook/addon-onboarding": "1.0.8",
     "@storybook/builder-vite": "7.5.2",
     "@storybook/test-runner": "0.13.0",
     "@storybook/types": "7.5.2",
