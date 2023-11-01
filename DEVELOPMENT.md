@@ -25,9 +25,11 @@
 ### Commands
 
 ```sh
-yarn bin-script # Execute a binary script
-yarn task-name # Run a task
-yarn run bin-or-task-name [-B]
+# Some examples
+yarn my-bin-script # Execute a binary script
+yarn my-task-name # Run a task
+yarn run [-B] my-bin-or-task-name
+yarn exec my-bin-or-script
 ```
 
 See [information](https://yarnpkg.com/cli) on commands for Yarn.
