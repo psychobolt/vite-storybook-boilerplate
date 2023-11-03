@@ -89,7 +89,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.23.2, @babel/core@npm:^7.18.9":
+"@babel/core@npm:^7.18.9":
   version: 7.23.2
   resolution: "@babel/core@npm:7.23.2"
   dependencies:
@@ -3907,20 +3907,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addons@npm:7.5.2":
-  version: 7.5.2
-  resolution: "@storybook/addons@npm:7.5.2"
-  dependencies:
-    "@storybook/manager-api": 7.5.2
-    "@storybook/preview-api": 7.5.2
-    "@storybook/types": 7.5.2
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 9304422cbc64137e754b345d9c2f329a2b620a21a6756816268643a33259413f44122cd603159e95281c2aed316e3040d10795fdbfc726f7db99de3c0c7c5ec0
-  languageName: node
-  linkType: hard
-
 "@storybook/blocks@npm:7.4.5":
   version: 7.4.5
   resolution: "@storybook/blocks@npm:7.4.5"
@@ -4199,16 +4185,6 @@ __metadata:
     "@storybook/client-logger": "npm:7.4.5"
     "@storybook/preview-api": "npm:7.4.5"
   checksum: 25dc07c003ca490171e365ba2dbae5760261195e5fe99b1bc62c263c6ffe82b3466ad4acb3896af7e2649205af4bb304a952bc3ced7265fd934f3d52fb087713
-  languageName: node
-  linkType: hard
-
-"@storybook/client-api@npm:7.5.2":
-  version: 7.5.2
-  resolution: "@storybook/client-api@npm:7.5.2"
-  dependencies:
-    "@storybook/client-logger": 7.5.2
-    "@storybook/preview-api": 7.5.2
-  checksum: 42a884b83576a0d5d9eca0b296d2bf4e89967ea186eaca6b84146e84a6e4de23eaa62585f03671a24501a67fca13636fcb343f82c7176bf3f4728bdcdda29528
   languageName: node
   linkType: hard
 
@@ -4614,22 +4590,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/html-vite@npm:7.5.2":
-  version: 7.5.2
-  resolution: "@storybook/html-vite@npm:7.5.2"
-  dependencies:
-    "@storybook/addons": 7.5.2
-    "@storybook/builder-vite": 7.5.2
-    "@storybook/client-api": 7.5.2
-    "@storybook/core-server": 7.5.2
-    "@storybook/html": 7.5.2
-    "@storybook/node-logger": 7.5.2
-    "@storybook/preview-web": 7.5.2
-    magic-string: ^0.30.0
-  checksum: 076b4c4269f9ccbfed2c65b8937ea8301c544120b29c69506373023a07d9f5ebd6e86f2a9c6d735cf57f164e7d5cd3b82250320aeb132a917e4b93697e7a702d
-  languageName: node
-  linkType: hard
-
 "@storybook/html@npm:7.4.5":
   version: 7.4.5
   resolution: "@storybook/html@npm:7.4.5"
@@ -4643,22 +4603,6 @@ __metadata:
   peerDependencies:
     "@babel/core": "*"
   checksum: 2031fe6a66f8b300df886a83f92864e147735a2b14b7c048082ed5cd917e5347147e29bbad720d832aa1cd86843707b7329a06c04d1a6485dacfb96d5b277047
-  languageName: node
-  linkType: hard
-
-"@storybook/html@npm:7.5.2":
-  version: 7.5.2
-  resolution: "@storybook/html@npm:7.5.2"
-  dependencies:
-    "@storybook/core-client": 7.5.2
-    "@storybook/docs-tools": 7.5.2
-    "@storybook/global": ^5.0.0
-    "@storybook/preview-api": 7.5.2
-    "@storybook/types": 7.5.2
-    ts-dedent: ^2.0.0
-  peerDependencies:
-    "@babel/core": "*"
-  checksum: 0fe6694e119f681c1680cd0bdcb26bd7c1ccd6600960733b0acc8f270ed3774782731b56eae0ffadd74deba5b18ea9fdf90191b85cc2e46cf37c5c2d925ceb34
   languageName: node
   linkType: hard
 
@@ -4827,16 +4771,6 @@ __metadata:
     "@storybook/client-logger": "npm:7.4.5"
     "@storybook/preview-api": "npm:7.4.5"
   checksum: 4727f23fd35d359314ddb8f541642e385e681e993d933d13ada97e41f84fcd4217ac1beb9eb68ce16b95ddf82c0857f3712a33680a7ceac0040eea621c1d8e09
-  languageName: node
-  linkType: hard
-
-"@storybook/preview-web@npm:7.5.2":
-  version: 7.5.2
-  resolution: "@storybook/preview-web@npm:7.5.2"
-  dependencies:
-    "@storybook/client-logger": 7.5.2
-    "@storybook/preview-api": 7.5.2
-  checksum: aa2267fe46db39cc45fe0050a6b401909e0985a7ccf090ad01abf9022cb53d10e84c2bdad77dd8fba0a5f54741317b9e83b906969f65cd3f1f9b06c02258b109
   languageName: node
   linkType: hard
 
@@ -11291,12 +11225,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "html-ui@workspace:packages/html-ui"
   dependencies:
-    "@babel/core": 7.23.2
     "@storybook/addon-essentials": 7.5.2
     "@storybook/blocks": 7.5.2
-    "@storybook/builder-vite": 7.5.2
-    "@storybook/html": 7.5.2
-    "@storybook/html-vite": 7.5.2
     "@storybook/testing-library": 0.2.2
     "@storybook/web-components": 7.5.2
     "@storybook/web-components-vite": 7.5.2
@@ -16453,6 +16383,7 @@ __metadata:
     "@types/react-dom": 18.2.14
     chromatic: 7.6.0
     commons: "workspace:*"
+    html-ui: "workspace:*"
     http-server: 14.1.1
     nyc: 15.1.0
     react: 18.2.0
