@@ -51,6 +51,7 @@
     "@types/react-dom": "18.2.14",
     "chromatic": "7.6.0",
     "commons": "workspace:*",
+    "html-ui": "workspace:*",
     "http-server": "14.1.1",
     "nyc": "15.1.0",
     "sass": "1.69.5",

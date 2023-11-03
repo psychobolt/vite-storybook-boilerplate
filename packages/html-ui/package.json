@@ -34,12 +34,8 @@
     "chromatic": "yarn g:dotenv -- chromatic -d storybook-static --only-changed"
   },
   "devDependencies": {
-    "@babel/core": "7.23.2",
     "@storybook/addon-essentials": "7.5.2",
     "@storybook/blocks": "7.5.2",
-    "@storybook/builder-vite": "7.5.2",
-    "@storybook/html": "7.5.2",
-    "@storybook/html-vite": "7.5.2",
     "@storybook/testing-library": "0.2.2",
     "@storybook/web-components": "7.5.2",
     "@storybook/web-components-vite": "7.5.2",
