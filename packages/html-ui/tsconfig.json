@@ -1,12 +1,14 @@
 {
   "extends": "commons/tsconfig.vite.json",
   "compilerOptions": {
-    "lib": ["ESNext", "DOM"],
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCase"
+        }
+      }
+    ],
     "baseUrl": "src",
     "paths": {
       "html-ui": ["index.ts"]

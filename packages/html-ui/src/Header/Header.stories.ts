@@ -1,22 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/html";
+import type { Meta, StoryObj } from "@storybook/web-components";
 import type { HeaderProps } from "./Header";
-import { createHeader } from "./Header";
+import { Header } from "./Header";
 
 const meta = {
   title: "Components/Header",
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/html/writing-docs/autodocs
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/web-components/writing-docs/autodocs
   tags: ["autodocs"],
-  render: (args) => createHeader(args),
-  parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/html/configure/story-layout
-    layout: "fullscreen",
-  },
-  // More on argTypes: https://storybook.js.org/docs/html/api/argtypes
-  argTypes: {
-    onLogin: { action: "onLogin" },
-    onLogout: { action: "onLogout" },
-    onCreateAccount: { action: "onCreateAccount" },
-  },
+  render: (args: HeaderProps) => Header(args),
 } satisfies Meta<HeaderProps>;
 
 export default meta;

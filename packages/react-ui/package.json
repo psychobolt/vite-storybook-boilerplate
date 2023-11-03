@@ -22,7 +22,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "bootstrap": "yarn g:bootstrap",
-    "dev": "yarn watch & storybook dev",
+    "dev": "yarn watch & storybook dev -p $(yarn g:dotenv -p PORT)",
     "build": "yarn build-src && yarn build-dts",
     "watch": "yarn build-src -w & yarn build-dts --watch",
     "build-src": "vite build",
@@ -53,6 +53,7 @@
     "commons": "workspace:*",
     "http-server": "14.1.1",
     "nyc": "15.1.0",
+    "sass": "1.69.5",
     "storybook": "7.5.2",
     "turbo": "1.10.16",
     "typescript": "5.2.2",
