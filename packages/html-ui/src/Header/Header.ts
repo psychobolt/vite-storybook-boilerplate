@@ -3,9 +3,9 @@ import { html } from "lit";
 import { Button } from "../Button";
 import classes from "./Header.module.scss";
 
-type User = {
+interface User {
   name: string;
-};
+}
 
 export interface HeaderProps {
   user?: User;
