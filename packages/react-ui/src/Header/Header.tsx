@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Button } from "../Button";
-import classes from "./Header.module.css";
+import classes from "./Header.module.scss";
 
 interface User {
   name: string;
@@ -21,7 +21,7 @@ export const Header = ({
   onCreateAccount,
 }: HeaderProps) => (
   <header>
-    <div className={classes.wrapper}>
+    <div className={classes.storybookHeader}>
       <div>
         <svg
           width="32"
@@ -50,7 +50,7 @@ export const Header = ({
         {user ? (
           <>
             <span className={classes.welcome}>
-              Hello, <b>{user.name}</b>!
+              Welcome, <b>{user.name}</b>!
             </span>
             <Button size="small" onClick={onLogout} label="Log out" />
           </>

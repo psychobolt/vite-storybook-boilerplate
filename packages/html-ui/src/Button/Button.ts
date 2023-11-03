@@ -1,4 +1,6 @@
-import "./button.css";
+import { html } from "lit";
+import { styleMap } from "lit/directives/style-map.js";
+import classes from "./Button.module.scss";
 
 export interface ButtonProps {
   /**
@@ -22,34 +24,32 @@ export interface ButtonProps {
    */
   onClick?: () => void;
 }
-
 /**
  * Primary UI component for user interaction
  */
-export const createButton = ({
-  primary = false,
-  size = "medium",
+export const Button = ({
+  primary,
   backgroundColor,
+  size = "medium",
   label,
   onClick,
 }: ButtonProps) => {
-  const btn = document.createElement("button");
-  btn.type = "button";
-  btn.innerText = label;
-  if (onClick) {
-    btn.addEventListener("click", onClick);
-  }
-
   const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
-  btn.className = ["storybook-button", `storybook-button--${size}`, mode].join(
-    " ",
-  );
+    ? classes.storybookButtonPrimary
+    : classes.storybookButtonSecondary;
 
-  if (backgroundColor) {
-    btn.style.backgroundColor = backgroundColor;
-  }
-
-  return btn;
+  return html`
+    <button
+      type="button"
+      class=${[
+        classes.storybookButton,
+        classes[`storybook-button--${size}`],
+        mode,
+      ].join(" ")}
+      style=${styleMap({ backgroundColor })}
+      @click=${onClick}
+    >
+      ${label}
+    </button>
+  `;
 };

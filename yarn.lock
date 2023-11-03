@@ -2421,6 +2421,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/ssr-dom-shim@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@lit-labs/ssr-dom-shim@npm:1.1.2"
+  checksum: 73fd787893851d4ec4aaa5c775405ed2aae4ca0891b2dd3c973b32c2f4bf70ada5481dd0224e52b786d037aa8a00052186ad1623c44551affd66f6409cca8da6
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "@lit/reactive-element@npm:2.0.1"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": ^1.1.2
+  checksum: e9cacc3743c28b7b417739ffb292288076df115d08d9e9a895e2879c7087938d50c6b8141986743535e06156efd1ca505c8cf6ef8702db99966d190df9f8e869
+  languageName: node
+  linkType: hard
+
 "@mapbox/node-pre-gyp@npm:^1.0.5":
   version: 1.0.11
   resolution: "@mapbox/node-pre-gyp@npm:1.0.11"
@@ -5131,6 +5147,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/web-components-vite@npm:7.5.2":
+  version: 7.5.2
+  resolution: "@storybook/web-components-vite@npm:7.5.2"
+  dependencies:
+    "@storybook/builder-vite": 7.5.2
+    "@storybook/core-server": 7.5.2
+    "@storybook/node-logger": 7.5.2
+    "@storybook/web-components": 7.5.2
+    magic-string: ^0.30.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 8c90fa28493a4c177beacf16248e9adb51bc46dd2066c427eee4f25ba53699f6aab9e6e35d73d82f0f5006ac01de1060aa19bea52b7f0605490591a7209170b9
+  languageName: node
+  linkType: hard
+
+"@storybook/web-components@npm:7.5.2":
+  version: 7.5.2
+  resolution: "@storybook/web-components@npm:7.5.2"
+  dependencies:
+    "@storybook/client-logger": 7.5.2
+    "@storybook/core-client": 7.5.2
+    "@storybook/docs-tools": 7.5.2
+    "@storybook/global": ^5.0.0
+    "@storybook/manager-api": 7.5.2
+    "@storybook/preview-api": 7.5.2
+    "@storybook/types": 7.5.2
+    tiny-invariant: ^1.3.1
+    ts-dedent: ^2.0.0
+  peerDependencies:
+    lit: ^2.0.0 || ^3.0.0
+  checksum: 8f58b32ccf46aeaca3f686e21532cba5868a54bed6fe874c23455af1336ec14601cea9aad7345b186e1af00e47b95b67a5ddc305d888200ce41bebb4ba977a91
+  languageName: node
+  linkType: hard
+
 "@sveltejs/adapter-auto@npm:2.1.1":
   version: 2.1.1
   resolution: "@sveltejs/adapter-auto@npm:2.1.1"
@@ -6094,6 +6145,13 @@ __metadata:
   version: 1.0.1
   resolution: "@types/treeify@npm:1.0.1"
   checksum: 972022f753b49b16a17cbfc0c6051c64983d333f27dbf456353c8168446fa8948ac11072687be8ba5b2144122bae461481ce7814c7a855ab477fffe45ed7a793
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.5
+  resolution: "@types/trusted-types@npm:2.0.5"
+  checksum: e138a70a702e31b49ac73cc33852d892367224be6e096c445194d76327cb46f54f971ae311e34371f649a2d5ac9204afee345bb22f32cfc515eb21c3f12f66b7
   languageName: node
   linkType: hard
 
@@ -11240,12 +11298,17 @@ __metadata:
     "@storybook/html": 7.5.2
     "@storybook/html-vite": 7.5.2
     "@storybook/testing-library": 0.2.2
+    "@storybook/web-components": 7.5.2
+    "@storybook/web-components-vite": 7.5.2
     chromatic: 7.6.0
     commons: "workspace:*"
     http-server: 14.1.1
+    lit: 3.0.2
+    lit-html: 3.0.2
     nyc: 15.1.0
     react: 18.2.0
     react-dom: 18.2.0
+    sass: 1.69.5
     storybook: 7.5.2
     turbo: 1.10.16
     typescript: 5.2.2
@@ -13305,6 +13368,37 @@ __metadata:
     rfdc: ^1.3.0
     wrap-ansi: ^8.1.0
   checksum: 1734c6b9367ceeb09bf372427930a4586b3727097373408f2f840896b9333cc80e53a1a696771a83a7d4d9ada46229843f3052b87f3b0b58c20e9451362c2dd3
+  languageName: node
+  linkType: hard
+
+"lit-element@npm:^4.0.0":
+  version: 4.0.1
+  resolution: "lit-element@npm:4.0.1"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": ^1.1.2
+    "@lit/reactive-element": ^2.0.0
+    lit-html: ^3.0.0
+  checksum: f5915ecc6d56f2a3c822cd58567b5faadb4977ee8b66492beef6ef319ed94a5157ff59b957f581a3ae1708d6f5ca5d7ffa1c8a0d1027d087111ef93855c40499
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:3.0.2, lit-html@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "lit-html@npm:3.0.2"
+  dependencies:
+    "@types/trusted-types": ^2.0.2
+  checksum: 269ee6848a253db205a5402b11ae2a78086ed67766551d6ea266e757894f2de8e29c9db118a5a7f37806f6246fdffa40d53a3c306058d1a66f457f74c94b2c01
+  languageName: node
+  linkType: hard
+
+"lit@npm:3.0.2":
+  version: 3.0.2
+  resolution: "lit@npm:3.0.2"
+  dependencies:
+    "@lit/reactive-element": ^2.0.0
+    lit-element: ^4.0.0
+    lit-html: ^3.0.0
+  checksum: 6a1d3b357660b8f4799faa9a8c2cad6bb78a95b69a6138bd23d8db39c3fb4bc9183ad032c742fe8c6e20e391010982d1498600ba370c00c5138042f5460db991
   languageName: node
   linkType: hard
 
@@ -16363,6 +16457,7 @@ __metadata:
     nyc: 15.1.0
     react: 18.2.0
     react-dom: 18.2.0
+    sass: 1.69.5
     storybook: 7.5.2
     turbo: 1.10.16
     typescript: 5.2.2

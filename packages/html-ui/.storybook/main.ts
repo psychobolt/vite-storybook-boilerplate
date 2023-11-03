@@ -1,5 +1,5 @@
 import { createRequire } from "module";
-import type { StorybookConfig } from "@storybook/html-vite";
+import type { StorybookConfig } from "@storybook/web-components-vite";
 import type { StorybookViteCommonConfig } from "commons/.storybook/vite-main";
 import {
   config as commonConfig,
@@ -11,7 +11,7 @@ const require = createRequire(import.meta.url);
 const config: StorybookConfig | StorybookViteCommonConfig = {
   ...commonConfig,
   framework: {
-    name: getAbsolutePath("@storybook/html-vite", require),
+    name: getAbsolutePath("@storybook/web-components-vite", require),
     options: {},
   },
 };

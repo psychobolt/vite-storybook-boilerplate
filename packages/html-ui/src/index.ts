@@ -1,2 +1,1 @@
-export * from "./Button";
-export * from "./Header";
+import "./index.scss";

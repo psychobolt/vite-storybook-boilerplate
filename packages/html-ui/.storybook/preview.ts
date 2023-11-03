@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/html";
+import type { Preview } from "@storybook/web-components";
 
 const preview: Preview = {
   parameters: {
@@ -6,7 +6,7 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/,
+        date: /Date$/i,
       },
     },
   },
