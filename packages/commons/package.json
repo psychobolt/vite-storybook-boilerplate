@@ -51,7 +51,7 @@
     "rimraf": "5.0.5",
     "stylelint": "15.11.0",
     "stylelint-config-prettier-scss": "1.0.0",
-    "stylelint-config-standard-scss": "11.0.0",
+    "stylelint-config-standard-scss": "11.1.0",
     "tsconfig-to-dual-package": "1.2.0",
     "typescript": "5.2.2",
     "vite": "4.5.0",
