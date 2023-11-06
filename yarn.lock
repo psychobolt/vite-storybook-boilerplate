@@ -8878,21 +8878,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-flow@npm:4.0.0":
-  version: 4.0.0
-  resolution: "dotenv-flow@npm:4.0.0"
+"dotenv-flow@npm:4.0.1":
+  version: 4.0.1
+  resolution: "dotenv-flow@npm:4.0.1"
   dependencies:
-    dotenv: "npm:^16.0.0"
-  checksum: 10e11a814afb1f8420e4c67134ea611774753b0dfd13d4a173c9e44b6a5db429090b8644f6c09c17e81cbf935bf9e9604d78cfdce12ed0219bac6c09c81bc0cf
-  languageName: node
-  linkType: hard
-
-"dotenv-flow@patch:dotenv-flow@npm%3A4.0.0#./.yarn/patches/dotenv-flow-npm-4.0.0-b94c2c110d.patch::locator=vite-storybook-boilerplate%40workspace%3A.":
-  version: 4.0.0
-  resolution: "dotenv-flow@patch:dotenv-flow@npm%3A4.0.0#./.yarn/patches/dotenv-flow-npm-4.0.0-b94c2c110d.patch::version=4.0.0&hash=469220&locator=vite-storybook-boilerplate%40workspace%3A."
-  dependencies:
-    dotenv: "npm:^16.0.0"
-  checksum: dacbf9080b3627e369fed9e21aa95e276f19c4bd720b9425bd91d1a5b058bade582ee54ed91361abfe6df7349e18af204d666cea003cf84455937c03617c4f70
+    dotenv: ^16.0.0
+  checksum: 5295474ee0f4afe747f8fc4432161b73401d5f32493aaf75695649ce2b5c2d26baa39368b12ddc7e6a4c82b7f47a5b89fbf49fd7504e17542b743a1cc7868011
   languageName: node
   linkType: hard
 
@@ -19521,7 +19512,7 @@ __metadata:
     arg: 5.0.2
     commons: "workspace:*"
     dotenv-cli: 7.3.0
-    dotenv-flow: 4.0.0
+    dotenv-flow: 4.0.1
     dotenv-vault: 1.25.0
     eslint: 8.53.0
     execa: 8.0.1
