@@ -9,10 +9,7 @@
         }
       }
     ],
-    "baseUrl": "src",
-    "paths": {
-      "html-ui": ["index.ts"]
-    }
+    "baseUrl": "src"
   },
   "include": [".storybook/**/*", "**/*"]
 }
