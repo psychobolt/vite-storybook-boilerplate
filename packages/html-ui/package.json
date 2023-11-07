@@ -10,14 +10,7 @@
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
-    },
-    "./style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
+    "./*.css": "./dist/*.css"
   },
   "scripts": {
     "bootstrap": "yarn g:bootstrap",
@@ -41,6 +34,7 @@
     "@storybook/web-components-vite": "7.5.3",
     "chromatic": "7.6.0",
     "commons": "workspace:*",
+    "glob": "10.3.10",
     "http-server": "14.1.1",
     "lit": "3.0.2",
     "lit-html": "3.0.2",
@@ -51,6 +45,7 @@
     "storybook": "7.5.3",
     "turbo": "1.10.16",
     "typescript": "5.2.2",
+    "typescript-plugin-css-modules": "5.0.2",
     "vite": "4.5.0"
   }
 }
