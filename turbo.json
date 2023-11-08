@@ -23,6 +23,16 @@
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build"]
     },
+    "//#config-ci": {
+      "env": ["CI"],
+      "inputs": [
+        "**/.yarn/patches/**",
+        "**/yarn.lock",
+        "templates/bitbucket-pipelines.yml"
+      ],
+      "outputs": ["bitbucket-pipeline.yml"]
+    },
+    "config-ci": {},
     "//#lint": {
       "dependsOn": ["^build"]
     },

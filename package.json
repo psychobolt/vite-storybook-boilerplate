@@ -16,6 +16,7 @@
     "g:bootstrap": "yarn ts-script ./scripts/bootstrap.ts && yarn workspace commons turbo run build",
     "dev": "yarn turbo --background run dev",
     "build": "yarn turbo run build",
+    "config-ci": "yarn ts-script scripts/config-ci.ts",
     "eslint-path": "yarn bin eslint",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
     "g:lint-js": "cd $INIT_CWD && yarn g:ts-script $(yarn run -T eslint-path) -c ./eslint.config.ts .",
