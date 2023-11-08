@@ -14,7 +14,6 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
       YARN_ENABLE_GLOBAL_CACHE: false
-      YARN_ENABLE_IMMUTABLE_INSTALLS: false
     steps:
       - name: Wait for CI workflow to succeed
         uses: lewagon/wait-on-check-action@e106e5c43e8ca1edea6383a39a01c5ca495fd812 # v1.3.1
@@ -48,14 +47,12 @@ jobs:
         run: git checkout -b bitbucket origin/bitbucket
       - name: Merge with main branch
         run: git merge origin/main --no-commit --ff || true
-      - name: Resolve any deleted files
-        run: |
-          git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
-          git diff-index --quiet HEAD || git commit --no-edit
+      - name: Prune deleted files
+        run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
       - name: Install dependencies
         run: yarn install
       - name: Amend Merge
-        run: git add . && git commit --amend --no-edit
+        run: git diff-index --quiet HEAD || (git add . && git commit --no-edit)
       - name: Update bitbucket branch
         run: git push origin
       - name: Configure bitbucket upstream
