@@ -28,7 +28,9 @@ jobs:
           cache: yarn
           cache-dependency-path: "**/yarn.lock"
       - name: Install dependencies
-        run: yarn install && yarn bootstrap
+        run: |
+          yarn install
+          yarn bootstrap
       - name: Trigger post upgrade
         id: trigger
         if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
