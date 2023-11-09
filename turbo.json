@@ -2,8 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "//#bootstrap": {
-      "cache": false,
-      "dependsOn": []
+      "cache": false
     },
     "start": {},
     "dev": {

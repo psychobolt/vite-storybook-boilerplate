@@ -13,6 +13,12 @@ if (workspaces.length) {
   console.log("Verify workspaces using node-modules...");
   workspaces.forEach((workspace) => {
     console.log(`Verifying ${workspace.name}...`);
-    install({ cwd: workspace.location });
+    install({
+      cwd: workspace.location,
+      env: {
+        NODE_ENV: process.env.NODE_ENV,
+        NODE_OPTIONS: "",
+      },
+    });
   });
 }

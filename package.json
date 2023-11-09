@@ -13,7 +13,7 @@
     "turbo": "yarn ts-script scripts/turbo.ts",
     "ls-workspaces": "yarn ts-script scripts/ls-workspaces.ts",
     "bootstrap": "yarn g:bootstrap",
-    "g:bootstrap": "yarn ts-script ./scripts/bootstrap.ts && yarn workspace commons turbo run build",
+    "g:bootstrap": "yarn workspace commons turbo run build && yarn ts-script ./scripts/bootstrap.ts",
     "dev": "yarn turbo --background run dev",
     "build": "yarn turbo run build",
     "eslint-path": "yarn bin eslint",
