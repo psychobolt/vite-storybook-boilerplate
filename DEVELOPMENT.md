@@ -13,6 +13,10 @@
 7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
 8. Restart VSCode and reopen the project.
 
+### ESLint Setup
+
+In order to support lint highlighting in VSCode editor, your workspace config must be flattened as `[workspace]/eslint.config.ts`. If you've scaffolded your workspace project, please refer [example](eslint.config.ts) and [docs](https://eslint.org/docs/latest/use/configure/configuration-files-new) for migration references.
+
 ### Setup Remote Cache (Optional)
 
 #### Local Development
@@ -58,7 +62,6 @@ yarn g:prettier [options] # Runs prettier format tool
 ```sh
 #cd (packages|apps)/workspace-name # optional if not using yarn workspace command, otherwise you'll run task on all workspaces
 yarn [workspace workspace-name] turbo task-name [--force] [-- --some-option] # Run a turbo enabled task
-yarn [workspace workspace-name] bootstrap
 yarn [workspace workspace-name] start # Serve production build
 yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
 yann [workspace workspace-name] turbo run build # Build for production
@@ -121,5 +124,6 @@ git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
 Anytime there are new updates, run:
 
 ```sh
-git merge base/main
+git fetch base
+git merge base/main [--squash]
 ```

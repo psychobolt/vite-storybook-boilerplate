@@ -43,7 +43,6 @@ if (
     if (!packages.includes(name)) continue;
     tasks.push(
       turboCmd([...argv.filter((arg) => !arg.startsWith("--filter"))], {
-        stdio: "inherit",
         cwd: `${process.cwd()}/${workspace.location}`,
         env: {
           NODE_ENV: process.env.NODE_ENV,
