@@ -4,7 +4,7 @@
 	"type": "module",
 	"packageManager": "yarn@3.6.4",
 	"scripts": {
-		"bootstrap": "yarn install && yarn check",
+		"bootstrap": "turbo run //#bootstrap",
 		"dev": "vite dev --open",
 		"build": "vite build",
 		"preview": "vite preview",

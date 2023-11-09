@@ -13,6 +13,7 @@
     "./*.css": "./dist/*.css"
   },
   "scripts": {
+    "bootstrap": "yarn g:bootstrap",
     "dev": "yarn watch & storybook dev -p $(yarn g:dotenv -p PORT)",
     "build": "vite build",
     "watch": "yarn build -w",

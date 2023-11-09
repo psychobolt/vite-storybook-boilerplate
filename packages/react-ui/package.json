@@ -21,6 +21,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
+    "bootstrap": "yarn g:bootstrap",
     "dev": "yarn watch & storybook dev -p $(yarn g:dotenv -p PORT)",
     "build": "yarn build-src && yarn build-dts",
     "watch": "yarn build-src -w & yarn build-dts --watch",
