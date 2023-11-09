@@ -4,7 +4,6 @@
   "private": true,
   "packageManager": "yarn@3.6.4",
   "scripts": {
-    "bootstrap": "yarn g:bootstrap",
     "dev": "open-cli http://localhost:3000/ --background && next dev -p 3000",
     "build": "next build",
     "start": "next start",

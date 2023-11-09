@@ -1,9 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "//#bootstrap": {
-      "cache": false,
-      "dependsOn": []
+    "bootstrap": {
+      "dependsOn": ["commons#build"]
     },
     "start": {},
     "dev": {

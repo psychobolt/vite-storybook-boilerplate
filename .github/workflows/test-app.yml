@@ -30,7 +30,7 @@ jobs:
           cache: yarn
           cache-dependency-path: "**/yarn.lock"
       - name: Install dependencies
-        run: yarn install && yarn bootstrap
+        run: yarn install && yarn turbo run bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Build
