@@ -13,7 +13,7 @@ Powered by:
 ## Install
 
 ```sh
-yarn [workspace workspace-name] add [-D][E] react-ui
+yarn [workspace workspace-name] add [-D[E]] react-ui
 ```
 
 ## Usage
