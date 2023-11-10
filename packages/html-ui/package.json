@@ -32,7 +32,7 @@
     "@storybook/testing-library": "0.2.2",
     "@storybook/web-components": "7.5.3",
     "@storybook/web-components-vite": "7.5.3",
-    "chromatic": "8.0.0",
+    "chromatic": "9.0.0",
     "commons": "workspace:*",
     "glob": "10.3.10",
     "http-server": "14.1.1",
