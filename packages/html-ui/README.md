@@ -13,7 +13,7 @@ Powered by:
 ## Install
 
 ```sh
-yarn [workspace workspace-name] add [-D][E] html-ui
+yarn [workspace workspace-name] add [-D[E]] html-ui
 ```
 
 ## Usage
@@ -47,6 +47,9 @@ import "html-ui/[ComponentB].css";
 
 .html-ui {
   @include meta.load-css("html-ui/style.css");
+  // or
+  @include meta.load-css("html-ui/[ComponentA].css");
+  @include meta.load-css("html-ui/[ComponentB].css");
 }
 ```
 
