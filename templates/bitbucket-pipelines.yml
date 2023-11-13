@@ -90,6 +90,7 @@ pipelines:
               changesets:
                 includePaths:
                   - packages/commons/**
+                  - packages/html-ui/**
                   - packages/react-ui/**
             script:
               - *env
