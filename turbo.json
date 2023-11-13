@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/yarn.lock"],
   "pipeline": {
     "//#bootstrap": {
       "cache": false
@@ -25,6 +26,7 @@
     "//#config-ci": {
       "env": ["CI"],
       "inputs": [
+        "!**/node_modules",
         "**/.yarn/patches/**",
         "**/yarn.lock",
         "templates/bitbucket-pipelines.yml"

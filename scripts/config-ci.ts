@@ -1,4 +1,5 @@
 import arg from "arg";
+import { $ } from "execa";
 import { readFileSync, writeFileSync, readdirSync } from "fs";
 import { resolve } from "path";
 import type { Scalar } from "yaml";
@@ -25,14 +26,17 @@ if (!args["--force"]) {
 
 console.log("Generating new bitbucket-pipeline.yml...");
 
+const { stdout: info } = $.sync`yarn turbo run //#config-ci --dry-run=json`;
+
 const FILENAME = "bitbucket-pipelines.yml";
-const time = new Date().getTime();
+const globalHash =
+  JSON.parse(info).globalCacheInputs.hashOfExternalDependencies;
 const doc = parseDocument(
   readFileSync(resolve(`templates/${FILENAME}`), "utf-8"),
 );
 
 function stamp(key: Scalar<string>) {
-  return `${key.value}-${time}`;
+  return `${key.value}-${globalHash}`;
 }
 
 const target = "caches";
