@@ -34,8 +34,6 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - name: Queue workflow
-        uses: ahmadnassri/action-workflow-queue@ecb80b5975f6e540c19d639a5891699ac0ecd1f6 # v1
       - name: Checkout bitbucket branch
         run: git checkout -b bitbucket origin/bitbucket
       - name: Merge with main branch
