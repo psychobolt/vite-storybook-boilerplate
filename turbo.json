@@ -29,7 +29,7 @@
         "!**/node_modules",
         "**/.yarn/patches/**",
         "**/yarn.lock",
-        "templates/bitbucket-pipelines.yml"
+        "bitbucket-pipelines.yml"
       ],
       "outputs": ["bitbucket-pipeline.yml"]
     },
