@@ -33,6 +33,11 @@ export const config: StorybookViteCommonConfig = {
   },
   viteFinal(config, { configType }) {
     return mergeConfig(config, {
+      server: {
+        fs: {
+          strict: configType === "PRODUCTION",
+        },
+      },
       plugins:
         configType === "PRODUCTION"
           ? // @ts-expect-error https://github.com/IanVS/vite-plugin-turbosnap/issues/8
