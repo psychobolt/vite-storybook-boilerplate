@@ -1,4 +1,5 @@
 import { globSync } from "glob";
+import type { CSSModulesOptions } from "vite";
 import { defineConfig } from "vite";
 import commonConfig from "commons/esm/vite.config";
 
@@ -7,6 +8,10 @@ interface Module {
   assetName: RegExp;
   ext: string;
   assets: string[];
+}
+
+interface CSSModulesOptionsExtended extends CSSModulesOptions {
+  exportGlobals: true;
 }
 
 const modules: Module[] = [
@@ -47,6 +52,12 @@ function shiftAssets(assetName: string) {
   return ASSET_FILE_NAMES;
 }
 
+const cssModulesOption: CSSModulesOptionsExtended = {
+  globalModulePaths: [/src/],
+  exportGlobals: true,
+  localsConvention: "camelCase",
+};
+
 export default defineConfig({
   ...commonConfig,
   build: {
@@ -68,8 +79,6 @@ export default defineConfig({
     cssCodeSplit: true,
   },
   css: {
-    modules: {
-      localsConvention: "camelCase",
-    },
+    modules: cssModulesOption,
   },
 });
