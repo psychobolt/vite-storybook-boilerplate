@@ -4,9 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "packageManager": "yarn@3.7.0",
-  "files": [
-    "dist"
-  ],
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "exports": {

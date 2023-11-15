@@ -42,7 +42,7 @@ function mapAssets(moduleId: string) {
   }
 }
 
-const ASSET_FILE_NAMES = "[name]-[hash][extname]";
+const ASSET_FILE_NAMES = "assets/[name]-[hash][extname]";
 
 function shiftAssets(assetName: string) {
   for (const module of modules) {
