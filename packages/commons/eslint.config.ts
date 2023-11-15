@@ -4,7 +4,7 @@ import type { Linter } from "eslint";
 import { FlatCompat } from "@eslint/eslintrc";
 import tsParser from "@typescript-eslint/parser";
 
-type Config = Linter.FlatConfig;
+export type Config = Linter.FlatConfig;
 
 const _filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename);
