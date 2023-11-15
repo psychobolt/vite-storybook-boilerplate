@@ -43,7 +43,7 @@ import "html-ui/[ComponentB].css";
 #### Sass
 
 ```scss
-@import "sass:meta";
+@use "sass:meta";
 
 .html-ui {
   @include meta.load-css("html-ui/style.css");
