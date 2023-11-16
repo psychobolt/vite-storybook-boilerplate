@@ -21,7 +21,7 @@
     "@storybook/addon-links": "7.5.3",
     "@storybook/addon-onboarding": "1.0.8",
     "@storybook/builder-vite": "7.5.3",
-    "@storybook/test-runner": "0.14.1",
+    "@storybook/test-runner": "0.15.0",
     "@storybook/types": "7.5.3",
     "@tsconfig/recommended": "1.0.3",
     "@types/eslint": "8.44.7",
