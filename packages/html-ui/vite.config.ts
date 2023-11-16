@@ -8,6 +8,7 @@ interface Module {
   assetName: RegExp;
   ext: string;
   assets: string[];
+  index: number;
 }
 
 interface CSSModulesOptionsExtended extends CSSModulesOptions {
@@ -20,12 +21,14 @@ const modules: Module[] = [
     assetName: /^style.css$/,
     ext: "css",
     assets: [],
+    index: -1,
   },
   {
     entry: /^.+\/(.+)\/index.scss$/,
     assetName: /^index.css$/,
     ext: "css",
     assets: [],
+    index: -1,
   },
 ];
 
@@ -47,7 +50,11 @@ const ASSET_FILE_NAMES = "assets/[name]-[hash][extname]";
 function shiftAssets(assetName: string) {
   for (const module of modules) {
     if (!module.assetName.test(assetName)) continue;
-    return module.assets.shift() ?? ASSET_FILE_NAMES;
+    ++module.index;
+    if (module.index === module.assets.length) {
+      module.index = 0;
+    }
+    return module.assets[module.index];
   }
   return ASSET_FILE_NAMES;
 }
