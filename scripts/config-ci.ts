@@ -1,6 +1,5 @@
-import arg from "arg";
 import { $ } from "execa";
-import { readFileSync, writeFileSync, readdirSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
 import type { Scalar } from "yaml";
 import {
@@ -12,19 +11,6 @@ import {
   YAMLSeq,
   Pair,
 } from "yaml";
-
-const args = arg({
-  "--force": Boolean,
-});
-
-if (!args["--force"]) {
-  if (process.env.CI === "true") process.exit();
-  const cacheDir = resolve("node_modules", ".cache", "turbo");
-  const files = readdirSync(cacheDir);
-  if (!files.length) process.exit();
-}
-
-console.log("Updating bitbucket-pipeline.yml...");
 
 const { stdout: info } = $.sync`yarn turbo run //#config-ci --dry-run=json`;
 
@@ -66,5 +52,3 @@ visit(doc, {
 });
 
 writeFileSync(resolve(FILENAME), doc.toString());
-
-console.log("Done!");
