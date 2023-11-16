@@ -1,9 +1,10 @@
 import { resolve } from "path";
+import { defineConfig } from "vite";
 
 const packageName = process.env.npm_package_name ?? "";
 const entry = resolve(process.cwd(), "./src/index.ts");
 
-export default {
+export default defineConfig({
   resolve: {
     alias: {
       [packageName]: entry,
@@ -18,4 +19,4 @@ export default {
       fileName: "index",
     },
   },
-};
+});

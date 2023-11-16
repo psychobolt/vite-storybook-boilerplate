@@ -1,6 +1,6 @@
 import { globSync } from "glob";
 import type { CSSModulesOptions } from "vite";
-import { defineConfig } from "vite";
+import { defineConfig, mergeConfig } from "vite";
 import commonConfig from "commons/esm/vite.config";
 
 interface Module {
@@ -58,27 +58,29 @@ const cssModulesOption: CSSModulesOptionsExtended = {
   localsConvention: "camelCase",
 };
 
-export default defineConfig({
-  ...commonConfig,
-  build: {
-    ...commonConfig.build,
-    lib: false,
-    rollupOptions: {
-      input: ["src/style.scss", ...globSync("src/*/index.scss")],
-      output: {
-        entryFileNames({ facadeModuleId }) {
-          mapAssets(facadeModuleId as string);
-          return "[name]";
-        },
-        assetFileNames({ name }) {
-          const assetName = name as string;
-          return shiftAssets(assetName);
+export default mergeConfig(
+  commonConfig,
+  defineConfig({
+    build: {
+      lib: false,
+      rollupOptions: {
+        input: ["src/style.scss", ...globSync("src/*/index.scss")],
+        output: {
+          entryFileNames({ facadeModuleId }) {
+            mapAssets(facadeModuleId as string);
+            return "[name]";
+          },
+          assetFileNames({ name }) {
+            const assetName = name as string;
+            return shiftAssets(assetName);
+          },
         },
       },
+      cssCodeSplit: true,
     },
-    cssCodeSplit: true,
-  },
-  css: {
-    modules: cssModulesOption,
-  },
-});
+    css: {
+      modules: cssModulesOption,
+    },
+  }),
+  false,
+);
