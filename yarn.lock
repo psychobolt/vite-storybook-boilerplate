@@ -11379,7 +11379,7 @@ __metadata:
     glob: 10.3.10
     http-server: 14.1.1
     lit: 3.1.0
-    lit-html: 3.0.2
+    lit-html: 3.1.0
     nyc: 15.1.0
     react: 18.2.0
     react-dom: 18.2.0
@@ -13391,21 +13391,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-html@npm:3.0.2, lit-html@npm:^3.0.0":
-  version: 3.0.2
-  resolution: "lit-html@npm:3.0.2"
-  dependencies:
-    "@types/trusted-types": ^2.0.2
-  checksum: 269ee6848a253db205a5402b11ae2a78086ed67766551d6ea266e757894f2de8e29c9db118a5a7f37806f6246fdffa40d53a3c306058d1a66f457f74c94b2c01
-  languageName: node
-  linkType: hard
-
-"lit-html@npm:^3.1.0":
+"lit-html@npm:3.1.0, lit-html@npm:^3.1.0":
   version: 3.1.0
   resolution: "lit-html@npm:3.1.0"
   dependencies:
     "@types/trusted-types": ^2.0.2
   checksum: db6c860bd3f66eb0b3d189b56f0c9bb583da76c2fbd16e4cdc15f5f05fdabe4b9ab2f3d1e90e9a20ce0d18698a6cc35a830ab78dd11b57e00e4c4f16a5ee469c
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "lit-html@npm:3.0.2"
+  dependencies:
+    "@types/trusted-types": ^2.0.2
+  checksum: 269ee6848a253db205a5402b11ae2a78086ed67766551d6ea266e757894f2de8e29c9db118a5a7f37806f6246fdffa40d53a3c306058d1a66f457f74c94b2c01
   languageName: node
   linkType: hard
 
