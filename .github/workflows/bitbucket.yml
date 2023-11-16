@@ -44,6 +44,8 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
+        env:
+          TURBO_REMOTE_ONLY: false
       - name: Amend Merge
         run: git diff-index --quiet HEAD || (git add . && git commit --no-edit)
       - name: Update bitbucket branch
