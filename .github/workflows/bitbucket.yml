@@ -46,7 +46,7 @@ jobs:
           yarn install
           yarn bootstrap
       - name: Amend Merge
-        run: git diff-index --quiet HEAD || (git add . && git commit --no-edit)
+        run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
       - name: Update bitbucket branch
         run: git push origin
       - name: Configure bitbucket upstream
