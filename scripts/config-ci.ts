@@ -12,8 +12,8 @@ import {
   Pair,
 } from "yaml";
 
-const { stdout: info } = $.sync`yarn turbo run //#config-ci --dry-run=json`;
-
+const { stdout } = $.sync`yarn turbo run //#config-ci --dry-run=json`;
+const [, info] = stdout.match(/(\{\n(\s+.+)*\n\})/) ?? [];
 const FILENAME = "bitbucket-pipelines.yml";
 const globalHash =
   JSON.parse(info).globalCacheInputs.hashOfExternalDependencies;
