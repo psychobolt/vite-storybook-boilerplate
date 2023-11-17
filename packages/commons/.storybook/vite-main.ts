@@ -1,7 +1,7 @@
 import { join, dirname } from "path";
 import type { StorybookConfig } from "@storybook/types";
 import type { StorybookConfigVite } from "@storybook/builder-vite";
-import { mergeConfig } from "vite";
+import { defineConfig, mergeConfig } from "vite";
 import turbosnap from "vite-plugin-turbosnap";
 
 /**
@@ -32,17 +32,31 @@ export const config: StorybookViteCommonConfig = {
     autodocs: "tag",
   },
   viteFinal(config, { configType }) {
-    return mergeConfig(config, {
-      server: {
-        fs: {
-          strict: configType === "PRODUCTION",
-        },
-      },
-      plugins:
-        configType === "PRODUCTION"
-          ? // @ts-expect-error https://github.com/IanVS/vite-plugin-turbosnap/issues/8
-            [turbosnap({ rootDir: config.root ?? process.cwd() })]
-          : [],
-    });
+    let finalConfig;
+
+    if (configType === "PRODUCTION") {
+      finalConfig = mergeConfig(
+        config,
+        defineConfig({
+          plugins: [
+            // @ts-expect-error https://github.com/IanVS/vite-plugin-turbosnap/issues/8
+            turbosnap({ rootDir: config.root ?? process.cwd() }),
+          ],
+        }),
+      );
+    } else {
+      finalConfig = mergeConfig(
+        config,
+        defineConfig({
+          server: {
+            fs: {
+              strict: false,
+            },
+          },
+        }),
+      );
+    }
+
+    return finalConfig;
   },
 };
