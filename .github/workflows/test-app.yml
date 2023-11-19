@@ -11,7 +11,10 @@ on:
 jobs:
   test:
     name: Run Tests
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -27,10 +30,19 @@ jobs:
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
           node-version: lts/*
-          cache: yarn
-          cache-dependency-path: "**/yarn.lock"
+      - name: Get yarn cache directory path
+        id: yarn-cache-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: ${{ matrix.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ matrix.os }}-yarn-
       - name: Install dependencies
-        run: yarn install && yarn bootstrap
+        run: |
+          yarn install
+          yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Build
