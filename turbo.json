@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["RUNNER_OS"],
   "pipeline": {
     "//#bootstrap": {
       "cache": false

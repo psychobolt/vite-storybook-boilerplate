@@ -22,7 +22,6 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
       CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-      YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -58,4 +57,4 @@ jobs:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
       - name: Run Chromatic
-        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic -- -d storybook-static --exit-once-uploaded
+        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic -- -- -d storybook-static --exit-once-uploaded

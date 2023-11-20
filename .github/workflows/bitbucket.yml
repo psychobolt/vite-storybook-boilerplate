@@ -13,8 +13,6 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     timeout-minutes: 32
-    env:
-      YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
@@ -41,6 +39,15 @@ jobs:
         run: git merge origin/main --no-commit --ff || true
       - name: Prune deleted files
         run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
+      - name: Get yarn cache directory path
+        id: yarn-cache-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: |
           yarn install

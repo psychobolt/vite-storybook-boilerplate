@@ -7,8 +7,6 @@ jobs:
   post-upgrade:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      YARN_ENABLE_IMMUTABLE_INSTALLS: false
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
