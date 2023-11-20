@@ -1,15 +1,8 @@
 import type { Preview } from "@storybook/web-components";
+import commonConfig from "commons/.storybook/vite-preview";
 
 const preview: Preview = {
-  parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
-  },
+  ...commonConfig,
 };
 
 export default preview;
