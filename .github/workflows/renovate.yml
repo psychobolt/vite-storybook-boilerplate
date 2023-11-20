@@ -7,6 +7,8 @@ jobs:
   post-upgrade:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -21,7 +23,9 @@ jobs:
           cache: yarn
           cache-dependency-path: "**/yarn.lock"
       - name: Install dependencies
-        run: yarn install && yarn bootstrap
+        run: |
+          yarn install
+          yarn bootstrap
       - name: Update previous commit
         run: |
           git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"

@@ -15,6 +15,7 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
+      YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -24,17 +25,9 @@ jobs:
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
           node-version: lts/*
+          cache: yarn
+          cache-dependency-path: ./yarn.lock
       - name: Install dependencies
         run: yarn install
-      - name: Get yarn cache directory path
-        id: yarn-cache-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-path.outputs.dir }}
-          key: ${{ matrix.os }}-yarn-${{ hashFiles('./yarn.lock') }}
-          restore-keys: ${{ matrix.os }}-yarn-
       - name: Lint
         run: yarn turbo run //#lint
