@@ -17,14 +17,14 @@ interface CSSModulesOptionsExtended extends CSSModulesOptions {
 
 const modules: Module[] = [
   {
-    entry: /src[\/\\](style).scss$/,
+    entry: /src[/\\](style).scss$/,
     assetName: /^style.css$/,
     ext: "css",
     assets: [],
     index: -1,
   },
   {
-    entry: /^.+[\/\\](.+)[\/\\]index.scss$/,
+    entry: /^.+[/\\](.+)[/\\]index.scss$/,
     assetName: /^index.css$/,
     ext: "css",
     assets: [],
