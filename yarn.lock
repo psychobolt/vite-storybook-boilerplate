@@ -20204,7 +20204,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:8.0.3"
     lint-staged: "npm:15.1.0"
-    playwright-chromium: "npm:1.40.0"
+    playwright: "npm:1.40.0"
     prettier: "npm:3.1.0"
     sb: "npm:7.6.0-alpha.6"
     stylelint: "npm:15.11.0"
