@@ -3594,9 +3594,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.15.1":
-  version: 0.15.1
-  resolution: "@storybook/test-runner@npm:0.15.1"
+"@storybook/test-runner@npm:0.15.2":
+  version: 0.15.2
+  resolution: "@storybook/test-runner@npm:0.15.2"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -3627,7 +3627,7 @@ __metadata:
     ts-dedent: "npm:^2.0.0"
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 799f94ba74c2e3f27382608e2fa0c0b082e39da312f6214e5536ef977a23c7de3d84d8474aa845ab3970d98f5ba74cc81610cee8f19bad390aa9ebc9e4731fa1
+  checksum: 442aa8ee96e4aec6e7a046bfb5b2ec87642a2d81ba5184a86e37dc34df8ad4420435cd59574908225bbf2d3819e29490a446857c6ffeb23f801b739d526aca21
   languageName: node
   linkType: hard
 
@@ -5922,7 +5922,7 @@ __metadata:
     "@storybook/addon-links": "npm:7.6.0-alpha.6"
     "@storybook/addon-onboarding": "npm:1.0.8"
     "@storybook/builder-vite": "npm:7.6.0-alpha.6"
-    "@storybook/test-runner": "npm:0.15.1"
+    "@storybook/test-runner": "npm:0.15.2"
     "@storybook/types": "npm:7.6.0-alpha.6"
     "@tsconfig/recommended": "npm:1.0.3"
     "@types/eslint": "npm:8.44.7"
