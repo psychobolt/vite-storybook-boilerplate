@@ -98,6 +98,7 @@ pipelines:
         - step:
             name: Build and Test Next App
             max-time: 15
+            size: 2x
             caches:
               - yarn-03017b194a4c51cf
             condition:
