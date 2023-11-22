@@ -16481,7 +16481,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:3.1.1, prettier-plugin-svelte@npm:~3.1.1":
+"prettier-plugin-svelte@npm:3.1.2":
+  version: 3.1.2
+  resolution: "prettier-plugin-svelte@npm:3.1.2"
+  peerDependencies:
+    prettier: ^3.0.0
+    svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
+  checksum: d0dd3f90c97a79c83d7d77e3d675d97f51190b248bac1a6cfec63add9521e69d111f59958e261b4f4b489949cbc3134cc68db440789075598dc548cfadf34fed
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-svelte@npm:~3.1.1":
   version: 3.1.1
   resolution: "prettier-plugin-svelte@npm:3.1.1"
   peerDependencies:
@@ -18734,7 +18744,7 @@ __metadata:
     eslint-plugin-svelte: "npm:2.35.1"
     html-ui: "workspace:*"
     prettier: "npm:3.1.0"
-    prettier-plugin-svelte: "npm:3.1.1"
+    prettier-plugin-svelte: "npm:3.1.2"
     sass: "npm:1.69.5"
     stylelint: "npm:15.11.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
