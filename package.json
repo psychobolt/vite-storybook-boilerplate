@@ -8,7 +8,7 @@
     "g:dotenv": "cd $INIT_CWD && dotenv -e $PROJECT_CWD/.env -e $INIT_CWD/.env -c",
     "g:dotenv-vault": "cd $INIT_CWD && dotenv-vault",
     "ts-script": "yarn g:ts-script",
-    "g:ts-script": "cd $INIT_CWD && dotenv -e $PROJECT_CWD/.env -c -- node --loader ts-node/esm --loader file://$PROJECT_CWD/.pnp.loader.mjs",
+    "g:ts-script": "cd $INIT_CWD && yarn g:dotenv -- node --loader ts-node/esm --loader file://$PROJECT_CWD/.pnp.loader.mjs",
     "turbo": "yarn ts-script scripts/turbo.ts",
     "ls-workspaces": "yarn ts-script scripts/ls-workspaces.ts",
     "bootstrap": "yarn g:bootstrap",
@@ -18,7 +18,7 @@
     "config-ci": "yarn ts-script scripts/config-ci.ts",
     "eslint-path": "yarn bin eslint",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
-    "g:lint-js": "cd $INIT_CWD && yarn ts-script $(yarn run -T eslint-path) -c ./eslint.config.ts .",
+    "g:lint-js": "cd $INIT_CWD && yarn g:ts-script $(yarn run -T eslint-path) -c ./eslint.config.ts .",
     "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
     "format": "yarn g:prettier --write .",
     "g:prettier": "cd $INIT_CWD && prettier --ignore-path $PROJECT_CWD/.gitignore --ignore-path ./.prettierignore"
