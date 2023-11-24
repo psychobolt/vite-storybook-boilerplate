@@ -5,12 +5,12 @@ definitions:
     docker:
       memory: 7128
   caches:
-    yarn-0ca399a2f065a90f:
+    yarn-211fe351f7f6c56b:
       key:
         files:
           - yarn.lock
       path: .yarn/cache
-    svelte-app-0ca399a2f065a90f:
+    svelte-app-211fe351f7f6c56b:
       key:
         files:
           - apps/svelte-app/yarn.lock
@@ -39,7 +39,7 @@ pipelines:
         name: Build and Test Root
         max-time: 10
         caches:
-          - yarn-0ca399a2f065a90f
+          - yarn-211fe351f7f6c56b
         script:
           - *env
           - yarn install
@@ -54,7 +54,7 @@ pipelines:
                 includePaths:
                   - packages/commons/**
             caches:
-              - yarn-0ca399a2f065a90f
+              - yarn-211fe351f7f6c56b
             script:
               - *env
               - export PACKAGE_NAME=commons
@@ -65,7 +65,7 @@ pipelines:
             image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
             max-time: 15
             caches:
-              - yarn-0ca399a2f065a90f
+              - yarn-211fe351f7f6c56b
             condition:
               changesets:
                 includePaths:
@@ -82,7 +82,7 @@ pipelines:
             image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
             max-time: 15
             caches:
-              - yarn-0ca399a2f065a90f
+              - yarn-211fe351f7f6c56b
             condition:
               changesets:
                 includePaths:
@@ -100,7 +100,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-0ca399a2f065a90f
+              - yarn-211fe351f7f6c56b
             condition:
               changesets:
                 includePaths:
@@ -116,8 +116,8 @@ pipelines:
             name: Build and Test Svelte App
             max-time: 15
             caches:
-              - yarn-0ca399a2f065a90f
-              - svelte-app-0ca399a2f065a90f
+              - yarn-211fe351f7f6c56b
+              - svelte-app-211fe351f7f6c56b
             condition:
               changesets:
                 includePaths:
