@@ -1,4 +1,4 @@
-image: node:lts-alpine@sha256:cb2301e2c5fe3165ba2616591efe53b4b6223849ac0871c138f56d5f7ae8be4b
+image: node:lts-alpine@sha256:b1789b7be6aa16afd642eaaaccdeeeb33bd8f08e69b3d27d931aa9665b731f01
 
 definitions:
   services:
@@ -28,10 +28,10 @@ definitions:
         $PACKAGE_NAME turbo run build
     - script: &chromatic >-
         yarn dlx concurrently -k -s first -n "SB,TEST" "yarn workspace
-        $PACKAGE_NAME start --silent" "yarn dlx wait-on $(yarn workspace
-        $PACKAGE_NAME g:dotenv -p TARGET_URL | tail -n1) &&  yarn workspace
-        $PACKAGE_NAME coverage" && yarn workspace $PACKAGE_NAME chromatic
-        --exit-once-uploaded
+        $PACKAGE_NAME turbo run start -- --silent" "yarn dlx wait-on $(yarn
+        workspace $PACKAGE_NAME g:dotenv -p TARGET_URL | tail -n1) &&  yarn
+        workspace $PACKAGE_NAME coverage" && yarn workspace $PACKAGE_NAME turbo
+        run chromatic --exit-once-uploaded
 
 pipelines:
   default:
