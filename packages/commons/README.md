@@ -17,12 +17,15 @@ See [source](vite.config.ts)
 /your/project/vite.config.ts
 
 ```js
+import { defineConfig, mergeConfig } fromn "vite";
 import commonConfig from "commons/esm/vite.config";
 
-export default {
-  ...commonConfig,
-  // your overrides
-};
+export default mergeConfig(
+  commonConfig,
+  defineConfig({
+    // your overrides
+  })
+);
 ```
 
 #### ESLint
@@ -89,6 +92,21 @@ See [source](.storybook/vite-main.ts)
 
 ```ts
 import commonConfig from "commons/.storybook/vite-main";
+
+export default mergeConfig({
+  ...commonConfig,
+  // your overrides
+};
+```
+
+##### Jest
+
+See [source](.storybook/test-runner-jest.config.ts)
+
+/your/project/.storybook/test-runner-jest.config.ts
+
+```ts
+import commonConfig from "commons/.storybook/test-runner-jest.config.ts"; // .ts is required here
 
 export default {
   ...commonConfig,
