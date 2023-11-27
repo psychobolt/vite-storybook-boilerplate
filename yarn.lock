@@ -13052,7 +13052,7 @@ __metadata:
 
 "jest-config@patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch":
   version: 29.7.0
-  resolution: "jest-config@patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch::version=29.7.0&hash=d7fcb2"
+  resolution: "jest-config@patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch::version=29.7.0&hash=44b120"
   dependencies:
     "@babel/core": "npm:^7.11.6"
     "@jest/test-sequencer": "npm:^29.7.0"
@@ -13084,7 +13084,7 @@ __metadata:
       optional: true
     ts-node:
       optional: true
-  checksum: 1c99c624e90154a666b5ec70f4d38490e0e54e5d0b5f94d50f79b5999c8317fe1250ab99d7e9dfa20de27f4d348f2d96482b7241789092b55f17abd3c52b62b4
+  checksum: 3cd5e2a16e34839bb1f79e0aae66d0062d3a03d3b460c4c3d80e8b7aef408426c3a8e1791499a5c1bd7e48694753c77350570fb13950de4c052c0c185a4cb29c
   languageName: node
   linkType: hard
 
