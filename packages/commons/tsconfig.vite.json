@@ -1,15 +1,13 @@
 {
+  "extends": "./tsconfig.esm.json",
   "compilerOptions": {
     "types": ["vite/client"],
-    "module": "ESNext",
-    "target": "ESNext",
     "esModuleInterop": true,
     "isolatedModules": true,
-    "moduleResolution": "node",
     "useDefineForClassFields": true,
-    "skipLibCheck": true,
     "noEmit": true,
-    "strict": true,
     "allowImportingTsExtensions": true
-  }
+  },
+  "include": [],
+  "exclude": []
 }
