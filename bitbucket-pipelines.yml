@@ -9,20 +9,17 @@ definitions:
       key:
         files:
           - yarn.lock
-      path: .yarn/cache
+      path: /root/.yarn/berry/cache
     svelte-app-211fe351f7f6c56b:
       key:
         files:
           - apps/svelte-app/yarn.lock
       path: apps/svelte-app/node_modules
   scripts:
-    - script: &env >-
-        export YARN_ENABLE_GLOBAL_CACHE=false
     - script: &setup >-
         export DOTENV_KEY=$(echo $DOTENV_KEYS | jq -r --arg keyvar $PACKAGE_NAME
-        '.[$keyvar]') && nvm install --lts && nvm use --lts && corepack enable
-        && corepack prepare yarn@stable --activate && yarn install && yarn
-        playwright install --with-deps chromium
+        '.[$keyvar]') && corepack enable && yarn install && yarn playwright
+        install --with-deps chromium
     - script: &test >-
         yarn workspace $PACKAGE_NAME turbo run lint && yarn workspace
         $PACKAGE_NAME turbo run build
@@ -41,7 +38,6 @@ pipelines:
         caches:
           - yarn-211fe351f7f6c56b
         script:
-          - *env
           - yarn install
           - yarn bootstrap
           - yarn turbo run //#lint
@@ -56,7 +52,6 @@ pipelines:
             caches:
               - yarn-211fe351f7f6c56b
             script:
-              - *env
               - export PACKAGE_NAME=commons
               - yarn install
               - *test
@@ -72,7 +67,6 @@ pipelines:
                   - packages/commons/**
                   - packages/html-ui/**
             script:
-              - *env
               - export PACKAGE_NAME=html-ui
               - *setup
               - *test
@@ -90,7 +84,6 @@ pipelines:
                   - packages/html-ui/**
                   - packages/react-ui/**
             script:
-              - *env
               - export PACKAGE_NAME=react-ui
               - *setup
               - *test
@@ -108,7 +101,6 @@ pipelines:
                   - packages/react-ui/**
                   - apps/next-app/**
             script:
-              - *env
               - export PACKAGE_NAME=next-app
               - yarn install
               - *test
@@ -126,7 +118,6 @@ pipelines:
                   - apps/svelte-app/**
 
             script:
-              - *env
               - export PACKAGE_NAME=svelte-app
               - yarn install
               - yarn bootstrap
