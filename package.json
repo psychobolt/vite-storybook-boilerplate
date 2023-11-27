@@ -7,8 +7,9 @@
     "postinstall": "husky install",
     "g:dotenv": "cd $INIT_CWD && dotenv -e $PROJECT_CWD/.env -e $INIT_CWD/.env -c",
     "g:dotenv-vault": "cd $INIT_CWD && dotenv-vault",
+    "g:ts-node-path": "yarn node -p \"require.resolve('ts-node/esm')\"",
+    "g:ts-script": "cd $INIT_CWD && yarn g:dotenv -- node --loader file://$(yarn g:ts-node-path) --loader file://$PROJECT_CWD/.pnp.loader.mjs",
     "ts-script": "yarn g:ts-script",
-    "g:ts-script": "cd $INIT_CWD && yarn g:dotenv -- node --loader ts-node/esm --loader file://$PROJECT_CWD/.pnp.loader.mjs",
     "turbo": "yarn ts-script scripts/turbo.ts",
     "ls-workspaces": "yarn ts-script scripts/ls-workspaces.ts",
     "bootstrap": "yarn g:bootstrap",
@@ -49,11 +50,6 @@
     "turbo": "1.10.16",
     "typescript": "5.2.2",
     "yaml": "2.3.4"
-  },
-  "dependenciesMeta": {
-    "ts-node@10.9.1": {
-      "unplugged": true
-    }
   },
   "resolutions": {
     "dotenv-cli@7.3.0": "patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch",
