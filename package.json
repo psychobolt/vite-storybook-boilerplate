@@ -57,6 +57,7 @@
   },
   "resolutions": {
     "dotenv-cli@7.3.0": "patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch",
-    "dotenv-flow@4.0.0": "patch:dotenv-flow@npm%3A4.0.0#./.yarn/patches/dotenv-flow-npm-4.0.0-b94c2c110d.patch"
+    "dotenv-flow@4.0.0": "patch:dotenv-flow@npm%3A4.0.0#./.yarn/patches/dotenv-flow-npm-4.0.0-b94c2c110d.patch",
+    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
   }
 }

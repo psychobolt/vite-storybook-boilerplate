@@ -5,11 +5,5 @@
     "noEmit": false,
     "emitDeclarationOnly": true,
     "outDir": "esm"
-  },
-  "include": [".storybook/**/*", "**/*"],
-  "exclude": [
-    "./.storybook/vite-main.ts",
-    "./eslint.config.ts",
-    "./stylelint.config.ts"
-  ]
+  }
 }
