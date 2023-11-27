@@ -13,7 +13,7 @@
     "build": "vite build",
     "watch": "yarn build -w",
     "build-storybook": "storybook build",
-    "start": "turbo run build-storybook && yarn g:dotenv -- http-server storybook-static",
+    "start": "yarn g:dotenv -- http-server storybook-static",
     "test": "yarn g:test-storybook",
     "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",

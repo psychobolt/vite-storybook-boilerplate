@@ -5,7 +5,10 @@
     "//#bootstrap": {
       "cache": false
     },
-    "start": {},
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
     "dev": {
       "cache": false,
       "persistent": true,

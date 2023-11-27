@@ -62,7 +62,7 @@ yarn g:prettier [options] # Runs prettier format tool
 ```sh
 #cd (packages|apps)/workspace-name # optional if not using yarn workspace command, otherwise you'll run task on all workspaces
 yarn [workspace workspace-name] turbo task-name [--force] [-- --some-option] # Run a turbo enabled task
-yarn [workspace workspace-name] start # Serve production build
+yarn [workspace workspace-name] turbo run start # Serve production build
 yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
 yann [workspace workspace-name] turbo run build # Build for production
 yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces)
