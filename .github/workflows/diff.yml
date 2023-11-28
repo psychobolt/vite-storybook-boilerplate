@@ -6,6 +6,10 @@ on:
       package_names:
         value: ${{ jobs.diff.outputs.package_names }}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   diff:
     timeout-minutes: 15
