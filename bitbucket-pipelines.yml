@@ -18,8 +18,8 @@ definitions:
   scripts:
     - script: &setup >-
         export DOTENV_KEY=$(echo $DOTENV_KEYS | jq -r --arg keyvar $PACKAGE_NAME
-        '.[$keyvar]') && corepack enable && yarn install && yarn playwright
-        install --with-deps chromium
+        '.[$keyvar]') && nvm install --lts && corepack enable && yarn install &&
+        yarn playwright install --with-deps chromium
     - script: &test >-
         yarn workspace $PACKAGE_NAME turbo run lint && yarn workspace
         $PACKAGE_NAME turbo run build
@@ -27,8 +27,8 @@ definitions:
         yarn dlx concurrently -k -s first -n "SB,TEST" "yarn workspace
         $PACKAGE_NAME turbo run start -- --silent" "yarn dlx wait-on $(yarn
         workspace $PACKAGE_NAME g:dotenv -p TARGET_URL | tail -n1) &&  yarn
-        workspace $PACKAGE_NAME coverage" && yarn workspace $PACKAGE_NAME turbo
-        run chromatic --exit-once-uploaded
+        workspace $PACKAGE_NAME coverage" && yarn workspace $PACKAGE_NAME
+        chromatic --exit-once-uploaded
 
 pipelines:
   default:
@@ -59,6 +59,7 @@ pipelines:
             name: Build and Test HTML UI
             image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
             max-time: 15
+            size: 2x
             caches:
               - yarn-211fe351f7f6c56b
             condition:
@@ -75,6 +76,7 @@ pipelines:
             name: Build and Test React UI
             image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
             max-time: 15
+            size: 2x
             caches:
               - yarn-211fe351f7f6c56b
             condition:
