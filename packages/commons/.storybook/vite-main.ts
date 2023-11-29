@@ -1,32 +1,39 @@
+import { createRequire } from "module";
 import { join, dirname } from "path";
-import type { StorybookConfig, Preset } from "@storybook/types";
+import type { StorybookConfig } from "@storybook/types";
 import type { StorybookConfigVite } from "@storybook/builder-vite";
-import type { AliasOptions } from "vite";
+import type { ResolveOptions } from "vite";
 import { defineConfig, mergeConfig } from "vite";
 import turbosnap from "vite-plugin-turbosnap";
+
+type AliasOptions = {
+  [find: string]: string;
+};
+
+type ResolveConfig = {
+  alias: AliasOptions;
+};
+
+const require = createRequire(import.meta.url);
+const resolveConfig: ResolveOptions & ResolveConfig = {
+  alias: {},
+};
 
 /**
  * This function is used to resolve the absolute path of a package.
  * It is needed in projects that use Yarn PnP or are set up within a monorepo.
  */
-export function getAbsolutePath(value: string, { resolve } = require): any {
-  return dirname(resolve(join(value, "package.json")));
-}
-
-const addons: Preset[] = [
-  getAbsolutePath("@storybook/addon-essentials"),
-  getAbsolutePath("@storybook/addon-onboarding"),
-  getAbsolutePath("@storybook/addon-coverage"),
-];
-const resolvePaths: AliasOptions = {};
-
-for (const addon of [
-  "@storybook/addon-links",
-  "@storybook/addon-interactions",
-]) {
-  const absolutePath = dirname(require.resolve(addon));
-  addons.push(join(absolutePath, "package.json"));
-  resolvePaths[addon] = absolutePath;
+export function getAbsolutePath(
+  moduleId: string,
+  resolveConfig: NodeRequire | ResolveConfig | {} = {},
+): string {
+  const { resolve = require.resolve } = resolveConfig as unknown as NodeRequire;
+  const absolutePath = dirname(resolve(join(moduleId, "package.json")));
+  const { alias } = resolveConfig as unknown as ResolveConfig;
+  if (alias) {
+    alias[moduleId] = absolutePath;
+  }
+  return absolutePath;
 }
 
 const mainDir = "@(src|stories)";
@@ -38,7 +45,13 @@ export const config: StorybookViteCommonConfig = {
     `../${mainDir}/**/*.mdx`,
     `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`,
   ],
-  addons,
+  addons: [
+    getAbsolutePath("@storybook/addon-links", resolveConfig),
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@storybook/addon-onboarding"),
+    getAbsolutePath("@storybook/addon-interactions", resolveConfig),
+    getAbsolutePath("@storybook/addon-coverage"),
+  ],
   docs: {
     autodocs: "tag",
   },
@@ -46,9 +59,7 @@ export const config: StorybookViteCommonConfig = {
     let finalConfig = mergeConfig(
       config,
       defineConfig({
-        resolve: {
-          alias: resolvePaths,
-        },
+        resolve: resolveConfig,
       }),
     );
 
