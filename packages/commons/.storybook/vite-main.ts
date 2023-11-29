@@ -6,13 +6,11 @@ import type { ResolveOptions } from "vite";
 import { defineConfig, mergeConfig } from "vite";
 import turbosnap from "vite-plugin-turbosnap";
 
-type AliasOptions = {
-  [find: string]: string;
-};
+type AliasOptions = Record<string, string>;
 
-type ResolveConfig = {
-  alias: AliasOptions;
-};
+interface ResolveConfig {
+  alias?: AliasOptions;
+}
 
 const require = createRequire(import.meta.url);
 const resolveConfig: ResolveOptions & ResolveConfig = {
@@ -25,11 +23,11 @@ const resolveConfig: ResolveOptions & ResolveConfig = {
  */
 export function getAbsolutePath(
   moduleId: string,
-  resolveConfig: NodeRequire | ResolveConfig | {} = {},
+  resolveConfig: NodeRequire | ResolveConfig | unknown = {},
 ): string {
-  const { resolve = require.resolve } = resolveConfig as unknown as NodeRequire;
+  const { resolve = require.resolve } = resolveConfig as NodeRequire;
   const absolutePath = dirname(resolve(join(moduleId, "package.json")));
-  const { alias } = resolveConfig as unknown as ResolveConfig;
+  const { alias } = resolveConfig as ResolveConfig;
   if (alias) {
     alias[moduleId] = absolutePath;
   }
