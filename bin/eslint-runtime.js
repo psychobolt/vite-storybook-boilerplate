@@ -12,9 +12,7 @@ const nodeOptions = execSync("yarn node -p process.env.NODE_OPTIONS")
   .toString()
   .slice(0, -1);
 
-const tsNodePath = execSync("yarn node -p \"require.resolve('ts-node/esm')\"")
-  .toString()
-  .slice(0, -1);
+const tsNodePath = execSync("yarn g:ts-node-path").toString().slice(0, -1);
 
 const child = spawn("node", process.argv.slice(2), {
   env: {

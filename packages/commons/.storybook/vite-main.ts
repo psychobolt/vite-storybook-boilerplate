@@ -1,20 +1,42 @@
+import { createRequire } from "module";
 import { join, dirname } from "path";
 import type { StorybookConfig } from "@storybook/types";
 import type { StorybookConfigVite } from "@storybook/builder-vite";
+import type { ResolveOptions } from "vite";
 import { defineConfig, mergeConfig } from "vite";
 import turbosnap from "vite-plugin-turbosnap";
+
+type AliasOptions = Record<string, string>;
+
+interface ResolveConfig {
+  alias?: AliasOptions;
+}
+
+const require = createRequire(import.meta.url);
+const resolveConfig: ResolveOptions & ResolveConfig = {
+  alias: {},
+};
 
 /**
  * This function is used to resolve the absolute path of a package.
  * It is needed in projects that use Yarn PnP or are set up within a monorepo.
  */
-export function getAbsolutePath(value: string, { resolve } = require): any {
-  return dirname(resolve(join(value, "package.json")));
+export function getAbsolutePath(
+  moduleId: string,
+  resolveConfig: NodeRequire | ResolveConfig | unknown = {},
+): string {
+  const { resolve = require.resolve } = resolveConfig as NodeRequire;
+  const absolutePath = dirname(resolve(join(moduleId, "package.json")));
+  const { alias } = resolveConfig as ResolveConfig;
+  if (alias) {
+    alias[moduleId] = absolutePath;
+  }
+  return absolutePath;
 }
 
-export type StorybookViteCommonConfig = StorybookConfig & StorybookConfigVite;
-
 const mainDir = "@(src|stories)";
+
+export type StorybookViteCommonConfig = StorybookConfig & StorybookConfigVite;
 
 export const config: StorybookViteCommonConfig = {
   stories: [
@@ -22,21 +44,26 @@ export const config: StorybookViteCommonConfig = {
     `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`,
   ],
   addons: [
-    require.resolve("@storybook/addon-links/manager"),
+    getAbsolutePath("@storybook/addon-links", resolveConfig),
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@storybook/addon-onboarding"),
-    require.resolve("@storybook/addon-interactions/manager"),
-    require.resolve("@storybook/addon-coverage/preset"),
+    getAbsolutePath("@storybook/addon-interactions", resolveConfig),
+    getAbsolutePath("@storybook/addon-coverage"),
   ],
   docs: {
     autodocs: "tag",
   },
   viteFinal(config, { configType }) {
-    let finalConfig;
+    let finalConfig = mergeConfig(
+      config,
+      defineConfig({
+        resolve: resolveConfig,
+      }),
+    );
 
     if (configType === "PRODUCTION") {
       finalConfig = mergeConfig(
-        config,
+        finalConfig,
         defineConfig({
           plugins: [
             // @ts-expect-error https://github.com/IanVS/vite-plugin-turbosnap/issues/8
@@ -46,7 +73,7 @@ export const config: StorybookViteCommonConfig = {
       );
     } else {
       finalConfig = mergeConfig(
-        config,
+        finalConfig,
         defineConfig({
           server: {
             fs: {
