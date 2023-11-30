@@ -34,10 +34,10 @@
     "chromatic": "yarn g:dotenv -- chromatic -d storybook-static --only-changed"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.6.1",
-    "@storybook/blocks": "7.6.1",
-    "@storybook/react": "7.6.1",
-    "@storybook/react-vite": "7.6.1",
+    "@storybook/addon-essentials": "7.6.2",
+    "@storybook/blocks": "7.6.2",
+    "@storybook/react": "7.6.2",
+    "@storybook/react-vite": "7.6.2",
     "@storybook/testing-library": "0.2.2",
     "@tsconfig/vite-react": "2.0.1",
     "@types/react": "18.2.39",
@@ -50,7 +50,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "1.69.5",
-    "storybook": "7.6.1",
+    "storybook": "7.6.2",
     "turbo": "1.10.16",
     "typescript": "5.2.2",
     "typescript-plugin-css-modules": "5.0.2",
