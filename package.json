@@ -17,12 +17,11 @@
     "dev": "yarn turbo --background run dev",
     "build": "yarn turbo run build",
     "config-ci": "yarn ts-script scripts/config-ci.ts",
-    "eslint-path": "yarn bin eslint",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
-    "g:lint-js": "cd $INIT_CWD && yarn g:ts-script $(yarn run -T eslint-path) -c ./eslint.config.ts .",
+    "g:eslint-path": "yarn bin eslint",
+    "g:lint-js": "cd $INIT_CWD && yarn g:ts-script $(yarn g:eslint-path) -c ./eslint.config.ts .",
     "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
-    "format": "yarn g:prettier --write .",
-    "g:prettier": "cd $INIT_CWD && prettier --ignore-path $PROJECT_CWD/.gitignore --ignore-path ./.prettierignore"
+    "format": "yarn g:prettier --write ."
   },
   "workspaces": [
     "packages/*",
@@ -43,8 +42,6 @@
     "husky": "8.0.3",
     "lint-staged": "15.1.0",
     "playwright": "1.40.1",
-    "prettier": "3.1.0",
-    "sb": "7.6.3",
     "stylelint": "15.11.0",
     "ts-node": "10.9.1",
     "turbo": "1.10.16",

@@ -30,33 +30,58 @@ export default mergeConfig(
 
 #### ESLint
 
-See [source](eslint.config.ts)
+1. Create your own config:
 
-/your/project/eslint.config.ts
+   See [source](eslint.config.ts)
 
-```ts
-import commonConfig from "commons/eslint.config.ts"; // .ts is required here
+   /your/project/eslint.config.ts
 
-export default {
-  ...commonConfig,
-  // your overrides
-};
-```
+   ```ts
+   import commonConfig from "commons/eslint.config.ts";
+
+   export default {
+     ...commonConfig,
+     // your overrides
+   };
+   ```
+
+2. Add scripts to /your/project/package.json
+
+   ```json
+   {
+     "scripts": {
+       "lint": "yarn g:lint-css && yarn g:lint-js"
+     }
+   }
+   ```
 
 #### Prettier
 
-See [source](prettier.config.ts)
+1. Create your own config:
 
-/your/project/prettier.config.ts
+   See [source](prettier.config.ts)
 
-```ts
-import commonConfig from "commons/prettier.config";
+   /your/project/prettier.config.ts
 
-export default {
-  ...commonConfig,
-  // your overrides
-};
-```
+   ```ts
+   import commonConfig from "commons/prettier.config";
+
+   export default {
+     ...commonConfig,
+     // your overrides
+   };
+   ```
+
+2. Add scripts to /your/project/package.json
+
+   ```json
+   {
+     "scripts": {
+       "lint": "yarn g:prettier --check .",
+       "format": "yarn g:prettier --write ."
+     }
+   }
+   ```
 
 #### Stylelint
 
@@ -86,18 +111,33 @@ See [source](tsconfig.js)
 
 ##### Vite
 
-See [source](.storybook/vite-main.ts)
+1. Create your own config:
 
-/your/project/.storybook/main.ts
+   See [source](.storybook/vite-main.ts)
 
-```ts
-import commonConfig from "commons/.storybook/vite-main";
+   /your/project/.storybook/main.ts
 
-export default mergeConfig({
-  ...commonConfig,
-  // your overrides
-};
-```
+   ```ts
+   import commonConfig from "commons/.storybook/vite-main.ts";
+
+   export default mergeConfig({
+     ...commonConfig,
+     // your overrides
+   };
+   ```
+
+2. Add scripts to /your/project/package.json
+
+   ```json
+   {
+     "scripts": {
+       "dev": "yarn g:storybook dev",
+       "build-storybook": "yarn g:storybook build"
+     }
+   }
+   ```
+
+##### [Addons](.storybook/addons/README.md)
 
 ##### Jest
 
@@ -106,7 +146,7 @@ See [source](.storybook/test-runner-jest.config.ts)
 /your/project/.storybook/test-runner-jest.config.ts
 
 ```ts
-import commonConfig from "commons/.storybook/test-runner-jest.config.ts"; // .ts is required here
+import commonConfig from "commons/.storybook/test-runner-jest.config.ts";
 
 export default {
   ...commonConfig,

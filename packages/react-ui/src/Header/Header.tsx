@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "../Button";
+import { Button } from "../Button/index.ts";
 import classes from "./Header.module.scss";
 
 interface User {
