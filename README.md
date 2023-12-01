@@ -2,7 +2,7 @@
 
 [<img src="https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/branch/main/graph/badge.svg">](https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/tree/main)
 
-[<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/ci.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/ci.yml) [<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/apps.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/apps.yml) [<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/packages.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/packages.yml)
+[<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/ci.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/ci.yml?query=branch%3Amain) [<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/apps.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/apps.yml?query=branch%3Amain) [<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/packages.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/packages.yml?query=branch%3Amain)
 
 A modern fast ⚡💨 starter plate for developing front-end components
 

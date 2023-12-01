@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import { isAbsolute } from "path";
 import type { ComponentAnnotations, Renderer, Indexer } from "@storybook/types";
 import type { PluginOption } from "vite";
 import _ from "lodash";
@@ -66,6 +67,9 @@ function getSourceTemplate<TMeta>(framework: Framework) {
 
 let fileMatcher: RegExp = /\.variants?\.tsx?$/;
 
+const getImportPath = (filePath: string) =>
+  `${isAbsolute(filePath) ? "file://" : ""}${filePath}?${new Date().getTime()}`;
+
 export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
   fileMatcher = test;
   return {
@@ -73,7 +77,7 @@ export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
     async createIndex(fileName) {
       try {
         const { meta, stories }: VariantModule<TArgs> = await import(
-          `${fileName}?${new Date().getTime()}`
+          getImportPath(fileName)
         );
         const { title, tags } = meta;
 
@@ -110,7 +114,7 @@ export function vitePluginStorybookVariants<TArgs>(
       }
 
       const { meta, stories }: VariantModule<TArgs> = await import(
-        `${id}?${new Date().getTime()}`
+        getImportPath(id)
       );
       return `
         ${readFileSync(require.resolve(id), "utf-8")}
