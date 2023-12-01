@@ -1,10 +1,13 @@
-# Storybook Plugins
+# Storybook Addons
 
-## Vite
+Storybook addons not associated to the [official addon registry](https://storybook.js.org/docs/addons/writing-addons). Any addons listed here are experiemental and are queued for future migrations:
 
-### Variants
+- [addon-variants](#variants)
+- More coming soon!
 
-This plugin will allow variant story generation from a `enum` of values.
+## Variants
+
+This addon will allow variant story generation from a `enum` of values.
 
 ```ts
 // Setup for .storybook/main.ts
@@ -12,7 +15,7 @@ import type { Meta } from "@storybook/web-components";
 import {
   vitePLuginStorybookVariants,
   storybookVariantsIndexer,
-} from "commons/plugins/storybook/vitePluginStorybookVariants.ts";
+} from "commons/.storybook/addons/addon-variants.ts";
 
 export default {
   // ...
@@ -33,7 +36,7 @@ export default {
 ```ts
 // MyComponent.variants.ts
 import type { StoryObj } from "@storybook/web-components";
-import type { VariantsMeta } from "commons/plugins/storybook/vite-plugin-storybook-variants.ts";
+import type { VariantsMeta } from "commons/.storybook/addons/vite-plugin-storybook-variants.ts";
 import { type VariantStoryObj, generateStories } from "commons/.storybook/utils.ts";
 
 import type { Props } from "./MyComponent.ts";
@@ -89,8 +92,9 @@ export const getStories = () => generateStories<Props, typeof SizeEnum>( // requ
 **/
 ```
 
-> \*`default` export is not allowed for variant files
+#### Limitations
 
-> \*Direct imports to component files should be avoided (except for types)
-
-> `meta` and `args` props are serialized to JSON, so please be careful of non-JSON types
+- `default` export is not allowed for variant files
+- Direct imports to component files should be avoided (except for type references)
+- `meta` and `args` props are serialized to JSON, so please be careful of non-JSON types
+- You must run `test-runner` with [Index.json mode](https://storybook.js.org/docs/writing-tests/test-runner#indexjson-mode). See related [issue](https://github.com/storybookjs/test-runner/issues/262)

@@ -2,7 +2,7 @@ import type { StringKeyOf } from "ts-enum-util/dist/types/types.js";
 import { $enum } from "ts-enum-util";
 import _ from "lodash";
 
-import type { VariantStory } from "../plugins/storybook/vite-plugin-storybook-variants.js";
+import type { VariantStory } from "./addons/addon-variants.ts";
 
 export interface VariantStoryObj<TArgs> {
   name: string;

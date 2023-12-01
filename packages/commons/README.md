@@ -137,6 +137,8 @@ See [source](tsconfig.js)
    }
    ```
 
+##### [Addons](.storybook/addons/README.md)
+
 ##### Jest
 
 See [source](.storybook/test-runner-jest.config.ts)
@@ -151,9 +153,3 @@ export default {
   // your overrides
 };
 ```
-
-### Plugins
-
-#### Storybook
-
-##### [Vite Plugins](.storybook/plugins/README.md)

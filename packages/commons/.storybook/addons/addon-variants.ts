@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import type { ComponentAnnotations, Renderer, Indexer } from "@storybook/types";
 import type { PluginOption } from "vite";
 import _ from "lodash";
-import type { VariantStoryObj } from "../../.storybook/utils.js";
+import type { VariantStoryObj } from "../utils.ts";
 
 export type VariantsMeta<TArgs> = ComponentAnnotations<Renderer, TArgs> & {
   fileName: string;
@@ -19,9 +19,7 @@ export interface VariantModule<TArgs> {
   meta: VariantsMeta<TArgs>;
   stories:
     | Array<VariantStory<TArgs>>
-    | ((
-        stories: void | Array<VariantStoryObj<TArgs>>,
-      ) => Array<VariantStory<TArgs>>);
+    | ((stories?: Array<VariantStoryObj<TArgs>>) => Array<VariantStory<TArgs>>);
 }
 
 type TemplateOptions<TArgs> = VariantsMeta<TArgs> & {

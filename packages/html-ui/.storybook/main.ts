@@ -10,7 +10,7 @@ import {
 import {
   vitePluginStorybookVariants,
   storybookVariantsIndexer,
-} from "commons/plugins/storybook/vite-plugin-storybook-variants.ts";
+} from "commons/.storybook/addons/addon-variants.ts";
 
 const require = createRequire(import.meta.url);
 

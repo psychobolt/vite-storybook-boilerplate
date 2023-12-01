@@ -14,7 +14,7 @@
     "watch": "yarn build -w",
     "build-storybook": "yarn g:storybook build",
     "start": "yarn g:dotenv -- http-server storybook-static",
-    "test": "yarn g:test-storybook",
+    "test": "yarn g:test-storybook --index-json",
     "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",

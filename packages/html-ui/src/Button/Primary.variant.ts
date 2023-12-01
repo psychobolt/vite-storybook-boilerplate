@@ -1,5 +1,5 @@
 import type { StoryObj } from "@storybook/web-components";
-import type { VariantsMeta } from "commons/plugins/storybook/vite-plugin-storybook-variants.ts";
+import type { VariantsMeta } from "commons/.storybook/addons/addon-variants.ts";
 import {
   type VariantStoryObj,
   generateStories,
