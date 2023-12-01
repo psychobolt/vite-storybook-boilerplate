@@ -6,7 +6,7 @@ UI Components used for the [svelte-app demo](https://github.com/psychobolt/vite-
 
 Powered by:
 
-- [lit-html](https://lit.dev/docs/libraries/standalone-templates/) and utilities from [Lit](https://lit.dev)
+- [Lit](https://lit.dev)
 - [Sass](https://sass-lang.com)
 - Docs Renderer [@storybook/web-components](https://www.npmjs.com/package/@storybook/web-components) with CSS Module support [typescript-plugin-css-modules](https://github.com/mrmckeb/typescript-plugin-css-modules)
 

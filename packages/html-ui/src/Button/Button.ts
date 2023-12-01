@@ -1,8 +1,11 @@
 import { html } from "lit";
 import { styleMap } from "lit/directives/style-map.js";
+import type { SizeEnum } from "./Button.variants.ts";
 import classes from "./Button.module.scss";
 
-export interface ButtonProps {
+type Size = keyof typeof SizeEnum;
+
+export interface Props {
   /**
    * Is this the principal call to action on the page?
    */
@@ -14,7 +17,7 @@ export interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: "small" | "medium" | "large";
+  size?: Size;
   /**
    * Button contents
    */
@@ -33,7 +36,7 @@ export const Button = ({
   size = "medium",
   label,
   onClick,
-}: ButtonProps) => {
+}: Props) => {
   const mode = primary
     ? classes.storybookButtonPrimary
     : classes.storybookButtonSecondary;

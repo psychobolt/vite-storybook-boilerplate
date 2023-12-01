@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { HeaderProps } from "./Header";
-import { Header } from "./Header";
+import type { HeaderProps } from "./Header.ts";
+import { Header } from "./Header.ts";
 
 const meta = {
   title: "Components/Header",

@@ -6077,6 +6077,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:4":
+  version: 4.14.202
+  resolution: "@types/lodash@npm:4.14.202"
+  checksum: 6064d43c8f454170841bd67c8266cc9069d9e570a72ca63f06bceb484cb4a3ee60c9c1f305c1b9e3a87826049fd41124b8ef265c4dd08b00f6766609c7fe9973
+  languageName: node
+  linkType: hard
+
 "@types/lodash@npm:^4.14.167":
   version: 4.14.199
   resolution: "@types/lodash@npm:4.14.199"
@@ -8426,6 +8433,7 @@ __metadata:
     "@storybook/types": "npm:7.6.3"
     "@tsconfig/recommended": "npm:1.0.3"
     "@types/eslint": "npm:8.44.8"
+    "@types/lodash": "npm:4"
     "@typescript-eslint/eslint-plugin": "npm:6.13.1"
     "@typescript-eslint/parser": "npm:6.13.1"
     eslint: "npm:8.54.0"
@@ -8440,6 +8448,7 @@ __metadata:
     eslint-plugin-promise: "npm:6.1.1"
     eslint-plugin-react: "npm:7.33.2"
     eslint-plugin-react-hooks: "npm:4.6.0"
+    lodash: "npm:4.17.21"
     playwright: "npm:1.40.1"
     playwright-chromium: "npm:1.40.1"
     postcss: "npm:8.4.31"
@@ -8449,9 +8458,11 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:5.0.5"
+    storybook: "npm:7.6.3"
     stylelint: "npm:15.11.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:11.1.0"
+    ts-enum-util: "npm:4.0.2"
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:1.10.16"
     typescript: "npm:5.2.2"
@@ -11664,12 +11675,10 @@ __metadata:
     glob: "npm:10.3.10"
     http-server: "npm:14.1.1"
     lit: "npm:3.1.0"
-    lit-html: "npm:3.1.0"
     nyc: "npm:15.1.0"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     sass: "npm:1.69.5"
-    storybook: "npm:7.6.3"
     turbo: "npm:1.10.16"
     typescript: "npm:5.2.2"
     typescript-plugin-css-modules: "npm:5.0.2"
@@ -13718,21 +13727,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-html@npm:3.1.0, lit-html@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "lit-html@npm:3.1.0"
-  dependencies:
-    "@types/trusted-types": "npm:^2.0.2"
-  checksum: ecd6d0c97715cc92092d14f329acd04eea37886a947a07f32bd96dd89d44253689a9e4e9c787412e184657c2af5547332ba07f2cfcabda8d4c0db36863a93cc0
-  languageName: node
-  linkType: hard
-
 "lit-html@npm:^3.0.0":
   version: 3.0.2
   resolution: "lit-html@npm:3.0.2"
   dependencies:
     "@types/trusted-types": "npm:^2.0.2"
   checksum: feec3c82e2ea2609c44b3e9bdeb80de614132ceac08be2ce312d979ffad714cb0b6081353c25ec8753120033388110806171d0cfa7ad640dbecdc4c93e56052a
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "lit-html@npm:3.1.0"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: ecd6d0c97715cc92092d14f329acd04eea37886a947a07f32bd96dd89d44253689a9e4e9c787412e184657c2af5547332ba07f2cfcabda8d4c0db36863a93cc0
   languageName: node
   linkType: hard
 
@@ -13891,7 +13900,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.21":
+"lodash@npm:4.17.21, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
@@ -16821,7 +16830,6 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     sass: "npm:1.69.5"
-    storybook: "npm:7.6.3"
     turbo: "npm:1.10.16"
     typescript: "npm:5.2.2"
     typescript-plugin-css-modules: "npm:5.0.2"
@@ -17627,17 +17635,6 @@ __metadata:
   version: 1.2.4
   resolution: "sax@npm:1.2.4"
   checksum: 6e9b05ff443ee5e5096ce92d31c0740a20d33002fad714ebcb8fc7a664d9ee159103ebe8f7aef0a1f7c5ecacdd01f177f510dff95611c589399baf76437d3fe3
-  languageName: node
-  linkType: hard
-
-"sb@npm:7.6.3":
-  version: 7.6.3
-  resolution: "sb@npm:7.6.3"
-  dependencies:
-    "@storybook/cli": "npm:7.6.3"
-  bin:
-    sb: ./index.js
-  checksum: 5ffed5ca42d8eaa417e85e7c53607ab1b0a1a46c87ff4c977b1b5e99455d64dc9cfd99371bd2a6f13829b643ef62774a464331f828a3269e19cc412f8be9c52e
   languageName: node
   linkType: hard
 
@@ -19076,6 +19073,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-enum-util@npm:4.0.2":
+  version: 4.0.2
+  resolution: "ts-enum-util@npm:4.0.2"
+  checksum: 22042f925312fd3f424222f1adf85a51c6dd8f3bf94590d608f1de37e02749f104340546fa98be28a2444889a348da07c7338095f01f62c1d27c7cb4b5b2f865
+  languageName: node
+  linkType: hard
+
 "ts-node@npm:10.9.1, ts-node@npm:^10.9.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
@@ -20047,8 +20051,6 @@ __metadata:
     husky: "npm:8.0.3"
     lint-staged: "npm:15.1.0"
     playwright: "npm:1.40.1"
-    prettier: "npm:3.1.0"
-    sb: "npm:7.6.3"
     stylelint: "npm:15.11.0"
     ts-node: "npm:10.9.1"
     turbo: "npm:1.10.16"

@@ -34,9 +34,10 @@ export function getAbsolutePath(
   return absolutePath;
 }
 
-const mainDir = "@(src|stories)";
+export const mainDir = "@(src|stories)";
 
-export type StorybookViteCommonConfig = StorybookConfig & StorybookConfigVite;
+export type StorybookViteCommonConfig = StorybookConfig &
+  Required<StorybookConfigVite>;
 
 export const config: StorybookViteCommonConfig = {
   stories: [
