@@ -1,6 +1,8 @@
 import { readFileSync } from "fs";
 import type { ComponentAnnotations, Renderer, Indexer } from "@storybook/types";
 import type { PluginOption } from "vite";
+import _ from "lodash";
+import type { VariantStoryObj } from "../../.storybook/utils.js";
 
 export type VariantsMeta<TArgs> = ComponentAnnotations<Renderer, TArgs> & {
   fileName: string;
@@ -15,7 +17,11 @@ export interface VariantStory<TArgs> {
 
 export interface VariantModule<TArgs> {
   meta: VariantsMeta<TArgs>;
-  stories: Array<VariantStory<TArgs>>;
+  stories:
+    | Array<VariantStory<TArgs>>
+    | ((
+        stories: void | Array<VariantStoryObj<TArgs>>,
+      ) => Array<VariantStory<TArgs>>);
 }
 
 type TemplateOptions<TArgs> = VariantsMeta<TArgs> & {
@@ -60,7 +66,7 @@ function getSourceTemplate<TMeta>(framework: Framework) {
   }
 }
 
-let fileMatcher: RegExp = /\.variants\.tsx?$/;
+let fileMatcher: RegExp = /\.variants?\.tsx?$/;
 
 export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
   fileMatcher = test;
@@ -73,14 +79,16 @@ export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
         );
         const { title, tags } = meta;
 
-        return stories.map(({ name, exportName }) => ({
-          type: "story",
-          title,
-          tags,
-          name,
-          exportName,
-          importPath: fileName,
-        }));
+        return (_.isFunction(stories) ? stories() : stories).map(
+          ({ name, exportName }) => ({
+            type: "story",
+            title,
+            tags,
+            name,
+            exportName,
+            importPath: fileName,
+          }),
+        );
       } catch (e) {
         console.error(e);
         return [];
@@ -109,7 +117,10 @@ export function vitePluginStorybookVariants<TArgs>(
       return `
         ${readFileSync(require.resolve(id), "utf-8")}
 
-        ${template({ ...meta, stories })};
+        ${template({
+          ...meta,
+          stories: _.isFunction(stories) ? stories() : stories,
+        })};
       `;
     },
   };

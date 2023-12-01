@@ -18,7 +18,7 @@ const config: StorybookViteCommonConfig = {
   ...commonConfig,
   stories: [
     ...commonConfig.stories,
-    `../${mainDir}/**/*.variants.@(js|jsx|ts|tsx)`,
+    `../${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`,
   ],
   framework: {
     name: getAbsolutePath("@storybook/web-components-vite", require),

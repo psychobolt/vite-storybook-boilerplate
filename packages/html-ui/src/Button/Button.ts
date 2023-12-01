@@ -1,6 +1,6 @@
 import { html } from "lit";
 import { styleMap } from "lit/directives/style-map.js";
-import type { SizeEnum } from "./Button.variants.ts";
+import type { SizeEnum } from "./Primary.variant.ts";
 import classes from "./Button.module.scss";
 
 type Size = keyof typeof SizeEnum;

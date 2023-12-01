@@ -91,4 +91,6 @@ export const getStories = () => generateStories<Props, typeof SizeEnum>( // requ
 
 > \*`default` export is not allowed for variant files
 
+> \*Direct imports to component files should be avoided (except for types)
+
 > `meta` and `args` props are serialized to JSON, so please be careful of non-JSON types

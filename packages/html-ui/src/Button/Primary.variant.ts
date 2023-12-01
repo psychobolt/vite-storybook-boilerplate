@@ -7,9 +7,11 @@ import {
 
 import type { Props } from "./Button.ts";
 
+export type Meta = VariantsMeta<Props>;
+
 // More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
 export const meta = {
-  title: "Components/Button",
+  title: "Components/Button/Primary",
   fileName: "./Button.ts",
   importName: "Button",
   tags: ["autodocs"],
@@ -21,9 +23,9 @@ export const meta = {
       options: ["small", "medium", "large"],
     },
   },
-} satisfies VariantsMeta<Props>;
+} satisfies Meta;
 
-type Story = StoryObj<Props> & VariantStoryObj<Props>;
+export type Story = StoryObj<Props> & VariantStoryObj<Props>;
 
 const args = {
   label: "Button",
@@ -38,19 +40,11 @@ export const Primary: Story = {
   },
 };
 
-export const Secondary: Story = {
-  name: "Secondary",
-  args,
-};
-
 export enum SizeEnum {
   small,
   medium,
   large,
 }
 
-export const stories = generateStories<Props, typeof SizeEnum>(
-  [Primary, Secondary],
-  "size",
-  SizeEnum,
-);
+export const stories = (stories = [Primary]) =>
+  generateStories<Props, typeof SizeEnum>(stories, "size", SizeEnum);
