@@ -137,6 +137,23 @@ See [source](tsconfig.js)
    }
    ```
 
+##### Preview
+
+See [source](.storybook/preview.ts)
+
+/your/project.storybook/preview.ts
+
+```ts
+import type { Preview } from "@storybook/react"; // preview-api type
+import commonConfig from "commons/.storybook/preview.ts";
+
+const preview: Preview = {
+  ...commonConfig,
+};
+
+export default preview;
+```
+
 ##### [Addons](.storybook/addons/README.md)
 
 ##### Jest
