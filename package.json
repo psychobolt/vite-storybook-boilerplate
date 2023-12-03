@@ -42,9 +42,9 @@
     "lint-staged": "15.2.0",
     "playwright": "1.40.1",
     "stylelint": "15.11.0",
-    "ts-node": "10.9.1",
+    "ts-node": "11.0.0-beta.1",
     "turbo": "1.10.16",
-    "typescript": "5.3.2",
+    "typescript": "5.2.2",
     "yaml": "2.3.4"
   },
   "resolutions": {
@@ -53,7 +53,7 @@
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
   },
   "dependenciesMeta": {
-    "ts-node@10.9.1": {
+    "ts-node@11.0.0-beta.1": {
       "unplugged": true
     }
   }

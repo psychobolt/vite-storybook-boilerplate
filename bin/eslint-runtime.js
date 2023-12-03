@@ -14,6 +14,8 @@ const nodeOptions = execSync("yarn node -p process.env.NODE_OPTIONS")
 
 const tsNodePath = execSync("yarn g:ts-node-path").toString().slice(0, -1);
 
+// IPC is blocked for `yarn node` therefore loader must resolve to a real path (unplugged)
+// https://github.com/yarnpkg/berry/issues/1696
 const child = spawn("node", process.argv.slice(2), {
   env: {
     ...process.env,
