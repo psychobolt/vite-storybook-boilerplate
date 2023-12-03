@@ -39,7 +39,7 @@
     "execa": "8.0.1",
     "glob-to-regexp": "0.4.1",
     "husky": "8.0.3",
-    "lint-staged": "15.1.0",
+    "lint-staged": "15.2.0",
     "playwright": "1.40.1",
     "stylelint": "15.11.0",
     "ts-node": "10.9.1",
