@@ -41,6 +41,9 @@ jobs:
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Coverage
+        env:
+          # Workaround for https://github.com/facebook/jest/issues/8536
+          TEMP: ${{ runner.temp }}
         run: >-
           yarn dlx concurrently -k -s first -n "SB,TEST"
           "yarn workspace ${{ inputs.workspace }} turbo run start -- --silent"
