@@ -1,5 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:best-practices"],
-  "automerge": true
+  "platform": "bitbucket",
+  "repositories": ["psychobolt/vite-storybook-boilerplate"],
+  "automerge": true,
+  "allowedPostUpgradeCommands": [
+    "YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install && yarn bootstrap"
+  ],
+  "postUpgradeTasks": {
+    "commands": [
+      "YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install && yarn bootstrap"
+    ],
+    "fileFilters": ["**/yarn.lock", "bitbucket-pipelines.yml"],
+    "executionMode": "update"
+  }
 }
