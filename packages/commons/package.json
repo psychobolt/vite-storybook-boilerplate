@@ -61,7 +61,7 @@
     "stylelint-config-standard-scss": "11.1.0",
     "ts-enum-util": "4.0.2",
     "tsconfig-to-dual-package": "1.2.0",
-    "vite": "5.0.4",
+    "vite": "5.0.5",
     "vite-plugin-turbosnap": "1.0.3",
     "vite-tsconfig-paths": "4.2.1"
   },
