@@ -10,7 +10,7 @@ const config: Config.InitialOptions = {
    *  to merge testRunnerConfig properties with your own
    * @see https://jestjs.io/docs/configuration
    */
-  // passWithNoTests: true
+  passWithNoTests: true
 };
 
 export default config;
