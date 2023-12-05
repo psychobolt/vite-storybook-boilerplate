@@ -2,7 +2,7 @@ import type { Config } from "stylelint";
 
 const config: Config = {
   extends: ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
-  allowEmptyInput: true
+  allowEmptyInput: true,
 };
 
 export default config;
