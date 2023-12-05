@@ -18,7 +18,7 @@ See [source](vite.config.ts)
 
 ```js
 import { defineConfig, mergeConfig } fromn "vite";
-import commonConfig from "commons/esm/vite.config";
+import commonConfig from "commons/esm/vite.config.js";
 
 export default mergeConfig(
   commonConfig,
