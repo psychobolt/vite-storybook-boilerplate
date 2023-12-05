@@ -16,19 +16,19 @@ definitions:
           - apps/svelte-app/yarn.lock
       path: apps/svelte-app/node_modules
   scripts:
-    - script: &setup >-
-        export DOTENV_KEY=$(echo $DOTENV_KEYS | jq -r --arg keyvar $PACKAGE_NAME
-        '.[$keyvar]') && nvm install --lts && corepack enable && yarn install &&
+    - script: &setup |
+        set -o pipefail
+        export DOTENV_KEY=$(echo $DOTENV_KEYS | jq -r --arg keyvar $PACKAGE_NAME '.[$keyvar]')
+        nvm install --lts
+        corepack enable
+        yarn install
         yarn playwright install --with-deps chromium
-    - script: &test >-
-        yarn workspace $PACKAGE_NAME turbo run lint && yarn workspace
-        $PACKAGE_NAME turbo run build
-    - script: &chromatic >-
-        yarn dlx concurrently -k -s first -n "SB,TEST" "yarn workspace
-        $PACKAGE_NAME turbo run start -- --silent" "yarn dlx wait-on $(yarn
-        workspace $PACKAGE_NAME g:dotenv -p TARGET_URL | tail -n1) &&  yarn
-        workspace $PACKAGE_NAME coverage" && yarn workspace $PACKAGE_NAME
-        chromatic --exit-once-uploaded
+    - script: &test |
+        yarn workspace $PACKAGE_NAME turbo run lint
+        yarn workspace $PACKAGE_NAME turbo run build
+    - script: &chromatic |
+        yarn dlx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "yarn dlx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv -p TARGET_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
+        yarn workspace $PACKAGE_NAME chromatic --exit-once-uploaded
 
 pipelines:
   default:
