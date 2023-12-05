@@ -14,7 +14,8 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "react-ui": ["index.ts"]
+      "react-ui": ["index.ts"],
+      "html-ui/*": ["../../html-ui/dist/*"]
     }
   },
   "include": [".storybook/**/*", "**/*"]

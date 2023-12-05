@@ -1,7 +1,7 @@
 import { globSync } from "glob";
 import type { CSSModulesOptions } from "vite";
 import { defineConfig, mergeConfig } from "vite";
-import commonConfig from "commons/esm/vite.config";
+import commonConfig from "commons/esm/vite.config.js";
 
 interface Module {
   entry: RegExp;
