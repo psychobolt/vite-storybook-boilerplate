@@ -51,7 +51,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "1.69.5",
-    "turbo": "1.10.16",
+    "turbo": "1.11.0",
     "typescript": "5.2.2",
     "typescript-plugin-css-modules": "5.0.2",
     "vite": "5.0.5"
