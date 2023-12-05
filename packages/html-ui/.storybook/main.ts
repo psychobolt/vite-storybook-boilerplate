@@ -1,16 +1,15 @@
 import { createRequire } from "module";
 import type { Meta } from "@storybook/web-components";
-import { defineConfig, mergeConfig } from "vite";
+import { mergeConfig } from "vite";
 import type { StorybookViteCommonConfig } from "commons/.storybook/vite-main.ts";
 import {
   config as commonConfig,
   getAbsolutePath,
   mainDir,
 } from "commons/.storybook/vite-main.ts";
-import {
-  vitePluginStorybookVariants,
-  storybookVariantsIndexer,
-} from "commons/.storybook/addons/addon-variants.ts";
+import { storybookVariantsIndexer } from "commons/.storybook/addons/addon-variants.ts";
+
+import viteConfig from "./vite.config.ts";
 
 const require = createRequire(import.meta.url);
 
@@ -29,12 +28,7 @@ const config: StorybookViteCommonConfig = {
     storybookVariantsIndexer<Meta>(),
   ],
   viteFinal: (config, options) =>
-    mergeConfig(
-      commonConfig.viteFinal(config, options),
-      defineConfig({
-        plugins: [vitePluginStorybookVariants<Meta>("lit")],
-      }),
-    ),
+    mergeConfig(commonConfig.viteFinal(config, options), viteConfig),
 };
 
 export default config;
