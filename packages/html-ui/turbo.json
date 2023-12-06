@@ -7,6 +7,12 @@
     },
     "build": {
       "outputs": ["dist/**"]
+    },
+    "test": {
+      "outputs": ["test-results/junit.xml"]
+    },
+    "coverage": {
+      "outputs": ["coverage/coverage*(*).json"]
     }
   }
 }

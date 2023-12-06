@@ -12,6 +12,7 @@ esm
 next-env.d.ts
 .svelte-kit
 coverage
+test-reports
 
 # environment
 .env*
