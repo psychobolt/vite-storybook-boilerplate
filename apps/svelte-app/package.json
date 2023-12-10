@@ -27,7 +27,7 @@
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-svelte": "2.35.1",
 		"html-ui": "workspace:*",
-		"prettier": "3.1.0",
+		"prettier": "3.1.1",
 		"prettier-plugin-svelte": "3.1.2",
 		"sass": "1.69.5",
 		"stylelint": "15.11.0",
@@ -40,7 +40,7 @@
 		"tslib": "2.6.2",
 		"turbo": "1.11.1",
 		"typescript": "5.3.3",
-		"vite": "5.0.6"
+		"vite": "5.0.7"
 	},
 	"resolutions": {
 		"commons": "portal:../../packages/commons",
