@@ -1,6 +1,5 @@
 {
   "name": "next-app",
-  "version": "0.1.0",
   "private": true,
   "packageManager": "yarn@4.0.2",
   "scripts": {

@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ahmadnassri/action-workflow-queue@v1
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: ./yarn.lock
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Apply versions
+        run: yarn version apply
+      - name: Push
+        run: |
+          git add .
+          git commit -m "chore(publish): update versions" || true
+          git push
+      - name: Publish
+        run: yarn workspaces foreach -An --no-private npm publish
