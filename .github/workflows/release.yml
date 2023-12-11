@@ -9,7 +9,7 @@ jobs:
   version:
     runs-on: ubuntu-latest
     steps:
-      - uses: ahmadnassri/action-workflow-queue@v1
+      - uses: ahmadnassri/action-workflow-queue@542658b3a8270cac81ae15d401b0d974732808ac # v1
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Setup Node.js environment
