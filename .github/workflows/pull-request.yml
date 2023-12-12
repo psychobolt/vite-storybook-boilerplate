@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - main
-      - releases/**
+      - release/**
 
 jobs:
   check-version:
@@ -14,14 +14,38 @@ jobs:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
-          fetch-depth: 50
+          fetch-depth: 2
+      - name: Fetch target branch
+        run: git fetch --depth=1 origin ${{ github.base_ref }}
+      - name: Check versions
+        run: yarn version check
+  generate-version:
+    needs: check-version
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 100
       - name: Setup Node.js environment
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: ./yarn.lock
-      - name: Fetch target branch
-        run: git fetch --depth=1 origin ${{ github.base_ref }}
-      - name: Check versions
-        run: yarn version check
+          cache-dependency-path: "**/yarn.lock"
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Add version strategy
+        run: yarn workspaces foreach -A version ${{ startsWith(github.ref_name, 'issue/') && 'patch' || 'minor' }} --deferred
+      - name: Configure git user
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Push
+        run: |
+          git add .
+          git commit -m "chore(publish): update versions" || true
+          git push
