@@ -1,7 +1,7 @@
 name: Pull Request
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main
       - releases/**
@@ -21,5 +21,7 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: ./yarn.lock
+      - name: Fetch target branch
+        run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
       - name: Check versions
         run: yarn version check
