@@ -39,7 +39,7 @@ jobs:
           yarn install
           yarn bootstrap
       - name: Add version strategy
-        run: yarn workspaces foreach -A version ${{ startsWith(github.ref_name, 'issue/') && 'patch' || 'minor' }} --deferred
+        run: yarn workspaces foreach -A --no-private version ${{ startsWith(github.ref_name, 'issue/') && 'patch' || 'minor' }} --deferred
       - name: Configure git user
         run: |
           git config user.name github-actions[bot]
