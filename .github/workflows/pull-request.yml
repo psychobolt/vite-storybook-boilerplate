@@ -23,11 +23,9 @@ jobs:
       - name: Fetch main branch
         run: git fetch --depth=1 origin ${{ github.base_ref }}
       - name: Override BASE_REF variable
-        run: echo "BASE_REF=${{ github.base_ref }}" >> .env
+        run: echo "BASE_REF=origin/${{ github.base_ref }}" >> .env
       - name: Check versions
         run: yarn version check
-        env:
-          BASE_REF: ${{ github.base_ref }}
   generate-version:
     needs: check-version
     if: failure()
@@ -38,7 +36,6 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 2
-          ref: ${{ github.head_ref }}
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Setup Node.js environment
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
@@ -47,13 +44,13 @@ jobs:
           cache: yarn
           cache-dependency-path: "**/yarn.lock"
       - name: Override BASE_REF variable
-        run: echo "BASE_REF=${{ github.base_ref }}" >> .env
+        run: echo "BASE_REF=origin/${{ github.base_ref }}" >> .env
       - name: Install dependencies
         run: |
           yarn install
           yarn bootstrap
       - name: Fetch main branch
-        run: git fetch --depth=1 origin main
+        run: git fetch --depth=1 origin ${{ github.base_ref }}
       - name: Add version strategy
         run: yarn workspaces foreach -A --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
       - name: Configure git user
