@@ -4937,9 +4937,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:1.29.1":
-  version: 1.29.1
-  resolution: "@sveltejs/kit@npm:1.29.1"
+"@sveltejs/kit@npm:1.30.0":
+  version: 1.30.0
+  resolution: "@sveltejs/kit@npm:1.30.0"
   dependencies:
     "@sveltejs/vite-plugin-svelte": "npm:^2.5.0"
     "@types/cookie": "npm:^0.5.1"
@@ -4959,7 +4959,7 @@ __metadata:
     vite: ^4.0.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 095a116276ba45f2b622f043e3ae7becdb9ba5070070e4e1d8d2ba8f79e2cfc3bc2d5bfa2b2128458e3708671f17fadcd09174a59e92212c68d171309e26ab95
+  checksum: 8a82530929f190e527e7db94a2a8956863b523dbdcaac71e2a05c66d8418c752c70ea037be4a49dffb5d08ea87661c33a22ca541a39114447a958a0e1c418f23
   languageName: node
   linkType: hard
 
@@ -5295,13 +5295,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.44.8":
-  version: 8.44.8
-  resolution: "@types/eslint@npm:8.44.8"
+"@types/eslint@npm:8.44.9":
+  version: 8.44.9
+  resolution: "@types/eslint@npm:8.44.9"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: 610966753add984f6ac9f00eeb766691e141e66a7e20b724a45ad077f60e8cd8fd7874b7e655e93537e54873cc5711cd6f57728474e08b478407cd942f098263
+  checksum: e9da4e4c7b7c9014b17d40007e36f02f3b5dd55c43bb05928b52dd9c19f2a8fb7971a851a4e7a11625c3c69da286c5baf55de2f8bb900b1a4cfb5145a4491b37
   languageName: node
   linkType: hard
 
@@ -7356,7 +7356,7 @@ __metadata:
     "@storybook/test-runner": "npm:0.16.0"
     "@storybook/types": "npm:7.6.4"
     "@tsconfig/recommended": "npm:1.0.3"
-    "@types/eslint": "npm:8.44.8"
+    "@types/eslint": "npm:8.44.9"
     "@types/lodash": "npm:4"
     "@typescript-eslint/eslint-plugin": "npm:6.14.0"
     "@typescript-eslint/parser": "npm:6.14.0"
@@ -15746,7 +15746,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:1.0.0"
     "@sveltejs/adapter-auto": "npm:2.1.1"
     "@sveltejs/adapter-vercel": "npm:3.1.0"
-    "@sveltejs/kit": "npm:1.29.1"
+    "@sveltejs/kit": "npm:1.30.0"
     "@types/cookie": "npm:0.6.0"
     "@typescript-eslint/eslint-plugin": "npm:6.14.0"
     "@typescript-eslint/parser": "npm:6.14.0"
