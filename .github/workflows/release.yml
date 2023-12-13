@@ -42,8 +42,12 @@ jobs:
         run: |
           git tag -d ${{ github.ref_name }}
           git tag ${{ github.ref_name }}
-      - name: Push
+          git pull
+      - name: Push commit
         run: git push
+      - name: Push tag
+        if: github.ref_type == 'tag'
+        run: git push origin ${{ github.ref_name }}
       - name: Publish
         run: >-
           yarn workspaces foreach -An --no-private npm publish --tolerate-republish
