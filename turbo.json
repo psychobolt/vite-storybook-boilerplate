@@ -1,0 +1,49 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["RUNNER_OS"],
+  "globalDependencies": ["**/yarn.lock"],
+  "pipeline": {
+    "//#bootstrap": {
+      "cache": false
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+    "watch": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "build-storybook": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build"]
+    },
+    "//#lint": {
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "test": {},
+    "coverage": {},
+    "lcov": {
+      "inputs": ["coverage/coverage*(*).json"],
+      "outputs": ["coverage/**/lcov.info", "coverage/**/lcov-report/**"]
+    },
+    "//#format": {},
+    "format": {},
+    "chromatic": {
+      "inputs": ["storybook-static/**"],
+      "dependsOn": ["build-storybook"]
+    }
+  }
+}

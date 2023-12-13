@@ -1,0 +1,60 @@
+{
+  "name": "vite-storybook-boilerplate",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.0.2",
+  "scripts": {
+    "postinstall": "husky install",
+    "g:dotenv": "cd $INIT_CWD && dotenv -e $PROJECT_CWD/.env -e $INIT_CWD/.env -c",
+    "g:dotenv-vault": "cd $INIT_CWD && dotenv-vault",
+    "g:ts-node-path": "yarn node -p \"require.resolve('ts-node/esm')\"",
+    "g:ts-script": "cd $INIT_CWD && yarn g:dotenv -- node --loader file://$(yarn g:ts-node-path) --loader file://$PROJECT_CWD/.pnp.loader.mjs",
+    "ts-script": "yarn g:ts-script",
+    "turbo": "yarn ts-script scripts/turbo.ts",
+    "ls-workspaces": "yarn ts-script scripts/ls-workspaces.ts",
+    "bootstrap": "yarn g:bootstrap",
+    "g:bootstrap": "yarn workspace commons turbo run build && yarn ts-script ./scripts/bootstrap.ts",
+    "dev": "yarn turbo --background run dev",
+    "build": "yarn turbo run build",
+    "lint": "yarn g:prettier --check . && yarn g:lint-js",
+    "g:eslint-path": "yarn bin eslint",
+    "g:lint-js": "cd $INIT_CWD && yarn g:ts-script $(yarn g:eslint-path) -c ./eslint.config.ts .",
+    "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
+    "format": "yarn g:prettier --write ."
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "@types/glob-to-regexp": "0.4.4",
+    "@types/node": "20.10.4",
+    "@yarnpkg/sdks": "3.1.0",
+    "arg": "5.0.2",
+    "commons": "workspace:*",
+    "dotenv-cli": "7.3.0",
+    "dotenv-flow": "4.0.1",
+    "dotenv-vault": "1.25.0",
+    "eslint": "8.55.0",
+    "execa": "8.0.1",
+    "glob-to-regexp": "0.4.1",
+    "husky": "8.0.3",
+    "lint-staged": "15.2.0",
+    "playwright": "1.40.1",
+    "stylelint": "16.0.2",
+    "ts-node": "11.0.0-beta.1",
+    "turbo": "1.11.2",
+    "typescript": "5.3.3",
+    "yaml": "2.3.4"
+  },
+  "resolutions": {
+    "dotenv-cli@7.3.0": "patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch",
+    "dotenv-flow@4.0.0": "patch:dotenv-flow@npm%3A4.0.0#./.yarn/patches/dotenv-flow-npm-4.0.0-b94c2c110d.patch",
+    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
+  },
+  "dependenciesMeta": {
+    "ts-node@11.0.0-beta.1": {
+      "unplugged": true
+    }
+  }
+}

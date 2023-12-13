@@ -1,0 +1,37 @@
+# packages
+node_modules
+.turbo
+.env
+storybook-static
+build
+dist
+cjs
+esm
+.next
+.vercel
+next-env.d.ts
+.svelte-kit
+coverage
+test-reports
+
+# environment
+.env*
+.flaskenv*
+*.secrets
+!.env.defaults
+!.env.vault
+
+# yarn
+.pnp.*
+**/.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Logs
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*

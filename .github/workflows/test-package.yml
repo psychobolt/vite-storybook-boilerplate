@@ -1,0 +1,57 @@
+on:
+  workflow_call:
+    inputs:
+      workspace:
+        required: true
+        type: string
+      path:
+        required: true
+        type: string
+
+jobs:
+  test:
+    name: Run Tests
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    environment: "${{ inputs.workspace }}/${{ matrix.os }}"
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+      TURBO_REMOTE_ONLY: true
+      CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      YARN_ENABLE_GLOBAL_CACHE: false
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: "./yarn.lock"
+      - name: Install dependencies
+        run: yarn install
+      - name: Install Playwright
+        run: yarn playwright install --with-deps chromium
+      - name: Run Lint
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint
+      - name: Run Coverage
+        env:
+          # Workaround for https://github.com/facebook/jest/issues/8536
+          TEMP: ${{ runner.temp }}
+        run: >-
+          yarn dlx concurrently -k -s first -n "SB,TEST"
+          "yarn workspace ${{ inputs.workspace }} turbo run start -- --silent"
+          "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv -p TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
+      - name: Upload Coverage Reports
+        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
+        with:
+          files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
+          flags: ${{ inputs.workspace }}
+      - name: Run Chromatic
+        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic -- -- -d storybook-static --exit-once-uploaded

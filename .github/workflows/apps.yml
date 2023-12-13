@@ -1,0 +1,60 @@
+name: Apps
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      change-from:
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  diff:
+    uses: ./.github/workflows/diff.yml
+
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      YARN_ENABLE_GLOBAL_CACHE: false
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: "**/yarn.lock"
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Trigger post upgrade
+        id: trigger
+        if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
+        uses: benc-uk/workflow-dispatch@798e70c97009500150087d30d9f11c5444830385 # v1
+        with:
+          workflow: renovate.yml
+          inputs: '{ "ref": "${{ github.ref }}" }'
+
+  next-app:
+    needs: [diff, install]
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'next-app')
+    uses: ./.github/workflows/test-app.yml
+    with:
+      workspace: next-app
+      path: apps/next-app
+    secrets: inherit
+
+  svelte-app:
+    needs: [diff, install]
+    if: contains(fromJSON(needs.diff.outputs.package_names), 'svelte-app')
+    uses: ./.github/workflows/test-app.yml
+    with:
+      workspace: svelte-app
+      path: apps/svelte-app
+    secrets: inherit

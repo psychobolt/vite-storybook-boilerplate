@@ -1,0 +1,44 @@
+{
+  "name": "html-ui",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.0.2",
+  "exports": {
+    "./*.css": "./dist/*.css"
+  },
+  "scripts": {
+    "bootstrap": "yarn g:bootstrap",
+    "prepack": "yarn turbo run build",
+    "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv -p PORT)",
+    "build": "vite build",
+    "watch": "yarn build -w",
+    "build-storybook": "yarn g:storybook build",
+    "start": "yarn g:dotenv -- http-server storybook-static",
+    "test": "yarn g:test-storybook --index-json",
+    "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",
+    "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
+    "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
+    "format": "yarn g:prettier --write .",
+    "chromatic": "yarn g:dotenv -- chromatic -d storybook-static --only-changed"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.6.4",
+    "@storybook/blocks": "7.6.4",
+    "@storybook/test": "7.6.4",
+    "@storybook/web-components": "7.6.4",
+    "@storybook/web-components-vite": "7.6.4",
+    "chromatic": "10.1.0",
+    "commons": "workspace:*",
+    "glob": "10.3.10",
+    "http-server": "14.1.1",
+    "lit": "3.1.0",
+    "nyc": "15.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "1.69.5",
+    "turbo": "1.11.2",
+    "typescript": "5.3.3",
+    "typescript-plugin-css-modules": "5.0.2",
+    "vite": "5.0.8"
+  }
+}

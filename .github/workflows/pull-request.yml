@@ -1,0 +1,60 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+      - release/**
+
+concurrency:
+  group: pull-request-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-version:
+    if: github.actor != 'renovate[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 2
+      - name: Fetch main branch
+        run: git fetch --depth=1 origin main
+      - name: Check versions
+        run: yarn version check
+  generate-version:
+    needs: check-version
+    if: failure()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 2
+          ref: ${{ github.head_ref }}
+      - name: Setup Node.js environment
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: "**/yarn.lock"
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Fetch main branch
+        run: git fetch --depth=1 origin main
+      - name: Add version strategy
+        run: yarn workspaces foreach -A --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
+      - name: Configure git user
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Push
+        run: |
+          git add .
+          git commit -m "chore(publish): update versions" || true
+          git push

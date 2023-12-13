@@ -1,0 +1,7 @@
+.yarn/*
+!.yarn/plugins/
+.vscode
+apps
+packages
+.pnp.cjs
+.pnp.loader.mjs

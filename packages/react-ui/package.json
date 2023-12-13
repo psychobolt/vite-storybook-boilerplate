@@ -1,0 +1,62 @@
+{
+  "name": "react-ui",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.0.2",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "bootstrap": "yarn g:bootstrap",
+    "prepack": "yarn turbo run build",
+    "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv -p PORT)",
+    "build": "yarn build-src && yarn build-dts",
+    "watch": "yarn build-src -w & yarn build-dts --watch",
+    "build-src": "vite build",
+    "build-dts": "tsc --project tsconfig.dts.json",
+    "build-storybook": "yarn g:storybook build",
+    "start": "yarn g:dotenv -- http-server storybook-static",
+    "test": "yarn g:test-storybook",
+    "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",
+    "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
+    "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
+    "format": "yarn g:prettier --write .",
+    "chromatic": "yarn g:dotenv -- chromatic -d storybook-static --only-changed"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.6.4",
+    "@storybook/blocks": "7.6.4",
+    "@storybook/react": "7.6.4",
+    "@storybook/react-vite": "7.6.4",
+    "@storybook/test": "7.6.4",
+    "@tsconfig/vite-react": "2.0.1",
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.17",
+    "chromatic": "10.1.0",
+    "commons": "workspace:*",
+    "html-ui": "workspace:*",
+    "http-server": "14.1.1",
+    "nyc": "15.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "1.69.5",
+    "turbo": "1.11.2",
+    "typescript": "5.3.3",
+    "typescript-plugin-css-modules": "5.0.2",
+    "vite": "5.0.8"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

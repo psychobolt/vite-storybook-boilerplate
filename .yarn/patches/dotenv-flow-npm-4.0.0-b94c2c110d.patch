@@ -1,0 +1,13 @@
+diff --git a/lib/dotenv-flow.js b/lib/dotenv-flow.js
+index 1d4528bbe9acce99838c2b5043481bac131a8c1b..a284e312f75932778930fb17e67568be86e4fed3 100644
+--- a/lib/dotenv-flow.js
++++ b/lib/dotenv-flow.js
+@@ -190,7 +190,7 @@ function load(filenames, options = {}) {
+     options.debug && debug('safe-merging parsed environment variables into `process.env`…');
+ 
+     for (const varname of Object.keys(parsed)) {
+-      if (!process.env.hasOwnProperty(varname)) {
++      if (options.override || !process.env.hasOwnProperty(varname)) {
+         options.debug && debug('>> process.env.%s', varname);
+         process.env[varname] = parsed[varname];
+       }

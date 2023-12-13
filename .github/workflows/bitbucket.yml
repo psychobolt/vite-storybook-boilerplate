@@ -1,0 +1,67 @@
+name: Sync Bitbucket Repo
+
+on:
+  push:
+    branches: ["main", "bitbucket"]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    env:
+      YARN_ENABLE_GLOBAL_CACHE: false
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.BITBUCKET_SSH_KEY }}
+          name: bitbucket
+          known_hosts: |
+            ${{ secrets.BITBUCKET_HOST_KEY }}
+          config: |
+            Host bitbucket.org
+            User ${{ secrets.BITBUCKET_USER }}
+            IdentityFile ~/.ssh/bitbucket
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 0
+      - name: Configure git user
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Checkout bitbucket branch
+        run: git checkout -b bitbucket origin/bitbucket
+      - name: Merge with main branch
+        run: git merge origin/main --no-commit --ff || true
+      - name: Prune deleted files
+        run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
+      - name: Setup Node.js environment
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: "**/yarn.lock"
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Amend Merge
+        run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
+      - name: Update bitbucket branch
+        run: git push origin
+      - name: Configure bitbucket upstream
+        run: git remote add bitbucket ${{ secrets.BITBUCKET_REPO }}
+      - name: Fetch bitbucket upstream
+        run: git fetch bitbucket
+      - name: Switch to bitbucket/main
+        run: git checkout -B bitbucket-main bitbucket/main
+      - name: Merge origin/bitbucket into bitbucket/main
+        run: git merge bitbucket
+      - name: Push to bitbucket upstream
+        run: git push -u bitbucket bitbucket-main:main
