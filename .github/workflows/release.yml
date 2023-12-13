@@ -10,6 +10,7 @@ on:
 jobs:
   version:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: ahmadnassri/action-workflow-queue@542658b3a8270cac81ae15d401b0d974732808ac # v1
       - name: Check out code
