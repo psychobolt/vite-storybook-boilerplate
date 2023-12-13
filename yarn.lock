@@ -6028,13 +6028,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.44.8":
-  version: 8.44.8
-  resolution: "@types/eslint@npm:8.44.8"
+"@types/eslint@npm:8.44.9":
+  version: 8.44.9
+  resolution: "@types/eslint@npm:8.44.9"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: 610966753add984f6ac9f00eeb766691e141e66a7e20b724a45ad077f60e8cd8fd7874b7e655e93537e54873cc5711cd6f57728474e08b478407cd942f098263
+  checksum: e9da4e4c7b7c9014b17d40007e36f02f3b5dd55c43bb05928b52dd9c19f2a8fb7971a851a4e7a11625c3c69da286c5baf55de2f8bb900b1a4cfb5145a4491b37
   languageName: node
   linkType: hard
 
@@ -6404,14 +6404,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.43":
-  version: 18.2.43
-  resolution: "@types/react@npm:18.2.43"
+"@types/react@npm:18.2.44":
+  version: 18.2.44
+  resolution: "@types/react@npm:18.2.44"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10477a50fbd3c0cc5b8a2ade679f442717f68fb27c8460b2aa1d3256cd18c48f742bbe5b9ee37a8c4c5f832ffa37b3a23c09fd96dd880a8e3182d8929c05e803
+  checksum: 3e12247fdb2c97549528889cd0afec293a9f421f553d9671f85187c5595f450a998498295640a8eb67161f4b951d1ad190ae60852aae4f72184dcecbccf280fc
   languageName: node
   linkType: hard
 
@@ -8631,7 +8631,7 @@ __metadata:
     "@storybook/test-runner": "npm:0.16.0"
     "@storybook/types": "npm:7.6.4"
     "@tsconfig/recommended": "npm:1.0.3"
-    "@types/eslint": "npm:8.44.8"
+    "@types/eslint": "npm:8.44.9"
     "@types/lodash": "npm:4"
     "@typescript-eslint/eslint-plugin": "npm:6.14.0"
     "@typescript-eslint/parser": "npm:6.14.0"
@@ -15315,7 +15315,7 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@types/node": "npm:20.10.4"
-    "@types/react": "npm:18.2.43"
+    "@types/react": "npm:18.2.44"
     "@types/react-dom": "npm:18.2.17"
     eslint: "npm:8.55.0"
     eslint-config-next: "npm:14.0.4"
@@ -17085,7 +17085,7 @@ __metadata:
     "@storybook/react-vite": "npm:7.6.4"
     "@storybook/test": "npm:7.6.4"
     "@tsconfig/vite-react": "npm:2.0.1"
-    "@types/react": "npm:18.2.43"
+    "@types/react": "npm:18.2.44"
     "@types/react-dom": "npm:18.2.17"
     chromatic: "npm:10.1.0"
     commons: "workspace:*"
