@@ -22,6 +22,8 @@ jobs:
           fetch-depth: 2
       - name: Fetch main branch
         run: git fetch --depth=1 origin ${{ github.base_ref }}
+      - name: Override BASE_REF variable
+        run: echo "BASE_REF=${{ github.base_ref }}" >> .env
       - name: Check versions
         run: yarn version check
         env:
@@ -44,6 +46,8 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: "**/yarn.lock"
+      - name: Override BASE_REF variable
+        run: echo "BASE_REF=${{ github.base_ref }}" >> .env
       - name: Install dependencies
         run: |
           yarn install
@@ -52,8 +56,6 @@ jobs:
         run: git fetch --depth=1 origin main
       - name: Add version strategy
         run: yarn workspaces foreach -A --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
-        env:
-          BASE_REF: ${{ github.base_ref }}
       - name: Configure git user
         run: |
           git config user.name github-actions[bot]
