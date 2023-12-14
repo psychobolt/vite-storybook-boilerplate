@@ -4,11 +4,11 @@
 
 ### Local environment setup
 
-1. Install the latest LTS node (https://nodejs.org/en/) standalone or with nvm
+1. Install the latest LTS node (https://nodejs.org/en/) standalone or with [nvm](https://nodejs.org/en/download/package-manager#nvm)/[nvm-windows](https://github.com/coreybutler/nvm-windows)
 2. Setup Yarn (https://yarnpkg.com/getting-started/install)
 3. Run command `yarn install && yarn bootstrap` in terminal to install dependencies
 4. Download and install [Visual Studio Code](https://code.visualstudio.com/)
-5. Open your project in VSCode with latest LTS node (e.g. `code ./vite-storybook-boilerplate`)
+5. Open your project in VSCode with latest LTS node (e.g. `nvm use lts/* && code ./vite-storybook-boilerplate`)
 6. Check notifications (bottom right of VSCode status bar) and install all recommended extensions
 7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
 8. Restart VSCode and reopen the project.
@@ -71,7 +71,7 @@ yarn [workspace workspace-name] turbo run lint
 yarn [workspace workspace-name] turbo run format # This is automatically called on git commit
 yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
 yarn [workspace workspace-name] turbo run test
-yarn [workspace workspace-name] turbo run coverage # Collect code coverage (after running tests)
+yarn [workspace workspace-name] turbo run coverage # Collect code coverage (also may run tests)
 yarn [workspace workspace-name] turbo run lcov # Generate interactive coverage report (after running command above)
 yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library can be a private package
 ```
@@ -94,7 +94,7 @@ See [docs](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for 
 yarn [workspace] g:dotenv my-script-or-bin # Loads envronment variables with your script or bin
 ```
 
-See [documentaion](https://github.com/entropitor/dotenv-cli) for usage.
+See [documentation](https://github.com/entropitor/dotenv-cli#usage) for usage.
 
 ### Best Practices
 
