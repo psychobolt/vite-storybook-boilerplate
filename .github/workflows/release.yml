@@ -27,6 +27,7 @@ jobs:
   sync:
     name: Create a next version
     if: vars.BASE_REF_NAME != ''
+    needs: version
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: ${{ vars.BASE_REF_NAME }}
