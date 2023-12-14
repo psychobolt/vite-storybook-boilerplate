@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - release/**
-  workflow_call:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,7 +21,7 @@ jobs:
         with:
           fetch-depth: 50
       - name: Create a new version on the release branch
-        uses: ./.github/actions/publish/action.yml
+        uses: ./.github/actions/publish
         with:
           tag: ${{ vars.RELEASE_TAG }}
   sync:
@@ -42,6 +41,6 @@ jobs:
         run: git fetch origin ${{ github.ref_name }}
           git merge origin/${{ github.ref_name }}
       - name: Create a new version on the ${{ vars.BASE_REF_NAME }} branch
-        uses: ./.github/actions/publish/action.yml
+        uses: ./.github/actions/publish
         with:
           tag: ${{ vars.RELEASE_TAG }}
