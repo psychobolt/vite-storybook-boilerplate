@@ -40,4 +40,4 @@ runs:
       shell: bash
       run: >-
         yarn workspaces foreach -An --no-private npm publish --tolerate-republish
-        ${{ vars.RELEASE_TAG == '' && '' || format('--tag {0}', inputs.tag) }}
+        ${{ inputs.tag == '' && '' || format('--tag {0}', inputs.tag) }}
