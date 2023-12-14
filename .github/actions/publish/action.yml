@@ -1,0 +1,43 @@
+name: Publish
+
+description: Tag and publish a release
+
+inputs:
+  tag:
+    description: Tag for the release
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+      with:
+        node-version: lts/*
+        cache: yarn
+        cache-dependency-path: "**/yarn.lock"
+    - name: Install dependencies
+      shell: bash
+      run: |
+        yarn install
+        yarn bootstrap
+    - name: Apply versions
+      shell: bash
+      run: yarn version apply --all
+    - name: Configure git user
+      shell: bash
+      run: |
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+    - name: Tag the HEAD
+      shell: bash
+      if: ${{ inputs.tag != '' }}
+      run: |
+        git tag -d ${{ inputs.tag }}
+        git tag ${{ inputs.tag }}
+        git push origin ${{ inputs.tag }}
+        git push
+    - name: Publish
+      shell: bash
+      run: >-
+        yarn workspaces foreach -An --no-private npm publish --tolerate-republish
+        ${{ vars.RELEASE_TAG == '' && '' || format('--tag {0}', inputs.tag) }}
