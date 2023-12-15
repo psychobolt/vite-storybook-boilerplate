@@ -22,11 +22,11 @@
     "chromatic": "yarn g:dotenv -- chromatic -d storybook-static --only-changed"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.6.4",
-    "@storybook/blocks": "7.6.4",
-    "@storybook/test": "7.6.4",
-    "@storybook/web-components": "7.6.4",
-    "@storybook/web-components-vite": "7.6.4",
+    "@storybook/addon-essentials": "7.6.5",
+    "@storybook/blocks": "7.6.5",
+    "@storybook/test": "7.6.5",
+    "@storybook/web-components": "7.6.5",
+    "@storybook/web-components-vite": "7.6.5",
     "chromatic": "10.1.0",
     "commons": "workspace:*",
     "glob": "10.3.10",
@@ -39,6 +39,6 @@
     "turbo": "1.11.2",
     "typescript": "5.3.3",
     "typescript-plugin-css-modules": "5.0.2",
-    "vite": "5.0.9"
+    "vite": "5.0.10"
   }
 }
