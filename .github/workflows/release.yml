@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  version:
-    name: Create a release version
+  publish:
+    name: Create a release version and publish
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: ${{ github.ref_name }}
@@ -20,28 +20,33 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 50
-      - name: Create a new version on the release branch
-        uses: ./.github/actions/publish
+      - name: Setup Node.js environment
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
-          tag: ${{ vars.RELEASE_TAG }}
-  sync:
-    name: Create a next version
-    if: vars.BASE_REF_NAME != ''
-    needs: version
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    environment: ${{ vars.BASE_REF_NAME }}
-    steps:
-      - name: Check out code
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          fetch-depth: 50
-          ref: origin/${{ vars.BASE_REF_NAME }}
-          token: ${{ secrets.GH_ACTIONS_TOKEN }}
-      - name: Merge release into ${{ vars.BASE_REF_NAME }}
-        run: git fetch origin ${{ github.ref_name }}
-          git merge origin/${{ github.ref_name }}
-      - name: Create a new version on the ${{ vars.BASE_REF_NAME }} branch
-        uses: ./.github/actions/publish
-        with:
-          tag: ${{ vars.RELEASE_TAG }}
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: "**/yarn.lock"
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Apply versions
+        run: yarn version apply --all
+      - name: Configure git user
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Prepare commit
+        run: |
+          git add .
+          git commit -m "chore(publish): update versions" || true
+      - name: Tag the HEAD
+        if: ${{ vars.RELEASE_TAG != '' }}
+        run: |
+          git tag -d  || true
+          git tag $RELEASE_TAG
+          git push origin $RELEASE_TAG
+      - name: Publish
+        run: >-
+          yarn workspaces foreach -An --no-private npm publish --tolerate-republish
+          ${{ vars.RELEASE_TAG == '' && '' || '--tag $RELEASE_TAG' }}

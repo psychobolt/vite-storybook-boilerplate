@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - main
+      - develop
       - release/**
 
 concurrency:
@@ -27,7 +28,6 @@ jobs:
       - name: Check versions
         run: yarn version check
   generate-version:
-    needs: check-version
     if: failure()
     runs-on: ubuntu-latest
     timeout-minutes: 15
