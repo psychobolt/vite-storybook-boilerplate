@@ -1,0 +1,44 @@
+name: Prepare
+
+on:
+  workflow_dispatch:
+    inputs:
+      commits:
+        description: One or more commits that you wish to cherry-pick into base_ref
+        type: string
+        required: true
+
+jobs:
+  unmerged_commits:
+    runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.unmerged.outputs.commits }}
+    steps:
+      - name: Verify
+        run: git verify-commit ${{ inputs.commits }}
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 50
+          ref: ${{ github.ref_name }}
+      - name: Filter commits not found in ${{ github.ref_name }}
+        id: unmerged
+        run: echo "commits=$(./scripts/git-ls-unmerged.sh)" >> $GITHUB_OUTPUT
+        env:
+          COMMITS: ${{ inputs.commits }}
+          BASE_REF: ${{ github.ref_name }}
+  create-branch:
+    needs: unmerged_commits
+    if: needs.unmerged_commits.outputs.sha != ''
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Branch
+        run: git checkout -b ci/cherry-pick-${COMMITS##* }
+      - name: Cherry pick missing commits into ${{ github.ref_name }}
+        run: git cherry-pick ${{ needs.unmerged_commits.outputs.sha }}
+      - name: Push
+        run: git push
