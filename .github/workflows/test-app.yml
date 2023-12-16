@@ -40,7 +40,7 @@ jobs:
       - name: Run Build
         run: yarn workspace ${{ inputs.workspace }} turbo run build
       - name: Deploy to Vercel Action
-        uses: BetaHuhn/deploy-to-vercel-action@v1
+        uses: BetaHuhn/deploy-to-vercel-action@0f16bc3af7db7d5171bf68bff6f82679de195113 # v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
