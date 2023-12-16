@@ -39,7 +39,7 @@ jobs:
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Build
         run: yarn workspace ${{ inputs.workspace }} turbo run build
-      - uses: amondnet/vercel-action@v25
+      - uses: amondnet/vercel-action@19d4fbf5eb89beb6127a64278a7a835e1901f5b8 # v25
         with:
           github-comment: false
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
