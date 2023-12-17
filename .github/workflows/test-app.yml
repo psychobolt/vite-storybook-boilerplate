@@ -43,7 +43,7 @@ jobs:
       - name: Pull Vercel Project
         run: npx vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
       - name: Run Build
-        run: npx vercel build --token ${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel build --environment=${{ github.ref_name == 'main' && 'production' || 'preview' }} --token ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
         if: matrix.os == 'ubuntu-latest'
         uses: amondnet/vercel-action@19d4fbf5eb89beb6127a64278a7a835e1901f5b8 # v25
