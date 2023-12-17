@@ -41,9 +41,9 @@ jobs:
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Pull Vercel Project
-        run: npx vercel pull --yes
+        run: npx vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
       - name: Run Build
-        run: npx vercel build
+        run: npx vercel build --token ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@19d4fbf5eb89beb6127a64278a7a835e1901f5b8 # v25
         with:
