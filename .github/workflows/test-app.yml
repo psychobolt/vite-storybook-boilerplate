@@ -39,6 +39,9 @@ jobs:
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Run Build
         run: npx vercel build
+        env:
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@19d4fbf5eb89beb6127a64278a7a835e1901f5b8 # v25
         with:
