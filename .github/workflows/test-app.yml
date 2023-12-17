@@ -45,9 +45,10 @@ jobs:
       - name: Run Build
         run: npx vercel build --token ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
+        if: matrix.os == 'ubuntu-latest'
         uses: amondnet/vercel-action@19d4fbf5eb89beb6127a64278a7a835e1901f5b8 # v25
         with:
-          github-comment: false
+          github-comment: true
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
