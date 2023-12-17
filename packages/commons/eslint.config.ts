@@ -9,7 +9,7 @@ export type Config = Linter.FlatConfig;
 const _filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename);
 
-const compat = new FlatCompat({
+export const compat = new FlatCompat({
   baseDirectory: _filename,
   resolvePluginsRelativeTo: _dirname,
 });
