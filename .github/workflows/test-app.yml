@@ -21,6 +21,9 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Check out code
@@ -37,11 +40,10 @@ jobs:
           yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
+      - name: Pull Vercel Project
+        run: npx vercel pull --yes
       - name: Run Build
         run: npx vercel build
-        env:
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@19d4fbf5eb89beb6127a64278a7a835e1901f5b8 # v25
         with:
