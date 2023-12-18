@@ -26,6 +26,11 @@ jobs:
         with:
           fetch-depth: 50
           ref: ${{ inputs.base_ref_sha || github.ref_name }}
+      - name: Checkout a new branch if in detached state
+        id: ref
+        run: echo "name=$(git branch --show-current)" >> $GITHUB_OUTPUT
+      - if: ${{ steps.ref.outputs.name == '' }}
+        run: git switch -c ${{ inputs.base_ref_sha }}
       # - name: Setup Node.js environment
       #   uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
       #   with:
