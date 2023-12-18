@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync, spawn } from "node:child_process";
-import { dirname } from "node:path";
+import { dirname, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 
 if (!process.env.NPM_SCRIPT) {
@@ -12,7 +12,11 @@ const nodeOptions = execSync("yarn node -p process.env.NODE_OPTIONS")
   .toString()
   .slice(0, -1);
 
-const tsNodePath = execSync("yarn g:ts-node-path").toString().slice(0, -1);
+let tsNodePath = execSync("yarn g:ts-node-path").toString().slice(0, -1);
+
+if (isAbsolute(tsNodePath)) {
+  tsNodePath = `file://${tsNodePath}`;
+}
 
 // IPC is blocked for `yarn node` therefore loader must resolve to a real path (unplugged)
 // https://github.com/yarnpkg/berry/issues/1696
