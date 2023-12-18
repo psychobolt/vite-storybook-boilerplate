@@ -28,7 +28,7 @@ definitions:
         yarn workspace $PACKAGE_NAME turbo run build
     - script: &chromatic |
         yarn dlx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "yarn dlx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv -p TARGET_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
-        yarn workspace $PACKAGE_NAME turbo run chromatic -- -d storybook-static --exit-once-uploaded
+        yarn workspace $PACKAGE_NAME turbo run chromatic
 
 pipelines:
   default:
