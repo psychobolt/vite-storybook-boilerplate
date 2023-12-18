@@ -17,6 +17,21 @@
 
 In order to support lint highlighting in VSCode editor, your workspace config must be flattened as `[workspace]/eslint.config.ts`. If you've scaffolded your workspace project, please refer [example](eslint.config.ts) and [docs](https://eslint.org/docs/latest/use/configure/configuration-files-new) for migration references.
 
+#### Troubleshooting
+
+##### Windows
+
+To overcome the `spawn: UNKNOWN` error, update your `.vscode/settings.json` file with:
+
+```json
+{
+  "eslint.runtime": "node",
+  "eslint.execArgv": ["D://absolute/path/to/your/project/bin/eslint-runtime.js"]
+}
+```
+
+> Keep this change and ensure the settings file is not pushed.
+
 ### Setup Remote Cache (Optional)
 
 #### Local Development
