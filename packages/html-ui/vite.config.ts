@@ -63,11 +63,11 @@ export default mergeConfig(
         input: ["src/style.scss", ...globSync("src/*/index.scss")],
         output: {
           entryFileNames({ facadeModuleId }) {
-            mapAssets(facadeModuleId as string);
+            mapAssets(facadeModuleId);
             return "[name]";
           },
           assetFileNames({ name }) {
-            const assetName = name as string;
+            const assetName = name;
             return shiftAssets(assetName);
           },
         },
