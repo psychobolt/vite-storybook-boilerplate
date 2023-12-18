@@ -19,7 +19,7 @@
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
     "format": "yarn g:prettier --write .",
-    "chromatic": "yarn g:dotenv -- chromatic -d storybook-static --only-changed"
+    "chromatic": "yarn g:dotenv -- chromatic"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.6.5",
