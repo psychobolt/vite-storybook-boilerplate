@@ -71,7 +71,7 @@ async function getWorkspaces(options?: Options) {
 
   if (options) {
     function updateArg(key: keyof Args, value: any) {
-      if (!args[key]) {
+      if (!(key in args)) {
         args[key] = value;
       }
     }
