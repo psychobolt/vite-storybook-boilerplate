@@ -28,7 +28,7 @@ definitions:
         yarn workspace $PACKAGE_NAME turbo run build
     - script: &chromatic |
         yarn dlx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "yarn dlx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv -p TARGET_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
-        yarn workspace $PACKAGE_NAME chromatic --exit-once-uploaded
+        yarn workspace $PACKAGE_NAME turbo run chromatic -- -d storybook-static --exit-once-uploaded
 
 pipelines:
   default:
@@ -79,6 +79,8 @@ pipelines:
             size: 2x
             caches:
               - yarn-4ebdafc3faa1641f
+            clone:
+              enabled: true
             condition:
               changesets:
                 includePaths:
@@ -96,6 +98,8 @@ pipelines:
             size: 2x
             caches:
               - yarn-4ebdafc3faa1641f
+            clone:
+              enabled: true
             condition:
               changesets:
                 includePaths:
@@ -109,6 +113,7 @@ pipelines:
         - step:
             name: Build and Test Svelte App
             max-time: 15
+            size: 2x
             caches:
               - yarn-4ebdafc3faa1641f
               - svelte-app-4ebdafc3faa1641f
