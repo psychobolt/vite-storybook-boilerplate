@@ -5,9 +5,8 @@ interface Tester {
 }
 
 type Matcher =
-  | ((value: string, options?: any) => Tester)
-  | ((value?: never[]) => Tester)
-  | ((value?: string[]) => Tester);
+  | ((value: any, options?: any) => Tester)
+  | ((value?: any[]) => Tester);
 
 interface Filter {
   alias?: string;
