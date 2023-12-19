@@ -26,12 +26,12 @@ runs:
     - name: Tag the HEAD
       if: ${{ inputs.tag != '' }}
       run: |
-        git tag -d  || true
-        git tag $RELEASE_TAG
-        git push origin $RELEASE_TAG
+        git tag -d ${{ inputs.tag }} || true
+        git tag ${{ inputs.tag }}
+        git push origin ${{ inputs.tag }}
       shell: bash
     - name: Publish
       run: >-
         yarn workspaces foreach -An --no-private npm publish --tolerate-republish
-        ${{ inputs.tag == '' && '' || '--tag $RELEASE_TAG' }}
+        ${{ inputs.tag == '' && '' || format('--tag {0}', inputs.tag) }}
       shell: bash
