@@ -10,6 +10,12 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Bump packages v0 to v1
+      run: >-
+        yarn workspaces foreach -A --no-private exec 'test $(yarn node -p "/^0\./.test(process.env.npm_package_version)") = true
+        && yarn version major --deferred
+        || echo "No major bump needed"'
+      shell: bash
     - name: Apply versions
       run: yarn version apply --all ${{ inputs.prerelease == '' && '' || '--prerelease' }}
       shell: bash
