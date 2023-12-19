@@ -1,69 +1,32 @@
 name: Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      ref_name:
-        description: The branch name you wish to create for the release
-        default: release-
-        type: string
-        required: true
-      base_ref_sha:
-        description: Since the ref that you wish to create a release for if different from workflow target
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  push:
+    branches: release-*
 
 jobs:
-  prerelease:
+  release:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    environment: ${{ inputs.ref_name }}
+    environment: ${{ github.ref_name }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 50
-          ref: ${{ inputs.base_ref_sha || github.ref_name }}
-      - name: Checkout a new branch if in detached state
-        id: ref
-        run: echo "name=$(git branch --show-current)" >> $GITHUB_OUTPUT
-      - if: ${{ steps.ref.outputs.name == '' }}
-        run: git switch -c ${{ inputs.base_ref_sha }}
-      # - name: Setup Node.js environment
-      #   uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
-      #   with:
-      #     node-version: lts/*
-      #     cache: yarn
-      #     cache-dependency-path: "**/yarn.lock"
-      # - name: Install dependencies
-      #   run: |
-      #     yarn install
-      #     yarn bootstrap
-      # - name: Apply versions
-      #   run: yarn version apply --all --prerelease
-      # - name: Configure git user
-      #   run: |
-      #     git config user.name github-actions[bot]
-      #     git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      # - name: Prepare commit
-      #   run: |
-      #     git add .
-      #     git commit -m "chore(publish): update versions" || true
-      # - name: Tag the HEAD
-      #   if: ${{ vars.RELEASE_TAG != '' }}
-      #   run: |
-      #     git tag -d  || true
-      #     git tag $RELEASE_TAG
-      #     git push origin $RELEASE_TAG
-      # - name: Publish
-      #   run: >-
-      #     yarn workspaces foreach -An --no-private npm publish --tolerate-republish
-      #     ${{ vars.RELEASE_TAG == '' && '' || '--tag $RELEASE_TAG' }}
-      # - name: Create branch ${{ inputs.ref_name }}
-      #   run: |
-      #     git fetch --depth=1 origin ${{ inputs.ref_name }}:${{ inputs.ref_name }}
-      #     git checkout ${{ inputs.ref_name }}
-      # - name: Merge ${{  }} into ${{ inputs.ref_name }}
-      #   run: git merge ${{  }}
+      - name: Setup Node.js environment
+        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: "**/yarn.lock"
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Create and publish prerelease
+        uses: ./.github/actions/release
+        with:
+          tag: ${{ vars.RELEASE_TAG }}
+      - name: Push
+        run: git push
