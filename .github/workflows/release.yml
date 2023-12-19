@@ -20,6 +20,10 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: "**/yarn.lock"
+      - name: Override BASE_REF variable
+        run: echo "BASE_REF=${{ vars.BASE_REF_NAME }}" >> .env
+      - name: Fetch BASE_REF
+        run: git fetch --depth=1 origin ${{ vars.BASE_REF_NAME }}
       - name: Install dependencies
         run: |
           yarn install

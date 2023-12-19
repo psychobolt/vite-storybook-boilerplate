@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - develop
-      - release/**
+      - release-*
 
 concurrency:
   group: pull-request-${{ github.head_ref }}
@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 2
-      - name: Fetch main branch
+      - name: Fetch ${{ github.base_ref }}
         run: git fetch --depth=1 origin ${{ github.base_ref }}
       - name: Override BASE_REF variable
         run: echo "BASE_REF=origin/${{ github.base_ref }}" >> .env
@@ -50,7 +50,7 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
-      - name: Fetch main branch
+      - name: Fetch ${{ github.base_ref }}
         run: git fetch --depth=1 origin ${{ github.base_ref }}
       - name: Add version strategy
         run: yarn workspaces foreach -A --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
