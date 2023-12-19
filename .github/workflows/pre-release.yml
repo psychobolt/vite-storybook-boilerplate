@@ -1,0 +1,59 @@
+name: Pre-release
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref_name:
+        description: The branch name you wish to create for the release
+        default: release-
+        type: string
+        required: true
+      base_ref_sha:
+        description: Since the ref that you wish to create a release for if different from workflow target
+
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.base_ref_sha || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: ${{ github.ref_name }}
+    env:
+      base_ref: ${{ inputs.base_ref_sha || github.ref_name }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 50
+          ref: ${{ env.base_ref }}
+          token: ${{ secrets.GH_ACTIONS_TOKEN }}
+      - name: Get branch name
+        id: base_ref
+        run: echo "name=$(git branch --show-current)" >> $GITHUB_OUTPUT
+      - name: Setup Node.js environment
+        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: "**/yarn.lock"
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Create and publish prerelease
+        uses: ./.github/actions/release
+        with:
+          prerelease: "true"
+          tag: ${{ vars.RELEASE_TAG }}
+      - name: Merge ${{ env.base_ref }} into ${{ inputs.ref_name }}
+        if: ${{ steps.base_ref.outputs.name != '' }}
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git push
+          git fetch --depth=1 origin ${{ inputs.ref_name }}:${{ inputs.ref_name }}
+          git checkout ${{ inputs.ref_name }}
+          git merge ${{ env.base_ref }}
+          git push
