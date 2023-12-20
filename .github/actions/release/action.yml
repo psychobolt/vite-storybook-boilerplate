@@ -3,8 +3,10 @@ description: Create a release commit and publish
 
 inputs:
   prerelease:
+    default: ""
     description: Set to 'true', if you wish to create a prerelease version
   tag:
+    default: ""
     description: The distribute tag
 
 runs:
