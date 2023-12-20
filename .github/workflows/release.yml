@@ -28,7 +28,7 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
-      - name: Create and publish prerelease
+      - name: Create and publish release
         uses: ./.github/actions/release
         with:
           tag: ${{ vars.RELEASE_TAG }}
