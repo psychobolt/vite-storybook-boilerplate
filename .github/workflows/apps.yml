@@ -7,10 +7,6 @@ on:
       change-from:
         type: string
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   diff:
     uses: ./.github/workflows/diff.yml

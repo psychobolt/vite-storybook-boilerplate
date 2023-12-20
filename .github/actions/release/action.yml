@@ -29,7 +29,7 @@ runs:
     - name: Prepare commit
       run: |
         git add .
-        git commit -m "chore(publish): update versions" || true
+        git commit -m "chore(version): ${{ inputs.prerelease == '' && 'release' : 'prerelease' }}" || true
       shell: bash
     - name: Tag the HEAD
       if: ${{ inputs.tag != '' }}

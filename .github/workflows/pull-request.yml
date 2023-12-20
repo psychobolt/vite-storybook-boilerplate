@@ -61,5 +61,5 @@ jobs:
       - name: Push
         run: |
           git add .
-          git commit -m "chore(publish): update versions" || true
+          git commit -m "chore(version): strategy" || true
           git push
