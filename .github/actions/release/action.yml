@@ -19,7 +19,7 @@ runs:
         || echo "No major bump needed"'
       shell: bash
     - name: Apply versions
-      run: yarn version apply --all ${{ inputs.prerelease == '' && '' || '--prerelease' }}
+      run: yarn version apply --all ${{ inputs.prerelease == 'true' && '--prerelease' || '' }}
       shell: bash
     - name: Configure git user
       run: |
@@ -29,7 +29,7 @@ runs:
     - name: Prepare commit
       run: |
         git add .
-        git commit -m "chore(version): ${{ inputs.prerelease == '' && 'release' || 'prerelease' }}" || true
+        git commit -m "chore(version): ${{ inputs.prerelease == 'true' && 'prerelease' || 'release' }}" || true
       shell: bash
     - name: Tag the HEAD
       if: ${{ inputs.tag != '' }}
