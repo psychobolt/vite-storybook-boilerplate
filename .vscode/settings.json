@@ -33,8 +33,5 @@
   "stylelint.validate": [
     "css",
     "scss"
-  ],
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-action.json": "file:///d%3A/psychobolt-github/vite-storybook-boilerplate/.github/actions/release/action.yml"
-  }
+  ]
 }
