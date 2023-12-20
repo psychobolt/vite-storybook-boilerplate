@@ -1,6 +1,6 @@
 {
   "name": "html-ui",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "type": "module",
   "packageManager": "yarn@4.0.2",
   "exports": {
