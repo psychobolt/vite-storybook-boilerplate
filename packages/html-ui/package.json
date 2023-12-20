@@ -1,6 +1,6 @@
 {
   "name": "html-ui",
-  "version": "0.0.0",
+  "version": "1.0.0-rc.1",
   "type": "module",
   "packageManager": "yarn@4.0.2",
   "exports": {
@@ -40,5 +40,6 @@
     "typescript": "5.3.3",
     "typescript-plugin-css-modules": "5.0.2",
     "vite": "5.0.10"
-  }
+  },
+  "stableVersion": "0.0.0"
 }
