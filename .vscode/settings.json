@@ -6,8 +6,7 @@
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.nodePath": ".yarn/sdks",
-  "eslint.runtime": "node",
-  "eslint.execArgv": ["D://psychobolt-github/vite-storybook-boilerplate/bin/eslint-runtime.js"],
+  "eslint.runtime": "bin/eslint-runtime.js",
   "eslint.experimental.useFlatConfig": true,
   "eslint.options": {
     "overrideConfigFile": "./eslint.config.ts"
@@ -34,8 +33,5 @@
   "stylelint.validate": [
     "css",
     "scss"
-  ],
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-action.json": "file:///d%3A/psychobolt-github/vite-storybook-boilerplate/.github/actions/release/action.yml"
-  }
+  ]
 }
