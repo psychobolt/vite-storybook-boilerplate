@@ -3,6 +3,11 @@ name: Packages
 on:
   push:
     paths: packages/**
+  workflow_call:
+    inputs:
+      ref_name:
+        type: string
+        required: true
   workflow_dispatch:
     inputs:
       change-from:
@@ -11,10 +16,14 @@ on:
 jobs:
   diff:
     uses: ./.github/workflows/diff.yml
+    with:
+      ref_name: ${{ inputs.ref_name }}
 
   commons:
     needs: diff
     uses: ./.github/workflows/test-commons.yml
+    with:
+      ref_name: ${{ inputs.ref_name }}
     if: contains(fromJSON(needs.diff.outputs.package_names), 'commons')
 
   html-ui:
@@ -22,6 +31,7 @@ jobs:
     uses: ./.github/workflows/test-package.yml
     if: contains(fromJSON(needs.diff.outputs.package_names), 'html-ui')
     with:
+      ref_name: ${{ inputs.ref_name }}
       workspace: html-ui
       path: packages/html-ui
     secrets: inherit
@@ -31,6 +41,7 @@ jobs:
     if: contains(fromJSON(needs.diff.outputs.package_names), 'react-ui')
     uses: ./.github/workflows/test-package.yml
     with:
+      ref_name: ${{ inputs.ref_name }}
       workspace: react-ui
       path: packages/react-ui
     secrets: inherit

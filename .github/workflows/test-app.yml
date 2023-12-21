@@ -1,6 +1,8 @@
 on:
   workflow_call:
     inputs:
+      ref_name:
+        type: string
       workspace:
         required: true
         type: string
@@ -18,6 +20,7 @@ jobs:
     timeout-minutes: 15
     environment: ${{ inputs.workspace }}
     env:
+      REF_NAME: ${{ inputs.ref_name || github.ref_name }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
@@ -29,6 +32,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          ref: ${{ inputs.ref_name || github.ref }}
       - name: Setup Node.js environment
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
         with:
@@ -42,17 +47,17 @@ jobs:
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Pull Vercel Project
-        run: npx vercel pull --environment=${{ github.ref_name == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
       - name: Run Build
-        run: npx vercel build ${{ github.ref_name == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
         if: matrix.os == 'ubuntu-latest'
         uses: BetaHuhn/deploy-to-vercel-action@643bc80032ba62ca41d1a9aaba7b38b51c2b8646 # v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_DEPLOYMENT_ENV: ${{ format('{0} ({1})', inputs.workspace, github.ref_name == 'main' && 'Production' || 'Preview') }}
+          GITHUB_DEPLOYMENT_ENV: ${{ format('{0} ({1})', inputs.workspace, env.REF_NAME == 'main' && 'Production' || 'Preview') }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID}}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          PRODUCTION: ${{ github.ref_name == 'main' }}
+          PRODUCTION: ${{ env.REF_NAME == 'main' }}
           PREBUILT: true

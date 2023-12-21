@@ -2,6 +2,9 @@ name: List Updated Packages
 
 on:
   workflow_call:
+    inputs:
+      ref_name:
+        type: string
     outputs:
       package_names:
         value: ${{ jobs.diff.outputs.package_names }}
@@ -17,6 +20,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 25
+          ref: ${{ inputs.ref_name || github.ref }}
       - name: Collect Turborepo Changes
         id: changes
         uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0

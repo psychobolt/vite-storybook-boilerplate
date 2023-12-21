@@ -32,19 +32,45 @@ jobs:
     needs: unmerged_commits
     if: needs.unmerged_commits.outputs.ref != ''
     runs-on: ubuntu-latest
+    outputs:
+      ref_name: ${{ env.BASE_REF }}
     env:
-      BRANCH: ci/cherry-pick-${{ needs.unmerged_commits.outputs.short }}
+      BASE_REF: ci/cherry-pick-${{ needs.unmerged_commits.outputs.short }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          fetch-depth: 2
-          token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Fetch commits
-        run: git fetch --depth=1 origin ${{ needs.unmerged_commits.outputs.ref }}
+        run: git fetch --depth=2 origin ${{ needs.unmerged_commits.outputs.ref }}
       - name: Cherry pick
         run: git cherry-pick ${{ needs.unmerged_commits.outputs.ref }}
       - name: Branch
-        run: git checkout ${{ env.BRANCH }}
+        run: git checkout ${{ env.BASE_REF }}
       - name: Push
-        run: git push -u origin ${{ env.BRANCH }}
+        run: git push -u origin ${{ env.BASE_REF }}
+  ci:
+    needs: create-branch
+    uses: ./.github/workflows/ci.yml
+    with:
+      ref_name: ${{ needs.create-branch.outputs.ref_name }}
+  apps:
+    needs: create-branch
+    uses: ./.github/workflows/apps.yml
+    with:
+      ref_name: ${{ needs.create-branch.outputs.ref_name }}
+  packages:
+    needs: create-branch
+    uses: ./.github/workflows/packages.yml
+    with:
+      ref_name: ${{ needs.create-branch.outputs.ref_name }}
+  merge_branch:
+    runs-on: ubuntu-latest
+    needs: [create-branch, ci, apps, packages]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Fetch branch
+        run: git fetch --depth=1 origin ${{ needs.create-branch.outputs.ref_name }}
+      - name: Merge
+        run: git merge origin/${{ needs.create-branch.outputs.ref_name }}
+      - name: Push
+        run: git push

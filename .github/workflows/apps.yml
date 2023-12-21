@@ -2,6 +2,11 @@ name: Apps
 
 on:
   push:
+  workflow_call:
+    inputs:
+      ref_name:
+        type: string
+        required: true
   workflow_dispatch:
     inputs:
       change-from:
@@ -10,6 +15,8 @@ on:
 jobs:
   diff:
     uses: ./.github/workflows/diff.yml
+    with:
+      ref_name: ${{ inputs.ref_name }}
 
   install:
     runs-on: ubuntu-latest
@@ -19,6 +26,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          ref: ${{ inputs.ref_name || github.ref }}
       - name: Setup Node.js environment
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
         with:
@@ -29,6 +38,7 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
+      # following step is only used for branch pushes from renovate workflow
       - name: Trigger post upgrade
         id: trigger
         if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
@@ -42,6 +52,7 @@ jobs:
     if: contains(fromJSON(needs.diff.outputs.package_names), 'next-app')
     uses: ./.github/workflows/test-app.yml
     with:
+      ref_name: ${{ inputs.ref_name }}
       workspace: next-app
       path: apps/next-app
     secrets: inherit
@@ -51,6 +62,7 @@ jobs:
     if: contains(fromJSON(needs.diff.outputs.package_names), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
     with:
+      ref_name: ${{ inputs.ref_name }}
       workspace: svelte-app
       path: apps/svelte-app
     secrets: inherit
