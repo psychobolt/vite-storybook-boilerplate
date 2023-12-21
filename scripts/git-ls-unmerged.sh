@@ -5,6 +5,7 @@ REF=""
 OUTPUT=""
 
 for commit in ${COMMITS//,/ }; do
+  git fetch --depth=1 origin $commit
   commit=$(git merge-base --is-ancestor $commit ${BASE_REF:-"origin/main"} || echo $commit)
   if [ ! -z $commit ]; then
     REF+="$commit "
