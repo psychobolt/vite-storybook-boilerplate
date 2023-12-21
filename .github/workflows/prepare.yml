@@ -14,6 +14,7 @@ jobs:
     outputs:
       ref: ${{ steps.unmerged.outputs.ref }}
       short: ${{ steps.unmerged.outputs.commits }}
+      count: ${{ steps.unmerged.outputs.count }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -25,6 +26,7 @@ jobs:
           source ./scripts/git-ls-unmerged.sh
           echo "ref=$REF" >> $GITHUB_OUTPUT
           echo "commits=$OUTPUT" >> $GITHUB_OUTPUT
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
         env:
           COMMITS: ${{ inputs.commits }}
           BASE_REF: ${{ github.ref_name }}
@@ -44,24 +46,26 @@ jobs:
       - name: Cherry pick
         run: git cherry-pick ${{ needs.unmerged_commits.outputs.ref }}
       - name: Branch
-        run: git checkout ${{ env.BASE_REF }}
+        run: git checkout -b ${{ env.BASE_REF }}
       - name: Push
         run: git push -u origin ${{ env.BASE_REF }}
   ci:
-    needs: create-branch
+    needs: [unmerged_commits, create-branch]
     uses: ./.github/workflows/ci.yml
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
   apps:
-    needs: create-branch
+    needs: [unmerged_commits, create-branch]
     uses: ./.github/workflows/apps.yml
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
+      change-from: HEAD^${{ needs.unmerged_commits.outputs.count }}
   packages:
-    needs: create-branch
+    needs: [unmerged_commits, create-branch]
     uses: ./.github/workflows/packages.yml
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
+      change-from: HEAD^${{ needs.unmerged_commits.outputs.count }}
   merge_branch:
     runs-on: ubuntu-latest
     needs: [create-branch, ci, apps, packages]
@@ -69,8 +73,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Fetch branch
-        run: git fetch --depth=1 origin ${{ needs.create-branch.outputs.ref_name }}
+        run: git fetch --depth=50 origin ${{ needs.create-branch.outputs.ref_name }}:${{ needs.create-branch.outputs.ref_name }}
       - name: Merge
-        run: git merge origin/${{ needs.create-branch.outputs.ref_name }}
+        run: git merge ${{ needs.create-branch.outputs.ref_name }}
       - name: Push
         run: git push
+      - name: Delete branch
+        run: git push -d origin ${{ needs.create-branch.outputs.ref_name }}

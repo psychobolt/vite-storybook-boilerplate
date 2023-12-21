@@ -7,6 +7,8 @@ on:
       ref_name:
         type: string
         required: true
+      change-from:
+        type: string
   workflow_dispatch:
     inputs:
       change-from:
@@ -17,6 +19,7 @@ jobs:
     uses: ./.github/workflows/diff.yml
     with:
       ref_name: ${{ inputs.ref_name }}
+      change-from: ${{ inputs.change-from }}
 
   install:
     runs-on: ubuntu-latest
