@@ -32,14 +32,19 @@ jobs:
     needs: unmerged_commits
     if: needs.unmerged_commits.outputs.ref != ''
     runs-on: ubuntu-latest
+    env:
+      BRANCH: ci/cherry-pick-${{ needs.unmerged_commits.outputs.short }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Fetch commits
         run: git fetch --depth=1 origin ${{ needs.unmerged_commits.outputs.ref }}
-      - name: Branch
-        run: git branch ci/cherry-pick-${{ needs.unmerged_commits.outputs.short }}
       - name: Cherry pick
         run: git cherry-pick ${{ needs.unmerged_commits.outputs.ref }}
+      - name: Branch
+        run: git checkout ${{ env.BRANCH }}
       - name: Push
-        run: git push
+        run: git push -u origin ${{ env.BRANCH }}
