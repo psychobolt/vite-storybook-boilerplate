@@ -12,33 +12,34 @@ jobs:
   unmerged_commits:
     runs-on: ubuntu-latest
     outputs:
-      sha: ${{ steps.unmerged.outputs.commits }}
+      ref: ${{ steps.unmerged.outputs.ref }}
+      short: ${{ steps.unmerged.outputs.commits }}
     steps:
-      - name: Verify
-        run: git verify-commit ${{ inputs.commits }}
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 50
-          ref: ${{ github.ref_name }}
       - name: Filter commits not found in ${{ github.ref_name }}
         id: unmerged
-        run: echo "commits=$(./scripts/git-ls-unmerged.sh)" >> $GITHUB_OUTPUT
+        run: |
+          source ./scripts/git-ls-unmerged.sh
+          echo "ref=$REF" >> $GITHUB_OUTPUT
+          echo "commits=$OUTPUT" >> $GITHUB_OUTPUT
         env:
           COMMITS: ${{ inputs.commits }}
           BASE_REF: ${{ github.ref_name }}
   create-branch:
     needs: unmerged_commits
-    if: needs.unmerged_commits.outputs.sha != ''
+    if: needs.unmerged_commits.outputs.ref != ''
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          ref: ${{ github.ref_name }}
+      - name: Fetch commits
+        run: git fetch --depth=1 origin ${{ needs.unmerged_commits.outputs.ref }}
       - name: Branch
-        run: git checkout -b ci/cherry-pick-${COMMITS##* }
-      - name: Cherry pick missing commits into ${{ github.ref_name }}
-        run: git cherry-pick ${{ needs.unmerged_commits.outputs.sha }}
+        run: git branch ci/cherry-pick-${{ needs.unmerged_commits.outputs.short }}
+      - name: Cherry pick
+        run: git cherry-pick ${{ needs.unmerged_commits.outputs.ref }}
       - name: Push
         run: git push

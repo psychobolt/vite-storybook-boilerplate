@@ -1,11 +1,15 @@
 # Given a list of commits $COMMITS, 
-#  list all commits not merged into $BASE_REF
+#  find all commits not merged into $BASE_REF
+
+REF=""
+OUTPUT=""
 
 for commit in ${COMMITS//,/ }; do
   commit=$(git merge-base --is-ancestor $commit ${BASE_REF:-"origin/main"} || echo $commit)
   if [ ! -z $commit ]; then
-    FILTER+="$commit "
+    REF+="$commit "
+    OUTPUT+="$(git rev-parse --short $commit) "
   fi
 done
 
-echo "$FILTER"
+OUTPUT=$(echo $OUTPUT | tr " " -)
