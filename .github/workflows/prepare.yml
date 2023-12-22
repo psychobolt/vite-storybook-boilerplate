@@ -43,6 +43,10 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Fetch commits
         run: git fetch --depth=2 origin ${{ needs.unmerged_commits.outputs.ref }}
+      - name: Configure git user
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Cherry pick
         run: git cherry-pick ${{ needs.unmerged_commits.outputs.ref }}
       - name: Branch
@@ -74,6 +78,10 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Fetch branch
         run: git fetch --depth=50 origin ${{ needs.create-branch.outputs.ref_name }}:${{ needs.create-branch.outputs.ref_name }}
+      - name: Configure git user
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Merge
         run: git merge ${{ needs.create-branch.outputs.ref_name }}
       - name: Push
