@@ -30,6 +30,7 @@ jobs:
         env:
           COMMITS: ${{ inputs.commits }}
           BASE_REF: ${{ github.ref_name }}
+
   create-branch:
     needs: unmerged_commits
     if: needs.unmerged_commits.outputs.ref != ''
@@ -53,23 +54,26 @@ jobs:
         run: git checkout -b ${{ env.BASE_REF }}
       - name: Push
         run: git push -u origin ${{ env.BASE_REF }}
+
   ci:
     needs: [unmerged_commits, create-branch]
     uses: ./.github/workflows/ci.yml
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
+
   apps:
     needs: [unmerged_commits, create-branch]
     uses: ./.github/workflows/apps.yml
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
-      change-from: HEAD^${{ needs.unmerged_commits.outputs.count }}
+      change-from: HEAD~${{ needs.unmerged_commits.outputs.count }}
   packages:
     needs: [unmerged_commits, create-branch]
     uses: ./.github/workflows/packages.yml
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
-      change-from: HEAD^${{ needs.unmerged_commits.outputs.count }}
+      change-from: HEAD~${{ needs.unmerged_commits.outputs.count }}
+
   merge_branch:
     runs-on: ubuntu-latest
     needs: [create-branch, ci, apps, packages]
