@@ -5610,9 +5610,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.0.5":
-  version: 2.0.5
-  resolution: "@sveltejs/kit@npm:2.0.5"
+"@sveltejs/kit@npm:2.0.6":
+  version: 2.0.6
+  resolution: "@sveltejs/kit@npm:2.0.6"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     cookie: "npm:^0.6.0"
@@ -5631,7 +5631,7 @@ __metadata:
     vite: ^5.0.3
   bin:
     svelte-kit: svelte-kit.js
-  checksum: b8a8e35368048177e7578c8529d20c02f7eebaea332ea1f483f80bf3625bcba354de57dd2cc625b29f9e1559cfff39e4eb582911e1da631cf98e1ad8487745de
+  checksum: 6bc9a36bc12649c0496c71663b1e10d6146b6d18eb433db7d77b23b040d5e4bfc5bed09ff246a6674c63920e34e297476bb6636e7eefa8120f525415ecb86f47
   languageName: node
   linkType: hard
 
@@ -8408,14 +8408,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.1.0":
-  version: 10.1.0
-  resolution: "chromatic@npm:10.1.0"
+"chromatic@npm:10.2.0":
+  version: 10.2.0
+  resolution: "chromatic@npm:10.2.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: adee72f7db2df504e5ee82588c4edd5b97d38e7ff9f70819b564b2482b6419601a1bd156f10437a59ee9ce0b6f27fa5ef42624ef8883354ffa9434c8583e8acd
+  checksum: e7716fc7a7fbd33b525c48888ccd3ee75ec56c4f360eba2972eb7a9d42efff025fbb4a1877173eb0d916f0bc9cdab1a8e8dac615c5b35ac270cd5a8ab5f931eb
   languageName: node
   linkType: hard
 
@@ -12077,7 +12077,7 @@ __metadata:
     "@storybook/test": "npm:7.6.6"
     "@storybook/web-components": "npm:7.6.6"
     "@storybook/web-components-vite": "npm:7.6.6"
-    chromatic: "npm:10.1.0"
+    chromatic: "npm:10.2.0"
     commons: "workspace:*"
     glob: "npm:10.3.10"
     http-server: "npm:14.1.1"
@@ -17167,7 +17167,7 @@ __metadata:
     "@tsconfig/vite-react": "npm:3.0.0"
     "@types/react": "npm:18.2.45"
     "@types/react-dom": "npm:18.2.18"
-    chromatic: "npm:10.1.0"
+    chromatic: "npm:10.2.0"
     commons: "workspace:*"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
@@ -18883,7 +18883,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.0"
     "@sveltejs/adapter-auto": "npm:3.0.1"
     "@sveltejs/adapter-vercel": "npm:4.0.3"
-    "@sveltejs/kit": "npm:2.0.5"
+    "@sveltejs/kit": "npm:2.0.6"
     "@sveltejs/vite-plugin-svelte": "npm:3.0.1"
     "@types/cookie": "npm:0.6.0"
     "@typescript-eslint/eslint-plugin": "npm:6.15.0"
