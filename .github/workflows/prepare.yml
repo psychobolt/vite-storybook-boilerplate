@@ -60,6 +60,7 @@ jobs:
     uses: ./.github/workflows/ci.yml
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
+    secrets: inherit
 
   apps:
     needs: [unmerged_commits, create-branch]
@@ -67,12 +68,15 @@ jobs:
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
       change-from: HEAD~${{ needs.unmerged_commits.outputs.count }}
+    secrets: inherit
+
   packages:
     needs: [unmerged_commits, create-branch]
     uses: ./.github/workflows/packages.yml
     with:
       ref_name: ${{ needs.create-branch.outputs.ref_name }}
       change-from: HEAD~${{ needs.unmerged_commits.outputs.count }}
+    secrets: inherit
 
   merge_branch:
     runs-on: ubuntu-latest
