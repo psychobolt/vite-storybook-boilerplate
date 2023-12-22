@@ -84,6 +84,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Fetch branch
         run: git fetch --depth=50 origin ${{ needs.create-branch.outputs.ref_name }}:${{ needs.create-branch.outputs.ref_name }}
       - name: Configure git user
