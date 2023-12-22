@@ -11,7 +11,7 @@ on:
         type: string
 
 jobs:
-  test:
+  deploy:
     name: Run Tests
     timeout-minutes: 20
     strategy:

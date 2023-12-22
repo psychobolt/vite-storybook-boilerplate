@@ -11,6 +11,7 @@ on:
 jobs:
   unmerged_commits:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
       ref: ${{ steps.unmerged.outputs.ref }}
       short: ${{ steps.unmerged.outputs.commits }}
@@ -35,6 +36,7 @@ jobs:
     needs: unmerged_commits
     if: needs.unmerged_commits.outputs.ref != ''
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
       ref_name: ${{ env.BASE_REF }}
     env:
@@ -79,8 +81,9 @@ jobs:
     secrets: inherit
 
   merge_branch:
-    runs-on: ubuntu-latest
     needs: [create-branch, ci, apps, packages]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4

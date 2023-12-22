@@ -31,7 +31,7 @@ jobs:
 
   html-ui:
     needs: diff
-    uses: ./.github/workflows/test-package.yml
+    uses: ./.github/workflows/deploy-package.yml
     if: contains(fromJSON(needs.diff.outputs.package_names), 'html-ui')
     with:
       ref_name: ${{ inputs.ref_name }}
@@ -42,7 +42,7 @@ jobs:
   react-ui:
     needs: diff
     if: contains(fromJSON(needs.diff.outputs.package_names), 'react-ui')
-    uses: ./.github/workflows/test-package.yml
+    uses: ./.github/workflows/deploy-package.yml
     with:
       ref_name: ${{ inputs.ref_name }}
       workspace: react-ui
