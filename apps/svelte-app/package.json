@@ -15,7 +15,7 @@
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "5.0.8",
-		"@neoconfetti/svelte": "2.2.0",
+		"@neoconfetti/svelte": "2.2.1",
 		"@sveltejs/adapter-auto": "3.0.1",
 		"@sveltejs/adapter-vercel": "4.0.3",
 		"@sveltejs/kit": "2.0.6",
