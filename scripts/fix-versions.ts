@@ -10,14 +10,12 @@ async function* getTagAnnotation() {
   }
 }
 
-interface SemVer {
-  [name: string]: string;
-}
+type SemVer = Record<string, string>;
 
-let latest: SemVer = {};
+const latest: SemVer = {};
 
 for await (const annotation of getTagAnnotation()) {
-  let versions;
+  let versions: SemVer;
   try {
     versions = JSON.parse(annotation);
   } catch (e) {
