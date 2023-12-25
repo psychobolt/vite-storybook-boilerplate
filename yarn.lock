@@ -6579,7 +6579,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:^7":
+"@types/semver@npm:7.5.6":
   version: 7.5.6
   resolution: "@types/semver@npm:7.5.6"
   checksum: 196dc32db5f68cbcde2e6a42bb4aa5cbb100fa2b7bd9c8c82faaaf3e03fbe063e205dbb4f03c7cdf53da2edb70a0d34c9f2e601b54281b377eb8dc1743226acd
@@ -20439,7 +20439,7 @@ __metadata:
   dependencies:
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/node": "npm:20.10.5"
-    "@types/semver": "npm:^7"
+    "@types/semver": "npm:7.5.6"
     "@yarnpkg/sdks": "npm:3.1.0"
     arg: "npm:5.0.2"
     commons: "workspace:*"
