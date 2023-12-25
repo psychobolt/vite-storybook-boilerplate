@@ -74,3 +74,13 @@ Returns only workspaces that are not set to `private: true`
 #### `semver`
 
 Returns the name and semantic version mapping of each workspace
+
+## Fix Versions
+
+`fix-versions.ts` [Source](fix-versions.ts)
+
+```sh
+yarn fix-versions
+```
+
+Bump workspace versions to the latest distributive tagged release

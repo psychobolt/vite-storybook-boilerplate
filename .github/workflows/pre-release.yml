@@ -47,8 +47,8 @@ jobs:
       - name: Bump packages v0 to v1
         run: >-
           yarn workspaces foreach -A --no-private exec 'test $(yarn node -p "/^0\./.test(process.env.npm_package_version)") = true
-          && yarn version major
-          echo "No major bump needed"'
+          && yarn version major --deferred
+          || echo "No major bump needed"'
       - name: Fix versions
         run: yarn fix-versions
       - name: "Create and publish release: ${{ vars.RELEASE_TAG }}"
