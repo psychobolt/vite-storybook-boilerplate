@@ -6579,6 +6579,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/semver@npm:^7":
+  version: 7.5.6
+  resolution: "@types/semver@npm:7.5.6"
+  checksum: 196dc32db5f68cbcde2e6a42bb4aa5cbb100fa2b7bd9c8c82faaaf3e03fbe063e205dbb4f03c7cdf53da2edb70a0d34c9f2e601b54281b377eb8dc1743226acd
+  languageName: node
+  linkType: hard
+
 "@types/semver@npm:^7.1.0, @types/semver@npm:^7.3.4, @types/semver@npm:^7.5.0":
   version: 7.5.3
   resolution: "@types/semver@npm:7.5.3"
@@ -17988,7 +17995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:*, semver@npm:^7.0.0, semver@npm:^7.1.2, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.3, semver@npm:^7.5.4":
+"semver@npm:*, semver@npm:7.5.4, semver@npm:^7.0.0, semver@npm:^7.1.2, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.3, semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
@@ -20432,6 +20439,7 @@ __metadata:
   dependencies:
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/node": "npm:20.10.5"
+    "@types/semver": "npm:^7"
     "@yarnpkg/sdks": "npm:3.1.0"
     arg: "npm:5.0.2"
     commons: "workspace:*"
@@ -20444,6 +20452,7 @@ __metadata:
     husky: "npm:8.0.3"
     lint-staged: "npm:15.2.0"
     playwright: "npm:1.40.1"
+    semver: "npm:7.5.4"
     stylelint: "npm:16.1.0"
     ts-node: "npm:11.0.0-beta.1"
     turbo: "npm:1.11.2"

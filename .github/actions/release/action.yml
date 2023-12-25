@@ -12,12 +12,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Bump packages v0 to v1
-      run: >-
-        yarn workspaces foreach -A --no-private exec 'test $(yarn node -p "/^0\./.test(process.env.npm_package_version)") = true
-        && yarn version major --deferred
-        || echo "No major bump needed"'
-      shell: bash
     - name: Apply versions
       run: yarn version apply --all ${{ inputs.prerelease == 'true' && '--prerelease' || '' }}
       shell: bash
@@ -36,7 +30,7 @@ runs:
       run: |
         git tag -d ${{ inputs.tag }} || true
         git push origin --delete ${{ inputs.tag }} || true
-        git tag ${{ inputs.tag }}
+        git tag ${{ inputs.tag }} -a -m "$(yarn ls-workspaces --format=semver --no-private)"
         git push origin ${{ inputs.tag }}
       shell: bash
     - name: Publish

@@ -58,7 +58,6 @@ See [information](https://yarnpkg.com/cli) on commands for Yarn.
 #### Main Project
 
 ```sh
-yarn bootstrap # Verify dependencies for all workspaces after running the initial `yarn install`
 yarn node ./path/to/script.js # Run a js script file
 yarn ts-script ./path/to/script.ts # Run a ts script file
 yarn up package-name [--exact] # Upgrade all instances of package to latest release
@@ -71,6 +70,10 @@ yarn g:lint-js # Lint js files with eslint
 yarn g:lint-css # Lint [s]css files with stylelint
 yarn g:prettier [options] # Runs prettier format tool
 ```
+
+##### Additional Scripts
+
+See [scripts/README.md](scripts/README.md)
 
 #### Workspace Scope
 

@@ -5,12 +5,12 @@ definitions:
     docker:
       memory: 7128
   caches:
-    yarn-4e3a600548259e32:
+    yarn-e403683f4321a39b:
       key:
         files:
           - yarn.lock
       path: /root/.yarn/berry/cache
-    svelte-app-4e3a600548259e32:
+    svelte-app-e403683f4321a39b:
       key:
         files:
           - apps/svelte-app/yarn.lock
@@ -36,7 +36,7 @@ pipelines:
         name: Build and Test Root
         max-time: 10
         caches:
-          - yarn-4e3a600548259e32
+          - yarn-e403683f4321a39b
         script:
           - yarn install
           - yarn bootstrap
@@ -50,7 +50,7 @@ pipelines:
                 includePaths:
                   - packages/commons/**
             caches:
-              - yarn-4e3a600548259e32
+              - yarn-e403683f4321a39b
             script:
               - export PACKAGE_NAME=commons
               - yarn install
@@ -61,7 +61,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-4e3a600548259e32
+              - yarn-e403683f4321a39b
             condition:
               changesets:
                 includePaths:
@@ -78,7 +78,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-4e3a600548259e32
+              - yarn-e403683f4321a39b
             clone:
               enabled: true
             condition:
@@ -97,7 +97,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-4e3a600548259e32
+              - yarn-e403683f4321a39b
             clone:
               enabled: true
             condition:
@@ -115,8 +115,8 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-4e3a600548259e32
-              - svelte-app-4e3a600548259e32
+              - yarn-e403683f4321a39b
+              - svelte-app-e403683f4321a39b
             condition:
               changesets:
                 includePaths:
