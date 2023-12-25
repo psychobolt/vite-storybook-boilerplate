@@ -7,8 +7,12 @@ COUNT=""
 
 eval "arr=($COMMITS)"
 for commit in "${arr[@]}"; do
-  git fetch --depth=1 origin $commit
-  commit=$(git merge-base --is-ancestor $commit ${BASE_REF:-"origin/main"} || echo $commit)
+  git fetch --depth=1 origin $commit -q
+  commit=$(
+    git merge-base --is-ancestor $commit ${BASE_REF:-"origin/main"} \
+    || (git log ${BASE_REF:-"origin/main"} --grep $commit --pretty=format:'%H' && echo $commit) \
+    || echo $commit \
+  )
   if [ ! -z $commit ]; then
     REF+="$commit "
     OUTPUT+="$(git rev-parse --short $commit) "
@@ -16,4 +20,4 @@ for commit in "${arr[@]}"; do
   fi
 done
 
-OUTPUT=$(echo $OUTPUT | tr " " -)
+OUTPUT=$(echo $OUTPUT | xargs | tr -s " " -)

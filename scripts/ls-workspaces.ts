@@ -1,64 +1,93 @@
 import fs from "fs";
 import { fileURLToPath } from "url";
 import process from "process";
-import { execa } from "execa";
+import { execa, execaSync } from "execa";
 import arg from "arg";
 import globToRegExp from "glob-to-regexp";
 import YAML from "yaml";
-
-interface Workspace {
-  name: string;
-  location: string;
-}
 
 type Options = Record<string, any>;
 
 const invalidFilterExpression = /^[.*]$/g;
 
-async function getWorkspaces(options?: Options) {
-  const filters: Filters = {
-    "--location": {
-      alias: "-l",
-      type: String,
-      value: "",
-      matcher: globToRegExp,
+const filters: Filters = {
+  "--location": {
+    alias: "-l",
+    type: String,
+    value: "",
+    matcher: globToRegExp,
+  },
+  "--name": {
+    alias: "-n",
+    type: String,
+    value: "",
+    matcher: RegExp,
+  },
+  "--filter": {
+    type: [String],
+    value: [],
+    matcher: (expressions = []) => {
+      const matchers = (expressions as string[]).reduce(
+        (list: RegExp[], expression) => {
+          if (invalidFilterExpression.test(expression)) {
+            return list;
+          }
+          return [...list, globToRegExp(expression)];
+        },
+        [],
+      );
+      return {
+        test: (value: string) =>
+          matchers.reduce((prev, matcher) => prev && matcher.test(value), true),
+      };
     },
-    "--name": {
-      alias: "-n",
-      type: String,
-      value: "",
-      matcher: RegExp,
-    },
-    "--filter": {
-      type: [String],
-      value: [],
-      matcher: (expressions = []) => {
-        const matchers = (expressions as string[]).reduce(
-          (list: RegExp[], expression) => {
-            if (invalidFilterExpression.test(expression)) {
-              return list;
-            }
-            return [...list, globToRegExp(expression)];
-          },
-          [],
-        );
-        return {
-          test: (value: string) =>
-            matchers.reduce(
-              (prev, matcher) => prev && matcher.test(value),
-              true,
-            ),
-        };
-      },
-    },
-    "--node-linker": {
-      type: String,
-      value: "",
-    },
-  };
+  },
+  "--node-linker": {
+    type: String,
+    value: "",
+  },
+  "--no-private": {
+    type: Boolean,
+    value: "",
+  },
+};
 
+function getFormatter(type: string): Mapper<any> {
+  switch (type) {
+    case "semver":
+      return (workspaces: Workspace[]) =>
+        workspaces.reduce(
+          (result, workspace) => ({
+            ...result,
+            [workspace.name]: execaSync("yarn", [
+              "workspace",
+              workspace.name,
+              "exec",
+              "echo $npm_package_version",
+            ]).stdout,
+          }),
+          {},
+        );
+    default:
+      return (_, result) => result;
+  }
+}
+
+const formatters: Formatters = {
+  "--format": {
+    type: [String],
+    mapper: (formatters) => (workspaces) =>
+      formatters.reduce(
+        (result, formatter) => getFormatter(formatter)(workspaces, result),
+        workspaces,
+      ),
+    value: [],
+  },
+};
+
+async function getWorkspaces(options?: Options) {
   const { _, ...args } = arg<Args>(
-    Object.entries(filters).reduce(
+    Object.entries({ ...filters, ...formatters }).reduce(
       (config, [key, { alias, type }]) => ({
         [key]: type,
         ...(alias ? { [alias]: key } : undefined),
@@ -91,7 +120,13 @@ async function getWorkspaces(options?: Options) {
         filter.matcher = (filter.matcher as Matcher)(value);
       }
     }
+    const formatter: Formatter = formatters[key];
+    if (typeof formatter !== "undefined") {
+      formatter.value = value;
+    }
   });
+
+  const noPrivate = filters["--no-private"].value;
 
   const passthrough = (
     workspace: Workspace,
@@ -129,7 +164,19 @@ async function getWorkspaces(options?: Options) {
             filter.value === workspace[propName]);
   };
 
-  const { stdout } = await execa("yarn", ["workspaces", "list", "--json"]);
+  const format = (workspaces: Workspace[]) => {
+    return Object.values(formatters).reduce(
+      (result, formatter) =>
+        formatter.mapper(formatter.value)(workspaces, result),
+      workspaces,
+    );
+  };
+
+  const listArgs = ["--json"];
+  if (noPrivate === true) {
+    listArgs.push("--no-private");
+  }
+  const { stdout } = await execa("yarn", ["workspaces", "list", ...listArgs]);
 
   const workspaces: Workspace[] = stdout
     .split("\n")
@@ -144,7 +191,7 @@ async function getWorkspaces(options?: Options) {
       return keep ? [workspace, ...list] : list;
     }, []);
 
-  return workspaces;
+  return format(workspaces);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

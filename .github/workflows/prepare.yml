@@ -51,7 +51,7 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Cherry pick
-        run: git cherry-pick ${{ needs.unmerged_commits.outputs.ref }}
+        run: git cherry-pick -x ${{ needs.unmerged_commits.outputs.ref }}
       - name: Branch
         run: git checkout -b ${{ env.BASE_REF }}
       - name: Push
