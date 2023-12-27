@@ -41,9 +41,7 @@ jobs:
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ env.base_ref }}" >> .env
       - name: Install dependencies
-        run: |
-          yarn install
-          yarn bootstrap
+        run: yarn install
       - name: "Create and publish release: ${{ vars.RELEASE_TAG }}"
         uses: ./.github/actions/release
         with:
