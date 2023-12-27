@@ -37,7 +37,9 @@ if (
   );
   const { packages }: { packages: string[] } = JSON.parse(stdout);
 
-  const workspaces = await getWorkspaces({ nodeLinker: "node-modules" });
+  const workspaces = await getWorkspaces<Workspace[]>({
+    nodeLinker: "node-modules",
+  });
   for (const workspace of workspaces) {
     const name = workspace.name === "." ? "//" : workspace.name;
     if (!packages.includes(name)) continue;

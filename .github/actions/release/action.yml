@@ -2,9 +2,9 @@ name: Release
 description: Create a release commit and publish
 
 inputs:
-  prerelease:
-    default: ""
-    description: Set to 'true', if you wish to create a prerelease version
+  strategy:
+    description: The version strategy to run
+    required: true
   tag:
     default: ""
     description: The distribute tag
@@ -13,7 +13,7 @@ runs:
   using: "composite"
   steps:
     - name: Apply versions
-      run: yarn version apply --all ${{ inputs.prerelease == 'true' && '--prerelease' || '' }}
+      run: yarn apply-versions --strategy ${{ inputs.strategy }}
       shell: bash
     - name: Configure git user
       run: |
@@ -23,7 +23,7 @@ runs:
     - name: Prepare commit
       run: |
         git add .
-        git commit -m "chore(version): ${{ inputs.prerelease == 'true' && 'prerelease' || 'release' }}" || true
+        git commit -m "chore(version): ${{ inputs.strategy }} release" || true
       shell: bash
     - name: Tag the HEAD
       if: ${{ inputs.tag != '' }}
