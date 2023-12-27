@@ -37,5 +37,6 @@ jobs:
         with:
           strategy: stable
           tag: ${{ vars.RELEASE_TAG }}
+          dry_run_publish: true
       - name: Push
         run: git push

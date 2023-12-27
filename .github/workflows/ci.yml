@@ -48,3 +48,17 @@ jobs:
   packages:
     uses: ./.github/workflows/packages.yml
     secrets: inherit
+
+  release:
+    needs: [apps, packages]
+    if: (inputs.ref_name || github.ref_name) == vars.BASE_REF_NAME
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    environment: ${{ vars.BASE_REF_NAME }}
+    steps:
+      - name: Dark Release
+        uses: ./.github/actions/release
+        with:
+          strategy: build
+          tag: ${{ vars.RELEASE_TAG }}
+          dry_run_publish: true
