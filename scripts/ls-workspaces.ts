@@ -184,18 +184,19 @@ async function getWorkspaces<T>(options?: Options) {
   }
   const { stdout } = await execa("yarn", ["workspaces", "list", ...listArgs]);
 
-  const workspaces: Workspace[] = stdout
-    .split("\n")
-    .reduce((list: Workspace[], line) => {
-      const workspace: Workspace = JSON.parse(line);
-      const keep =
-        true &&
-        passthrough(workspace, "location", "location") &&
-        passthrough(workspace, "name", "name") &&
-        passthrough(workspace, "filter", "name") &&
-        passthrough(workspace, "node-linker");
-      return keep ? [workspace, ...list] : list;
-    }, []);
+  const workspaces: Workspace[] =
+    stdout === ""
+      ? []
+      : stdout.split("\n").reduce((list: Workspace[], line) => {
+          const workspace: Workspace = JSON.parse(line);
+          const keep =
+            true &&
+            passthrough(workspace, "location", "location") &&
+            passthrough(workspace, "name", "name") &&
+            passthrough(workspace, "filter", "name") &&
+            passthrough(workspace, "node-linker");
+          return keep ? [workspace, ...list] : list;
+        }, []);
 
   return format(workspaces) as T;
 }
