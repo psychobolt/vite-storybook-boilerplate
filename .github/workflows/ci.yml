@@ -60,6 +60,8 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           ref: ${{ inputs.ref_name || github.ref }}
+      - name: Install dependencies
+        run: yarn install
       - name: Dark Release
         uses: ./.github/actions/release
         with:
