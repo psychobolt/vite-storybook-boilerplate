@@ -56,6 +56,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ vars.BASE_REF_NAME }}
     steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          ref: ${{ inputs.ref_name || github.ref }}
       - name: Dark Release
         uses: ./.github/actions/release
         with:
