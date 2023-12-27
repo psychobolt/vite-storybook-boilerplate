@@ -8,6 +8,8 @@ inputs:
   tag:
     default: ""
     description: The distribute tag
+  dry_run_publish:
+    description: If "true", publish is disabled
 
 runs:
   using: "composite"
@@ -21,6 +23,7 @@ runs:
         git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       shell: bash
     - name: Prepare commit
+      if: ${{ inputs.strategy != '' && inputs.strategy != 'build' }}
       run: |
         git add .
         git commit -m "chore(version): ${{ inputs.strategy }} release" || true
@@ -35,6 +38,7 @@ runs:
       shell: bash
     - name: Publish
       run: >-
-        yarn workspaces foreach -An --no-private npm publish --tolerate-republish
+        yarn workspaces foreach -A --no-private ${{ inputs.dry_run_publish == '' && '' || '-n' }}
+        npm publish --tolerate-republish
         ${{ inputs.tag == '' && '' || format('--tag {0}', inputs.tag) }}
       shell: bash

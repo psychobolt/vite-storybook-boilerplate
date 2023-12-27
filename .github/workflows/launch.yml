@@ -49,6 +49,7 @@ jobs:
         with:
           strategy: launch
           tag: ${{ vars.RELEASE_TAG }}
+          dry_run_publish: true
       - name: Push ${{ env.base_ref }}
         if: ${{ steps.base_ref.outputs.name != '' }}
         run: |
