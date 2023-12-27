@@ -40,3 +40,11 @@ jobs:
         run: yarn install
       - name: Lint
         run: yarn turbo run //#lint
+
+  apps:
+    uses: ./.github/workflows/apps.yml
+    secrets: inherit
+
+  packages:
+    uses: ./.github/workflows/packages.yml
+    secrets: inherit

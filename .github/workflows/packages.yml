@@ -1,13 +1,10 @@
 name: Packages
 
 on:
-  push:
-    paths: packages/**
   workflow_call:
     inputs:
       ref_name:
         type: string
-        required: true
       change-from:
         type: string
   workflow_dispatch:
