@@ -35,6 +35,7 @@ jobs:
       - name: Create and publish release
         uses: ./.github/actions/release
         with:
+          strategy: stable
           tag: ${{ vars.RELEASE_TAG }}
       - name: Push
         run: git push

@@ -40,7 +40,7 @@ jobs:
     outputs:
       ref_name: ${{ env.BASE_REF }}
     env:
-      BASE_REF: ci/cherry-pick-${{ needs.unmerged_commits.outputs.short }}
+      BASE_REF: cherry-pick-${{ needs.unmerged_commits.outputs.short }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4

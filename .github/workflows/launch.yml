@@ -1,4 +1,4 @@
-name: Pre-release
+name: Launch
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  prerelease:
+  launch:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: ${{ github.ref_name }}
@@ -44,17 +44,10 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
-      - name: Bump packages v0 to v1
-        run: >-
-          yarn workspaces foreach -A --no-private exec 'test $(yarn node -p "/^0\./.test(process.env.npm_package_version)") = true
-          && yarn version major --deferred
-          || echo "No major bump needed"'
-      - name: Fix versions
-        run: yarn fix-versions
       - name: "Create and publish release: ${{ vars.RELEASE_TAG }}"
         uses: ./.github/actions/release
         with:
-          prerelease: "true"
+          strategy: launch
           tag: ${{ vars.RELEASE_TAG }}
       - name: Push ${{ env.base_ref }}
         if: ${{ steps.base_ref.outputs.name != '' }}

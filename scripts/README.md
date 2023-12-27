@@ -25,10 +25,9 @@ source ./git-ls-unmerged.sh
 echo $REF
 echo $COUNT # returns number of commits not in BASE_REF
 echo $OUTPUT # shortened REF, each SHA seperated by '-'
-git checkout -b cherry-pick-$OUTPUT # create a branch
+git checkout -b cherry-pick-$OUTPUT # create a PR branch
 git cherry-pick $REF -x # note we should always provide the original SHA in the commit message. The 'x' arg will handle this.
-git checkout main
-git merge cherry-pick-$OUTPUT
+git push
 ```
 
 ## List Workspaces
@@ -75,12 +74,22 @@ Returns only workspaces that are not set to `private: true`
 
 Returns the name and semantic version mapping of each workspace
 
-## Fix Versions
+## Apply Versions
 
-`fix-versions.ts` [Source](fix-versions.ts)
+`apply-versions.ts` [Source](apply-versions.ts)
 
 ```sh
-yarn fix-versions
+yarn apply-versions [--strategy [type]]
 ```
 
-Bump workspace versions to the latest distributive tagged release
+Versioning util for non-private workspaces. If no strategy is specified, the default strategy used is `build`.
+
+^ = possible bumps
+
+[ ] = optional tag that is used to prevent version conflicts. For instance, if 1.2.0 is the latest and there is a new a minor version strategy on 1.1.0, bump to preminor instead: 1.2.0-rc.1. \*Additional long releases will only increment prerelease.
+
+| Type     | SemVer                                 |
+| -------- | -------------------------------------- |
+| `build`  | \_.\_.1-dev.^x                         |
+| `launch` | ^X.^x.0                                |
+| `stable` | \_.^x.^x[-rc.^x] <br> \*\_.\_.\_-rc.^x |

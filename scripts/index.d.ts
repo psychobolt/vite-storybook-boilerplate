@@ -10,6 +10,7 @@ type Matcher =
 
 interface Spec {
   alias?: string;
+  key?: string;
   type: any;
 }
 
@@ -19,6 +20,8 @@ interface Filter extends Spec {
 }
 
 type Filters = Record<string, Filter>;
+
+type SemVer = Record<string, string>;
 
 interface Workspace {
   name: string;

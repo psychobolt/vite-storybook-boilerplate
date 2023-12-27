@@ -43,10 +43,12 @@ const filters: Filters = {
     },
   },
   "--node-linker": {
+    key: "nodeLinker",
     type: String,
     value: "",
   },
   "--no-private": {
+    key: "noPrivate",
     type: Boolean,
     value: "",
   },
@@ -75,6 +77,7 @@ function getFormatter(type: string): Mapper<any> {
 
 const formatters: Formatters = {
   "--format": {
+    key: "format",
     type: [String],
     mapper: (formatters) => (workspaces) =>
       formatters.reduce(
@@ -85,9 +88,11 @@ const formatters: Formatters = {
   },
 };
 
-async function getWorkspaces(options?: Options) {
+const specEntries = Object.entries({ ...filters, ...formatters });
+
+async function getWorkspaces<T>(options?: Options) {
   const { _, ...args } = arg<Args>(
-    Object.entries({ ...filters, ...formatters }).reduce(
+    specEntries.reduce(
       (config, [key, { alias, type }]) => ({
         [key]: type,
         ...(alias ? { [alias]: key } : undefined),
@@ -106,8 +111,9 @@ async function getWorkspaces(options?: Options) {
     }
 
     Object.entries(options).forEach(([option, value]) => {
-      if (option === "nodeLinker") {
-        updateArg("--node-linker", value);
+      const entry = specEntries.find(([_, { key }]) => key === option);
+      if (typeof entry !== "undefined") {
+        updateArg(entry[0], value);
       }
     });
   }
@@ -191,7 +197,7 @@ async function getWorkspaces(options?: Options) {
       return keep ? [workspace, ...list] : list;
     }, []);
 
-  return format(workspaces);
+  return format(workspaces) as T;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

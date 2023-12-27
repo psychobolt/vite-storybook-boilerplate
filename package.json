@@ -14,14 +14,14 @@
     "ls-workspaces": "yarn ts-script scripts/ls-workspaces.ts",
     "bootstrap": "yarn g:bootstrap",
     "g:bootstrap": "yarn workspace commons turbo run build && yarn ts-script ./scripts/bootstrap.ts",
+    "apply-versions": "yarn ts-script scripts/apply-versions.ts",
     "dev": "yarn turbo --background run dev",
     "build": "yarn turbo run build",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
     "g:eslint-path": "yarn bin eslint",
     "g:lint-js": "cd $INIT_CWD && yarn g:ts-script $(yarn g:eslint-path) -c ./eslint.config.ts .",
     "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
-    "format": "yarn g:prettier --write .",
-    "fix-versions": "yarn ts-script scripts/fix-versions.ts"
+    "format": "yarn g:prettier --write ."
   },
   "workspaces": [
     "packages/*",
