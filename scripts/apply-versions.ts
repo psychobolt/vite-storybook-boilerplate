@@ -17,6 +17,7 @@ const args = arg({
 const type = args["--strategy"] ?? Strategy[Strategy.build];
 
 async function* getTagAnnotation() {
+  await $`git fetch --tags --force`;
   const { stdout: tags } = await $`git tag`;
   for await (const tag of tags.split("\n")) {
     const { stdout } =
@@ -71,6 +72,11 @@ for (const name in current) {
   const oldVersion = prev[name];
   const version = current[name];
   let bump = null;
+
+  if (typeof highest === "undefined")
+    throw Error(
+      "Latest relasted version not found. Did you run launch workflow?",
+    );
 
   if (version === oldVersion) continue;
 
