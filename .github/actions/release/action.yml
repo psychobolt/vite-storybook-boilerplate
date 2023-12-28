@@ -41,6 +41,7 @@ runs:
         git push origin ${{ inputs.tag }}
       shell: bash
     - name: Publish
+      if: steps.versions.outputs.semver != '{}'
       run: >-
         yarn workspaces foreach -A --no-private ${{ inputs.dry_run_publish == '' && '' || '-n' }}
         npm publish --tolerate-republish
