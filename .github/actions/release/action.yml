@@ -19,7 +19,7 @@ runs:
       shell: bash
     - name: Get versions
       id: versions
-      run: echo 'semver=$(yarn ls-workspaces --format=semver --no-private)' >> $GITHUB_OUTPUT
+      run: echo "semver=$(yarn ls-workspaces --format=semver --no-private)" >> $GITHUB_OUTPUT
       shell: bash
     - name: Configure git user
       run: |
