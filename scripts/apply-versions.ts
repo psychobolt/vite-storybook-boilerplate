@@ -73,11 +73,6 @@ for (const name in current) {
   const version = current[name];
   let bump = null;
 
-  if (typeof highest === "undefined")
-    throw Error(
-      "Latest relasted version not found. Did you run launch workflow?",
-    );
-
   if (version === oldVersion) continue;
 
   switch (type) {
@@ -92,6 +87,10 @@ for (const name in current) {
       }
       break;
     case Strategy[Strategy.stable]: {
+      if (typeof highest === "undefined")
+        throw Error(
+          "Latest version not found. Did you create a launch version?",
+        );
       if (oldVersion === highest || semver.lt(version, highest)) break;
       const prerelease = semver.prerelease(oldVersion);
       let release;
