@@ -54,7 +54,7 @@ switch (type) {
   case Strategy[Strategy.launch]:
   case Strategy[Strategy.stable]: {
     const { stdout } = $.sync`yarn version apply --all --json`;
-    if (stdout === "") break;
+    if (stdout === "") process.exit();
     for (const line of stdout.split("\n")) {
       try {
         const { ident, newVersion }: SemVer = JSON.parse(line);
