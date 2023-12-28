@@ -41,14 +41,16 @@ jobs:
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ env.base_ref }}" >> .env
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          yarn bootstrap
       - name: "Create and publish release: ${{ vars.RELEASE_TAG }}"
         uses: ./.github/actions/release
         with:
           strategy: launch
           tag: ${{ vars.RELEASE_TAG }}
           dry_run_publish: true
-      - name: Push ${{ env.base_ref }}
+      - name: Configure git user
         if: ${{ steps.base_ref.outputs.name != '' }}
         run: |
           git config user.name github-actions[bot]

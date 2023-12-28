@@ -29,7 +29,9 @@ jobs:
       - name: Fetch BASE_REF
         run: git fetch --depth=1 origin ${{ vars.BASE_REF_NAME }}
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          yarn bootstrap
       - name: Create and publish release
         uses: ./.github/actions/release
         with:
