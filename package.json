@@ -45,7 +45,7 @@
     "playwright": "1.40.1",
     "semver": "7.5.4",
     "stylelint": "16.1.0",
-    "ts-node": "10.9.2",
+    "ts-node": "11.0.0-beta.1",
     "turbo": "1.11.2",
     "typescript": "5.3.3",
     "yaml": "2.3.4"
@@ -54,7 +54,7 @@
     "dotenv-cli@7.3.0": "patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch",
     "dotenv-flow@4.1.0": "patch:dotenv-flow@npm%3A4.1.0#~/.yarn/patches/dotenv-flow-npm-4.1.0-74ebe7c968.patch",
     "jest-config@npm:29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
-    "ts-node@npm:10.9.2": "patch:ts-node@npm%3A10.9.2#~/.yarn/patches/ts-node-npm-10.9.2-3f3890b9ac.patch"
+    "ts-node@npm:11.0.0-beta.1": "patch:ts-node@npm%3A11.0.0-beta.1#~/.yarn/patches/ts-node-npm-11.0.0-beta.1-cb10a2a461.patch"
   },
   "dependenciesMeta": {
     "ts-node@10.9.2": {

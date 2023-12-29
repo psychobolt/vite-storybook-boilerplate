@@ -1,8 +1,8 @@
 diff --git a/dist/index.js b/dist/index.js
-index c03afbf9bce2a8b743e27c46d872c1a697284209..56c45bb13df25071b1c071fdc2e404fdf6761556 100644
+index a2b3c64c80067db4b49372332f6ba1180ee25d27..9d1e7048ebfaea3224ba8d424dbde2d79254a30d 100644
 --- a/dist/index.js
 +++ b/dist/index.js
-@@ -94,7 +94,7 @@ exports.DEFAULTS = {
+@@ -79,7 +79,7 @@ exports.DEFAULTS = {
  /**
   * TypeScript diagnostics error.
   */
@@ -11,7 +11,7 @@ index c03afbf9bce2a8b743e27c46d872c1a697284209..56c45bb13df25071b1c071fdc2e404fd
      constructor(diagnosticText, diagnosticCodes, diagnostics = []) {
          super(`⨯ Unable to compile TypeScript:\n${diagnosticText}`);
          this.diagnosticCodes = diagnosticCodes;
-@@ -110,12 +110,6 @@ class TSError extends make_error_1.BaseError {
+@@ -95,12 +95,6 @@ class TSError extends make_error_1.BaseError {
              value: diagnostics,
          });
      }

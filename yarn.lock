@@ -5926,6 +5926,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/node14@npm:*":
+  version: 14.1.0
+  resolution: "@tsconfig/node14@npm:14.1.0"
+  checksum: 22cc69e7fc74b1c9f281e2e4eb35c000a87d5846722067a76b2c3fa94446f30b6bfdb256bd09861bba5ebfb682e60781053a4dc9a42af74a7842b4318472d664
+  languageName: node
+  linkType: hard
+
 "@tsconfig/node14@npm:^1.0.0":
   version: 1.0.3
   resolution: "@tsconfig/node14@npm:1.0.3"
@@ -5933,10 +5940,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/node16@npm:*":
+  version: 16.1.1
+  resolution: "@tsconfig/node16@npm:16.1.1"
+  checksum: 0660087773cd67654a676280f88e77433d54c915994fe4aa47b0d535366edaf9413df69ebc54ba8e271874c59cfa046c961d6a1dea0ed1eaf104ffeb4f78de46
+  languageName: node
+  linkType: hard
+
 "@tsconfig/node16@npm:^1.0.2":
   version: 1.0.4
   resolution: "@tsconfig/node16@npm:1.0.4"
   checksum: 05f8f2734e266fb1839eb1d57290df1664fe2aa3b0fdd685a9035806daa635f7519bf6d5d9b33f6e69dd545b8c46bd6e2b5c79acb2b1f146e885f7f11a42a5bb
+  languageName: node
+  linkType: hard
+
+"@tsconfig/node18@npm:*":
+  version: 18.2.2
+  resolution: "@tsconfig/node18@npm:18.2.2"
+  checksum: 71f2c65616125f3ec8c85704ea55100d2131e0c01cbf7a247e5f6f7d617dfaafd5ff4a09b4193bceface4b4f44e9aa909da8e9af3910c01a0661f202386e40af
+  languageName: node
+  linkType: hard
+
+"@tsconfig/node20@npm:*":
+  version: 20.1.2
+  resolution: "@tsconfig/node20@npm:20.1.2"
+  checksum: e438fa9b93f0e6ea667affbbd3217692bf3f92db1b3dcbfba1dd141a7dbcd647c19ed87ce76871c723bed398759ec4a5590685f3e669b600c9371f143a19e0c1
   languageName: node
   linkType: hard
 
@@ -19385,7 +19413,42 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:10.9.2, ts-node@npm:^10.9.1":
+"ts-node@npm:11.0.0-beta.1":
+  version: 11.0.0-beta.1
+  resolution: "ts-node@npm:11.0.0-beta.1"
+  dependencies:
+    "@cspotcode/source-map-support": "npm:^0.8.0"
+    "@tsconfig/node14": "npm:*"
+    "@tsconfig/node16": "npm:*"
+    "@tsconfig/node18": "npm:*"
+    "@tsconfig/node20": "npm:*"
+    acorn: "npm:^8.4.1"
+    acorn-walk: "npm:^8.1.1"
+    arg: "npm:^4.1.0"
+    diff: "npm:^4.0.1"
+    make-error: "npm:^1.1.1"
+    v8-compile-cache-lib: "npm:^3.0.1"
+  peerDependencies:
+    "@swc/core": ">=1.3.85"
+    "@swc/wasm": ">=1.3.85"
+    "@types/node": "*"
+    typescript: ">=4.4"
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    "@swc/wasm":
+      optional: true
+  bin:
+    ts-node: dist/bin.js
+    ts-node-cwd: dist/bin-cwd.js
+    ts-node-esm: dist/bin-esm.js
+    ts-node-script: dist/bin-script.js
+    ts-node-transpile-only: dist/bin-transpile.js
+  checksum: 7c22f1503cbfd5d3f6221694b9f35f4b32f4d8595ab32d6d9f351bbeee6f4895a16ebf0a99a0743dfc652f2ca41e2821dd24ac33156728a9f554be8b4e44f06b
+  languageName: node
+  linkType: hard
+
+"ts-node@npm:^10.9.1":
   version: 10.9.2
   resolution: "ts-node@npm:10.9.2"
   dependencies:
@@ -19423,28 +19486,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@patch:ts-node@npm%3A10.9.2#~/.yarn/patches/ts-node-npm-10.9.2-3f3890b9ac.patch":
-  version: 10.9.2
-  resolution: "ts-node@patch:ts-node@npm%3A10.9.2#~/.yarn/patches/ts-node-npm-10.9.2-3f3890b9ac.patch::version=10.9.2&hash=3be7eb"
+"ts-node@patch:ts-node@npm%3A11.0.0-beta.1#~/.yarn/patches/ts-node-npm-11.0.0-beta.1-cb10a2a461.patch":
+  version: 11.0.0-beta.1
+  resolution: "ts-node@patch:ts-node@npm%3A11.0.0-beta.1#~/.yarn/patches/ts-node-npm-11.0.0-beta.1-cb10a2a461.patch::version=11.0.0-beta.1&hash=1ae0ca"
   dependencies:
     "@cspotcode/source-map-support": "npm:^0.8.0"
-    "@tsconfig/node10": "npm:^1.0.7"
-    "@tsconfig/node12": "npm:^1.0.7"
-    "@tsconfig/node14": "npm:^1.0.0"
-    "@tsconfig/node16": "npm:^1.0.2"
+    "@tsconfig/node14": "npm:*"
+    "@tsconfig/node16": "npm:*"
+    "@tsconfig/node18": "npm:*"
+    "@tsconfig/node20": "npm:*"
     acorn: "npm:^8.4.1"
     acorn-walk: "npm:^8.1.1"
     arg: "npm:^4.1.0"
-    create-require: "npm:^1.1.0"
     diff: "npm:^4.0.1"
     make-error: "npm:^1.1.1"
     v8-compile-cache-lib: "npm:^3.0.1"
-    yn: "npm:3.1.1"
   peerDependencies:
-    "@swc/core": ">=1.2.50"
-    "@swc/wasm": ">=1.2.50"
+    "@swc/core": ">=1.3.85"
+    "@swc/wasm": ">=1.3.85"
     "@types/node": "*"
-    typescript: ">=2.7"
+    typescript: ">=4.4"
   peerDependenciesMeta:
     "@swc/core":
       optional: true
@@ -19456,8 +19517,7 @@ __metadata:
     ts-node-esm: dist/bin-esm.js
     ts-node-script: dist/bin-script.js
     ts-node-transpile-only: dist/bin-transpile.js
-    ts-script: dist/bin-script-deprecated.js
-  checksum: f5fc809b3ea4faf52f5a7238fef87c5e8919edf11307c96ea636343702c1ebd31d155f86938eca6cbc8503d53d754dfb03ab64624c6cfaafabf6ae79d53f01da
+  checksum: ca66d72bd92f63ae106eb8c1d04acda8642f8ba34155b8487019dd568e3bf8973d7961aa420f8d36f8c568adb23f0b26e9ddc16afa1d740a9e16f3ecbc4b8f34
   languageName: node
   linkType: hard
 
@@ -20418,7 +20478,7 @@ __metadata:
     playwright: "npm:1.40.1"
     semver: "npm:7.5.4"
     stylelint: "npm:16.1.0"
-    ts-node: "npm:10.9.2"
+    ts-node: "npm:11.0.0-beta.1"
     turbo: "npm:1.11.2"
     typescript: "npm:5.3.3"
     yaml: "npm:2.3.4"
