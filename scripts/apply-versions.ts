@@ -101,7 +101,7 @@ for (const name in current) {
       }
       bump = `${semver.major(version)}.${semver.minor(version)}.${semver.patch(
         version,
-      )}-build.${task.hash.substring(0, 5)}`;
+      )}-build.${task.hash.substring(0, 7)}`;
       break;
     }
     case Strategy[Strategy.launch]:
