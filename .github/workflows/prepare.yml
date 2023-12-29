@@ -32,7 +32,7 @@ jobs:
           COMMITS: ${{ inputs.commits }}
           BASE_REF: ${{ github.ref_name }}
 
-  create-branch:
+  create_branch:
     needs: unmerged_commits
     if: needs.unmerged_commits.outputs.ref != ''
     runs-on: ubuntu-latest
@@ -58,30 +58,14 @@ jobs:
         run: git push -u origin ${{ env.BASE_REF }}
 
   ci:
-    needs: [unmerged_commits, create-branch]
+    needs: [unmerged_commits, create_branch]
     uses: ./.github/workflows/ci.yml
     with:
-      ref_name: ${{ needs.create-branch.outputs.ref_name }}
-    secrets: inherit
-
-  apps:
-    needs: [unmerged_commits, create-branch]
-    uses: ./.github/workflows/apps.yml
-    with:
-      ref_name: ${{ needs.create-branch.outputs.ref_name }}
-      change-from: HEAD~${{ needs.unmerged_commits.outputs.count }}
-    secrets: inherit
-
-  packages:
-    needs: [unmerged_commits, create-branch]
-    uses: ./.github/workflows/packages.yml
-    with:
-      ref_name: ${{ needs.create-branch.outputs.ref_name }}
-      change-from: HEAD~${{ needs.unmerged_commits.outputs.count }}
+      ref_name: ${{ needs.create_branch.outputs.ref_name }}
     secrets: inherit
 
   merge_branch:
-    needs: [create-branch, ci, apps, packages]
+    needs: [create_branch, ci]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -90,14 +74,14 @@ jobs:
         with:
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Fetch branch
-        run: git fetch --depth=50 origin ${{ needs.create-branch.outputs.ref_name }}:${{ needs.create-branch.outputs.ref_name }}
+        run: git fetch --depth=50 origin ${{ needs.create_branch.outputs.ref_name }}:${{ needs.create_branch.outputs.ref_name }}
       - name: Configure git user
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Merge
-        run: git merge ${{ needs.create-branch.outputs.ref_name }}
+        run: git merge ${{ needs.create_branch.outputs.ref_name }}
       - name: Push
         run: git push
       - name: Delete branch
-        run: git push -d origin ${{ needs.create-branch.outputs.ref_name }}
+        run: git push -d origin ${{ needs.create_branch.outputs.ref_name }}

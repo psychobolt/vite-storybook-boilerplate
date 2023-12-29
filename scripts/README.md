@@ -48,21 +48,27 @@ Returns a list of workspaces in the project. See options bellow.
 
 #### Name
 
-`--name/-n [regExp]` and/or `--filter [globExp]`
+`--name/-n [regExp]` and/or `--filter [globExp]`.
 
-Returns only workspaces that fullfills the match. For `filter`, you may use a negative expression e.g. `--filter "!apps/*"`
+Returns only workspaces that fullfills the match. For `filter`, you may use a negative expression e.g. `--filter "!apps/*"`.
 
 #### Linker
 
 `--node-modules`
 
-Returns only workspaces that use `node_modules` linked directories
+Returns only workspaces that use `node_modules` linked directories.
 
 #### No Private
 
 `--no-private`
 
-Returns only workspaces that are not set to `private: true`
+Returns only workspaces that are not set to `private: true`.
+
+#### Since
+
+`--since`
+
+Only include workspaces that have been changed since [changesetBaseRefs](https://yarnpkg.com/configuration/yarnrc#changesetBaseRefs).
 
 ### Formatters
 
@@ -72,14 +78,20 @@ Returns only workspaces that are not set to `private: true`
 
 #### `semver`
 
-Returns the name and semantic version mapping of each workspace
+Returns the name and semantic version mapping of each workspace.
+
+E.g.
+
+```json
+{ "[workspaceName1]": "[semVer1]", "[workspaceName2]": "[semVer2]" }
+```
 
 ## Apply Versions
 
 `apply-versions.ts` [Source](apply-versions.ts)
 
 ```sh
-yarn apply-versions [--strategy [type]]
+yarn apply-versions [--strategy [type]] [--force]
 ```
 
 Versioning util for non-private workspaces. If no strategy is specified, the default strategy used is `build`.

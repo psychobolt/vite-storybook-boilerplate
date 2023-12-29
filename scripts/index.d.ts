@@ -15,7 +15,7 @@ interface Spec {
 }
 
 interface Filter extends Spec {
-  value: string | boolean | RegExp[];
+  value?: string | boolean | RegExp[];
   matcher?: Matcher | RegExp | Tester;
 }
 
