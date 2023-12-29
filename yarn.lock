@@ -5926,13 +5926,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node14@npm:*":
-  version: 14.1.0
-  resolution: "@tsconfig/node14@npm:14.1.0"
-  checksum: 22cc69e7fc74b1c9f281e2e4eb35c000a87d5846722067a76b2c3fa94446f30b6bfdb256bd09861bba5ebfb682e60781053a4dc9a42af74a7842b4318472d664
-  languageName: node
-  linkType: hard
-
 "@tsconfig/node14@npm:^1.0.0":
   version: 1.0.3
   resolution: "@tsconfig/node14@npm:1.0.3"
@@ -5940,31 +5933,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node16@npm:*":
-  version: 16.1.1
-  resolution: "@tsconfig/node16@npm:16.1.1"
-  checksum: 0660087773cd67654a676280f88e77433d54c915994fe4aa47b0d535366edaf9413df69ebc54ba8e271874c59cfa046c961d6a1dea0ed1eaf104ffeb4f78de46
-  languageName: node
-  linkType: hard
-
 "@tsconfig/node16@npm:^1.0.2":
   version: 1.0.4
   resolution: "@tsconfig/node16@npm:1.0.4"
   checksum: 05f8f2734e266fb1839eb1d57290df1664fe2aa3b0fdd685a9035806daa635f7519bf6d5d9b33f6e69dd545b8c46bd6e2b5c79acb2b1f146e885f7f11a42a5bb
-  languageName: node
-  linkType: hard
-
-"@tsconfig/node18@npm:*":
-  version: 18.2.2
-  resolution: "@tsconfig/node18@npm:18.2.2"
-  checksum: 71f2c65616125f3ec8c85704ea55100d2131e0c01cbf7a247e5f6f7d617dfaafd5ff4a09b4193bceface4b4f44e9aa909da8e9af3910c01a0661f202386e40af
-  languageName: node
-  linkType: hard
-
-"@tsconfig/node20@npm:*":
-  version: 20.1.2
-  resolution: "@tsconfig/node20@npm:20.1.2"
-  checksum: e438fa9b93f0e6ea667affbbd3217692bf3f92db1b3dcbfba1dd141a7dbcd647c19ed87ce76871c723bed398759ec4a5590685f3e669b600c9371f143a19e0c1
   languageName: node
   linkType: hard
 
@@ -9617,6 +9589,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv-flow@patch:dotenv-flow@npm%3A4.1.0#~/.yarn/patches/dotenv-flow-npm-4.1.0-74ebe7c968.patch":
+  version: 4.1.0
+  resolution: "dotenv-flow@patch:dotenv-flow@npm%3A4.1.0#~/.yarn/patches/dotenv-flow-npm-4.1.0-74ebe7c968.patch::version=4.1.0&hash=9c8d26"
+  dependencies:
+    dotenv: "npm:^16.0.0"
+  checksum: fd1660cf8595b1f3fd70e530c8b761c222596b961d7f42d60c0b5b642e73de4774586fd6fe8d41a6c2985ea6c48c0bfa2e7dabd99967e8cd34e5556bb61aee00
+  languageName: node
+  linkType: hard
+
 "dotenv-vault@npm:1.25.0":
   version: 1.25.0
   resolution: "dotenv-vault@npm:1.25.0"
@@ -13259,7 +13240,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-config@npm:29.7.0":
+"jest-config@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-config@npm:29.7.0"
   dependencies:
@@ -13294,44 +13275,6 @@ __metadata:
     ts-node:
       optional: true
   checksum: bab23c2eda1fff06e0d104b00d6adfb1d1aabb7128441899c9bff2247bd26710b050a5364281ce8d52b46b499153bf7e3ee88b19831a8f3451f1477a0246a0f1
-  languageName: node
-  linkType: hard
-
-"jest-config@patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch":
-  version: 29.7.0
-  resolution: "jest-config@patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch::version=29.7.0&hash=c49efc"
-  dependencies:
-    "@babel/core": "npm:^7.11.6"
-    "@jest/test-sequencer": "npm:^29.7.0"
-    "@jest/types": "npm:^29.6.3"
-    babel-jest: "npm:^29.7.0"
-    chalk: "npm:^4.0.0"
-    ci-info: "npm:^3.2.0"
-    deepmerge: "npm:^4.2.2"
-    glob: "npm:^7.1.3"
-    graceful-fs: "npm:^4.2.9"
-    jest-circus: "npm:^29.7.0"
-    jest-environment-node: "npm:^29.7.0"
-    jest-get-type: "npm:^29.6.3"
-    jest-regex-util: "npm:^29.6.3"
-    jest-resolve: "npm:^29.7.0"
-    jest-runner: "npm:^29.7.0"
-    jest-util: "npm:^29.7.0"
-    jest-validate: "npm:^29.7.0"
-    micromatch: "npm:^4.0.4"
-    parse-json: "npm:^5.2.0"
-    pretty-format: "npm:^29.7.0"
-    slash: "npm:^3.0.0"
-    strip-json-comments: "npm:^3.1.1"
-  peerDependencies:
-    "@types/node": "*"
-    ts-node: ">=9.0.0"
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    ts-node:
-      optional: true
-  checksum: cc41d29ac848fa9095569288f74dd38ec174ac78e36c99a3bfb4d3370f41a2d24835f37978b8a13690696344a24eef21ad22cd09c43df01a43e7c97c796f920e
   languageName: node
   linkType: hard
 
@@ -19442,44 +19385,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:11.0.0-beta.1":
-  version: 11.0.0-beta.1
-  resolution: "ts-node@npm:11.0.0-beta.1"
-  dependencies:
-    "@cspotcode/source-map-support": "npm:^0.8.0"
-    "@tsconfig/node14": "npm:*"
-    "@tsconfig/node16": "npm:*"
-    "@tsconfig/node18": "npm:*"
-    "@tsconfig/node20": "npm:*"
-    acorn: "npm:^8.4.1"
-    acorn-walk: "npm:^8.1.1"
-    arg: "npm:^4.1.0"
-    diff: "npm:^4.0.1"
-    make-error: "npm:^1.1.1"
-    v8-compile-cache-lib: "npm:^3.0.1"
-  peerDependencies:
-    "@swc/core": ">=1.3.85"
-    "@swc/wasm": ">=1.3.85"
-    "@types/node": "*"
-    typescript: ">=4.4"
-  peerDependenciesMeta:
-    "@swc/core":
-      optional: true
-    "@swc/wasm":
-      optional: true
-  bin:
-    ts-node: dist/bin.js
-    ts-node-cwd: dist/bin-cwd.js
-    ts-node-esm: dist/bin-esm.js
-    ts-node-script: dist/bin-script.js
-    ts-node-transpile-only: dist/bin-transpile.js
-  checksum: 7c22f1503cbfd5d3f6221694b9f35f4b32f4d8595ab32d6d9f351bbeee6f4895a16ebf0a99a0743dfc652f2ca41e2821dd24ac33156728a9f554be8b4e44f06b
-  languageName: node
-  linkType: hard
-
-"ts-node@npm:^10.9.1":
-  version: 10.9.1
-  resolution: "ts-node@npm:10.9.1"
+"ts-node@npm:10.9.2, ts-node@npm:^10.9.1":
+  version: 10.9.2
+  resolution: "ts-node@npm:10.9.2"
   dependencies:
     "@cspotcode/source-map-support": "npm:^0.8.0"
     "@tsconfig/node10": "npm:^1.0.7"
@@ -19511,7 +19419,45 @@ __metadata:
     ts-node-script: dist/bin-script.js
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
-  checksum: 95187932fb83f3901e22546bd2feeac7d2feb4f412f42ac3a595f049a23e8dcf70516dffb51866391228ea2dbcfaea039e250fb2bb334d48a86ab2b6aea0ae2d
+  checksum: 5f29938489f96982a25ba650b64218e83a3357d76f7bede80195c65ab44ad279c8357264639b7abdd5d7e75fc269a83daa0e9c62fd8637a3def67254ecc9ddc2
+  languageName: node
+  linkType: hard
+
+"ts-node@patch:ts-node@npm%3A10.9.2#~/.yarn/patches/ts-node-npm-10.9.2-3f3890b9ac.patch":
+  version: 10.9.2
+  resolution: "ts-node@patch:ts-node@npm%3A10.9.2#~/.yarn/patches/ts-node-npm-10.9.2-3f3890b9ac.patch::version=10.9.2&hash=3be7eb"
+  dependencies:
+    "@cspotcode/source-map-support": "npm:^0.8.0"
+    "@tsconfig/node10": "npm:^1.0.7"
+    "@tsconfig/node12": "npm:^1.0.7"
+    "@tsconfig/node14": "npm:^1.0.0"
+    "@tsconfig/node16": "npm:^1.0.2"
+    acorn: "npm:^8.4.1"
+    acorn-walk: "npm:^8.1.1"
+    arg: "npm:^4.1.0"
+    create-require: "npm:^1.1.0"
+    diff: "npm:^4.0.1"
+    make-error: "npm:^1.1.1"
+    v8-compile-cache-lib: "npm:^3.0.1"
+    yn: "npm:3.1.1"
+  peerDependencies:
+    "@swc/core": ">=1.2.50"
+    "@swc/wasm": ">=1.2.50"
+    "@types/node": "*"
+    typescript: ">=2.7"
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    "@swc/wasm":
+      optional: true
+  bin:
+    ts-node: dist/bin.js
+    ts-node-cwd: dist/bin-cwd.js
+    ts-node-esm: dist/bin-esm.js
+    ts-node-script: dist/bin-script.js
+    ts-node-transpile-only: dist/bin-transpile.js
+    ts-script: dist/bin-script-deprecated.js
+  checksum: f5fc809b3ea4faf52f5a7238fef87c5e8919edf11307c96ea636343702c1ebd31d155f86938eca6cbc8503d53d754dfb03ab64624c6cfaafabf6ae79d53f01da
   languageName: node
   linkType: hard
 
@@ -20472,12 +20418,12 @@ __metadata:
     playwright: "npm:1.40.1"
     semver: "npm:7.5.4"
     stylelint: "npm:16.1.0"
-    ts-node: "npm:11.0.0-beta.1"
+    ts-node: "npm:10.9.2"
     turbo: "npm:1.11.2"
     typescript: "npm:5.3.3"
     yaml: "npm:2.3.4"
   dependenciesMeta:
-    ts-node@11.0.0-beta.1:
+    ts-node@10.9.2:
       unplugged: true
   languageName: unknown
   linkType: soft

@@ -12,9 +12,11 @@ enum Strategy {
 
 const args = arg({
   "--strategy": String,
+  "--force": Boolean,
 });
 
 const type = args["--strategy"] ?? Strategy[Strategy.build];
+const force = args["--force"] === true;
 
 async function* getTagAnnotation() {
   await $`git fetch --tags --force`;
@@ -48,6 +50,7 @@ for await (const annotation of getTagAnnotation()) {
 const current: SemVer = await getWorkspaces({
   format: ["semver"],
   noPrivate: true,
+  since: !force && type !== Strategy[Strategy.launch],
 });
 const prev = { ...current };
 
@@ -67,18 +70,40 @@ switch (type) {
   }
 }
 
+interface TaskInfo {
+  task: string;
+  package: string;
+  hash: string;
+}
+
+interface BuildInfo {
+  tasks: TaskInfo[];
+}
+
 for (const name in current) {
   const highest = latest[name];
   const oldVersion = prev[name];
   const version = current[name];
   let bump = null;
 
-  if (version === oldVersion) continue;
+  if (!force && version === oldVersion) continue;
 
   switch (type) {
-    case Strategy[Strategy.build]:
-      bump = semver.inc(version, "prerelease", "dev", "1");
+    case Strategy[Strategy.build]: {
+      const { stdout } =
+        $.sync`yarn workspace ${name} turbo run build --dry-run=json`;
+      const { tasks = [] }: BuildInfo = JSON.parse(stdout);
+      const task = tasks.find(({ package: pkg }) => pkg === name);
+      if (typeof task === "undefined") {
+        throw Error(
+          `Build task was not found for workspace "${name}". Did you configure it in turbo config?`,
+        );
+      }
+      bump = `${semver.major(version)}.${semver.minor(version)}.${semver.patch(
+        version,
+      )}-build.${task.hash.substring(0, 5)}`;
       break;
+    }
     case Strategy[Strategy.launch]:
       if (semver.lt(version, "1.0.0")) {
         bump = "major";

@@ -50,7 +50,11 @@ const filters: Filters = {
   "--no-private": {
     key: "noPrivate",
     type: Boolean,
-    value: "",
+  },
+  "--since": {
+    key: "since",
+    type: Boolean,
+    value: false,
   },
 };
 
@@ -91,7 +95,7 @@ const formatters: Formatters = {
 const specEntries = Object.entries({ ...filters, ...formatters });
 
 async function getWorkspaces<T>(options?: Options) {
-  const { _, ...args } = arg<Args>(
+  const { _ = [], ...args } = arg<Args>(
     specEntries.reduce(
       (config, [key, { alias, type }]) => ({
         [key]: type,
@@ -132,7 +136,17 @@ async function getWorkspaces<T>(options?: Options) {
     }
   });
 
+  _.forEach((argKey) => {
+    const filter: Filter = filters[argKey];
+    const index = _.indexOf(argKey);
+    const value = _[index + 1];
+    if (typeof filter !== "undefined" && value && !value.startsWith("--")) {
+      filter.value = value;
+    }
+  });
+
   const noPrivate = filters["--no-private"].value;
+  const since = filters["--since"].value;
 
   const passthrough = (
     workspace: Workspace,
@@ -181,6 +195,9 @@ async function getWorkspaces<T>(options?: Options) {
   const listArgs = ["--json"];
   if (noPrivate === true) {
     listArgs.push("--no-private");
+  }
+  if (since === true) {
+    listArgs.push("--since");
   }
   const { stdout } = await execa("yarn", ["workspaces", "list", ...listArgs]);
 
