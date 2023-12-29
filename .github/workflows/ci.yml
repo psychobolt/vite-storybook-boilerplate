@@ -1,5 +1,3 @@
-name: CI
-
 on:
   push:
   workflow_call:
@@ -41,16 +39,43 @@ jobs:
       - name: Lint
         run: yarn turbo run //#lint
 
+  diff:
+    name: List Updated Packages
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    outputs:
+      package_names: ${{ steps.changes.outputs.package_names }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 25
+          ref: ${{ inputs.ref_name || github.ref }}
+      - name: Collect Turborepo Changes
+        id: changes
+        uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0
+        with:
+          from: HEAD~1
+
   apps:
+    needs: diff
     uses: ./.github/workflows/apps.yml
     secrets: inherit
+    with:
+      ref_name: ${{ inputs.ref_name }}
+      package_names: ${{ needs.diff.outputs.package_names }}
 
   packages:
+    needs: diff
     uses: ./.github/workflows/packages.yml
     secrets: inherit
+    with:
+      ref_name: ${{ inputs.ref_name }}
+      package_names: ${{ needs.diff.outputs.package_names }}
 
   release:
     needs: [apps, packages]
+    if: needs.apps.outputs.release == 'true' || needs.packages.outputs.release == 'true'
     timeout-minutes: 15
     runs-on: ubuntu-latest
     environment: ${{ inputs.ref_name || github.ref_name }}

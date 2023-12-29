@@ -5,31 +5,23 @@ on:
     inputs:
       ref_name:
         type: string
-      change-from:
+      package_names:
         type: string
-  workflow_dispatch:
-    inputs:
-      change-from:
-        type: string
+        required: true
+    outputs:
+      release:
+        value: "true"
 
 jobs:
-  diff:
-    uses: ./.github/workflows/diff.yml
-    with:
-      ref_name: ${{ inputs.ref_name }}
-      change-from: ${{ inputs.change-from }}
-
   commons:
-    needs: diff
     uses: ./.github/workflows/test-commons.yml
     with:
       ref_name: ${{ inputs.ref_name }}
-    if: contains(fromJSON(needs.diff.outputs.package_names), 'commons')
+    if: contains(fromJSON(inputs.package_names), 'commons')
 
   html-ui:
-    needs: diff
     uses: ./.github/workflows/deploy-package.yml
-    if: contains(fromJSON(needs.diff.outputs.package_names), 'html-ui')
+    if: contains(fromJSON(inputs.package_names), 'html-ui')
     with:
       ref_name: ${{ inputs.ref_name }}
       workspace: html-ui
@@ -37,8 +29,7 @@ jobs:
     secrets: inherit
 
   react-ui:
-    needs: diff
-    if: contains(fromJSON(needs.diff.outputs.package_names), 'react-ui')
+    if: contains(fromJSON(inputs.package_names), 'react-ui')
     uses: ./.github/workflows/deploy-package.yml
     with:
       ref_name: ${{ inputs.ref_name }}

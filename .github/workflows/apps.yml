@@ -5,20 +5,14 @@ on:
     inputs:
       ref_name:
         type: string
-      change-from:
+      package_names:
         type: string
-  workflow_dispatch:
-    inputs:
-      change-from:
-        type: string
+        required: true
+    outputs:
+      release:
+        value: "false"
 
 jobs:
-  diff:
-    uses: ./.github/workflows/diff.yml
-    with:
-      ref_name: ${{ inputs.ref_name }}
-      change-from: ${{ inputs.change-from }}
-
   install:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -52,8 +46,8 @@ jobs:
           inputs: '{ "ref": "${{ github.ref }}" }'
 
   next-app:
-    needs: [diff, install]
-    if: contains(fromJSON(needs.diff.outputs.package_names), 'next-app')
+    needs: install
+    if: contains(fromJSON(inputs.package_names), 'next-app')
     uses: ./.github/workflows/test-app.yml
     with:
       ref_name: ${{ inputs.ref_name }}
@@ -62,8 +56,8 @@ jobs:
     secrets: inherit
 
   svelte-app:
-    needs: [diff, install]
-    if: contains(fromJSON(needs.diff.outputs.package_names), 'svelte-app')
+    needs: install
+    if: contains(fromJSON(inputs.package_names), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
     with:
       ref_name: ${{ inputs.ref_name }}
