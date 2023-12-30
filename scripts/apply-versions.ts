@@ -28,6 +28,7 @@ async function* getTagAnnotation() {
   }
 }
 
+const buildTag = "build";
 const latest: SemVer = {};
 
 for await (const annotation of getTagAnnotation()) {
@@ -39,9 +40,10 @@ for await (const annotation of getTagAnnotation()) {
   }
 
   for (const pkg in versions) {
-    const version = latest[pkg];
     const target = versions[pkg];
-    if (!version || semver.gt(target, version)) {
+    if (target && target.includes(`-${buildTag}.`)) continue;
+    const highest = latest[pkg];
+    if (!highest || semver.gt(target, highest)) {
       latest[pkg] = target;
     }
   }
@@ -99,7 +101,7 @@ for (const name in current) {
       }
       bump = `${semver.major(version)}.${semver.minor(version)}.${semver.patch(
         version,
-      )}-build.${task.hash.substring(0, 7)}`;
+      )}-${buildTag}.${task.hash.substring(0, 7)}`;
       break;
     }
     case Strategy[Strategy.launch]:
@@ -110,11 +112,11 @@ for (const name in current) {
       }
       break;
     case Strategy[Strategy.stable]: {
-      if (typeof highest === "undefined")
+      if (!highest)
         throw Error(
           "Latest version not found. Did you create a launch version?",
         );
-      if (oldVersion === highest || semver.lt(version, highest)) break;
+      if (oldVersion === highest || semver.lte(version, highest)) break;
       const prerelease = semver.prerelease(oldVersion);
       let release;
       if (prerelease != null) {
