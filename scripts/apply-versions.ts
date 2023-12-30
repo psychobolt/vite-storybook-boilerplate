@@ -47,26 +47,24 @@ for await (const annotation of getTagAnnotation()) {
   }
 }
 
-const current: SemVer = await getWorkspaces({
-  format: ["semver"],
-  noPrivate: true,
-  since: !force && type !== Strategy[Strategy.launch],
-});
+const getVersions = async (since: boolean): Promise<SemVer> =>
+  await getWorkspaces({
+    format: ["semver"],
+    noPrivate: true,
+    since,
+  });
+
+let current = await getVersions(!force && type !== Strategy[Strategy.launch]);
 const prev = { ...current };
 
-switch (type) {
-  case Strategy[Strategy.launch]:
-  case Strategy[Strategy.stable]: {
-    const { stdout } = $.sync`yarn version apply --all --json`;
-    if (stdout === "") process.exit();
-    for (const line of stdout.split("\n")) {
-      try {
-        const { ident, newVersion }: SemVer = JSON.parse(line);
-        current[ident] = newVersion;
-      } catch (e) {
-        continue;
-      }
-    }
+const { stdout } = await $`yarn version apply --all --json`;
+if (stdout === "") process.exit();
+for (const line of stdout.split("\n")) {
+  try {
+    const { ident, newVersion }: SemVer = JSON.parse(line);
+    current[ident] = newVersion;
+  } catch (e) {
+    continue;
   }
 }
 
@@ -140,3 +138,6 @@ for (const name in current) {
       $.sync`yarn workspace ${name} version ${bump}`;
   }
 }
+
+current = await getVersions(false);
+console.log(current);
