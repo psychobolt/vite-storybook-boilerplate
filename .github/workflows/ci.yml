@@ -112,7 +112,7 @@ jobs:
         uses: ./.github/actions/release
         with:
           strategy: build
-          tag: ${{ vars.RELEASE_TAG || '' }}
+          tag: ${{ vars.RELEASE_TAG }}
           dry_run_publish: true
       - name: Push
         if: startsWith(env.REF_NAME, 'release-')

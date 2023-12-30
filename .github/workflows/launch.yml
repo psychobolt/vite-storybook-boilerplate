@@ -52,7 +52,7 @@ jobs:
         uses: ./.github/actions/release
         with:
           strategy: launch
-          tag: ${{ vars.RELEASE_TAG || '' }}
+          tag: ${{ vars.RELEASE_TAG }}
           dry_run_publish: true
       - name: Configure git user
         if: ${{ steps.base_ref.outputs.name != '' }}
