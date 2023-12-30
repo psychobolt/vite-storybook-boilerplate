@@ -111,7 +111,7 @@ jobs:
       - name: ${{ startsWith(env.REF_NAME, 'release-') && 'Stable' || 'Dark' }} Release
         uses: ./.github/actions/release
         with:
-          strategy: build
+          strategy: ${{ startsWith(env.REF_NAME, 'release-') && 'stable' || 'build' }}
           tag: ${{ vars.RELEASE_TAG }}
           dry_run_publish: true
       - name: Push

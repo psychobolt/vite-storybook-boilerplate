@@ -3,8 +3,8 @@ description: Create a release commit and publish
 
 inputs:
   strategy:
+    default: build
     description: The version strategy to run
-    required: true
   tag:
     default: ""
     description: The distribute tag
