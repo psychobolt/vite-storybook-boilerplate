@@ -112,11 +112,8 @@ for (const name in current) {
       }
       break;
     case Strategy[Strategy.stable]: {
-      if (!highest)
-        throw Error(
-          "Latest version not found. Did you create a launch version?",
-        );
-      if (oldVersion === highest || semver.lte(version, highest)) break;
+      if (!highest || oldVersion === highest || semver.lte(version, highest))
+        break;
       const prerelease = semver.prerelease(oldVersion);
       let release;
       if (prerelease != null) {
