@@ -1,8 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["RUNNER_OS"],
-  "globalDependencies": ["**/yarn.lock", ".yarn/versions/*.yml"],
+  "globalDependencies": ["**/yarn.lock"],
   "pipeline": {
+    "//#globals": {
+      "inputs": [".yarn/versions/**"]
+    },
     "//#bootstrap": {
       "cache": false
     },
@@ -21,7 +24,7 @@
       "dependsOn": ["^build"]
     },
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["//#globals", "^build"]
     },
     "build-storybook": {
       "outputs": ["storybook-static/**"],

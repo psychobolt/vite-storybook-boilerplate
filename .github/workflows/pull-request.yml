@@ -60,7 +60,7 @@ jobs:
       - name: Fetch ${{ github.base_ref }}
         run: git fetch --depth=1 origin ${{ github.base_ref }}
       - name: Add version strategy
-        run: yarn workspaces foreach -A --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
+        run: yarn workspaces foreach --since --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
       - name: Configure git user
         run: |
           git config user.name github-actions[bot]

@@ -51,7 +51,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
-          fetch-depth: 25
+          fetch-depth: 2
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Collect Turborepo Changes
         id: changes
@@ -80,7 +80,7 @@ jobs:
     if: needs.apps.outputs.release == 'true' || needs.packages.outputs.release == 'true'
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    environment: ${{ inputs.ref_name || github.ref_name }}
+    environment: ${{ contains(fromJson('["main", "develop"]'), inputs.ref_name || github.ref_name) || startsWith('release-', inputs.ref_name || github.ref_name) && (inputs.ref_name || github.ref_name) || null }}
     env:
       REF_NAME: ${{ inputs.ref_name || github.ref_name }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
