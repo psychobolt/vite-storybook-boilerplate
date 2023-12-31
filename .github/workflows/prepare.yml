@@ -17,6 +17,8 @@ jobs:
       short: ${{ steps.unmerged.outputs.commits }}
       count: ${{ steps.unmerged.outputs.count }}
     steps:
+      - name: Configure git
+        run: git config core.symlinks true
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
@@ -42,14 +44,15 @@ jobs:
     env:
       BASE_REF: cherry-pick-${{ needs.unmerged_commits.outputs.short }}
     steps:
+      - name: Configure git
+        run: |
+          git config core.symlinks true
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Fetch commits
         run: git fetch --depth=2 origin ${{ needs.unmerged_commits.outputs.ref }}
-      - name: Configure git user
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Cherry pick
         run: git cherry-pick -x ${{ needs.unmerged_commits.outputs.ref }}
       - name: Branch
@@ -69,16 +72,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Configure git
+        run: |
+          git config core.symlinks true
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Fetch branch
         run: git fetch --depth=50 origin ${{ needs.create_branch.outputs.ref_name }}:${{ needs.create_branch.outputs.ref_name }}
-      - name: Configure git user
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Merge
         run: git merge ${{ needs.create_branch.outputs.ref_name }}
       - name: Push

@@ -30,14 +30,15 @@ jobs:
             Host bitbucket.org
             User ${{ secrets.BITBUCKET_USER }}
             IdentityFile ~/.ssh/bitbucket
+      - name: Configure git
+        run: |
+          git config core.symlinks true
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 0
-      - name: Configure git user
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Checkout bitbucket branch
         run: git checkout -b bitbucket origin/bitbucket
       - name: Merge with main branch
