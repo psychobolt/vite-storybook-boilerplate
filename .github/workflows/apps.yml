@@ -22,8 +22,6 @@ jobs:
       TURBO_REMOTE_ONLY: true
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
-      - name: Configure git
-        run: git config --global core.symlinks true
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
