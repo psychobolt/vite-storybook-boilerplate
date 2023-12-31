@@ -56,7 +56,7 @@ jobs:
       - name: Copy version files
         run: |
           mkdir -p packages/commons/.yarn/versions
-          cp -r .yarn/versions packages/commons/.yarn/versions
+          cp -r .yarn/versions packages/commons/.yarn/versions || true
       - name: Collect Turborepo Changes
         id: changes
         uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0
