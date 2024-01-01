@@ -22,15 +22,15 @@ jobs:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
-      - name: Configure git
-        run: |
-          git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-          git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 10
           token: ${{ secrets.RENOVATE_GH_TOKEN }}
+      - name: Configure git
+        run: |
+          git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+          git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
       - name: Setup Node.js environment
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
         with:
