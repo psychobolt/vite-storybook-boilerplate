@@ -27,6 +27,10 @@ jobs:
       TURBO_REMOTE_ONLY: true
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
+      - name: Configure git
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
@@ -54,12 +58,9 @@ jobs:
           strategy: launch
           tag: ${{ vars.RELEASE_TAG }}
           dry_run_publish: true
-      - name: Configure git user
+      - name: Push
         if: ${{ steps.base_ref.outputs.name != '' }}
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git push
+        run: git push
       - name: "Create ${{ inputs.ref_name }}"
         run: |
           git checkout -b ${{ inputs.ref_name }}

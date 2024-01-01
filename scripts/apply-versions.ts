@@ -112,7 +112,11 @@ for (const name in current) {
       }
       break;
     case Strategy[Strategy.stable]: {
-      if (!highest || oldVersion === highest || semver.lte(version, highest))
+      if (
+        !highest ||
+        oldVersion === highest ||
+        !(semver.lt(oldVersion, highest) && semver.lte(version, highest))
+      )
         break;
       const prerelease = semver.prerelease(oldVersion);
       let release;

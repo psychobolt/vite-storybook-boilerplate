@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["RUNNER_OS"],
-  "globalDependencies": ["**/yarn.lock", ".yarn/versions/*.yml"],
+  "globalDependencies": ["**/yarn.lock"],
   "pipeline": {
     "//#bootstrap": {
       "cache": false

@@ -22,6 +22,10 @@ jobs:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
+      - name: Configure git
+        run: |
+          git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+          git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
@@ -39,8 +43,6 @@ jobs:
           yarn bootstrap
       - name: Update previous commit
         run: |
-          git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-          git config user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
           git add .
           git commit -C HEAD --amend
           git push --force

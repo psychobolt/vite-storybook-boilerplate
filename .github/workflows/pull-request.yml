@@ -39,6 +39,10 @@ jobs:
       TURBO_REMOTE_ONLY: true
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
+      - name: Configure git
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
@@ -60,11 +64,7 @@ jobs:
       - name: Fetch ${{ github.base_ref }}
         run: git fetch --depth=1 origin ${{ github.base_ref }}
       - name: Add version strategy
-        run: yarn workspaces foreach -A --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
-      - name: Configure git user
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        run: yarn workspaces foreach --since --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
       - name: Push
         run: |
           git add .

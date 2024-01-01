@@ -51,8 +51,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
-          fetch-depth: 25
+          fetch-depth: 2
           ref: ${{ inputs.ref_name || github.ref }}
+      - name: Copy version files
+        run: |
+          mkdir -p packages/commons/.yarn/versions
+          cp -r .yarn/versions packages/commons/.yarn/versions || true
       - name: Collect Turborepo Changes
         id: changes
         uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0
@@ -80,7 +84,7 @@ jobs:
     if: needs.apps.outputs.release == 'true' || needs.packages.outputs.release == 'true'
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    environment: ${{ inputs.ref_name || github.ref_name }}
+    environment: ${{ (contains(fromJson('["main", "develop"]'), inputs.ref_name || github.ref_name) || startsWith(inputs.ref_name || github.ref_name, 'release-')) && (inputs.ref_name || github.ref_name) || null }}
     env:
       REF_NAME: ${{ inputs.ref_name || github.ref_name }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -88,6 +92,10 @@ jobs:
       TURBO_REMOTE_ONLY: true
       YARN_ENABLE_GLOBAL_CACHE: false
     steps:
+      - name: Configure git
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
