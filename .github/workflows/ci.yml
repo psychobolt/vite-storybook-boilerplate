@@ -128,6 +128,7 @@ jobs:
 
   finish:
     needs: [build, diff, apps, packages, release]
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: "Check status of all required jobs"
