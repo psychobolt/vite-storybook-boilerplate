@@ -35,6 +35,9 @@ runs:
         git tag ${{ inputs.tag }} -a -m '${{ steps.versions.outputs.semver }}'
         git push origin ${{ inputs.tag }}
       shell: bash
+    - name: Build
+      run: yarn build
+      shell: bash
     - name: Publish
       if: steps.versions.outputs.semver != '{}'
       run: >-
