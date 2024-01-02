@@ -23,8 +23,6 @@ type Filters = Record<string, Filter>;
 
 type Options = Record<string, any>;
 
-type SemVer = Record<string, string>;
-
 interface Workspace {
   name: string;
   location: string;
