@@ -103,7 +103,6 @@ interface BuildInfo {
 }
 
 const hashIds: Record<string, string> = {};
-let options;
 switch (type) {
   case Strategy[Strategy.minor]:
   // falls through
@@ -186,8 +185,7 @@ switch (type) {
           $.sync`yarn workspace ${name} version ${bump}`;
       }
     }
-    options = { since: false };
 }
 
-current = await getVersions(options);
+current = await getVersions();
 console.log(JSON.stringify(current));
