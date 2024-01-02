@@ -29,11 +29,12 @@ jobs:
         run: yarn version check
 
   generate-version:
-    if: failure()
+    if: failure() && startsWith(github.head_ref, 'issue/') || startsWith(github.head_ref, 'feature/')
     needs: check-version
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
+      APPLY_STRATEGY: ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
@@ -49,6 +50,8 @@ jobs:
           fetch-depth: 2
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
+      - name: Fetch ${{ github.base_ref }}
+        run: git fetch --depth=1 origin ${{ github.base_ref }}
       - name: Setup Node.js environment
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
         with:
@@ -61,10 +64,17 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
-      - name: Fetch ${{ github.base_ref }}
-        run: git fetch --depth=1 origin ${{ github.base_ref }}
-      - name: Add version strategy
-        run: yarn workspaces foreach --since --no-private version ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }} --deferred
+      - name: Remove existing version strategies
+        run: rm -rf .yarn/versions || true
+      - name: Immediately bump versions
+        id: versions
+        run: echo "semver='$(yarn apply-versions --strategy ${{ env.APPLY_STRATEGY }})'" >> $GITHUB_OUTPUT
+      - name: Remove all changes
+        run: git stash
+      - name: Add version strategy to changed workspaces
+        run: yarn workspaces foreach -A --no-private exec 'test $(echo $SEMVER | jq .\"$npm_package_name\") = null || yarn version ${{ env.APPLY_STRATEGY }} --deferred'
+        env:
+          SEMVER: ${{ steps.versions.outputs.semver }}
       - name: Push
         run: |
           git add .
