@@ -37,7 +37,7 @@ runs:
       shell: bash
     - name: Build
       run: yarn build
-      shell: publish
+      shell: bash
     - name: Publish
       if: steps.versions.outputs.semver != '{}'
       run: >-
