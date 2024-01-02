@@ -54,6 +54,8 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
+      - name: Lint
+        run: yarn turbo run //#lint
       - name: Amend Merge
         run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
       - name: Update bitbucket branch
