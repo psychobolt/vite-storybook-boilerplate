@@ -68,7 +68,7 @@ jobs:
         run: rm -rf .yarn/versions || true
       - name: Immediately bump versions
         id: versions
-        run: echo "semver='$(yarn apply-versions --strategy ${{ env.APPLY_STRATEGY }})'" >> $GITHUB_OUTPUT
+        run: echo "semver=$(yarn apply-versions --strategy ${{ env.APPLY_STRATEGY }})" >> $GITHUB_OUTPUT
       - name: Remove all changes
         run: git stash
       - name: Add version strategy to changed workspaces
