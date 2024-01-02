@@ -15,11 +15,13 @@ interface Spec {
 }
 
 interface Filter extends Spec {
-  value?: string | boolean | RegExp[];
+  value?: string | boolean | string[];
   matcher?: Matcher | RegExp | Tester;
 }
 
 type Filters = Record<string, Filter>;
+
+type Options = Record<string, any>;
 
 type SemVer = Record<string, string>;
 

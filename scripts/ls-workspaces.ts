@@ -6,8 +6,6 @@ import arg from "arg";
 import globToRegExp from "glob-to-regexp";
 import YAML from "yaml";
 
-type Options = Record<string, any>;
-
 const invalidFilterExpression = /^[.*]$/g;
 
 const filters: Filters = {
@@ -125,7 +123,11 @@ async function getWorkspaces<T>(options?: Options) {
   Object.entries(args).forEach(([key, value]) => {
     const filter: Filter = filters[key];
     if (typeof filter !== "undefined") {
-      filter.value = value;
+      if (filter.value instanceof Array) {
+        filter.value.push(value as string);
+      } else {
+        filter.value = value;
+      }
       if (filter.matcher) {
         filter.matcher = (filter.matcher as Matcher)(value);
       }
@@ -175,13 +177,21 @@ async function getWorkspaces<T>(options?: Options) {
       return isPnp;
     }
 
-    return (filter.value ?? false) !== true ||
+    if (
+      filter.value === "" ||
+      typeof filter.value === "undefined" ||
       (filter.value instanceof Array && filter.value.length === 0)
-      ? true
-      : filter.matcher &&
-          propName &&
-          ((filter.matcher as RegExp).test(workspace[propName]) ||
-            filter.value === workspace[propName]);
+    ) {
+      return true;
+    }
+
+    if (typeof propName === "undefined") return false;
+
+    if (typeof filter.matcher !== "undefined") {
+      return (filter.matcher as Tester).test(workspace[propName]);
+    }
+
+    return filter.value === workspace[propName];
   };
 
   const format = (workspaces: Workspace[]) => {
