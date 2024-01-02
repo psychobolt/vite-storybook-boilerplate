@@ -15,11 +15,14 @@ runs:
   using: "composite"
   steps:
     - name: Apply versions
-      run: yarn apply-versions --strategy ${{ inputs.strategy }}
-      shell: bash
-    - name: Get versions
       id: versions
-      run: echo "semver=$(yarn ls-workspaces --format=semver --no-private)" >> $GITHUB_OUTPUT
+      run: echo "semver=$(yarn apply-versions --strategy ${{ inputs.strategy }})" >> $GITHUB_OUTPUT
+      shell: bash
+    - name: Build
+      if: steps.versions.outputs.semver != '{}'
+      run: |
+        echo ${{ steps.versions.outputs.semver }}
+        yarn build
       shell: bash
     - name: Prepare commit
       if: ${{ inputs.strategy != '' && inputs.strategy != 'build' }}
@@ -34,9 +37,6 @@ runs:
         git push origin --delete ${{ inputs.tag }} || true
         git tag ${{ inputs.tag }} -a -m '${{ steps.versions.outputs.semver }}'
         git push origin ${{ inputs.tag }}
-      shell: bash
-    - name: Build
-      run: yarn build
       shell: bash
     - name: Publish
       if: steps.versions.outputs.semver != '{}'
