@@ -119,7 +119,7 @@ switch (type) {
         hashIds[name] = hash;
       }
     }
-    break;
+    // fall through
   }
   default:
     for (const name in current) {
