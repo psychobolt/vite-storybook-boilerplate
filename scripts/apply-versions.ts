@@ -38,6 +38,8 @@ async function* getTagAnnotation() {
   }
 }
 
+type SemVer = Record<string, undefined | string>;
+
 const buildTag = "build";
 const latest: SemVer = {};
 
@@ -50,10 +52,10 @@ for await (const annotation of getTagAnnotation()) {
   }
 
   for (const pkg in versions) {
-    const target = versions[pkg];
-    if (target && target.includes(`-${buildTag}.`)) continue;
-    const highest = latest[pkg];
-    if (!highest || semver.gt(target, highest)) {
+    const target = versions[pkg] ?? "0.0.0";
+    if (target.includes(`-${buildTag}.`)) continue;
+    const highest = latest[pkg] ?? "0.0.0";
+    if (semver.gt(target, highest)) {
       latest[pkg] = target;
     }
   }
@@ -77,7 +79,7 @@ async function applyAll() {
   if (stdout === "") process.exit();
   for (const line of stdout.split("\n")) {
     try {
-      const { ident, newVersion }: SemVer = JSON.parse(line);
+      const { ident, newVersion }: Record<string, string> = JSON.parse(line);
       current[ident] = newVersion;
       if (!changed.includes(ident)) {
         changed.push(ident);
@@ -123,9 +125,9 @@ switch (type) {
   }
   default:
     for (const name in current) {
-      const highest = latest[name];
-      const oldVersion = prev[name];
-      const version = current[name];
+      const highest = latest[name] ?? "0.0.0";
+      const oldVersion = prev[name] ?? "0.0.0";
+      const version = current[name] ?? "0.0.0";
       let bump = null;
 
       if (!force && version === oldVersion) continue;
@@ -152,7 +154,6 @@ switch (type) {
           break;
         case Strategy[Strategy.stable]: {
           if (
-            !highest ||
             oldVersion === highest ||
             !(semver.lt(oldVersion, highest) && semver.lte(version, highest))
           )
