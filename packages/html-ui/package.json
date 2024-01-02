@@ -35,7 +35,7 @@
     "nyc": "15.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "1.69.6",
+    "sass": "1.69.7",
     "turbo": "1.11.2",
     "typescript": "5.3.3",
     "typescript-plugin-css-modules": "5.0.2",
