@@ -15,7 +15,7 @@ import {
 const { stdout } = $.sync`yarn turbo run //#config-ci --dry-run=json`;
 const [, info] = stdout.match(/(\{\n(\s+.+)*\n\})/) ?? [];
 const FILENAME = "bitbucket-pipelines.yml";
-const globalHash =
+const globalHash: string =
   JSON.parse(info).globalCacheInputs.hashOfExternalDependencies;
 const doc = parseDocument(readFileSync(resolve(FILENAME), "utf-8"));
 const HASH_REGEX = /[a-f0-9]{16}$/;
