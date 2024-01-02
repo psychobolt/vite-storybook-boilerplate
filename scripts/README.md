@@ -94,14 +94,18 @@ E.g.
 yarn apply-versions [--strategy [type]] [--force]
 ```
 
-Versioning util for non-private workspaces. If no strategy is specified, the default strategy used is `build`.
+Utility for applying version strategy targets from `.yarn/versions`. Before running, run `git stash` to ensure workspaces are in a clean state. If no strategy `type` is specified, the default strategy used is `build`.
+
+| Type        | SemVer                                 |
+| ----------- | -------------------------------------- |
+| `build`     | \_.\_.1-dev.^x                         |
+| `launch`    | ^X.^x.0                                |
+| `stable`    | \_.^x.^x[-rc.^x] <br> \_.\_.\_-rc.^x\* |
+| `minor`\*\* | \_.^x.\_                               |
+| `patch`\*\* | \_.\_.^x                               |
 
 ^ = possible bumps
 
 [ ] = optional tag that is used to prevent version conflicts. For instance, if 1.2.0 is the latest and there is a new a minor version strategy on 1.1.0, bump to preminor instead: 1.2.0-rc.1. \*Additional long releases will only increment prerelease.
 
-| Type     | SemVer                                 |
-| -------- | -------------------------------------- |
-| `build`  | \_.\_.1-dev.^x                         |
-| `launch` | ^X.^x.0                                |
-| `stable` | \_.^x.^x[-rc.^x] <br> \*\_.\_.\_-rc.^x |
+\*\* Applies all target workspaces and additionally apply bump. It will also bump changed workspaces.
