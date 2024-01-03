@@ -54,6 +54,7 @@
   "resolutions": {
     "dotenv-cli@7.3.0": "patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch",
     "dotenv-flow@4.1.0": "patch:dotenv-flow@npm%3A4.1.0#~/.yarn/patches/dotenv-flow-npm-4.1.0-74ebe7c968.patch",
+    "dotenv-vault/@oclif/core@^1": "npm:3.16.0",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
     "ts-node@npm:11.0.0-beta.1": "patch:ts-node@npm%3A11.0.0-beta.1#~/.yarn/patches/ts-node-npm-11.0.0-beta.1-cb10a2a461.patch"
   },
