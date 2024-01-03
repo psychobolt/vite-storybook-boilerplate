@@ -25,7 +25,6 @@ const turboCmd = (args: string[] = [], config?: SyncOptions) =>
   yarnCmd(["exec", "turbo", ...args], config);
 
 const filters = [];
-const tasks = [];
 
 if (
   argv.includes("run") &&
@@ -40,23 +39,22 @@ if (
   const workspaces = await getWorkspaces<Workspace[]>({
     nodeLinker: "node-modules",
   });
-  for (const workspace of workspaces) {
+
+  for await (const workspace of workspaces) {
     const name = workspace.name === "." ? "//" : workspace.name;
     if (!packages.includes(name)) continue;
-    tasks.push(
-      turboCmd([...argv.filter((arg) => !arg.startsWith("--filter"))], {
-        cwd: `${process.cwd()}/${workspace.location}`,
-        env: {
-          NODE_ENV: process.env.NODE_ENV,
-          NODE_OPTIONS: "",
-        },
-      }),
-    );
+    await turboCmd([...argv.filter((arg) => !arg.startsWith("--filter"))], {
+      cwd: `${process.cwd()}/${workspace.location}`,
+      env: {
+        NODE_ENV: process.env.NODE_ENV,
+        NODE_OPTIONS: "",
+      },
+    });
     filters.push(`--filter=!${workspace.name}`);
   }
 }
 
-await Promise.all(tasks);
+const tasks = [];
 
 if (filters.length && argv.findIndex((arg) => arg === "--filter=!//") === -1) {
   tasks.push(turboCmd([...argv, "--filter=//"]));
