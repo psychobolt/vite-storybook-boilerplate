@@ -56,6 +56,8 @@ if (
   }
 }
 
+await Promise.all(tasks);
+
 if (filters.length && argv.findIndex((arg) => arg === "--filter=!//") === -1) {
   tasks.push(turboCmd([...argv, "--filter=//"]));
 }
