@@ -13,7 +13,7 @@ for commit in "${arr[@]}"; do
     || (git log ${BASE_REF:-"origin/main"} --grep $commit --pretty=format:'%H' && echo $commit) \
     || echo $commit \
   )
-  if [ ! -z $commit ]; then
+  if [ ! -z "$commit" ]; then
     REF+="$commit "
     OUTPUT+="$(git rev-parse --short $commit) "
     COUNT=$((COUNT + 1))
