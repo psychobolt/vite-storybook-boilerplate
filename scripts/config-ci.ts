@@ -12,12 +12,13 @@ import {
   Pair,
 } from "yaml";
 
-const { stdout } = $.sync`yarn turbo run //#config-ci --dry-run=json`;
+const { stdout } = await $`yarn turbo run //#config-ci --dry-run=json`;
 const [, info] = stdout.match(/(\{\n(\s+.+)*\n\})/) ?? [];
 const FILENAME = "bitbucket-pipelines.yml";
+const filePath = resolve(FILENAME);
 const globalHash: string =
   JSON.parse(info).globalCacheInputs.hashOfExternalDependencies;
-const doc = parseDocument(readFileSync(resolve(FILENAME), "utf-8"));
+const doc = parseDocument(readFileSync(filePath, "utf-8"));
 const HASH_REGEX = /[a-f0-9]{16}$/;
 
 function pin(key: Scalar<string>) {
@@ -51,4 +52,6 @@ visit(doc, {
   },
 });
 
-writeFileSync(resolve(FILENAME), doc.toString());
+writeFileSync(filePath, doc.toString());
+
+await $`yarn g:prettier --write ${filePath}`;
