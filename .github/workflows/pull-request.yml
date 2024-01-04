@@ -20,7 +20,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
-          fetch-depth: 2
+          fetch-depth: 50
       - name: Fetch ${{ github.base_ref }}
         run: git fetch --depth=1 origin ${{ github.base_ref }}
       - name: Override BASE_REF variable
@@ -47,7 +47,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
-          fetch-depth: 2
+          fetch-depth: 50
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Fetch ${{ github.base_ref }}
@@ -73,10 +73,12 @@ jobs:
         run: git stash
       - name: Add version strategy to changed workspaces
         run: yarn workspaces foreach -A --no-private exec 'test $(echo $SEMVER | jq .\"$npm_package_name\") = null || yarn version ${{ env.APPLY_STRATEGY }} --deferred'
-        env:
-          SEMVER: ${{ steps.versions.outputs.semver }}
       - name: Push
+        if: env.SEMVER != '' && env.SEMVER != '{}'
         run: |
           git add .
-          git commit -m "chore(version): strategy" || true
+          git commit -m "chore(version): strategy"
           git push
+        env:
+          SEMVER: ${{ steps.versions.outputs.semver }}
+          

@@ -34,7 +34,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
-          fetch-depth: 50
+          fetch-depth: 0
           ref: ${{ env.base_ref }}
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Get branch name
