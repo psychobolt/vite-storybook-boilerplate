@@ -7,6 +7,8 @@ on:
       ref_name:
         type: string
         required: true
+      base_ref:
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.ref_name || github.ref }}
@@ -118,7 +120,7 @@ jobs:
           cache: yarn
           cache-dependency-path: "**/yarn.lock"
       - name: Override BASE_REF variable
-        run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || 'HEAD~1' }}" >> .env
+        run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.base_ref || 'HEAD~1' }}" >> .env
       - name: Install dependencies
         run: |
           yarn install

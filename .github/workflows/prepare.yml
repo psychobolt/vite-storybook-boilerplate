@@ -62,6 +62,7 @@ jobs:
     uses: ./.github/workflows/ci.yml
     with:
       ref_name: ${{ needs.create_branch.outputs.ref_name }}
+      base_ref: HEAD~${{ needs.unmerged_commits.outputs.count }}
     secrets: inherit
 
   merge_branch:
