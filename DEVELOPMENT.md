@@ -120,28 +120,6 @@ See [documentation](https://github.com/entropitor/dotenv-cli#usage) for usage.
 - Keep personal secrets or local overrides in a `.env*.local` file.
   By default, it is best practice to not commit `.env*` files. However, the exception is default variables for a project (e.g. `.env.defaults`, `.env.production`, `.env.development`, etc...).
 
-## CI Config (Optional)
+## [Workflows](WORKFLOW.md)
 
-1. Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up environment variables for your CI
-2. Keep CI configs up-to-date and add additional environments whenever you create a internal package or app.
-
-## Vercel Deployment (Optional)
-
-1. Create and login to a Vercel account: https://vercel.com/
-2. Follow [Vercel's guide](https://vercel.com/docs/concepts/monorepos#using-monorepos-with-vercel-dashboard) on deploying apps using their dashboard
-3. (Optional) Modify `scripts/opt-in-vercel.sh` to configure opt-in behavior for Vercel deployments
-
-## Syncing With Original Fork (Optional)
-
-Occassionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
-
-```sh
-git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
-```
-
-Anytime there are new updates, run:
-
-```sh
-git fetch base
-git merge base/main [--squash]
-```
+Additional development guides and best practices
