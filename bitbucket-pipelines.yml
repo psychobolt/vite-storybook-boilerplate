@@ -1,4 +1,4 @@
-image: node:lts-alpine@sha256:b1789b7be6aa16afd642eaaaccdeeeb33bd8f08e69b3d27d931aa9665b731f01
+image: node:lts-alpine@sha256:9e38d3d4117da74a643f67041c83914480b335c3bd44d37ccf5b5ad86cd715d1
 
 definitions:
   services:
@@ -16,9 +16,15 @@ definitions:
           - apps/svelte-app/yarn.lock
       path: apps/svelte-app/node_modules
   scripts:
+    - script: &git-auth |
+        git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
+    - script: &install |
+        corepack enable
+        yarn install
+        yarn bootstrap
     - script: &setup |
         set -o pipefail
-        export DOTENV_KEY=$(echo $DOTENV_KEYS | jq -r --arg keyvar $PACKAGE_NAME '.[$keyvar]')
+        export DOTENV_KEY=$(echo $DOTENV_KEYS | jq -r .\"$PACKAGE_NAME\")
         nvm install --lts
         corepack enable
         yarn install
@@ -29,6 +35,49 @@ definitions:
     - script: &chromatic |
         npx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "npx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv -p TARGET_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
         yarn workspace $PACKAGE_NAME turbo run chromatic
+    - script: &release |
+        if [ "$RELEASE_TAGS" ]; then
+          RELEASE_TAG=$( echo "$RELEASE_TAGS" | jq -r --arg keyvar "$BITBUCKET_BRANCH" --arg tag "$RELEASE_TAG" '.[$keyvar] // $tag' )
+        fi
+
+        BASE_REF="HEAD"
+        if [[ "$STABLE" = true && "$BASE_REF_NAME" ]]; then
+          BASE_REF="$BASE_REF_NAME"
+        elif [[ "$BITBUCKET_BRANCH" == cherry-pick-* ]]; then
+          PARTS=(${BITBUCKET_BRANCH//-/ })
+          COUNT=${#PARTS[@]}
+          COUNT=$((COUNT - 2))
+          BASE_REF+="~$COUNT"
+        else
+          BASE_REF+="~1"
+        fi
+
+        echo BASE_REF="$BASE_REF" >> .env
+
+        SEMVER=$(yarn apply-versions --strategy "$STRATEGY")
+        if [[ "$SEMVER" != "{}" ]]; then
+          echo $SEMVER
+          yarn build
+        fi
+
+        if [[ "$STRATEGY" != "build" ]]; then
+          message="[skip ci] [DEV] Stable release"
+          if [[ "$STRATEGY" == "launch" ]]; then
+            message="[DEV] Launch release"
+          fi
+          git add .
+          git commit -m "$message" || true
+        fi
+
+        if [[ "$SEMVER" != "{}" ]]; then
+          if [ "$RELEASE_TAG" ]; then
+            git tag -d "$RELEASE_TAG" || true
+            git push origin --delete "$RELEASE_TAG" || true
+            git tag "$RELEASE_TAG" -am "$SEMVER"
+            git push origin "$RELEASE_TAG"
+          fi
+          yarn workspaces foreach -A --no-private --dry-run npm publish --tolerate-republish ${RELEASE_TAG:+--tag $RELEASE_TAG}
+        fi
 
 pipelines:
   default:
@@ -39,12 +88,11 @@ pipelines:
           - yarn-8abc8ae41ce2514a
         script:
           - yarn install
-          - yarn bootstrap
           - yarn turbo run //#lint
     - parallel:
         - step:
             name: Build and Test Commons
-            max-time: 5
+            max-time: 10
             condition:
               changesets:
                 includePaths:
@@ -81,6 +129,7 @@ pipelines:
               - yarn-8abc8ae41ce2514a
             clone:
               enabled: true
+              depth: 50
             condition:
               changesets:
                 includePaths:
@@ -100,6 +149,7 @@ pipelines:
               - yarn-8abc8ae41ce2514a
             clone:
               enabled: true
+              depth: 50
             condition:
               changesets:
                 includePaths:
@@ -123,13 +173,163 @@ pipelines:
                   - packages/commons/**
                   - packages/react-ui/**
                   - apps/svelte-app/**
-
             script:
               - export PACKAGE_NAME=svelte-app
               - yarn install
               - yarn bootstrap
               - *test
+    - step:
+        name: Release
+        image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
+        max-time: 25
+        size: 2x
+        caches:
+          - yarn-8abc8ae41ce2514a
+          - svelte-app-8abc8ae41ce2514a
+        clone:
+          enabled: true
+          depth: 50
+        condition:
+          changesets:
+            includePaths:
+              - .yarn/versions/**
+              - apps/*/package.json
+              - packages/*/package.json
+        script:
+          - >-
+            export STABLE=$( [[ "$BITBUCKET_BRANCH" == release-* ]] && echo
+            "true" || echo "false" )
+          - >-
+            export STRATEGY=$( [ "$STABLE" = true ] &&   echo "stable" || echo
+            "build" )
+          - *git-auth
+          - |
+            if [ "$STABLE" = true ]; then
+              git fetch --depth=50 origin "$BASE_REF_NAME":"$BASE_REF_NAME"
+            fi
+          - *install
+          - *release
+          - '[ "$STABLE" = true ] && git push || true'
+  pull-requests:
+    "**":
+      - step:
+          name: Prepare version strategy
+          image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
+          max-time: 15
+          size: 2x
+          caches:
+            - yarn-8abc8ae41ce2514a
+            - svelte-app-8abc8ae41ce2514a
+          clone:
+            enabled: true
+            depth: 50
+          script:
+            - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
+            - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
+            - corepack enable
+            - set +e
+            - yarn version check
+            - export CHECK_STATUS=$?
+            - set -e
+            - "[ $CHECK_STATUS = 0 ] && exit 0 || true"
+            - >-
+              [[ "$BITBUCKET_BRANCH" != issue/* && "$BITBUCKET_BRANCH" !=
+              feature/* ]] && exit 1 || true
+            - >-
+              export APPLY_STRATEGY=$( [[ "$BITBUCKET_BRANCH" == issue/* ]] &&
+              echo "patch" || echo "minor" )
+            - *git-auth
+            - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
+            - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
+            - *install
+            - rm -rf .yarn/versions || true
+            - export SEMVER=$( yarn apply-versions --strategy $APPLY_STRATEGY )
+            - git stash
+            - |
+              if [[ "$SEMVER" && "$SEMVER" != "{}" ]]; then
+                yarn workspaces foreach -A --no-private exec 'test $(echo $SEMVER | jq .\"$npm_package_name\") = null || yarn version $APPLY_STRATEGY --deferred'
+                git add .
+                git commit -m "[DEV] Add Version Strategy"
+                git push
+              fi
   custom:
+    launch:
+      - variables:
+          - name: REF_NAME
+            description: The branch name you wish to create for the release
+            default: release-
+      - step:
+          name: Create new releases
+          image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
+          max-time: 15
+          size: 2x
+          caches:
+            - yarn-8abc8ae41ce2514a
+            - svelte-app-8abc8ae41ce2514a
+          clone:
+            enabled: true
+            depth: full
+          script:
+            - export STABLE=true
+            - export STRATEGY=launch
+            - export BASE_REF_NAME=$(git branch --show-current)
+            - *git-auth
+            - *install
+            - *release
+            - git push
+            - git checkout -b $REF_NAME
+            - git push --set-upstream origin $REF_NAME
+    prepare:
+      - variables:
+          - name: COMMITS
+            description:
+              One or more commits that you wish to cherry-pick into the target
+              branch
+      - step:
+          name: Create a PR with cherry-picked commits
+          image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
+          max-time: 15
+          clone:
+            enabled: true
+            depth: 50
+          script:
+            - *git-auth
+            - export BASE_REF_NAME=$(git branch --show-current)
+            - |
+              source ./scripts/git-ls-unmerged.sh
+              export SHORT=$OUTPUT
+            - export BASE_REF=cherry-pick-$SHORT
+            - "[ ! $REF ] && exit 1 || true"
+            - git fetch --depth=2 origin $REF
+            - git cherry-pick -x $REF || true
+            - git add .
+            - git cherry-pick --continue || true
+            - git checkout -b $BASE_REF
+            - git push -u origin $BASE_REF
+            - >-
+              curl
+              https://api.bitbucket.org/2.0/repositories/${BITBUCKET_WORKSPACE}/${BITBUCKET_REPO_SLUG}/pullrequests
+              -u "$CI_BOT_USERNAME":"$CI_BOT_APP_SECRET" --request POST --header
+              "Content-Type: application/json" --data "{
+                \"title\": \"Cherry Pick ${SHORT//-/ } into $BASE_REF_NAME\",
+                \"source\": {
+                  \"branch\": {
+                    \"name\": \"$BASE_REF\"
+                  }
+                },
+                \"destination\": {
+                  \"branch\": {
+                    \"name\": \"$BASE_REF_NAME\"
+                  }
+                },
+                \"reviewers\": [
+                  {
+                    \"uuid\": \"$BITBUCKET_STEP_TRIGGERER_UUID\"
+                  }
+                ],
+                \"close_source_branch\": true
+              }"
+
     renovate:
       - step:
           size: 2x
@@ -138,3 +338,5 @@ pipelines:
               variables:
                 CONFIG_FILE_PATH: renovate.json
                 GITHUB_COM_TOKEN: $GITHUB_COM_TOKEN
+                RENOVATE_USERNAME: $CI_BOT_USERNAME
+                RENOVATE_PASSWORD: $CI_BOT_APP_SECRET
