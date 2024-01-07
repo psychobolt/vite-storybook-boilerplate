@@ -1,1 +1,1 @@
-export { default } from "commons/eslint.config.ts";
+export { default } from "commons/esm/eslint.config.js";

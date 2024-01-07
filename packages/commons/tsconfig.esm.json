@@ -1,8 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "composite": false,
     "outDir": "esm"
   },
-  "include": ["**/*"],
-  "exclude": ["eslint.config.ts", "stylelint.config.ts"]
+  "include": ["**/*", ".storybook/**/*"],
+  "exclude": ["esm", "cjs", "stylelint.config.ts"]
 }

@@ -9,9 +9,9 @@
     "build-cjs": "rimraf cjs/ && tsc --project tsconfig.cjs.json && tsconfig-to-dual-package tsconfig.cjs.json",
     "g:rimraf": "cd $INIT_CWD && rimraf",
     "g:storybook-path": "yarn bin storybook",
-    "g:storybook": "cd $INIT_CWD && yarn g:ts-script $(yarn g:storybook-path)",
+    "g:storybook": "cd $INIT_CWD && yarn g:run-script $(yarn g:storybook-path)",
     "g:test-storybook-path": "yarn bin test-storybook",
-    "g:test-storybook": "cd $INIT_CWD && yarn g:ts-script $(yarn g:test-storybook-path)",
+    "g:test-storybook": "cd $INIT_CWD && yarn g:run-script $(yarn g:test-storybook-path)",
     "g:prettier": "cd $INIT_CWD && prettier --ignore-path $PROJECT_CWD/.gitignore --ignore-path ./.prettierignore",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
     "format": "yarn g:prettier --write ."

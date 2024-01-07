@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync, spawn } from "node:child_process";
-import { dirname, isAbsolute } from "node:path";
+import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export default function run(args) {
@@ -11,13 +11,12 @@ export default function run(args) {
 
   const nodeOptions = execSync("yarn node -p process.env.NODE_OPTIONS")
     .toString()
-    .slice(0, -1);
+    .slice(0, -1)
+    .replace("--experimental-loader", "--loader");
 
-  let tsNodePath = execSync("yarn g:ts-node-path").toString().slice(0, -1);
-
-  if (isAbsolute(tsNodePath)) {
-    tsNodePath = `file://${tsNodePath}`;
-  }
+  const tsNodePath = `file://${execSync("yarn g:ts-node-path")
+    .toString()
+    .slice(0, -1)}`;
 
   // IPC is blocked for `yarn node` therefore loader must resolve to a real path (unplugged)
   // https://github.com/yarnpkg/berry/issues/1696
