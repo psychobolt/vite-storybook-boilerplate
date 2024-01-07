@@ -1,7 +1,8 @@
 {
   "ts-node": {
     "esm": true,
-    "files": true
+    "files": true,
+    "swc": true
   },
   "compilerOptions": {
     "module": "NodeNext",
@@ -11,5 +12,8 @@
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "strict": true
-  }
+  },
+  "include": ["**/*"],
+  "exclude": ["apps", "packages"],
+  "references": [{ "path": "packages/commons" }]
 }

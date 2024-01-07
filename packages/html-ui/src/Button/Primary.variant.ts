@@ -1,9 +1,9 @@
 import type { StoryObj } from "@storybook/web-components";
-import type { VariantsMeta } from "commons/.storybook/addons/addon-variants.ts";
+import type { VariantsMeta } from "commons/esm/.storybook/addons/addon-variants.js";
 import {
   type VariantStoryObj,
   generateStories,
-} from "commons/.storybook/utils.ts";
+} from "commons/esm/.storybook/utils.js";
 
 import type { Props } from "./Button.ts";
 

@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import commonConfig from "commons/.storybook/preview.ts";
+import commonConfig from "commons/esm/.storybook/preview.js";
 
 const preview: Preview = {
   ...commonConfig,

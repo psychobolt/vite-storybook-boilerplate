@@ -18,5 +18,6 @@
       "html-ui/*": ["../../html-ui/dist/*"]
     }
   },
-  "include": [".storybook/**/*", "**/*"]
+  "include": [".storybook/**/*", "**/*"],
+  "references": [{ "path": "../commons" }]
 }

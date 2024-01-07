@@ -6,7 +6,7 @@
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.nodePath": ".yarn/sdks",
-  "eslint.runtime": "bin/eslint-runtime.js",
+  "eslint.runtime": "bin/ts-node.js",
   "eslint.experimental.useFlatConfig": true,
   "eslint.options": {
     "overrideConfigFile": "./eslint.config.ts"
@@ -28,8 +28,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "stylelint.stylelintPath": ".yarn/sdks/stylelint",
-  "stylelint.packageManager": "yarn",
   "stylelint.validate": [
     "css",
     "scss"

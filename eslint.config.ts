@@ -1,4 +1,4 @@
-import commonConfig from "commons/eslint.config.ts";
+import commonConfig from "commons/esm/eslint.config.js";
 
 export default [
   ...commonConfig,

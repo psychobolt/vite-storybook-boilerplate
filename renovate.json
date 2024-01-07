@@ -13,5 +13,15 @@
     ],
     "fileFilters": ["**/yarn.lock", "bitbucket-pipelines.yml"],
     "executionMode": "update"
-  }
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["stylelint"],
+      "allowedVersions": "<16"
+    },
+    {
+      "matchPackageNames": ["stylelint-config-standard-scss"],
+      "allowedVersions": "<13"
+    }
+  ]
 }

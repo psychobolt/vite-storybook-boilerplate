@@ -1,10 +1,10 @@
 import { createRequire } from "module";
 import type { StorybookConfig } from "@storybook/react-vite";
-import type { StorybookViteCommonConfig } from "commons/.storybook/vite-main";
+import type { StorybookViteCommonConfig } from "commons/esm/.storybook/vite-main.js";
 import {
   config as commonConfig,
   getAbsolutePath,
-} from "commons/.storybook/vite-main";
+} from "commons/esm/.storybook/vite-main.js";
 
 const require = createRequire(import.meta.url);
 

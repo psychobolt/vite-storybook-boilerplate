@@ -42,14 +42,16 @@ function mapAssets(moduleId: string) {
 
 const ASSET_FILE_NAMES = "assets/[name]-[hash][extname]";
 
-function shiftAssets(assetName: string) {
-  for (const module of modules) {
-    if (!module.assetName.test(assetName)) continue;
-    ++module.index;
-    if (module.index === module.assets.length) {
-      module.index = 0;
+function shiftAssets(assetName?: string) {
+  if (assetName) {
+    for (const module of modules) {
+      if (!module.assetName.test(assetName)) continue;
+      ++module.index;
+      if (module.index === module.assets.length) {
+        module.index = 0;
+      }
+      return module.assets[module.index];
     }
-    return module.assets[module.index];
   }
   return ASSET_FILE_NAMES;
 }
@@ -63,13 +65,10 @@ export default mergeConfig(
         input: ["src/style.scss", ...globSync("src/*/index.scss")],
         output: {
           entryFileNames({ facadeModuleId }) {
-            mapAssets(facadeModuleId);
+            if (facadeModuleId) mapAssets(facadeModuleId);
             return "[name]";
           },
-          assetFileNames({ name }) {
-            const assetName = name;
-            return shiftAssets(assetName);
-          },
+          assetFileNames: ({ name: assetName }) => shiftAssets(assetName),
         },
       },
       cssCodeSplit: true,

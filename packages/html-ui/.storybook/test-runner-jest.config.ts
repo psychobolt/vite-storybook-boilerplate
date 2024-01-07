@@ -1,1 +1,1 @@
-export { default } from "commons/.storybook/test-runner-jest.config.ts";
+export { default } from "commons/esm/.storybook/test-runner-jest.config.js";

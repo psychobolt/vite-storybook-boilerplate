@@ -1,4 +1,7 @@
-import commonConfig, { compat, type Config } from "commons/eslint.config.ts";
+import commonConfig, {
+  compat,
+  type Config,
+} from "commons/esm/eslint.config.js";
 
 const config: Config[] = [
   ...commonConfig,

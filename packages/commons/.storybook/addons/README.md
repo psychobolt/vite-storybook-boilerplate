@@ -15,7 +15,7 @@ import type { Meta } from "@storybook/web-components";
 import {
   vitePLuginStorybookVariants,
   storybookVariantsIndexer,
-} from "commons/.storybook/addons/addon-variants.ts";
+} from "commons/esm/.storybook/addons/addon-variants.js";
 
 export default {
   // ...
@@ -36,8 +36,8 @@ export default {
 ```ts
 // MyComponent.variants.ts
 import type { StoryObj } from "@storybook/web-components";
-import type { VariantsMeta } from "commons/.storybook/addons/vite-plugin-storybook-variants.ts";
-import { type VariantStoryObj, generateStories } from "commons/.storybook/utils.ts";
+import type { VariantsMeta } from "commons/esm/.storybook/addons/vite-plugin-storybook-variants.js";
+import { type VariantStoryObj, generateStories } from "commons/esm/.storybook/utils.js";
 
 import type { Props } from "./MyComponent.ts";
 

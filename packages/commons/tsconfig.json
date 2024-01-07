@@ -4,6 +4,7 @@
     "files": true
   },
   "compilerOptions": {
+    "composite": true,
     "module": "NodeNext",
     "target": "ESNext",
     "moduleResolution": "NodeNext",

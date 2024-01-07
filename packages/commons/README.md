@@ -37,7 +37,7 @@ export default mergeConfig(
    /your/project/eslint.config.ts
 
    ```ts
-   import commonConfig from "commons/eslint.config.ts";
+   import commonConfig from "commons/esm/eslint.config.js";
 
    export default {
      ...commonConfig,
@@ -64,7 +64,7 @@ export default mergeConfig(
    /your/project/prettier.config.ts
 
    ```ts
-   import commonConfig from "commons/prettier.config";
+   import commonConfig from "commons/esm/prettier.config.js";
 
    export default {
      ...commonConfig,
@@ -118,7 +118,7 @@ See [source](tsconfig.js)
    /your/project/.storybook/main.ts
 
    ```ts
-   import commonConfig from "commons/.storybook/vite-main.ts";
+   import commonConfig from "commons/esm/.storybook/vite-main.js";
 
    export default mergeConfig({
      ...commonConfig,
@@ -145,7 +145,7 @@ See [source](.storybook/preview.ts)
 
 ```ts
 import type { Preview } from "@storybook/react"; // preview-api type
-import commonConfig from "commons/.storybook/preview.ts";
+import commonConfig from "commons/esm/.storybook/preview.js";
 
 const preview: Preview = {
   ...commonConfig,
@@ -163,7 +163,7 @@ See [source](.storybook/test-runner-jest.config.ts)
 /your/project/.storybook/test-runner-jest.config.ts
 
 ```ts
-import commonConfig from "commons/.storybook/test-runner-jest.config.ts";
+import commonConfig from "commons/esm/.storybook/test-runner-jest.config.js";
 
 export default {
   ...commonConfig,
