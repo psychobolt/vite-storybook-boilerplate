@@ -17,7 +17,7 @@
     "apply-versions": "yarn run-script scripts/apply-versions.ts",
     "dev": "yarn turbo --background run dev",
     "build": "yarn turbo run build",
-    "config-ci": "yarn ts-script scripts/config-ci.ts",
+    "config-ci": "yarn run-script scripts/config-ci.ts",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
     "g:eslint-path": "yarn bin eslint",
     "g:lint-js": "cd $INIT_CWD && yarn tsc --noEmit && yarn g:run-script $(yarn g:eslint-path) -c ./eslint.config.ts .",
