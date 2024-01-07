@@ -3,7 +3,7 @@ import type { VariantsMeta } from "commons/esm/.storybook/addons/addon-variants.
 import {
   type VariantStoryObj,
   generateStories,
-} from "commons/esm/.storybook/utils.ts";
+} from "commons/esm/.storybook/utils.js";
 
 import type { Props } from "./Button.ts";
 
