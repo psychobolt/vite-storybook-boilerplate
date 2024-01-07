@@ -120,6 +120,6 @@ See [documentation](https://github.com/entropitor/dotenv-cli#usage) for usage.
 - Keep personal secrets or local overrides in a `.env*.local` file.
   By default, it is best practice to not commit `.env*` files. However, the exception is default variables for a project (e.g. `.env.defaults`, `.env.production`, `.env.development`, etc...).
 
-## [Workflows](WORKFLOW.md)
+## [Workflows](WORKFLOWS.md)
 
 Additional development guides and best practices

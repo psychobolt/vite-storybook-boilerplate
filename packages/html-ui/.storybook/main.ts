@@ -6,7 +6,7 @@ import {
   config as commonConfig,
   getAbsolutePath,
   mainDir,
-} from "commons/esm/.storybook/vite-main.ts";
+} from "commons/esm/.storybook/vite-main.js";
 import { storybookVariantsIndexer } from "commons/esm/.storybook/addons/addon-variants.js";
 
 import viteConfig from "./vite.config.ts";
