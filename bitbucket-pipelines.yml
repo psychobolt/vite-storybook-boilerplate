@@ -52,7 +52,9 @@ definitions:
           BASE_REF+="~1"
         fi
 
-        echo BASE_REF="$BASE_REF" >> .env
+        if [ "$BASE_REF" ]; then
+          echo BASE_REF="$BASE_REF" >> .env
+        fi
 
         SEMVER=$(yarn apply-versions --strategy "$STRATEGY")
         if [[ "$SEMVER" != "{}" ]]; then
@@ -193,8 +195,8 @@ pipelines:
           changesets:
             includePaths:
               - .yarn/versions/**
-              - apps/*/package.json
-              - packages/*/package.json
+              - apps/**/*
+              - packages/**/*
         script:
           - >-
             export STABLE=$( [[ "$BITBUCKET_BRANCH" == release-* ]] && echo
