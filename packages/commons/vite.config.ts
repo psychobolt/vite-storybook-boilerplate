@@ -8,6 +8,7 @@ const entry = resolve(root, "./src/index.ts");
 const isWatch = process.argv.includes("--watch") || process.argv.includes("-w");
 
 export default defineConfig({
+  base: "",
   plugins: [tsconfigPaths({ root })],
   build: {
     emptyOutDir: !isWatch,
