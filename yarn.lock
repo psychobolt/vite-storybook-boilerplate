@@ -12247,7 +12247,7 @@ __metadata:
     commons: "workspace:*"
     glob: "npm:10.3.10"
     http-server: "npm:14.1.1"
-    lit: "npm:3.1.0"
+    lit: "npm:3.1.1"
     nyc: "npm:15.1.0"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -14333,14 +14333,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:3.1.0":
-  version: 3.1.0
-  resolution: "lit@npm:3.1.0"
+"lit@npm:3.1.1":
+  version: 3.1.1
+  resolution: "lit@npm:3.1.1"
   dependencies:
     "@lit/reactive-element": "npm:^2.0.0"
     lit-element: "npm:^4.0.0"
     lit-html: "npm:^3.1.0"
-  checksum: 7ca12c1b1593373d16b51b2220677d8936b4061de4f278ef2a85f15726bb4365a8eed89a0294816a10d6124dca81f02e83b5dfed9a6031e135a7bc68924eea6b
+  checksum: fea579d9e7e27bf984a9dfe2b617e4c21d3bd428a38de63719797b266b1548cc3a89155bbb630f46edf337641d9d02106f749b6ca4a439daba47a1e1045937b7
   languageName: node
   linkType: hard
 
