@@ -5,12 +5,12 @@ definitions:
     docker:
       memory: 7128
   caches:
-    yarn-f83bbb5a37b7a573:
+    yarn-03897473e3eca20d:
       key:
         files:
           - yarn.lock
       path: /root/.yarn/berry/cache
-    svelte-app-f83bbb5a37b7a573:
+    svelte-app-03897473e3eca20d:
       key:
         files:
           - apps/svelte-app/yarn.lock
@@ -87,7 +87,7 @@ pipelines:
         name: Build and Test Root
         max-time: 10
         caches:
-          - yarn-f83bbb5a37b7a573
+          - yarn-03897473e3eca20d
         script:
           - yarn install
           - yarn turbo run //#lint
@@ -100,7 +100,7 @@ pipelines:
                 includePaths:
                   - packages/commons/**
             caches:
-              - yarn-f83bbb5a37b7a573
+              - yarn-03897473e3eca20d
             script:
               - export PACKAGE_NAME=commons
               - yarn install
@@ -111,7 +111,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-f83bbb5a37b7a573
+              - yarn-03897473e3eca20d
             condition:
               changesets:
                 includePaths:
@@ -128,7 +128,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-f83bbb5a37b7a573
+              - yarn-03897473e3eca20d
             clone:
               enabled: true
               depth: 50
@@ -148,7 +148,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-f83bbb5a37b7a573
+              - yarn-03897473e3eca20d
             clone:
               enabled: true
               depth: 50
@@ -167,8 +167,8 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-f83bbb5a37b7a573
-              - svelte-app-f83bbb5a37b7a573
+              - yarn-03897473e3eca20d
+              - svelte-app-03897473e3eca20d
             condition:
               changesets:
                 includePaths:
@@ -186,8 +186,8 @@ pipelines:
         max-time: 25
         size: 2x
         caches:
-          - yarn-f83bbb5a37b7a573
-          - svelte-app-f83bbb5a37b7a573
+          - yarn-03897473e3eca20d
+          - svelte-app-03897473e3eca20d
         clone:
           enabled: true
           depth: 50
@@ -220,8 +220,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - yarn-f83bbb5a37b7a573
-            - svelte-app-f83bbb5a37b7a573
+            - yarn-03897473e3eca20d
+            - svelte-app-03897473e3eca20d
           clone:
             enabled: true
             depth: 50
@@ -266,8 +266,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - yarn-f83bbb5a37b7a573
-            - svelte-app-f83bbb5a37b7a573
+            - yarn-03897473e3eca20d
+            - svelte-app-03897473e3eca20d
           clone:
             enabled: true
             depth: full
