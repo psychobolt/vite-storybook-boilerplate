@@ -6104,16 +6104,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vscode/emmet-helper@npm:2.9.2":
-  version: 2.9.2
-  resolution: "@vscode/emmet-helper@npm:2.9.2"
+"@vscode/emmet-helper@npm:2.8.4":
+  version: 2.8.4
+  resolution: "@vscode/emmet-helper@npm:2.8.4"
   dependencies:
-    emmet: "npm:^2.4.3"
+    emmet: "npm:^2.3.0"
     jsonc-parser: "npm:^2.3.0"
     vscode-languageserver-textdocument: "npm:^1.0.1"
     vscode-languageserver-types: "npm:^3.15.1"
+    vscode-nls: "npm:^5.0.0"
     vscode-uri: "npm:^2.1.2"
-  checksum: f6742e5290341b53d8f13ec04fb112ae659ac8cd5e909cbb81bee1f6fd381a27f56f39e0b06873ea2dc1a3e9af2ea15a24f963038ece68ee1d61eac74325bcb7
+  checksum: 775d49361c587eec5727ceff49299307cd3ecfc704ce75084c6ed077b4056a980049e5da72900f851d4a21f99fc81b876a7bc5a8f31ec6609d32dd2fe587ca50
   languageName: node
   linkType: hard
 
@@ -8240,7 +8241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emmet@npm:^2.4.3":
+"emmet@npm:^2.3.0":
   version: 2.4.6
   resolution: "emmet@npm:2.4.6"
   dependencies:
@@ -15236,7 +15237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:*, semver@npm:^7.0.0, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.3, semver@npm:^7.5.4":
+"semver@npm:*, semver@npm:^7.0.0, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.3, semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
@@ -16061,9 +16062,9 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:12.0.0"
     svelte: "npm:4.2.8"
-    svelte-check: "npm:3.6.2"
+    svelte-check: "npm:3.6.3"
     svelte-eslint-parser: "npm:0.33.1"
-    svelte-language-server: "npm:0.16.1"
+    svelte-language-server: "npm:0.16.2"
     tslib: "npm:2.6.2"
     turbo: "npm:1.10.16"
     typescript: "npm:5.3.3"
@@ -16071,9 +16072,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"svelte-check@npm:3.6.2":
-  version: 3.6.2
-  resolution: "svelte-check@npm:3.6.2"
+"svelte-check@npm:3.6.3":
+  version: 3.6.3
+  resolution: "svelte-check@npm:3.6.3"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.17"
     chokidar: "npm:^3.4.1"
@@ -16087,7 +16088,7 @@ __metadata:
     svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: 3f389df29268d4df9b561d0b206566e827af84923c70150b2dadfd407bcbdaccbfd561bd8b93884597de62477d62826ff1a5108854641078b692130441a49a55
+  checksum: 59c97c927df6a9ddab13f41a563da2b5b8d7bc004bfb7143e9b149b3cca94c65e7fdc9a447fd29dfcdf588364b325a420952153adbe95985a94f520e6cce39fa
   languageName: node
   linkType: hard
 
@@ -16118,12 +16119,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.16.1":
-  version: 0.16.1
-  resolution: "svelte-language-server@npm:0.16.1"
+"svelte-language-server@npm:0.16.2":
+  version: 0.16.2
+  resolution: "svelte-language-server@npm:0.16.2"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.17"
-    "@vscode/emmet-helper": "npm:2.9.2"
+    "@vscode/emmet-helper": "npm:2.8.4"
     chokidar: "npm:^3.4.1"
     estree-walker: "npm:^2.0.1"
     fast-glob: "npm:^3.2.7"
@@ -16132,8 +16133,9 @@ __metadata:
     prettier-plugin-svelte: "npm:~3.1.1"
     svelte: "npm:^3.57.0"
     svelte-preprocess: "npm:~5.1.0"
-    svelte2tsx: "npm:~0.6.8"
+    svelte2tsx: "npm:~0.7.0"
     typescript: "npm:^5.3.2"
+    typescript-auto-import-cache: "npm:^0.3.2"
     vscode-css-languageservice: "npm:~6.2.10"
     vscode-html-languageservice: "npm:~5.1.1"
     vscode-languageserver: "npm:8.0.2"
@@ -16142,7 +16144,7 @@ __metadata:
     vscode-uri: "npm:~3.0.0"
   bin:
     svelteserver: bin/server.js
-  checksum: d3fd38d8871391f1db694ed235637e90c3182f563217eaeaa72b324078c589244bf75005423ca49dbcb162a115f861d5a797db43d6cabe24300dc8ba71ce8e46
+  checksum: de260f488792829333906cc58c9417b231fe5367724092a98ef44e01d4959476db7d83916bd12b3f85b047ef691e40fb7e611f8670f211e1a143b8b482efd750
   languageName: node
   linkType: hard
 
@@ -16192,16 +16194,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte2tsx@npm:~0.6.8":
-  version: 0.6.22
-  resolution: "svelte2tsx@npm:0.6.22"
+"svelte2tsx@npm:~0.7.0":
+  version: 0.7.0
+  resolution: "svelte2tsx@npm:0.7.0"
   dependencies:
     dedent-js: "npm:^1.0.1"
     pascal-case: "npm:^3.1.1"
   peerDependencies:
-    svelte: ^3.55 || ^4.0.0-next.0 || ^4.0
+    svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
     typescript: ^4.9.4 || ^5.0.0
-  checksum: 123ff3af374987e6670baba087711691c735d75679b321a279c83b5bba157cfc84410823ba81b836443e229eec206751dd5e09585f12d014d10538fa2fedf028
+  checksum: 309bb56047fb23e09dc1938efb17a6493c29096466b5aa3ab0b9d864d8c675102e30d43627296798b2235520fca1625dd3ac3677564025585db02725827a97e0
   languageName: node
   linkType: hard
 
@@ -16762,6 +16764,15 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 6005cb31df50eef8b1f3c780eb71a17925f3038a100d82f9406ac2ad1de5eb59f8e6decbdc145b3a1f8e5836e17b0c0002fb698b9fe2516b8f9f9ff602d36412
+  languageName: node
+  linkType: hard
+
+"typescript-auto-import-cache@npm:^0.3.2":
+  version: 0.3.2
+  resolution: "typescript-auto-import-cache@npm:0.3.2"
+  dependencies:
+    semver: "npm:^7.3.8"
+  checksum: 5103978c615bce5d20d8260551086c7a507d908e4eb43d2b8644195da2667263830d51e94c82361b17f9ba4b44ed6536478380357769a8b8400b3176557b11e4
   languageName: node
   linkType: hard
 
@@ -17499,6 +17510,13 @@ __metadata:
   bin:
     installServerIntoExtension: bin/installServerIntoExtension
   checksum: 0dfe96f9c7ecee29ed3005cedde8a1055a6be2d56a28824328ea687d4df584227964888f55ec35d8d496db63869eda8c2782b3d2a97cf4685c9f7e24c20ef72e
+  languageName: node
+  linkType: hard
+
+"vscode-nls@npm:^5.0.0":
+  version: 5.2.0
+  resolution: "vscode-nls@npm:5.2.0"
+  checksum: dc9e48f58ebbc807f435d351008813a2ea0c9432d51e778bcac9163c0642f929ddb518411ad654e775ce31e24d6acfa8fb7db8893c05b42c2019894e08b050f9
   languageName: node
   linkType: hard
 
