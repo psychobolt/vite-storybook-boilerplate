@@ -34,11 +34,11 @@
     "chromatic": "yarn g:dotenv -- chromatic"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.6.7",
-    "@storybook/blocks": "7.6.7",
-    "@storybook/react": "7.6.7",
-    "@storybook/react-vite": "7.6.7",
-    "@storybook/test": "7.6.7",
+    "@storybook/addon-essentials": "7.6.8",
+    "@storybook/blocks": "7.6.8",
+    "@storybook/react": "7.6.8",
+    "@storybook/react-vite": "7.6.8",
+    "@storybook/test": "7.6.8",
     "@tsconfig/vite-react": "3.0.0",
     "@types/react": "18.2.47",
     "@types/react-dom": "18.2.18",
