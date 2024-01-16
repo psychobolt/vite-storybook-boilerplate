@@ -8947,8 +8947,8 @@ __metadata:
     eslint-plugin-react-hooks: "npm:4.6.0"
     jest-junit: "npm:16.0.0"
     lodash: "npm:4.17.21"
-    playwright: "npm:1.40.1"
-    playwright-chromium: "npm:1.40.1"
+    playwright: "npm:1.41.0"
+    playwright-chromium: "npm:1.41.0"
     postcss: "npm:8.4.33"
     postcss-scss: "npm:4.0.9"
     prettier: "npm:3.2.2"
@@ -8966,7 +8966,7 @@ __metadata:
     typescript: "npm:5.3.3"
     vite: "npm:5.0.11"
     vite-plugin-turbosnap: "npm:1.0.3"
-    vite-tsconfig-paths: "npm:4.2.3"
+    vite-tsconfig-paths: "npm:4.3.0"
   languageName: unknown
   linkType: soft
 
@@ -16684,14 +16684,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-chromium@npm:1.40.1":
-  version: 1.40.1
-  resolution: "playwright-chromium@npm:1.40.1"
+"playwright-chromium@npm:1.41.0":
+  version: 1.41.0
+  resolution: "playwright-chromium@npm:1.41.0"
   dependencies:
-    playwright-core: "npm:1.40.1"
+    playwright-core: "npm:1.41.0"
   bin:
     playwright: cli.js
-  checksum: c7f630d09e8e2b9bafa84d6789f4e850f0109a2490613f1d7ec9e889f856083cbe9c13442f10b80c4f5f4e249f3b816f982ee02ed00bba9d41f109b948a19903
+  checksum: 1a27270132d7c6cee11572fd079674460dfac706ba63e0db2919c33da8f69de1589f51d98e15c50a8ad510902aa29cfa82aacb29da1868886e235f8a92800e6e
   languageName: node
   linkType: hard
 
@@ -16704,27 +16704,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.40.1":
-  version: 1.40.1
-  resolution: "playwright-core@npm:1.40.1"
+"playwright-core@npm:1.41.0":
+  version: 1.41.0
+  resolution: "playwright-core@npm:1.41.0"
   bin:
     playwright-core: cli.js
-  checksum: 56c283012974982313a6ae583b975ee4af76d52059fb9a25d9cc616a11224685ec64682b391910c795d2b12d2ab5c7eec31124722c75c0b1703a76ac9b6fd1c2
+  checksum: ea74d755c9c8cfec53566fb8ca689b55b493bf67d49ad631c39669006d018e1127688d31a689ef05672d7ae7f9ebb8c3aef92dbe31636c3c3826d4cb90c14cf2
   languageName: node
   linkType: hard
 
-"playwright@npm:1.40.1":
-  version: 1.40.1
-  resolution: "playwright@npm:1.40.1"
+"playwright@npm:1.41.0":
+  version: 1.41.0
+  resolution: "playwright@npm:1.41.0"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.40.1"
+    playwright-core: "npm:1.41.0"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 5dae164d1f69162da8d7eee52da651296fb885c76a8b36049f216975c751a0a826ff05795a1c0902dc0bd193fe606ae17d5def655f4cbcccb8d8b71afb74b950
+  checksum: db12f408c02326ba9efdd7d6c10b9d7509e85cddf99d8043a2fe0d24322a4129ed6c958c301cc99b39c28b335fe659e9dc30b31f2af7fc1428207aa0ba1c9180
   languageName: node
   linkType: hard
 
@@ -19755,21 +19755,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:^2.1.0":
-  version: 2.1.2
-  resolution: "tsconfck@npm:2.1.2"
-  peerDependencies:
-    typescript: ^4.3.5 || ^5.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  bin:
-    tsconfck: bin/tsconfck.js
-  checksum: 6efc9cbbccdbbcafc86a744a1804fcd8438097c2beaac370444cc413fa1582a019a74002a111e3005b89ca0b0169ace730161864628fc751754e29b335c3c79f
-  languageName: node
-  linkType: hard
-
-"tsconfck@npm:^3.0.0":
+"tsconfck@npm:^3.0.0, tsconfck@npm:^3.0.1":
   version: 3.0.1
   resolution: "tsconfck@npm:3.0.1"
   peerDependencies:
@@ -20733,7 +20719,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:8.0.3"
     lint-staged: "npm:15.2.0"
-    playwright: "npm:1.40.1"
+    playwright: "npm:1.41.0"
     semver: "npm:7.5.4"
     stylelint: "npm:15.11.0"
     ts-node: "npm:11.0.0-beta.1"
@@ -20746,19 +20732,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"vite-tsconfig-paths@npm:4.2.3":
-  version: 4.2.3
-  resolution: "vite-tsconfig-paths@npm:4.2.3"
+"vite-tsconfig-paths@npm:4.3.0":
+  version: 4.3.0
+  resolution: "vite-tsconfig-paths@npm:4.3.0"
   dependencies:
     debug: "npm:^4.1.1"
     globrex: "npm:^0.1.2"
-    tsconfck: "npm:^2.1.0"
+    tsconfck: "npm:^3.0.1"
   peerDependencies:
     vite: "*"
   peerDependenciesMeta:
     vite:
       optional: true
-  checksum: 1083ae98e02b8f120cfc0fa2793fbafa77165b02ffd7936ea9979ac612df5f138f6f8f2f909ab372c0a54018ddea34c95c2eb0d51072852848498d8b1c13f2ff
+  checksum: 0bb43fd35fa15e040abc34834b18d2cc636633f6e8e7521f753d96dad8bce6f0eef6466b804cbd0a27900a1b2e3534bdd0849d6b602b89cbb1752c47e68902a4
   languageName: node
   linkType: hard
 
