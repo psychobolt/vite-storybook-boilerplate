@@ -23,7 +23,7 @@ export default function run(args) {
   const child = spawn("node", args, {
     env: {
       ...process.env,
-      NODE_OPTIONS: `--loader ${swcRegisterPath} ${nodeOptions}`,
+      NODE_OPTIONS: `${nodeOptions} --loader ${swcRegisterPath}`,
     },
     stdio: ["inherit", "inherit", "inherit", "ipc"],
   }).on("message", (data) => {

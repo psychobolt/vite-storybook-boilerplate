@@ -20699,6 +20699,9 @@ __metadata:
     turbo: "npm:1.10.16"
     typescript: "npm:5.3.3"
     yaml: "npm:2.3.4"
+  dependenciesMeta:
+    "@swc-node/register@1.6.8":
+      unplugged: true
   languageName: unknown
   linkType: soft
 
