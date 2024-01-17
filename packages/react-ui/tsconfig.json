@@ -1,23 +1,23 @@
 {
   "extends": [
     "@tsconfig/vite-react/tsconfig.json",
-    "commons/tsconfig.vite.json"
+    "commons/tsconfig.vite.json",
   ],
   "compilerOptions": {
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
         "options": {
-          "classnameTransform": "camelCase"
-        }
-      }
+          "classnameTransform": "camelCase",
+        },
+      },
     ],
     "baseUrl": "src",
     "paths": {
       "react-ui": ["index.ts"],
-      "html-ui/*": ["../../html-ui/dist/*"]
-    }
+      "html-ui/*": ["../../html-ui/dist/*"],
+    },
   },
   "include": [".storybook/**/*", "**/*"],
-  "references": [{ "path": "../commons" }]
+  "references": [{ "path": "../commons" }],
 }
