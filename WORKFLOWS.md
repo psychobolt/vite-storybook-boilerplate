@@ -8,6 +8,12 @@ This project contains several default configurations to help you setup CI testin
 
 Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up environment variables for your CI
 
+### Chromatic
+
+1. Follow [instructions](https://www.chromatic.com/docs/setup) on creating a Chromatic project
+2. Create a `.env` file if not exist in `packages/your-package`
+3. Add `CHROMATIC_PROJECT_TOKEN=your-project-token` to `packages/your-package/.env`
+
 ## Syncing With Original Fork
 
 Occassionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:

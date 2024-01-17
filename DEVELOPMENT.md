@@ -53,7 +53,7 @@ yarn exec my-bin-or-script
 
 See [information](https://yarnpkg.com/cli) on commands for Yarn.
 
-> Each project level has their own set of scripts. Please see documentation in projects directories (`apps` or `packages`).
+> Each project level has their own set of scripts. Please see documentation in workspace directories (`apps/*` or `packages/*`).
 
 #### Main Project
 
@@ -97,12 +97,6 @@ yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library 
 You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turbo run format --filter=react-ui --filter=html-ui --filter=apps/**`.
 
 See [docs](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for more details.
-
-## Chromatic Setup
-
-1. Follow [instructions](https://www.chromatic.com/docs/setup) on creating a Chromatic project
-2. Create a `.env` file if not exist in `packages/your-package`
-3. Add `CHROMATIC_PROJECT_TOKEN=your-project-token` to `packages/your-package/.env`
 
 ## Envrionment Variables
 
