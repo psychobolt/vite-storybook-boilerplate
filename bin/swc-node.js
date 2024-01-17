@@ -14,7 +14,7 @@ export default function run(args) {
     .slice(0, -1)
     .replace("--experimental-loader", "--loader");
 
-  const tsNodePath = `file://${execSync("yarn g:ts-node-path")
+  const swcRegisterPath = `file://${execSync("yarn g:swc-register-path")
     .toString()
     .slice(0, -1)}`;
 
@@ -23,7 +23,7 @@ export default function run(args) {
   const child = spawn("node", args, {
     env: {
       ...process.env,
-      NODE_OPTIONS: `--loader ${tsNodePath} ${nodeOptions}`,
+      NODE_OPTIONS: `--loader ${swcRegisterPath} ${nodeOptions}`,
     },
     stdio: ["inherit", "inherit", "inherit", "ipc"],
   }).on("message", (data) => {
