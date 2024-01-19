@@ -5598,15 +5598,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:4.0.5":
-  version: 4.0.5
-  resolution: "@sveltejs/adapter-vercel@npm:4.0.5"
+"@sveltejs/adapter-vercel@npm:5.0.0":
+  version: 5.0.0
+  resolution: "@sveltejs/adapter-vercel@npm:5.0.0"
   dependencies:
     "@vercel/nft": "npm:^0.26.1"
     esbuild: "npm:^0.19.11"
   peerDependencies:
-    "@sveltejs/kit": ^2.0.0
-  checksum: 56e7cb71dfa298bcac81727296b757d1af6c7e7ea6668dfe6a6a4af167affd6c95fe27ea84ddb7ee5231408b7a434a0e81c4677a408549009e1d5b970b26ed22
+    "@sveltejs/kit": ^2.4.0
+  checksum: dc4959b39ef7e835e5dddf7672ba7a964dfe56cc43ac2daef84e8af01cf4b9c7cb33fb003a8bf0583e34f4f60f0e8a315b66d6b7a6bc490baf07ca893365ee57
   languageName: node
   linkType: hard
 
@@ -19153,7 +19153,7 @@ __metadata:
     "@fontsource/fira-mono": "npm:5.0.8"
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:3.1.0"
-    "@sveltejs/adapter-vercel": "npm:4.0.5"
+    "@sveltejs/adapter-vercel": "npm:5.0.0"
     "@sveltejs/kit": "npm:2.4.0"
     "@sveltejs/vite-plugin-svelte": "npm:3.0.1"
     "@types/cookie": "npm:0.6.0"
