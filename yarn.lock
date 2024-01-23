@@ -3198,7 +3198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/plugin-help@npm:^5.2.11":
+"@oclif/plugin-help@npm:^5.2.15":
   version: 5.2.20
   resolution: "@oclif/plugin-help@npm:5.2.20"
   dependencies:
@@ -3207,7 +3207,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/plugin-not-found@npm:^2.3.24":
+"@oclif/plugin-not-found@npm:^2.3.34":
   version: 2.4.3
   resolution: "@oclif/plugin-not-found@npm:2.4.3"
   dependencies:
@@ -3238,7 +3238,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/plugin-warn-if-update-available@npm:^2.0.40":
+"@oclif/plugin-warn-if-update-available@npm:^2.0.46":
   version: 2.1.1
   resolution: "@oclif/plugin-warn-if-update-available@npm:2.1.1"
   dependencies:
@@ -8567,14 +8567,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.3.1":
-  version: 10.3.1
-  resolution: "chromatic@npm:10.3.1"
+"chromatic@npm:10.4.0":
+  version: 10.4.0
+  resolution: "chromatic@npm:10.4.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 51c664ef66b637eb5da00ec977c673ee61499b3ceac6236e13def2b9211b5ea7af6c274ee71c3d1d215c891d1dd9a7d3f91fd7b4f8c07eddc3f6cd8b36550800
+  checksum: 4ceb7a16d9763c59fa7d674fc6683003625ae5d7719e956b8afc39352c2201a6d3865726077bb2cc5489b0776d38e7366a98408fff3dc3a35586250b09c6477d
   languageName: node
   linkType: hard
 
@@ -9785,21 +9785,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-vault@npm:1.25.0":
-  version: 1.25.0
-  resolution: "dotenv-vault@npm:1.25.0"
+"dotenv-vault@npm:1.26.0":
+  version: 1.26.0
+  resolution: "dotenv-vault@npm:1.26.0"
   dependencies:
     "@oclif/core": "npm:^1"
-    "@oclif/plugin-help": "npm:^5.2.11"
-    "@oclif/plugin-not-found": "npm:^2.3.24"
+    "@oclif/plugin-help": "npm:^5.2.15"
+    "@oclif/plugin-not-found": "npm:^2.3.34"
     "@oclif/plugin-update": "npm:^3.1.16"
-    "@oclif/plugin-warn-if-update-available": "npm:^2.0.40"
+    "@oclif/plugin-warn-if-update-available": "npm:^2.0.46"
     axios: "npm:^0.27.2"
     chalk: "npm:^4.1.2"
     dotenv: "npm:^16.3.1"
   bin:
     dotenv-vault: bin/run
-  checksum: f2ecc238df30e46c5e768785acc205e38411cedeacad06c951ef212ed815f4f96f63c6b8a92b58e897bc26f6a8d6c09777fcdd1d45c34f6f18c933afc75113b2
+  checksum: 03849ba664c7db61a1e6d245fc9ab911ddc1e01d8618d2c3657891264e2ece3bf7ec3dc06fd046fa4e08c678908f6e2b23e01ffeffc7535be5e4d550b0472449
   languageName: node
   linkType: hard
 
@@ -12255,7 +12255,7 @@ __metadata:
     "@storybook/test": "npm:7.6.10"
     "@storybook/web-components": "npm:7.6.10"
     "@storybook/web-components-vite": "npm:7.6.10"
-    chromatic: "npm:10.3.1"
+    chromatic: "npm:10.4.0"
     commons: "workspace:*"
     glob: "npm:10.3.10"
     http-server: "npm:14.1.1"
@@ -17405,7 +17405,7 @@ __metadata:
     "@tsconfig/vite-react": "npm:3.0.0"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
-    chromatic: "npm:10.3.1"
+    chromatic: "npm:10.4.0"
     commons: "workspace:*"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
@@ -20705,7 +20705,7 @@ __metadata:
     commons: "workspace:*"
     dotenv-cli: "npm:7.3.0"
     dotenv-flow: "npm:4.1.0"
-    dotenv-vault: "npm:1.25.0"
+    dotenv-vault: "npm:1.26.0"
     eslint: "npm:8.56.0"
     execa: "npm:8.0.1"
     glob-to-regexp: "npm:0.4.1"
