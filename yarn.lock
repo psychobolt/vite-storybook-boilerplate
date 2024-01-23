@@ -8567,14 +8567,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.3.1":
-  version: 10.3.1
-  resolution: "chromatic@npm:10.3.1"
+"chromatic@npm:10.4.0":
+  version: 10.4.0
+  resolution: "chromatic@npm:10.4.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 51c664ef66b637eb5da00ec977c673ee61499b3ceac6236e13def2b9211b5ea7af6c274ee71c3d1d215c891d1dd9a7d3f91fd7b4f8c07eddc3f6cd8b36550800
+  checksum: 4ceb7a16d9763c59fa7d674fc6683003625ae5d7719e956b8afc39352c2201a6d3865726077bb2cc5489b0776d38e7366a98408fff3dc3a35586250b09c6477d
   languageName: node
   linkType: hard
 
@@ -12255,7 +12255,7 @@ __metadata:
     "@storybook/test": "npm:7.6.10"
     "@storybook/web-components": "npm:7.6.10"
     "@storybook/web-components-vite": "npm:7.6.10"
-    chromatic: "npm:10.3.1"
+    chromatic: "npm:10.4.0"
     commons: "workspace:*"
     glob: "npm:10.3.10"
     http-server: "npm:14.1.1"
@@ -17405,7 +17405,7 @@ __metadata:
     "@tsconfig/vite-react": "npm:3.0.0"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
-    chromatic: "npm:10.3.1"
+    chromatic: "npm:10.4.0"
     commons: "workspace:*"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
