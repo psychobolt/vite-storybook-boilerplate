@@ -20,7 +20,7 @@ jobs:
     if: contains(fromJSON(inputs.package_names), 'commons')
 
   html-ui:
-    uses: ./.github/workflows/deploy-package.yml
+    uses: ./.github/workflows/test-package.yml
     if: contains(fromJSON(inputs.package_names), 'html-ui')
     with:
       ref_name: ${{ inputs.ref_name }}
@@ -30,7 +30,7 @@ jobs:
 
   react-ui:
     if: contains(fromJSON(inputs.package_names), 'react-ui')
-    uses: ./.github/workflows/deploy-package.yml
+    uses: ./.github/workflows/test-package.yml
     with:
       ref_name: ${{ inputs.ref_name }}
       workspace: react-ui
