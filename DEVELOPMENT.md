@@ -80,6 +80,8 @@ See [scripts/README.md](scripts/README.md)
 ```sh
 #cd (packages|apps)/workspace-name # optional if not using yarn workspace command, otherwise you'll run task on all workspaces
 yarn [workspace workspace-name] turbo task-name [--force] [-- --some-option] # Run a turbo enabled task
+# or by using path directly. By default the `workspace` sub-command will search all workspace paths
+yarn [(packages|apps)/workspace-name] turbo run task-name
 yarn [workspace workspace-name] turbo run start # Serve production build
 yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
 yann [workspace workspace-name] turbo run build # Build for production
