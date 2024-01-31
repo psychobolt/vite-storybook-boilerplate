@@ -2,7 +2,7 @@
 	"name": "svelte-app",
 	"private": true,
 	"type": "module",
-	"packageManager": "yarn@4.0.2",
+	"packageManager": "yarn@4.1.0",
 	"scripts": {
 		"bootstrap": "turbo run //#bootstrap",
 		"dev": "vite dev --open",
