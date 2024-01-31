@@ -15,36 +15,39 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     backgroundColor: { control: "color" },
+    onClick: { action: "onClick" },
   },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const args = {
+  label: "Button",
+};
+
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
+    ...args,
     primary: true,
-    label: "Button",
   },
 };
 
 export const Secondary: Story = {
-  args: {
-    label: "Button",
-  },
+  args,
 };
 
 export const Large: Story = {
   args: {
+    ...args,
     size: "large",
-    label: "Button",
   },
 };
 
 export const Small: Story = {
   args: {
+    ...args,
     size: "small",
-    label: "Button",
   },
 };
