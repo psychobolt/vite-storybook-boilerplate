@@ -15,9 +15,10 @@ on:
 jobs:
   commons:
     uses: ./.github/workflows/test-commons.yml
+    if: contains(fromJSON(inputs.package_names), 'commons')
     with:
       ref_name: ${{ inputs.ref_name }}
-    if: contains(fromJSON(inputs.package_names), 'commons')
+    secrets: inherit
 
   html-ui:
     uses: ./.github/workflows/test-package.yml

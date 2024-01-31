@@ -46,7 +46,7 @@ jobs:
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: npm install -g vercel@latest
       - name: Pull Vercel Project
         run: vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
       - name: Run Build
