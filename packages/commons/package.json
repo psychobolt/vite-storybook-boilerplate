@@ -50,7 +50,7 @@
     "playwright-chromium": "1.41.2",
     "postcss": "8.4.34",
     "postcss-scss": "4.0.9",
-    "prettier": "3.2.4",
+    "prettier": "3.2.5",
     "prettier-config-standard": "7.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
