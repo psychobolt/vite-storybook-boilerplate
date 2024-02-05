@@ -48,7 +48,7 @@
     "lodash": "4.17.21",
     "playwright": "1.41.2",
     "playwright-chromium": "1.41.2",
-    "postcss": "8.4.33",
+    "postcss": "8.4.34",
     "postcss-scss": "4.0.9",
     "prettier": "3.2.4",
     "prettier-config-standard": "7.0.0",
