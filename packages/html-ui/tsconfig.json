@@ -5,12 +5,12 @@
       {
         "name": "typescript-plugin-css-modules",
         "options": {
-          "classnameTransform": "camelCase",
-        },
-      },
+          "classnameTransform": "camelCase"
+        }
+      }
     ],
-    "baseUrl": "src",
+    "baseUrl": "src"
   },
   "include": [".storybook/**/*", "**/*"],
-  "references": [{ "path": "../commons" }],
+  "references": [{ "path": "../commons" }]
 }
