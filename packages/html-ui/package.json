@@ -27,7 +27,7 @@
     "@storybook/test": "7.6.12",
     "@storybook/web-components": "7.6.12",
     "@storybook/web-components-vite": "7.6.12",
-    "chromatic": "10.7.1",
+    "chromatic": "10.8.0",
     "commons": "workspace:*",
     "glob": "10.3.10",
     "http-server": "14.1.1",
