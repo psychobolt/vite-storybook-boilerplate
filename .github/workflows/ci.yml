@@ -33,7 +33,7 @@ jobs:
         with:
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Setup Node.js environment
-        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: lts/*
           cache: yarn
@@ -114,7 +114,7 @@ jobs:
         if: startsWith(env.REF_NAME, 'release-')
         run: git fetch --depth=50 origin ${{ vars.BASE_REF_NAME }}:${{ vars.BASE_REF_NAME }}
       - name: Setup Node.js environment
-        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: lts/*
           cache: yarn
