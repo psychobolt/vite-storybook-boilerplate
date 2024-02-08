@@ -12,7 +12,7 @@
       "outputs": ["test-results/junit.xml"]
     },
     "coverage": {
-      "outputs": ["coverage/coverage*(*).json"]
+      "outputs": ["coverage/coverage.json", "coverage/coverage-*.json"]
     }
   }
 }

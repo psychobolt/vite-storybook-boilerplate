@@ -65,7 +65,7 @@ function getSourceTemplate<TMeta>(framework: Framework) {
   }
 }
 
-let fileMatcher: RegExp = /\.variants?\.tsx?$/;
+let fileMatcher: RegExp = /\.variants?\.[jt]sx?$/;
 
 const getImportPath = (filePath: string) =>
   `${isAbsolute(filePath) ? "file://" : ""}${filePath}?${new Date().getTime()}`;

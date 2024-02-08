@@ -32,7 +32,7 @@ jobs:
           fetch-depth: 50
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Setup Node.js environment
-        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: lts/*
           cache: yarn
@@ -52,7 +52,7 @@ jobs:
           "yarn workspace ${{ inputs.workspace }} turbo run start -- --silent"
           "npx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv -p TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
-        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
+        uses: codecov/codecov-action@e0b68c6749509c5f83f984dd99a76a1c1a231044 # v4
         with:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}

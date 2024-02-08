@@ -2,7 +2,7 @@
   "name": "html-ui",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.1.0",
   "exports": {
     "./*.css": "./dist/*.css"
   },
@@ -22,23 +22,23 @@
     "chromatic": "yarn g:dotenv -- chromatic"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.6.9",
-    "@storybook/blocks": "7.6.9",
-    "@storybook/test": "7.6.9",
-    "@storybook/web-components": "7.6.9",
-    "@storybook/web-components-vite": "7.6.9",
-    "chromatic": "10.3.1",
+    "@storybook/addon-essentials": "7.6.13",
+    "@storybook/blocks": "7.6.13",
+    "@storybook/test": "7.6.13",
+    "@storybook/web-components": "7.6.13",
+    "@storybook/web-components-vite": "7.6.13",
+    "chromatic": "10.9.2",
     "commons": "workspace:*",
     "glob": "10.3.10",
     "http-server": "14.1.1",
-    "lit": "3.1.1",
+    "lit": "3.1.2",
     "nyc": "15.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "1.69.7",
-    "turbo": "1.10.16",
+    "sass": "1.70.0",
+    "turbo": "1.12.3",
     "typescript": "5.3.3",
     "typescript-plugin-css-modules": "5.0.2",
-    "vite": "5.0.11"
+    "vite": "5.1.0"
   }
 }
