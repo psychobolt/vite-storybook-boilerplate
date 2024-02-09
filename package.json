@@ -7,8 +7,8 @@
     "postinstall": "husky install",
     "g:dotenv": "cd $INIT_CWD && dotenv -e $PROJECT_CWD/.env -e $INIT_CWD/.env -c",
     "g:dotenv-vault": "cd $INIT_CWD && dotenv-vault",
-    "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
-    "g:run-script": "cd $INIT_CWD && yarn g:dotenv -- node --loader file://$PROJECT_CWD/.pnp.loader.mjs --loader file://$(yarn g:swc-register-path)",
+    "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm-register.mjs')\"",
+    "g:run-script": "cd $INIT_CWD && yarn g:dotenv -- node --import file://$(yarn g:swc-register-path)",
     "run-script": "yarn g:run-script",
     "turbo": "yarn run-script scripts/turbo.ts",
     "ls-workspaces": "yarn run-script scripts/ls-workspaces.ts",
@@ -52,6 +52,7 @@
     "yaml": "2.3.4"
   },
   "resolutions": {
+    "@swc-node/register@1.8.0": "patch:@swc-node/register@npm%3A1.8.0#~/.yarn/patches/@swc-node-register-npm-1.8.0-5d66224f18.patch",
     "dotenv-cli@7.3.0": "patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch",
     "dotenv-flow@4.1.0": "patch:dotenv-flow@npm%3A4.1.0#~/.yarn/patches/dotenv-flow-npm-4.1.0-74ebe7c968.patch",
     "dotenv-vault/@oclif/core@^1": "npm:3.16.0",
