@@ -5683,6 +5683,60 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc-node/core@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "@swc-node/core@npm:1.12.0"
+  peerDependencies:
+    "@swc/core": ">= 1.3"
+    "@swc/types": ">= 0.1"
+  checksum: 10c0/b7eb65de202e76ca039556c774a638daa9b6ccaf2598b9be861000a5cf3f9260b106dcfedcbe3f80acb7675b03e5d37b20cc52575b3cb5fd770c50b939976417
+  languageName: node
+  linkType: hard
+
+"@swc-node/register@npm:1.8.0":
+  version: 1.8.0
+  resolution: "@swc-node/register@npm:1.8.0"
+  dependencies:
+    "@swc-node/core": "npm:^1.12.0"
+    "@swc-node/sourcemap-support": "npm:^0.4.0"
+    colorette: "npm:^2.0.20"
+    debug: "npm:^4.3.4"
+    pirates: "npm:^4.0.6"
+    tslib: "npm:^2.6.2"
+  peerDependencies:
+    "@swc/core": ">= 1.3"
+    typescript: ">= 4.3"
+  checksum: 10c0/82181150a977b05d7eaf7b02c218954342e930c8700482bc71479b0dd1649f0621086e79ae67e4026dbc03b8096260af1cdae0cf40778fcc62efbeaa3bd9ca4b
+  languageName: node
+  linkType: hard
+
+"@swc-node/register@patch:@swc-node/register@npm%3A1.8.0#~/.yarn/patches/@swc-node-register-npm-1.8.0-5d66224f18.patch":
+  version: 1.8.0
+  resolution: "@swc-node/register@patch:@swc-node/register@npm%3A1.8.0#~/.yarn/patches/@swc-node-register-npm-1.8.0-5d66224f18.patch::version=1.8.0&hash=f0bedd"
+  dependencies:
+    "@swc-node/core": "npm:^1.12.0"
+    "@swc-node/sourcemap-support": "npm:^0.4.0"
+    colorette: "npm:^2.0.20"
+    debug: "npm:^4.3.4"
+    pirates: "npm:^4.0.6"
+    tslib: "npm:^2.6.2"
+  peerDependencies:
+    "@swc/core": ">= 1.3"
+    typescript: ">= 4.3"
+  checksum: 10c0/5f71964a846eb051f63eb64721f5087b1d2d2b8fa7cd41c26d72eda69ada4e5a22a867c73dbbad4875c50e5b9dfad225f83e74c9d79eabc03bea126842427917
+  languageName: node
+  linkType: hard
+
+"@swc-node/sourcemap-support@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@swc-node/sourcemap-support@npm:0.4.0"
+  dependencies:
+    source-map-support: "npm:^0.5.21"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/b5130e17ee255fbb04233ce0ab39480c863850ce12aafbc7e784104c10403b19a7339646abb71dbb1659b3ffd53608a48e86f174112b946ba31fd7acdb811dd0
+  languageName: node
+  linkType: hard
+
 "@swc/core-darwin-arm64@npm:1.3.91":
   version: 1.3.91
   resolution: "@swc/core-darwin-arm64@npm:1.3.91"
@@ -6042,13 +6096,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node14@npm:*":
-  version: 14.1.0
-  resolution: "@tsconfig/node14@npm:14.1.0"
-  checksum: 10c0/22cc69e7fc74b1c9f281e2e4eb35c000a87d5846722067a76b2c3fa94446f30b6bfdb256bd09861bba5ebfb682e60781053a4dc9a42af74a7842b4318472d664
-  languageName: node
-  linkType: hard
-
 "@tsconfig/node14@npm:^1.0.0":
   version: 1.0.3
   resolution: "@tsconfig/node14@npm:1.0.3"
@@ -6056,31 +6103,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node16@npm:*":
-  version: 16.1.1
-  resolution: "@tsconfig/node16@npm:16.1.1"
-  checksum: 10c0/0660087773cd67654a676280f88e77433d54c915994fe4aa47b0d535366edaf9413df69ebc54ba8e271874c59cfa046c961d6a1dea0ed1eaf104ffeb4f78de46
-  languageName: node
-  linkType: hard
-
 "@tsconfig/node16@npm:^1.0.2":
   version: 1.0.4
   resolution: "@tsconfig/node16@npm:1.0.4"
   checksum: 10c0/05f8f2734e266fb1839eb1d57290df1664fe2aa3b0fdd685a9035806daa635f7519bf6d5d9b33f6e69dd545b8c46bd6e2b5c79acb2b1f146e885f7f11a42a5bb
-  languageName: node
-  linkType: hard
-
-"@tsconfig/node18@npm:*":
-  version: 18.2.2
-  resolution: "@tsconfig/node18@npm:18.2.2"
-  checksum: 10c0/71f2c65616125f3ec8c85704ea55100d2131e0c01cbf7a247e5f6f7d617dfaafd5ff4a09b4193bceface4b4f44e9aa909da8e9af3910c01a0661f202386e40af
-  languageName: node
-  linkType: hard
-
-"@tsconfig/node20@npm:*":
-  version: 20.1.2
-  resolution: "@tsconfig/node20@npm:20.1.2"
-  checksum: 10c0/e438fa9b93f0e6ea667affbbd3217692bf3f92db1b3dcbfba1dd141a7dbcd647c19ed87ce76871c723bed398759ec4a5590685f3e669b600c9371f143a19e0c1
   languageName: node
   linkType: hard
 
@@ -16703,7 +16729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pirates@npm:^4.0.4, pirates@npm:^4.0.5":
+"pirates@npm:^4.0.4, pirates@npm:^4.0.5, pirates@npm:^4.0.6":
   version: 4.0.6
   resolution: "pirates@npm:4.0.6"
   checksum: 10c0/00d5fa51f8dded94d7429700fb91a0c1ead00ae2c7fd27089f0c5b63e6eca36197fe46384631872690a66f390c5e27198e99006ab77ae472692ab9c2ca903f36
@@ -18586,7 +18612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.16":
+"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.21":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -19738,41 +19764,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:11.0.0-beta.1":
-  version: 11.0.0-beta.1
-  resolution: "ts-node@npm:11.0.0-beta.1"
-  dependencies:
-    "@cspotcode/source-map-support": "npm:^0.8.0"
-    "@tsconfig/node14": "npm:*"
-    "@tsconfig/node16": "npm:*"
-    "@tsconfig/node18": "npm:*"
-    "@tsconfig/node20": "npm:*"
-    acorn: "npm:^8.4.1"
-    acorn-walk: "npm:^8.1.1"
-    arg: "npm:^4.1.0"
-    diff: "npm:^4.0.1"
-    make-error: "npm:^1.1.1"
-    v8-compile-cache-lib: "npm:^3.0.1"
-  peerDependencies:
-    "@swc/core": ">=1.3.85"
-    "@swc/wasm": ">=1.3.85"
-    "@types/node": "*"
-    typescript: ">=4.4"
-  peerDependenciesMeta:
-    "@swc/core":
-      optional: true
-    "@swc/wasm":
-      optional: true
-  bin:
-    ts-node: dist/bin.js
-    ts-node-cwd: dist/bin-cwd.js
-    ts-node-esm: dist/bin-esm.js
-    ts-node-script: dist/bin-script.js
-    ts-node-transpile-only: dist/bin-transpile.js
-  checksum: 10c0/7c22f1503cbfd5d3f6221694b9f35f4b32f4d8595ab32d6d9f351bbeee6f4895a16ebf0a99a0743dfc652f2ca41e2821dd24ac33156728a9f554be8b4e44f06b
-  languageName: node
-  linkType: hard
-
 "ts-node@npm:^10.9.1":
   version: 10.9.2
   resolution: "ts-node@npm:10.9.2"
@@ -20760,6 +20751,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
+    "@swc-node/register": "npm:1.8.0"
     "@swc/core": "npm:1.4.0"
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/node": "npm:20.11.17"
@@ -20778,13 +20770,9 @@ __metadata:
     playwright: "npm:1.41.2"
     semver: "npm:7.6.0"
     stylelint: "npm:15.11.0"
-    ts-node: "npm:11.0.0-beta.1"
     turbo: "npm:1.12.3"
     typescript: "npm:5.3.3"
     yaml: "npm:2.3.4"
-  dependenciesMeta:
-    ts-node@11.0.0-beta.1:
-      unplugged: true
   languageName: unknown
   linkType: soft
 
