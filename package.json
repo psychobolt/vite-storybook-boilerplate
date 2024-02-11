@@ -57,10 +57,5 @@
     "dotenv-flow@4.1.0": "patch:dotenv-flow@npm%3A4.1.0#~/.yarn/patches/dotenv-flow-npm-4.1.0-74ebe7c968.patch",
     "dotenv-vault/@oclif/core@^1": "npm:3.16.0",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
-  },
-  "dependenciesMeta": {
-    "@swc-node/register@1.8.0": {
-      "unplugged": true
-    }
   }
 }
