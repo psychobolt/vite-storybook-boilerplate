@@ -1,5 +1,5 @@
 diff --git a/esm/esm.mjs b/esm/esm.mjs
-index 8453ae2480391c8eb5cc18d5460bd55b723592ce..a62fa5753df9a00f9680adc8dea7b005dea82f6e 100644
+index 8453ae2480391c8eb5cc18d5460bd55b723592ce..f7642ab8b18bb272607b0f7cf4f6cc9fea8c0aa1 100644
 --- a/esm/esm.mjs
 +++ b/esm/esm.mjs
 @@ -13,7 +13,8 @@ const host = {
@@ -21,3 +21,12 @@ index 8453ae2480391c8eb5cc18d5460bd55b723592ce..a62fa5753df9a00f9680adc8dea7b005
      // import from local project to local project TS file
      if (resolvedModule &&
          !resolvedModule.resolvedFileName.includes('/node_modules/') &&
+@@ -47,7 +48,7 @@ export const load = async (url, context, nextLoad) => {
+     if (context.format === 'ts') {
+         const { source } = await nextLoad(url, context);
+         const code = typeof source === 'string' ? source : Buffer.from(source).toString();
+-        const compiled = await compile(code, url, tsconfig, true);
++        const compiled = await compile(code, fileURLToPath(url), tsconfig, true);
+         return {
+             format: 'module',
+             source: compiled,
