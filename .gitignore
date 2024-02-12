@@ -1,6 +1,7 @@
 # packages
 node_modules
 .turbo
+.vscode/settings.json
 .env
 storybook-static
 build

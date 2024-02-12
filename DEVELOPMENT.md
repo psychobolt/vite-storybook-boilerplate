@@ -11,26 +11,13 @@
 5. Open your project in VSCode with latest LTS node (e.g. `nvm use lts/* && code ./vite-storybook-boilerplate`)
 6. Check notifications (bottom right of VSCode status bar) and install all recommended extensions
 7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
-8. Restart VSCode and reopen the project.
+8. Copy `.vscode/settings.default.json` to `.vscode/settings.json` and replace `${workspaceFolder}` with the absolute path of your current directory.
+9. Restart VSCode and reopen the project.
+10. Initialize Shared Workspace Settings from notification popup and restart.
 
 ### ESLint Setup
 
 In order to support lint highlighting in VSCode editor, your workspace config must be flattened as `[workspace]/eslint.config.ts`. If you've scaffolded your workspace project, please refer [example](eslint.config.ts) and [docs](https://eslint.org/docs/latest/use/configure/configuration-files-new) for migration references.
-
-#### Troubleshooting
-
-##### Windows
-
-To overcome the `spawn: UNKNOWN` error, update your `.vscode/settings.json` file with:
-
-```json
-{
-  "eslint.runtime": "node",
-  "eslint.execArgv": ["D://absolute/path/to/your/project/bin/eslint-runtime.js"]
-}
-```
-
-> Keep this change and ensure the settings file is not pushed.
 
 ### Setup Remote Cache (Optional)
 
