@@ -47,7 +47,7 @@
     "playwright": "1.41.2",
     "semver": "7.6.0",
     "stylelint": "15.11.0",
-    "turbo": "1.12.3",
+    "turbo": "1.12.4",
     "typescript": "5.3.3",
     "yaml": "2.3.4"
   },
