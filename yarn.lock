@@ -8616,9 +8616,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.9.4":
-  version: 10.9.4
-  resolution: "chromatic@npm:10.9.4"
+"chromatic@npm:10.9.5":
+  version: 10.9.5
+  resolution: "chromatic@npm:10.9.5"
   peerDependencies:
     "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
     "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
@@ -8631,7 +8631,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 10c0/37a6cb991d886a96d344bfbe56fa40e718cd0187610d590e90c61912b3daca9044cea60a65f4e866dee52c3c28ce3c65e7e5b7d86a6f3005ca0f1a2d604f2091
+  checksum: 10c0/5936e3d9a80073f3a380d450b4982705d81443ea0344706ee670a056dd78a7a4093c9224e18f068db1e6dcc3a7bf7b649b5d1770f73521cfcff22cae66e7c55c
   languageName: node
   linkType: hard
 
@@ -9034,7 +9034,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:12.0.0"
     ts-enum-util: "npm:4.0.2"
     tsconfig-to-dual-package: "npm:1.2.0"
-    turbo: "npm:1.12.3"
+    turbo: "npm:1.12.4"
     typescript: "npm:5.3.3"
     vite: "npm:5.1.2"
     vite-plugin-turbosnap: "npm:1.0.3"
@@ -12337,7 +12337,7 @@ __metadata:
     "@storybook/test": "npm:7.6.15"
     "@storybook/web-components": "npm:7.6.15"
     "@storybook/web-components-vite": "npm:7.6.15"
-    chromatic: "npm:10.9.4"
+    chromatic: "npm:10.9.5"
     commons: "workspace:*"
     glob: "npm:10.3.10"
     http-server: "npm:14.1.1"
@@ -12346,7 +12346,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     sass: "npm:1.70.0"
-    turbo: "npm:1.12.3"
+    turbo: "npm:1.12.4"
     typescript: "npm:5.3.3"
     typescript-plugin-css-modules: "npm:5.1.0"
     vite: "npm:5.1.2"
@@ -15778,7 +15778,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-ui: "workspace:*"
-    turbo: "npm:1.12.3"
+    turbo: "npm:1.12.4"
     typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft
@@ -17498,7 +17498,7 @@ __metadata:
     "@tsconfig/vite-react": "npm:3.0.0"
     "@types/react": "npm:18.2.55"
     "@types/react-dom": "npm:18.2.19"
-    chromatic: "npm:10.9.4"
+    chromatic: "npm:10.9.5"
     commons: "workspace:*"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
@@ -17506,7 +17506,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     sass: "npm:1.70.0"
-    turbo: "npm:1.12.3"
+    turbo: "npm:1.12.4"
     typescript: "npm:5.3.3"
     typescript-plugin-css-modules: "npm:5.1.0"
     vite: "npm:5.1.2"
@@ -19259,7 +19259,7 @@ __metadata:
     svelte-eslint-parser: "npm:0.33.1"
     svelte-language-server: "npm:0.16.3"
     tslib: "npm:2.6.2"
-    turbo: "npm:1.12.3"
+    turbo: "npm:1.12.4"
     typescript: "npm:5.3.3"
     vite: "npm:5.1.2"
   languageName: unknown
@@ -19888,58 +19888,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.12.3":
-  version: 1.12.3
-  resolution: "turbo-darwin-64@npm:1.12.3"
+"turbo-darwin-64@npm:1.12.4":
+  version: 1.12.4
+  resolution: "turbo-darwin-64@npm:1.12.4"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.12.3":
-  version: 1.12.3
-  resolution: "turbo-darwin-arm64@npm:1.12.3"
+"turbo-darwin-arm64@npm:1.12.4":
+  version: 1.12.4
+  resolution: "turbo-darwin-arm64@npm:1.12.4"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.12.3":
-  version: 1.12.3
-  resolution: "turbo-linux-64@npm:1.12.3"
+"turbo-linux-64@npm:1.12.4":
+  version: 1.12.4
+  resolution: "turbo-linux-64@npm:1.12.4"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.12.3":
-  version: 1.12.3
-  resolution: "turbo-linux-arm64@npm:1.12.3"
+"turbo-linux-arm64@npm:1.12.4":
+  version: 1.12.4
+  resolution: "turbo-linux-arm64@npm:1.12.4"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.12.3":
-  version: 1.12.3
-  resolution: "turbo-windows-64@npm:1.12.3"
+"turbo-windows-64@npm:1.12.4":
+  version: 1.12.4
+  resolution: "turbo-windows-64@npm:1.12.4"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.12.3":
-  version: 1.12.3
-  resolution: "turbo-windows-arm64@npm:1.12.3"
+"turbo-windows-arm64@npm:1.12.4":
+  version: 1.12.4
+  resolution: "turbo-windows-arm64@npm:1.12.4"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:1.12.3":
-  version: 1.12.3
-  resolution: "turbo@npm:1.12.3"
+"turbo@npm:1.12.4":
+  version: 1.12.4
+  resolution: "turbo@npm:1.12.4"
   dependencies:
-    turbo-darwin-64: "npm:1.12.3"
-    turbo-darwin-arm64: "npm:1.12.3"
-    turbo-linux-64: "npm:1.12.3"
-    turbo-linux-arm64: "npm:1.12.3"
-    turbo-windows-64: "npm:1.12.3"
-    turbo-windows-arm64: "npm:1.12.3"
+    turbo-darwin-64: "npm:1.12.4"
+    turbo-darwin-arm64: "npm:1.12.4"
+    turbo-linux-64: "npm:1.12.4"
+    turbo-linux-arm64: "npm:1.12.4"
+    turbo-windows-64: "npm:1.12.4"
+    turbo-windows-arm64: "npm:1.12.4"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -19955,7 +19955,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10c0/605c46cd468e7b3fcd9f49c71c043560d29d26a7830198da38bf60a996e996daeeea83aecd9c96658bcae218b558712d9a5fdc62a15ac9c0271cc0b2f1aea33d
+  checksum: 10c0/c5ba0b5f4c45df5e95783c0d2f3342fde5a015b337a24e77002ffcb1ece93bd92d17ced1696ff2d0e3dde408d229046ac8b1f61f5ea5aef56597f268c78c07f6
   languageName: node
   linkType: hard
 
@@ -20764,7 +20764,7 @@ __metadata:
     playwright: "npm:1.41.2"
     semver: "npm:7.6.0"
     stylelint: "npm:15.11.0"
-    turbo: "npm:1.12.3"
+    turbo: "npm:1.12.4"
     typescript: "npm:5.3.3"
     yaml: "npm:2.3.4"
   languageName: unknown
