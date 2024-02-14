@@ -55,7 +55,7 @@ jobs:
         with:
           fetch-depth: 2
           ref: ${{ inputs.ref_name || github.ref }}
-      - uses: dorny/paths-filter@v2
+      - uses: dorny/paths-filter@0bc4621a3135347011ad047f9ecf449bf72ce2bd # v3
         id: versions
         with:
           filters: |
