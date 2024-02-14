@@ -39,7 +39,7 @@
 		"svelte-eslint-parser": "0.33.1",
 		"svelte-language-server": "0.16.3",
 		"tslib": "2.6.2",
-		"turbo": "1.12.3",
+		"turbo": "1.12.4",
 		"typescript": "5.3.3",
 		"vite": "5.1.2"
 	},
