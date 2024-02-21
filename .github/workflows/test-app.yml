@@ -53,7 +53,7 @@ jobs:
         run: vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
         if: matrix.os == 'ubuntu-latest'
-        uses: BetaHuhn/deploy-to-vercel-action@643bc80032ba62ca41d1a9aaba7b38b51c2b8646 # v1
+        uses: BetaHuhn/deploy-to-vercel-action@0f16bc3af7db7d5171bf68bff6f82679de195113 # v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_DEPLOYMENT_ENV: ${{ format('{0} ({1})', inputs.workspace, env.REF_NAME == 'main' && 'Production' || 'Preview') }}
