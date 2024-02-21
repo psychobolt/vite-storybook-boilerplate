@@ -23,5 +23,6 @@
       "matchPackageNames": ["stylelint-config-standard-scss"],
       "allowedVersions": "<13"
     }
-  ]
+  ],
+  "ignorePaths": ["**/package.json", "**/yarn.lock"]
 }
