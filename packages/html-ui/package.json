@@ -22,11 +22,11 @@
     "chromatic": "yarn g:dotenv -- chromatic"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.6.16",
-    "@storybook/blocks": "7.6.16",
-    "@storybook/test": "7.6.16",
-    "@storybook/web-components": "7.6.16",
-    "@storybook/web-components-vite": "7.6.16",
+    "@storybook/addon-essentials": "7.6.17",
+    "@storybook/blocks": "7.6.17",
+    "@storybook/test": "7.6.17",
+    "@storybook/web-components": "7.6.17",
+    "@storybook/web-components-vite": "7.6.17",
     "chromatic": "10.9.6",
     "commons": "workspace:*",
     "glob": "10.3.10",
