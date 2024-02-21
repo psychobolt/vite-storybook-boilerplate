@@ -3,6 +3,7 @@
   "extends": ["config:best-practices"],
   "platform": "bitbucket",
   "repositories": ["psychobolt/vite-storybook-boilerplate"],
+  "enabledManagers": ["bitbucket-pipelines"],
   "automerge": true,
   "allowedPostUpgradeCommands": [
     "YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install && yarn bootstrap"
@@ -23,6 +24,5 @@
       "matchPackageNames": ["stylelint-config-standard-scss"],
       "allowedVersions": "<13"
     }
-  ],
-  "ignorePaths": ["**/package.json", "**/yarn.lock"]
+  ]
 }
