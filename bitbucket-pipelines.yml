@@ -336,7 +336,7 @@ pipelines:
       - step:
           size: 2x
           script:
-            - pipe: atlassian/renovate-scan:0.4.1
+            - pipe: atlassian/renovate-scan:0.5.0
               variables:
                 CONFIG_FILE_PATH: renovate.json
                 GITHUB_COM_TOKEN: $GITHUB_COM_TOKEN
