@@ -52,7 +52,7 @@ jobs:
           "yarn workspace ${{ inputs.workspace }} turbo run start -- --silent"
           "npx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv -p TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
-        uses: codecov/codecov-action@e0b68c6749509c5f83f984dd99a76a1c1a231044 # v4
+        uses: codecov/codecov-action@0cfda1dd0a4ad9efc75517f399d859cd1ea4ced1 # v4
         with:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
