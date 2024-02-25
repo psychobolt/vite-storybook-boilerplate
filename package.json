@@ -50,7 +50,7 @@
     "stylelint": "15.11.0",
     "turbo": "1.12.4",
     "typescript": "5.3.3",
-    "yaml": "2.3.4"
+    "yaml": "2.4.0"
   },
   "resolutions": {
     "@swc-node/register@1.8.0": "patch:@swc-node/register@npm%3A1.8.0#~/.yarn/patches/@swc-node-register-npm-1.8.0-5d66224f18.patch",
