@@ -7,7 +7,7 @@ interface User {
   name: string;
 }
 
-export interface HeaderProps {
+export interface Props {
   user?: User;
   onLogin: () => void;
   onLogout: () => void;
@@ -19,7 +19,7 @@ export const Header = ({
   onLogin,
   onLogout,
   onCreateAccount,
-}: HeaderProps) => html`
+}: Props) => html`
   <header>
     <div class="${classes.storybookHeader}">
       <div>

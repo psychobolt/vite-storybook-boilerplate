@@ -5,19 +5,14 @@ interface User {
   name: string;
 }
 
-interface HeaderProps {
+interface Props {
   user?: User;
   onLogin: () => void;
   onLogout: () => void;
   onCreateAccount: () => void;
 }
 
-export const Header = ({
-  user,
-  onLogin,
-  onLogout,
-  onCreateAccount,
-}: HeaderProps) => (
+export const Header = ({ user, onLogin, onLogout, onCreateAccount }: Props) => (
   <header>
     <div className={classes.storybookHeader}>
       <div>

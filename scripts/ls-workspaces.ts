@@ -42,8 +42,8 @@ const filters: Filters = {
   },
   "--node-linker": {
     key: "nodeLinker",
-    type: String,
-    value: "",
+    type: [String],
+    value: [],
   },
   "--no-private": {
     key: "noPrivate",
@@ -123,8 +123,8 @@ async function getWorkspaces<T>(options?: Options) {
   Object.entries(args).forEach(([key, value]) => {
     const filter: Filter = filters[key];
     if (typeof filter !== "undefined") {
-      if (filter.value instanceof Array) {
-        filter.value.push(value as string);
+      if (filter.value instanceof Array && typeof value === "string") {
+        filter.value.push(value);
       } else {
         filter.value = value;
       }
@@ -162,16 +162,17 @@ async function getWorkspaces<T>(options?: Options) {
     }
 
     if (filterKey === "node-linker") {
-      if (filter.value === "") return true;
-      const isPnp = filter.value === "pnp";
+      const filterValue = filter.value as string[];
+      if (!filterValue.length) return true;
+      const isPnp = filterValue.includes("pnp");
       const rcLocation = `${workspace.location}/.yarnrc.yml`;
       if (fs.existsSync(rcLocation)) {
         const doc = YAML.parseDocument(
           fs.readFileSync(`${workspace.location}/.yarnrc.yml`, "utf-8"),
         );
-        const value = doc.get("nodeLinker");
+        const value = doc.get("nodeLinker") as string;
         return (
-          value === filter.value || (typeof value === "undefined" && isPnp)
+          filterValue.includes(value) || (typeof value === "undefined" && isPnp)
         );
       }
       return isPnp;
