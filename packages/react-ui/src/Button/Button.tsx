@@ -1,6 +1,6 @@
 import classes from "./Button.module.scss";
 
-interface ButtonProps {
+interface Props {
   /**
    * Is this the principal call to action on the page?
    */
@@ -26,13 +26,13 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+export function Button({
   primary = false,
   size = "medium",
   backgroundColor,
   label,
   ...props
-}: ButtonProps) => {
+}: Props) {
   const mode = primary
     ? classes.storybookButtonPrimary
     : classes.storybookButtonSecondary;
@@ -50,4 +50,4 @@ export const Button = ({
       {label}
     </button>
   );
-};
+}

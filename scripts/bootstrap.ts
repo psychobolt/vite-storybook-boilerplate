@@ -9,7 +9,7 @@ const install = (options?: SyncOptions) =>
   yarnCmd(["install", ...argv], options);
 
 const workspaces = await getWorkspaces<Workspace[]>({
-  nodeLinker: "node-modules",
+  nodeLinker: ["pnpm", "node-modules"],
 });
 if (workspaces.length) {
   console.log("Verify workspaces using node-modules...");

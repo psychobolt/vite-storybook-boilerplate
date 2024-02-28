@@ -37,7 +37,7 @@ if (
   const { packages }: { packages: string[] } = JSON.parse(stdout);
 
   const workspaces = await getWorkspaces<Workspace[]>({
-    nodeLinker: "node-modules",
+    nodeLinker: ["pnpm", "node-modules"],
   });
 
   for await (const workspace of workspaces) {
