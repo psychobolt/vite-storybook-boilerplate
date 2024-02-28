@@ -3670,9 +3670,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-coverage@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@storybook/addon-coverage@npm:1.0.0"
+"@storybook/addon-coverage@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@storybook/addon-coverage@npm:1.0.1"
   dependencies:
     "@istanbuljs/load-nyc-config": "npm:^1.1.0"
     "@jsdevtools/coverage-istanbul-loader": "npm:^3.0.5"
@@ -3683,7 +3683,7 @@ __metadata:
     source-map: "npm:^0.7.4"
     test-exclude: "npm:^6.0.0"
     vite-plugin-istanbul: "npm:^3.0.1"
-  checksum: 10c0/a141a1766ea6d2a51cafc5c94ba2b696432a395cb11cab4558b6721e20ec0bd824be992ee9cc454b5742461417cbd29612ab21b922feab86e5576a925a501c18
+  checksum: 10c0/40baaca96ab2dcf5cc674dba6740b61cbc6f9c31592b07c2c1ab3a3c1153ac66337783d49f6a6aa566f2539402181097e9818545f5e4341b636009f27b8a818c
   languageName: node
   linkType: hard
 
@@ -7531,7 +7531,7 @@ __metadata:
   dependencies:
     "@eslint/eslintrc": "npm:3.0.2"
     "@jest/types": "npm:29.6.3"
-    "@storybook/addon-coverage": "npm:1.0.0"
+    "@storybook/addon-coverage": "npm:1.0.1"
     "@storybook/addon-essentials": "npm:7.6.17"
     "@storybook/addon-interactions": "npm:7.6.17"
     "@storybook/addon-links": "npm:7.6.17"
