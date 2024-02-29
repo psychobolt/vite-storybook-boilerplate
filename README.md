@@ -7,7 +7,7 @@ A modern starter plate for building front-end components
 ## Features
 
 - [Monorepo](https://monorepo.tools/) support ready
-  - Utilizes [Yarn PnP strategy](https://yarnpkg.com/features/pnp#what-is-yarn-plugnplay) to hoist and map workspace dependencies
+  - Utilizes Yarn's [default PnP strategy](https://yarnpkg.com/features/pnp#what-is-yarn-plugnplay) to hoist and map workspace dependencies
   - Speed up tasks and script runs with [SWC](https://swc.rs/), [Turborepo](https://turbo.build/repo) and [remote caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
   - [Workspace scripts](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/scripts) for handling various workflows such as [release versioning](WORKFLOWS.md), [hybrid PnP and node_modules](https://yarnpkg.com/getting-started/recipes#hybrid-pnp--node_modules-mono-repo) support
   - [Common configs and plugins](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/packages/commons) for your project needs: [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/), [Storybook](https://storybook.js.org), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://prettier.io/) and more...
