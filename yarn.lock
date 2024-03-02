@@ -7868,16 +7868,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.2":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
-  dependencies:
-    follow-redirects: "npm:^1.14.9"
-    form-data: "npm:^4.0.0"
-  checksum: 10c0/76d673d2a90629944b44d6f345f01e58e9174690f635115d5ffd4aca495d99bcd8f95c590d5ccb473513f5ebc1d1a6e8934580d0c57cdd0498c3a101313ef771
-  languageName: node
-  linkType: hard
-
 "axios@npm:^1.6.1":
   version: 1.6.2
   resolution: "axios@npm:1.6.2"
@@ -7886,6 +7876,17 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10c0/9b77e030e85e4f9cbcba7bb52fbff67d6ce906c92d213e0bd932346a50140faf83733bf786f55bd58301bd92f9973885c7b87d6348023e10f7eaf286d0791a1d
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.7":
+  version: 1.6.7
+  resolution: "axios@npm:1.6.7"
+  dependencies:
+    follow-redirects: "npm:^1.15.4"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/131bf8e62eee48ca4bd84e6101f211961bf6a21a33b95e5dfb3983d5a2fe50d9fffde0b57668d7ce6f65063d3dc10f2212cbcb554f75cfca99da1c73b210358d
   languageName: node
   linkType: hard
 
@@ -9842,21 +9843,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-vault@npm:1.26.0":
-  version: 1.26.0
-  resolution: "dotenv-vault@npm:1.26.0"
+"dotenv-vault@npm:1.26.1":
+  version: 1.26.1
+  resolution: "dotenv-vault@npm:1.26.1"
   dependencies:
     "@oclif/core": "npm:^1"
     "@oclif/plugin-help": "npm:^5.2.15"
     "@oclif/plugin-not-found": "npm:^2.3.34"
     "@oclif/plugin-update": "npm:^3.1.16"
     "@oclif/plugin-warn-if-update-available": "npm:^2.0.46"
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.7"
     chalk: "npm:^4.1.2"
     dotenv: "npm:^16.3.1"
   bin:
     dotenv-vault: bin/run
-  checksum: 10c0/03849ba664c7db61a1e6d245fc9ab911ddc1e01d8618d2c3657891264e2ece3bf7ec3dc06fd046fa4e08c678908f6e2b23e01ffeffc7535be5e4d550b0472449
+  checksum: 10c0/8e0a2858f3491fad75873bd91decb984c1182876e18410dd3099fd546e41c8eeb981e4199279f93a113a1a27f025d80b4385c6a5279334a331342ec73e6f364e
   languageName: node
   linkType: hard
 
@@ -11532,13 +11533,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.15.0":
   version: 1.15.3
   resolution: "follow-redirects@npm:1.15.3"
   peerDependenciesMeta:
     debug:
       optional: true
   checksum: 10c0/915a2cf22e667bdf47b1a43cc6b7dce14d95039e9bbf9a24d0e739abfbdfa00077dd43c86d4a7a19efefcc7a99af144920a175eedc3888d268af5df67c272ee5
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.4":
+  version: 1.15.5
+  resolution: "follow-redirects@npm:1.15.5"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10c0/418d71688ceaf109dfd6f85f747a0c75de30afe43a294caa211def77f02ef19865b547dfb73fde82b751e1cc507c06c754120b848fe5a7400b0a669766df7615
   languageName: node
   linkType: hard
 
@@ -20763,7 +20774,7 @@ __metadata:
     commons: "workspace:*"
     dotenv-cli: "npm:7.3.0"
     dotenv-flow: "npm:4.1.0"
-    dotenv-vault: "npm:1.26.0"
+    dotenv-vault: "npm:1.26.1"
     eslint: "npm:8.57.0"
     execa: "npm:8.0.1"
     glob-to-regexp: "npm:0.4.1"
