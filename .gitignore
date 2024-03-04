@@ -14,6 +14,7 @@ next-env.d.ts
 .svelte-kit
 coverage
 test-reports
+*.tsbuildinfo
 
 # environment
 .env*
