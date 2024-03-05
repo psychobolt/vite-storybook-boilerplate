@@ -17,7 +17,6 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "bootstrap": "yarn g:bootstrap",
     "prepack": "yarn turbo run build",
     "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv -p PORT)",
     "build": "yarn build-src && yarn build-dts",

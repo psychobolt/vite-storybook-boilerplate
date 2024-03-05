@@ -3,9 +3,6 @@
   "globalEnv": ["RUNNER_OS"],
   "globalDependencies": ["**/yarn.lock"],
   "pipeline": {
-    "//#bootstrap": {
-      "cache": false
-    },
     "start": {
       "cache": false,
       "persistent": true

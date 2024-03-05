@@ -7,7 +7,6 @@
     "./*.css": "./dist/*.css"
   },
   "scripts": {
-    "bootstrap": "yarn g:bootstrap",
     "prepack": "yarn turbo run build",
     "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv -p PORT)",
     "build": "vite build",

@@ -3,7 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "bootstrap": "yarn g:bootstrap",
     "build": "yarn build-esm && yarn build-cjs",
     "build-esm": "rimraf esm/ && tsc --project tsconfig.esm.json && tsc --project tsconfig.dts.json",
     "build-cjs": "rimraf cjs/ && tsc --project tsconfig.cjs.json && tsconfig-to-dual-package tsconfig.cjs.json",
