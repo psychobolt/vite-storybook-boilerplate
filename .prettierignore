@@ -1,6 +1,5 @@
 .yarn/*
 !.yarn/plugins/
-.vscode
 apps
 packages
 .pnp.cjs

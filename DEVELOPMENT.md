@@ -79,12 +79,22 @@ yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
 yarn [workspace workspace-name] turbo run test
 yarn [workspace workspace-name] turbo run coverage # Collect code coverage (also may run tests)
 yarn [workspace workspace-name] turbo run lcov # Generate interactive coverage report (after running command above)
-yarn [workspace workspace-name] add -[D]E library-name # Add a library. Library can be a private package
 ```
 
 You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turbo run format --filter=react-ui --filter=html-ui --filter=apps/**`.
 
 See [docs](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for more details.
+
+## Managing Dependencies
+
+This project supports continious upgrades with [renovate](https://docs.renovatebot.com/). Refer to official docs for [onboarding](https://docs.renovatebot.com/getting-started/installing-onboarding/) your project setup.
+
+### Adding Dependencies
+
+```sh
+yarn [workspace workspace-name] add -[D]E library-or-workspace-name
+yarn workspace third-party add -DE library-name # Add a library that do not work well Yarn PnP
+```
 
 ## Envrionment Variables
 

@@ -1,0 +1,16 @@
+{
+  "name": "third-party",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.1.0",
+  "devDependencies": {
+    "commons": "workspace:*",
+    "stylelint": "16.2.1",
+    "stylelint-config-prettier-scss": "1.0.0",
+    "stylelint-config-standard-scss": "13.0.0",
+    "stylelint-scss": "6.2.0"
+  },
+  "resolutions": {
+    "commons": "portal:../commons"
+  }
+}

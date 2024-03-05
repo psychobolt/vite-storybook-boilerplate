@@ -5,6 +5,8 @@ import { execa, execaSync } from "execa";
 import arg from "arg";
 import globToRegExp from "glob-to-regexp";
 import YAML from "yaml";
+import type { PortablePath } from "@yarnpkg/fslib";
+import { Configuration, Project } from "@yarnpkg/core";
 
 const invalidFilterExpression = /^[.*]$/g;
 
@@ -44,6 +46,11 @@ const filters: Filters = {
     key: "nodeLinker",
     type: [String],
     value: [],
+  },
+  "--turbo-only": {
+    key: "turboOnly",
+    type: Boolean,
+    value: false,
   },
   "--no-private": {
     key: "noPrivate",
@@ -91,6 +98,13 @@ const formatters: Formatters = {
 };
 
 const specEntries = Object.entries({ ...filters, ...formatters });
+
+async function setupProject() {
+  const path = process.cwd() as PortablePath;
+  const configuration = await Configuration.find(path, null, { strict: false });
+  const { project } = await Project.find(configuration, path);
+  return project;
+}
 
 async function getWorkspaces<T>(options?: Options) {
   const { _ = [], ...args } = arg<Args>(
@@ -149,13 +163,17 @@ async function getWorkspaces<T>(options?: Options) {
 
   const noPrivate = filters["--no-private"].value;
   const since = filters["--since"].value;
+  const PROJECT = await setupProject();
 
-  const passthrough = (
+  function passthrough(
     workspace: Workspace,
     filterKey: string,
     propName?: keyof Workspace,
-  ) => {
+  ) {
     const filter = filters[`--${filterKey}`];
+    const { manifest } = PROJECT.getWorkspaceByCwd(
+      workspace.location as PortablePath,
+    );
 
     if (typeof filter === "undefined") {
       return true;
@@ -178,6 +196,16 @@ async function getWorkspaces<T>(options?: Options) {
       return isPnp;
     }
 
+    if (filterKey === "turbo-only") {
+      const { devDependencies } = manifest;
+      const dependencies = devDependencies.values();
+      for (const dependency of dependencies) {
+        if (dependency.name === "turbo") {
+          return true;
+        }
+      }
+    }
+
     if (
       filter.value === "" ||
       typeof filter.value === "undefined" ||
@@ -193,7 +221,7 @@ async function getWorkspaces<T>(options?: Options) {
     }
 
     return filter.value === workspace[propName];
-  };
+  }
 
   const format = (workspaces: Workspace[]) => {
     return Object.values(formatters).reduce(
@@ -222,7 +250,8 @@ async function getWorkspaces<T>(options?: Options) {
             passthrough(workspace, "location", "location") &&
             passthrough(workspace, "name", "name") &&
             passthrough(workspace, "filter", "name") &&
-            passthrough(workspace, "node-linker");
+            passthrough(workspace, "node-linker") &&
+            passthrough(workspace, "turbo-only");
           return keep ? [workspace, ...list] : list;
         }, []);
 
