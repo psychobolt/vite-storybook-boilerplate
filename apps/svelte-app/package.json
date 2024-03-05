@@ -4,7 +4,6 @@
 	"type": "module",
 	"packageManager": "yarn@4.1.1",
 	"scripts": {
-		"bootstrap": "turbo run //#bootstrap",
 		"dev": "vite dev --open",
 		"build": "vite build",
 		"preview": "vite preview",
