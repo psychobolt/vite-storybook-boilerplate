@@ -197,6 +197,7 @@ async function getWorkspaces<T>(options?: Options) {
     }
 
     if (filterKey === "turbo-only") {
+      if (filter.value === false) return true;
       const { devDependencies } = manifest;
       const dependencies = devDependencies.values();
       for (const dependency of dependencies) {
@@ -204,6 +205,7 @@ async function getWorkspaces<T>(options?: Options) {
           return true;
         }
       }
+      return false;
     }
 
     if (
