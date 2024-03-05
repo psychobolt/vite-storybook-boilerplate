@@ -1,36 +1,35 @@
 {
-    "search.exclude": {
-        "**/.yarn": true,
-        "**/.pnp.*": true
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "eslint.nodePath": ".yarn/sdks",
+  "eslint.runtime": "node",
+  "eslint.execArgv": ["${workspaceFolder}/bin/swc-node.js"],
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.options": {
+    "overrideConfigFile": "./eslint.config.ts"
+  },
+  "editor.tabSize": 2,
+  "eslint.workingDirectories": [
+    {
+      "pattern": "./apps/*/"
     },
-    "typescript.tsdk": ".yarn/sdks/typescript/lib",
-    "typescript.enablePromptUseWorkspaceTsdk": true,
-    "eslint.nodePath": ".yarn/sdks",
-    "eslint.runtime": "node",
-    "eslint.execArgv": ["${workspaceFolder}/bin/swc-node.js"],
-    "eslint.experimental.useFlatConfig": true,
-    "eslint.options": {
-        "overrideConfigFile": "./eslint.config.ts"
-    },
-    "editor.tabSize": 2,
-    "eslint.workingDirectories": [
-        {
-            "pattern": "./apps/*/"
-        },
-        {
-            "pattern": "./packages/*/"
-        }
-    ],
-    "eslint.validate": [
-        "markdown",
-        "mdx",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
-    "stylelint.validate": [
-        "css",
-        "scss"
-    ]
+    {
+      "pattern": "./packages/*/"
+    }
+  ],
+  "eslint.validate": [
+    "markdown",
+    "mdx",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "stylelint.stylelintPath": "packages/third-party/node_modules/stylelint",
+  "stylelint.configBasedir": "packages/third-party",
+  "stylelint.validate": ["css", "scss"]
 }

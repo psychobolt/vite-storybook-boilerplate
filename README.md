@@ -14,6 +14,7 @@ A modern starter plate for building front-end components
 - [ES Module enabled](https://nodejs.org/api/esm.html#enabling)
 - Pre-commit formatting hook configured with [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/lint-staged/lint-staged)
 - Load and store environment variables using [dotenv-cli](https://github.com/entropitor/dotenv-cli)+[dotenv-flow](https://github.com/kerimdzhanov/dotenv-flow) and [dotenv-vault](https://www.dotenv.org/)
+- Continous upgrades with [renovate](https://docs.renovatebot.com/). Learn how to [setup](DEVELOPMENT.md#managing-dependencies).
 
 ## Development
 

@@ -7145,6 +7145,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarnpkg/core@npm:4.0.3":
+  version: 4.0.3
+  resolution: "@yarnpkg/core@npm:4.0.3"
+  dependencies:
+    "@arcanis/slice-ansi": "npm:^1.1.1"
+    "@types/semver": "npm:^7.1.0"
+    "@types/treeify": "npm:^1.0.0"
+    "@yarnpkg/fslib": "npm:^3.0.2"
+    "@yarnpkg/libzip": "npm:^3.0.1"
+    "@yarnpkg/parsers": "npm:^3.0.0"
+    "@yarnpkg/shell": "npm:^4.0.0"
+    camelcase: "npm:^5.3.1"
+    chalk: "npm:^3.0.0"
+    ci-info: "npm:^3.2.0"
+    clipanion: "npm:^4.0.0-rc.2"
+    cross-spawn: "npm:7.0.3"
+    diff: "npm:^5.1.0"
+    dotenv: "npm:^16.3.1"
+    fast-glob: "npm:^3.2.2"
+    got: "npm:^11.7.0"
+    lodash: "npm:^4.17.15"
+    micromatch: "npm:^4.0.2"
+    p-limit: "npm:^2.2.0"
+    semver: "npm:^7.1.2"
+    strip-ansi: "npm:^6.0.0"
+    tar: "npm:^6.0.5"
+    tinylogic: "npm:^2.0.0"
+    treeify: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+    tunnel: "npm:^0.0.6"
+  checksum: 10c0/850e0af59f56cea81ea2d3e81663a9326262df13322c21cecbb49d667abfbe32480a22f15f933086db4dfdc49745eec3414b8497627d4b7584b3c8a843f9ed9b
+  languageName: node
+  linkType: hard
+
 "@yarnpkg/core@npm:^4.0.2":
   version: 4.0.2
   resolution: "@yarnpkg/core@npm:4.0.2"
@@ -7200,6 +7234,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarnpkg/fslib@npm:3.0.2, @yarnpkg/fslib@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@yarnpkg/fslib@npm:3.0.2"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  checksum: 10c0/658a2d614eecd3bfe167fc93bcd9fe144e3e0b2bab8926395bcf5a7db71c88e04f636acf4f5c4eee5aecb2bf3f338f0ae1f5dad07323cea53cc0756d66ec4834
+  languageName: node
+  linkType: hard
+
 "@yarnpkg/fslib@npm:^3.0.0":
   version: 3.0.0
   resolution: "@yarnpkg/fslib@npm:3.0.0"
@@ -7238,6 +7281,19 @@ __metadata:
   peerDependencies:
     "@yarnpkg/fslib": ^3.0.0
   checksum: 10c0/1aa06a1da0d9b46a8f85991a81f9ddc00297369da28a528fa37c0a3643f6bb5eff35671e3c16713d9f5912070825d9afcba4de7a0bda7d9b2665d769d7116041
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/libzip@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@yarnpkg/libzip@npm:3.0.1"
+  dependencies:
+    "@types/emscripten": "npm:^1.39.6"
+    "@yarnpkg/fslib": "npm:^3.0.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@yarnpkg/fslib": ^3.0.2
+  checksum: 10c0/c2179e1152ebc2e2a3e33985410e73df6fce687ff99b3d5b9ae03286786663fc7f12789ce98f6b1e21d04c7e2ddda9e8a65a2c89e586ebd4ecd2516ccce5412c
   languageName: node
   linkType: hard
 
@@ -9094,7 +9150,6 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:12.0.0"
     ts-enum-util: "npm:4.0.2"
-    tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:1.12.4"
     typescript: "npm:5.3.3"
     vite: "npm:5.1.5"
@@ -18158,15 +18213,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve-tsconfig@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "resolve-tsconfig@npm:1.3.0"
-  peerDependencies:
-    typescript: "*"
-  checksum: 10c0/a35f239c57f7e01bbc545484d5462868cc33ad9e7b7286d9062704f4cf1a690f929e0525f0178b62b11ae515ba6e262b4d32b483fea9674aed103a79d1274819
-  languageName: node
-  linkType: hard
-
 "resolve.exports@npm:^2.0.0":
   version: 2.0.2
   resolution: "resolve.exports@npm:2.0.2"
@@ -19401,6 +19447,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stylelint-config-standard-scss@npm:13.0.0":
+  version: 13.0.0
+  resolution: "stylelint-config-standard-scss@npm:13.0.0"
+  dependencies:
+    stylelint-config-recommended-scss: "npm:^14.0.0"
+    stylelint-config-standard: "npm:^36.0.0"
+  peerDependencies:
+    postcss: ^8.3.3
+    stylelint: ^16.1.0
+  peerDependenciesMeta:
+    postcss:
+      optional: true
+  checksum: 10c0/4abf317676184f4aaace6ce72b9fc9e2dffe051d43dd5637afc5803b062ea381e2807ae983c045dff22e96af58388a8b1fe9a8bdda9f97bc3660280cf24fb4d3
+  languageName: node
+  linkType: hard
+
 "stylelint-config-standard@npm:^35.0.0":
   version: 35.0.0
   resolution: "stylelint-config-standard@npm:35.0.0"
@@ -19409,6 +19471,32 @@ __metadata:
   peerDependencies:
     stylelint: ^16.0.0
   checksum: 10c0/791fbc26cc3029ce3c2423a643e903545b5e4cd605251b18f0ce790bac6fbaaf380469845c1ff45f4e320126af9f8a9dc1ca85d0df9274277ae60da91e81895b
+  languageName: node
+  linkType: hard
+
+"stylelint-config-standard@npm:^36.0.0":
+  version: 36.0.0
+  resolution: "stylelint-config-standard@npm:36.0.0"
+  dependencies:
+    stylelint-config-recommended: "npm:^14.0.0"
+  peerDependencies:
+    stylelint: ^16.1.0
+  checksum: 10c0/1fc9adddfc5cf0a1d7a443182a0731712a3950ace72a24081b4ede2b0bb6fc1eebd003c009f1d8d06c3a64ba9b31b0ed12512db2f91c8fa549238d8341580e4b
+  languageName: node
+  linkType: hard
+
+"stylelint-scss@npm:6.2.0":
+  version: 6.2.0
+  resolution: "stylelint-scss@npm:6.2.0"
+  dependencies:
+    known-css-properties: "npm:^0.29.0"
+    postcss-media-query-parser: "npm:^0.2.3"
+    postcss-resolve-nested-selector: "npm:^0.1.1"
+    postcss-selector-parser: "npm:^6.0.15"
+    postcss-value-parser: "npm:^4.2.0"
+  peerDependencies:
+    stylelint: ^16.0.2
+  checksum: 10c0/d4b5ebaee3686ab34b272cbfc64f5c2574a128b06b3eb8e2a9cce38b57a1309dbbcb212bedba8d3f7d6277b4907a16f29abb767a5f15aa7e03f2a2059832bddb
   languageName: node
   linkType: hard
 
@@ -19908,6 +19996,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"third-party@workspace:packages/third-party":
+  version: 0.0.0-use.local
+  resolution: "third-party@workspace:packages/third-party"
+  dependencies:
+    commons: "workspace:*"
+    stylelint: "npm:16.2.1"
+    stylelint-config-prettier-scss: "npm:1.0.0"
+    stylelint-config-standard-scss: "npm:13.0.0"
+    stylelint-scss: "npm:6.2.0"
+  languageName: unknown
+  linkType: soft
+
 "through2@npm:^2.0.3":
   version: 2.0.5
   resolution: "through2@npm:2.0.5"
@@ -20156,19 +20256,6 @@ __metadata:
     minimist: "npm:^1.2.6"
     strip-bom: "npm:^3.0.0"
   checksum: 10c0/09a5877402d082bb1134930c10249edeebc0211f36150c35e1c542e5b91f1047b1ccf7da1e59babca1ef1f014c525510f4f870de7c9bda470c73bb4e2721b3ea
-  languageName: node
-  linkType: hard
-
-"tsconfig-to-dual-package@npm:1.2.0":
-  version: 1.2.0
-  resolution: "tsconfig-to-dual-package@npm:1.2.0"
-  dependencies:
-    resolve-tsconfig: "npm:^1.3.0"
-  peerDependencies:
-    typescript: ">=4.0.0"
-  bin:
-    tsconfig-to-dual-package: bin/cmd.mjs
-  checksum: 10c0/652d4d61ce5da1d86e5c2dfcbd32e964f8dfd9c4f36df022925b7413265184ca31b83b27b24b85318d9de1ff9ca9afc1fe86bec5de133f663f6c303126e69811
   languageName: node
   linkType: hard
 
@@ -21116,6 +21203,8 @@ __metadata:
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/node": "npm:20.11.24"
     "@types/semver": "npm:7.5.8"
+    "@yarnpkg/core": "npm:4.0.3"
+    "@yarnpkg/fslib": "npm:3.0.2"
     "@yarnpkg/sdks": "npm:3.1.0"
     arg: "npm:5.0.2"
     commons: "workspace:*"

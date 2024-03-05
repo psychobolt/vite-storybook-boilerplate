@@ -38,6 +38,7 @@ if (
 
   const workspaces = await getWorkspaces<Workspace[]>({
     nodeLinker: ["pnpm", "node-modules"],
+    turboOnly: true,
   });
 
   for await (const workspace of workspaces) {
