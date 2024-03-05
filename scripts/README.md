@@ -58,6 +58,12 @@ Returns only workspaces that fullfills the match. For `filter`, you may use a ne
 
 Returns only workspaces that use `node_modules` linked directories.
 
+#### Turbo Only
+
+`--turbo-only`
+
+Returns only workspaces that support `turbo`.
+
 #### No Private
 
 `--no-private`

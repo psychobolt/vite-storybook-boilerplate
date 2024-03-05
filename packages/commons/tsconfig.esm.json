@@ -5,5 +5,5 @@
     "outDir": "esm"
   },
   "include": ["**/*", ".storybook/**/*"],
-  "exclude": ["esm", "cjs"]
+  "exclude": ["esm", "cjs", "stylelint.config.ts"]
 }
