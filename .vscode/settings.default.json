@@ -29,7 +29,5 @@
     "typescript",
     "typescriptreact"
   ],
-  "stylelint.stylelintPath": "packages/third-party/node_modules/stylelint",
-  "stylelint.configBasedir": "packages/third-party",
   "stylelint.validate": ["css", "scss"]
 }

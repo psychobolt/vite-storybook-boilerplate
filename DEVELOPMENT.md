@@ -93,7 +93,6 @@ This project supports continious upgrades with [renovate](https://docs.renovateb
 
 ```sh
 yarn [workspace workspace-name] add -[D]E library-or-workspace-name
-yarn workspace third-party add -DE library-name # Add a library that do not work well Yarn PnP
 ```
 
 ## Envrionment Variables

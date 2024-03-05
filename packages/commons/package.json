@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "bootstrap": "yarn g:bootstrap",
-    "build": "rimraf esm/ && tsc --project tsconfig.esm.json && tsc --project tsconfig.dts.json",
+    "build": "yarn build-esm && yarn build-cjs",
+    "build-esm": "rimraf esm/ && tsc --project tsconfig.esm.json && tsc --project tsconfig.dts.json",
+    "build-cjs": "rimraf cjs/ && tsc --project tsconfig.cjs.json && tsconfig-to-dual-package tsconfig.cjs.json",
     "g:rimraf": "cd $INIT_CWD && rimraf",
     "g:storybook-path": "yarn bin storybook",
     "g:storybook": "cd $INIT_CWD && yarn g:run-script $(yarn g:storybook-path)",
@@ -54,7 +56,7 @@
     "react-dom": "18.2.0",
     "rimraf": "5.0.5",
     "storybook": "7.6.17",
-    "stylelint": "16.2.1",
+    "stylelint": "15.11.0",
     "stylelint-config-prettier-scss": "1.0.0",
     "stylelint-config-standard-scss": "12.0.0",
     "ts-enum-util": "4.0.2",
@@ -63,6 +65,7 @@
     "vite-tsconfig-paths": "4.3.1"
   },
   "devDependencies": {
+    "tsconfig-to-dual-package": "1.2.0",
     "turbo": "1.12.4",
     "typescript": "5.3.3"
   }
