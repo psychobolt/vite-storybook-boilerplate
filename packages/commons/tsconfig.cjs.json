@@ -6,6 +6,6 @@
     "esModuleInterop": true,
     "outDir": "cjs"
   },
-  "include": ["**/*.d.ts", "stylelint.config.ts"],
+  "include": ["**/*.d.ts"],
   "exclude": ["esm", "cjs"]
 }
