@@ -38,7 +38,7 @@
     "@storybook/react": "7.6.17",
     "@storybook/react-vite": "7.6.17",
     "@storybook/test": "7.6.17",
-    "@tsconfig/vite-react": "3.0.0",
+    "@tsconfig/vite-react": "3.0.1",
     "@types/react": "18.2.63",
     "@types/react-dom": "18.2.20",
     "chromatic": "11.0.3",
