@@ -5,7 +5,7 @@ import { execa, execaSync } from "execa";
 import arg from "arg";
 import globToRegExp from "glob-to-regexp";
 import YAML from "yaml";
-import type { PortablePath } from "@yarnpkg/fslib";
+import { type PortablePath, npath } from "@yarnpkg/fslib";
 import { Configuration, Project } from "@yarnpkg/core";
 
 const invalidFilterExpression = /^[.*]$/g;
@@ -100,9 +100,15 @@ const formatters: Formatters = {
 const specEntries = Object.entries({ ...filters, ...formatters });
 
 async function setupProject() {
-  const path = process.cwd() as PortablePath;
-  const configuration = await Configuration.find(path, null, { strict: false });
-  const { project } = await Project.find(configuration, path);
+  const configuration = await Configuration.find(
+    npath.toPortablePath(process.cwd()),
+    null,
+    { strict: false },
+  );
+  const { project } = await Project.find(
+    configuration,
+    configuration.startingCwd,
+  );
   return project;
 }
 
