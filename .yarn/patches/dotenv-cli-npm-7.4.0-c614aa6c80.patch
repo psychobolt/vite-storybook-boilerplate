@@ -1,0 +1,86 @@
+diff --git a/cli.js b/cli.js
+index 94c8f76714576082589ad077e786931f7fbc922b..fb0d116f671438acee278ceafe98b94bf0b2c86f 100755
+--- a/cli.js
++++ b/cli.js
+@@ -5,6 +5,7 @@ const path = require('path')
+ 
+ const argv = require('minimist')(process.argv.slice(2))
+ const dotenv = require('dotenv')
++const dotenvFlow = require('dotenv-flow')
+ const dotenvExpand = require('dotenv-expand').expand
+ 
+ function printHelp () {
+@@ -48,11 +49,19 @@ if (argv.e) {
+ }
+ 
+ if (argv.c) {
+-  paths = paths.reduce((accumulator, path) => accumulator.concat(
+-    typeof argv.c === 'string'
+-      ? [`${path}.${argv.c}.local`, `${path}.local`, `${path}.${argv.c}`, path]
+-      : [`${path}.local`, path]
+-  ), [])
++  paths = paths.reduce((accumulator, input) => {
++    const filepaths = dotenvFlow.listFiles({ path: input.replace(/\/(\..+)+/, ''), debug: argv.debug })
++    const filepath = path.resolve(path.relative(process.cwd(), input))
++    return accumulator
++      .concat(
++        typeof argv.c === 'string'
++          ? [`${filepath}.${argv.c}.defaults`, filepath, `${filepath}.${argv.c}`, `${filepath}.local`, `${filepath}.${argv.c}.local`]
++          : [`${filepath}.defaults`, filepath, `${filepath}.local`]
++      )
++      .filter(filepath => filepaths.includes(filepath));
++  }, [])
++} else {
++  paths = dotenvFlow.listFiles({ debug: argv.debug })
+ }
+ 
+ function validateCmdVariable (param) {
+@@ -64,6 +73,7 @@ function validateCmdVariable (param) {
+ 
+   return [key, val]
+ }
++
+ const variables = []
+ if (argv.v) {
+   if (typeof argv.v === 'string') {
+@@ -72,24 +82,29 @@ if (argv.v) {
+     variables.push(...argv.v.map(validateCmdVariable))
+   }
+ }
++const vaultVariables = process.env.DOTENV_KEY ? dotenv.config({ processEnv: {}, debug: argv.debug }) : {}
+ const parsedVariables = Object.fromEntries(variables)
++const parsedFile = dotenvFlow.load(paths, { debug: argv.debug, override })
++const finalVariables = { parsed: Object.assign({}, parsedFile.parsed, vaultVariables.parsed, parsedVariables) }
+ 
+-if (argv.debug) {
+-  console.log(paths)
+-  console.log(parsedVariables)
+-  process.exit()
++if (argv.expand !== false) {
++  dotenvExpand(finalVariables)
++} else {
++  Object.assign(process.env, finalVariables.parsed)
+ }
+ 
+-paths.forEach(function (env) {
+-  const parsedFile = dotenv.config({ path: path.resolve(env), override })
+-  if (argv.expand !== false) {
+-    dotenvExpand(parsedFile)
++if (argv.debug) {
++  if (process.env.CI) {
++    console.log('Only variables from source .env* are printed in CI mode...')
++    console.log(parsedFile.parsed)
++  } else {
++    console.log(finalVariables.parsed)
+   }
+-})
+-Object.assign(process.env, parsedVariables)
++  process.exit()
++}
+ 
+ if (argv.p) {
+-  const value = process.env[argv.p]
++  let value = process.env[argv.p]
+   if (typeof value === 'string') {
+     value = `\`${value}\``
+   }

@@ -9949,6 +9949,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv-cli@patch:dotenv-cli@npm%3A7.4.0#~/.yarn/patches/dotenv-cli-npm-7.4.0-c614aa6c80.patch":
+  version: 7.4.0
+  resolution: "dotenv-cli@patch:dotenv-cli@npm%3A7.4.0#~/.yarn/patches/dotenv-cli-npm-7.4.0-c614aa6c80.patch::version=7.4.0&hash=079e9e"
+  dependencies:
+    cross-spawn: "npm:^7.0.3"
+    dotenv: "npm:^16.3.0"
+    dotenv-expand: "npm:^10.0.0"
+    minimist: "npm:^1.2.6"
+  bin:
+    dotenv: cli.js
+  checksum: 10c0/8cba2f9ae889d2e873c128ed58413d1314e9c453c84919000dfe3ed764130de13dd7a3fb36597768163d0832fd37d05bf3f670a8f345131ca56d4da71b8f93d2
+  languageName: node
+  linkType: hard
+
 "dotenv-expand@npm:^10.0.0":
   version: 10.0.0
   resolution: "dotenv-expand@npm:10.0.0"
