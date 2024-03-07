@@ -66,6 +66,6 @@
   "devDependencies": {
     "tsconfig-to-dual-package": "1.2.0",
     "turbo": "1.12.5",
-    "typescript": "5.3.3"
+    "typescript": "5.4.2"
   }
 }
