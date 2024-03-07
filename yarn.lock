@@ -6117,13 +6117,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/recommended@npm:1.0.3":
-  version: 1.0.3
-  resolution: "@tsconfig/recommended@npm:1.0.3"
-  checksum: 10c0/2744d2798d52d337a7b0b78f6efa070ecda4e42262e93589d4bed615a55639a84035a8e3b2b020f2396f1f7832294b8c00d7acc78e644418566447ca53df9078
-  languageName: node
-  linkType: hard
-
 "@tsconfig/vite-react@npm:3.0.1":
   version: 3.0.1
   resolution: "@tsconfig/vite-react@npm:3.0.1"
@@ -9143,7 +9136,6 @@ __metadata:
     "@storybook/builder-vite": "npm:7.6.17"
     "@storybook/test-runner": "npm:0.16.0"
     "@storybook/types": "npm:7.6.17"
-    "@tsconfig/recommended": "npm:1.0.3"
     "@types/eslint": "npm:8.56.5"
     "@types/lodash": "npm:4"
     "@typescript-eslint/eslint-plugin": "npm:7.1.1"

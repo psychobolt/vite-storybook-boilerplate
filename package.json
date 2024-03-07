@@ -18,8 +18,6 @@
     "build": "yarn turbo run build",
     "config-ci": "yarn run-script scripts/config-ci.ts",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
-    "g:eslint-path": "yarn bin eslint",
-    "g:lint-js": "cd $INIT_CWD && yarn tsc --noEmit && yarn g:run-script $(yarn g:eslint-path) -c ./eslint.config.ts .",
     "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
     "format": "yarn g:prettier --write ."
   },
