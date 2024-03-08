@@ -3143,10 +3143,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/core@npm:3.16.0":
-  version: 3.16.0
-  resolution: "@oclif/core@npm:3.16.0"
+"@oclif/core@npm:3.23.0":
+  version: 3.23.0
+  resolution: "@oclif/core@npm:3.23.0"
   dependencies:
+    "@types/cli-progress": "npm:^3.11.5"
     ansi-escapes: "npm:^4.3.2"
     ansi-styles: "npm:^4.3.0"
     cardinal: "npm:^2.1.1"
@@ -3162,6 +3163,7 @@ __metadata:
     indent-string: "npm:^4.0.0"
     is-wsl: "npm:^2.2.0"
     js-yaml: "npm:^3.14.1"
+    minimatch: "npm:^9.0.3"
     natural-orderby: "npm:^2.0.3"
     object-treeify: "npm:^1.1.33"
     password-prompt: "npm:^1.1.3"
@@ -3170,11 +3172,10 @@ __metadata:
     strip-ansi: "npm:^6.0.1"
     supports-color: "npm:^8.1.1"
     supports-hyperlinks: "npm:^2.2.0"
-    tsconfck: "npm:^3.0.0"
     widest-line: "npm:^3.1.0"
     wordwrap: "npm:^1.0.0"
     wrap-ansi: "npm:^7.0.0"
-  checksum: 10c0/d42b8dfebbec105e04c683ca0433ea3f42765555c0733aaff583cde97edbb62b89c747ee7672455eb734e009882903e8ce517fb0311c573f684e3eda4972dbb3
+  checksum: 10c0/1f058734c649084f0715adc14bb3bcd37c620af82863584bcd3536f1774a44b6f77eda30e1ab006896f5de46aef1cbca6b5d76e05bd2fbe886beed770368d4a2
   languageName: node
   linkType: hard
 
@@ -6238,6 +6239,15 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10c0/abfddc96483b2e0f24c7c4980d29e28c475a00c1c0c18826807d4b983d22e5bd1f06b69a232a0a34ded0a08477981f90ccc57d919217ea216dbcec3fb70f227e
+  languageName: node
+  linkType: hard
+
+"@types/cli-progress@npm:^3.11.5":
+  version: 3.11.5
+  resolution: "@types/cli-progress@npm:3.11.5"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/bf00f543ee677f61b12e390876df59354943d6c13d96640171528e9b7827f4edb7701cdd4675d6256d13ef9ee542731bd5cae585e1b43502553f69fc210dcb92
   languageName: node
   linkType: hard
 
@@ -10003,6 +10013,24 @@ __metadata:
   bin:
     dotenv-vault: bin/run
   checksum: 10c0/8e0a2858f3491fad75873bd91decb984c1182876e18410dd3099fd546e41c8eeb981e4199279f93a113a1a27f025d80b4385c6a5279334a331342ec73e6f364e
+  languageName: node
+  linkType: hard
+
+"dotenv-vault@patch:dotenv-vault@npm%3A1.26.1#~/.yarn/patches/dotenv-vault-npm-1.26.1-f283958789.patch":
+  version: 1.26.1
+  resolution: "dotenv-vault@patch:dotenv-vault@npm%3A1.26.1#~/.yarn/patches/dotenv-vault-npm-1.26.1-f283958789.patch::version=1.26.1&hash=1f290b"
+  dependencies:
+    "@oclif/core": "npm:^1"
+    "@oclif/plugin-help": "npm:^5.2.15"
+    "@oclif/plugin-not-found": "npm:^2.3.34"
+    "@oclif/plugin-update": "npm:^3.1.16"
+    "@oclif/plugin-warn-if-update-available": "npm:^2.0.46"
+    axios: "npm:^1.6.7"
+    chalk: "npm:^4.1.2"
+    dotenv: "npm:^16.3.1"
+  bin:
+    dotenv-vault: bin/run
+  checksum: 10c0/bb93fd434332c688950cd46eac75a1e0af90b22eed1138174a37b3ddbab41e4775bb533448c5bb879486c393363eaddd09dfd108e0e99dd70adb7a6f6643f7e6
   languageName: node
   linkType: hard
 
@@ -15910,7 +15938,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:9.0.3, minimatch@npm:^9.0.0, minimatch@npm:^9.0.1":
+"minimatch@npm:9.0.3, minimatch@npm:^9.0.0, minimatch@npm:^9.0.1, minimatch@npm:^9.0.3":
   version: 9.0.3
   resolution: "minimatch@npm:9.0.3"
   dependencies:
@@ -16761,7 +16789,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"opener@npm:^1.5.1":
+"opener@npm:*, opener@npm:^1.5.1":
   version: 1.5.2
   resolution: "opener@npm:1.5.2"
   bin:
@@ -20290,7 +20318,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:^3.0.0, tsconfck@npm:^3.0.1":
+"tsconfck@npm:^3.0.1":
   version: 3.0.1
   resolution: "tsconfck@npm:3.0.1"
   peerDependencies:
