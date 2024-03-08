@@ -41,7 +41,7 @@
     "@tsconfig/vite-react": "3.0.1",
     "@types/react": "18.2.64",
     "@types/react-dom": "18.2.21",
-    "chromatic": "11.0.6",
+    "chromatic": "11.0.7",
     "commons": "workspace:*",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
