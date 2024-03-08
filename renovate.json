@@ -12,6 +12,15 @@
     {
       "matchPackageNames": ["stylelint-config-standard-scss"],
       "allowedVersions": "<13"
+    },
+    {
+      "matchPackageNames": [
+        "@swc-node/register",
+        "dotenv-cli",
+        "dotenv-flow",
+        "dotenv-vault"
+      ],
+      "automerge": false
     }
   ]
 }
