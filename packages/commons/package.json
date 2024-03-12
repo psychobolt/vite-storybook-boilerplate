@@ -21,7 +21,7 @@
     "@eslint/eslintrc": "3.0.2",
     "@jest/types": "29.6.3",
     "@storybook/builder-vite": "7.6.17",
-    "@storybook/test-runner": "0.16.0",
+    "@storybook/test-runner": "0.17.0",
     "@storybook/types": "7.6.17",
     "@types/eslint": "8.56.5",
     "@types/lodash": "4",
