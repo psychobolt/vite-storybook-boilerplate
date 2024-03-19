@@ -13965,7 +13965,7 @@ __metadata:
     svelte: "npm:4.2.12"
     svelte-check: "npm:3.6.8"
     svelte-eslint-parser: "npm:0.33.1"
-    svelte-language-server: "npm:0.16.5"
+    svelte-language-server: "npm:0.16.6"
     tslib: "npm:2.6.2"
     turbo: "npm:1.12.5"
     typescript: "npm:5.4.2"
@@ -14020,9 +14020,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.16.5":
-  version: 0.16.5
-  resolution: "svelte-language-server@npm:0.16.5"
+"svelte-language-server@npm:0.16.6":
+  version: 0.16.6
+  resolution: "svelte-language-server@npm:0.16.6"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.17"
     "@vscode/emmet-helper": "npm:2.8.4"
@@ -14035,7 +14035,7 @@ __metadata:
     svelte: "npm:^3.57.0"
     svelte-preprocess: "npm:^5.1.3"
     svelte2tsx: "npm:~0.7.0"
-    typescript: "npm:^5.3.2"
+    typescript: "npm:~5.3.2"
     typescript-auto-import-cache: "npm:^0.3.2"
     vscode-css-languageservice: "npm:~6.2.10"
     vscode-html-languageservice: "npm:~5.1.1"
@@ -14045,7 +14045,7 @@ __metadata:
     vscode-uri: "npm:~3.0.0"
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/039d1fe13594cef94e45ca87263b041f71301e82af2efc0a4fb05dd286dda1a1c53ad4ed7ec5d3091af0b28448a4f437d40448faa92febccfc0623fc87bedf5c
+  checksum: 10c0/87ea0814d06552e2be8ed6ac6877edc46effcff8e2214d435302140a8adebfd34eb9fec7525144df8c1160bf6061c50d62d2de61fb07d188a258c8a61bf5887f
   languageName: node
   linkType: hard
 
@@ -14693,13 +14693,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.2":
-  version: 5.3.2
-  resolution: "typescript@npm:5.3.2"
+"typescript@npm:~5.3.2":
+  version: 5.3.3
+  resolution: "typescript@npm:5.3.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/d7dbe1fbe19039e36a65468ea64b5d338c976550394ba576b7af9c68ed40c0bc5d12ecce390e4b94b287a09a71bd3229f19c2d5680611f35b7c53a3898791159
+  checksum: 10c0/e33cef99d82573624fc0f854a2980322714986bc35b9cb4d1ce736ed182aeab78e2cb32b385efa493b2a976ef52c53e20d6c6918312353a91850e2b76f1ea44f
   languageName: node
   linkType: hard
 
@@ -14723,13 +14723,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
-  version: 5.3.2
-  resolution: "typescript@patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"
+"typescript@patch:typescript@npm%3A~5.3.2#optional!builtin<compat/typescript>":
+  version: 5.3.3
+  resolution: "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/73c8bad74e732d93211c9d77f28b03307e2f5fc6a0afc73f4b783261ab567686a16d6ae958bdaef383a00be1b0b8c8b6741dd6ca3d13af4963fa7e47456d49c7
+  checksum: 10c0/1d0a5f4ce496c42caa9a30e659c467c5686eae15d54b027ee7866744952547f1be1262f2d40de911618c242b510029d51d43ff605dba8fb740ec85ca2d3f9500
   languageName: node
   linkType: hard
 
