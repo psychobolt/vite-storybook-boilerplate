@@ -49,6 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       package_names: ${{ steps.changes.outputs.package_names }}
+      force: ${{ steps.filter.outputs.actions == 'true' }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -56,13 +57,15 @@ jobs:
           fetch-depth: 2
           ref: ${{ inputs.ref_name || github.ref }}
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
-        id: versions
+        id: filter
         with:
           filters: |
-            changed:
+            versions:
               - '.yarn/versions/**'
+            actions:
+              - '.github/**'
       - name: Copy version files
-        if: steps.versions.outputs.changed == 'true'
+        if: steps.filter.outputs.versions == 'true'
         run: |
           mkdir -p packages/commons/.yarn/versions
           cp -r .yarn/versions packages/commons/.yarn/versions
@@ -79,6 +82,7 @@ jobs:
     with:
       ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
+      force: ${{ needs.diff.outputs.force }}
 
   packages:
     needs: diff
@@ -87,6 +91,7 @@ jobs:
     with:
       ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
+      force: ${{ needs.diff.outputs.force }}
 
   release:
     needs: [apps, packages]

@@ -8,6 +8,8 @@ on:
       package_names:
         type: string
         required: true
+      force:
+        type: boolean
     outputs:
       release:
         value: "false"
@@ -47,7 +49,7 @@ jobs:
 
   next-app:
     needs: install
-    if: contains(fromJSON(inputs.package_names), 'next-app')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'next-app')
     uses: ./.github/workflows/test-app.yml
     with:
       ref_name: ${{ inputs.ref_name }}
@@ -57,7 +59,7 @@ jobs:
 
   svelte-app:
     needs: install
-    if: contains(fromJSON(inputs.package_names), 'svelte-app')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
     with:
       ref_name: ${{ inputs.ref_name }}
