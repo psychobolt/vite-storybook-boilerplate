@@ -23,7 +23,7 @@
     "watch": "yarn build-src -w & yarn build-dts --watch",
     "build-src": "vite build",
     "build-dts": "tsc --project tsconfig.dts.json",
-    "build-storybook": "yarn g:storybook build",
+    "build-storybook": "yarn g:storybook build --stats-json",
     "start": "yarn g:dotenv -- http-server storybook-static",
     "test": "yarn g:test-storybook",
     "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",

@@ -5900,7 +5900,6 @@ __metadata:
     stylelint-config-standard-scss: "npm:12.0.0"
     ts-enum-util: "npm:4.0.2"
     vite: "npm:5.2.2"
-    vite-plugin-turbosnap: "npm:1.0.3"
     vite-tsconfig-paths: "npm:4.3.2"
   languageName: node
   linkType: soft
@@ -15192,13 +15191,6 @@ __metadata:
     unist-util-stringify-position: "npm:^4.0.0"
     vfile-message: "npm:^4.0.0"
   checksum: 10c0/443bda43e5ad3b73c5976e987dba2b2d761439867ba7d5d7c5f4b01d3c1cb1b976f5f0e6b2399a00dc9b4eaec611bd9984ce9ce8a75a72e60aed518b10a902d2
-  languageName: node
-  linkType: hard
-
-"vite-plugin-turbosnap@npm:1.0.3":
-  version: 1.0.3
-  resolution: "vite-plugin-turbosnap@npm:1.0.3"
-  checksum: 10c0/fd4a283708e24b54442b5db05461f8302bc57094234fd5b0dae1a6f76bb79078c68a729e516f352d04b89fea7c459f8272921f788bd3cd20d1488c7e73d7238e
   languageName: node
   linkType: hard
 

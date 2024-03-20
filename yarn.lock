@@ -9562,7 +9562,6 @@ __metadata:
     turbo: "npm:1.12.5"
     typescript: "npm:5.4.2"
     vite: "npm:5.2.2"
-    vite-plugin-turbosnap: "npm:1.0.3"
     vite-tsconfig-paths: "npm:4.3.2"
   languageName: unknown
   linkType: soft
@@ -21776,13 +21775,6 @@ __metadata:
     picocolors: "npm:^1.0.0"
     test-exclude: "npm:^6.0.0"
   checksum: 10c0/1bf7c51ba10bb68c89cc1abbd7e7c1be985c60ae8af8fa5f1fc8586a76b01fef2b44615934395970d7e9951d2e170141dff094366b9e8f6c28aadda21e39dbea
-  languageName: node
-  linkType: hard
-
-"vite-plugin-turbosnap@npm:1.0.3":
-  version: 1.0.3
-  resolution: "vite-plugin-turbosnap@npm:1.0.3"
-  checksum: 10c0/fd4a283708e24b54442b5db05461f8302bc57094234fd5b0dae1a6f76bb79078c68a729e516f352d04b89fea7c459f8272921f788bd3cd20d1488c7e73d7238e
   languageName: node
   linkType: hard
 

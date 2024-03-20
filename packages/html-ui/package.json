@@ -11,7 +11,7 @@
     "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv -p PORT)",
     "build": "vite build",
     "watch": "yarn build -w",
-    "build-storybook": "yarn g:storybook build",
+    "build-storybook": "yarn g:storybook build --stats-json",
     "start": "yarn g:dotenv -- http-server storybook-static",
     "test": "yarn g:test-storybook --index-json",
     "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",
