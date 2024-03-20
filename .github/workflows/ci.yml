@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       package_names: ${{ steps.changes.outputs.package_names }}
-      force: ${{ steps.filter.outputs.actions == 'true' }}
+      force: ${{ steps.filter.outputs.actions }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -82,7 +82,7 @@ jobs:
     with:
       ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
-      force: ${{ needs.diff.outputs.force }}
+      force: ${{ needs.diff.outputs.force == 'true' }}
 
   packages:
     needs: diff
@@ -91,7 +91,7 @@ jobs:
     with:
       ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
-      force: ${{ needs.diff.outputs.force }}
+      force: ${{ needs.diff.outputs.force == 'true' }}
 
   release:
     needs: [apps, packages]
