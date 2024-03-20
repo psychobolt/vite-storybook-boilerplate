@@ -53,7 +53,7 @@ export const meta = {
   // ...
 } satisfies VariantMeta<Props>;
 
-type Story = StoryObj<typeof meta> & VariantStoryObj<Props>;
+type Story = StoryObj<typeof Props> & VariantStoryObj<Props>;
 
 export const MyComponent: Story = {
   name: "My Component (Default)", // required

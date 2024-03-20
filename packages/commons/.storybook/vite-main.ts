@@ -4,7 +4,6 @@ import type { StorybookConfig } from "@storybook/types";
 import type { StorybookConfigVite } from "@storybook/builder-vite";
 import type { ResolveOptions } from "vite";
 import { defineConfig, mergeConfig } from "vite";
-import turbosnap from "vite-plugin-turbosnap";
 
 type AliasOptions = Record<string, string>;
 
@@ -36,14 +35,16 @@ export function getAbsolutePath(
 
 export const mainDir = "@(src|stories)";
 
+export const stories = [
+  `../${mainDir}/**/*.mdx`,
+  `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`,
+];
+
 export type StorybookViteCommonConfig = StorybookConfig &
   Required<StorybookConfigVite>;
 
 export const config: StorybookViteCommonConfig = {
-  stories: [
-    `../${mainDir}/**/*.mdx`,
-    `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`,
-  ],
+  stories,
   addons: [
     getAbsolutePath("@storybook/addon-links", resolveConfig),
     getAbsolutePath("@storybook/addon-essentials"),
@@ -62,17 +63,7 @@ export const config: StorybookViteCommonConfig = {
       }),
     );
 
-    if (configType === "PRODUCTION") {
-      finalConfig = mergeConfig(
-        finalConfig,
-        defineConfig({
-          plugins: [
-            // @ts-expect-error https://github.com/IanVS/vite-plugin-turbosnap/issues/8
-            turbosnap({ rootDir: config.root ?? process.cwd() }),
-          ],
-        }),
-      );
-    } else {
+    if (configType !== "PRODUCTION") {
       finalConfig = mergeConfig(
         finalConfig,
         defineConfig({
