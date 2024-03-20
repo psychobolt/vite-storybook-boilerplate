@@ -14,12 +14,7 @@
       "allowedVersions": "<13"
     },
     {
-      "matchPackageNames": [
-        "@swc-node/register",
-        "dotenv-cli",
-        "dotenv-flow",
-        "dotenv-vault"
-      ],
+      "matchPackageNames": ["@swc-node/register", "dotenv-vault"],
       "automerge": false
     }
   ]

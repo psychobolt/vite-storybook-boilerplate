@@ -50,7 +50,7 @@ jobs:
         run: >-
           npx concurrently -k -s first -n "SB,TEST"
           "yarn workspace ${{ inputs.workspace }} turbo run start -- --silent"
-          "npx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv -p TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
+          "npx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@ab904c41d6ece82784817410c45d8b8c02684457 # v3
         with:
