@@ -14,7 +14,11 @@
       "allowedVersions": "<13"
     },
     {
-      "matchPackageNames": ["@swc-node/register", "dotenv-vault"],
+      "matchPackageNames": [
+        "@dotenvx/dotenvx",
+        "@swc-node/register",
+        "dotenv-vault"
+      ],
       "automerge": false
     }
   ]

@@ -6,8 +6,8 @@
   "scripts": {
     "postinstall": "husky install",
     "g:dotenv": "cd $INIT_CWD && dotenvx",
-    "g:dotenv-get": "yarn g:dotenv get -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload",
-    "g:dotenv-run": "yarn g:dotenv -q run -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload -fv $INIT_CWD/.env.vault",
+    "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv get -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload",
+    "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload -fv $INIT_CWD/.env.vault",
     "g:dotenv-vault": "cd $INIT_CWD && dotenv-vault",
     "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
     "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run -- node --loader file://$(yarn g:swc-register-path)",
@@ -53,6 +53,7 @@
     "yaml": "2.4.1"
   },
   "resolutions": {
+    "@dotenvx/dotenvx": "patch:@dotenvx/dotenvx@npm%3A0.26.0#~/.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch",
     "@swc-node/register": "patch:@swc-node/register@npm%3A1.9.0#~/.yarn/patches/@swc-node-register-npm-1.9.0-4530442723.patch",
     "dotenv-vault@1.26.1": "patch:dotenv-vault@npm%3A1.26.1#~/.yarn/patches/dotenv-vault-npm-1.26.1-f283958789.patch",
     "dotenv-vault/@oclif/core@^1": "npm:3.23.0",
