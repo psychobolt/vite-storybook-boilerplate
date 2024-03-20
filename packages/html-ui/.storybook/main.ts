@@ -4,6 +4,7 @@ import { mergeConfig } from "vite";
 import type { StorybookViteCommonConfig } from "commons/esm/.storybook/vite-main.js";
 import {
   config as commonConfig,
+  stories,
   getAbsolutePath,
   mainDir,
 } from "commons/esm/.storybook/vite-main.js";
@@ -15,15 +16,12 @@ const require = createRequire(import.meta.url);
 
 const config: StorybookViteCommonConfig = {
   ...commonConfig,
-  stories: [
-    ...commonConfig.stories,
-    `../${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`,
-  ],
+  stories: [...stories, `../${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`],
   framework: {
     name: getAbsolutePath("@storybook/web-components-vite", require),
     options: {},
   },
-  experimental_indexers: (existingIndexers) => [
+  experimental_indexers: (existingIndexers = []) => [
     ...existingIndexers,
     storybookVariantsIndexer<Meta>(),
   ],
