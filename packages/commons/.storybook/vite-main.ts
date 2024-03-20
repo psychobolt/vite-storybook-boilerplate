@@ -36,14 +36,16 @@ export function getAbsolutePath(
 
 export const mainDir = "@(src|stories)";
 
+export const stories = [
+  `../${mainDir}/**/*.mdx`,
+  `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`,
+];
+
 export type StorybookViteCommonConfig = StorybookConfig &
   Required<StorybookConfigVite>;
 
 export const config: StorybookViteCommonConfig = {
-  stories: [
-    `../${mainDir}/**/*.mdx`,
-    `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`,
-  ],
+  stories,
   addons: [
     getAbsolutePath("@storybook/addon-links", resolveConfig),
     getAbsolutePath("@storybook/addon-essentials"),

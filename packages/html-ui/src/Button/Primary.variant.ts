@@ -25,7 +25,7 @@ export const meta = {
   },
 } satisfies Meta;
 
-export type Story = StoryObj<typeof meta> & VariantStoryObj<Props>;
+export type Story = StoryObj<Props> & VariantStoryObj<Props>;
 
 // More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
 export const Primary: Story = {
