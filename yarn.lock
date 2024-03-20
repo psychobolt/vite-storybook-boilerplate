@@ -1986,7 +1986,7 @@ __metadata:
 
 "@dotenvx/dotenvx@patch:@dotenvx/dotenvx@npm%3A0.26.0#~/.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch":
   version: 0.26.0
-  resolution: "@dotenvx/dotenvx@patch:@dotenvx/dotenvx@npm%3A0.26.0#~/.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch::version=0.26.0&hash=4e6a47"
+  resolution: "@dotenvx/dotenvx@patch:@dotenvx/dotenvx@npm%3A0.26.0#~/.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch::version=0.26.0&hash=0ebfbc"
   dependencies:
     "@inquirer/prompts": "npm:^3.3.0"
     chalk: "npm:^4.1.2"
@@ -2009,7 +2009,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/28a68d0adf287db9ec6a115841989ce15eb982d93242a168ebd9ff39bb88e5d044ab70b5063475d1bf9f576bb967c21a0af48af7dbc86487da9d603cf1d81c7d
+  checksum: 10c0/3846aebfe0277c1ba374d164eac71b248023fe823e7971a6b59abaa14eb35b959e49583ed40f5f382d9e08882a9920966a9237d397526c77ceae4545e2b0f441
   languageName: node
   linkType: hard
 
@@ -22750,7 +22750,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "patch:@dotenvx/dotenvx@npm%3A0.26.0#~/.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch"
+    "@dotenvx/dotenvx": "npm:0.26.0"
     "@swc-node/register": "npm:1.9.0"
     "@swc/core": "npm:1.4.8"
     "@types/glob-to-regexp": "npm:0.4.4"

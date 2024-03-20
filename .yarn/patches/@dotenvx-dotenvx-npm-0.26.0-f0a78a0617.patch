@@ -1,16 +1,7 @@
 diff --git a/src/cli/actions/run.js b/src/cli/actions/run.js
-index a160e30acc58a78cf1cadf17b2e5bcb15c7ae2f0..d6fc8c2b7e694323f450601d7418e5dad1862da9 100644
+index a160e30acc58a78cf1cadf17b2e5bcb15c7ae2f0..4600422a8a7bf9cd74272fb6f184d51f66275489 100644
 --- a/src/cli/actions/run.js
 +++ b/src/cli/actions/run.js
-@@ -47,7 +47,7 @@ const executeCommand = async function (commandArgs, env) {
-     // commandProcess = execa(commandArgs[0], commandArgs.slice(1), {
-     commandProcess = execa(systemCommandPath, commandArgs.slice(1), {
-       stdio: 'inherit',
--      env: { ...process.env, ...env }
-+      env: { ...process.env, ...env },
-     })
- 
-     process.on('SIGINT', sigintHandler)
 @@ -89,6 +89,10 @@ async function run () {
    const options = this.opts()
    logger.debug(`options: ${JSON.stringify(options)}`)
