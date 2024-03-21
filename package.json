@@ -5,10 +5,12 @@
   "packageManager": "yarn@4.1.1",
   "scripts": {
     "postinstall": "husky install",
-    "g:dotenv": "cd $INIT_CWD && dotenv -e $PROJECT_CWD/.env -e $INIT_CWD/.env -c",
+    "g:dotenv": "cd $INIT_CWD && dotenvx",
+    "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv -q get -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload",
+    "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv -q run -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload -fv $INIT_CWD/.env.vault",
     "g:dotenv-vault": "cd $INIT_CWD && dotenv-vault",
     "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
-    "g:run-script": "cd $INIT_CWD && yarn g:dotenv -- node --loader file://$(yarn g:swc-register-path)",
+    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run -- node --loader file://$(yarn g:swc-register-path)",
     "run-script": "yarn g:run-script",
     "turbo": "yarn run-script scripts/turbo.ts",
     "ls-workspaces": "yarn run-script scripts/ls-workspaces.ts",
@@ -17,8 +19,6 @@
     "dev": "yarn turbo --background run dev",
     "build": "yarn turbo run build",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
-    "g:eslint-path": "yarn bin eslint",
-    "g:lint-js": "cd $INIT_CWD && yarn tsc --noEmit && yarn g:run-script $(yarn g:eslint-path) -c ./eslint.config.ts .",
     "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
     "format": "yarn g:prettier --write ."
   },
@@ -27,17 +27,17 @@
     "apps/*"
   ],
   "devDependencies": {
+    "@dotenvx/dotenvx": "0.26.0",
     "@swc-node/register": "1.9.0",
-    "@swc/core": "1.4.5",
+    "@swc/core": "1.4.8",
     "@types/glob-to-regexp": "0.4.4",
-    "@types/node": "20.11.25",
+    "@types/node": "20.11.30",
     "@types/semver": "7.5.8",
     "@yarnpkg/core": "4.0.3",
     "@yarnpkg/fslib": "3.0.2",
     "@yarnpkg/sdks": "3.1.0",
     "arg": "5.0.2",
     "commons": "workspace:*",
-    "dotenv-cli": "7.3.0",
     "dotenv-flow": "4.1.0",
     "dotenv-vault": "1.26.1",
     "eslint": "8.57.0",
@@ -49,14 +49,14 @@
     "semver": "7.6.0",
     "stylelint": "16.2.1",
     "turbo": "1.12.5",
-    "typescript": "5.3.3",
+    "typescript": "5.4.3",
     "yaml": "2.4.1"
   },
   "resolutions": {
-    "@swc-node/register": "patch:@swc-node/register@npm%3A1.9.0#~/.yarn/patches/@swc-node-register-npm-1.9.0-4530442723.patch",
-    "dotenv-cli@7.3.0": "patch:dotenv-cli@npm%3A7.3.0#./.yarn/patches/dotenv-cli-npm-7.3.0-7b0ff066d1.patch",
-    "dotenv-flow@4.1.0": "patch:dotenv-flow@npm%3A4.1.0#~/.yarn/patches/dotenv-flow-npm-4.1.0-74ebe7c968.patch",
-    "dotenv-vault/@oclif/core@^1": "npm:3.16.0",
+    "@dotenvx/dotenvx@0.26.0": "patch:@dotenvx/dotenvx@npm%3A0.26.0#~/.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch",
+    "@swc-node/register@1.9.0": "patch:@swc-node/register@npm%3A1.9.0#~/.yarn/patches/@swc-node-register-npm-1.9.0-4530442723.patch",
+    "dotenv-vault@1.26.1": "patch:dotenv-vault@npm%3A1.26.1#~/.yarn/patches/dotenv-vault-npm-1.26.1-f283958789.patch",
+    "dotenv-vault/@oclif/core@^1": "npm:3.23.0",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
   }
 }

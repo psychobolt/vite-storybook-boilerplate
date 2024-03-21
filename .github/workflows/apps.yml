@@ -8,6 +8,8 @@ on:
       package_names:
         type: string
         required: true
+      force:
+        type: boolean
     outputs:
       release:
         value: "false"
@@ -40,14 +42,14 @@ jobs:
       - name: Trigger post upgrade
         id: trigger
         if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
-        uses: benc-uk/workflow-dispatch@798e70c97009500150087d30d9f11c5444830385 # v1
+        uses: benc-uk/workflow-dispatch@25b02cc069be46d637e8fe2f1e8484008e9e9609 # v1
         with:
           workflow: renovate.yml
           inputs: '{ "ref": "${{ github.ref }}" }'
 
   next-app:
     needs: install
-    if: contains(fromJSON(inputs.package_names), 'next-app')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'next-app')
     uses: ./.github/workflows/test-app.yml
     with:
       ref_name: ${{ inputs.ref_name }}
@@ -57,7 +59,7 @@ jobs:
 
   svelte-app:
     needs: install
-    if: contains(fromJSON(inputs.package_names), 'svelte-app')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
     with:
       ref_name: ${{ inputs.ref_name }}

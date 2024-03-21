@@ -8,6 +8,8 @@ on:
       package_names:
         type: string
         required: true
+      force:
+        type: boolean
     outputs:
       release:
         value: "true"
@@ -15,14 +17,14 @@ on:
 jobs:
   commons:
     uses: ./.github/workflows/test-commons.yml
-    if: contains(fromJSON(inputs.package_names), 'commons')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'commons')
     with:
       ref_name: ${{ inputs.ref_name }}
     secrets: inherit
 
   html-ui:
     uses: ./.github/workflows/test-package.yml
-    if: contains(fromJSON(inputs.package_names), 'html-ui')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'html-ui')
     with:
       ref_name: ${{ inputs.ref_name }}
       workspace: html-ui
@@ -30,7 +32,7 @@ jobs:
     secrets: inherit
 
   react-ui:
-    if: contains(fromJSON(inputs.package_names), 'react-ui')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'react-ui')
     uses: ./.github/workflows/test-package.yml
     with:
       ref_name: ${{ inputs.ref_name }}
