@@ -4,11 +4,7 @@ import type { Config } from "stylelint";
 function getQualifiedModule(moduleId: string) {
   return process.env.PROJECT_CWD
     ? moduleId
-    : path.join(
-        process.cwd(),
-        "packages/third-party/node_modules",
-        ...arguments,
-      );
+    : path.join(process.cwd(), "packages/third-party/node_modules", moduleId);
 }
 
 const config: Config = {
