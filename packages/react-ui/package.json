@@ -18,19 +18,19 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "prepack": "yarn turbo run build",
-    "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv -p PORT)",
+    "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv-get PORT)",
     "build": "yarn build-src && yarn build-dts",
     "watch": "yarn build-src -w & yarn build-dts --watch",
     "build-src": "vite build",
     "build-dts": "tsc --project tsconfig.dts.json",
     "build-storybook": "yarn g:storybook build --stats-json",
-    "start": "yarn g:dotenv -- http-server storybook-static",
+    "start": "yarn g:dotenv-run -- http-server storybook-static",
     "test": "yarn g:test-storybook",
     "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
     "format": "yarn g:prettier --write .",
-    "chromatic": "yarn g:dotenv -- chromatic"
+    "chromatic": "yarn g:dotenv-run -- chromatic"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "8.0.2",
