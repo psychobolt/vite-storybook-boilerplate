@@ -53,8 +53,8 @@
     "yaml": "2.4.1"
   },
   "resolutions": {
-    "@dotenvx/dotenvx": "patch:@dotenvx/dotenvx@npm%3A0.26.0#~/.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch",
-    "@swc-node/register": "patch:@swc-node/register@npm%3A1.9.0#~/.yarn/patches/@swc-node-register-npm-1.9.0-4530442723.patch",
+    "@dotenvx/dotenvx@0.26.0": "patch:@dotenvx/dotenvx@npm%3A0.26.0#~/.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch",
+    "@swc-node/register@1.9.0": "patch:@swc-node/register@npm%3A1.9.0#~/.yarn/patches/@swc-node-register-npm-1.9.0-4530442723.patch",
     "dotenv-vault@1.26.1": "patch:dotenv-vault@npm%3A1.26.1#~/.yarn/patches/dotenv-vault-npm-1.26.1-f283958789.patch",
     "dotenv-vault/@oclif/core@^1": "npm:3.23.0",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
