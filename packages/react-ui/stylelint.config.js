@@ -1,9 +1,6 @@
-import { createRequire } from "module";
 import path from "path";
 
-const require = createRequire(import.meta.url);
-
-function getAbsolutePath(moduleId) {
+function getQualifiedModule(moduleId) {
   return process.env.PROJECT_CWD
     ? require.resolve(moduleId)
     : path.join(
@@ -15,7 +12,7 @@ function getAbsolutePath(moduleId) {
 
 /** @type {import('stylelint').Config} */
 export default {
-  extends: [getAbsolutePath("commons/esm/stylelint.config")],
+  extends: [getQualifiedModule("commons/esm/stylelint.config")],
   rules: {
     "selector-class-pattern": [
       "^([a-z][a-z0-9]*)(--?[a-z0-9]+)*$",

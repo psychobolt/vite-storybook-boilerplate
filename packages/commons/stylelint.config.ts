@@ -1,12 +1,9 @@
 import path from "path";
-import { createRequire } from "module";
 import type { Config } from "stylelint";
 
-const require = createRequire(import.meta.url);
-
-function getAbsolutePath(moduleId: string) {
+function getQualifiedModule(moduleId: string) {
   return process.env.PROJECT_CWD
-    ? require.resolve(moduleId)
+    ? moduleId
     : path.join(
         process.cwd(),
         "packages/third-party/node_modules",
@@ -16,8 +13,8 @@ function getAbsolutePath(moduleId: string) {
 
 const config: Config = {
   extends: [
-    getAbsolutePath("stylelint-config-standard-scss"),
-    getAbsolutePath("stylelint-config-prettier-scss"),
+    getQualifiedModule("stylelint-config-standard-scss"),
+    getQualifiedModule("stylelint-config-prettier-scss"),
   ],
   allowEmptyInput: true,
 };
