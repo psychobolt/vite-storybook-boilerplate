@@ -2,7 +2,7 @@ import path from "path";
 
 function getQualifiedModule(moduleId) {
   return process.env.PROJECT_CWD
-    ? require.resolve(moduleId)
+    ? moduleId
     : path.join(
         process.cwd(),
         "packages/third-party/node_modules",
