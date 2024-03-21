@@ -1,3 +1,23 @@
+diff --git a/src/cli/actions/get.js b/src/cli/actions/get.js
+index 9f1de35d02d3bf7db540c76c1ee763a7fedb1e64..94186a75c8973fed181050787c2dd655f57daa24 100644
+--- a/src/cli/actions/get.js
++++ b/src/cli/actions/get.js
+@@ -12,12 +12,12 @@ function get (key) {
+ 
+   if (typeof value === 'object' && value !== null) {
+     if (options.prettyPrint) {
+-      logger.blank(JSON.stringify(value, null, 2))
++      console.log(JSON.stringify(value, null, 2))
+     } else {
+-      logger.blank(value)
++      console.log(value)
+     }
+   } else {
+-    logger.blank(value)
++    console.log(value)
+   }
+ }
+ 
 diff --git a/src/cli/actions/run.js b/src/cli/actions/run.js
 index a160e30acc58a78cf1cadf17b2e5bcb15c7ae2f0..4600422a8a7bf9cd74272fb6f184d51f66275489 100644
 --- a/src/cli/actions/run.js
@@ -135,6 +155,29 @@ index a160e30acc58a78cf1cadf17b2e5bcb15c7ae2f0..4600422a8a7bf9cd74272fb6f184d51f
    // Extract command and arguments after '--'
    const commandIndex = process.argv.indexOf('--')
    if (commandIndex === -1 || commandIndex === process.argv.length - 1) {
+diff --git a/src/lib/services/get.js b/src/lib/services/get.js
+index 07437fbcae2b4f10a5a3c7e42436bfc8ad27dc56..dc77fa2ae27fa2479c341f0e558085c39489e117 100644
+--- a/src/lib/services/get.js
++++ b/src/lib/services/get.js
+@@ -1,5 +1,6 @@
+ const dotenv = require('dotenv')
+ const dotenvExpand = require('dotenv-expand')
++const logger = require('../../shared/logger')
+ 
+ class Get {
+   constructor (key, envFile = '.env', overload = false, all = false) {
+@@ -10,6 +11,11 @@ class Get {
+   }
+ 
+   run () {
++    if ( process.env.DOTENV_KEY ) {
++      logger.warn("DOTENV_KEY is not supported for `get`")
++      delete process.env.DOTENV_KEY;
++    }
++
+     const clonedEnv = { ...process.env }
+     const options = {
+       processEnv: clonedEnv,
 diff --git a/src/lib/services/runDefault.js b/src/lib/services/runDefault.js
 index f6d8906e3399ba4d8c886e821ec8bdc970bcf1d4..1ca32a4fa3540c386d335b0134b369dcd88669b5 100644
 --- a/src/lib/services/runDefault.js
