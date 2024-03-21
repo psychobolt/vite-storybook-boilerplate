@@ -100,10 +100,12 @@ yarn [workspace workspace-name] add -[D]E library-or-workspace-name
 ### Using environment files
 
 ```sh
-yarn [workspace] g:dotenv my-script-or-bin # Loads envronment variables with your script or bin
+yarn [workspace] g:dotenv help # print usage
+yarn [workspace] g:dotenv-get MY_VARIABLE # Print a environment variable
+yarn [workspace] g:dotenv-run -- my-script-or-bin # Loads envronment variables with your script or bin
 ```
 
-See [documentation](https://github.com/entropitor/dotenv-cli#usage) for usage.
+See [documentation](https://dotenvx.com/docs) for usage.
 
 ### Best Practices
 
