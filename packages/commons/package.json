@@ -20,9 +20,9 @@
   "dependencies": {
     "@eslint/eslintrc": "3.0.2",
     "@jest/types": "29.6.3",
-    "@storybook/builder-vite": "8.0.2",
+    "@storybook/builder-vite": "8.0.4",
     "@storybook/test-runner": "0.17.0",
-    "@storybook/types": "8.0.2",
+    "@storybook/types": "8.0.4",
     "@types/eslint": "8.56.6",
     "@types/lodash": "4",
     "@typescript-eslint/eslint-plugin": "7.3.1",
@@ -53,19 +53,19 @@
   },
   "devDependencies": {
     "@storybook/addon-coverage": "1.0.1",
-    "@storybook/addon-essentials": "8.0.2",
-    "@storybook/addon-interactions": "8.0.2",
-    "@storybook/addon-links": "8.0.2",
-    "@storybook/addon-onboarding": "8.0.2",
+    "@storybook/addon-essentials": "8.0.4",
+    "@storybook/addon-interactions": "8.0.4",
+    "@storybook/addon-links": "8.0.4",
+    "@storybook/addon-onboarding": "8.0.4",
     "jest-junit": "16.0.0",
     "playwright": "1.42.1",
     "playwright-chromium": "1.42.1",
     "prettier": "3.2.5",
     "prettier-config-standard": "7.0.0",
     "rimraf": "5.0.5",
-    "storybook": "8.0.2",
+    "storybook": "8.0.4",
     "tsconfig-to-dual-package": "1.2.0",
-    "turbo": "1.12.5",
+    "turbo": "1.13.0",
     "typescript": "5.4.3"
   }
 }
