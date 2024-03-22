@@ -7323,7 +7323,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.67, @types/react@npm:^16.8.0 || ^17.0.0 || ^18.0.0":
+"@types/react@npm:18.2.69":
+  version: 18.2.69
+  resolution: "@types/react@npm:18.2.69"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/239b947ed8576a271057a6f571d0967098074b101a2bece244e88093dc8fb2f020872c463b8e78b2049334ba99158f6eef5960e51f73a389f86eee39b835d846
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^16.8.0 || ^17.0.0 || ^18.0.0":
   version: 18.2.67
   resolution: "@types/react@npm:18.2.67"
   dependencies:
@@ -17280,7 +17291,7 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@types/node": "npm:20.11.30"
-    "@types/react": "npm:18.2.67"
+    "@types/react": "npm:18.2.69"
     "@types/react-dom": "npm:18.2.22"
     eslint: "npm:8.57.0"
     eslint-config-next: "npm:14.1.4"
@@ -19091,7 +19102,7 @@ __metadata:
     "@storybook/react-vite": "npm:8.0.4"
     "@storybook/test": "npm:8.0.4"
     "@tsconfig/vite-react": "npm:3.0.1"
-    "@types/react": "npm:18.2.67"
+    "@types/react": "npm:18.2.69"
     "@types/react-dom": "npm:18.2.22"
     chromatic: "npm:11.2.0"
     commons: "workspace:*"
