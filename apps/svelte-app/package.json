@@ -40,7 +40,7 @@
 		"tslib": "2.6.2",
 		"turbo": "1.13.0",
 		"typescript": "5.4.3",
-		"vite": "5.2.3"
+		"vite": "5.2.4"
 	},
 	"resolutions": {
 		"commons": "portal:../../packages/commons",
