@@ -43,6 +43,7 @@
     "@types/react-dom": "18.2.22",
     "chromatic": "11.2.0",
     "commons": "workspace:*",
+    "eslint-plugin-react": "7.34.1",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
     "nyc": "15.1.0",

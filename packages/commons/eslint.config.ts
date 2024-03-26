@@ -1,10 +1,15 @@
 import path from "path";
 import { fileURLToPath } from "url";
-import type { Linter } from "eslint";
 import { FlatCompat } from "@eslint/eslintrc";
 import tsParser from "@typescript-eslint/parser";
+import type { TSESLint } from "@typescript-eslint/utils";
+import * as mdx from "eslint-plugin-mdx";
+import eslintConfigPrettier from "eslint-config-prettier";
+import tseslint from "typescript-eslint";
 
-export type Config = Linter.FlatConfig;
+export type Config = TSESLint.FlatConfig.ConfigArray;
+
+export type Plugin = TSESLint.FlatConfig.Plugin;
 
 const _filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename);
@@ -14,15 +19,10 @@ export const compat = new FlatCompat({
   resolvePluginsRelativeTo: _dirname,
 });
 
-const tsConfigs: Config[] = compat.extends("standard-with-typescript");
-
-const config: Config[] = [
-  ...tsConfigs.map((tsConfig) => ({
-    files: ["**/*.ts", "**/*.tsx"],
-    ...tsConfig,
-  })),
-  {
-    files: ["**/*.ts", "**/*.tsx"],
+const config: Config = [
+  ...tseslint.config({
+    files: ["**/*.{ts,tsx}"],
+    extends: compat.extends("love"),
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -41,22 +41,21 @@ const config: Config[] = [
         },
       ],
     },
-  },
-  ...compat.extends("standard").map((stdConfig: Config) => ({
-    files: ["**/*.cjs", "**/*.js"],
-    ...stdConfig,
-  })),
-  ...compat.extends("standard-jsx"),
-  ...compat.extends("standard-react"),
-  ...compat.extends("plugin:mdx/recommended"),
-  {
-    files: ["**/*.mdx"],
-    rules: {
-      "react/self-closing-comp": 0,
-      "no-unused-expressions": 0,
-    },
-  },
-  ...compat.extends("prettier"),
+  }),
+  ...tseslint.config({
+    files: ["**/*.{cj,j}s"],
+    extends: compat.extends("standard"),
+  }),
+  ...tseslint.config({
+    files: ["**/*.jsx"],
+    extends: [
+      ...compat.extends("standard-jsx"),
+      ...compat.extends("standard-react"),
+    ],
+  }),
+  mdx.flat,
+  mdx.flatCodeBlocks,
+  eslintConfigPrettier,
   {
     ignores: [
       ".turbo/",

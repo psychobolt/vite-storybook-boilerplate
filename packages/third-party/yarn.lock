@@ -3612,6 +3612,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/eslint-config-prettier@npm:6.11.3":
+  version: 6.11.3
+  resolution: "@types/eslint-config-prettier@npm:6.11.3"
+  checksum: 10c0/e49ef5b2cf9bfa173d678f50b392511e5567743a864552257978fcf98a876adcd41bb2fa074505ab4aae94862fb349eda2cf41aec698a4a1db77a2731b1fa1c6
+  languageName: node
+  linkType: hard
+
 "@types/eslint@npm:8.56.6":
   version: 8.56.6
   resolution: "@types/eslint@npm:8.56.6"
@@ -5259,15 +5266,17 @@ __metadata:
     "@storybook/test-runner": "npm:0.17.0"
     "@storybook/types": "npm:8.0.4"
     "@types/eslint": "npm:8.56.6"
+    "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/lodash": "npm:4"
     "@typescript-eslint/eslint-plugin": "npm:7.4.0"
     "@typescript-eslint/parser": "npm:7.4.0"
+    "@typescript-eslint/utils": "npm:7.4.0"
     eslint: "npm:8.57.0"
+    eslint-config-love: "npm:43.1.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-config-standard: "npm:17.1.0"
     eslint-config-standard-jsx: "npm:11.0.0"
     eslint-config-standard-react: "npm:13.0.0"
-    eslint-config-standard-with-typescript: "npm:43.0.1"
     eslint-plugin-import: "npm:2.29.1"
     eslint-plugin-mdx: "npm:3.1.5"
     eslint-plugin-n: "npm:16.6.2"
@@ -5283,6 +5292,7 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.0.0"
     ts-enum-util: "npm:4.0.2"
+    typescript-eslint: "npm:7.4.0"
     vite: "npm:5.2.6"
     vite-tsconfig-paths: "npm:4.3.2"
   languageName: node
@@ -6402,6 +6412,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-config-love@npm:43.1.0":
+  version: 43.1.0
+  resolution: "eslint-config-love@npm:43.1.0"
+  dependencies:
+    "@typescript-eslint/parser": "npm:^6.4.0"
+    eslint-config-standard: "npm:17.1.0"
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^6.4.0
+    eslint: ^8.0.1
+    eslint-plugin-import: ^2.25.2
+    eslint-plugin-n: "^15.0.0 || ^16.0.0 "
+    eslint-plugin-promise: ^6.0.0
+    typescript: "*"
+  checksum: 10c0/60266243478c609c6cf4311b10abafa2b5cb2787a03437b00fe9fd12c3128d9eea586ecce121af3b25c3d051565d2cf0d2ac692b1049f03139bcb0c99ff96696
+  languageName: node
+  linkType: hard
+
 "eslint-config-prettier@npm:9.1.0":
   version: 9.1.0
   resolution: "eslint-config-prettier@npm:9.1.0"
@@ -6431,23 +6458,6 @@ __metadata:
     eslint-plugin-react: ^7.28.0
     eslint-plugin-react-hooks: ^4.6.0
   checksum: 10c0/56b3124076615966fac719b5afb8bbf1ddef2d7109f31365bbb14eee5ce644002664afec1d3551b297592f65ecb6524a199b921bc7761b8c1b624e0eeb6a12dc
-  languageName: node
-  linkType: hard
-
-"eslint-config-standard-with-typescript@npm:43.0.1":
-  version: 43.0.1
-  resolution: "eslint-config-standard-with-typescript@npm:43.0.1"
-  dependencies:
-    "@typescript-eslint/parser": "npm:^6.4.0"
-    eslint-config-standard: "npm:17.1.0"
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^6.4.0
-    eslint: ^8.0.1
-    eslint-plugin-import: ^2.25.2
-    eslint-plugin-n: "^15.0.0 || ^16.0.0 "
-    eslint-plugin-promise: ^6.0.0
-    typescript: "*"
-  checksum: 10c0/e01d9fb0ee5b3a435417926f9356a572f9ba0393a2db4892421c383830aa29308fbe52ecc8395a2e5fc005acfba4465f470d23fcdf4f9c2060238e9907da0d28
   languageName: node
   linkType: hard
 
@@ -12833,6 +12843,22 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 10c0/6005cb31df50eef8b1f3c780eb71a17925f3038a100d82f9406ac2ad1de5eb59f8e6decbdc145b3a1f8e5836e17b0c0002fb698b9fe2516b8f9f9ff602d36412
+  languageName: node
+  linkType: hard
+
+"typescript-eslint@npm:7.4.0":
+  version: 7.4.0
+  resolution: "typescript-eslint@npm:7.4.0"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": "npm:7.4.0"
+    "@typescript-eslint/parser": "npm:7.4.0"
+    "@typescript-eslint/utils": "npm:7.4.0"
+  peerDependencies:
+    eslint: ^8.56.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/e630043bc93537a601397dd059cd41504ce6df4613d703c9b59b94e4bbf8e24a0f06bfaed86aae940e832f1147cf018b6176013b5b6d989551ab190720398e30
   languageName: node
   linkType: hard
 
