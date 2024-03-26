@@ -7330,14 +7330,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.70":
-  version: 18.2.70
-  resolution: "@types/react@npm:18.2.70"
+"@types/react@npm:18.2.71":
+  version: 18.2.71
+  resolution: "@types/react@npm:18.2.71"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/2107b1fa8963cabe33d981cf1c0e3b7534c9d12b98c1046cd9f7975851690a0780db011f6a1d637ae4e612ef00c94ebdbe76a9e2f9e0f3baa6aad3213932af41
+  checksum: 10c0/0b2fc05a33aa83f09880c1172f6112450fa507ea56a168521172161e057277a8a474ff2fae02fa4910ce74853d7b5cff560586f912a0c9d8102cfd316bdb1b19
   languageName: node
   linkType: hard
 
@@ -9944,7 +9944,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     rimraf: "npm:5.0.5"
     storybook: "npm:8.0.4"
-    stylelint: "npm:16.3.0"
+    stylelint: "npm:16.3.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.0.0"
     ts-enum-util: "npm:4.0.2"
@@ -17305,7 +17305,7 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@types/node": "npm:20.11.30"
-    "@types/react": "npm:18.2.70"
+    "@types/react": "npm:18.2.71"
     "@types/react-dom": "npm:18.2.22"
     eslint: "npm:8.57.0"
     eslint-config-next: "npm:14.1.4"
@@ -19116,7 +19116,7 @@ __metadata:
     "@storybook/react-vite": "npm:8.0.4"
     "@storybook/test": "npm:8.0.4"
     "@tsconfig/vite-react": "npm:3.0.1"
-    "@types/react": "npm:18.2.70"
+    "@types/react": "npm:18.2.71"
     "@types/react-dom": "npm:18.2.22"
     chromatic: "npm:11.2.0"
     commons: "workspace:*"
@@ -20917,9 +20917,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:16.3.0":
-  version: 16.3.0
-  resolution: "stylelint@npm:16.3.0"
+"stylelint@npm:16.3.1":
+  version: 16.3.1
+  resolution: "stylelint@npm:16.3.1"
   dependencies:
     "@csstools/css-parser-algorithms": "npm:^2.6.1"
     "@csstools/css-tokenizer": "npm:^2.2.4"
@@ -20962,7 +20962,7 @@ __metadata:
     write-file-atomic: "npm:^5.0.1"
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: 10c0/98bf770078d727eb7c3ec0932b09c9486481f2d086ea1f4232e00bd1bf58b6b5d3a8d6fc9802df05380cdb06b3d97c5a7c4f27adb221b2a5707ea9829c0ee350
+  checksum: 10c0/1660bb359002ff8e07cea044018b13abc73f48cf02a5062953b086f4d58611cd10677787560774c1acabeb192b6d059ce7fcf4c11defa7f64e50dca908fc664f
   languageName: node
   linkType: hard
 
@@ -21063,7 +21063,7 @@ __metadata:
     prettier: "npm:3.2.5"
     prettier-plugin-svelte: "npm:3.2.2"
     sass: "npm:1.72.0"
-    stylelint: "npm:16.3.0"
+    stylelint: "npm:16.3.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.0.0"
     svelte: "npm:4.2.12"
@@ -22684,7 +22684,7 @@ __metadata:
     lint-staged: "npm:15.2.2"
     playwright: "npm:1.42.1"
     semver: "npm:7.6.0"
-    stylelint: "npm:16.3.0"
+    stylelint: "npm:16.3.1"
     turbo: "npm:1.13.0"
     typescript: "npm:5.4.3"
     yaml: "npm:2.4.1"
