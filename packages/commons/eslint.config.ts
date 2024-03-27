@@ -2,25 +2,24 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 import tsParser from "@typescript-eslint/parser";
-import type { TSESLint } from "@typescript-eslint/utils";
 import * as mdx from "eslint-plugin-mdx";
 import eslintConfigPrettier from "eslint-config-prettier";
 import tseslint from "typescript-eslint";
 
-export type Config = TSESLint.FlatConfig.ConfigArray;
+export { default as tseslint } from "typescript-eslint";
 
-export type Plugin = TSESLint.FlatConfig.Plugin;
+export { default as jsxRuntime } from "eslint-plugin-react/configs/jsx-runtime.js";
 
 const _filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename);
 
-export const compat = new FlatCompat({
+const compat = new FlatCompat({
   baseDirectory: _filename,
   resolvePluginsRelativeTo: _dirname,
 });
 
-const config: Config = [
-  ...tseslint.config({
+export default tseslint.config(
+  {
     files: ["**/*.{ts,tsx}"],
     extends: compat.extends("love"),
     languageOptions: {
@@ -41,18 +40,18 @@ const config: Config = [
         },
       ],
     },
-  }),
-  ...tseslint.config({
+  },
+  {
     files: ["**/*.{cj,j}s"],
     extends: compat.extends("standard"),
-  }),
-  ...tseslint.config({
+  },
+  {
     files: ["**/*.jsx"],
     extends: [
       ...compat.extends("standard-jsx"),
       ...compat.extends("standard-react"),
     ],
-  }),
+  },
   mdx.flat,
   mdx.flatCodeBlocks,
   eslintConfigPrettier,
@@ -71,6 +70,4 @@ const config: Config = [
       ".pnp.loader.mjs",
     ],
   },
-];
-
-export default config;
+);
