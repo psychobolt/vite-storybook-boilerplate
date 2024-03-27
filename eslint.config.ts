@@ -1,8 +1,5 @@
-import commonConfig from "commons/esm/eslint.config.js";
+import commonConfig, { tseslint } from "commons/esm/eslint.config.js";
 
-export default [
-  ...commonConfig,
-  {
-    ignores: ["apps/", "packages/"],
-  },
-];
+export default tseslint.config(...commonConfig, {
+  ignores: ["apps/", "packages/"],
+});
