@@ -15,6 +15,7 @@ next-env.d.ts
 coverage
 test-reports
 *.tsbuildinfo
+vite.config.*.timestamp-*
 
 # environment
 .env*

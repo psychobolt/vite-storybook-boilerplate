@@ -68,6 +68,7 @@ export default tseslint.config(
       "storybook-static/",
       ".pnp.cjs",
       ".pnp.loader.mjs",
+      "vite.config.*.timestamp-*",
     ],
   },
 );
