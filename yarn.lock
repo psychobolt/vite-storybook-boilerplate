@@ -19207,7 +19207,6 @@ __metadata:
     "@types/react-dom": "npm:18.2.22"
     chromatic: "npm:11.2.0"
     commons: "workspace:*"
-    eslint-plugin-react: "npm:7.34.1"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
     nyc: "npm:15.1.0"
