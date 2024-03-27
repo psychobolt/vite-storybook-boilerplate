@@ -18,8 +18,7 @@ export default function run(args) {
     .toString()
     .slice(0, -1)}`;
 
-  // IPC is blocked for `yarn node` therefore loader must resolve to a real path (unplugged)
-  // https://github.com/yarnpkg/berry/issues/1696
+  // IPC is blocked for `yarn node`, see https://github.com/yarnpkg/berry/issues/1696
   const child = spawn("node", args, {
     env: {
       ...process.env,
