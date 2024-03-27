@@ -27,7 +27,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "svelte"
   ],
   "stylelint.stylelintPath": "packages/third-party/node_modules/stylelint",
   "stylelint.validate": ["css", "scss"]

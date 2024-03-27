@@ -7,7 +7,8 @@ function getQualifiedModule(moduleId) {
 }
 
 /** @type {import('stylelint').Config} */
-
-export default {
+const config = {
 	extends: [getQualifiedModule('commons/esm/stylelint.config')]
 };
+
+export default config;
