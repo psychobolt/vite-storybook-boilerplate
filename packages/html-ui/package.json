@@ -22,9 +22,9 @@
   },
   "devDependencies": {
     "@storybook/addon-essentials": "8.0.5",
-    "@storybook/blocks": "8.0.4",
+    "@storybook/blocks": "8.0.5",
     "@storybook/test": "8.0.5",
-    "@storybook/web-components": "8.0.4",
+    "@storybook/web-components": "8.0.5",
     "@storybook/web-components-vite": "8.0.5",
     "chromatic": "11.2.0",
     "commons": "workspace:*",
