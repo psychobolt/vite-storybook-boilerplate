@@ -1,3 +1,3 @@
 export default {
-  "*": () => "yarn turbo run format",
+  '*': () => 'yarn turbo run format'
 };

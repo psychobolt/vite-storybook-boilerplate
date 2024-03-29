@@ -2,7 +2,7 @@ name: Sync Bitbucket Repo
 
 on:
   push:
-    branches: ["main", "bitbucket"]
+    branches: ['main', 'bitbucket']
   workflow_dispatch:
 
 concurrency:
@@ -49,7 +49,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: "**/yarn.lock"
+          cache-dependency-path: '**/yarn.lock'
       - name: Install dependencies
         run: |
           yarn install

@@ -1,20 +1,20 @@
-import type { ProjectAnnotations } from "@storybook/types";
+import type { ProjectAnnotations } from '@storybook/types';
 
 const preview: ProjectAnnotations<any> = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+        date: /Date$/i
+      }
     },
     docs: {
       source: {
-        excludeDecorators: true,
-      },
-    },
-  },
+        excludeDecorators: true
+      }
+    }
+  }
 };
 
 export default preview;

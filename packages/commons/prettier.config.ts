@@ -1,6 +1,11 @@
-import standardConfig from "prettier-config-standard" assert { type: "json" };
+import type { Options } from 'prettier';
+import standardConfig from 'prettier-config-standard' assert { type: 'json' };
 
-export default {
+export type Config = Options;
+
+const config: Options = {
   ...standardConfig,
-  semi: true,
+  semi: true
 };
+
+export default config;

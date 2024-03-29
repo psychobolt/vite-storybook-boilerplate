@@ -11,30 +11,30 @@ This addon will allow variant story generation from a `enum` of values.
 
 ```ts
 // Setup for .storybook/main.ts
-import type { Meta } from "@storybook/web-components";
-import { mergeConfig, defineConfig } from "vite";
+import type { Meta } from '@storybook/web-components';
+import { mergeConfig, defineConfig } from 'vite';
 import {
   vitePluginStorybookVariants,
-  storybookVariantsIndexer,
-} from "commons/esm/.storybook/addons/addon-variants.js";
+  storybookVariantsIndexer
+} from 'commons/esm/.storybook/addons/addon-variants.js';
 
 export default {
   // ...
   stories: [
     // ...
-    "@(src|stories)/**/*.variant{s,}.@(js|jsx|ts|tsx)", // include
+    '@(src|stories)/**/*.variant{s,}.@(js|jsx|ts|tsx)' // include
   ],
   experimental_indexers: (existingIndexers) => [
     ...existingIndexers,
-    storybookVariantsIndexer<Meta>(), // you can pass a custom regex e.g. /.variantstories.[jt]sx?$/
+    storybookVariantsIndexer<Meta>() // you can pass a custom regex e.g. /.variantstories.[jt]sx?$/
   ],
   viteFinal: (config, options) =>
     mergeConfig(
       config,
       defineConfig({
-        plugins: [vitePluginStorybookVariants<Meta>("lit")], // frameworks: "lit"
-      }),
-    ),
+        plugins: [vitePluginStorybookVariants<Meta>('lit')] // frameworks: "lit"
+      })
+    )
 };
 ```
 

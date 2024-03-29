@@ -1,29 +1,29 @@
-import fs from "fs";
-import { fileURLToPath } from "url";
-import process from "process";
-import { execa, execaSync } from "execa";
-import arg from "arg";
-import globToRegExp from "glob-to-regexp";
-import YAML from "yaml";
-import { type PortablePath, npath } from "@yarnpkg/fslib";
-import { Configuration, Project } from "@yarnpkg/core";
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import process from 'process';
+import { execa, execaSync } from 'execa';
+import arg from 'arg';
+import globToRegExp from 'glob-to-regexp';
+import YAML from 'yaml';
+import { type PortablePath, npath } from '@yarnpkg/fslib';
+import { Configuration, Project } from '@yarnpkg/core';
 
 const invalidFilterExpression = /^[.*]$/g;
 
 const filters: Filters = {
-  "--location": {
-    alias: "-l",
+  '--location': {
+    alias: '-l',
     type: String,
-    value: "",
-    matcher: globToRegExp,
+    value: '',
+    matcher: globToRegExp
   },
-  "--name": {
-    alias: "-n",
+  '--name': {
+    alias: '-n',
     type: String,
-    value: "",
-    matcher: RegExp,
+    value: '',
+    matcher: RegExp
   },
-  "--filter": {
+  '--filter': {
     type: [String],
     value: [],
     matcher: (expressions = []) => {
@@ -34,50 +34,50 @@ const filters: Filters = {
           }
           return [...list, globToRegExp(expression)];
         },
-        [],
+        []
       );
       return {
         test: (value: string) =>
-          matchers.reduce((prev, matcher) => prev && matcher.test(value), true),
+          matchers.reduce((prev, matcher) => prev && matcher.test(value), true)
       };
-    },
+    }
   },
-  "--node-linker": {
-    key: "nodeLinker",
+  '--node-linker': {
+    key: 'nodeLinker',
     type: [String],
-    value: [],
+    value: []
   },
-  "--turbo-only": {
-    key: "turboOnly",
+  '--turbo-only': {
+    key: 'turboOnly',
     type: Boolean,
-    value: false,
+    value: false
   },
-  "--no-private": {
-    key: "noPrivate",
+  '--no-private': {
+    key: 'noPrivate',
+    type: Boolean
+  },
+  '--since': {
+    key: 'since',
     type: Boolean,
-  },
-  "--since": {
-    key: "since",
-    type: Boolean,
-    value: false,
-  },
+    value: false
+  }
 };
 
 function getFormatter(type: string): Mapper<any> {
   switch (type) {
-    case "semver":
+    case 'semver':
       return (workspaces: Workspace[]) =>
         workspaces.reduce(
           (result, workspace) => ({
             ...result,
-            [workspace.name]: execaSync("yarn", [
-              "workspace",
+            [workspace.name]: execaSync('yarn', [
+              'workspace',
               workspace.name,
-              "exec",
-              "echo $npm_package_version",
-            ]).stdout,
+              'exec',
+              'echo $npm_package_version'
+            ]).stdout
           }),
-          {},
+          {}
         );
     default:
       return (_, result) => result;
@@ -85,16 +85,16 @@ function getFormatter(type: string): Mapper<any> {
 }
 
 const formatters: Formatters = {
-  "--format": {
-    key: "format",
+  '--format': {
+    key: 'format',
     type: [String],
     mapper: (formatters) => (workspaces) =>
       formatters.reduce(
         (result, formatter) => getFormatter(formatter)(workspaces, result),
-        workspaces,
+        workspaces
       ),
-    value: [],
-  },
+    value: []
+  }
 };
 
 const specEntries = Object.entries({ ...filters, ...formatters });
@@ -103,11 +103,11 @@ async function setupProject() {
   const configuration = await Configuration.find(
     npath.toPortablePath(process.cwd()),
     null,
-    { strict: false },
+    { strict: false }
   );
   const { project } = await Project.find(
     configuration,
-    configuration.startingCwd,
+    configuration.startingCwd
   );
   return project;
 }
@@ -118,11 +118,11 @@ async function getWorkspaces<T>(options?: Options) {
       (config, [key, { alias, type }]) => ({
         [key]: type,
         ...(alias ? { [alias]: key } : undefined),
-        ...config,
+        ...config
       }),
-      {},
+      {}
     ),
-    { permissive: true },
+    { permissive: true }
   );
 
   if (options) {
@@ -134,7 +134,7 @@ async function getWorkspaces<T>(options?: Options) {
 
     Object.entries(options).forEach(([option, value]) => {
       const entry = specEntries.find(([_, { key }]) => key === option);
-      if (typeof entry !== "undefined") {
+      if (typeof entry !== 'undefined') {
         updateArg(entry[0], value);
       }
     });
@@ -142,8 +142,8 @@ async function getWorkspaces<T>(options?: Options) {
 
   Object.entries(args).forEach(([key, value]) => {
     const filter: Filter = filters[key];
-    if (typeof filter !== "undefined") {
-      if (filter.value instanceof Array && typeof value === "string") {
+    if (typeof filter !== 'undefined') {
+      if (filter.value instanceof Array && typeof value === 'string') {
         filter.value.push(value);
       } else {
         filter.value = value;
@@ -153,7 +153,7 @@ async function getWorkspaces<T>(options?: Options) {
       }
     }
     const formatter: Formatter = formatters[key];
-    if (typeof formatter !== "undefined") {
+    if (typeof formatter !== 'undefined') {
       formatter.value = value;
     }
   });
@@ -162,52 +162,52 @@ async function getWorkspaces<T>(options?: Options) {
     const filter: Filter = filters[argKey];
     const index = _.indexOf(argKey);
     const value = _[index + 1];
-    if (typeof filter !== "undefined" && value && !value.startsWith("--")) {
+    if (typeof filter !== 'undefined' && value && !value.startsWith('--')) {
       filter.value = value;
     }
   });
 
-  const noPrivate = filters["--no-private"].value;
-  const since = filters["--since"].value;
+  const noPrivate = filters['--no-private'].value;
+  const since = filters['--since'].value;
   const PROJECT = await setupProject();
 
   function passthrough(
     workspace: Workspace,
     filterKey: string,
-    propName?: keyof Workspace,
+    propName?: keyof Workspace
   ) {
     const filter = filters[`--${filterKey}`];
     const { manifest } = PROJECT.getWorkspaceByCwd(
-      workspace.location as PortablePath,
+      workspace.location as PortablePath
     );
 
-    if (typeof filter === "undefined") {
+    if (typeof filter === 'undefined') {
       return true;
     }
 
-    if (filterKey === "node-linker") {
+    if (filterKey === 'node-linker') {
       const filterValue = filter.value as string[];
       if (!filterValue.length) return true;
-      const isPnp = filterValue.includes("pnp");
+      const isPnp = filterValue.includes('pnp');
       const rcLocation = `${workspace.location}/.yarnrc.yml`;
       if (fs.existsSync(rcLocation)) {
         const doc = YAML.parseDocument(
-          fs.readFileSync(`${workspace.location}/.yarnrc.yml`, "utf-8"),
+          fs.readFileSync(`${workspace.location}/.yarnrc.yml`, 'utf-8')
         );
-        const value = doc.get("nodeLinker") as string;
+        const value = doc.get('nodeLinker') as string;
         return (
-          filterValue.includes(value) || (typeof value === "undefined" && isPnp)
+          filterValue.includes(value) || (typeof value === 'undefined' && isPnp)
         );
       }
       return isPnp;
     }
 
-    if (filterKey === "turbo-only") {
+    if (filterKey === 'turbo-only') {
       if (filter.value === false) return true;
       const { devDependencies } = manifest;
       const dependencies = devDependencies.values();
       for (const dependency of dependencies) {
-        if (dependency.name === "turbo") {
+        if (dependency.name === 'turbo') {
           return true;
         }
       }
@@ -215,16 +215,16 @@ async function getWorkspaces<T>(options?: Options) {
     }
 
     if (
-      filter.value === "" ||
-      typeof filter.value === "undefined" ||
+      filter.value === '' ||
+      typeof filter.value === 'undefined' ||
       (filter.value instanceof Array && filter.value.length === 0)
     ) {
       return true;
     }
 
-    if (typeof propName === "undefined") return false;
+    if (typeof propName === 'undefined') return false;
 
-    if (typeof filter.matcher !== "undefined") {
+    if (typeof filter.matcher !== 'undefined') {
       return (filter.matcher as Tester).test(workspace[propName]);
     }
 
@@ -235,31 +235,31 @@ async function getWorkspaces<T>(options?: Options) {
     return Object.values(formatters).reduce(
       (result, formatter) =>
         formatter.mapper(formatter.value)(workspaces, result),
-      workspaces,
+      workspaces
     );
   };
 
-  const listArgs = ["--json"];
+  const listArgs = ['--json'];
   if (noPrivate === true) {
-    listArgs.push("--no-private");
+    listArgs.push('--no-private');
   }
   if (since === true) {
-    listArgs.push("--since");
+    listArgs.push('--since');
   }
-  const { stdout } = await execa("yarn", ["workspaces", "list", ...listArgs]);
+  const { stdout } = await execa('yarn', ['workspaces', 'list', ...listArgs]);
 
   const workspaces: Workspace[] =
-    stdout === ""
+    stdout === ''
       ? []
-      : stdout.split("\n").reduce((list: Workspace[], line) => {
+      : stdout.split('\n').reduce((list: Workspace[], line) => {
           const workspace: Workspace = JSON.parse(line);
           const keep =
             true &&
-            passthrough(workspace, "location", "location") &&
-            passthrough(workspace, "name", "name") &&
-            passthrough(workspace, "filter", "name") &&
-            passthrough(workspace, "node-linker") &&
-            passthrough(workspace, "turbo-only");
+            passthrough(workspace, 'location', 'location') &&
+            passthrough(workspace, 'name', 'name') &&
+            passthrough(workspace, 'filter', 'name') &&
+            passthrough(workspace, 'node-linker') &&
+            passthrough(workspace, 'turbo-only');
           return keep ? [workspace, ...list] : list;
         }, []);
 

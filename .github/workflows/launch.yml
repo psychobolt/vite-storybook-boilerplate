@@ -45,14 +45,14 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: "**/yarn.lock"
+          cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ env.base_ref }}" >> .env
       - name: Install dependencies
         run: |
           yarn install
           yarn bootstrap
-      - name: "Create and publish release: ${{ vars.RELEASE_TAG }}"
+      - name: 'Create and publish release: ${{ vars.RELEASE_TAG }}'
         uses: ./.github/actions/release
         with:
           strategy: launch
@@ -61,7 +61,7 @@ jobs:
       - name: Push
         if: ${{ steps.base_ref.outputs.name != '' }}
         run: git push
-      - name: "Create ${{ inputs.ref_name }}"
+      - name: 'Create ${{ inputs.ref_name }}'
         run: |
           git checkout -b ${{ inputs.ref_name }}
           git push --set-upstream origin ${{ inputs.ref_name }}

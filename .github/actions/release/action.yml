@@ -6,13 +6,13 @@ inputs:
     default: build
     description: The version strategy to run
   tag:
-    default: ""
+    default: ''
     description: The distribute tag
   dry_run_publish:
     description: If "true", publish is disabled
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Apply versions
       id: versions

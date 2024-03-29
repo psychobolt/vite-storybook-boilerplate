@@ -12,7 +12,7 @@ on:
         type: boolean
     outputs:
       release:
-        value: "true"
+        value: 'true'
 
 jobs:
   commons:

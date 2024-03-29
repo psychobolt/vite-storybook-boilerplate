@@ -3872,7 +3872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/vite-plugin-svelte@npm:3.0.2":
+"@sveltejs/vite-plugin-svelte@npm:*, @sveltejs/vite-plugin-svelte@npm:3.0.2":
   version: 3.0.2
   resolution: "@sveltejs/vite-plugin-svelte@npm:3.0.2"
   dependencies:

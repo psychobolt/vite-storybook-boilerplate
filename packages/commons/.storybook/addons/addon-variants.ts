@@ -1,9 +1,9 @@
-import { readFileSync } from "fs";
-import { isAbsolute } from "path";
-import type { ComponentAnnotations, Renderer, Indexer } from "@storybook/types";
-import type { PluginOption } from "vite";
-import _ from "lodash";
-import type { VariantStoryObj } from "../utils.ts";
+import { readFileSync } from 'fs';
+import { isAbsolute } from 'path';
+import type { ComponentAnnotations, Renderer, Indexer } from '@storybook/types';
+import type { PluginOption } from 'vite';
+import _ from 'lodash';
+import type { VariantStoryObj } from '../utils.ts';
 
 export type VariantsMeta<TArgs> = ComponentAnnotations<Renderer, TArgs> & {
   fileName: string;
@@ -28,7 +28,7 @@ type TemplateOptions<TArgs> = VariantsMeta<TArgs> & {
 };
 
 enum FrameworkEnum {
-  lit,
+  lit
 }
 
 type Framework = keyof typeof FrameworkEnum;
@@ -59,7 +59,7 @@ function getSourceTemplate<TMeta>(framework: Framework) {
             args: ${JSON.stringify(args)}
           };
         `,
-          "",
+          ''
         )}
       `;
   }
@@ -68,7 +68,7 @@ function getSourceTemplate<TMeta>(framework: Framework) {
 let fileMatcher: RegExp = /\.variants?\.[jt]sx?$/;
 
 const getImportPath = (filePath: string) =>
-  `${isAbsolute(filePath) ? "file://" : ""}${filePath}?${new Date().getTime()}`;
+  `${isAbsolute(filePath) ? 'file://' : ''}${filePath}?${new Date().getTime()}`;
 
 export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
   fileMatcher = test;
@@ -83,31 +83,31 @@ export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
 
         return (_.isFunction(stories) ? stories() : stories).map(
           ({ name, exportName }) => ({
-            type: "story",
+            type: 'story',
             title,
             tags,
             name,
             exportName,
-            importPath: fileName,
-          }),
+            importPath: fileName
+          })
         );
       } catch (e) {
         console.error(e);
         return [];
       }
-    },
+    }
   };
 }
 
 export function vitePluginStorybookVariants<TArgs>(
-  framework: Framework,
+  framework: Framework
 ): PluginOption {
   const template = getSourceTemplate<TArgs>(framework);
   if (!template) {
     return;
   }
   return {
-    name: "vite-plugin-storybook-variants",
+    name: 'vite-plugin-storybook-variants',
     async load(id) {
       if (!fileMatcher.test(id)) {
         return;
@@ -117,13 +117,13 @@ export function vitePluginStorybookVariants<TArgs>(
         getImportPath(id)
       );
       return `
-        ${readFileSync(require.resolve(id), "utf-8")}
+        ${readFileSync(require.resolve(id), 'utf-8')}
 
         ${template({
           ...meta,
-          stories: _.isFunction(stories) ? stories() : stories,
+          stories: _.isFunction(stories) ? stories() : stories
         })};
       `;
-    },
+    }
   };
 }

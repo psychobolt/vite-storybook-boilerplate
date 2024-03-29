@@ -1,7 +1,7 @@
-import { html } from "lit";
+import { html } from 'lit';
 
-import { Button } from "../Button/index.ts";
-import classes from "./Header.module.scss";
+import { Button } from '../Button/index.ts';
+import classes from './Header.module.scss';
 
 interface User {
   name: string;
@@ -18,7 +18,7 @@ export const Header = ({
   user,
   onLogin,
   onLogout,
-  onCreateAccount,
+  onCreateAccount
 }: Props) => html`
   <header>
     <div class="${classes.storybookHeader}">
@@ -52,18 +52,18 @@ export const Header = ({
               <span class="${classes.welcome}">
                 Welcome, <b>${user.name}</b>!
               </span>
-              ${Button({ size: "small", onClick: onLogout, label: "Log out" })}
+              ${Button({ size: 'small', onClick: onLogout, label: 'Log out' })}
             `
           : html`${Button({
-              size: "small",
+              size: 'small',
               onClick: onLogin,
-              label: "Log in",
+              label: 'Log in'
             })}
             ${Button({
               primary: true,
-              size: "small",
+              size: 'small',
               onClick: onCreateAccount,
-              label: "Sign up",
+              label: 'Sign up'
             })}`}
       </div>
     </div>

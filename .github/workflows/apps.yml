@@ -12,7 +12,7 @@ on:
         type: boolean
     outputs:
       release:
-        value: "false"
+        value: 'false'
 
 jobs:
   install:
@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: "**/yarn.lock"
+          cache-dependency-path: '**/yarn.lock'
       - name: Install dependencies
         run: |
           yarn install

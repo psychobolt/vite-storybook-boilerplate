@@ -57,7 +57,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: "**/yarn.lock"
+          cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
         run: echo "BASE_REF=origin/${{ github.base_ref }}" >> .env
       - name: Install dependencies

@@ -123,7 +123,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: "**/yarn.lock"
+          cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.base_ref || 'HEAD~1' }}" >> .env
       - name: Install dependencies
@@ -145,7 +145,7 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: "Check status of all required jobs"
+      - name: 'Check status of all required jobs'
         run: |-
           NEEDS_CONTEXT='${{ toJson(needs) }}'
           JOB_IDS=$(echo "$NEEDS_CONTEXT" | jq -r 'keys[]')

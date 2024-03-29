@@ -1,24 +1,24 @@
-import arg from "arg";
-import { $ } from "execa";
-import semver from "semver";
+import arg from 'arg';
+import { $ } from 'execa';
+import semver from 'semver';
 
-import getWorkspaces from "./ls-workspaces.ts";
+import getWorkspaces from './ls-workspaces.ts';
 
 enum Strategy {
   build,
   launch,
   stable,
   minor,
-  patch,
+  patch
 }
 
 const args = arg({
-  "--strategy": String,
-  "--force": Boolean,
+  '--strategy': String,
+  '--force': Boolean
 });
 
-const type = args["--strategy"] ?? Strategy[Strategy.build];
-const force = args["--force"] === true;
+const type = args['--strategy'] ?? Strategy[Strategy.build];
+const force = args['--force'] === true;
 
 switch (type) {
   case Strategy[Strategy.minor]:
@@ -31,7 +31,7 @@ switch (type) {
 async function* getTagAnnotation() {
   await $`git fetch --tags --force`;
   const { stdout: tags } = await $`git tag`;
-  for await (const tag of tags.split("\n")) {
+  for await (const tag of tags.split('\n')) {
     const { stdout } =
       await $`git tag -l --format="%(contents:subject)" ${tag}`;
     yield stdout.slice(1, -1);
@@ -40,7 +40,7 @@ async function* getTagAnnotation() {
 
 type SemVer = Record<string, undefined | string>;
 
-const buildTag = "build";
+const buildTag = 'build';
 const latest: SemVer = {};
 
 for await (const annotation of getTagAnnotation()) {
@@ -52,9 +52,9 @@ for await (const annotation of getTagAnnotation()) {
   }
 
   for (const pkg in versions) {
-    const target = versions[pkg] ?? "0.0.0";
+    const target = versions[pkg] ?? '0.0.0';
     if (target.includes(`-${buildTag}.`)) continue;
-    const highest = latest[pkg] ?? "0.0.0";
+    const highest = latest[pkg] ?? '0.0.0';
     if (semver.gt(target, highest)) {
       latest[pkg] = target;
     }
@@ -63,21 +63,21 @@ for await (const annotation of getTagAnnotation()) {
 
 const getVersions = async (options?: Options): Promise<SemVer> =>
   await getWorkspaces({
-    format: ["semver"],
+    format: ['semver'],
     noPrivate: true,
-    ...options,
+    ...options
   });
 
 let current = await getVersions({
-  since: !force && type !== Strategy[Strategy.launch],
+  since: !force && type !== Strategy[Strategy.launch]
 });
 const prev = { ...current };
 const changed: string[] = [];
 
 async function applyAll() {
   const { stdout } = await $`yarn version apply --all --json`;
-  if (stdout === "") process.exit();
-  for (const line of stdout.split("\n")) {
+  if (stdout === '') process.exit();
+  for (const line of stdout.split('\n')) {
     try {
       const { ident, newVersion }: Record<string, string> = JSON.parse(line);
       current[ident] = newVersion;
@@ -108,7 +108,7 @@ switch (type) {
   // falls through
   case Strategy[Strategy.patch]:
     $.sync`yarn workspaces foreach --since --no-private --exclude ${changed.join(
-      " --exclude ",
+      ' --exclude '
     )} version ${type} --deferred`;
     await applyAll();
     break;
@@ -116,7 +116,7 @@ switch (type) {
     const { stdout } = $.sync`yarn run -B turbo run build --dry-run=json`;
     const { tasks = [] }: BuildInfo = JSON.parse(stdout);
     for (const { task, package: name, hash } of tasks) {
-      if (task === "build") {
+      if (task === 'build') {
         hashIds[name] = hash;
       }
     }
@@ -124,9 +124,9 @@ switch (type) {
   }
   default:
     for (const name in current) {
-      const highest = latest[name] ?? "0.0.0";
-      const oldVersion = prev[name] ?? "0.0.0";
-      const version = current[name] ?? "0.0.0";
+      const highest = latest[name] ?? '0.0.0';
+      const oldVersion = prev[name] ?? '0.0.0';
+      const version = current[name] ?? '0.0.0';
       let bump = null;
 
       if (!force && version === oldVersion) continue;
@@ -136,19 +136,19 @@ switch (type) {
           const hashId = hashIds[name];
           if (!hashId) {
             throw Error(
-              `Build task was not found for workspace "${name}". Did you configure it in turbo config?`,
+              `Build task was not found for workspace "${name}". Did you configure it in turbo config?`
             );
           }
           bump = `${semver.major(version)}.${semver.minor(
-            version,
+            version
           )}.${semver.patch(version)}-${buildTag}.${hashId.substring(0, 7)}`;
           break;
         }
         case Strategy[Strategy.launch]:
-          if (semver.lt(version, "1.0.0")) {
-            bump = "major";
+          if (semver.lt(version, '1.0.0')) {
+            bump = 'major';
           } else if (semver.lte(version, highest)) {
-            bump = "minor";
+            bump = 'minor';
           }
           break;
         case Strategy[Strategy.stable]: {
@@ -160,16 +160,16 @@ switch (type) {
           const prerelease = semver.prerelease(oldVersion);
           let release;
           if (prerelease != null) {
-            release = "prerelease";
+            release = 'prerelease';
           } else {
-            const diff: string = semver.diff(version, oldVersion) ?? "prepatch";
-            release = diff.startsWith("pre") ? diff : `pre${diff}`;
+            const diff: string = semver.diff(version, oldVersion) ?? 'prepatch';
+            release = diff.startsWith('pre') ? diff : `pre${diff}`;
           }
           bump = semver.inc(
             oldVersion,
             release as semver.ReleaseType,
-            "rc",
-            "1",
+            'rc',
+            '1'
           );
         }
       }
