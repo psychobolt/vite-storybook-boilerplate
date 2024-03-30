@@ -12,6 +12,9 @@
         "!esm"
       ],
       "outputs": ["esm/**", "cjs/**"]
+    },
+    "format": {
+      "dependsOn": ["build"]
     }
   }
 }

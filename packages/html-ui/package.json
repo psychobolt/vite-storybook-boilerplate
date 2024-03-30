@@ -17,7 +17,7 @@
     "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
-    "format": "yarn g:prettier --write .",
+    "format": "yarn g:format",
     "chromatic": "yarn g:dotenv-run -- chromatic"
   },
   "devDependencies": {

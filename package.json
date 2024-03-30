@@ -20,7 +20,7 @@
     "build": "yarn turbo run build",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
     "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
-    "format": "yarn g:prettier --write ."
+    "format": "yarn g:format"
   },
   "workspaces": [
     "packages/*",

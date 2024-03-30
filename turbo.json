@@ -36,8 +36,12 @@
       "inputs": ["coverage/coverage.json", "coverage/coverage-*.json"],
       "outputs": ["coverage/**/lcov.info", "coverage/**/lcov-report/**"]
     },
-    "//#format": {},
-    "format": {},
+    "//#format": {
+      "dependsOn": ["^build"]
+    },
+    "format": {
+      "dependsOn": ["^build"]
+    },
     "chromatic": {
       "inputs": ["storybook-static/**"],
       "dependsOn": ["build-storybook"]

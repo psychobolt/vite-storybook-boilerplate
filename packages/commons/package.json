@@ -15,7 +15,8 @@
     "g:eslint-path": "yarn bin eslint",
     "g:lint-js": "cd $INIT_CWD && yarn tsc --noEmit && yarn g:run-script $(yarn g:eslint-path) -c ./eslint.config.ts .",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
-    "format": "yarn g:prettier --write ."
+    "g:format": "cd $INIT_CWD && yarn g:prettier --write $(echo \"${@:-.}\")",
+    "format": "yarn g:prettier --write --config esm/prettier.config.js $(echo \"${@:-.}\")"
   },
   "dependencies": {
     "@eslint/eslintrc": "3.0.2",

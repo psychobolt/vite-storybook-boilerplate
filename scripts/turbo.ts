@@ -6,12 +6,20 @@ import getWorkspaces from './ls-workspaces.ts';
 
 process.env.FORCE_COLOR = '0';
 
-const { _: argv } = arg(
+let { _: argv } = arg(
   {
     '--no-color': Boolean
   },
   { permissive: true }
 );
+
+let taskArgs: string[] = [];
+const start = 2;
+const end = process.argv.indexOf('--');
+if (end > start) {
+  taskArgs = process.argv.slice(end);
+  argv = argv.slice(0, end - start);
+}
 
 /* eslint-disable-next-line @typescript-eslint/promise-function-async */
 const yarnCmd = (args: string[] = [], config?: SyncOptions) =>
@@ -22,7 +30,7 @@ const yarnCmd = (args: string[] = [], config?: SyncOptions) =>
 
 /* eslint-disable-next-line @typescript-eslint/promise-function-async */
 const turboCmd = (args: string[] = [], config?: SyncOptions) =>
-  yarnCmd(['exec', 'turbo', ...args], config);
+  yarnCmd(['exec', 'turbo', ...args, ...taskArgs], config);
 
 const filters = [];
 
