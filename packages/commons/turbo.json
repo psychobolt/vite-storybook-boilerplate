@@ -13,6 +13,9 @@
       ],
       "outputs": ["esm/**", "cjs/**"]
     },
+    "lint": {
+      "dependsOn": ["build"]
+    },
     "format": {
       "dependsOn": ["build"]
     }

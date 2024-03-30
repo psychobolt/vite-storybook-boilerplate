@@ -85,7 +85,7 @@ You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turb
 
 You can also pass in specific arguments into the task e.g. `yarn workspace commons turbo run format -- vite.config.ts turbo.json # formats specific files`
 
-See [docs](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for more details.
+See Turbo's docs for more [usages](https://turbo.build/repo/docs/reference/command-line-reference).
 
 ## Managing Dependencies
 
