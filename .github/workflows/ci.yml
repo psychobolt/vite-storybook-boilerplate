@@ -44,7 +44,10 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Lint
-        run: yarn turbo run //#lint
+        run: |
+          git stash
+          yarn turbo run //#lint
+          git stash pop
 
   diff:
     name: List Updated Packages
