@@ -21658,7 +21658,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "third-party@workspace:packages/third-party"
   dependencies:
-    commons: "workspace:*"
+    stylelint: "npm:16.3.1"
+    stylelint-config-prettier-scss: "npm:1.0.0"
+    stylelint-config-standard-scss: "npm:13.0.0"
   languageName: unknown
   linkType: soft
 

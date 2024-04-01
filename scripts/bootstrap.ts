@@ -12,7 +12,7 @@ const workspaces = await getWorkspaces<Workspace[]>({
   nodeLinker: ['pnpm', 'node-modules']
 });
 if (workspaces.length) {
-  console.log('Verify workspaces using node-modules...');
+  console.log('Verify workspaces using node_modules...');
   workspaces.forEach((workspace) => {
     console.log(`Verifying ${workspace.name}...`);
     install({
