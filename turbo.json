@@ -31,9 +31,7 @@
         "**/yarn.lock",
         "bitbucket-pipelines.yml"
       ],
-      "outputs": ["bitbucket-pipeline.yml"]
-    },
-    "config-ci": {
+      "outputs": ["bitbucket-pipeline.yml"],
       "dependsOn": ["^build"]
     },
     "//#lint": {
