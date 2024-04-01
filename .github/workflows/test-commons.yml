@@ -30,7 +30,7 @@ jobs:
           cache-dependency-path: './yarn.lock'
       - name: Set Yarn global folder
         if: runner.os == 'Windows'
-        run: yarn set globalFolder "${{ runner.temp }}\Yarn\Berry"
+        run: yarn config set globalFolder "${{ runner.temp }}\Yarn\Berry"
       - name: Install dependencies
         run: yarn install
       - name: Run Lint
