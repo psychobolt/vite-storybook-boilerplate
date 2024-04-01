@@ -45,7 +45,7 @@ jobs:
         run: yarn install
       - name: Lint
         run: |
-          git stash || true
+          git stash
           yarn turbo run //#lint
           git stash pop || true
 
@@ -75,6 +75,8 @@ jobs:
         run: |
           mkdir -p packages/commons/.yarn/versions
           cp -r .yarn/versions packages/commons/.yarn/versions
+      - name: Install Turbo
+        run: npm install -g turbo@$(npm query '#turbo' | jq -r 'map(.version)[]')
       - name: Collect Turborepo Changes
         id: changes
         uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0
