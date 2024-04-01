@@ -1,6 +1,6 @@
-import { globSync } from "glob";
-import { defineConfig, mergeConfig } from "vite";
-import commonConfig from "commons/esm/vite.config.js";
+import { globSync } from 'glob';
+import { defineConfig, mergeConfig } from 'vite';
+import commonConfig from 'commons/esm/vite.config.js';
 
 interface Module {
   entry: RegExp;
@@ -14,17 +14,17 @@ const modules: Module[] = [
   {
     entry: /src[/\\](style).scss$/,
     assetName: /^style.css$/,
-    ext: "css",
+    ext: 'css',
     assets: [],
-    index: -1,
+    index: -1
   },
   {
     entry: /^.+[/\\](.+)[/\\]index.scss$/,
     assetName: /^index.css$/,
-    ext: "css",
+    ext: 'css',
     assets: [],
-    index: -1,
-  },
+    index: -1
+  }
 ];
 
 function getAssetName({ entry, assetName, ext }: Module, moduleId: string) {
@@ -40,7 +40,7 @@ function mapAssets(moduleId: string) {
   }
 }
 
-const ASSET_FILE_NAMES = "assets/[name]-[hash][extname]";
+const ASSET_FILE_NAMES = 'assets/[name]-[hash][extname]';
 
 function shiftAssets(assetName?: string) {
   if (assetName) {
@@ -62,24 +62,24 @@ export default mergeConfig(
     build: {
       lib: false,
       rollupOptions: {
-        input: ["src/style.scss", ...globSync("src/*/index.scss")],
+        input: ['src/style.scss', ...globSync('src/*/index.scss')],
         output: {
           entryFileNames({ facadeModuleId }) {
             if (facadeModuleId) mapAssets(facadeModuleId);
-            return "[name]";
+            return '[name]';
           },
-          assetFileNames: ({ name: assetName }) => shiftAssets(assetName),
-        },
+          assetFileNames: ({ name: assetName }) => shiftAssets(assetName)
+        }
       },
-      cssCodeSplit: true,
+      cssCodeSplit: true
     },
     css: {
       modules: {
         globalModulePaths: [/src/],
         exportGlobals: true,
-        localsConvention: "camelCase",
-      },
-    },
+        localsConvention: 'camelCase'
+      }
+    }
   }),
-  false,
+  false
 );

@@ -213,7 +213,7 @@ pipelines:
           - *release
           - '[ "$STABLE" = true ] && git push || true'
   pull-requests:
-    "**":
+    '**':
       - step:
           name: Prepare version strategy
           image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
@@ -233,7 +233,7 @@ pipelines:
             - yarn version check
             - export CHECK_STATUS=$?
             - set -e
-            - "[ $CHECK_STATUS = 0 ] && exit 0 || true"
+            - '[ $CHECK_STATUS = 0 ] && exit 0 || true'
             - >-
               [[ "$BITBUCKET_BRANCH" != issue/* && "$BITBUCKET_BRANCH" !=
               feature/* ]] && exit 1 || true
@@ -301,7 +301,7 @@ pipelines:
               source ./scripts/git-ls-unmerged.sh
               export SHORT=$OUTPUT
             - export BASE_REF=cherry-pick-$SHORT
-            - "[ ! $REF ] && exit 1 || true"
+            - '[ ! $REF ] && exit 1 || true'
             - git fetch --depth=2 origin $REF
             - git cherry-pick -x $REF || true
             - git add .

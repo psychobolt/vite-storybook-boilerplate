@@ -1,7 +1,7 @@
-import { $ } from "execa";
-import { readFileSync, writeFileSync } from "fs";
-import { resolve } from "path";
-import type { Scalar } from "yaml";
+import { $ } from 'execa';
+import { readFileSync, writeFileSync } from 'fs';
+import { resolve } from 'path';
+import type { Scalar } from 'yaml';
 import {
   parseDocument,
   visit,
@@ -9,16 +9,16 @@ import {
   isSeq,
   YAMLMap,
   YAMLSeq,
-  Pair,
-} from "yaml";
+  Pair
+} from 'yaml';
 
 const { stdout } = await $`yarn turbo run //#config-ci --dry-run=json`;
 const [, info] = stdout.match(/(\{\n(\s+.+)*\n\})/) ?? [];
-const FILENAME = "bitbucket-pipelines.yml";
+const FILENAME = 'bitbucket-pipelines.yml';
 const filePath = resolve(FILENAME);
 const globalHash: string =
   JSON.parse(info).globalCacheInputs.hashOfExternalDependencies;
-const doc = parseDocument(readFileSync(filePath, "utf-8"));
+const doc = parseDocument(readFileSync(filePath, 'utf-8'));
 const HASH_REGEX = /[a-f0-9]{16}$/;
 
 function pin(key: Scalar<string>) {
@@ -27,7 +27,7 @@ function pin(key: Scalar<string>) {
     : `${key.value}-${globalHash}`;
 }
 
-const target = "caches";
+const target = 'caches';
 
 visit(doc, {
   Pair(_, pair) {
@@ -37,7 +37,7 @@ visit(doc, {
         const caches = new YAMLMap();
         value.items.forEach(({ key, value }) => {
           caches.add(
-            new Pair(pin(key as Scalar<string>), (value as YAMLMap).clone()),
+            new Pair(pin(key as Scalar<string>), (value as YAMLMap).clone())
           );
         });
         return new Pair(target, caches);
@@ -49,9 +49,9 @@ visit(doc, {
         return new Pair(target, caches);
       }
     }
-  },
+  }
 });
 
 writeFileSync(filePath, doc.toString());
 
-await $`yarn g:prettier --write ${filePath}`;
+await $`yarn g:format ${filePath}`;

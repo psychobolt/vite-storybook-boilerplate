@@ -3872,7 +3872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/vite-plugin-svelte@npm:3.0.2":
+"@sveltejs/vite-plugin-svelte@npm:*, @sveltejs/vite-plugin-svelte@npm:3.0.2":
   version: 3.0.2
   resolution: "@sveltejs/vite-plugin-svelte@npm:3.0.2"
   dependencies:
@@ -4361,13 +4361,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:*, @types/eslint@npm:8.56.6":
+"@types/eslint@npm:*":
   version: 8.56.6
   resolution: "@types/eslint@npm:8.56.6"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
   checksum: 10c0/52124f0868b14f21b4c8c21cb3c6065e0671df3f64c0bb3d37efe12e41b3434f478461f5ba0dabf368cd927ddc9b36d5592e7f61b939463576ab69c3bf8f3b12
+  languageName: node
+  linkType: hard
+
+"@types/eslint@npm:8.56.7":
+  version: 8.56.7
+  resolution: "@types/eslint@npm:8.56.7"
+  dependencies:
+    "@types/estree": "npm:*"
+    "@types/json-schema": "npm:*"
+  checksum: 10c0/159bb5ae2f78d905b9263240c75d07b60c26e1bcaecee8c775a7bb0cf7362f5dcdd286259ba6289ab62f989b87048090b2420619f7170a0abbd83cb68b5e0699
   languageName: node
   linkType: hard
 
@@ -4624,12 +4634,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.30, @types/node@npm:^20.10.7":
-  version: 20.11.30
-  resolution: "@types/node@npm:20.11.30"
+"@types/node@npm:20.12.2":
+  version: 20.12.2
+  resolution: "@types/node@npm:20.12.2"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/867cfaf969c6d8850d8d7304e7ab739898a50ecb1395b61ff2335644f5f48d7a46fbc4a14cee967aed65ec134b61a746edae70d1f32f11321ccf29165e3bc4e6
+  checksum: 10c0/bb47d115a8f95aadebdd6403fee16d149d6b5568ad53bacc42df34c2d572561e36ba47b05f7f68bada43752d7369b470a90df65b646af7502dfb799a21b4fca7
   languageName: node
   linkType: hard
 
@@ -4646,6 +4656,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/2c8b70cba731eb2ae3ae046daa74903bfcbb0e7b9196da767e5895054f6d252296ae7a04fb1dbbcb53bb004c4c658c05eaea2731bc9e2dd9e08f7e88d672f563
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.10.7":
+  version: 20.11.30
+  resolution: "@types/node@npm:20.11.30"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/867cfaf969c6d8850d8d7304e7ab739898a50ecb1395b61ff2335644f5f48d7a46fbc4a14cee967aed65ec134b61a746edae70d1f32f11321ccf29165e3bc4e6
   languageName: node
   linkType: hard
 
@@ -6549,7 +6568,7 @@ __metadata:
     "@storybook/builder-vite": "npm:8.0.5"
     "@storybook/test-runner": "npm:0.17.0"
     "@storybook/types": "npm:8.0.5"
-    "@types/eslint": "npm:8.56.6"
+    "@types/eslint": "npm:8.56.7"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/lodash": "npm:4"
     "@typescript-eslint/eslint-plugin": "npm:7.4.0"
@@ -15304,9 +15323,9 @@ __metadata:
     "@swc-node/register": "npm:1.9.0"
     "@swc/core": "npm:1.4.11"
     "@types/cookie": "npm:0.6.0"
-    "@types/eslint": "npm:8.56.6"
+    "@types/eslint": "npm:8.56.7"
     "@types/eslint__js": "npm:8.42.3"
-    "@types/node": "npm:20.11.30"
+    "@types/node": "npm:20.12.2"
     commons: "workspace:*"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:9.1.0"

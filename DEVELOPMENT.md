@@ -74,7 +74,7 @@ yann [workspace workspace-name] turbo run build # Build for production
 yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces)
 yarn [workspace workspace-name] turbo run build-storybook # Build for production
 yarn [workspace workspace-name] turbo run lint
-yarn [workspace workspace-name] turbo run format # This is automatically called on git commit
+yarn [workspace workspace-name] turbo run format # This is automatically called on git commit.
 yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
 yarn [workspace workspace-name] turbo run test
 yarn [workspace workspace-name] turbo run coverage # Collect code coverage (also may run tests)
@@ -83,7 +83,9 @@ yarn [workspace workspace-name] turbo run lcov # Generate interactive coverage r
 
 You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turbo run format --filter=react-ui --filter=html-ui --filter=apps/**`.
 
-See [docs](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for more details.
+You can also pass in specific arguments into the task e.g. `yarn workspace commons turbo run format -- vite.config.ts turbo.json # formats specific files`
+
+See Turbo's docs for more [usages](https://turbo.build/repo/docs/reference/command-line-reference).
 
 ## Managing Dependencies
 

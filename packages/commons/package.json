@@ -15,7 +15,8 @@
     "g:eslint-path": "yarn bin eslint",
     "g:lint-js": "cd $INIT_CWD && yarn tsc --noEmit && yarn g:run-script $(yarn g:eslint-path) -c ./eslint.config.ts .",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
-    "format": "yarn g:prettier --write ."
+    "g:format": "cd $INIT_CWD && yarn g:prettier --write $(echo \"${@:-.}\")",
+    "format": "yarn g:prettier --write --config esm/prettier.config.js $(echo \"${@:-.}\")"
   },
   "dependencies": {
     "@eslint/eslintrc": "3.0.2",
@@ -23,7 +24,7 @@
     "@storybook/builder-vite": "8.0.5",
     "@storybook/test-runner": "0.17.0",
     "@storybook/types": "8.0.5",
-    "@types/eslint": "8.56.6",
+    "@types/eslint": "8.56.7",
     "@types/eslint-config-prettier": "6.11.3",
     "@types/lodash": "4",
     "@typescript-eslint/eslint-plugin": "7.4.0",

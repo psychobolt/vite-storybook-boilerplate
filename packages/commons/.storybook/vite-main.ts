@@ -1,9 +1,9 @@
-import { createRequire } from "module";
-import { join, dirname } from "path";
-import type { StorybookConfig } from "@storybook/types";
-import type { StorybookConfigVite } from "@storybook/builder-vite";
-import type { ResolveOptions } from "vite";
-import { defineConfig, mergeConfig } from "vite";
+import { createRequire } from 'module';
+import { join, dirname } from 'path';
+import type { StorybookConfig } from '@storybook/types';
+import type { StorybookConfigVite } from '@storybook/builder-vite';
+import type { ResolveOptions } from 'vite';
+import { defineConfig, mergeConfig } from 'vite';
 
 type AliasOptions = Record<string, string>;
 
@@ -13,7 +13,7 @@ interface ResolveConfig {
 
 const require = createRequire(import.meta.url);
 const resolveConfig: ResolveOptions & ResolveConfig = {
-  alias: {},
+  alias: {}
 };
 
 /**
@@ -22,10 +22,10 @@ const resolveConfig: ResolveOptions & ResolveConfig = {
  */
 export function getAbsolutePath(
   moduleId: string,
-  resolveConfig: NodeRequire | ResolveConfig | unknown = {},
+  resolveConfig: NodeRequire | ResolveConfig | unknown = {}
 ): string {
   const { resolve = require.resolve } = resolveConfig as NodeRequire;
-  const absolutePath = dirname(resolve(join(moduleId, "package.json")));
+  const absolutePath = dirname(resolve(join(moduleId, 'package.json')));
   const { alias } = resolveConfig as ResolveConfig;
   if (alias) {
     alias[moduleId] = absolutePath;
@@ -33,11 +33,11 @@ export function getAbsolutePath(
   return absolutePath;
 }
 
-export const mainDir = "@(src|stories)";
+export const mainDir = '@(src|stories)';
 
 export const stories = [
   `../${mainDir}/**/*.mdx`,
-  `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`,
+  `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`
 ];
 
 export type StorybookViteCommonConfig = StorybookConfig &
@@ -46,36 +46,36 @@ export type StorybookViteCommonConfig = StorybookConfig &
 export const config: StorybookViteCommonConfig = {
   stories,
   addons: [
-    getAbsolutePath("@storybook/addon-links", resolveConfig),
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-onboarding"),
-    getAbsolutePath("@storybook/addon-interactions", resolveConfig),
-    getAbsolutePath("@storybook/addon-coverage"),
+    getAbsolutePath('@storybook/addon-links', resolveConfig),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-onboarding'),
+    getAbsolutePath('@storybook/addon-interactions', resolveConfig),
+    getAbsolutePath('@storybook/addon-coverage')
   ],
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag'
   },
   viteFinal(config, { configType }) {
     let finalConfig = mergeConfig(
       config,
       defineConfig({
-        resolve: resolveConfig,
-      }),
+        resolve: resolveConfig
+      })
     );
 
-    if (configType !== "PRODUCTION") {
+    if (configType !== 'PRODUCTION') {
       finalConfig = mergeConfig(
         finalConfig,
         defineConfig({
           server: {
             fs: {
-              strict: false,
-            },
-          },
-        }),
+              strict: false
+            }
+          }
+        })
       );
     }
 
     return finalConfig;
-  },
+  }
 };

@@ -1,18 +1,19 @@
-import path from "path";
-import type { Config } from "stylelint";
+import { createRequire } from 'module';
+import path from 'path';
+import type { Config } from 'stylelint';
 
-function getQualifiedModule(moduleId: string) {
-  return process.env.PROJECT_CWD
-    ? moduleId
-    : path.join(process.cwd(), "packages/third-party/node_modules", moduleId);
-}
+const require = createRequire(
+  process.env.INIT_CWD
+    ? import.meta.url
+    : path.join(process.cwd(), 'packages/third-party/node_modules')
+);
 
 const config: Config = {
   extends: [
-    getQualifiedModule("stylelint-config-standard-scss"),
-    getQualifiedModule("stylelint-config-prettier-scss"),
+    require.resolve('stylelint-config-standard-scss'),
+    require.resolve('stylelint-config-prettier-scss')
   ],
-  allowEmptyInput: true,
+  allowEmptyInput: true
 };
 
 export default config;

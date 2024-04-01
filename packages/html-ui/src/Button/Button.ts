@@ -1,7 +1,7 @@
-import { html } from "lit";
-import { styleMap } from "lit/directives/style-map.js";
-import type { SizeEnum } from "./Primary.variant.ts";
-import classes from "./Button.module.scss";
+import { html } from 'lit';
+import { styleMap } from 'lit/directives/style-map.js';
+import type { SizeEnum } from './Primary.variant.ts';
+import classes from './Button.module.scss';
 
 type Size = keyof typeof SizeEnum;
 
@@ -33,9 +33,9 @@ export interface Props {
 export const Button = ({
   primary,
   backgroundColor,
-  size = "medium",
+  size = 'medium',
   label,
-  onClick,
+  onClick
 }: Props) => {
   const mode = primary
     ? classes.storybookButtonPrimary
@@ -47,8 +47,8 @@ export const Button = ({
       class=${[
         classes.storybookButton,
         classes[`storybook-button--${size}`],
-        mode,
-      ].join(" ")}
+        mode
+      ].join(' ')}
       style=${styleMap({ backgroundColor })}
       @click=${onClick}
     >

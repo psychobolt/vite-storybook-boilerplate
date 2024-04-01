@@ -1,4 +1,4 @@
-import classes from "./Button.module.scss";
+import classes from './Button.module.scss';
 
 interface Props {
   /**
@@ -12,7 +12,7 @@ interface Props {
   /**
    * How large should the button be?
    */
-  size?: "small" | "medium" | "large";
+  size?: 'small' | 'medium' | 'large';
   /**
    * Button contents
    */
@@ -28,7 +28,7 @@ interface Props {
  */
 export function Button({
   primary = false,
-  size = "medium",
+  size = 'medium',
   backgroundColor,
   label,
   ...props
@@ -38,12 +38,12 @@ export function Button({
     : classes.storybookButtonSecondary;
   return (
     <button
-      type="button"
+      type='button'
       className={[
         classes.storybookButton,
         classes[`storybook-button--${size}`],
-        mode,
-      ].join(" ")}
+        mode
+      ].join(' ')}
       style={{ backgroundColor }}
       {...props}
     >

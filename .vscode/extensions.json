@@ -4,6 +4,7 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "unifiedjs.vscode-mdx",
-    "bierner.lit-html"
+    "bierner.lit-html",
+    "svelte.svelte-vscode"
   ]
 }

@@ -37,10 +37,10 @@ export default mergeConfig(
    /your/project/eslint.config.ts
 
    ```ts
-   import commonConfig from "commons/esm/eslint.config.js";
+   import commonConfig from 'commons/esm/eslint.config.js';
 
    export default {
-     ...commonConfig,
+     ...commonConfig
      // your overrides
    };
    ```
@@ -64,10 +64,10 @@ export default mergeConfig(
    /your/project/prettier.config.ts
 
    ```ts
-   import commonConfig from "commons/esm/prettier.config.js";
+   import commonConfig from 'commons/esm/prettier.config.js';
 
    export default {
-     ...commonConfig,
+     ...commonConfig
      // your overrides
    };
    ```
@@ -91,7 +91,7 @@ See [source](stylelint.config.ts)
 
 ```cjs
 module.exports = {
-  extends: ["commons/cjs/stylelint.config"],
+  extends: ['commons/cjs/stylelint.config']
 };
 ```
 
@@ -144,11 +144,11 @@ See [source](.storybook/preview.ts)
 /your/project.storybook/preview.ts
 
 ```ts
-import type { Preview } from "@storybook/react"; // preview-api type
-import commonConfig from "commons/esm/.storybook/preview.js";
+import type { Preview } from '@storybook/react'; // preview-api type
+import commonConfig from 'commons/esm/.storybook/preview.js';
 
 const preview: Preview = {
-  ...commonConfig,
+  ...commonConfig
 };
 
 export default preview;
@@ -163,10 +163,10 @@ See [source](.storybook/test-runner-jest.config.ts)
 /your/project/.storybook/test-runner-jest.config.ts
 
 ```ts
-import commonConfig from "commons/esm/.storybook/test-runner-jest.config.js";
+import commonConfig from 'commons/esm/.storybook/test-runner-jest.config.js';
 
 export default {
-  ...commonConfig,
+  ...commonConfig
   // your overrides
 };
 ```

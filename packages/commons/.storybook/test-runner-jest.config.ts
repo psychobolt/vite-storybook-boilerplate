@@ -1,6 +1,6 @@
-import { createRequire } from "module";
-import type { Config } from "@jest/types";
-import { getJestConfig } from "@storybook/test-runner";
+import { createRequire } from 'module';
+import type { Config } from '@jest/types';
+import { getJestConfig } from '@storybook/test-runner';
 
 const require = createRequire(import.meta.url);
 
@@ -15,14 +15,14 @@ const config: Config.InitialOptions = {
    */
   passWithNoTests: true,
   reporters: [
-    "default",
+    'default',
     [
-      require.resolve("jest-junit"),
+      require.resolve('jest-junit'),
       {
-        outputDirectory: "test-reports",
-      },
-    ],
-  ],
+        outputDirectory: 'test-reports'
+      }
+    ]
+  ]
 };
 
 export default config;
