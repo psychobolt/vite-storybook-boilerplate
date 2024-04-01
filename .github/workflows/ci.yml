@@ -77,7 +77,7 @@ jobs:
           cp -r .yarn/versions packages/commons/.yarn/versions
       - name: Install Turbo
         run: |
-          npm install -g turbo@$(npm query ':root #turbo' | jq -r 'map(.version)[]')
+          npm install -g turbo@$(jq -r .devDependencies.turbo package.json)
           turbo --version
       - name: Collect Turborepo Changes
         id: changes
