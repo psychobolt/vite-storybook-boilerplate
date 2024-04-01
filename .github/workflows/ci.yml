@@ -45,9 +45,9 @@ jobs:
         run: yarn install
       - name: Lint
         run: |
-          git stash
+          git stash || true
           yarn turbo run //#lint
-          git stash pop
+          git stash pop || true
 
   diff:
     name: List Updated Packages
