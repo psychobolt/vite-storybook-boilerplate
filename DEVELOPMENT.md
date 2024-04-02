@@ -59,7 +59,7 @@ yarn g:prettier [options] # Runs prettier format tool
 
 ##### Additional Scripts
 
-See [scripts/README.md](scripts/README.md)
+See [scripts/](scripts/)
 
 #### Workspace Scope
 
@@ -97,7 +97,7 @@ This project supports continious upgrades with [renovate](https://docs.renovateb
 yarn [workspace workspace-name] add -[D]E library-or-workspace-name
 ```
 
-> Note: All packages are installed using the [PnP strategy](https://yarnpkg.com/features/pnp) by default. To see advantages, visit the [official Yarn docs](https://yarnpkg.com/features/pnp). Some tools or library APIs, however, are not compatible with the PnP resolution strategy. In order to circumvent you can opt out by setting up a non PnP workspace. For example, see the ["unplugged" Workspace](packages/unplugged/README.md).
+> Note: All packages are installed using the [PnP strategy](https://yarnpkg.com/features/pnp) by default. To see advantages, visit the [official Yarn docs](https://yarnpkg.com/features/pnp). Some tools or library APIs, however, are not compatible with the PnP resolution strategy. In order to circumvent you can opt out by setting up a non PnP workspace. For example, see the ["unplugged" Workspace](packages/unplugged/).
 
 ## Envrionment Variables
 
