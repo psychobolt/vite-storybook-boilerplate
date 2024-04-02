@@ -7151,6 +7151,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lint-staged@npm:13.3.0":
+  version: 13.3.0
+  resolution: "@types/lint-staged@npm:13.3.0"
+  checksum: 10c0/b4da6c76bb93b546c5aa1ad98ad845ea9d10aec15df30d5e3b2567d0cc360c4be26b1af9e5ca32c956322da1be4b26dab02a1ec41b82dab2f4f75dc27b9b791b
+  languageName: node
+  linkType: hard
+
 "@types/lodash@npm:4":
   version: 4.17.0
   resolution: "@types/lodash@npm:4.17.0"
@@ -9953,6 +9960,7 @@ __metadata:
     "@storybook/types": "npm:8.0.5"
     "@types/eslint": "npm:8.56.7"
     "@types/eslint-config-prettier": "npm:6.11.3"
+    "@types/lint-staged": "npm:13.3.0"
     "@types/lodash": "npm:4"
     "@typescript-eslint/eslint-plugin": "npm:7.5.0"
     "@typescript-eslint/parser": "npm:7.5.0"
