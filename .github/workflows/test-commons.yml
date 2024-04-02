@@ -28,6 +28,9 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: './yarn.lock'
+      - name: Set Yarn global folder
+        if: runner.os == 'Windows'
+        run: yarn config set globalFolder "${{ runner.temp }}\Yarn\Berry"
       - name: Install dependencies
         run: yarn install
       - name: Run Lint

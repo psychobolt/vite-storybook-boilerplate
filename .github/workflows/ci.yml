@@ -38,10 +38,16 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: ./yarn.lock
+      - name: Set Yarn global folder
+        if: runner.os == 'Windows'
+        run: yarn config set globalFolder "${{ runner.temp }}\Yarn\Berry"
       - name: Install dependencies
         run: yarn install
       - name: Lint
-        run: yarn turbo run //#lint
+        run: |
+          git stash
+          yarn turbo run //#lint
+          git stash pop || true
 
   diff:
     name: List Updated Packages
@@ -69,6 +75,10 @@ jobs:
         run: |
           mkdir -p packages/commons/.yarn/versions
           cp -r .yarn/versions packages/commons/.yarn/versions
+      - name: Install Turbo
+        run: |
+          npm install -g turbo@$(jq -r .devDependencies.turbo package.json)
+          turbo --version
       - name: Collect Turborepo Changes
         id: changes
         uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0
