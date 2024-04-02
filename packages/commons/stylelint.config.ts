@@ -5,7 +5,7 @@ import type { Config } from 'stylelint';
 const require = createRequire(
   process.env.INIT_CWD
     ? import.meta.url
-    : path.join(process.cwd(), 'packages/third-party/node_modules')
+    : path.join(process.cwd(), 'packages/unplugged/node_modules')
 );
 
 const config: Config = {
