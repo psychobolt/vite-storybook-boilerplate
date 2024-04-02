@@ -90,6 +90,7 @@ jobs:
           TURBO_TELEMETRY_DISABLED: 1
         with:
           from: HEAD~1
+          to: HEAD
 
   apps:
     needs: diff
