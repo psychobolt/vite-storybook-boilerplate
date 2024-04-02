@@ -4,9 +4,8 @@
   "type": "module",
   "packageManager": "yarn@4.1.1",
   "devDependencies": {
-    "commons": "workspace:*"
-  },
-  "resolutions": {
-    "commons": "portal:../commons"
+    "stylelint": "16.3.1",
+    "stylelint-config-prettier-scss": "1.0.0",
+    "stylelint-config-standard-scss": "13.0.0"
   }
 }
