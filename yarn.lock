@@ -7566,7 +7566,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:7.5.0":
+"@typescript-eslint/parser@npm:7.5.0, @typescript-eslint/parser@npm:^7.0.1":
   version: 7.5.0
   resolution: "@typescript-eslint/parser@npm:7.5.0"
   dependencies:
@@ -7584,7 +7584,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.4.2 || ^6.0.0, @typescript-eslint/parser@npm:^6.4.0":
+"@typescript-eslint/parser@npm:^5.4.2 || ^6.0.0":
   version: 6.7.4
   resolution: "@typescript-eslint/parser@npm:6.7.4"
   dependencies:
@@ -9958,7 +9958,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:7.5.0"
     "@typescript-eslint/utils": "npm:7.5.0"
     eslint: "npm:8.57.0"
-    eslint-config-love: "npm:43.1.0"
+    eslint-config-love: "npm:44.0.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-config-standard: "npm:17.1.0"
     eslint-config-standard-jsx: "npm:11.0.0"
@@ -11823,20 +11823,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-love@npm:43.1.0":
-  version: 43.1.0
-  resolution: "eslint-config-love@npm:43.1.0"
+"eslint-config-love@npm:44.0.0":
+  version: 44.0.0
+  resolution: "eslint-config-love@npm:44.0.0"
   dependencies:
-    "@typescript-eslint/parser": "npm:^6.4.0"
+    "@typescript-eslint/parser": "npm:^7.0.1"
     eslint-config-standard: "npm:17.1.0"
   peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^6.4.0
+    "@typescript-eslint/eslint-plugin": ^7.0.1
     eslint: ^8.0.1
     eslint-plugin-import: ^2.25.2
     eslint-plugin-n: "^15.0.0 || ^16.0.0 "
     eslint-plugin-promise: ^6.0.0
     typescript: "*"
-  checksum: 10c0/60266243478c609c6cf4311b10abafa2b5cb2787a03437b00fe9fd12c3128d9eea586ecce121af3b25c3d051565d2cf0d2ac692b1049f03139bcb0c99ff96696
+  checksum: 10c0/4ad413312d4e58861b52beb707e68c4cff5c024b2ebd8c97aba7c8aaccc353a69a100628573b569fef5f31e938b1e963fdf144d20b4a0fe4024fe4975c865ba7
   languageName: node
   linkType: hard
 
