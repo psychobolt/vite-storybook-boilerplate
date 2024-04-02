@@ -15282,7 +15282,7 @@ __metadata:
     svelte-eslint-parser: "npm:0.33.1"
     svelte-language-server: "npm:0.16.7"
     tslib: "npm:2.6.2"
-    turbo: "npm:^1.13.2"
+    turbo: "npm:1.13.2"
     typescript: "npm:5.4.3"
     typescript-eslint: "npm:7.5.0"
     vite: "npm:5.2.7"
@@ -15795,7 +15795,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.13.2":
+"turbo@npm:1.13.2":
   version: 1.13.2
   resolution: "turbo@npm:1.13.2"
   dependencies:
