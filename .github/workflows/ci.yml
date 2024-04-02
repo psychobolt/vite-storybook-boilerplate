@@ -62,10 +62,6 @@ jobs:
         with:
           fetch-depth: 2
           ref: ${{ inputs.ref_name || github.ref }}
-      - name: Setup Node.js environment
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
-        with:
-          node-version: lts/*
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
         id: filter
         with:
@@ -86,6 +82,8 @@ jobs:
       - name: Collect Turborepo Changes
         id: changes
         uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0
+        env:
+          TURBO_TELEMETRY_MESSAGE_DISABLED: 1
         with:
           from: HEAD~1
 
