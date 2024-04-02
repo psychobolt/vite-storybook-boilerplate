@@ -87,12 +87,11 @@ jobs:
       - name: Collect Turborepo Changes
         if: steps.filter.outputs.actions == 'false'
         id: changes
-        uses: 94726/action-turborepo-changes@ddd415d29f9af6399f93c4577706b93f4b6c13d5 # v1.1.0
+        uses: 94726/action-turborepo-changes@6bb75425be5455ba39431196f12e246a2f37d375 # v1.1.1
         env:
           TURBO_TELEMETRY_DISABLED: 1
         with:
           from: HEAD~1
-          to: HEAD
 
   apps:
     needs: diff
