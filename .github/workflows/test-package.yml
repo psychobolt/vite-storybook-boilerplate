@@ -60,5 +60,6 @@ jobs:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
           fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Run Chromatic
         run: yarn workspace ${{ inputs.workspace }} turbo run chromatic
