@@ -41,7 +41,7 @@
 		"html-ui": "workspace:*",
 		"prettier": "3.2.5",
 		"prettier-plugin-svelte": "3.2.2",
-		"sass": "1.72.0",
+		"sass": "1.74.1",
 		"stylelint": "16.3.1",
 		"stylelint-config-prettier-scss": "1.0.0",
 		"stylelint-config-standard-scss": "13.1.0",
