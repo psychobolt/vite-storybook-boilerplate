@@ -14,7 +14,7 @@
     "run-script": "yarn g:run-script",
     "turbo": "yarn run-script bin/scripts/turbo.ts",
     "ls-workspaces": "yarn run-script bin/scripts/ls-workspaces.ts",
-    "bootstrap": "yarn workspace commons turbo run build && yarn run-script .bin/scripts/bootstrap.ts",
+    "bootstrap": "yarn workspace commons turbo run build && yarn run-script bin/scripts/bootstrap.ts",
     "apply-versions": "yarn run-script bin/scripts/apply-versions.ts",
     "dev": "yarn turbo --background run dev",
     "build": "yarn turbo run build",
