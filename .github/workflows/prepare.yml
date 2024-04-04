@@ -24,7 +24,7 @@ jobs:
       - name: Filter commits not found in ${{ github.ref_name }}
         id: unmerged
         run: |
-          source ./scripts/git-ls-unmerged.sh
+          source ./bin/scripts/git-ls-unmerged.sh
           echo "ref=$REF" >> $GITHUB_OUTPUT
           echo "commits=$OUTPUT" >> $GITHUB_OUTPUT
           echo "count=$COUNT" >> $GITHUB_OUTPUT
