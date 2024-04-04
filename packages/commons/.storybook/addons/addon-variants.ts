@@ -1,6 +1,11 @@
 import { readFileSync } from 'fs';
 import { isAbsolute } from 'path';
-import type { ComponentAnnotations, Renderer, Indexer } from '@storybook/types';
+import type {
+  ComponentAnnotations,
+  StoryAnnotations,
+  Renderer,
+  Indexer
+} from '@storybook/types';
 import type { PluginOption } from 'vite';
 import _ from 'lodash';
 import type { VariantStoryObj } from '../utils.ts';
@@ -10,11 +15,9 @@ export type VariantsMeta<TArgs> = ComponentAnnotations<Renderer, TArgs> & {
   importName: string;
 };
 
-export interface VariantStory<TArgs> {
-  name: string;
-  args: Partial<TArgs>;
+export type VariantStory<TArgs> = StoryAnnotations<Renderer, TArgs> & {
   exportName: string;
-}
+};
 
 export interface VariantModule<TArgs> {
   meta: VariantsMeta<TArgs>;
@@ -79,13 +82,14 @@ export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
         const { meta, stories }: VariantModule<TArgs> = await import(
           getImportPath(fileName)
         );
-        const { title, tags } = meta;
+        const { title, tags: metaTags = [] } = meta;
 
         return (_.isFunction(stories) ? stories() : stories).map(
-          ({ name, exportName }) => ({
+          ({ name, exportName, tags = [] }) => ({
             type: 'story',
             title,
-            tags,
+            tags: Array.from(new Set([...metaTags, ...tags])),
+            metaTags,
             name,
             exportName,
             importPath: fileName

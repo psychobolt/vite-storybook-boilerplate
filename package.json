@@ -33,7 +33,7 @@
     "@swc-node/register": "1.9.0",
     "@swc/core": "1.4.11",
     "@types/glob-to-regexp": "0.4.4",
-    "@types/node": "20.12.3",
+    "@types/node": "20.12.4",
     "@types/semver": "7.5.8",
     "@yarnpkg/core": "4.0.3",
     "@yarnpkg/fslib": "3.0.2",
