@@ -59,7 +59,7 @@ yarn g:prettier [options] # Runs prettier format tool
 
 ##### Additional Scripts
 
-See [scripts/](scripts/)
+See [bin/scripts/](bin/scripts/)
 
 #### Workspace Scope
 
