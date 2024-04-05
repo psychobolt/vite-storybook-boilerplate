@@ -7,7 +7,7 @@
     "postinstall": "husky install",
     "g:dotenv": "cd $INIT_CWD && dotenvx",
     "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv-run -q -- node -p \"process.env.$@\"",
-    "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload",
+    "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload",
     "g:dotenv-vault": "cd $INIT_CWD && dotenv-vault",
     "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
     "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run -- node --loader file://$(yarn g:swc-register-path)",
