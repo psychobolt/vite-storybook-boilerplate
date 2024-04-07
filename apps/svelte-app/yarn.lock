@@ -6275,7 +6275,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:7.5.0"
     "@typescript-eslint/utils": "npm:7.5.0"
     eslint: "npm:8.57.0"
-    eslint-config-love: "npm:44.0.0"
+    eslint-config-love: "npm:46.0.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-config-standard: "npm:17.1.0"
     eslint-config-standard-jsx: "npm:11.0.0"
@@ -7681,12 +7681,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-love@npm:44.0.0":
-  version: 44.0.0
-  resolution: "eslint-config-love@npm:44.0.0"
+"eslint-config-love@npm:46.0.0":
+  version: 46.0.0
+  resolution: "eslint-config-love@npm:46.0.0"
   dependencies:
     "@typescript-eslint/parser": "npm:^7.0.1"
-    eslint-config-standard: "npm:17.1.0"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^7.0.1
     eslint: ^8.0.1
@@ -7694,7 +7693,7 @@ __metadata:
     eslint-plugin-n: "^15.0.0 || ^16.0.0 "
     eslint-plugin-promise: ^6.0.0
     typescript: "*"
-  checksum: 10c0/4ad413312d4e58861b52beb707e68c4cff5c024b2ebd8c97aba7c8aaccc353a69a100628573b569fef5f31e938b1e963fdf144d20b4a0fe4024fe4975c865ba7
+  checksum: 10c0/c0ff60cd0df97e3317e08b2009e7e300daba6a3b510ea0f73113db4a9ccbd6fe6df86c7e50998994825a5e173e4664f4a9e384796e2b20c438015c94c306c219
   languageName: node
   linkType: hard
 
