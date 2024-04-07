@@ -41,7 +41,7 @@
     "commons": "workspace:*",
     "dotenv-flow": "4.1.0",
     "dotenv-vault": "1.26.1",
-    "eslint": "8.57.0",
+    "eslint": "9.0.0",
     "execa": "8.0.1",
     "glob-to-regexp": "0.4.1",
     "husky": "9.0.11",
