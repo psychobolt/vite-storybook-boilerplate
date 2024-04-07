@@ -31,7 +31,7 @@
 		"@types/eslint": "8.56.7",
 		"@types/eslint-config-prettier": "6.11.3",
 		"@types/eslint__js": "8.42.3",
-		"@types/node": "20.12.4",
+		"@types/node": "20.12.5",
 		"@typescript-eslint/utils": "7.5.0",
 		"commons": "workspace:*",
 		"eslint": "8.57.0",
