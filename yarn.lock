@@ -2698,6 +2698,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/eslintrc@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "@eslint/eslintrc@npm:2.1.4"
+  dependencies:
+    ajv: "npm:^6.12.4"
+    debug: "npm:^4.3.2"
+    espree: "npm:^9.6.0"
+    globals: "npm:^13.19.0"
+    ignore: "npm:^5.2.0"
+    import-fresh: "npm:^3.2.1"
+    js-yaml: "npm:^4.1.0"
+    minimatch: "npm:^3.1.2"
+    strip-json-comments: "npm:^3.1.1"
+  checksum: 10c0/32f67052b81768ae876c84569ffd562491ec5a5091b0c1e1ca1e0f3c24fb42f804952fdd0a137873bc64303ba368a71ba079a6f691cee25beee9722d94cc8573
+  languageName: node
+  linkType: hard
+
+"@eslint/js@npm:8.57.0":
+  version: 8.57.0
+  resolution: "@eslint/js@npm:8.57.0"
+  checksum: 10c0/9a518bb8625ba3350613903a6d8c622352ab0c6557a59fe6ff6178bf882bf57123f9d92aa826ee8ac3ee74b9c6203fe630e9ee00efb03d753962dcf65ee4bd94
+  languageName: node
+  linkType: hard
+
 "@eslint/js@npm:9.0.0":
   version: 9.0.0
   resolution: "@eslint/js@npm:9.0.0"
@@ -2780,6 +2804,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@humanwhocodes/config-array@npm:^0.11.14":
+  version: 0.11.14
+  resolution: "@humanwhocodes/config-array@npm:0.11.14"
+  dependencies:
+    "@humanwhocodes/object-schema": "npm:^2.0.2"
+    debug: "npm:^4.3.1"
+    minimatch: "npm:^3.0.5"
+  checksum: 10c0/66f725b4ee5fdd8322c737cb5013e19fac72d4d69c8bf4b7feb192fcb83442b035b92186f8e9497c220e58b2d51a080f28a73f7899bc1ab288c3be172c467541
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.12.3":
   version: 0.12.3
   resolution: "@humanwhocodes/config-array@npm:0.12.3"
@@ -2798,7 +2833,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/object-schema@npm:^2.0.3":
+"@humanwhocodes/object-schema@npm:^2.0.2, @humanwhocodes/object-schema@npm:^2.0.3":
   version: 2.0.3
   resolution: "@humanwhocodes/object-schema@npm:2.0.3"
   checksum: 10c0/80520eabbfc2d32fe195a93557cef50dfe8c8905de447f022675aaf66abc33ae54098f5ea78548d925aa671cd4ab7c7daa5ad704fe42358c9b5e7db60f80696c
@@ -7572,7 +7607,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ungap/structured-clone@npm:^1.0.0":
+"@ungap/structured-clone@npm:^1.0.0, @ungap/structured-clone@npm:^1.2.0":
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
   checksum: 10c0/8209c937cb39119f44eb63cf90c0b73e7c754209a6411c707be08e50e29ee81356dca1a848a405c8bdeebfe2f5e4f831ad310ae1689eeef65e7445c090c6657d
@@ -11963,6 +11998,54 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint@npm:8.57.0":
+  version: 8.57.0
+  resolution: "eslint@npm:8.57.0"
+  dependencies:
+    "@eslint-community/eslint-utils": "npm:^4.2.0"
+    "@eslint-community/regexpp": "npm:^4.6.1"
+    "@eslint/eslintrc": "npm:^2.1.4"
+    "@eslint/js": "npm:8.57.0"
+    "@humanwhocodes/config-array": "npm:^0.11.14"
+    "@humanwhocodes/module-importer": "npm:^1.0.1"
+    "@nodelib/fs.walk": "npm:^1.2.8"
+    "@ungap/structured-clone": "npm:^1.2.0"
+    ajv: "npm:^6.12.4"
+    chalk: "npm:^4.0.0"
+    cross-spawn: "npm:^7.0.2"
+    debug: "npm:^4.3.2"
+    doctrine: "npm:^3.0.0"
+    escape-string-regexp: "npm:^4.0.0"
+    eslint-scope: "npm:^7.2.2"
+    eslint-visitor-keys: "npm:^3.4.3"
+    espree: "npm:^9.6.1"
+    esquery: "npm:^1.4.2"
+    esutils: "npm:^2.0.2"
+    fast-deep-equal: "npm:^3.1.3"
+    file-entry-cache: "npm:^6.0.1"
+    find-up: "npm:^5.0.0"
+    glob-parent: "npm:^6.0.2"
+    globals: "npm:^13.19.0"
+    graphemer: "npm:^1.4.0"
+    ignore: "npm:^5.2.0"
+    imurmurhash: "npm:^0.1.4"
+    is-glob: "npm:^4.0.0"
+    is-path-inside: "npm:^3.0.3"
+    js-yaml: "npm:^4.1.0"
+    json-stable-stringify-without-jsonify: "npm:^1.0.1"
+    levn: "npm:^0.4.1"
+    lodash.merge: "npm:^4.6.2"
+    minimatch: "npm:^3.1.2"
+    natural-compare: "npm:^1.4.0"
+    optionator: "npm:^0.9.3"
+    strip-ansi: "npm:^6.0.1"
+    text-table: "npm:^0.2.0"
+  bin:
+    eslint: bin/eslint.js
+  checksum: 10c0/00bb96fd2471039a312435a6776fe1fd557c056755eaa2b96093ef3a8508c92c8775d5f754768be6b1dddd09fdd3379ddb231eeb9b6c579ee17ea7d68000a529
+  languageName: node
+  linkType: hard
+
 "eslint@npm:9.0.0":
   version: 9.0.0
   resolution: "eslint@npm:9.0.0"
@@ -12025,7 +12108,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.0.0, espree@npm:^9.6.1":
+"espree@npm:^9.0.0, espree@npm:^9.6.0, espree@npm:^9.6.1":
   version: 9.6.1
   resolution: "espree@npm:9.6.1"
   dependencies:
@@ -12381,6 +12464,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"file-entry-cache@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "file-entry-cache@npm:6.0.1"
+  dependencies:
+    flat-cache: "npm:^3.0.4"
+  checksum: 10c0/58473e8a82794d01b38e5e435f6feaf648e3f36fdb3a56e98f417f4efae71ad1c0d4ebd8a9a7c50c3ad085820a93fc7494ad721e0e4ebc1da3573f4e1c3c7cdd
+  languageName: node
+  linkType: hard
+
 "file-entry-cache@npm:^8.0.0":
   version: 8.0.0
   resolution: "file-entry-cache@npm:8.0.0"
@@ -12538,6 +12630,17 @@ __metadata:
     locate-path: "npm:^6.0.0"
     path-exists: "npm:^4.0.0"
   checksum: 10c0/062c5a83a9c02f53cdd6d175a37ecf8f87ea5bbff1fdfb828f04bfa021441bc7583e8ebc0872a4c1baab96221fb8a8a275a19809fb93fbc40bd69ec35634069a
+  languageName: node
+  linkType: hard
+
+"flat-cache@npm:^3.0.4":
+  version: 3.2.0
+  resolution: "flat-cache@npm:3.2.0"
+  dependencies:
+    flatted: "npm:^3.2.9"
+    keyv: "npm:^4.5.3"
+    rimraf: "npm:^3.0.2"
+  checksum: 10c0/b76f611bd5f5d68f7ae632e3ae503e678d205cf97a17c6ab5b12f6ca61188b5f1f7464503efae6dc18683ed8f0b41460beb48ac4b9ac63fe6201296a91ba2f75
   languageName: node
   linkType: hard
 
@@ -13120,7 +13223,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^13.24.0":
+"globals@npm:^13.19.0, globals@npm:^13.24.0":
   version: 13.24.0
   resolution: "globals@npm:13.24.0"
   dependencies:
@@ -15413,7 +15516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"keyv@npm:^4.5.4":
+"keyv@npm:^4.5.3, keyv@npm:^4.5.4":
   version: 4.5.4
   resolution: "keyv@npm:4.5.4"
   dependencies:
@@ -16977,7 +17080,7 @@ __metadata:
     "@types/node": "npm:20.12.5"
     "@types/react": "npm:18.2.74"
     "@types/react-dom": "npm:18.2.24"
-    eslint: "npm:9.0.0"
+    eslint: "npm:8.57.0"
     eslint-config-next: "npm:14.1.4"
     next: "npm:14.1.4"
     open-cli: "npm:8.0.0"
