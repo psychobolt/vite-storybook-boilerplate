@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       package_names: ${{ steps.changes.outputs.package_names }}
-      force: ${{ steps.filter.outputs.actions }}
+      force: ${{ steps.filter.outputs.force }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -72,20 +72,21 @@ jobs:
           filters: |
             versions:
               - '.yarn/versions/**'
-            actions:
+            force:
               - '.github/**'
+              - '**/yarn.lock'
       - name: Copy version files
         if: steps.filter.outputs.versions == 'true'
         run: |
           mkdir -p packages/commons/.yarn/versions
           cp -r .yarn/versions packages/commons/.yarn/versions
       - name: Install Turbo
-        if: steps.filter.outputs.actions == 'false'
+        if: steps.filter.outputs.force == 'false'
         run: |
           npm install -g turbo@$(jq -r .devDependencies.turbo package.json)
           turbo --version
       - name: Collect Turborepo Changes
-        if: steps.filter.outputs.actions == 'false'
+        if: steps.filter.outputs.force == 'false'
         id: changes
         uses: 94726/action-turborepo-changes@6bb75425be5455ba39431196f12e246a2f37d375 # v1.1.1
         env:
