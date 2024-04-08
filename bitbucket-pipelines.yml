@@ -18,8 +18,8 @@ definitions:
     unplugged-de472e09c8dc7cd6:
       key:
         files:
-          - apps/unplugged/yarn.lock
-      path: apps/unplugged/node_modules
+          - packages/unplugged/yarn.lock
+      path: packages/unplugged/node_modules
   scripts:
     - script: &git-auth |
         git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
