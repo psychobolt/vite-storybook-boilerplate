@@ -5,17 +5,17 @@ definitions:
     docker:
       memory: 7128
   caches:
-    yarn-41e2461308fc30ec:
+    yarn-de472e09c8dc7cd6:
       key:
         files:
           - yarn.lock
       path: /root/.yarn/berry/cache
-    svelte-app-41e2461308fc30ec:
+    svelte-app-de472e09c8dc7cd6:
       key:
         files:
           - apps/svelte-app/yarn.lock
       path: apps/svelte-app/node_modules
-    unplugged-41e2461308fc30ec:
+    unplugged-de472e09c8dc7cd6:
       key:
         files:
           - apps/unplugged/yarn.lock
@@ -92,7 +92,7 @@ pipelines:
         name: Build and Test Root
         max-time: 10
         caches:
-          - yarn-41e2461308fc30ec
+          - yarn-de472e09c8dc7cd6
         script:
           - yarn install
           - yarn turbo run //#lint
@@ -103,9 +103,11 @@ pipelines:
             condition:
               changesets:
                 includePaths:
+                  - packages.json
+                  - bin/**/*
                   - packages/commons/**
             caches:
-              - yarn-41e2461308fc30ec
+              - yarn-de472e09c8dc7cd6
             script:
               - export PACKAGE_NAME=commons
               - yarn install
@@ -116,10 +118,12 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-41e2461308fc30ec
+              - yarn-de472e09c8dc7cd6
             condition:
               changesets:
                 includePaths:
+                  - packages.json
+                  - bin/**/*
                   - packages/commons/**
                   - packages/html-ui/**
             script:
@@ -133,13 +137,15 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-41e2461308fc30ec
+              - yarn-de472e09c8dc7cd6
             clone:
               enabled: true
               depth: 50
             condition:
               changesets:
                 includePaths:
+                  - packages.json
+                  - bin/**/*
                   - packages/commons/**
                   - packages/html-ui/**
                   - packages/react-ui/**
@@ -153,13 +159,15 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-41e2461308fc30ec
+              - yarn-de472e09c8dc7cd6
             clone:
               enabled: true
               depth: 50
             condition:
               changesets:
                 includePaths:
+                  - packages.json
+                  - bin/**/*
                   - packages/commons/**
                   - packages/react-ui/**
                   - apps/next-app/**
@@ -172,12 +180,14 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-41e2461308fc30ec
-              - svelte-app-41e2461308fc30ec
-              - unplugged-41e2461308fc30ec
+              - yarn-de472e09c8dc7cd6
+              - svelte-app-de472e09c8dc7cd6
+              - unplugged-de472e09c8dc7cd6
             condition:
               changesets:
                 includePaths:
+                  - packages.json
+                  - bin/**/*
                   - packages/commons/**
                   - packages/react-ui/**
                   - apps/svelte-app/**
@@ -192,8 +202,8 @@ pipelines:
         max-time: 25
         size: 2x
         caches:
-          - yarn-41e2461308fc30ec
-          - svelte-app-41e2461308fc30ec
+          - yarn-de472e09c8dc7cd6
+          - svelte-app-de472e09c8dc7cd6
         clone:
           enabled: true
           depth: 50
@@ -226,8 +236,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - yarn-41e2461308fc30ec
-            - svelte-app-41e2461308fc30ec
+            - yarn-de472e09c8dc7cd6
+            - svelte-app-de472e09c8dc7cd6
           clone:
             enabled: true
             depth: 50
@@ -272,8 +282,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - yarn-41e2461308fc30ec
-            - svelte-app-41e2461308fc30ec
+            - yarn-de472e09c8dc7cd6
+            - svelte-app-de472e09c8dc7cd6
           clone:
             enabled: true
             depth: full
@@ -304,7 +314,7 @@ pipelines:
             - *git-auth
             - export BASE_REF_NAME=$(git branch --show-current)
             - |
-              source ./scripts/git-ls-unmerged.sh
+              source ./bin/git-ls-unmerged.sh
               export SHORT=$OUTPUT
             - export BASE_REF=cherry-pick-$SHORT
             - '[ ! $REF ] && exit 1 || true'

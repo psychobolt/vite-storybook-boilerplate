@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/yarn.lock"],
+  "globalDependencies": ["package.json"],
   "pipeline": {
     "start": {
       "cache": false,
