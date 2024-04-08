@@ -11953,7 +11953,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:^7.0.0, eslint-scope@npm:^7.2.2":
+"eslint-scope@npm:^7.2.2":
   version: 7.2.2
   resolution: "eslint-scope@npm:7.2.2"
   dependencies:
@@ -11963,7 +11963,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^3.0.0, eslint-visitor-keys@npm:^3.3.0, eslint-visitor-keys@npm:^3.4.1, eslint-visitor-keys@npm:^3.4.3":
+"eslint-visitor-keys@npm:^3.3.0, eslint-visitor-keys@npm:^3.4.1, eslint-visitor-keys@npm:^3.4.3":
   version: 3.4.3
   resolution: "eslint-visitor-keys@npm:3.4.3"
   checksum: 10c0/92708e882c0a5ffd88c23c0b404ac1628cf20104a108c745f240a13c332a11aac54f49a22d5762efbffc18ecbc9a580d1b7ad034bf5f3cc3307e5cbff2ec9820
@@ -12043,7 +12043,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.0.0, espree@npm:^9.6.0, espree@npm:^9.6.1":
+"espree@npm:^9.6.0, espree@npm:^9.6.1":
   version: 9.6.1
   resolution: "espree@npm:9.6.1"
   dependencies:
@@ -18256,7 +18256,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-scss@npm:4.0.9, postcss-scss@npm:^4.0.8, postcss-scss@npm:^4.0.9":
+"postcss-scss@npm:4.0.9, postcss-scss@npm:^4.0.9":
   version: 4.0.9
   resolution: "postcss-scss@npm:4.0.9"
   peerDependencies:
@@ -18303,7 +18303,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.31, postcss@npm:^8.0.0, postcss@npm:^8.4.27, postcss@npm:^8.4.29":
+"postcss@npm:8.4.31, postcss@npm:^8.0.0, postcss@npm:^8.4.27":
   version: 8.4.31
   resolution: "postcss@npm:8.4.31"
   dependencies:
@@ -20729,7 +20729,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:13.1.0"
     svelte: "npm:4.2.12"
     svelte-check: "npm:3.6.9"
-    svelte-eslint-parser: "npm:0.33.1"
+    svelte-eslint-parser: "npm:0.34.0"
     svelte-language-server: "npm:0.16.7"
     tslib: "npm:2.6.2"
     turbo: "npm:1.13.2"
@@ -20759,25 +20759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-eslint-parser@npm:0.33.1":
-  version: 0.33.1
-  resolution: "svelte-eslint-parser@npm:0.33.1"
-  dependencies:
-    eslint-scope: "npm:^7.0.0"
-    eslint-visitor-keys: "npm:^3.0.0"
-    espree: "npm:^9.0.0"
-    postcss: "npm:^8.4.29"
-    postcss-scss: "npm:^4.0.8"
-  peerDependencies:
-    svelte: ^3.37.0 || ^4.0.0
-  peerDependenciesMeta:
-    svelte:
-      optional: true
-  checksum: 10c0/2a3b5e2a91ed34eccfbf7aee43d3f64f2f49c32d9f0694d45cecd12f41bac0e251f43ac8839980f8158a566452ebeb576a9e188a5822868286f75a1136736b97
-  languageName: node
-  linkType: hard
-
-"svelte-eslint-parser@npm:>=0.34.0 <1.0.0":
+"svelte-eslint-parser@npm:0.34.0, svelte-eslint-parser@npm:>=0.34.0 <1.0.0":
   version: 0.34.0
   resolution: "svelte-eslint-parser@npm:0.34.0"
   dependencies:
