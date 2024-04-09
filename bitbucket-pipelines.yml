@@ -5,17 +5,17 @@ definitions:
     docker:
       memory: 7128
   caches:
-    yarn-de472e09c8dc7cd6:
+    yarn-3f37c92be773644e:
       key:
         files:
           - yarn.lock
       path: /root/.yarn/berry/cache
-    svelte-app-de472e09c8dc7cd6:
+    svelte-app-3f37c92be773644e:
       key:
         files:
           - apps/svelte-app/yarn.lock
       path: apps/svelte-app/node_modules
-    unplugged-de472e09c8dc7cd6:
+    unplugged-3f37c92be773644e:
       key:
         files:
           - packages/unplugged/yarn.lock
@@ -92,7 +92,7 @@ pipelines:
         name: Build and Test Root
         max-time: 10
         caches:
-          - yarn-de472e09c8dc7cd6
+          - yarn-3f37c92be773644e
         script:
           - yarn install
           - yarn turbo run //#lint
@@ -107,7 +107,7 @@ pipelines:
                   - bin/**/*
                   - packages/commons/**
             caches:
-              - yarn-de472e09c8dc7cd6
+              - yarn-3f37c92be773644e
             script:
               - export PACKAGE_NAME=commons
               - yarn install
@@ -118,7 +118,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-de472e09c8dc7cd6
+              - yarn-3f37c92be773644e
             condition:
               changesets:
                 includePaths:
@@ -137,7 +137,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-de472e09c8dc7cd6
+              - yarn-3f37c92be773644e
             clone:
               enabled: true
               depth: 50
@@ -159,7 +159,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-de472e09c8dc7cd6
+              - yarn-3f37c92be773644e
             clone:
               enabled: true
               depth: 50
@@ -180,9 +180,9 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - yarn-de472e09c8dc7cd6
-              - svelte-app-de472e09c8dc7cd6
-              - unplugged-de472e09c8dc7cd6
+              - yarn-3f37c92be773644e
+              - svelte-app-3f37c92be773644e
+              - unplugged-3f37c92be773644e
             condition:
               changesets:
                 includePaths:
@@ -202,8 +202,8 @@ pipelines:
         max-time: 25
         size: 2x
         caches:
-          - yarn-de472e09c8dc7cd6
-          - svelte-app-de472e09c8dc7cd6
+          - yarn-3f37c92be773644e
+          - svelte-app-3f37c92be773644e
         clone:
           enabled: true
           depth: 50
@@ -236,8 +236,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - yarn-de472e09c8dc7cd6
-            - svelte-app-de472e09c8dc7cd6
+            - yarn-3f37c92be773644e
+            - svelte-app-3f37c92be773644e
           clone:
             enabled: true
             depth: 50
@@ -282,8 +282,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - yarn-de472e09c8dc7cd6
-            - svelte-app-de472e09c8dc7cd6
+            - yarn-3f37c92be773644e
+            - svelte-app-3f37c92be773644e
           clone:
             enabled: true
             depth: full
