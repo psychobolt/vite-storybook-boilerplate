@@ -54,7 +54,7 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
       run();
     } catch (e) {
       if (isCommandErrorType(e)) {
-        if (e.message.includes("code: 'EXDEV'")) {
+        if (e.message.includes('Error: EXDEV')) {
           console.log(
             'Failed to link to global index. Attempting to migrate index to local project...'
           );
