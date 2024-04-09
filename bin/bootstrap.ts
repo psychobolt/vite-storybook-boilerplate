@@ -1,4 +1,3 @@
-import { homedir } from 'os';
 import { symlinkSync, unlinkSync, cpSync } from 'fs';
 import { join } from 'path';
 import { $, execaSync } from 'execa';
