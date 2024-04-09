@@ -36,15 +36,16 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     let globalFolder = getGlobalFolder();
     const testFile = '.nvmrc';
     const testPath = join(globalFolder, testFile);
+    const root = join(import.meta.dirname, '..');
     try {
-      symlinkSync(join(globalFolder, '..', testFile), testPath);
+      symlinkSync(join(root, testFile), testPath);
       unlinkSync(testPath);
     } catch (e) {
       console.log(
         'Failed to link to global folder. Attempting to migrate to local folder...'
       );
       globalFolder = getGlobalFolder();
-      const temp = join(import.meta.dirname, '../temp/.yarn/berry');
+      const temp = join(root, 'temp/.yarn/berry');
       setGlobalFolder(temp);
       console.log('Copying cache files to temp local folder...');
       cpSync(globalFolder, temp, { recursive: true });
