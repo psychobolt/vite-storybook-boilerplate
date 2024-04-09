@@ -41,7 +41,8 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         env: {
           NODE_ENV: process.env.NODE_ENV,
           NODE_OPTIONS: ''
-        }
+        },
+        stderr: 'inherit'
       });
     };
     let stderr = '';
