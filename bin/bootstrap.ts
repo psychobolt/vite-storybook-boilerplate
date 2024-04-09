@@ -23,6 +23,10 @@ async function* getWorkspacesByLinker() {
   }
 }
 
+type ArbitaryObject = Record<string, unknown>;
+const isArbitraryObject = (e: unknown): e is ArbitaryObject =>
+  typeof e === 'object';
+
 const slash = (path: string) => path.replace(/\\/g, '/').replace(':/', '://');
 const getGlobalFolder = () => $.sync`yarn config get globalFolder`.stdout;
 const setGlobalFolder = (path: string) =>
@@ -33,41 +37,34 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
 
   console.log(`Verify workspaces using ${linker} linker...`);
 
-  if (linker === 'pnpm') {
-    const globalFolder = getGlobalFolder();
-    const indexFile = 'dummy.dat';
-    const indexPath = slash(join(globalFolder, indexFile));
-    const root = slash(join(import.meta.dirname, '..'));
-    const temp = slash(join(root, 'temp'));
-    const link = slash(join(temp, indexFile));
-    console.log(`Adding global index test: ${indexPath}`);
-    if (!fs.existsSync(temp)) fs.mkdirSync(temp);
-    fs.writeFileSync(indexPath, '');
-    try {
-      fs.symlinkSync(indexPath, link);
-      fs.unlinkSync(link);
-    } catch (e) {
-      console.log(
-        'Failed to link to global folder. Attempting to migrate to local folder...'
-      );
-      const localFolder = slash(join(temp, '.yarn/berry'));
-      setGlobalFolder(localFolder);
-      console.log('Copying cache files to local folder...');
-      fs.cpSync(globalFolder, localFolder, { recursive: true });
-    }
-    fs.rmSync(indexPath);
-    if (!fs.readdirSync(temp).length) fs.rmSync(temp, { recursive: true });
-    console.log('Global index link was successful. Test files are cleaned up!');
-  }
-
   workspaces.forEach((workspace) => {
-    console.log(`Verifying ${workspace.name}...`);
-    install({
-      cwd: workspace.location,
-      env: {
-        NODE_ENV: process.env.NODE_ENV,
-        NODE_OPTIONS: ''
+    const run = () => {
+      console.log(`Verifying ${workspace.name}...`);
+      install({
+        cwd: workspace.location,
+        env: {
+          NODE_ENV: process.env.NODE_ENV,
+          NODE_OPTIONS: ''
+        }
+      });
+    };
+    try {
+      run();
+    } catch (e) {
+      if (isArbitraryObject(e) && e.code === 'EXDEV') {
+        console.log(
+          'Failed to link to global index. Attempting to migrate index to local project...'
+        );
+        const globalFolder = getGlobalFolder();
+        const root = slash(join(import.meta.dirname, '..'));
+        const temp = slash(join(root, 'temp'));
+        const localFolder = slash(join(temp, '.yarn/berry'));
+        setGlobalFolder(localFolder);
+        fs.cpSync(globalFolder, localFolder, { recursive: true });
+        run();
+      } else {
+        throw e;
       }
-    });
+    }
   });
 }
