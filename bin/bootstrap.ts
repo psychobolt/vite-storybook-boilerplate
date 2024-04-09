@@ -49,10 +49,12 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         e.cause.code === 'EXDEV'
       ) {
         const globalFolder = getGlobalFolder();
-        const temp = join(import.meta.dirname, '../temp/Yarn/Berry');
+        const temp = join(import.meta.dirname, '../temp/.yarn/berry');
         setGlobalFolder(temp);
         console.log('Copying files to new global folder...');
         cpSync(globalFolder, temp);
+      } else {
+        throw e;
       }
     }
   }
