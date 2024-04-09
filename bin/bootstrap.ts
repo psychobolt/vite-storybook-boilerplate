@@ -12,8 +12,9 @@ const install = (options?: SyncOptions) =>
   yarnCmd(['install', ...argv], options);
 
 async function* getWorkspacesByLinker() {
-  for (const linker of ['pnpm', 'node-modules']) {
-    const result: [string, Workspace[]] = [
+  const linkers: NodeLinker[] = ['pnpm', 'node-modules'];
+  for (const linker of linkers) {
+    const result: [NodeLinker, Workspace[]] = [
       linker,
       await getWorkspaces<Workspace[]>({
         nodeLinker: [linker]
@@ -33,18 +34,20 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
   console.log(`Verify workspaces using ${linker} linker...`);
 
   if (linker === 'pnpm') {
-    const testPath = join(homedir(), '.nvmrc');
+    let globalFolder = getGlobalFolder();
+    const testFile = '.nvmrc';
+    const testPath = join(globalFolder, testFile);
     try {
-      symlinkSync(join(import.meta.dirname, '../.nvmrc'), testPath);
+      symlinkSync(join(globalFolder, '..', testFile), testPath);
       unlinkSync(testPath);
     } catch (e) {
       console.log(
-        'Failed to link to home dir. Attempting to migrate to local cache...'
+        'Failed to link to global folder. Attempting to migrate to local folder...'
       );
-      const globalFolder = getGlobalFolder();
+      globalFolder = getGlobalFolder();
       const temp = join(import.meta.dirname, '../temp/.yarn/berry');
       setGlobalFolder(temp);
-      console.log('Copying cache files to new global folder...');
+      console.log('Copying cache files to temp local folder...');
       cpSync(globalFolder, temp, { recursive: true });
     }
   }
