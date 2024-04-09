@@ -36,7 +36,10 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     const globalFolder = getGlobalFolder();
     const indexFile = 'dummy.dat';
     const indexPath = join(globalFolder, indexFile);
-    const indexURL = new URL(indexPath.replace(/\\/g, '/'), 'file://');
+    const indexURL = new URL(
+      indexPath.replace(/\\/g, '/').replace(':/', '://'),
+      'file://'
+    );
     const root = join(import.meta.dirname, '..');
     const temp = join(root, 'temp');
     const link = join(temp, indexFile);
