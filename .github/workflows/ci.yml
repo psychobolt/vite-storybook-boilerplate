@@ -38,16 +38,10 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: ./yarn.lock
-      - name: Set Yarn global folder
-        if: runner.os == 'Windows'
-        run: yarn config set globalFolder "${{ runner.temp }}\Yarn\Berry"
       - name: Install dependencies
         run: yarn install
       - name: Lint
-        run: |
-          git stash
-          yarn turbo run //#lint
-          git stash pop || true
+        run: yarn turbo run //#lint
 
   diff:
     name: List Updated Packages
@@ -74,7 +68,6 @@ jobs:
               - '.yarn/versions/**'
             force:
               - '.github/**'
-              - '*/**/yarn.lock'
       - name: Copy version files
         if: steps.filter.outputs.versions == 'true'
         run: |
