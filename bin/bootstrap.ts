@@ -23,12 +23,6 @@ async function* getWorkspacesByLinker() {
   }
 }
 
-type ArbitaryObject = Record<string, unknown>;
-const isArbitraryObject = (e: unknown): e is ArbitaryObject =>
-  typeof e === 'object';
-const isCommandErrorType = (e: unknown): e is { message: string } =>
-  isArbitraryObject(e) && typeof e.message === 'string';
-
 const slash = (path: string) => path.replace(/\\/g, '/').replace(':/', '://');
 const getGlobalFolder = () => $.sync`yarn config get globalFolder`.stdout;
 const setGlobalFolder = (path: string) =>
@@ -42,7 +36,7 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
   workspaces.forEach((workspace) => {
     const run = () => {
       console.log(`Verifying ${workspace.name}...`);
-      install({
+      return install({
         cwd: workspace.location,
         env: {
           NODE_ENV: process.env.NODE_ENV,
@@ -50,25 +44,21 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         }
       });
     };
+    let stderr = '';
     try {
-      run();
+      stderr = run().stderr;
     } catch (e) {
-      if (isCommandErrorType(e)) {
-        if (e.message.includes('Error: EXDEV')) {
-          console.log(
-            'Failed to link to global index. Attempting to migrate index to local project...'
-          );
-          const globalFolder = getGlobalFolder();
-          const root = slash(join(import.meta.dirname, '..'));
-          const temp = slash(join(root, 'temp'));
-          const localFolder = slash(join(temp, '.yarn/berry'));
-          setGlobalFolder(localFolder);
-          fs.cpSync(globalFolder, localFolder, { recursive: true });
-          run();
-        } else {
-          console.log(e.message);
-          process.exit(1);
-        }
+      if (stderr.includes("code: 'EXDEV'")) {
+        console.log(
+          'Failed to link to global index. Attempting to migrate index to local project...'
+        );
+        const globalFolder = getGlobalFolder();
+        const root = slash(join(import.meta.dirname, '..'));
+        const temp = slash(join(root, 'temp'));
+        const localFolder = slash(join(temp, '.yarn/berry'));
+        setGlobalFolder(localFolder);
+        fs.cpSync(globalFolder, localFolder, { recursive: true });
+        run();
       } else {
         throw e;
       }
