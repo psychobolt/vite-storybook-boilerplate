@@ -6,7 +6,7 @@ import getWorkspaces from './ls-workspaces.ts';
 
 const argv = process.argv.slice(2);
 const yarnCmd = (args: string[], options?: SyncOptions) =>
-  execaSync('yarn', args, { stdio: 'inherit', ...options });
+  execaSync('yarn', args, { stdout: 'inherit', stdin: 'inherit', ...options });
 const install = (options?: SyncOptions) =>
   yarnCmd(['install', ...argv], options);
 
