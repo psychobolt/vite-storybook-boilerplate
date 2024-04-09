@@ -23,53 +23,40 @@ async function* getWorkspacesByLinker() {
   }
 }
 
-type ArbitraryObject = Record<string, unknown>;
-
-function isArbitraryObject(
-  potentialObject: unknown
-): potentialObject is ArbitraryObject {
-  return typeof potentialObject === 'object' && potentialObject !== null;
-}
-
 const getGlobalFolder = () => $.sync`yarn config get globalFolder`.stdout;
 const setGlobalFolder = (path: string) =>
   $.sync`yarn config set globalFolder "${path}"`;
 
 for await (const [linker, workspaces] of getWorkspacesByLinker()) {
+  if (!workspaces.length) continue;
+
+  console.log(`Verify workspaces using ${linker} linker...`);
+
   if (linker === 'pnpm') {
     const testPath = join(homedir(), '.nvmrc');
     try {
       symlinkSync(join(import.meta.dirname, '../.nvmrc'), testPath);
       unlinkSync(testPath);
     } catch (e) {
-      if (
-        e instanceof Error &&
-        isArbitraryObject(e.cause) &&
-        typeof e.cause.code === 'string' &&
-        e.cause.code === 'EXDEV'
-      ) {
-        const globalFolder = getGlobalFolder();
-        const temp = join(import.meta.dirname, '../temp/.yarn/berry');
-        setGlobalFolder(temp);
-        console.log('Copying files to new global folder...');
-        cpSync(globalFolder, temp);
-      } else {
-        throw e;
-      }
+      console.log(
+        'Failed to link to home dir. Attempting to migrate to local cache...'
+      );
+      const globalFolder = getGlobalFolder();
+      const temp = join(import.meta.dirname, '../temp/.yarn/berry');
+      setGlobalFolder(temp);
+      console.log('Copying cache files to new global folder...');
+      cpSync(globalFolder, temp, { recursive: true });
     }
   }
 
-  if (workspaces.length) {
-    console.log(`Verify workspaces using ${linker} linker...`);
-    workspaces.forEach((workspace) => {
-      console.log(`Verifying ${workspace.name}...`);
-      install({
-        cwd: workspace.location,
-        env: {
-          NODE_ENV: process.env.NODE_ENV,
-          NODE_OPTIONS: ''
-        }
-      });
+  workspaces.forEach((workspace) => {
+    console.log(`Verifying ${workspace.name}...`);
+    install({
+      cwd: workspace.location,
+      env: {
+        NODE_ENV: process.env.NODE_ENV,
+        NODE_OPTIONS: ''
+      }
     });
-  }
+  });
 }
