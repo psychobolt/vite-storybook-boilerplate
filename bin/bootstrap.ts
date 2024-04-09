@@ -26,8 +26,8 @@ async function* getWorkspacesByLinker() {
 type ArbitaryObject = Record<string, unknown>;
 const isArbitraryObject = (e: unknown): e is ArbitaryObject =>
   typeof e === 'object';
-const isCommandErrorType = (e: unknown): e is { stderr: string } =>
-  isArbitraryObject(e) && typeof e.stderr === 'string';
+const isCommandErrorType = (e: unknown): e is { message: string } =>
+  isArbitraryObject(e) && typeof e.message === 'string';
 
 const slash = (path: string) => path.replace(/\\/g, '/').replace(':/', '://');
 const getGlobalFolder = () => $.sync`yarn config get globalFolder`.stdout;
@@ -53,17 +53,22 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     try {
       run();
     } catch (e) {
-      if (isCommandErrorType(e) && e.stderr.includes("code: 'EXDEV'")) {
-        console.log(
-          'Failed to link to global index. Attempting to migrate index to local project...'
-        );
-        const globalFolder = getGlobalFolder();
-        const root = slash(join(import.meta.dirname, '..'));
-        const temp = slash(join(root, 'temp'));
-        const localFolder = slash(join(temp, '.yarn/berry'));
-        setGlobalFolder(localFolder);
-        fs.cpSync(globalFolder, localFolder, { recursive: true });
-        run();
+      if (isCommandErrorType(e)) {
+        if (e.message.includes("code: 'EXDEV'")) {
+          console.log(
+            'Failed to link to global index. Attempting to migrate index to local project...'
+          );
+          const globalFolder = getGlobalFolder();
+          const root = slash(join(import.meta.dirname, '..'));
+          const temp = slash(join(root, 'temp'));
+          const localFolder = slash(join(temp, '.yarn/berry'));
+          setGlobalFolder(localFolder);
+          fs.cpSync(globalFolder, localFolder, { recursive: true });
+          run();
+        } else {
+          console.log(e.message);
+          process.exit(1);
+        }
       } else {
         throw e;
       }
