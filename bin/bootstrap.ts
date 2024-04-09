@@ -6,7 +6,7 @@ import getWorkspaces from './ls-workspaces.ts';
 
 const argv = process.argv.slice(2);
 const yarnCmd = (args: string[], options?: SyncOptions) =>
-  execaSync('yarn', args, { stdout: 'inherit', stdin: 'inherit', ...options });
+  execaSync('yarn', args, { stdio: 'inherit', ...options });
 const install = (options?: SyncOptions) =>
   yarnCmd(['install', ...argv], options);
 
@@ -41,15 +41,14 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         env: {
           NODE_ENV: process.env.NODE_ENV,
           NODE_OPTIONS: ''
-        },
-        stderr: 'inherit'
+        }
       });
     };
-    let stderr = '';
+    let stdout = '';
     try {
-      stderr = run().stderr;
+      stdout = run().stdout;
     } catch (e) {
-      if (stderr.includes("code: 'EXDEV'")) {
+      if (stdout.includes("code: 'EXDEV'")) {
         console.log(
           'Failed to link to global index. Attempting to migrate index to local project...'
         );
