@@ -33,7 +33,6 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
   console.log(`Verify workspaces using ${linker} linker...`);
 
   if (linker === 'pnpm') {
-    console.log('Verifying global index linking...');
     const globalFolder = getGlobalFolder();
     const indexFile = 'dummy.dat';
     const indexPath = join(globalFolder, indexFile);
@@ -41,6 +40,7 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     const root = join(import.meta.dirname, '..');
     const temp = join(root, 'temp');
     const link = join(temp, indexFile);
+    console.log(`Adding global index test: ${indexURL.href}`);
     if (!fs.existsSync(temp)) fs.mkdirSync(temp);
     fs.writeFileSync(indexPath, '');
     try {
