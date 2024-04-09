@@ -26,6 +26,8 @@ async function* getWorkspacesByLinker() {
 type ArbitaryObject = Record<string, unknown>;
 const isArbitraryObject = (e: unknown): e is ArbitaryObject =>
   typeof e === 'object';
+const isCommandErrorType = (e: unknown): e is { stderr: string } =>
+  isArbitraryObject(e) && typeof e.stderr === 'string';
 
 const slash = (path: string) => path.replace(/\\/g, '/').replace(':/', '://');
 const getGlobalFolder = () => $.sync`yarn config get globalFolder`.stdout;
@@ -51,7 +53,7 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     try {
       run();
     } catch (e) {
-      if (isArbitraryObject(e) && e.code === 'EXDEV') {
+      if (isCommandErrorType(e) && e.stderr.includes("code: 'EXDEV'")) {
         console.log(
           'Failed to link to global index. Attempting to migrate index to local project...'
         );
