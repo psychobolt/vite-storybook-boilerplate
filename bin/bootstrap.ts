@@ -1,4 +1,4 @@
-import { symlinkSync, unlinkSync, cpSync } from 'fs';
+import fs from 'fs';
 import { join } from 'path';
 import { $, execaSync } from 'execa';
 import type { SyncOptions } from 'execa';
@@ -33,23 +33,28 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
   console.log(`Verify workspaces using ${linker} linker...`);
 
   if (linker === 'pnpm') {
-    let globalFolder = getGlobalFolder();
-    const testFile = '.nvmrc';
-    const testPath = join(globalFolder, testFile);
+    const globalFolder = getGlobalFolder();
+    const testFile = 'dummy.txt';
+    const testFilePath = join(globalFolder, testFile);
     const root = join(import.meta.dirname, '..');
+    const temp = join(root, 'temp');
+    const tempFile = join(temp, testFile);
+    if (!fs.existsSync(temp)) fs.mkdirSync(temp);
+    fs.writeFileSync(testFilePath, tempFile);
     try {
-      symlinkSync(join(root, testFile), testPath);
-      unlinkSync(testPath);
+      fs.symlinkSync(testFilePath, tempFile);
+      fs.unlinkSync(tempFile);
     } catch (e) {
       console.log(
         'Failed to link to global folder. Attempting to migrate to local folder...'
       );
-      globalFolder = getGlobalFolder();
-      const temp = join(root, 'temp/.yarn/berry');
-      setGlobalFolder(temp);
-      console.log('Copying cache files to temp local folder...');
-      cpSync(globalFolder, temp, { recursive: true });
+      const localFolder = join(temp, '.yarn/berry');
+      setGlobalFolder(localFolder);
+      console.log('Copying cache files to local folder...');
+      fs.cpSync(globalFolder, localFolder, { recursive: true });
     }
+    fs.rmSync(testFilePath);
+    if (!fs.readdirSync(temp).length) fs.rmSync(temp, { recursive: true });
   }
 
   workspaces.forEach((workspace) => {
