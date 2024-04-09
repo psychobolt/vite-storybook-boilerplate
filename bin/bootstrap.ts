@@ -1,16 +1,12 @@
 import fs from 'fs';
 import { join } from 'path';
 import { $, execaSync } from 'execa';
-import type { ExecaReturnValue, SyncOptions } from 'execa';
+import type { SyncOptions } from 'execa';
 import getWorkspaces from './ls-workspaces.ts';
 
 const argv = process.argv.slice(2);
 const yarnCmd = (args: string[], options?: SyncOptions) =>
-  execaSync('yarn', args, {
-    stdio: 'inherit',
-    all: true,
-    ...options
-  }) as ExecaReturnValue<string>;
+  execaSync('yarn', args, options);
 const install = (options?: SyncOptions) =>
   yarnCmd(['install', ...argv], options);
 
@@ -40,17 +36,20 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
   workspaces.forEach((workspace) => {
     const run = () => {
       console.log(`Verifying ${workspace.name}...`);
-      return install({
+      const { stdout } = install({
+        // TODO: convert to yield to use async pipe
         cwd: workspace.location,
         env: {
           NODE_ENV: process.env.NODE_ENV,
           NODE_OPTIONS: ''
         }
       });
+      console.log(stdout);
+      return stdout;
     };
     let stdout = '';
     try {
-      stdout = run().all ?? stdout;
+      stdout = run();
     } catch (e) {
       if (stdout.includes("code: 'EXDEV'")) {
         console.log(
