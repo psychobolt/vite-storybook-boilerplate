@@ -23,6 +23,14 @@ async function* getWorkspacesByLinker() {
   }
 }
 
+type ArbitraryObject = Record<string, unknown>;
+const isArbitaryObject = (e: unknown): e is ArbitraryObject =>
+  typeof e === 'object';
+
+type ExecaError = ArbitraryObject & { stderr: string };
+const isExecaError = (e: unknown): e is ExecaError =>
+  isArbitaryObject(e) && typeof e.stderr === 'string';
+
 const slash = (path: string) => path.replace(/\\/g, '/').replace(':/', '://');
 const getGlobalFolder = () => $.sync`yarn config get globalFolder`.stdout;
 const setGlobalFolder = (path: string) =>
@@ -45,13 +53,11 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         }
       });
       console.log(stdout);
-      return stdout;
     };
-    let stdout = '';
     try {
-      stdout = run();
+      run();
     } catch (e) {
-      if (stdout.includes("code: 'EXDEV'")) {
+      if (isExecaError(e) && e.stderr.includes("code: 'EXDEV'")) {
         console.log(
           'Failed to link to global index. Attempting to migrate index to local project...'
         );
