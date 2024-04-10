@@ -66,6 +66,10 @@ export default tseslint.config(
       'coverage/',
       'node_modules/',
       'storybook-static/',
+      'temp/',
+      'tmp/',
+      '.temp/',
+      '.tmp',
       '.pnp.cjs',
       '.pnp.loader.mjs',
       'vite.config.*.timestamp-*'

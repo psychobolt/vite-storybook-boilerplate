@@ -23,6 +23,8 @@ type Filters = Record<string, Filter>;
 
 type Options = Record<string, any>;
 
+type NodeLinker = 'node-modules' | 'pnpm';
+
 interface Workspace {
   name: string;
   location: string;
