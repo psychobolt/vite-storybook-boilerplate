@@ -39,7 +39,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: '**/yarn.lock'
+          cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
@@ -47,7 +47,7 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: |
-            **/yarn.lock
+            yarn.lock
             yarnrc.yml
       - name: Install dependencies
         run: yarn install
