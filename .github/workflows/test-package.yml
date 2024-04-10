@@ -24,22 +24,31 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
       CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-      YARN_ENABLE_GLOBAL_CACHE: false
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 50
           ref: ${{ inputs.ref_name || github.ref }}
+      - name: Set Yarn global folder
+        if: matrix.os == 'windows-latest'
+        run: yarn config set globalFolder .temp/.yarn/berry
       - name: Setup Node.js environment
+        if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: './yarn.lock'
-      - name: Set Yarn global folder
-        if: runner.os == 'Windows'
-        run: yarn config set globalFolder "${{ runner.temp }}\Yarn\Berry"
+          cache-dependency-path: yarn.lock
+      - name: Setup Node.js environment (Windows)
+        if: matrix.os == 'windows-latest'
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: |
+            yarn.lock
+            yarnrc.yml
       - name: Install dependencies
         run: yarn install
       - name: Install Playwright
