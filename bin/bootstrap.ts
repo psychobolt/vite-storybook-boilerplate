@@ -64,15 +64,17 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         const root = join(import.meta.dirname, '..');
         const temp = join(root, '.temp');
         const localFolder = join(temp, '.yarn/berry');
-        if (
-          !process.env.YARN_ENABLE_GLOBAL_CACHE ||
-          process.env.YARN_ENABLE_GLOBAL_CACHE === 'true'
-        ) {
-          fs.renameSync(globalFolder, localFolder);
-        } else {
-          fs.cpSync(globalFolder, localFolder, {
-            recursive: true
-          });
+        if (fs.existsSync(globalFolder)) {
+          if (
+            !process.env.YARN_ENABLE_GLOBAL_CACHE ||
+            process.env.YARN_ENABLE_GLOBAL_CACHE === 'true'
+          ) {
+            fs.renameSync(globalFolder, localFolder);
+          } else {
+            fs.cpSync(globalFolder, localFolder, {
+              recursive: true
+            });
+          }
         }
         setGlobalFolder(localFolder);
         run();
