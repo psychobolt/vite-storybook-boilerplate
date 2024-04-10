@@ -18,7 +18,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
-    environment: ${{ inputs.workspace }}
+    # environment: ${{ inputs.workspace }}/${{ matrix.os }} # TODO: add environments
     env:
       REF_NAME: ${{ inputs.ref_name || github.ref_name }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -27,6 +27,7 @@ jobs:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      YARN_ENABLE_GLOBAL_CACHE: ${{ vars.YARN_ENABLE_GLOBAL_CACHE }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4

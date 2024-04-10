@@ -64,7 +64,7 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         const root = join(import.meta.dirname, '..');
         const temp = join(root, '.temp');
         const localFolder = join(temp, '.yarn/berry');
-        fs.cpSync(join(globalFolder, 'cache'), join(localFolder, 'cache'), {
+        fs.cpSync(globalFolder, localFolder, {
           recursive: true
         });
         setGlobalFolder(localFolder);
