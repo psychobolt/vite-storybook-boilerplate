@@ -35,8 +35,6 @@ const getCacheFolder = (options: SyncOptions) =>
   $(options).sync`yarn config get cacheFolder`.stdout;
 const setGlobalFolder = (path: string, options: SyncOptions) =>
   $.sync`yarn config set globalFolder ${path}`;
-const setLocalFolder = (path: string, options: SyncOptions) =>
-  $(options).sync`yarn config set cacheFolder ${path}`;
 
 for await (const [linker, workspaces] of getWorkspacesByLinker()) {
   if (!workspaces.length) continue;
@@ -79,7 +77,6 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
             recursive: true
           });
         }
-        setLocalFolder(sharedFolder, options);
         setGlobalFolder(sharedFolder, options);
         console.log('Cleaning node_modules...');
         fs.rmSync(join(workspace.location, 'node_modules'), {
