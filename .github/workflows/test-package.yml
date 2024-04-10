@@ -47,7 +47,7 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: |
-            '**/yarn.lock'
+            **/yarn.lock
             yarnrc.yml
       - name: Install dependencies
         run: yarn install
