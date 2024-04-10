@@ -55,8 +55,8 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     };
     try {
       run();
-    } catch (e) {
-      if (isExecaError(e) && e.stderr.includes("code: 'EXDEV'")) {
+    } catch (e1) {
+      if (isExecaError(e1) && e1.stderr.includes("code: 'EXDEV'")) {
         console.log(
           'Failed to link to global index. Attempting to migrate index to local project...'
         );
@@ -64,13 +64,21 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         const root = join(import.meta.dirname, '..');
         const temp = join(root, '.temp');
         const localFolder = join(temp, '.yarn/berry');
-        fs.cpSync(globalFolder, localFolder, {
-          recursive: true
-        });
+        try {
+          fs.renameSync(globalFolder, localFolder);
+        } catch (e2) {
+          if (isArbitaryObject(e2) && e2.code === 'EXDEV') {
+            fs.cpSync(globalFolder, localFolder, {
+              recursive: true
+            });
+          } else {
+            throw e2;
+          }
+        }
         setGlobalFolder(localFolder);
         run();
       } else {
-        throw e;
+        throw e1;
       }
     }
   });
