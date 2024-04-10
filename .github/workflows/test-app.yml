@@ -40,17 +40,13 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
-           # You'd want to configure this in your environment variables
-          cache-dependency-path: ${{ matrix.os == 'windows-latest' && fromJson('["**/yarn.lock", "yarnrc.yml"]') || '**/yarn.lock' }}
+          cache-dependency-path: ${{ matrix.os == 'windows-latest' && '**/yarn.lock\nyarnrc.yml' || '**/yarn.lock' }}
       - name: Install dependencies
         run: |
           yarn install
           yarn bootstrap
       - name: Run Lint
-        run: |
-          git stash
-          yarn workspace ${{ inputs.workspace }} turbo run lint
-          git stash pop || true
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
       - name: Pull Vercel Project

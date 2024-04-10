@@ -68,7 +68,7 @@ jobs:
             force:
               - '.github/**'
           base: ${{ inputs.ref_name || github.ref }}
-          initial-fetch-depth: 2
+          initial-fetch-depth: 50
       - name: Copy version files
         if: steps.filter.outputs.versions == 'true'
         run: |

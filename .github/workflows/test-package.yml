@@ -30,12 +30,15 @@ jobs:
         with:
           fetch-depth: 50
           ref: ${{ inputs.ref_name || github.ref }}
+      - name: Set Yarn global folder
+        if: matrix.os == 'windows-latest'
+        run: yarn config set globalFolder .temp/.yarn/berry
       - name: Setup Node.js environment
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: './yarn.lock'
+          cache-dependency-path: ${{ matrix.os == 'windows-latest' && 'yarn.lock\nyarnrc.yml' || 'yarn.lock' }}
       - name: Install dependencies
         run: yarn install
       - name: Install Playwright
