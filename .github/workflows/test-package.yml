@@ -34,11 +34,21 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: yarn config set globalFolder .temp/.yarn/berry
       - name: Setup Node.js environment
+        if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: lts/*
           cache: yarn
-          cache-dependency-path: ${{ matrix.os == 'windows-latest' && 'yarn.lock\nyarnrc.yml' || 'yarn.lock' }}
+          cache-dependency-path: '**/yarn.lock'
+      - name: Setup Node.js environment (Windows)
+        if: matrix.os == 'windows-latest'
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: |
+            '**/yarn.lock'
+            yarnrc.yml
       - name: Install dependencies
         run: yarn install
       - name: Install Playwright
