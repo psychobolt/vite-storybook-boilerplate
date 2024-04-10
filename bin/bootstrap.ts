@@ -31,7 +31,6 @@ type ExecaError = ArbitraryObject & { stderr: string };
 const isExecaError = (e: unknown): e is ExecaError =>
   isArbitaryObject(e) && typeof e.stderr === 'string';
 
-const slash = (path: string) => path.replace(/\\/g, '/').replace(':/', '://');
 const getGlobalFolder = () => $.sync`yarn config get globalFolder`.stdout;
 const setGlobalFolder = (path: string) =>
   $.sync`yarn config set globalFolder ${path}`;
@@ -62,11 +61,11 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
           'Failed to link to global index. Attempting to migrate index to local project...'
         );
         const globalFolder = getGlobalFolder();
-        const root = slash(join(import.meta.dirname, '..'));
-        const temp = slash(join(root, 'temp'));
-        const localFolder = slash(join(temp, '.yarn/berry'));
+        const root = join(import.meta.dirname, '..');
+        const temp = join(root, 'temp');
+        const localFolder = join(temp, '.yarn/berry');
+        fs.cpSync(join(globalFolder), join(localFolder), { recursive: true });
         setGlobalFolder(localFolder);
-        fs.cpSync(globalFolder, localFolder, { recursive: true });
         run();
       } else {
         throw e;
