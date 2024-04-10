@@ -44,7 +44,10 @@ jobs:
           yarn install
           yarn bootstrap
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint
+        run: |
+          git stash
+          yarn workspace ${{ inputs.workspace }} turbo run lint
+          git stash pop || true
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
       - name: Pull Vercel Project
