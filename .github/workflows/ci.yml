@@ -153,7 +153,7 @@ jobs:
         run: git push
 
   finish:
-    needs: [build, diff, apps, packages, release]
+    needs: [test, diff, apps, packages, release]
     if: always()
     runs-on: ubuntu-latest
     steps:
