@@ -18,7 +18,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
-    # environment: ${{ inputs.workspace }}/${{ matrix.os }} # TODO: add environments
+    environment: ${{ inputs.workspace }} # TODO: refactor to OS environments
     env:
       REF_NAME: ${{ inputs.ref_name || github.ref_name }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
