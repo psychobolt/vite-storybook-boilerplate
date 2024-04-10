@@ -22,12 +22,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
-    environment: test/${{ matrix.os }}
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
-      YARN_ENABLE_GLOBAL_CACHE: ${{ vars.YARN_ENABLE_GLOBAL_CACHE }}
     steps:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -69,6 +67,7 @@ jobs:
               - '.yarn/versions/**'
             force:
               - '.github/**'
+          base: HEAD~1
       - name: Copy version files
         if: steps.filter.outputs.versions == 'true'
         run: |

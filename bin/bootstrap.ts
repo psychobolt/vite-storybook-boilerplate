@@ -33,7 +33,7 @@ const isExecaError = (e: unknown): e is ExecaError =>
 
 const getCacheFolder = (options: SyncOptions) =>
   $(options).sync`yarn config get cacheFolder`.stdout;
-const setGlobalFolder = (path: string, options: SyncOptions) =>
+const setGlobalFolder = (path: string) =>
   $.sync`yarn config set globalFolder ${path}`;
 
 for await (const [linker, workspaces] of getWorkspacesByLinker()) {
@@ -77,7 +77,7 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
             recursive: true
           });
         }
-        setGlobalFolder(sharedFolder, options);
+        setGlobalFolder(sharedFolder);
         console.log('Cleaning node_modules...');
         fs.rmSync(join(workspace.location, 'node_modules'), {
           recursive: true

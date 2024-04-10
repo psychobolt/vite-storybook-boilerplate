@@ -3,7 +3,6 @@
 	"extends": ["//"],
 	"pipeline": {
 		"build": {
-			"inputs": ["$TURBO_DEFAULT$", "../../bin/bootstrap.ts"],
 			"outputs": [".svelte-kit/**", ".vercel/**"]
 		},
 		"preview": {
