@@ -88,146 +88,144 @@ definitions:
         fi
 
 pipelines:
-  default:
-    - step:
-        name: Build and Test Root
-        max-time: 10
-        caches:
-          - yarn-90fad7c29688dc67
-        script:
-          - yarn install
-          - yarn turbo run //#lint
-    - parallel:
-        - step:
-            name: Build and Test Commons
-            max-time: 10
-            condition:
-              changesets:
-                includePaths:
-                  - packages.json
-                  - bin/**/*
-                  - packages/commons/**
-            caches:
-              - yarn-90fad7c29688dc67
-            script:
-              - export PACKAGE_NAME=commons
-              - yarn install
-              - *test
-        - step:
-            name: Build and Test HTML UI
-            image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
-            max-time: 15
-            size: 2x
-            caches:
-              - yarn-90fad7c29688dc67
-            condition:
-              changesets:
-                includePaths:
-                  - packages.json
-                  - bin/**/*
-                  - packages/commons/**
-                  - packages/html-ui/**
-            script:
-              - export PACKAGE_NAME=html-ui
-              - *setup
-              - *test
-              - *chromatic
-        - step:
-            name: Build and Test React UI
-            image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
-            max-time: 15
-            size: 2x
-            caches:
-              - yarn-90fad7c29688dc67
-            clone:
-              enabled: true
-              depth: 50
-            condition:
-              changesets:
-                includePaths:
-                  - packages.json
-                  - bin/**/*
-                  - packages/commons/**
-                  - packages/html-ui/**
-                  - packages/react-ui/**
-            script:
-              - export PACKAGE_NAME=react-ui
-              - *setup
-              - *test
-              - *chromatic
-        - step:
-            name: Build and Test Next App
-            max-time: 15
-            size: 2x
-            caches:
-              - yarn-90fad7c29688dc67
-            clone:
-              enabled: true
-              depth: 50
-            condition:
-              changesets:
-                includePaths:
-                  - packages.json
-                  - bin/**/*
-                  - packages/commons/**
-                  - packages/react-ui/**
-                  - apps/next-app/**
-            script:
-              - export PACKAGE_NAME=next-app
-              - yarn install
-              - *test
-        - step:
-            name: Build and Test Svelte App
-            max-time: 15
-            size: 2x
-            caches:
-              - pnpm-90fad7c29688dc67
-              - unplugged-90fad7c29688dc67
-            condition:
-              changesets:
-                includePaths:
-                  - packages.json
-                  - bin/**/*
-                  - packages/commons/**
-                  - packages/react-ui/**
-                  - apps/svelte-app/**
-            script:
-              - export PACKAGE_NAME=svelte-app
-              - yarn install
-              - yarn bootstrap
-              - *test
-    - step:
-        name: Release
-        image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
-        max-time: 25
-        size: 2x
-        caches:
-          - pnpm-90fad7c29688dc67
-          - unplugged-90fad7c29688dc67
-        clone:
-          enabled: true
-          depth: 50
-        condition:
-          changesets:
-            includePaths:
-              - .yarn/versions/**
-              - apps/**/*
-              - packages/**/*
-        script:
-          - >-
-            export STABLE=$( [[ "$BITBUCKET_BRANCH" == release-* ]] && echo
-            "true" || echo "false" )
-          - >-
-            export STRATEGY=$( [ "$STABLE" = true ] &&   echo "stable" || echo
-            "build" )
-          - *git-auth
-          - |
-            if [ "$STABLE" = true ]; then
-              git fetch --depth=50 origin "$BASE_REF_NAME":"$BASE_REF_NAME"
-            fi
-          - *install
-          - *release
-          - '[ "$STABLE" = true ] && git push || true'
+  branches:
+    '{main,release-*}':
+      - step: &build-root
+          name: Build and Test Root
+          max-time: 10
+          caches:
+            - yarn-90fad7c29688dc67
+          script:
+            - yarn install
+            - yarn turbo run //#lint
+      - parallel: &build-workspaces
+          - step:
+              name: Build and Test Commons
+              max-time: 10
+              condition:
+                changesets:
+                  includePaths:
+                    - packages.json
+                    - packages/commons/**
+              caches:
+                - yarn-90fad7c29688dc67
+              script:
+                - export PACKAGE_NAME=commons
+                - yarn install
+                - *test
+          - step:
+              name: Build and Test HTML UI
+              image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
+              max-time: 15
+              size: 2x
+              caches:
+                - yarn-90fad7c29688dc67
+              condition:
+                changesets:
+                  includePaths:
+                    - packages.json
+                    - packages/commons/**
+                    - packages/html-ui/**
+              script:
+                - export PACKAGE_NAME=html-ui
+                - *setup
+                - *test
+                - *chromatic
+          - step:
+              name: Build and Test React UI
+              image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
+              max-time: 15
+              size: 2x
+              caches:
+                - yarn-90fad7c29688dc67
+              clone:
+                enabled: true
+                depth: 50
+              condition:
+                changesets:
+                  includePaths:
+                    - packages.json
+                    - packages/commons/**
+                    - packages/html-ui/**
+                    - packages/react-ui/**
+              script:
+                - export PACKAGE_NAME=react-ui
+                - *setup
+                - *test
+                - *chromatic
+          - step:
+              name: Build and Test Next App
+              max-time: 15
+              size: 2x
+              caches:
+                - yarn-90fad7c29688dc67
+              clone:
+                enabled: true
+                depth: 50
+              condition:
+                changesets:
+                  includePaths:
+                    - packages.json
+                    - packages/commons/**
+                    - packages/react-ui/**
+                    - apps/next-app/**
+              script:
+                - export PACKAGE_NAME=next-app
+                - yarn install
+                - *test
+          - step:
+              name: Build and Test Svelte App
+              max-time: 15
+              size: 2x
+              caches:
+                - pnpm-90fad7c29688dc67
+                - unplugged-90fad7c29688dc67
+              condition:
+                changesets:
+                  includePaths:
+                    - packages.json
+                    - bin/bootstrap.ts
+                    - packages/commons/**
+                    - packages/react-ui/**
+                    - apps/svelte-app/**
+              script:
+                - export PACKAGE_NAME=svelte-app
+                - yarn install
+                - yarn bootstrap
+                - *test
+      - step: &build-releases
+          name: Release
+          image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
+          max-time: 25
+          size: 2x
+          caches:
+            - pnpm-90fad7c29688dc67
+            - unplugged-90fad7c29688dc67
+          clone:
+            enabled: true
+            depth: 50
+          condition:
+            changesets:
+              includePaths:
+                - .yarn/versions/**
+                - apps/**
+                - packages/**
+          script:
+            - >-
+              export STABLE=$( [[ "$BITBUCKET_BRANCH" == release-* ]] && echo
+              "true" || echo "false" )
+            - >-
+              export STRATEGY=$( [ "$STABLE" = true ] &&   echo "stable" || echo
+              "build" )
+            - *git-auth
+            - |
+              if [ "$STABLE" = true ]; then
+                git fetch --depth=50 origin "$BASE_REF_NAME":"$BASE_REF_NAME"
+              fi
+            - *install
+            - *release
+            - '[ "$STABLE" = true ] && git push || true'
+
   pull-requests:
     '**':
       - step:
@@ -267,9 +265,12 @@ pipelines:
               if [[ "$SEMVER" && "$SEMVER" != "{}" ]]; then
                 yarn workspaces foreach -A --no-private exec 'test $(echo $SEMVER | jq .\"$npm_package_name\") = null || yarn version $APPLY_STRATEGY --deferred'
                 git add .
-                git commit -m "[DEV] Add Version Strategy"
+                git commit -m "[skip ci] [DEV] Add Version Strategy"
                 git push
               fi
+      - step: *build-root
+      - parallel: *build-workspaces
+      - step: *build-releases
   custom:
     launch:
       - variables:
