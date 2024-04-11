@@ -1,4 +1,4 @@
-image: node:lts-alpine@sha256:8401816e353182af32bc4b49a5c238920a3287cc78f2596800c391490c0254c5
+image: node:lts-alpine@sha256:1a22f4d89ec4369bd5b45a993703e887e4bb3a89918b0b4f073595ea5edfbbb6
 
 definitions:
   services:
