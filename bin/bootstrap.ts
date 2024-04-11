@@ -61,21 +61,25 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     } catch (e) {
       if (isExecaError(e) && e.stderr.includes("code: 'EXDEV'")) {
         console.log(
-          'Failed to link to global index. Attempting to migrate cache to shared project...'
+          'Failed to link to global index. Attempting to migrate global cache to shared project...'
         );
         const root = join(import.meta.dirname, '..');
         const temp = join(root, '.temp');
         const sharedFolder = join(temp, '.yarn/berry');
         const sharedCacheFolder = join(sharedFolder, 'cache');
-        const cacheFolder = getCacheFolder(options);
-        if (
-          $(options).sync`yarn config get enableGlobalCache`.stdout === 'false'
-        ) {
-          fs.renameSync(cacheFolder, sharedCacheFolder);
-        } else {
-          fs.cpSync(cacheFolder, sharedCacheFolder, {
-            recursive: true
-          });
+        if (!fs.existsSync(sharedCacheFolder)) {
+          console.log('Copying global cache...');
+          const cacheFolder = getCacheFolder(options);
+          if (
+            $(options).sync`yarn config get enableGlobalCache`.stdout ===
+            'false'
+          ) {
+            fs.renameSync(cacheFolder, sharedCacheFolder);
+          } else {
+            fs.cpSync(cacheFolder, sharedCacheFolder, {
+              recursive: true
+            });
+          }
         }
         setGlobalFolder(sharedFolder);
         console.log('Cleaning node_modules...');
