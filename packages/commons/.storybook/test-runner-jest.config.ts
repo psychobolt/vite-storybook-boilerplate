@@ -1,4 +1,4 @@
-import { createRequire } from 'module';
+import { createRequire } from 'node:module';
 import type { Config } from '@jest/types';
 import { getJestConfig } from '@storybook/test-runner';
 

@@ -1,5 +1,5 @@
-import { createRequire } from 'module';
-import { join, dirname } from 'path';
+import { createRequire } from 'node:module';
+import { join, dirname } from 'node:path';
 import type { StorybookConfig } from '@storybook/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
 import type { ResolveOptions } from 'vite';

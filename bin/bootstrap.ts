@@ -1,5 +1,5 @@
-import fs from 'fs';
-import { join } from 'path';
+import fs from 'node:fs';
+import { join } from 'node:path';
 import { $, execaSync } from 'execa';
 import type { SyncOptions } from 'execa';
 import getWorkspaces from './ls-workspaces.ts';

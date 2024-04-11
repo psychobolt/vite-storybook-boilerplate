@@ -1,5 +1,5 @@
-import { createRequire } from 'module';
-import path from 'path';
+import { createRequire } from 'node:module';
+import path from 'node:path';
 
 const require = createRequire(
 	process.env.INIT_CWD
