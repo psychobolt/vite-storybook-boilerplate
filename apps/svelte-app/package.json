@@ -28,7 +28,7 @@
 		"@swc-node/register": "1.9.0",
 		"@swc/core": "1.4.13",
 		"@types/cookie": "0.6.0",
-		"@types/eslint": "8.56.7",
+		"@types/eslint": "8.56.8",
 		"@types/eslint-config-prettier": "6.11.3",
 		"@types/eslint__js": "8.42.3",
 		"@types/node": "20.12.7",
