@@ -10,7 +10,7 @@ definitions:
         files:
           - yarn.lock
       path: /root/.yarn/berry/cache
-    pnpm:
+    pnpm-90fad7c29688dc67:
       key:
         files:
           - apps/svelte-app/yarn.lock
@@ -181,7 +181,7 @@ pipelines:
             max-time: 15
             size: 2x
             caches:
-              - pnpm
+              - pnpm-90fad7c29688dc67
               - unplugged-90fad7c29688dc67
             condition:
               changesets:
@@ -202,7 +202,7 @@ pipelines:
         max-time: 25
         size: 2x
         caches:
-          - pnpm
+          - pnpm-90fad7c29688dc67
           - unplugged-90fad7c29688dc67
         clone:
           enabled: true
@@ -236,7 +236,7 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - pnpm
+            - pnpm-90fad7c29688dc67
             - unplugged-90fad7c29688dc67
           clone:
             enabled: true
@@ -282,7 +282,7 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - pnpm
+            - pnpm-90fad7c29688dc67
             - unplugged-90fad7c29688dc67
           clone:
             enabled: true
