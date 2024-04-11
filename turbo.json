@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["package.json", "bin/turbo.ts"],
+  "globalDependencies": ["package.json"],
   "pipeline": {
     "start": {
       "cache": false,
