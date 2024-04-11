@@ -1,5 +1,5 @@
-import { readFileSync } from 'fs';
-import { isAbsolute } from 'path';
+import { readFileSync } from 'node:fs';
+import { isAbsolute } from 'node:path';
 import type {
   ComponentAnnotations,
   StoryAnnotations,

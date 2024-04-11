@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { execSync, spawn } from 'child_process';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { execSync, spawn } from 'node:child_process';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export default function run(args) {
   if (!process.env.NPM_SCRIPT) {

@@ -1,4 +1,4 @@
-import { createRequire } from 'module';
+import { createRequire } from 'node:module';
 import type { StorybookConfig } from '@storybook/react-vite';
 import type { StorybookViteCommonConfig } from 'commons/esm/.storybook/vite-main.js';
 import {

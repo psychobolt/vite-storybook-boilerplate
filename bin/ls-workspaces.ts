@@ -1,6 +1,6 @@
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import process from 'process';
+import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import process from 'node:process';
 import { execa, execaSync } from 'execa';
 import arg from 'arg';
 import globToRegExp from 'glob-to-regexp';
