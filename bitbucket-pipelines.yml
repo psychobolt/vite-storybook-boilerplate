@@ -26,6 +26,7 @@ definitions:
         git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
     - script: &install |
         corepack enable
+        yarn config set globalFolder .temp/.yarn/berry
         yarn install
         yarn bootstrap
     - script: &setup |
@@ -190,8 +191,7 @@ pipelines:
                     - apps/svelte-app/**
               script:
                 - export PACKAGE_NAME=svelte-app
-                - yarn install
-                - yarn bootstrap
+                - *install
                 - *test
       - step: &build-releases
           name: Release
@@ -222,6 +222,7 @@ pipelines:
               if [ "$STABLE" = true ]; then
                 git fetch --depth=50 origin "$BASE_REF_NAME":"$BASE_REF_NAME"
               fi
+            - nvm install --lts
             - *install
             - *release
             - '[ "$STABLE" = true ] && git push || true'
@@ -229,7 +230,7 @@ pipelines:
   pull-requests:
     '**':
       - step:
-          name: Prepare version strategy
+          name: Prepare Version Strategy
           image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
           max-time: 15
           size: 2x
@@ -242,6 +243,7 @@ pipelines:
           script:
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
             - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
+            - nvm install --lts
             - corepack enable
             - set +e
             - yarn version check
