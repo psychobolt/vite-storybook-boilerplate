@@ -4258,13 +4258,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.56.8":
-  version: 8.56.8
-  resolution: "@types/eslint@npm:8.56.8"
+"@types/eslint@npm:8.56.9":
+  version: 8.56.9
+  resolution: "@types/eslint@npm:8.56.9"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: 10c0/62a0b22cd086d22682858437939afd96fe5639d6375b85044c886612522f67023b9c2bfee662d5a8ac457cbef55531785d59e6f43f93eb4e80532a51c5dba2da
+  checksum: 10c0/a800e3d10bd12fc837773101c35a65c189528e306bc41eca9f30176f5ede4d35944a0c0e16b668971db3521df2f2bef62ab2471740eadc72aeb39dbaba6c9101
   languageName: node
   linkType: hard
 
@@ -6355,7 +6355,7 @@ __metadata:
     "@storybook/builder-vite": "npm:8.0.8"
     "@storybook/test-runner": "npm:0.17.0"
     "@storybook/types": "npm:8.0.8"
-    "@types/eslint": "npm:8.56.8"
+    "@types/eslint": "npm:8.56.9"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/lodash": "npm:4"
     "@typescript-eslint/eslint-plugin": "npm:7.6.0"
@@ -13869,16 +13869,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.74.1":
-  version: 1.74.1
-  resolution: "sass@npm:1.74.1"
+"sass@npm:1.75.0":
+  version: 1.75.0
+  resolution: "sass@npm:1.75.0"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 10c0/4610257ee27823276ce4998a534b4ee9f313e5a0b3d3899e70e0f87096feeae4cd8dd3c2f765b52f57dd87f5dab22370ef63f95a837a189fbb9401396d5ce717
+  checksum: 10c0/1564ab2c8041c99a330cec93127fe8abcf65ac63eecb471610ed7f3126a2599a58b788a3a98eb8719f7f40b9b04e00c92bc9e11a9c2180ad582b8cba9fb030b0
   languageName: node
   linkType: hard
 
@@ -14684,7 +14684,7 @@ __metadata:
     "@swc-node/register": "npm:1.9.0"
     "@swc/core": "npm:1.4.13"
     "@types/cookie": "npm:0.6.0"
-    "@types/eslint": "npm:8.56.8"
+    "@types/eslint": "npm:8.56.9"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/eslint__js": "npm:8.42.3"
     "@types/node": "npm:20.12.7"
@@ -14697,7 +14697,7 @@ __metadata:
     html-ui: "workspace:*"
     prettier: "npm:3.2.5"
     prettier-plugin-svelte: "npm:3.2.2"
-    sass: "npm:1.74.1"
+    sass: "npm:1.75.0"
     stylelint: "npm:16.3.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.1.0"
