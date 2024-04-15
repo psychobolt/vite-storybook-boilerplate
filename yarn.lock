@@ -9712,7 +9712,7 @@ __metadata:
     stylelint: "npm:16.3.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.1.0"
-    ts-enum-util: "npm:4.0.2"
+    ts-enum-util: "npm:4.1.0"
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:1.13.2"
     typescript: "npm:5.4.5"
@@ -21138,10 +21138,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-enum-util@npm:4.0.2":
-  version: 4.0.2
-  resolution: "ts-enum-util@npm:4.0.2"
-  checksum: 10c0/22042f925312fd3f424222f1adf85a51c6dd8f3bf94590d608f1de37e02749f104340546fa98be28a2444889a348da07c7338095f01f62c1d27c7cb4b5b2f865
+"ts-enum-util@npm:4.1.0":
+  version: 4.1.0
+  resolution: "ts-enum-util@npm:4.1.0"
+  checksum: 10c0/561478e75abf3c8747c16cf0271b0eec78cad291c2b9cef4c40df1be2a5df221536d7fa1bad133ec54c47fd66cf624993670fb31863ef953e0d39c34291793ab
   languageName: node
   linkType: hard
 
