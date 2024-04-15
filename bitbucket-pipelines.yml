@@ -5,18 +5,18 @@ definitions:
     docker:
       memory: 7128
   caches:
-    yarn-a780ab16522ce56d:
+    yarn-286f4a92e847184f:
       key:
         files:
           - yarn.lock
       path: /root/.yarn/berry/cache
-    pnpm-a780ab16522ce56d:
+    pnpm-286f4a92e847184f:
       key:
         files:
           - apps/svelte-app/yarn.lock
           - yarnrc.yml
       path: .temp/.yarn/berry/cache
-    unplugged-a780ab16522ce56d:
+    unplugged-286f4a92e847184f:
       key:
         files:
           - packages/unplugged/yarn.lock
@@ -95,7 +95,7 @@ pipelines:
           name: Build and Test Root
           max-time: 10
           caches:
-            - yarn-a780ab16522ce56d
+            - yarn-286f4a92e847184f
           script:
             - yarn install
             - yarn turbo run //#lint
@@ -109,7 +109,7 @@ pipelines:
                     - packages.json
                     - packages/commons/**
               caches:
-                - yarn-a780ab16522ce56d
+                - yarn-286f4a92e847184f
               script:
                 - export PACKAGE_NAME=commons
                 - yarn install
@@ -120,7 +120,7 @@ pipelines:
               max-time: 15
               size: 2x
               caches:
-                - yarn-a780ab16522ce56d
+                - yarn-286f4a92e847184f
               condition:
                 changesets:
                   includePaths:
@@ -138,7 +138,7 @@ pipelines:
               max-time: 15
               size: 2x
               caches:
-                - yarn-a780ab16522ce56d
+                - yarn-286f4a92e847184f
               clone:
                 enabled: true
                 depth: 50
@@ -159,7 +159,7 @@ pipelines:
               max-time: 15
               size: 2x
               caches:
-                - yarn-a780ab16522ce56d
+                - yarn-286f4a92e847184f
               clone:
                 enabled: true
                 depth: 50
@@ -179,8 +179,8 @@ pipelines:
               max-time: 15
               size: 2x
               caches:
-                - pnpm-a780ab16522ce56d
-                - unplugged-a780ab16522ce56d
+                - pnpm-286f4a92e847184f
+                - unplugged-286f4a92e847184f
               condition:
                 changesets:
                   includePaths:
@@ -199,8 +199,8 @@ pipelines:
           max-time: 25
           size: 2x
           caches:
-            - pnpm-a780ab16522ce56d
-            - unplugged-a780ab16522ce56d
+            - pnpm-286f4a92e847184f
+            - unplugged-286f4a92e847184f
           clone:
             enabled: true
             depth: 50
@@ -235,8 +235,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - pnpm-a780ab16522ce56d
-            - unplugged-a780ab16522ce56d
+            - pnpm-286f4a92e847184f
+            - unplugged-286f4a92e847184f
           clone:
             enabled: true
             depth: 50
@@ -285,8 +285,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - pnpm-a780ab16522ce56d
-            - unplugged-a780ab16522ce56d
+            - pnpm-286f4a92e847184f
+            - unplugged-286f4a92e847184f
           clone:
             enabled: true
             depth: full
