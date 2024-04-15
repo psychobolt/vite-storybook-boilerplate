@@ -1955,9 +1955,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:0.33.0":
-  version: 0.33.0
-  resolution: "@dotenvx/dotenvx@npm:0.33.0"
+"@dotenvx/dotenvx@npm:0.33.1":
+  version: 0.33.1
+  resolution: "@dotenvx/dotenvx@npm:0.33.1"
   dependencies:
     "@inquirer/confirm": "npm:^2.0.17"
     arch: "npm:^2.1.1"
@@ -1981,7 +1981,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/302f76e8270c9837233a5e5ad67f4d66ae087d813a435e18aebf3e4b010b0e9221c92aedbaf7d05532dc3bb508487b2ab0d61e364a488a5aa249903228bce9a7
+  checksum: 10c0/cc0d26f43d2552a6c2c1fb44928bed0fafa416514a89b50bd30366688f2411913f86f5c44714af148b797e13811f641b7a2f89a50c7d3dec0c9601ab8c249d91
   languageName: node
   linkType: hard
 
@@ -20562,7 +20562,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:0.33.0"
+    "@dotenvx/dotenvx": "npm:0.33.1"
     "@eslint/js": "npm:9.0.0"
     "@fontsource/fira-mono": "npm:5.0.12"
     "@neoconfetti/svelte": "npm:2.2.1"
@@ -22205,7 +22205,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:0.33.0"
+    "@dotenvx/dotenvx": "npm:0.33.1"
     "@swc-node/register": "npm:1.9.0"
     "@swc/core": "npm:1.4.14"
     "@types/glob-to-regexp": "npm:0.4.4"
