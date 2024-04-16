@@ -25,7 +25,6 @@ definitions:
     - script: &git-auth |
         git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
     - script: &install |
-        corepack enable
         yarn config set globalFolder .temp/.yarn/berry
         yarn install
         yarn bootstrap
@@ -191,6 +190,7 @@ pipelines:
                     - apps/svelte-app/**
               script:
                 - export PACKAGE_NAME=svelte-app
+                - corepack enable
                 - *install
                 - *test
       - step: &build-releases
@@ -223,6 +223,7 @@ pipelines:
                 git fetch --depth=50 origin "$BASE_REF_NAME":"$BASE_REF_NAME"
               fi
             - nvm install --lts
+            - corepack enable
             - *install
             - *release
             - '[ "$STABLE" = true ] && git push || true'
@@ -295,6 +296,7 @@ pipelines:
             - export STRATEGY=launch
             - export BASE_REF_NAME=$(git branch --show-current)
             - *git-auth
+            - corepack enable
             - *install
             - *release
             - git push
@@ -353,11 +355,12 @@ pipelines:
 
     renovate:
       - step:
+          image: renovate/renovate:slim@sha256:1940f1506068cb60c745bc30d15451b6ed8607d53332434b364cddcd84f9d84d
           size: 2x
+          caches:
+            - yarn-d8ecd4c766fe5b8d
           script:
-            - pipe: atlassian/renovate-scan:0.5.0
-              variables:
-                CONFIG_FILE_PATH: renovate.json
-                GITHUB_COM_TOKEN: $GITHUB_COM_TOKEN
-                RENOVATE_USERNAME: $CI_BOT_USERNAME
-                RENOVATE_PASSWORD: $CI_BOT_APP_SECRET
+            - yarn install
+            - export LOG_LEVEL=debug
+            - export RENOVATE_CONFIG_FILE=renovate.config.cjs
+            - renovate
