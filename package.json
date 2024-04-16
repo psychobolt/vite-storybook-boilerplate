@@ -4,7 +4,7 @@
   "type": "module",
   "packageManager": "yarn@4.1.1",
   "scripts": {
-    "postinstall": "husky install",
+    "postinstall": "husky",
     "g:dotenv": "cd $INIT_CWD && dotenvx",
     "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv-run -- node -p \"process.env.$@\"",
     "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload",
