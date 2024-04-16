@@ -16,7 +16,7 @@ Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up en
 
 ## Syncing With Original Fork
 
-Occassionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
+Occasionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
 
 ```sh
 git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
