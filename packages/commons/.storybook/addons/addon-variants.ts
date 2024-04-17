@@ -40,18 +40,15 @@ function getSourceTemplate<TMeta>(framework: Framework) {
   const frameworkVal = framework ? FrameworkEnum[framework] : null;
   switch (frameworkVal) {
     case FrameworkEnum.lit:
-      return ({
-        importName,
-        fileName,
-        stories,
-        ...rest
-      }: TemplateOptions<TMeta>) => `
+      return ({ importName, fileName, stories }: TemplateOptions<TMeta>) => `
         import { html } from "lit";
         import { ${importName} } from "${fileName}";
 
+        const { importName: _meta0, fileName: _meta1, stories: _meta2, ..._meta3 } = meta;
+
         export default {
           render: ${importName},
-          ${JSON.stringify(rest).slice(1, -1)}
+          ..._meta3,
         };
 
         ${stories.reduce(

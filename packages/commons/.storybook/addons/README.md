@@ -101,5 +101,5 @@ export const getStories = () => generateStories<Props, typeof SizeEnum>( // requ
 
 - `default` export is not allowed for variant files
 - Direct imports to component files should be avoided (except for type references)
-- `meta` and `args` props are serialized to JSON, so please be careful of non-JSON types
+- `args` props are serialized to JSON, so please be careful of non-JSON types
 - You must run `test-runner` with [Index.json mode](https://storybook.js.org/docs/writing-tests/test-runner#indexjson-mode). See related [issue](https://github.com/storybookjs/test-runner/issues/262)
