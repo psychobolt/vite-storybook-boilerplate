@@ -78,9 +78,11 @@ function getFormatter(type: string): Mapper<any> {
                 'workspace',
                 workspace.name,
                 'exec',
-                'echo $npm_package_version'
+                "'echo $npm_package_version'"
               ].join(' ')}`
             )
+              .toString()
+              .trim()
           }),
           {}
         );
