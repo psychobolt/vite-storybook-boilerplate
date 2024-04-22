@@ -1,6 +1,6 @@
 # Commons
 
-Private package for sharing configs and scripts...
+Local workspace for sharing configs and scripts...
 
 ## Setup
 
@@ -82,18 +82,6 @@ export default mergeConfig(
      }
    }
    ```
-
-#### Stylelint
-
-See [source](stylelint.config.ts)
-
-/your/project/stylelint.config.cjs
-
-```cjs
-module.exports = {
-  extends: ['commons/cjs/stylelint.config']
-};
-```
 
 #### TSConfig
 

@@ -6,6 +6,4 @@ declare module 'eslint-plugin-react/configs/jsx-runtime.js' {
   export default _default;
 }
 
-declare module 'stylelint-config-standard-scss';
-
 declare module 'prettier-config-standard';

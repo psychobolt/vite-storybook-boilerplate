@@ -1,0 +1,25 @@
+{
+  "name": "stylelint-config",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.1.1",
+  "scripts": {
+    "build": "yarn g:rimraf esm/ && yarn tsc --project tsconfig.json",
+    "lint": "yarn g:prettier --check . && yarn g:lint-js",
+    "format": "yarn g:format"
+  },
+  "dependencies": {
+    "flat": "6.0.1",
+    "postcss": "8.4.38",
+    "stylelint": "16.3.1",
+    "stylelint-config-hudochenkov": "10.0.0",
+    "stylelint-config-prettier-scss": "1.0.0",
+    "stylelint-config-standard-scss": "13.1.0",
+    "stylelint-order": "6.0.4"
+  },
+  "devDependencies": {
+    "commons": "workspace:*",
+    "turbo": "1.13.2",
+    "typescript": "5.4.5"
+  }
+}
