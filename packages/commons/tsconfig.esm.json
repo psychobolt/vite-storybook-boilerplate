@@ -4,6 +4,5 @@
     "composite": false,
     "outDir": "esm"
   },
-  "include": ["**/*", ".storybook/**/*"],
   "exclude": ["esm", "cjs"]
 }
