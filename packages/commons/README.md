@@ -83,6 +83,10 @@ export default mergeConfig(
    }
    ```
 
+#### Stylelint
+
+Moved to [stylelint-config](../stylelint-config/)
+
 #### TSConfig
 
 See [source](tsconfig.js)

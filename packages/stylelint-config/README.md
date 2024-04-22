@@ -2,15 +2,23 @@
 
 Local workspace for sharing Stylelint configs.
 
-## SCSS
+## Install
 
-See [source](stylelint-scss.config.ts)
+```sh
+yarn workspace [workspace-name] add -DE stylelint-config
+```
 
-/your/project/stylelint.config.js
+### Config
+
+Create a `stylelint.config.js` file at your workspace root. e.g.
 
 ```js
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ['stylelint-config/esm/stylelint-scss.config']
+  extends: ['stylelint-config/esm/stylelint-foobar.config']
 };
 ```
+
+#### [stylelint-scss.config](stylelint-scss.config.ts)
+
+Linting for Sass syntax.
