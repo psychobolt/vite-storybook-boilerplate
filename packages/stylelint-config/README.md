@@ -2,13 +2,13 @@
 
 Local workspace for sharing Stylelint configs.
 
-## Install
+## Setup
 
 ```sh
 yarn workspace [workspace-name] add -DE stylelint-config
 ```
 
-### Config
+## Config
 
 Create a `stylelint.config.js` file at your workspace root. e.g.
 
@@ -19,6 +19,6 @@ export default {
 };
 ```
 
-#### [stylelint-scss.config](stylelint-scss.config.ts)
+### [stylelint-scss.config](stylelint-scss.config.ts)
 
 Linting for Sass syntax.
