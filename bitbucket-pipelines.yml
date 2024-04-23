@@ -125,6 +125,7 @@ pipelines:
                   includePaths:
                     - packages.json
                     - packages/commons/**
+                    - packages/stylelint-config/**
                     - packages/html-ui/**
               script:
                 - export PACKAGE_NAME=html-ui
@@ -146,6 +147,7 @@ pipelines:
                   includePaths:
                     - packages.json
                     - packages/commons/**
+                    - packages/stylelint-config/**
                     - packages/html-ui/**
                     - packages/react-ui/**
               script:
