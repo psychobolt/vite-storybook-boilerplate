@@ -13,9 +13,10 @@ module.exports = {
   allowedPostUpgradeCommands: ['^.+$'],
   packageRules: [
     {
-      matchFileNames: workspaces.map(({ location }) =>
-        join(location, 'package.json')
-      ),
+      matchFileNames: [
+        'packages/commons/package.json',
+        ...workspaces.map(({ location }) => join(location, 'package.json'))
+      ],
       postUpgradeTasks: {
         commands: [
           'YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install && yarn bootstrap'
