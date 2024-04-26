@@ -50,7 +50,7 @@
 		"svelte-eslint-parser": "0.35.0",
 		"svelte-language-server": "0.16.8",
 		"tslib": "2.6.2",
-		"turbo": "1.13.2",
+		"turbo": "1.13.3",
 		"typescript": "5.4.5",
 		"typescript-eslint": "7.7.1",
 		"vite": "5.2.10"
