@@ -602,15 +602,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:0.35.1":
-  version: 0.35.1
-  resolution: "@dotenvx/dotenvx@npm:0.35.1"
+"@dotenvx/dotenvx@npm:0.37.0":
+  version: 0.37.0
+  resolution: "@dotenvx/dotenvx@npm:0.37.0"
   dependencies:
     "@inquirer/confirm": "npm:^2.0.17"
     arch: "npm:^2.1.1"
     chalk: "npm:^4.1.2"
     commander: "npm:^11.1.0"
     conf: "npm:^10.2.0"
+    diff: "npm:^5.2.0"
     dotenv: "npm:^16.4.5"
     dotenv-expand: "npm:^11.0.6"
     execa: "npm:^5.1.1"
@@ -628,7 +629,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/454893d603e268c2e1afc2bb1bd388fa3cab9c6fc86c88d0c11318f50c52f9b6b637bf266e283411212127c3ab838e01135deec2bbeb179bac29e86cf1de0ebe
+  checksum: 10c0/d6633a2f80f13e9d69fc52f24dece17d67ed39179800728305fd4cd5e45ca17853c456cf4373d48920d886cf34b5e69a093550ee1ca4f33b6332cfd393189f65
   languageName: node
   linkType: hard
 
@@ -6747,6 +6748,13 @@ __metadata:
   version: 5.1.0
   resolution: "diff@npm:5.1.0"
   checksum: 10c0/77a0d9beb9ed54796154ac2511872288432124ac90a1cabb1878783c9b4d81f1847f3b746a0630b1e836181461d2c76e1e6b95559bef86ed16294d114862e364
+  languageName: node
+  linkType: hard
+
+"diff@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "diff@npm:5.2.0"
+  checksum: 10c0/aed0941f206fe261ecb258dc8d0ceea8abbde3ace5827518ff8d302f0fc9cc81ce116c4d8f379151171336caf0516b79e01abdc1ed1201b6440d895a66689eb4
   languageName: node
   linkType: hard
 
@@ -14478,7 +14486,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:0.35.1"
+    "@dotenvx/dotenvx": "npm:0.37.0"
     "@eslint/js": "npm:9.1.1"
     "@fontsource/fira-mono": "npm:5.0.13"
     "@neoconfetti/svelte": "npm:2.2.1"
