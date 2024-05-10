@@ -48,7 +48,7 @@
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "playwright": "1.44.0",
-    "semver": "7.6.1",
+    "semver": "7.6.2",
     "stylelint": "16.5.0",
     "turbo": "1.13.3",
     "typescript": "5.4.5",
