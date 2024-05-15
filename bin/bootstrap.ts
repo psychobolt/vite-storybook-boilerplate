@@ -4,11 +4,8 @@ import { execSync, type ExecSyncOptions } from 'node:child_process';
 import { $ } from 'execa';
 import getWorkspaces from './ls-workspaces.ts';
 
-const argv = process.argv.slice(2);
-const yarnCmd = (args: string[], options?: ExecSyncOptions) =>
-  execSync(['yarn', args].join(' '), options);
 const install = (options?: ExecSyncOptions) =>
-  yarnCmd(['install', ...argv], options);
+  execSync('yarn install', options).toString();
 
 async function* getWorkspacesByLinker() {
   const linkers: NodeLinker[] = ['pnpm', 'node-modules'];
@@ -46,13 +43,7 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     const run = () => {
       console.log(`Verifying ${workspace.name}...`);
       // TODO: convert to yield to use async pipe
-      const stdout = install({
-        ...options,
-        env: {
-          NODE_ENV: process.env.NODE_ENV,
-          NODE_OPTIONS: ''
-        }
-      });
+      const stdout = install(options);
       console.log(stdout);
     };
     try {
