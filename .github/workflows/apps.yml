@@ -22,6 +22,7 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
+      YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Check out code
         uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
