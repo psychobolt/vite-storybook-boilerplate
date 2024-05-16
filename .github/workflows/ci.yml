@@ -2,6 +2,15 @@ name: ci
 
 on:
   push:
+    branches: 
+      - main
+      - develop
+      - release-*
+      - renovate/*
+  pull_request:
+    branches-ignore: 
+      - bitbucket
+      - renovate/*
   workflow_call:
     inputs:
       ref_name:
@@ -86,7 +95,7 @@ jobs:
         env:
           TURBO_TELEMETRY_DISABLED: 1
         with:
-          from: HEAD~1
+          from: ${{ github.base_ref || 'HEAD~1' }}
 
   apps:
     needs: diff
