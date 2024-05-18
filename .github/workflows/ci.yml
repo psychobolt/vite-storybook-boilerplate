@@ -89,6 +89,9 @@ jobs:
         run: |
           npm install -g turbo@$(jq -r .devDependencies.turbo package.json)
           turbo --version
+      - name: Fetch base branch
+        if: github.event_name == 'pull_request'
+        run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
       - name: Collect Turborepo Changes
         if: steps.filter.outputs.force == 'false'
         id: changes
