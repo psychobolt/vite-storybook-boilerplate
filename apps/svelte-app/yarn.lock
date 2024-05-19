@@ -602,9 +602,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:0.38.0":
-  version: 0.38.0
-  resolution: "@dotenvx/dotenvx@npm:0.38.0"
+"@dotenvx/dotenvx@npm:0.40.0":
+  version: 0.40.0
+  resolution: "@dotenvx/dotenvx@npm:0.40.0"
   dependencies:
     "@inquirer/confirm": "npm:^2.0.17"
     arch: "npm:^2.1.1"
@@ -630,7 +630,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/f2e4cc9237abe0f08f7059fbd2e702f0f8a52c10cda9f21a231f02ba34941f26ab8d0fa1bebaafcce24f185602945e187981a88531bc15281d2c18bcb99b67e5
+  checksum: 10c0/b733cb28d0e1cf6ed16865ef1bc619d260fdac48055bc5e2c1edfb27438cdf54486da58d34b68a6dbee74a56ae2265df74c8026518068cff8a5a639eef4aabde
   languageName: node
   linkType: hard
 
@@ -13722,16 +13722,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.77.1":
-  version: 1.77.1
-  resolution: "sass@npm:1.77.1"
+"sass@npm:1.77.2":
+  version: 1.77.2
+  resolution: "sass@npm:1.77.2"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 10c0/edcfc7d038234b1198c3ddcac5963fcd1e17a9c1ee0f9bd09784ab5353b60ff50b189b4c9154b34f5da9ca0eaab8b189fd3e83a4b43a494151ad4735f8e5f364
+  checksum: 10c0/0d292339064de3c902e209d41de9c4eb2038cff326476aeebbb5be3eee1d23400d975face2b8e124ae617b10af3e93bec01580f61912f34e4c517fe137a118b6
   languageName: node
   linkType: hard
 
@@ -14535,7 +14535,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:0.38.0"
+    "@dotenvx/dotenvx": "npm:0.40.0"
     "@eslint/js": "npm:9.2.0"
     "@fontsource/fira-mono": "npm:5.0.13"
     "@neoconfetti/svelte": "npm:2.2.1"
@@ -14559,7 +14559,7 @@ __metadata:
     html-ui: "workspace:*"
     prettier: "npm:3.2.5"
     prettier-plugin-svelte: "npm:3.2.3"
-    sass: "npm:1.77.1"
+    sass: "npm:1.77.2"
     stylelint: "npm:16.5.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.1.0"
