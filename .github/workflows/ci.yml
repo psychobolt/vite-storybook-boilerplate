@@ -38,7 +38,7 @@ jobs:
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Check out code
-        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
         with:
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Setup Node.js environment
@@ -61,7 +61,7 @@ jobs:
       force: ${{ steps.filter.outputs.force }}
     steps:
       - name: Check out code
-        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
         with:
           fetch-depth: 2
           ref: ${{ inputs.ref_name || github.ref }}
@@ -137,7 +137,7 @@ jobs:
           git config --global user.name github-actions[bot]
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
-        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
         with:
           fetch-depth: ${{ startsWith(env.REF_NAME, 'release-') && 50 || 2 }}
           ref: ${{ inputs.ref_name || github.ref }}
