@@ -3611,9 +3611,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.17.0":
-  version: 0.17.0
-  resolution: "@storybook/test-runner@npm:0.17.0"
+"@storybook/test-runner@npm:0.18.1":
+  version: 0.18.1
+  resolution: "@storybook/test-runner@npm:0.18.1"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -3635,10 +3635,11 @@ __metadata:
     jest-runner: "npm:^29.6.4"
     jest-serializer-html: "npm:^7.1.0"
     jest-watch-typeahead: "npm:^2.0.0"
+    nyc: "npm:^15.1.0"
     playwright: "npm:^1.14.0"
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/e292ab7858221d9a958cacc7641ed9e3c79452e704dc0667573f860c89c22cd160b23a7cbf7e0b3f840c63be41139c107068b2d2a0cced19cf6414f309db9133
+  checksum: 10c0/dd94d1f136e221c4f74cc8d3558049506feaba743b4d6fde61a9732ba1668ec586c4d2daae228f5bbe347ea5c15bdba8e28c9a459d946e28f602f01f030ebfd7
   languageName: node
   linkType: hard
 
@@ -6337,7 +6338,7 @@ __metadata:
     "@eslint/eslintrc": "npm:3.1.0"
     "@jest/types": "npm:29.6.3"
     "@storybook/builder-vite": "npm:8.1.1"
-    "@storybook/test-runner": "npm:0.17.0"
+    "@storybook/test-runner": "npm:0.18.1"
     "@storybook/types": "npm:8.1.1"
     "@types/eslint": "npm:8.56.10"
     "@types/eslint-config-prettier": "npm:6.11.3"
