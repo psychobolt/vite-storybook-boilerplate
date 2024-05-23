@@ -45,7 +45,7 @@
     "execa": "8.0.1",
     "glob-to-regexp": "0.4.1",
     "husky": "9.0.11",
-    "lint-staged": "15.2.2",
+    "lint-staged": "15.2.4",
     "playwright": "1.44.1",
     "semver": "7.6.2",
     "stylelint": "16.5.0",
