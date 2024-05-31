@@ -6307,15 +6307,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:5.3.0":
-  version: 5.3.0
-  resolution: "@sveltejs/adapter-vercel@npm:5.3.0"
+"@sveltejs/adapter-vercel@npm:5.3.1":
+  version: 5.3.1
+  resolution: "@sveltejs/adapter-vercel@npm:5.3.1"
   dependencies:
-    "@vercel/nft": "npm:^0.26.1"
+    "@vercel/nft": "npm:^0.27.1"
     esbuild: "npm:^0.20.2"
   peerDependencies:
     "@sveltejs/kit": ^2.4.0
-  checksum: 10c0/3b214e58ee202b59a2f97aae686daaf5224a4cfdd617d0fa446dae08d5c1cb4e9618b0489c0c6057c21f01e1ce63fe1fde6d4da824e0a9c0701552eb75565e49
+  checksum: 10c0/95118d22e98522d6f3f7d1a40f888433723aa949fca4c98d19d7cbd0bb34c35604446ff145b21e40b98fe0037e4009fbcdfb48c5acacd725e61d6873495ad574
   languageName: node
   linkType: hard
 
@@ -7910,14 +7910,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:^0.26.1":
-  version: 0.26.1
-  resolution: "@vercel/nft@npm:0.26.1"
+"@vercel/nft@npm:^0.27.1":
+  version: 0.27.1
+  resolution: "@vercel/nft@npm:0.27.1"
   dependencies:
     "@mapbox/node-pre-gyp": "npm:^1.0.5"
     "@rollup/pluginutils": "npm:^4.0.0"
     acorn: "npm:^8.6.0"
-    acorn-import-attributes: "npm:^1.9.2"
+    acorn-import-attributes: "npm:^1.9.5"
     async-sema: "npm:^3.1.1"
     bindings: "npm:^1.4.0"
     estree-walker: "npm:2.0.2"
@@ -7928,7 +7928,7 @@ __metadata:
     resolve-from: "npm:^5.0.0"
   bin:
     nft: out/cli.js
-  checksum: 10c0/7e8a2c455d6897e35960a35a1bf931409936db794d3da3a145ecfd62512ebf749e7fa056eec18acecdf4bd93265fb6996f02c8d6d84b1aabdb064b1325288e66
+  checksum: 10c0/f0f0741791743adfc048c57de013fe45da1b5d90c8bcca7a4d697b719c8ac2cfd890841b209b3ff76ca47263ccfec450a773448407404cf47b09360d05980ee1
   languageName: node
   linkType: hard
 
@@ -8187,12 +8187,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-import-attributes@npm:^1.9.2":
-  version: 1.9.2
-  resolution: "acorn-import-attributes@npm:1.9.2"
+"acorn-import-attributes@npm:^1.9.5":
+  version: 1.9.5
+  resolution: "acorn-import-attributes@npm:1.9.5"
   peerDependencies:
     acorn: ^8
-  checksum: 10c0/adbe756dcd3479368e4aa2100d03d5a836958635a4a6ca33e0916c45a4f1ea11aaec33564cdedc11fa3037bd46c3cdda91f703c79f1413a874af6b18a87753aa
+  checksum: 10c0/5926eaaead2326d5a86f322ff1b617b0f698aa61dc719a5baa0e9d955c9885cc71febac3fb5bacff71bbf2c4f9c12db2056883c68c53eb962c048b952e1e013d
   languageName: node
   linkType: hard
 
@@ -21120,7 +21120,7 @@ __metadata:
     "@fontsource/fira-mono": "npm:5.0.13"
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:3.2.1"
-    "@sveltejs/adapter-vercel": "npm:5.3.0"
+    "@sveltejs/adapter-vercel": "npm:5.3.1"
     "@sveltejs/kit": "npm:2.5.10"
     "@sveltejs/vite-plugin-svelte": "npm:3.1.0"
     "@swc-node/register": "npm:1.9.0"
