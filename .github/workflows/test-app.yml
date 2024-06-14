@@ -65,7 +65,7 @@ jobs:
       - name: Pull Vercel Project
         run: vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
       - name: Run Build
-        run: vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run build
       - name: Fetch base branch
         if: github.event_name == 'pull_request'
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
