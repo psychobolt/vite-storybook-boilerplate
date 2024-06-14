@@ -18774,13 +18774,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:3.2.3":
-  version: 3.2.3
-  resolution: "prettier-plugin-svelte@npm:3.2.3"
+"prettier-plugin-svelte@npm:3.2.4":
+  version: 3.2.4
+  resolution: "prettier-plugin-svelte@npm:3.2.4"
   peerDependencies:
     prettier: ^3.0.0
     svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
-  checksum: 10c0/9905bc1c719b73c1241719b5b6ce487dd64a6e527274a903cb390ddca431ae1712e03a8ad009b2f0bbfbbaadee6c998a4ddcace7a125b4c1668f919b825ba8e1
+  checksum: 10c0/88eb82a2c87741165e7f50a7441d36bd9155097efe12ab1634d934def867e177a19dd8118b8f7e0eead0c77f7b4f7d9a238e03f79636044b25b277eb594cc988
   languageName: node
   linkType: hard
 
@@ -21255,13 +21255,13 @@ __metadata:
     globals: "npm:15.3.0"
     html-ui: "workspace:*"
     prettier: "npm:3.3.2"
-    prettier-plugin-svelte: "npm:3.2.3"
+    prettier-plugin-svelte: "npm:3.2.4"
     sass: "npm:1.77.4"
     stylelint: "npm:16.6.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.1.0"
     svelte: "npm:4.2.17"
-    svelte-check: "npm:3.7.1"
+    svelte-check: "npm:3.8.0"
     svelte-eslint-parser: "npm:0.36.0"
     svelte-language-server: "npm:0.16.10"
     tslib: "npm:2.6.2"
@@ -21272,9 +21272,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"svelte-check@npm:3.7.1":
-  version: 3.7.1
-  resolution: "svelte-check@npm:3.7.1"
+"svelte-check@npm:3.8.0":
+  version: 3.8.0
+  resolution: "svelte-check@npm:3.8.0"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.17"
     chokidar: "npm:^3.4.1"
@@ -21288,7 +21288,7 @@ __metadata:
     svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: 10c0/0e292c6500e7f9ba42b2ceea9af8602cbedf5c9d4a73484a72c4a3c30738a5fa80b5e2ad9d672cbf5855cd1ca12132d3b33e7a173d1d2fb78022e10756a1a2a2
+  checksum: 10c0/994662321882224ef8c5bb8b644d30929e3df5ade3dd187130a7c2578d845291d1032e713a2a2d2863fa6cc03dd8f10bbb9d94b2b0179d5974f8435eb49375d2
   languageName: node
   linkType: hard
 
