@@ -10,6 +10,8 @@ on:
         required: true
       force:
         type: boolean
+      github_event_name:
+        type: string
     outputs:
       release:
         value: 'false'
@@ -55,6 +57,7 @@ jobs:
       ref_name: ${{ inputs.ref_name }}
       workspace: next-app
       path: apps/next-app
+      github_event_name: ${{ inputs.github_event_name }}
     secrets: inherit
 
   svelte-app:
@@ -65,4 +68,5 @@ jobs:
       ref_name: ${{ inputs.ref_name }}
       workspace: svelte-app
       path: apps/svelte-app
+      github_event_name: ${{ inputs.github_event_name }}
     secrets: inherit
