@@ -35,6 +35,7 @@ jobs:
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
         with:
           ref: ${{ inputs.ref_name || github.ref }}
+          fetch-depth: 2
       - name: Set Yarn global folder
         if: matrix.os == 'windows-latest'
         run: yarn config set globalFolder .temp/.yarn/berry
@@ -67,7 +68,7 @@ jobs:
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
       - name: Run turbo-ignore
         id: deploy
-        shell: bash
+        if: matrix.os == 'ubuntu-latest'
         run: |
           set +e
           yarn workspace ${{ inputs.workspace }} exec turbo-ignore --fallback=${{ github.base_ref || 'HEAD~1' }}
@@ -79,15 +80,15 @@ jobs:
             echo "ignore=false" >> $GITHUB_OUTPUT
           fi
       - name: Run Build
-        if: steps.deploy.outputs.ignore == 'true'
+        if: matrix.os == 'windows-latest' || steps.deploy.outputs.ignore == 'true'
         run: yarn workspace ${{ inputs.workspace }} turbo run build
       - name: Build with Vercel
-        if: steps.deploy.outputs.ignore == 'false'
+        if: matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false'
         run: |
           vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
           vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
-        if: steps.deploy.outputs.ignore == 'false' && matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false'
         uses: BetaHuhn/deploy-to-vercel-action@9893d875c782e1b4995a9399e8c4d660c33849c3 # v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
