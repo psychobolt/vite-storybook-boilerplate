@@ -10904,9 +10904,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-vault@npm:1.26.1":
-  version: 1.26.1
-  resolution: "dotenv-vault@npm:1.26.1"
+"dotenv-vault@npm:1.26.2":
+  version: 1.26.2
+  resolution: "dotenv-vault@npm:1.26.2"
   dependencies:
     "@oclif/core": "npm:^1"
     "@oclif/plugin-help": "npm:^5.2.15"
@@ -10918,25 +10918,7 @@ __metadata:
     dotenv: "npm:^16.3.1"
   bin:
     dotenv-vault: bin/run
-  checksum: 10c0/8e0a2858f3491fad75873bd91decb984c1182876e18410dd3099fd546e41c8eeb981e4199279f93a113a1a27f025d80b4385c6a5279334a331342ec73e6f364e
-  languageName: node
-  linkType: hard
-
-"dotenv-vault@patch:dotenv-vault@npm%3A1.26.1#~/.yarn/patches/dotenv-vault-npm-1.26.1-f283958789.patch":
-  version: 1.26.1
-  resolution: "dotenv-vault@patch:dotenv-vault@npm%3A1.26.1#~/.yarn/patches/dotenv-vault-npm-1.26.1-f283958789.patch::version=1.26.1&hash=1f290b"
-  dependencies:
-    "@oclif/core": "npm:^1"
-    "@oclif/plugin-help": "npm:^5.2.15"
-    "@oclif/plugin-not-found": "npm:^2.3.34"
-    "@oclif/plugin-update": "npm:^3.1.16"
-    "@oclif/plugin-warn-if-update-available": "npm:^2.0.46"
-    axios: "npm:^1.6.7"
-    chalk: "npm:^4.1.2"
-    dotenv: "npm:^16.3.1"
-  bin:
-    dotenv-vault: bin/run
-  checksum: 10c0/bb93fd434332c688950cd46eac75a1e0af90b22eed1138174a37b3ddbab41e4775bb533448c5bb879486c393363eaddd09dfd108e0e99dd70adb7a6f6643f7e6
+  checksum: 10c0/57265e8a87057d2786abdd22d795ee2a72f16a3f129e29cb96b65b1174a78f61162ac8b3499caa934a815be186d85a27ae8392d6527b7d1f72f388c6ce67cee5
   languageName: node
   linkType: hard
 
@@ -22876,7 +22858,7 @@ __metadata:
     arg: "npm:5.0.2"
     commons: "workspace:*"
     dotenv-flow: "npm:4.1.0"
-    dotenv-vault: "npm:1.26.1"
+    dotenv-vault: "npm:1.26.2"
     eslint: "npm:8.57.0"
     execa: "npm:8.0.1"
     glob-to-regexp: "npm:0.4.1"
