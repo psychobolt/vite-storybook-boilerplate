@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["RUNNER_OS"],
   "globalDependencies": ["package.json"],
-  "pipeline": {
+  "tasks": {
     "start": {
       "cache": false,
       "persistent": true
