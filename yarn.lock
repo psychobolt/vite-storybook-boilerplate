@@ -10922,6 +10922,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv-vault@patch:dotenv-vault@npm%3A1.26.2#~/.yarn/patches/dotenv-vault-npm-1.26.2-cad1be6652.patch":
+  version: 1.26.2
+  resolution: "dotenv-vault@patch:dotenv-vault@npm%3A1.26.2#~/.yarn/patches/dotenv-vault-npm-1.26.2-cad1be6652.patch::version=1.26.2&hash=5ffefb"
+  dependencies:
+    "@oclif/core": "npm:^1"
+    "@oclif/plugin-help": "npm:^5.2.15"
+    "@oclif/plugin-not-found": "npm:^2.3.34"
+    "@oclif/plugin-update": "npm:^3.1.16"
+    "@oclif/plugin-warn-if-update-available": "npm:^2.0.46"
+    axios: "npm:^1.6.7"
+    chalk: "npm:^4.1.2"
+    dotenv: "npm:^16.3.1"
+  bin:
+    dotenv-vault: bin/run
+  checksum: 10c0/124992bc98666f55ecf8ef0d5d6fbe4a06612abd0cfdb83506d3ad5fd66b5673c5b064e4d63110aaebfa1737c873092048a41c9859968e1bca8aebc35fd14272
+  languageName: node
+  linkType: hard
+
 "dotenv@npm:^16.0.0, dotenv@npm:^16.3.1":
   version: 16.3.1
   resolution: "dotenv@npm:16.3.1"
