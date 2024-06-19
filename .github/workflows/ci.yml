@@ -8,6 +8,8 @@ on:
       - release-*
       - renovate/*
   pull_request:
+    branches-ignore: 
+      bitbucket
   workflow_call:
     inputs:
       ref_name:
@@ -22,7 +24,7 @@ concurrency:
 
 jobs:
   check-source-branch:
-    if: github.event_name == 'pull_request' && github.ref_name != 'bitbucket' && github.ref_name && !startsWith(github.ref_name, 'renovate/')
+    if: github.event_name != 'pull_request' || github.event_name == 'pull_request' && !startsWith(github.head_ref, 'renovate/')
     runs-on: ubuntu-latest
     steps:
       - run: echo "Proceed with CI"
@@ -173,8 +175,8 @@ jobs:
         run: git push
 
   finish:
-    needs: [test, diff, apps, packages, release]
-    if: always()
+    needs: [check-source-branch, test, diff, apps, packages, release]
+    if: always() && needs.check-source-branch.result != 'skipped'
     runs-on: ubuntu-latest
     steps:
       - name: 'Check status of all required jobs'

@@ -55,6 +55,11 @@ jobs:
           cache-dependency-path: |
             **/yarn.lock
             yarnrc.yml
+      - name: Install dependencies
+        if: matrix.os == 'windows-latest'
+        run: |
+          yarn install
+          yarn bootstrap
       - name: Run Build
         if: matrix.os == 'windows-latest'
         run: yarn workspace ${{ inputs.workspace }} turbo run build
