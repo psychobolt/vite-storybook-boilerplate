@@ -56,7 +56,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Lint
-        run: yarn turbo run //#lint
+        run: yarn turbo run //#lint --verbosity=${{ vars.TURBO_VERBOSITY }}
 
   diff:
     name: List Updated Packages

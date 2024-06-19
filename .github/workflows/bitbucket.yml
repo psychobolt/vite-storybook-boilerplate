@@ -54,7 +54,7 @@ jobs:
           yarn install
           yarn bootstrap
       - name: Lint
-        run: yarn turbo run //#lint
+        run: yarn turbo run //#lint --verbosity=${{ vars.TURBO_VERBOSITY }}
       - name: Amend Merge
         run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
       - name: Update bitbucket branch
