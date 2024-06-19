@@ -24,6 +24,8 @@ jobs:
   check-source-branch:
     if: github.event_name == 'pull_request' && github.ref_name != 'bitbucket' && github.ref_name && !startsWith(github.ref_name, 'renovate/')
     runs-on: ubuntu-latest
+    steps:
+      - run: echo "Proceed with CI"
 
   test:
     name: Test
