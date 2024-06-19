@@ -60,7 +60,7 @@ jobs:
           yarn install
           yarn bootstrap
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint --verbosity=${{ vars.TURBO_VERBOSITY }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
       - name: Install Vercel Tools
         run: npm install -g vercel turbo-ignore
       - name: Fetch base branch
@@ -81,7 +81,7 @@ jobs:
           fi
       - name: Run Build
         if: matrix.os == 'windows-latest' || steps.deploy.outputs.ignore == 'true'
-        run: yarn workspace ${{ inputs.workspace }} turbo run build --verbosity=${{ vars.TURBO_VERBOSITY }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
       - name: Build with Vercel
         if: matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false'
         run: |
