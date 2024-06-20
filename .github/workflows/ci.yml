@@ -115,7 +115,6 @@ jobs:
       ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
       force: ${{ needs.diff.outputs.force == 'true' }}
-      github_event_name: ${{ github.event_name }}
 
   packages:
     needs: diff
