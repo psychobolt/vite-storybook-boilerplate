@@ -9,8 +9,6 @@ on:
       path:
         required: true
         type: string
-      github_event_name:
-        type: string
 
 jobs:
   test:

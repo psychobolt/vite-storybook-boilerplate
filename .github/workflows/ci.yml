@@ -38,8 +38,6 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
@@ -55,6 +53,7 @@ jobs:
           cache-dependency-path: ./yarn.lock
       - name: Install dependencies
         run: yarn install
+      - uses: dtinth/setup-github-actions-caching-for-turbo@v1
       - name: Lint
         run: yarn turbo run //#lint --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
 
