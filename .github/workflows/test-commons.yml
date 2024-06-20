@@ -41,6 +41,9 @@ jobs:
           cache-dependency-path: |
             yarn.lock
             yarnrc.yml
+      - name: Start Turbo Cache Server
+        if: matrix.os == 'ubuntu-latest'
+        uses: dtinth/setup-github-actions-caching-for-turbo@v1
       - name: Install dependencies
         run: yarn install
       - name: Run Lint

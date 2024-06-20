@@ -49,6 +49,8 @@ jobs:
           node-version: lts/*
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
+      - name: Start Turbo Cache Server
+        uses: dtinth/setup-github-actions-caching-for-turbo@v1
       - name: Install dependencies
         run: |
           yarn install
