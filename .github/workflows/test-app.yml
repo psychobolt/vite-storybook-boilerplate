@@ -24,6 +24,8 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || '0' }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -61,7 +63,7 @@ jobs:
           yarn install
           yarn bootstrap
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Install Vercel Tools
         run: npm install -g vercel turbo-ignore
       - name: Fetch base branch
@@ -82,7 +84,7 @@ jobs:
           fi
       - name: Run Build
         if: matrix.os == 'windows-latest' || steps.deploy.outputs.ignore == 'true'
-        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Build with Vercel
         if: matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false'
         run: |

@@ -23,6 +23,8 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || '0' }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
@@ -58,14 +60,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: dtinth/setup-github-actions-caching-for-turbo@v1
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Coverage
         env:
           # Workaround for https://github.com/facebook/jest/issues/8536
           TEMP: ${{ runner.temp }}
         run: >-
           npx concurrently -k -s first -n "SB,TEST"
-          "yarn workspace ${{ inputs.workspace }} turbo run start --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }} -- --silent"
+          "yarn workspace ${{ inputs.workspace }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} -- --silent"
           "npx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673 # v4
@@ -75,4 +77,4 @@ jobs:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Run Chromatic
-        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}

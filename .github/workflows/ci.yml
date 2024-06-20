@@ -41,6 +41,8 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || '0' }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Check out code
@@ -59,7 +61,7 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: dtinth/setup-github-actions-caching-for-turbo@v1
       - name: Lint
-        run: yarn turbo run //#lint --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
+        run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
 
   diff:
     name: List Updated Packages

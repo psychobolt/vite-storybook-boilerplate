@@ -17,6 +17,8 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || '0' }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
     steps:
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
@@ -56,7 +58,7 @@ jobs:
           yarn install
           yarn bootstrap
       - name: Lint
-        run: yarn turbo run //#lint --env-mode=${{ vars.TURBO_ENV_MODE }} --verbosity=${{ vars.TURBO_VERBOSITY }}
+        run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Amend Merge
         run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
       - name: Update bitbucket branch
