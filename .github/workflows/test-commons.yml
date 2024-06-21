@@ -45,7 +45,8 @@ jobs:
             yarn.lock
             yarnrc.yml
       - name: Create Turbo Cache Server Log
-        run: touch /tmp/turbogha.log
+        if: matrix.os == 'windows-latest'
+        run: mkdir D:/tmp && touch D:/tmp/turbogha.log || exit 0
         shell: bash
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@d030e8813d3de6746943c17def1f5643b1dd1e94 # v1.1
