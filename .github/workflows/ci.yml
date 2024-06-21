@@ -40,7 +40,6 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-      TURBO_REMOTE_ONLY: ${{ matrix.os == 'windows-latest' }}
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       TURBO_TELEMETRY_DISABLED: 1
@@ -59,7 +58,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Start Turbo Cache Server
-        if: matrix.os == 'ubuntu-latest'
         uses: rharkor/caching-for-turbo@d030e8813d3de6746943c17def1f5643b1dd1e94 # v1.1
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
