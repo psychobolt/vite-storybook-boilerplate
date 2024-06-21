@@ -57,6 +57,9 @@ jobs:
           cache-dependency-path: ./yarn.lock
       - name: Install dependencies
         run: yarn install
+      - name: Create Turbo Cache Server Log
+        run: touch /tmp/turbogha.log
+        shell: bash
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@d030e8813d3de6746943c17def1f5643b1dd1e94 # v1.1
         with:
@@ -105,6 +108,9 @@ jobs:
       - name: Fetch base branch
         if: github.event_name == 'pull_request'
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
+      - name: Create Turbo Cache Server Log
+        run: touch /tmp/turbogha.log
+        shell: bash
       - name: Start Turbo Cache Server # TODO: Verify if this is needed for dry-run
         uses: rharkor/caching-for-turbo@d030e8813d3de6746943c17def1f5643b1dd1e94 # v1.1
         with:
@@ -169,6 +175,9 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.base_ref || 'HEAD~1' }}" >> .env
+      - name: Create Turbo Cache Server Log
+        run: touch /tmp/turbogha.log
+        shell: bash
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@d030e8813d3de6746943c17def1f5643b1dd1e94 # v1.1
         with:

@@ -60,6 +60,9 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
         run: echo "BASE_REF=origin/${{ github.base_ref }}" >> .env
+      - name: Create Turbo Cache Server Log
+        run: touch /tmp/turbogha.log
+        shell: bash
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@d030e8813d3de6746943c17def1f5643b1dd1e94 # v1.1
         with:
