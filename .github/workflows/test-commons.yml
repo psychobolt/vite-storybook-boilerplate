@@ -15,8 +15,8 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-      TURBO_REMOTE_ONLY: true
-      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || '0' }}
+      TURBO_REMOTE_ONLY: ${{ matrix.os == 'windows-latest' }}
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       TURBO_TELEMETRY_DISABLED: 1
       YARN_ENABLE_HARDENED_MODE: 0
