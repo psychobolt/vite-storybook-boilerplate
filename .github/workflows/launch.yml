@@ -25,6 +25,7 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
+      TURBO_TELEMETRY_DISABLED: 1
     steps:
       - name: Configure git
         run: |
@@ -48,7 +49,7 @@ jobs:
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ env.base_ref }}" >> .env
       - name: Start Turbo Cache Server
-        uses: dtinth/setup-github-actions-caching-for-turbo@cc723b4600e40a6b8815b65701d8614b91e2669e # v1.3
+        uses: dtinth/setup-github-actions-caching-for-turbo@a0e976d970c2a94366a26984efcef3030e2c0115 # v1.2
       - name: Install dependencies
         run: |
           yarn install

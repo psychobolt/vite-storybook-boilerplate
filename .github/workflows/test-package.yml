@@ -25,6 +25,7 @@ jobs:
       TURBO_REMOTE_ONLY: true
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || '0' }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
+      TURBO_TELEMETRY_DISABLED: 1
       CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
@@ -58,7 +59,7 @@ jobs:
         run: yarn playwright install --with-deps chromium
       - name: Start Turbo Cache Server
         if: matrix.os == 'ubuntu-latest'
-        uses: dtinth/setup-github-actions-caching-for-turbo@cc723b4600e40a6b8815b65701d8614b91e2669e # v1.3
+        uses: dtinth/setup-github-actions-caching-for-turbo@a0e976d970c2a94366a26984efcef3030e2c0115 # v1.2
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Coverage

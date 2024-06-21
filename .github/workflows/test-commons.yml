@@ -18,6 +18,7 @@ jobs:
       TURBO_REMOTE_ONLY: true
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || '0' }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
+      TURBO_TELEMETRY_DISABLED: 1
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Check out code
@@ -45,7 +46,7 @@ jobs:
             yarnrc.yml
       - name: Start Turbo Cache Server
         if: matrix.os == 'ubuntu-latest'
-        uses: dtinth/setup-github-actions-caching-for-turbo@cc723b4600e40a6b8815b65701d8614b91e2669e # v1.3
+        uses: dtinth/setup-github-actions-caching-for-turbo@a0e976d970c2a94366a26984efcef3030e2c0115 # v1.2
       - name: Install dependencies
         run: yarn install
       - name: Run Lint
