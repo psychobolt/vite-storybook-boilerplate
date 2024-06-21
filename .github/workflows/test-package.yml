@@ -60,6 +60,8 @@ jobs:
       - name: Start Turbo Cache Server
         if: matrix.os == 'ubuntu-latest'
         uses: dtinth/setup-github-actions-caching-for-turbo@a0e976d970c2a94366a26984efcef3030e2c0115 # v1.2
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Coverage

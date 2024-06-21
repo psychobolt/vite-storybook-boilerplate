@@ -63,6 +63,8 @@ jobs:
         run: echo "BASE_REF=origin/${{ github.base_ref }}" >> .env
       - name: Start Turbo Cache Server
         uses: dtinth/setup-github-actions-caching-for-turbo@a0e976d970c2a94366a26984efcef3030e2c0115 # v1.2
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
         run: |
           yarn install
