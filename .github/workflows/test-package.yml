@@ -71,9 +71,9 @@ jobs:
           # Workaround for https://github.com/facebook/jest/issues/8536
           TEMP: ${{ runner.temp }}
         run: >-
-          npx concurrently -k -s first -n "SB,TEST"
+          yarn dlx concurrently -k -s first -n "SB,TEST"
           "yarn workspace ${{ inputs.workspace }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} -- --silent"
-          "npx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
+          "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673 # v4
         with:
