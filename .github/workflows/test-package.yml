@@ -58,7 +58,7 @@ jobs:
         run: yarn playwright install --with-deps chromium
       - name: Start Turbo Cache Server
         if: matrix.os == 'ubuntu-latest'
-        uses: dtinth/setup-github-actions-caching-for-turbo@v1
+        uses: dtinth/setup-github-actions-caching-for-turbo@cc723b4600e40a6b8815b65701d8614b91e2669e # v1.3
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Coverage

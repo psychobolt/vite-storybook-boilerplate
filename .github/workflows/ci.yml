@@ -59,7 +59,7 @@ jobs:
         run: yarn install
       - name: Start Turbo Cache Server
         if: matrix.os == 'ubuntu-latest'
-        uses: dtinth/setup-github-actions-caching-for-turbo@v1
+        uses: dtinth/setup-github-actions-caching-for-turbo@cc723b4600e40a6b8815b65701d8614b91e2669e # v1.3
       - name: Lint
         run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
 
@@ -105,7 +105,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
       - name: Start Turbo Cache Server # TODO: Verify if this is needed for dry-run
-        uses: dtinth/setup-github-actions-caching-for-turbo@v1
+        uses: dtinth/setup-github-actions-caching-for-turbo@cc723b4600e40a6b8815b65701d8614b91e2669e # v1.3
       - name: Collect Turborepo Changes
         if: steps.filter.outputs.force == 'false'
         id: changes
@@ -167,7 +167,7 @@ jobs:
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.base_ref || 'HEAD~1' }}" >> .env
       - name: Start Turbo Cache Server
-        uses: dtinth/setup-github-actions-caching-for-turbo@v1
+        uses: dtinth/setup-github-actions-caching-for-turbo@cc723b4600e40a6b8815b65701d8614b91e2669e # v1.3
       - name: Install dependencies
         run: |
           yarn install
