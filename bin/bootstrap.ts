@@ -1,14 +1,11 @@
 import fs from 'node:fs';
 import { join } from 'node:path';
-import { $, execaSync } from 'execa';
-import type { SyncOptions } from 'execa';
+import { execSync, type ExecSyncOptions } from 'node:child_process';
+import { $ } from 'execa';
 import getWorkspaces from './ls-workspaces.ts';
 
-const argv = process.argv.slice(2);
-const yarnCmd = (args: string[], options?: SyncOptions) =>
-  execaSync('yarn', args, options);
-const install = (options?: SyncOptions) =>
-  yarnCmd(['install', ...argv], options);
+const install = (options?: ExecSyncOptions) =>
+  execSync('yarn install', options).toString();
 
 async function* getWorkspacesByLinker() {
   const linkers: NodeLinker[] = ['pnpm', 'node-modules'];
@@ -31,10 +28,10 @@ type ExecaError = ArbitraryObject & { stderr: string };
 const isExecaError = (e: unknown): e is ExecaError =>
   isArbitaryObject(e) && typeof e.stderr === 'string';
 
-const getCacheFolder = (options: SyncOptions) =>
-  $(options).sync`yarn config get cacheFolder`.stdout;
+const getCacheFolder = (options: ExecSyncOptions) =>
+  execSync('yarn config get cacheFolder', options).toString();
 const setGlobalFolder = (path: string) =>
-  $.sync`yarn config set globalFolder ${path}`;
+  execSync(`yarn config set globalFolder ${path}`);
 
 for await (const [linker, workspaces] of getWorkspacesByLinker()) {
   if (!workspaces.length) continue;
@@ -45,15 +42,8 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
     const options = { cwd: workspace.location };
     const run = () => {
       console.log(`Verifying ${workspace.name}...`);
-      // TODO: convert to $.sync
       // TODO: convert to yield to use async pipe
-      const { stdout } = install({
-        ...options,
-        env: {
-          NODE_ENV: process.env.NODE_ENV,
-          NODE_OPTIONS: ''
-        }
-      });
+      const stdout = install(options);
       console.log(stdout);
     };
     try {
