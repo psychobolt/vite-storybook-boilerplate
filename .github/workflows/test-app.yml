@@ -9,8 +9,6 @@ on:
       path:
         required: true
         type: string
-      github_event_name:
-        type: string
 
 jobs:
   test:
@@ -24,8 +22,10 @@ jobs:
     env:
       REF_NAME: ${{ inputs.ref_name || github.ref_name }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      TURBO_REMOTE_ONLY: true
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
+      TURBO_TELEMETRY_DISABLED: 1
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -55,16 +55,31 @@ jobs:
           cache-dependency-path: |
             **/yarn.lock
             yarnrc.yml
+      - name: Create Turbo Cache Server Log
+        run: mkdir D:/tmp && touch D:/tmp/turbogha.log || exit 0
+        shell: bash
+      - name: Start Turbo Cache Server
+        uses: rharkor/caching-for-turbo@d030e8813d3de6746943c17def1f5643b1dd1e94 # v1.1
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
         run: |
           yarn install
           yarn bootstrap
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Install Vercel Tools
         run: npm install -g vercel turbo-ignore
+      - name: Run Build
+        if: matrix.os == 'windows-latest'
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+      - name: Build with Vercel
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
+          vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
       - name: Fetch base branch
-        if: github.event_name == 'pull_request'
+        if: matrix.os == 'ubuntu-latest' && github.event_name == 'pull_request'
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
       - name: Run turbo-ignore
         id: deploy
@@ -79,14 +94,6 @@ jobs:
           else
             echo "ignore=false" >> $GITHUB_OUTPUT
           fi
-      - name: Run Build
-        if: matrix.os == 'windows-latest' || steps.deploy.outputs.ignore == 'true'
-        run: yarn workspace ${{ inputs.workspace }} turbo run build
-      - name: Build with Vercel
-        if: matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false'
-        run: |
-          vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
-          vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
         if: matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false'
         uses: BetaHuhn/deploy-to-vercel-action@9893d875c782e1b4995a9399e8c4d660c33849c3 # v1
