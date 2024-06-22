@@ -1,0 +1,218 @@
+diff --git a/dist/services/build-service.js b/dist/services/build-service.js
+index 4259c9b76893ae255a339a13d52f90fcfec222f0..27ed9f38dc56408502ae65d12b3a002b4bd417f2 100644
+--- a/dist/services/build-service.js
++++ b/dist/services/build-service.js
+@@ -11,6 +11,7 @@ const append_to_ignore_service_1 = require("../services/append-to-ignore-service
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
+ const login_service_1 = require("../services/login-service");
++core_1.CliUx = { ux: core_1.ux };
+ class BuildService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+diff --git a/dist/services/keys-service.js b/dist/services/keys-service.js
+index 281135cf0f09fac2579d01c6e5085c41a9d98e32..3f70479dfcf4e3b769182f10769ba42d28598a77 100644
+--- a/dist/services/keys-service.js
++++ b/dist/services/keys-service.js
+@@ -10,6 +10,7 @@ const append_to_ignore_service_1 = require("../services/append-to-ignore-service
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
+ const login_service_1 = require("../services/login-service");
++core_1.CliUx = { ux: core_1.ux };
+ class KeysService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+diff --git a/dist/services/local/build-service.js b/dist/services/local/build-service.js
+index e63cc35051297c9e686ac5b060d8f1462271e5d3..152affebba446442c9cc47c925f11be17e097803 100644
+--- a/dist/services/local/build-service.js
++++ b/dist/services/local/build-service.js
+@@ -10,6 +10,7 @@ const fs_1 = require("fs");
+ const core_1 = require("@oclif/core");
+ const append_to_ignore_service_1 = require("../../services/append-to-ignore-service");
+ const log_service_1 = require("../../services/log-service");
++core_1.CliUx = { ux: core_1.ux };
+ class LocalBuildService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+diff --git a/dist/services/local/keys-service.js b/dist/services/local/keys-service.js
+index 65e90019192425fb9103f5dc4ef91d035b351811..f42795c232f8d24a82719946776eeea169031721 100644
+--- a/dist/services/local/keys-service.js
++++ b/dist/services/local/keys-service.js
+@@ -9,6 +9,7 @@ const core_1 = require("@oclif/core");
+ const append_to_ignore_service_1 = require("../../services/append-to-ignore-service");
+ const log_service_1 = require("../../services/log-service");
+ const abort_service_1 = require("../../services/abort-service");
++core_1.CliUx = { ux: core_1.ux };
+ class LocalKeysService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+diff --git a/dist/services/login-service.js b/dist/services/login-service.js
+index 5fb2b1e2824d95d012b6a1e799d3627985fb66ee..6c6228935d32b5e0b886c42b9653d9775790b9d3 100644
+--- a/dist/services/login-service.js
++++ b/dist/services/login-service.js
+@@ -11,6 +11,8 @@ const core_1 = require("@oclif/core");
+ const append_to_ignore_service_1 = require("../services/append-to-ignore-service");
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
++core_1.CliUx = { ux: core_1.ux };
++core_1.CliUx.ux.open = require("opener");
+ class LoginService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+@@ -56,7 +58,7 @@ class LoginService {
+             }
+         }
+         this.log.local(`Opening browser to ${this.loginUrl}`);
+-        core_1.CliUx.ux.open(this.loginUrl).catch(_ => { });
++        core_1.CliUx.ux.open(this.loginUrl);
+         core_1.CliUx.ux.action.start(`${chalk_1.default.dim(this.log.pretextLocal)}Waiting for login and credential (.env.me) to be generated`);
+         await this.check(tip);
+     }
+diff --git a/dist/services/logout-service.js b/dist/services/logout-service.js
+index e98177fa2d476bf20b1b1c8fc1ae1524eb5a9b89..f87a625d09d4d89098979ff5cfc4e293968c7238 100644
+--- a/dist/services/logout-service.js
++++ b/dist/services/logout-service.js
+@@ -9,6 +9,8 @@ const vars_1 = require("../vars");
+ const core_1 = require("@oclif/core");
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
++core_1.CliUx = { ux: core_1.ux };
++core_1.CliUx.ux.open = require("opener");
+ class LogoutService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+@@ -31,7 +33,7 @@ class LogoutService {
+             }
+         }
+         this.log.local(`Opening browser to ${this.logoutUrl}`);
+-        core_1.CliUx.ux.open(this.logoutUrl).catch(_ => { });
++        core_1.CliUx.ux.open(this.logoutUrl);
+         core_1.CliUx.ux.action.start(`${chalk_1.default.dim(this.log.pretextLocal)}Waiting for logout and credential (.env.me) to be revoked`);
+         await this.check(tip);
+     }
+diff --git a/dist/services/new-service.js b/dist/services/new-service.js
+index 10c4065f8d80997c1ddc6bb83b7a24df20f521ff..7199667ca070cb23982bf956aca2c911711d662d 100644
+--- a/dist/services/new-service.js
++++ b/dist/services/new-service.js
+@@ -11,6 +11,8 @@ const core_1 = require("@oclif/core");
+ const append_to_ignore_service_1 = require("../services/append-to-ignore-service");
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
++core_1.CliUx = { ux: core_1.ux };
++core_1.CliUx.ux.open = require("opener");
+ class NewService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+@@ -53,7 +55,7 @@ class NewService {
+             }
+         }
+         this.log.local(`Opening browser to ${this.urlWithProjectName}`);
+-        core_1.CliUx.ux.open(this.urlWithProjectName).catch(_ => { });
++        core_1.CliUx.ux.open(this.urlWithProjectName);
+         core_1.CliUx.ux.action.start(`${chalk_1.default.dim(this.log.pretextLocal)}Waiting for project vault (.env.vault) to be created`);
+         await this.check();
+     }
+diff --git a/dist/services/open-service.js b/dist/services/open-service.js
+index c6c851be34c63f7fd33c33bde611e10b2440ef3c..592bac3cfc92b47a9946412b70ea000272ee9393 100644
+--- a/dist/services/open-service.js
++++ b/dist/services/open-service.js
+@@ -8,6 +8,8 @@ const fs_1 = require("fs");
+ const core_1 = require("@oclif/core");
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
++core_1.CliUx = { ux: core_1.ux };
++core_1.CliUx.ux.open = require("opener");
+ class OpenService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+@@ -34,7 +36,7 @@ class OpenService {
+         await core_1.CliUx.ux.wait(1000);
+         core_1.CliUx.ux.action.stop();
+         this.log.local(`Opening browser to ${this.openUrl}`);
+-        core_1.CliUx.ux.open(this.openUrl).catch(_ => { });
++        core_1.CliUx.ux.open(this.openUrl);
+         this.log.plain('');
+         this.log.plain(`Next run ${chalk_1.default.bold(`${vars_1.vars.cli} ${this.pushOrPullCommand}`)} to ${this.pushOrPullCommand} your .env file`);
+     }
+diff --git a/dist/services/pull-service.js b/dist/services/pull-service.js
+index 944a63c8e528432cc510ed698b2315265fa864fa..f8ce697a069509673ee10d03fa096b78fb8ff398 100644
+--- a/dist/services/pull-service.js
++++ b/dist/services/pull-service.js
+@@ -11,6 +11,7 @@ const append_to_ignore_service_1 = require("../services/append-to-ignore-service
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
+ const login_service_1 = require("../services/login-service");
++core_1.CliUx = { ux: core_1.ux };
+ class PullService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+diff --git a/dist/services/push-service.js b/dist/services/push-service.js
+index 5aed4a3fcfcbb1cb88245d607410f6c23732bbf3..2cfd952dcea555e5e84ef9d0541a31fbab05b6df 100644
+--- a/dist/services/push-service.js
++++ b/dist/services/push-service.js
+@@ -11,6 +11,7 @@ const append_to_ignore_service_1 = require("../services/append-to-ignore-service
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
+ const login_service_1 = require("../services/login-service");
++core_1.CliUx = { ux: core_1.ux };
+ class PushService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+diff --git a/dist/services/rotatekey-service.js b/dist/services/rotatekey-service.js
+index bf49d25036bc9e4f289a632335089f3036ce9dca..6b793c4585fd94eb3f11dfdc52fb9a1c055c8781 100644
+--- a/dist/services/rotatekey-service.js
++++ b/dist/services/rotatekey-service.js
+@@ -9,6 +9,7 @@ const core_1 = require("@oclif/core");
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
+ const login_service_1 = require("../services/login-service");
++core_1.CliUx = { ux: core_1.ux };
+ class RotatekeyService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+diff --git a/dist/services/status-service.js b/dist/services/status-service.js
+index 61063f7a5137b45461a8e3dcd8c5767592992eae..7ca5994fbb4c7862a7ad177f30d4be610f199343 100644
+--- a/dist/services/status-service.js
++++ b/dist/services/status-service.js
+@@ -6,6 +6,8 @@ const chalk_1 = tslib_1.__importDefault(require("chalk"));
+ const core_1 = require("@oclif/core");
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
++core_1.CliUx = { ux: core_1.ux };
++core_1.CliUx.ux.open = require("opener");
+ class StatusService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+@@ -25,7 +27,7 @@ class StatusService {
+         await core_1.CliUx.ux.wait(1000);
+         core_1.CliUx.ux.action.stop();
+         this.log.local(`Opening browser to ${this.statusUrl}`);
+-        core_1.CliUx.ux.open(this.statusUrl).catch(_ => { });
++        core_1.CliUx.ux.open(this.statusUrl);
+     }
+     get statusUrl() {
+         return 'https://status.dotenv.org';
+diff --git a/dist/services/versions-service.js b/dist/services/versions-service.js
+index 5fc3dcb036db1e38802d8a26de8b4e3e8cbb1179..f6eb7180cb4c93b431da161b4b972ae1d7b9bf4b 100644
+--- a/dist/services/versions-service.js
++++ b/dist/services/versions-service.js
+@@ -10,6 +10,7 @@ const append_to_ignore_service_1 = require("../services/append-to-ignore-service
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
+ const login_service_1 = require("../services/login-service");
++core_1.CliUx = { ux: core_1.ux };
+ class VersionsService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;
+diff --git a/dist/services/whoami-service.js b/dist/services/whoami-service.js
+index f16a66e115c92399a11b8746af7d5a89bcaf6aa9..8a60d29cbd9fbd1ad66e409828648a975d31c5e0 100644
+--- a/dist/services/whoami-service.js
++++ b/dist/services/whoami-service.js
+@@ -7,6 +7,7 @@ const vars_1 = require("../vars");
+ const core_1 = require("@oclif/core");
+ const log_service_1 = require("../services/log-service");
+ const abort_service_1 = require("../services/abort-service");
++core_1.CliUx = { ux: core_1.ux };
+ class WhoamiService {
+     constructor(attrs = {}) {
+         this.cmd = attrs.cmd;

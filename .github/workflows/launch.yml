@@ -23,15 +23,15 @@ jobs:
     env:
       base_ref: ${{ inputs.base_ref_sha || github.ref_name }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      TURBO_REMOTE_ONLY: true
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_TELEMETRY_DISABLED: 1
     steps:
       - name: Configure git
         run: |
           git config --global user.name github-actions[bot]
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
-        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
           fetch-depth: 0
           ref: ${{ env.base_ref }}
@@ -47,6 +47,10 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ env.base_ref }}" >> .env
+      - name: Start Turbo Cache Server
+        uses: rharkor/caching-for-turbo@59ad364a4f90d10e3a5f4c9eb125ae47a992428b # v1.1
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
         run: |
           yarn install

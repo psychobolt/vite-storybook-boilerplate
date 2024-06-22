@@ -21,13 +21,15 @@ jobs:
     environment: '${{ inputs.workspace }}/${{ matrix.os }}'
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      TURBO_REMOTE_ONLY: true
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
+      TURBO_TELEMETRY_DISABLED: 1
       CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Check out code
-        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
           fetch-depth: 50
           ref: ${{ inputs.ref_name || github.ref }}
@@ -54,22 +56,30 @@ jobs:
         run: yarn install
       - name: Install Playwright
         run: yarn playwright install --with-deps chromium
+      - name: Create Turbo Cache Server Log
+        if: matrix.os == 'windows-latest'
+        run: mkdir D:/tmp && touch D:/tmp/turbogha.log || exit 0
+        shell: bash
+      - name: Start Turbo Cache Server
+        uses: rharkor/caching-for-turbo@59ad364a4f90d10e3a5f4c9eb125ae47a992428b # v1.1
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Coverage
         env:
           # Workaround for https://github.com/facebook/jest/issues/8536
           TEMP: ${{ runner.temp }}
         run: >-
-          npx concurrently -k -s first -n "SB,TEST"
-          "yarn workspace ${{ inputs.workspace }} turbo run start -- --silent"
-          "npx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
+          yarn dlx concurrently -k -s first -n "SB,TEST"
+          "yarn workspace ${{ inputs.workspace }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} -- --silent"
+          "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
-        uses: codecov/codecov-action@6d798873df2b1b8e5846dba6fb86631229fbcb17 # v4
+        uses: codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673 # v4
         with:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Run Chromatic
-        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic
+        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
