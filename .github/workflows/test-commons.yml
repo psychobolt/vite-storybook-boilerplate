@@ -49,7 +49,7 @@ jobs:
         run: mkdir D:/tmp && touch D:/tmp/turbogha.log || exit 0
         shell: bash
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@d030e8813d3de6746943c17def1f5643b1dd1e94 # v1.1
+        uses: rharkor/caching-for-turbo@59ad364a4f90d10e3a5f4c9eb125ae47a992428b # v1.1
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
