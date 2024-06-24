@@ -67,7 +67,7 @@
     "rimraf": "5.0.7",
     "storybook": "8.1.10",
     "tsconfig-to-dual-package": "1.2.0",
-    "turbo": "2.0.4",
+    "turbo": "2.0.5",
     "typescript": "5.4.5"
   }
 }
