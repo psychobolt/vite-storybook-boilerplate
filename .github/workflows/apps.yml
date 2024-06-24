@@ -49,7 +49,7 @@ jobs:
         uses: benc-uk/workflow-dispatch@25b02cc069be46d637e8fe2f1e8484008e9e9609 # v1
         with:
           workflow: renovate.yml
-          inputs: '{ "ref": "${{ github.ref }}" }'
+          inputs: '{ "ref": "${{ github.head_ref || github.ref }}" }'
 
   next-app:
     needs: install
