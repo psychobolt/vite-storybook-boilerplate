@@ -117,7 +117,7 @@ jobs:
     with:
       ref_name: ${{ inputs.ref_name }}
       base_ref: ${{ inputs.base_ref || github.base_ref }}
-      head_ref: ${{ github.event.pull_request.head.ref }}
+      head_ref: ${{ github.head_ref }}
       package_names: ${{ needs.diff.outputs.package_names }}
       force: ${{ needs.diff.outputs.force == 'true' }}
 
