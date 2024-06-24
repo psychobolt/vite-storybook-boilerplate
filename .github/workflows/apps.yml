@@ -45,7 +45,7 @@ jobs:
       # following step is only used for branch pushes from renovate workflow
       - name: Trigger post upgrade
         id: trigger
-        if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
+        if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.head_ref || github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
         uses: benc-uk/workflow-dispatch@25b02cc069be46d637e8fe2f1e8484008e9e9609 # v1
         with:
           workflow: renovate.yml
