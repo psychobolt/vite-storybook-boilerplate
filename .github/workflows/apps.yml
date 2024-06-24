@@ -35,7 +35,7 @@ jobs:
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@59ad364a4f90d10e3a5f4c9eb125ae47a992428b # v1.1
+        uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
@@ -45,7 +45,7 @@ jobs:
       # following step is only used for branch pushes from renovate workflow
       - name: Trigger post upgrade
         id: trigger
-        if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
+        if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(github.head_ref || github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
         uses: benc-uk/workflow-dispatch@25b02cc069be46d637e8fe2f1e8484008e9e9609 # v1
         with:
           workflow: renovate.yml

@@ -6,16 +6,10 @@ on:
       - main
       - develop
       - release-*
-      - renovate/*
-  pull_request:
-    branches-ignore: 
-      - bitbucket
-      - cherry-pick-*
   workflow_call:
     inputs:
       ref_name:
         type: string
-        required: true
       base_ref:
         type: string
 
@@ -51,12 +45,8 @@ jobs:
           cache-dependency-path: ./yarn.lock
       - name: Install dependencies
         run: yarn install
-      - name: Create Turbo Cache Server Log
-        if: matrix.os == 'windows-latest'
-        run: mkdir D:/tmp && touch D:/tmp/turbogha.log || exit 0
-        shell: bash
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@59ad364a4f90d10e3a5f4c9eb125ae47a992428b # v1.1
+        uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Lint
@@ -103,7 +93,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
       - name: Start Turbo Cache Server # TODO: Verify if this is needed for dry-run
-        uses: rharkor/caching-for-turbo@59ad364a4f90d10e3a5f4c9eb125ae47a992428b # v1.1
+        uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Collect Turborepo Changes
@@ -167,7 +157,7 @@ jobs:
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.base_ref || 'HEAD~1' }}" >> .env
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@59ad364a4f90d10e3a5f4c9eb125ae47a992428b # v1.1
+        uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
@@ -183,23 +173,3 @@ jobs:
       - name: Push
         if: startsWith(env.REF_NAME, 'release-')
         run: git push
-
-  finish:
-    needs: [test, diff, apps, packages, release]
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Check status of all required jobs'
-        run: |-
-          NEEDS_CONTEXT='${{ toJson(needs) }}'
-          JOB_IDS=$(echo "$NEEDS_CONTEXT" | jq -r 'keys[]')
-          for JOB_ID in $JOB_IDS; do
-            RESULT=$(echo "$NEEDS_CONTEXT" | jq -r ".[\"$JOB_ID\"].result")
-            echo "$JOB_ID job result: $RESULT"
-            if [[ "$RESULT" != "success" && "$RESULT" != "skipped" ]]; then
-              echo "***"
-              echo "Error: The $JOB_ID job did not pass."
-              exit 1
-            fi
-          done
-          echo "All jobs passed or were skipped."
