@@ -12,6 +12,10 @@ on:
         type: string
       base_ref:
         type: string
+      head_ref:
+        type: string
+      diff_count:
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.ref_name || github.head_ref || github.ref_name }}
@@ -63,7 +67,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
-          fetch-depth: 2
+          fetch-depth: ${{ inputs.diff_count || 2 }}
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Setup Node.js environment
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
@@ -77,8 +81,8 @@ jobs:
               - '.yarn/versions/**'
             force:
               - '.github/**'
-          base: ${{ inputs.ref_name || github.ref }}
-          initial-fetch-depth: 50
+          base: ${{ inputs.base_ref || github.base_ref }}
+          initial-fetch-depth: 1
       - name: Copy version files
         if: steps.filter.outputs.versions == 'true'
         run: |
@@ -103,7 +107,7 @@ jobs:
         env:
           TURBO_TELEMETRY_DISABLED: 1
         with:
-          from: ${{ github.base_ref || 'HEAD~1' }}
+          from: ${{ inputs.head_ref || github.base_ref || 'HEAD~1' }}
 
   apps:
     needs: diff
@@ -111,6 +115,8 @@ jobs:
     secrets: inherit
     with:
       ref_name: ${{ inputs.ref_name }}
+      base_ref: ${{ inputs.base_ref || github.base_ref }}
+      head_ref: ${{ github.head_ref }}
       package_names: ${{ needs.diff.outputs.package_names }}
       force: ${{ needs.diff.outputs.force == 'true' }}
 
@@ -119,7 +125,7 @@ jobs:
     uses: ./.github/workflows/packages.yml
     secrets: inherit
     with:
-      ref_name: ${{ inputs.ref_name }}
+      ref_name: ${{ inputs.base_ref || github.base_ref }}
       package_names: ${{ needs.diff.outputs.package_names }}
       force: ${{ needs.diff.outputs.force == 'true' }}
 
@@ -155,7 +161,7 @@ jobs:
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
-        run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.base_ref || 'HEAD~1' }}" >> .env
+        run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.head_ref || 'HEAD~1' }}" >> .env
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
         with:
