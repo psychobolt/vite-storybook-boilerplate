@@ -53,7 +53,7 @@
 		"turbo": "2.0.4",
 		"typescript": "5.4.5",
 		"typescript-eslint": "7.13.1",
-		"vite": "5.2.12"
+		"vite": "5.3.1"
 	},
 	"resolutions": {
 		"@dotenvx/dotenvx@0.26.0": "patch:@dotenvx/dotenvx@npm%3A0.26.0#../../.yarn/patches/@dotenvx-dotenvx-npm-0.26.0-f0a78a0617.patch",
