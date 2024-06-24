@@ -10443,7 +10443,7 @@ __metadata:
     ts-enum-util: "npm:4.1.0"
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:2.0.4"
-    typescript: "npm:5.4.5"
+    typescript: "npm:5.5.2"
     typescript-eslint: "npm:7.13.1"
     vite: "npm:5.3.1"
     vite-tsconfig-paths: "npm:4.3.2"
@@ -14319,7 +14319,7 @@ __metadata:
     sass: "npm:1.77.6"
     stylelint-config: "workspace:*"
     turbo: "npm:2.0.4"
-    typescript: "npm:5.4.5"
+    typescript: "npm:5.5.2"
     typescript-plugin-css-modules: "npm:5.1.0"
     vite: "npm:5.3.1"
   languageName: unknown
@@ -17877,7 +17877,7 @@ __metadata:
     react-dom: "npm:18.3.1"
     react-ui: "workspace:*"
     turbo: "npm:2.0.4"
-    typescript: "npm:5.4.5"
+    typescript: "npm:5.5.2"
   languageName: unknown
   linkType: soft
 
@@ -19760,7 +19760,7 @@ __metadata:
     sass: "npm:1.77.6"
     stylelint-config: "workspace:*"
     turbo: "npm:2.0.4"
-    typescript: "npm:5.4.5"
+    typescript: "npm:5.5.2"
     typescript-plugin-css-modules: "npm:5.1.0"
     vite: "npm:5.3.1"
   peerDependencies:
@@ -21597,7 +21597,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:13.1.0"
     stylelint-order: "npm:6.0.4"
     turbo: "npm:2.0.4"
-    typescript: "npm:5.4.5"
+    typescript: "npm:5.5.2"
   languageName: unknown
   linkType: soft
 
@@ -21791,7 +21791,7 @@ __metadata:
     svelte-language-server: "npm:0.16.11"
     tslib: "npm:2.6.3"
     turbo: "npm:2.0.4"
-    typescript: "npm:5.4.5"
+    typescript: "npm:5.5.2"
     typescript-eslint: "npm:7.13.1"
     vite: "npm:5.3.1"
   languageName: unknown
@@ -22820,7 +22820,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.4.5, typescript@npm:^5.3.2":
+"typescript@npm:5.5.2":
+  version: 5.5.2
+  resolution: "typescript@npm:5.5.2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/8ca39b27b5f9bd7f32db795045933ab5247897660627251e8254180b792a395bf061ea7231947d5d7ffa5cb4cc771970fd4ef543275f9b559f08c9325cccfce3
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^5.3.2":
   version: 5.4.5
   resolution: "typescript@npm:5.4.5"
   bin:
@@ -22840,7 +22850,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>":
+  version: 5.5.2
+  resolution: "typescript@patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/a7b7ede75dc7fc32a76d0d0af6b91f5fbd8620890d84c906f663d8783bf3de6d7bd50f0430b8bb55eac88a38934af847ff709e7156e5138b95ae94cbd5f73e5b
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
   version: 5.4.5
   resolution: "typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"
   bin:
@@ -23421,7 +23441,7 @@ __metadata:
     semver: "npm:7.6.2"
     stylelint: "npm:16.6.1"
     turbo: "npm:2.0.4"
-    typescript: "npm:5.4.5"
+    typescript: "npm:5.5.2"
     yaml: "npm:2.4.5"
   languageName: unknown
   linkType: soft
