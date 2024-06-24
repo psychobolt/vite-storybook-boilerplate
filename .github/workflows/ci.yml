@@ -9,7 +9,8 @@ on:
       - renovate/*
   pull_request:
     branches-ignore: 
-      bitbucket
+      - bitbucket
+      - cherry-pick-*
   workflow_call:
     inputs:
       ref_name:
@@ -19,19 +20,12 @@ on:
         type: string
 
 concurrency:
-  group: ${{ github.workflow }}-${{ inputs.ref_name || github.ref }}
+  group: ${{ github.workflow }}-${{ inputs.ref_name || github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
-  check-source-branch:
-    if: github.event_name != 'pull_request' || github.event_name == 'pull_request' && !startsWith(github.head_ref, 'renovate/')
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Proceed with CI"
-
   test:
     name: Test
-    needs: check-source-branch
     timeout-minutes: 15
     strategy:
       matrix:
@@ -70,7 +64,6 @@ jobs:
 
   diff:
     name: List Updated Packages
-    needs: check-source-branch
     timeout-minutes: 15
     runs-on: ubuntu-latest
     outputs:
@@ -192,8 +185,8 @@ jobs:
         run: git push
 
   finish:
-    needs: [check-source-branch, test, diff, apps, packages, release]
-    if: always() && needs.check-source-branch.result != 'skipped'
+    needs: [test, diff, apps, packages, release]
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: 'Check status of all required jobs'
