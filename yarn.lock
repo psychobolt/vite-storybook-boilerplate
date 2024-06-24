@@ -21267,7 +21267,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:13.1.0"
     svelte: "npm:4.2.18"
     svelte-check: "npm:3.8.1"
-    svelte-eslint-parser: "npm:0.36.0"
+    svelte-eslint-parser: "npm:0.39.2"
     svelte-language-server: "npm:0.16.11"
     tslib: "npm:2.6.3"
     turbo: "npm:2.0.4"
@@ -21297,9 +21297,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-eslint-parser@npm:0.36.0":
-  version: 0.36.0
-  resolution: "svelte-eslint-parser@npm:0.36.0"
+"svelte-eslint-parser@npm:0.39.2":
+  version: 0.39.2
+  resolution: "svelte-eslint-parser@npm:0.39.2"
   dependencies:
     eslint-scope: "npm:^7.2.2"
     eslint-visitor-keys: "npm:^3.4.3"
@@ -21311,7 +21311,7 @@ __metadata:
   peerDependenciesMeta:
     svelte:
       optional: true
-  checksum: 10c0/b9a2ff922dbc2518b59304e24e7d91d691c88293f2d4b23ebdb64e1b86c09e7b55de949b20ef1c6a085060c8380dc33e6d12f2bfe7070be7ce8749741871e1b4
+  checksum: 10c0/c9fbb1ef71c88e06e079724e3605636656b5742d5fc5e1d90e46b35145cf45fde1a661674cb642b3c888633c8c191f434b8d18b90f8859d6355314d36ceabc75
   languageName: node
   linkType: hard
 
