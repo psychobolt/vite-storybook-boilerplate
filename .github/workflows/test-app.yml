@@ -68,14 +68,15 @@ jobs:
           yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
-      - name: Install Vercel Tools
-        run: npm install -g vercel turbo-ignore
       - name: Run Build
         if: matrix.os == 'windows-latest'
         run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Fetch base branch
         if: matrix.os == 'ubuntu-latest' && github.event_name == 'pull_request'
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
+      - name: Install Vercel Tools
+        if: matrix.os == 'ubuntu-latest'
+        run: npm install -g vercel turbo-ignore
       - name: Run turbo-ignore
         id: deploy
         if: matrix.os == 'ubuntu-latest'
