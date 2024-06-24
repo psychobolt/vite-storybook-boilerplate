@@ -2,7 +2,7 @@
   "name": "react-ui",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.3.1",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "exports": {
@@ -45,7 +45,7 @@
     "commons": "workspace:*",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
-    "nyc": "15.1.0",
+    "nyc": "17.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sass": "1.77.6",
