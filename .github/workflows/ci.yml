@@ -94,9 +94,10 @@ jobs:
           npm install -g turbo@$(jq -r .devDependencies.turbo package.json)
           turbo --version
       - name: Fetch base branch
-        if: github.event_name == 'pull_request'
+        if: steps.filter.outputs.force == 'false' && github.event_name == 'pull_request'
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
       - name: Start Turbo Cache Server # TODO: Verify if this is needed for dry-run
+        if: steps.filter.outputs.force == 'false'
         uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
