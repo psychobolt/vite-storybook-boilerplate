@@ -57,7 +57,7 @@ jobs:
       - name: Install Playwright
         run: yarn playwright install --with-deps chromium
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@49518c35eb1b2ef8d9596f61d3e2492d440c4350
+        uses: rharkor/caching-for-turbo@v1.4
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Run Lint
