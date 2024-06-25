@@ -8209,7 +8209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:7.14.1":
+"@typescript-eslint/utils@npm:*, @typescript-eslint/utils@npm:7.14.1":
   version: 7.14.1
   resolution: "@typescript-eslint/utils@npm:7.14.1"
   dependencies:
