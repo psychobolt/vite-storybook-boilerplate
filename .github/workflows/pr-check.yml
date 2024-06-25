@@ -9,6 +9,10 @@ on:
       - bitbucket
       - cherry-pick-*
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   install:
     runs-on: ubuntu-latest
