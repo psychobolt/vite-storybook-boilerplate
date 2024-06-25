@@ -28,7 +28,7 @@
     "apps/*"
   ],
   "devDependencies": {
-    "@dotenvx/dotenvx": "0.45.0",
+    "@dotenvx/dotenvx": "1.0.0",
     "@swc-node/register": "1.9.0",
     "@swc/core": "1.5.3",
     "@types/glob-to-regexp": "0.4.4",
@@ -46,7 +46,7 @@
     "glob-to-regexp": "0.4.1",
     "husky": "9.0.11",
     "lint-staged": "15.2.7",
-    "playwright": "1.44.1",
+    "playwright": "1.45.0",
     "semver": "7.6.2",
     "stylelint": "16.6.1",
     "turbo": "2.0.5",
@@ -57,6 +57,7 @@
     "@swc-node/register@1.9.0": "patch:@swc-node/register@npm%3A1.9.0#~/.yarn/patches/@swc-node-register-npm-1.9.0-4530442723.patch",
     "dotenv-vault@1.26.2": "patch:dotenv-vault@npm%3A1.26.2#~/.yarn/patches/dotenv-vault-npm-1.26.2-cad1be6652.patch",
     "dotenv-vault/@oclif/core@^1": "npm:3.23.0",
-    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
+    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
+    "@storybook/test-runner@0.19.0/@storybook/csf@npm:^0.1.2": "npm:0.1.9"
   }
 }

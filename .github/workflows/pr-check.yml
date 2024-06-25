@@ -1,16 +1,19 @@
 name: Merge Check
 
 on:
-  push:
-    branches:
-      - renovate/*
   pull_request:
     branches-ignore: 
       - bitbucket
       - cherry-pick-*
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  # following job is only used for branch pushes from renovate workflow
   install:
+    if: startsWith(github.head_ref || github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -28,17 +31,15 @@ jobs:
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
+        uses: rharkor/caching-for-turbo@49518c35eb1b2ef8d9596f61d3e2492d440c4350
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
         run: |
           yarn install
           yarn bootstrap
-      # following step is only used for branch pushes from renovate workflow
       - name: Trigger post upgrade
-        id: trigger
-        if: failure() && startsWith(github.head_ref || github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
+        if: failure()
         uses: benc-uk/workflow-dispatch@25b02cc069be46d637e8fe2f1e8484008e9e9609 # v1
         with:
           workflow: renovate.yml
