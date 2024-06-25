@@ -5858,6 +5858,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/csf@npm:0.1.9":
+  version: 0.1.9
+  resolution: "@storybook/csf@npm:0.1.9"
+  dependencies:
+    type-fest: "npm:^2.19.0"
+  checksum: 10c0/f94765d671d80fabbf6b372c82ab80cc2960027bfab0dc2f47001fe49d78caab90f32abab372aa27ab7b67b4a8f39d3dc0c5c43b7c83ce9f60d238e9fb1f0499
+  languageName: node
+  linkType: hard
+
 "@storybook/csf@npm:^0.1.0":
   version: 0.1.1
   resolution: "@storybook/csf@npm:0.1.1"
