@@ -37,7 +37,7 @@ jobs:
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@v1.5
+        uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies

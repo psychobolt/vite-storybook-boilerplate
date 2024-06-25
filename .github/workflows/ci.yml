@@ -50,7 +50,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@v1.5
+        uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Lint
@@ -98,7 +98,7 @@ jobs:
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
       - name: Start Turbo Cache Server # TODO: Verify if this is needed for dry-run
         if: steps.filter.outputs.force == 'false'
-        uses: rharkor/caching-for-turbo@v1.5
+        uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Collect Turborepo Changes
@@ -163,7 +163,7 @@ jobs:
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.head_ref || 'HEAD~1' }}" >> .env
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@v1.5
+        uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
