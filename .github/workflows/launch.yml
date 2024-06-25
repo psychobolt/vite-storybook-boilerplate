@@ -48,7 +48,7 @@ jobs:
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ env.base_ref }}" >> .env
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
+        uses: rharkor/caching-for-turbo@49518c35eb1b2ef8d9596f61d3e2492d440c4350
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
