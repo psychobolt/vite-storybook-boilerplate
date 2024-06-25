@@ -2,6 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { FlatCompat } from '@eslint/eslintrc';
 import tsParser from '@typescript-eslint/parser';
+import love from 'eslint-config-love';
 import * as mdx from 'eslint-plugin-mdx';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import tseslint from 'typescript-eslint';
@@ -20,8 +21,8 @@ const compat = new FlatCompat({
 
 export default tseslint.config(
   {
+    ...love,
     files: ['**/*.{ts,tsx}'],
-    extends: compat.extends('love'),
     languageOptions: {
       parser: tsParser,
       parserOptions: {
