@@ -7,8 +7,6 @@ on:
         type: string
       base_ref:
         type: string
-      head_ref:
-        type: string
       package_names:
         type: string
         required: true
@@ -19,44 +17,7 @@ on:
         value: 'false'
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-      TURBO_TELEMETRY_DISABLED: 1
-      YARN_ENABLE_HARDENED_MODE: 0
-    steps:
-      - name: Check out code
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-        with:
-          ref: ${{ inputs.head_ref || inputs.ref_name || github.ref }}
-      - name: Setup Node.js environment
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
-        with:
-          node-version: lts/*
-          cache: yarn
-          cache-dependency-path: '**/yarn.lock'
-      - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@2e8eba6ca57bfcd5619416cfd1ad79f581901040
-        with:
-          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
-      - name: Install dependencies
-        run: |
-          yarn install
-          yarn bootstrap
-      # following step is only used for branch pushes from renovate workflow
-      - name: Trigger post upgrade
-        id: trigger
-        if: failure() && github.repository == 'psychobolt/vite-storybook-boilerplate' && startsWith(inputs.head_ref || github.ref_name, 'renovate/') && github.actor == 'renovate[bot]'
-        uses: benc-uk/workflow-dispatch@25b02cc069be46d637e8fe2f1e8484008e9e9609 # v1
-        with:
-          workflow: renovate.yml
-          inputs: '{ "ref": "${{ inputs.head_ref || github.ref }}" }'
-
   next-app:
-    needs: install
     if: inputs.force || contains(fromJSON(inputs.package_names), 'next-app')
     uses: ./.github/workflows/test-app.yml
     with:
@@ -67,7 +28,6 @@ jobs:
     secrets: inherit
 
   svelte-app:
-    needs: install
     if: inputs.force || contains(fromJSON(inputs.package_names), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
     with:
