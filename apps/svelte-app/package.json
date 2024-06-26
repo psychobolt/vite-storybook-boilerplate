@@ -5,8 +5,8 @@
 	"packageManager": "yarn@4.3.1",
 	"scripts": {
 		"dotenv-run": "yarn dotenvx -q run -f ../../.env.defaults -f ../../.env -f .env.defaults --overload",
-		"g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
-		"run-script": "cd $INIT_CWD && yarn dotenv-run -- node --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, '../../bin/swc-register.js')\")",
+		"swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
+		"run-script": "cd $INIT_CWD && yarn dotenv-run --env=\"ESM_REGISTER=$(yarn swc-register-path)\" -- node --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, '../../bin/esm-register.js')\")",
 		"dev": "vite dev --open",
 		"build": "vite build",
 		"preview": "vite preview",
