@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync, spawn } from 'node:child_process';
-import { dirname } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export default function run(args) {
@@ -22,7 +22,8 @@ export default function run(args) {
   const child = spawn('node', args, {
     env: {
       ...process.env,
-      NODE_OPTIONS: `${nodeOptions} --loader ${swcRegisterPath}`
+      ESM_REGISTER: swcRegisterPath,
+      NODE_OPTIONS: `${nodeOptions} --import ${resolve('esm-register.js')}`
     },
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   }).on('message', (data) => {
