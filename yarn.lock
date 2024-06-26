@@ -7773,12 +7773,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.14.8":
-  version: 20.14.8
-  resolution: "@types/node@npm:20.14.8"
+"@types/node@npm:20.14.9":
+  version: 20.14.9
+  resolution: "@types/node@npm:20.14.9"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/06d4643fa3b179b41fe19f9c75c240278ca1f7a313b3b837bc36ea119499c7ad77f06bbe72694ac04aa91ec77fe747baa09b889f4c435450c1724a26bd55f160
+  checksum: 10c0/911ffa444dc032897f4a23ed580c67903bd38ea1c5ec99b1d00fa10b83537a3adddef8e1f29710cbdd8e556a61407ed008e06537d834e48caf449ce59f87d387
   languageName: node
   linkType: hard
 
@@ -17810,7 +17810,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@types/node": "npm:20.14.8"
+    "@types/node": "npm:20.14.9"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     eslint: "npm:8.57.0"
@@ -21715,7 +21715,7 @@ __metadata:
     "@types/eslint": "npm:8.56.10"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/eslint__js": "npm:8.42.3"
-    "@types/node": "npm:20.14.8"
+    "@types/node": "npm:20.14.9"
     "@typescript-eslint/utils": "npm:7.14.1"
     commons: "workspace:*"
     eslint: "npm:8.57.0"
@@ -23347,7 +23347,7 @@ __metadata:
     "@swc-node/register": "npm:1.9.0"
     "@swc/core": "npm:1.5.3"
     "@types/glob-to-regexp": "npm:0.4.4"
-    "@types/node": "npm:20.14.8"
+    "@types/node": "npm:20.14.9"
     "@types/semver": "npm:7.5.8"
     "@yarnpkg/core": "npm:4.1.1"
     "@yarnpkg/fslib": "npm:3.1.0"
