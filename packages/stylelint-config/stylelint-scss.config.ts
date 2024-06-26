@@ -8,8 +8,13 @@ const require = createRequire(
     : path.join(process.cwd(), 'packages/unplugged/node_modules')
 );
 
-const { flatten, unflatten } = await import(path.join('file://', require.resolve('flat')));
-const orderConfig: Record<string, any> = require('stylelint-config-hudochenkov/order');
+const { flatten, unflatten } = await import(
+  path.join('file://', require.resolve('flat'))
+);
+const orderConfig: Record<
+  string,
+  any
+> = require('stylelint-config-hudochenkov/order');
 const orderConfigPlugins: Array<string | Plugin> = orderConfig.plugins;
 const orderConfigRulesFlat: Record<string, any> = flatten(orderConfig.rules);
 
@@ -19,7 +24,9 @@ const config: Config = {
     require.resolve('stylelint-config-prettier-scss')
   ],
   plugins: [
-    ...orderConfigPlugins.map(plugin => typeof plugin === 'string' ? require.resolve(plugin) : plugin)
+    ...orderConfigPlugins.map((plugin) =>
+      typeof plugin === 'string' ? require.resolve(plugin) : plugin
+    )
   ],
   rules: {
     ...unflatten({
@@ -28,7 +35,7 @@ const config: Config = {
       'order/properties-order.1.severity': 'error'
     })
   },
-  allowEmptyInput: true,
+  allowEmptyInput: true
 };
 
 export default config;

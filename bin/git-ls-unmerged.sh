@@ -1,4 +1,4 @@
-# Given a list of commits $COMMITS, 
+# Given a list of commits $COMMITS,
 #  find all commits not merged into $BASE_REF
 
 REF=""
@@ -10,8 +10,8 @@ for commit in "${arr[@]}"; do
   git fetch --depth=1 origin $commit -q
   commit=$(
     git merge-base --is-ancestor $commit ${BASE_REF:-"origin/main"} \
-    || (git log ${BASE_REF:-"origin/main"} --grep $commit --pretty=format:'%H' && echo $commit) \
-    || echo $commit \
+      || (git log ${BASE_REF:-"origin/main"} --grep $commit --pretty=format:'%H' && echo $commit) \
+      || echo $commit
   )
   if [ ! -z "$commit" ]; then
     REF+="$commit "

@@ -1,5 +1,4 @@
-.*
-*.sh
+.yarn/sdks
 !.yarn/plugins/
 !.yarnrc.yml
 apps

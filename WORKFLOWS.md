@@ -31,7 +31,7 @@ Anytime there are new updates, run:
 ```sh
 git fetch base
 git merge base/main [--squash]
-git add . # after resolving any conflicts
+git add .                                # after resolving any conflicts
 git commit -m "upgrading infrastructure" # your comment
 git push
 ```

@@ -2,7 +2,7 @@ name: Merge Check
 
 on:
   pull_request:
-    branches-ignore: 
+    branches-ignore:
       - bitbucket
       - cherry-pick-*
 
@@ -71,4 +71,3 @@ jobs:
             fi
           done
           echo "All jobs passed or were skipped."
-    
