@@ -118,9 +118,23 @@ Utility for applying version strategy targets from `.yarn/versions`. Before runn
 
 ## SWC Node
 
-Start a SWC enabled runtime with hooks on loading modules based on Yarn PnP resolvers. Ideally is used for tools that do not invoke the yarn CLI.
+`swc-node.js` [Source](swc-node.js)
+
+Start a SWC enabled runtime that hooks on loading modules based on Yarn PnP resolvers. Ideally is used for tools that do not invoke the yarn CLI.
 
 ```sh
 # Example
 node bin/swc-node.js [my-script.js] [options]
 ```
+
+## ESM Register
+
+`esm-register.js` [Source](esm-register.js)
+
+As of Node v20, [hooks](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) can be utilzed to customize the default resolution and loading of scripts. This is a general hook script that you can use with the `--import` flag.
+
+```sh
+ESM_REGISTER="my-hook.js" node --import bin/esm-register.js
+```
+
+For example, by default, the [run-script](../DEVELOPMENT.md#main-project) command is setup with the [SWC register hook](../package.json#L13). Please see [API docs](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) on defining your own hook.
