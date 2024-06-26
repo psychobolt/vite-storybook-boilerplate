@@ -3991,6 +3991,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc-node/register@patch:@swc-node/register@npm%3A1.9.2#../../.yarn/patches/@swc-node-register-npm-1.9.2-365a3de13b.patch::locator=svelte-app%40workspace%3A.":
+  version: 1.9.2
+  resolution: "@swc-node/register@patch:@swc-node/register@npm%3A1.9.2#../../.yarn/patches/@swc-node-register-npm-1.9.2-365a3de13b.patch::version=1.9.2&hash=b30f85&locator=svelte-app%40workspace%3A."
+  dependencies:
+    "@swc-node/core": "npm:^1.13.1"
+    "@swc-node/sourcemap-support": "npm:^0.5.0"
+    colorette: "npm:^2.0.20"
+    debug: "npm:^4.3.4"
+    pirates: "npm:^4.0.6"
+    tslib: "npm:^2.6.2"
+  peerDependencies:
+    "@swc/core": ">= 1.4.13"
+    typescript: ">= 4.3"
+  checksum: 10c0/b88aeba439e94f3e6389d6b848442248d8b37f1e4aac21fddea3d3bd4859b6a25d6e28ac087eee6b367c971d0f677d4189d936c5132839cb312ebc6743cc9d17
+  languageName: node
+  linkType: hard
+
 "@swc-node/sourcemap-support@npm:^0.5.0":
   version: 0.5.0
   resolution: "@swc-node/sourcemap-support@npm:0.5.0"

@@ -10,7 +10,7 @@
     "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults --overload",
     "g:dotenv-vault": "cd $INIT_CWD && dotenv-vault",
     "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
-    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run -- node --loader file://$(yarn g:swc-register-path)",
+    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run -- node --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, 'bin/swc-register.js')\")",
     "run-script": "yarn g:run-script",
     "turbo": "yarn run-script bin/turbo.ts",
     "ls-workspaces": "yarn run-script bin/ls-workspaces.ts",
@@ -54,10 +54,10 @@
     "yaml": "2.4.5"
   },
   "resolutions": {
-    "@swc-node/register@1.9.0": "patch:@swc-node/register@npm%3A1.9.0#~/.yarn/patches/@swc-node-register-npm-1.9.0-4530442723.patch",
+    "@storybook/test-runner@0.19.0/@storybook/csf@npm:^0.1.2": "npm:0.1.9",
+    "@swc-node/register@1.9.2": "patch:@swc-node/register@npm%3A1.9.2#~/.yarn/patches/@swc-node-register-npm-1.9.2-365a3de13b.patch",
     "dotenv-vault@1.26.2": "patch:dotenv-vault@npm%3A1.26.2#~/.yarn/patches/dotenv-vault-npm-1.26.2-cad1be6652.patch",
     "dotenv-vault/@oclif/core@^1": "npm:3.23.0",
-    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
-    "@storybook/test-runner@0.19.0/@storybook/csf@npm:^0.1.2": "npm:0.1.9"
+    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
   }
 }
