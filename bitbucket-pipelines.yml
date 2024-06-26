@@ -93,6 +93,7 @@ pipelines:
       - step: &build-root
           name: Build and Test Root
           max-time: 10
+          size: 2x
           caches:
             - yarn-3eb9b0ffed2b841c
           script:
@@ -102,6 +103,7 @@ pipelines:
           - step:
               name: Build and Test Commons
               max-time: 10
+              size: 2x
               condition:
                 changesets:
                   includePaths:
