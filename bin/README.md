@@ -20,13 +20,13 @@ We can validate and cherry-pick several commits that are not in `BASE_REF`. The 
 
 ```sh
 COMMITS="f67dda88fe9d0a892c44af923cbbc50bfe454e0e bf7352d6328221cd1c02104c99f57faf5be54c7d" # possible commits
-BASE_REF=master # if not declared, uses `origin/main`
+BASE_REF=master                                                                             # if not declared, uses `origin/main`
 source ./git-ls-unmerged.sh
 echo $REF
-echo $COUNT # returns number of commits not in BASE_REF
-echo $OUTPUT # shortened REF, each SHA seperated by '-'
+echo $COUNT                         # returns number of commits not in BASE_REF
+echo $OUTPUT                        # shortened REF, each SHA seperated by '-'
 git checkout -b cherry-pick-$OUTPUT # create a PR branch
-git cherry-pick $REF -x # note we should always provide the original SHA in the commit message. The 'x' arg will handle this.
+git cherry-pick $REF -x             # note we should always provide the original SHA in the commit message. The 'x' arg will handle this.
 git push
 ```
 

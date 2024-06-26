@@ -32,7 +32,7 @@ In order to support lint highlighting in VSCode editor, your workspace config mu
 ```sh
 # Some examples
 yarn my-bin-script # Execute a binary script
-yarn my-task-name # Run a task
+yarn my-task-name  # Run a task
 yarn run [-B] my-bin-or-task-name
 yarn exec my-bin-or-script
 ```
@@ -44,17 +44,17 @@ See [information](https://yarnpkg.com/cli) on commands for Yarn.
 #### Main Project
 
 ```sh
-yarn node ./path/to/script.js # Run a js script file
+yarn node ./path/to/script.js       # Run a js script file
 yarn run-script ./path/to/script.ts # Run a ts script file
-yarn up package-name [--exact] # Upgrade all instances of package to latest release
+yarn up package-name [--exact]      # Upgrade all instances of package to latest release
 yarn lint
 yarn format # This is automatically called on git commit
 
 # Global tasks that can be hoisted to any workspace scope
 yarn g:run-script ./path/to/script.ts # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:run-script ./path/to/script.ts"
-yarn g:lint-js # Lint js files with eslint
-yarn g:lint-css # Lint [s]css files with stylelint
-yarn g:prettier [options] # Runs prettier format tool
+yarn g:lint-js                        # Lint js files with eslint
+yarn g:lint-css                       # Lint [s]css files with stylelint
+yarn g:prettier [options]             # Runs prettier format tool
 ```
 
 ##### Additional Scripts
@@ -104,8 +104,8 @@ yarn [workspace workspace-name] add -[D]E library-or-workspace-name
 ### Using environment files
 
 ```sh
-yarn [workspace] g:dotenv help # print usage
-yarn [workspace] g:dotenv-get MY_VARIABLE # Print a environment variable
+yarn [workspace] g:dotenv help                    # print usage
+yarn [workspace] g:dotenv-get MY_VARIABLE         # Print a environment variable
 yarn [workspace] g:dotenv-run -- my-script-or-bin # Loads envronment variables with your script or bin
 ```
 
