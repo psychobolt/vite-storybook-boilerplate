@@ -43,7 +43,7 @@
       "dependsOn": ["^build"]
     },
     "chromatic": {
-      "env": ["CHROMATIC_PROJECT_TOKEN"],
+      "env": ["DOTENV_KEY", "CHROMATIC_PROJECT_TOKEN"],
       "inputs": ["storybook-static/**"],
       "dependsOn": ["build-storybook"]
     }
