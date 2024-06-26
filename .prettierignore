@@ -1,3 +1,4 @@
+.husky/_
 .yarn/sdks
 !.yarn/plugins/
 !.yarnrc.yml
