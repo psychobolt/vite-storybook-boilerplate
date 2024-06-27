@@ -10250,7 +10250,7 @@ __metadata:
     turbo: "npm:2.0.5"
     typescript: "npm:5.4.5"
     typescript-eslint: "npm:7.14.1"
-    vite: "npm:5.3.1"
+    vite: "npm:5.3.2"
     vite-tsconfig-paths: "npm:4.3.2"
   languageName: unknown
   linkType: soft
@@ -14082,7 +14082,7 @@ __metadata:
     turbo: "npm:2.0.5"
     typescript: "npm:5.4.5"
     typescript-plugin-css-modules: "npm:5.1.0"
-    vite: "npm:5.3.1"
+    vite: "npm:5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -19542,7 +19542,7 @@ __metadata:
     turbo: "npm:2.0.5"
     typescript: "npm:5.4.5"
     typescript-plugin-css-modules: "npm:5.1.0"
-    vite: "npm:5.3.1"
+    vite: "npm:5.3.2"
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -21573,7 +21573,7 @@ __metadata:
     turbo: "npm:2.0.5"
     typescript: "npm:5.4.5"
     typescript-eslint: "npm:7.14.1"
-    vite: "npm:5.3.1"
+    vite: "npm:5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -23262,9 +23262,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.3.1":
-  version: 5.3.1
-  resolution: "vite@npm:5.3.1"
+"vite@npm:5.3.2":
+  version: 5.3.2
+  resolution: "vite@npm:5.3.2"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
@@ -23298,7 +23298,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/9317262c02ea2dc324dfdbc20c3c450cd89cc9a16399a41a4bf820a3a1f31cf400878c015135e355ee034853cc2399b5499899d5b1bc462d57642d71083e74b6
+  checksum: 10c0/3ed576d18c6c008ae92be68f9c79bf7556dae10978a3e8b4c4b42199424755e5c99836e6d4f81fb8b533b957d7f4e351abc60b8a93f4c4b5eb9890b5b6450926
   languageName: node
   linkType: hard
 
