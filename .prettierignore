@@ -1,5 +1,5 @@
 .husky/_
-.yarn/sdks
+.yarn/*
 !.yarn/plugins/
 !.yarnrc.yml
 apps
