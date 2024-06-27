@@ -77,17 +77,10 @@ jobs:
         id: filter
         with:
           filters: |
-            versions:
-              - '.yarn/versions/**'
             force:
               - '.github/**'
           base: ${{ inputs.base_ref }}
           initial-fetch-depth: 1
-      - name: Copy version files
-        if: steps.filter.outputs.versions == 'true'
-        run: |
-          mkdir -p packages/commons/.yarn/versions
-          cp -r .yarn/versions packages/commons/.yarn/versions
       - name: Install Turbo
         if: steps.filter.outputs.force == 'false'
         run: |
