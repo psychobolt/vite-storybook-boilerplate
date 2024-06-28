@@ -1,8 +1,8 @@
 diff --git a/esm/esm.mjs b/esm/esm.mjs
-index 1e7429abec21338477f904b17a35161b75d01e19..9bfcf808525a89651bc69833259c1b520d09b568 100644
+index 1e7429abec21338477f904b17a35161b75d01e19..d1feb9fbc5ac66658b877d76ed4c4f86e7403115 100644
 --- a/esm/esm.mjs
 +++ b/esm/esm.mjs
-@@ -178,7 +178,7 @@ export const load = async (url, context, nextLoad) => {
+@@ -178,9 +178,10 @@ export const load = async (url, context, nextLoad) => {
      const { source, format: resolvedFormat } = await nextLoad(url, context);
      debug('loaded', url, resolvedFormat);
      const code = !source || typeof source === 'string' ? source : Buffer.from(source).toString();
@@ -10,4 +10,7 @@ index 1e7429abec21338477f904b17a35161b75d01e19..9bfcf808525a89651bc69833259c1b52
 +    const compiled = await compile(code, url.startsWith('file:') ? fileURLToPath(url) : url, tsconfigForSWCNode, true);
      debug('compiled', url, resolvedFormat);
      return addShortCircuitSignal({
++        url: url,
          // for lazy: ts-node think format would undefined, actually it should not, keep it as original temporarily
+         format: resolvedFormat,
+         source: compiled,
