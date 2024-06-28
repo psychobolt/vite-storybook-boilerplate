@@ -16,6 +16,16 @@ on:
         type: string
       diff_count:
         type: string
+  workflow_dispatch:
+    inputs:
+      ref_name:
+        type: string
+      base_ref:
+        type: string
+      head_ref:
+        type: string
+      diff_count:
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.ref_name || github.head_ref || github.ref_name }}
