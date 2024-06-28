@@ -70,6 +70,8 @@ jobs:
     name: List Updated Packages
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    env:
+      BASE_REF: ${{ inputs.base_ref || github.base_ref }}
     outputs:
       package_names: ${{ steps.changes.outputs.package_names }}
       force: ${{ steps.filter.outputs.force }}
@@ -91,8 +93,8 @@ jobs:
           turbo bin
           turbo --version
       - name: Fetch base branch
-        if: github.event_name == 'pull_request'
-        run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
+        if: env.BASE_REF != ''
+        run: git fetch --depth=1 origin ${{ env.BASE_REF }}
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
@@ -103,7 +105,7 @@ jobs:
         env:
           TURBO_TELEMETRY_DISABLED: 1
         with:
-          from: ${{ inputs.head_ref || github.base_ref || 'HEAD~1' }}
+          from: ${{ inputs.head_ref || env.BASE_REF || 'HEAD~1' }}
 
   apps:
     needs: diff
