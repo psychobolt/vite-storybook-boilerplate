@@ -6831,6 +6831,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc-node/register@patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch":
+  version: 1.10.0
+  resolution: "@swc-node/register@patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch::version=1.10.0&hash=2026b9"
+  dependencies:
+    "@swc-node/core": "npm:^1.13.1"
+    "@swc-node/sourcemap-support": "npm:^0.5.0"
+    colorette: "npm:^2.0.20"
+    debug: "npm:^4.3.4"
+    pirates: "npm:^4.0.6"
+    tslib: "npm:^2.6.2"
+  peerDependencies:
+    "@swc/core": ">= 1.4.13"
+    typescript: ">= 4.3"
+  checksum: 10c0/2b8f2eeddedd964d4e80b0a9b76460a0f79e5df04a992a5f583011e828bb14f4af1a38e8024a846e78c3ea53c879e9418257df4ccef43f1899382a22bc885e95
+  languageName: node
+  linkType: hard
+
 "@swc-node/sourcemap-support@npm:^0.5.0":
   version: 0.5.0
   resolution: "@swc-node/sourcemap-support@npm:0.5.0"
