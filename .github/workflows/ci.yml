@@ -73,29 +73,21 @@ jobs:
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: lts/*
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
-        id: filter
-        with:
-          filters: |
-            force:
-              - '.github/**'
-          base: ${{ inputs.base_ref }}
-          initial-fetch-depth: 1
       - name: Install Turbo
-        if: steps.filter.outputs.force == 'false'
         run: |
-          npm install -g turbo@$(jq -r .devDependencies.turbo package.json)
+          TURBO_VERSION=${jq -r .devDependencies.turbo package.json}
+          echo "Installing $TURBO_VERSION"
+          npm install -g turbo@$TURBO_VERSION
+          turbo bin
           turbo --version
       - name: Fetch base branch
-        if: steps.filter.outputs.force == 'false' && github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request'
         run: git fetch --depth=1 origin ${{ github.base_ref }}:${{ github.base_ref }}
-      - name: Start Turbo Cache Server # TODO: Verify if this is needed for dry-run
-        if: steps.filter.outputs.force == 'false'
+      - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Collect Turborepo Changes
-        if: steps.filter.outputs.force == 'false'
         id: changes
         uses: 94726/action-turborepo-changes@6bb75425be5455ba39431196f12e246a2f37d375 # v1.1.1
         env:
