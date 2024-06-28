@@ -75,7 +75,7 @@ jobs:
           node-version: lts/*
       - name: Install Turbo
         run: |
-          TURBO_VERSION=${jq -r .devDependencies.turbo package.json}
+          TURBO_VERSION=$(jq -r .devDependencies.turbo package.json)
           echo "Installing $TURBO_VERSION"
           npm install -g turbo@$TURBO_VERSION
           turbo bin
