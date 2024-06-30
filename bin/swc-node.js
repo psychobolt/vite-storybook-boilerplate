@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 import { execSync, spawn } from 'node:child_process';
-import { dirname, resolve } from 'node:path';
+import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export default function run(args) {
+  const _dirname = dirname(fileURLToPath(import.meta.url));
+
   if (!process.env.NPM_SCRIPT) {
-    process.chdir(dirname(fileURLToPath(import.meta.url)));
+    process.chdir(_dirname);
   }
 
   const nodeOptions = execSync('yarn node -p process.env.NODE_OPTIONS')
@@ -23,7 +25,7 @@ export default function run(args) {
     env: {
       ...process.env,
       ESM_REGISTER: swcRegisterPath,
-      NODE_OPTIONS: `${nodeOptions} --import file://${resolve('esm-register.js')}`
+      NODE_OPTIONS: `${nodeOptions} --import file://${join(_dirname, 'esm-register.js')}`
     },
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   }).on('message', (data) => {

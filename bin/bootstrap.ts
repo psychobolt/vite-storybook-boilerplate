@@ -17,7 +17,7 @@ const install = (options?: ExecOptions) =>
     installProcess.stdout?.pipe(process.stdout);
     installProcess.stderr?.pipe(process.stderr);
     installProcess.on('exit', (code) => {
-      if (code) {
+      if (code === null || code) {
         reject();
         return;
       }
