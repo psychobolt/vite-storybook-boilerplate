@@ -23,7 +23,7 @@ export default function run(args) {
     env: {
       ...process.env,
       ESM_REGISTER: swcRegisterPath,
-      NODE_OPTIONS: `${nodeOptions} --import ${resolve('esm-register.js')}`
+      NODE_OPTIONS: `${nodeOptions} --import file://${resolve('esm-register.js')}`
     },
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   }).on('message', (data) => {

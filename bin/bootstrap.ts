@@ -1,11 +1,29 @@
 import fs from 'node:fs';
 import { join } from 'node:path';
-import { execSync, type ExecSyncOptions } from 'node:child_process';
+import {
+  exec,
+  execSync,
+  type ExecOptions,
+  type ExecSyncOptions
+} from 'node:child_process';
+import { promisify } from 'node:util';
 import { $ } from 'execa';
+
 import getWorkspaces from './ls-workspaces.ts';
 
-const install = (options?: ExecSyncOptions) =>
-  execSync('yarn install', options).toString();
+const install = (options?: ExecOptions) =>
+  new Promise<void>((resolve, reject) => {
+    const installProcess = exec('yarn install', options);
+    installProcess.stdout?.pipe(process.stdout);
+    installProcess.stderr?.pipe(process.stderr);
+    installProcess.on('exit', (code) => {
+      if (code) {
+        reject();
+        return;
+      }
+      resolve();
+    });
+  });
 
 async function* getWorkspacesByLinker() {
   const linkers: NodeLinker[] = ['pnpm', 'node-modules'];
@@ -38,16 +56,14 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
 
   console.log(`Verify workspaces using ${linker} linker...`);
 
-  workspaces.forEach((workspace) => {
+  for (const workspace of workspaces) {
     const options = { cwd: workspace.location };
-    const run = () => {
+    const run = async () => {
       console.log(`Verifying ${workspace.name}...`);
-      // TODO: convert to yield to use async pipe
-      const stdout = install(options);
-      console.log(stdout);
+      await install(options);
     };
     try {
-      run();
+      await run();
     } catch (e) {
       if (isExecaError(e) && e.stderr.includes("code: 'EXDEV'")) {
         console.log(
@@ -76,10 +92,10 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         fs.rmSync(join(workspace.location, 'node_modules'), {
           recursive: true
         });
-        run();
+        await run();
       } else {
         throw e;
       }
     }
-  });
+  }
 }
