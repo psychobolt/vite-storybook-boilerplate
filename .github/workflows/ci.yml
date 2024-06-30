@@ -95,7 +95,7 @@ jobs:
           turbo --version
       - name: Fetch base branch
         if: env.BASE_REF != ''
-        run: git fetch --depth=1 origin ${{ env.BASE_REF }}
+        run: git fetch --depth=1 origin ${{ env.BASE_REF }}:base_branch
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
@@ -106,7 +106,7 @@ jobs:
         env:
           TURBO_TELEMETRY_DISABLED: 1
         with:
-          from: ${{ inputs.head_ref || env.BASE_REF || 'HEAD~1' }}
+          from: ${{ inputs.head_ref || (env.BASE_REF && 'base_branch') || 'HEAD~1' }}
 
   apps:
     needs: diff

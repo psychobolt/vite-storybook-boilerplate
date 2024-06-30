@@ -22,9 +22,9 @@ jobs:
         with:
           fetch-depth: 50
       - name: Fetch ${{ github.base_ref }}
-        run: git fetch --depth=1 origin ${{ github.base_ref }}
+        run: git fetch --depth=1 origin ${{ github.base_ref }}:base_branch
       - name: Override BASE_REF variable
-        run: echo "BASE_REF=origin/${{ github.base_ref }}" >> .env
+        run: echo "BASE_REF=base_branch" >> .env
       - name: Check versions
         run: yarn version check
 
@@ -51,7 +51,7 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Fetch ${{ github.base_ref }}
-        run: git fetch --depth=1 origin ${{ github.base_ref }}
+        run: git fetch --depth=1 origin ${{ github.base_ref }}:base_branch
       - name: Setup Node.js environment
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
@@ -59,7 +59,7 @@ jobs:
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
-        run: echo "BASE_REF=origin/${{ github.base_ref }}" >> .env
+        run: echo "BASE_REF=base_branch" >> .env
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
