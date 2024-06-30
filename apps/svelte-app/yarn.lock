@@ -3992,7 +3992,7 @@ __metadata:
 
 "@swc-node/register@patch:@swc-node/register@npm%3A1.10.0#../../.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch::locator=svelte-app%40workspace%3A.":
   version: 1.10.0
-  resolution: "@swc-node/register@patch:@swc-node/register@npm%3A1.10.0#../../.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch::version=1.10.0&hash=127107&locator=svelte-app%40workspace%3A."
+  resolution: "@swc-node/register@patch:@swc-node/register@npm%3A1.10.0#../../.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch::version=1.10.0&hash=a51c0b&locator=svelte-app%40workspace%3A."
   dependencies:
     "@swc-node/core": "npm:^1.13.1"
     "@swc-node/sourcemap-support": "npm:^0.5.0"
@@ -4003,7 +4003,7 @@ __metadata:
   peerDependencies:
     "@swc/core": ">= 1.4.13"
     typescript: ">= 4.3"
-  checksum: 10c0/801c4d7988656bc72fbf6183264eefdf9b7295a8835243933cee961ffe9ed57fd7befa5ace3bb2ed80368b408793c3e6e288ea96f08ede6ca6a9ad2d18a22e64
+  checksum: 10c0/93ba3f0b1cefaad63d965fe1a14631bbebfb7bd2da1c78e3590668e21017c136646407797d4d0d03eda8e96af5978b12b64acda20e3dc91c6f8785aef00caa06
   languageName: node
   linkType: hard
 

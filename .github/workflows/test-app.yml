@@ -28,6 +28,7 @@ jobs:
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       TURBO_TELEMETRY_DISABLED: 1
+      TURBO_GLOBAL_WARNING_DISABLED: 1
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
