@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync, spawn } from 'node:child_process';
-import { resolve, join, dirname } from 'node:path';
+import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export default function run(args) {
