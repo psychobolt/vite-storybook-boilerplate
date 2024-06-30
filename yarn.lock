@@ -6833,7 +6833,7 @@ __metadata:
 
 "@swc-node/register@patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch":
   version: 1.10.0
-  resolution: "@swc-node/register@patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch::version=1.10.0&hash=adf702"
+  resolution: "@swc-node/register@patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch::version=1.10.0&hash=127107"
   dependencies:
     "@swc-node/core": "npm:^1.13.1"
     "@swc-node/sourcemap-support": "npm:^0.5.0"
@@ -6844,7 +6844,7 @@ __metadata:
   peerDependencies:
     "@swc/core": ">= 1.4.13"
     typescript: ">= 4.3"
-  checksum: 10c0/c732981f325bc0e2e3fb6af89b870fb5eda4aded059f34326b3dc1b5964c88dc391e034baef1c221efa1170b841c4a6061002fe42d59da2ffe36cf377b0681f4
+  checksum: 10c0/801c4d7988656bc72fbf6183264eefdf9b7295a8835243933cee961ffe9ed57fd7befa5ace3bb2ed80368b408793c3e6e288ea96f08ede6ca6a9ad2d18a22e64
   languageName: node
   linkType: hard
 
