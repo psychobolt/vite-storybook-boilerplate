@@ -71,7 +71,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     env:
-      BASE_REF: ${{ inputs.base_ref || github.base_ref }},
+      BASE_REF: ${{ inputs.base_ref || github.base_ref }}
       TURBO_GLOBAL_WARNING_DISABLED: 1
     outputs:
       package_names: ${{ steps.changes.outputs.package_names }}
