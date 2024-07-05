@@ -13,5 +13,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": [".storybook/**/*", "**/*"]
+  "include": [".storybook/**/*", "**/*"],
+  "exclude": ["cjs", "esm"]
 }

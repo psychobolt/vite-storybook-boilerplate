@@ -6,6 +6,5 @@
     "esModuleInterop": true,
     "outDir": "cjs"
   },
-  "include": ["**/*.d.ts"],
-  "exclude": ["esm", "cjs"]
+  "include": ["**/*.d.ts"]
 }
