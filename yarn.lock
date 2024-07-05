@@ -3994,6 +3994,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@open-wc/lit-helpers@npm:0.7.0":
+  version: 0.7.0
+  resolution: "@open-wc/lit-helpers@npm:0.7.0"
+  peerDependencies:
+    lit: ^2.0.0 || ^3.0.0
+  checksum: 10c0/adf5777736500f318e055d6a66748f557d61d5c34dcf43c5fd9e525ee818366f9abdcc1ed5a47dd1fbc572b72d8551895ba2da4ad572e6d50f308cce30617f8e
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -10239,6 +10248,7 @@ __metadata:
     playwright: "npm:1.45.1"
     playwright-chromium: "npm:1.45.1"
     postcss: "npm:8.4.39"
+    postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
     prettier: "npm:3.3.2"
     prettier-config-standard: "npm:7.0.0"
@@ -13998,6 +14008,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "html-ui@workspace:packages/html-ui"
   dependencies:
+    "@open-wc/lit-helpers": "npm:0.7.0"
     "@storybook/addon-essentials": "npm:8.1.11"
     "@storybook/blocks": "npm:8.1.11"
     "@storybook/test": "npm:8.1.11"
@@ -14009,6 +14020,8 @@ __metadata:
     http-server: "npm:14.1.1"
     lit: "npm:3.1.4"
     nyc: "npm:17.0.0"
+    postcss: "npm:8.4.39"
+    postcss-pseudo-classes: "npm:0.4.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     sass: "npm:1.77.6"
@@ -18859,6 +18872,15 @@ __metadata:
   peerDependencies:
     postcss: ^8.1.0
   checksum: 10c0/3ef6ac14fcda1581bc43e37622256bd87b99ea49c59b2aae648d057d57f5ecc634648cce9910166220a797567af674bc09246ccc010f1dd58d2863b805719109
+  languageName: node
+  linkType: hard
+
+"postcss-pseudo-classes@npm:0.4.0":
+  version: 0.4.0
+  resolution: "postcss-pseudo-classes@npm:0.4.0"
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: 10c0/da044c10f269ce1bceb1d00e7f2317f32a888638c2e982d1fe1fab8379a2e297212957d8f42e44e94c8a58ff58b420548a695a4b39fed255de834e2c9f3570a2
   languageName: node
   linkType: hard
 

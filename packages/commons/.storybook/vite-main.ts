@@ -5,6 +5,8 @@ import type { StorybookConfigVite } from '@storybook/builder-vite';
 import type { ResolveOptions } from 'vite';
 import { defineConfig, mergeConfig } from 'vite';
 
+import postcssConfig from './postcss.config.mjs';
+
 type AliasOptions = Record<string, string>;
 
 interface ResolveConfig {
@@ -37,7 +39,7 @@ export const mainDir = '@(src|stories)';
 
 export const stories = [
   `../${mainDir}/**/*.mdx`,
-  `../${mainDir}/**/*.stories.@(js|jsx|ts|tsx)`
+  `../${mainDir}/**/*.@(story|stories).@(js|jsx|ts|tsx)`
 ];
 
 export type StorybookViteCommonConfig = StorybookConfig &
@@ -59,7 +61,10 @@ export const config: StorybookViteCommonConfig = {
     let finalConfig = mergeConfig(
       config,
       defineConfig({
-        resolve: resolveConfig
+        resolve: resolveConfig,
+        css: {
+          postcss: postcssConfig
+        }
       })
     );
 

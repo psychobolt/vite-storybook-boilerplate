@@ -10,6 +10,14 @@
   &--primary {
     background-color: #1ea7fd;
     color: white;
+
+    &:hover {
+      background-color: #00b7ff;
+    }
+
+    &:active {
+      background-color: #1e86fd;
+    }
   }
 
   &--secondary {
@@ -31,5 +39,10 @@
   &--large {
     padding: 12px 24px;
     font-size: 16px;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
   }
 }
