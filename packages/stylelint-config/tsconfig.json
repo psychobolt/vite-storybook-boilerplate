@@ -1,8 +1,4 @@
 {
-  "extends": "commons/tsconfig.esm.json",
-  "compilerOptions": {
-    "outDir": "esm"
-  },
-  "include": ["stylelint-*.config.ts"],
-  "exclude": ["esm"]
+  "extends": "commons/tsconfig.json",
+  "include": ["**/*"]
 }

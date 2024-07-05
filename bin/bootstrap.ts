@@ -6,7 +6,6 @@ import {
   type ExecOptions,
   type ExecSyncOptions
 } from 'node:child_process';
-import { promisify } from 'node:util';
 import { $ } from 'execa';
 
 import getWorkspaces from './ls-workspaces.ts';
