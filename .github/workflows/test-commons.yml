@@ -3,6 +3,9 @@ on:
     inputs:
       ref_name:
         type: string
+      workspace:
+        required: true
+        type: string
 
 jobs:
   test:
@@ -51,6 +54,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run Lint
-        run: yarn workspace commons turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Build
-        run: yarn workspace commons turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}

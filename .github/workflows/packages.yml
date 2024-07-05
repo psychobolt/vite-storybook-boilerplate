@@ -20,6 +20,15 @@ jobs:
     if: inputs.force || contains(fromJSON(inputs.package_names), 'commons')
     with:
       ref_name: ${{ inputs.ref_name }}
+      workspace: commons
+    secrets: inherit
+
+  stylelint-config:
+    uses: './.github/workflows/test-commons.yml'
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'stylelint-config')
+    with:
+      ref_name: ${{ inputs.ref_name }}
+      workspace: stylelint-config
     secrets: inherit
 
   html-ui:
