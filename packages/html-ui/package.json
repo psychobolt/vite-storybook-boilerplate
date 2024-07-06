@@ -28,7 +28,7 @@
     "@storybook/web-components-vite": "8.1.11",
     "chromatic": "11.5.4",
     "commons": "workspace:*",
-    "glob": "10.4.2",
+    "glob": "10.4.3",
     "http-server": "14.1.1",
     "lit": "3.1.4",
     "nyc": "17.0.0",
