@@ -14020,8 +14020,6 @@ __metadata:
     http-server: "npm:14.1.1"
     lit: "npm:3.1.4"
     nyc: "npm:17.0.0"
-    postcss: "npm:8.4.39"
-    postcss-pseudo-classes: "npm:0.4.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     sass: "npm:1.77.6"
