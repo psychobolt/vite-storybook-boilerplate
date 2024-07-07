@@ -116,6 +116,21 @@ pipelines:
                 - yarn install
                 - *test
           - step:
+              name: Build and Test Stylelint Config
+              max-time: 10
+              size: 2x
+              condition:
+                changesets:
+                  includePaths:
+                    - packages.json
+                    - packages/stylelint-config/**
+              caches:
+                - yarn-6b932ddd254658cc
+              script:
+                - export PACKAGE_NAME=stylelint-config
+                - yarn install
+                - *test
+          - step:
               name: Build and Test HTML UI
               image: atlassian/default-image:4@sha256:50233cc29af9aeb0f8b949064e82f5a81436f8e5a32bf32fb6626751d96884ac
               max-time: 15
