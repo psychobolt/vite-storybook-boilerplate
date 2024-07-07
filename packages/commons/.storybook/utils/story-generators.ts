@@ -61,7 +61,7 @@ interface PseudoStateStoryOptions<
   showDefault?: boolean | VariantStory<TArgs>;
 }
 
-export const generateDefaultPseudoStateStories = <
+export const generatePseudoStateStories = <
   TArgs,
   P extends EnumLike<P>,
   A extends EnumLike<P>
@@ -102,4 +102,4 @@ export interface StoryPseudoStateProps {
   storyAttr?: Record<string, string | boolean>;
 }
 
-generateDefaultPseudoStateStories.getArgTypes = getPseudoStateArgTypes;
+generatePseudoStateStories.getArgTypes = getPseudoStateArgTypes;

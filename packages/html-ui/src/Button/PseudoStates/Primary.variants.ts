@@ -2,10 +2,10 @@ import type { StoryObj } from '@storybook/web-components';
 import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
 import {
   type VariantStoryObj,
-  generateDefaultPseudoStateStories
+  generatePseudoStateStories
 } from 'commons/esm/.storybook/utils/story-generators.js';
 
-import { defaultPseudoStateAttrMapper } from 'utils/functions.ts';
+import { pseudoStateAttrMapper } from 'utils/functions.ts';
 import type { Props } from '../Button.ts';
 
 export type Meta = VariantsMeta<Props>;
@@ -15,8 +15,8 @@ export const meta = {
   fileName: '../Button.ts',
   importName: 'Button',
   tags: ['autodocs'],
-  argTypes: generateDefaultPseudoStateStories.getArgTypes({
-    argStateAttrMapper: defaultPseudoStateAttrMapper
+  argTypes: generatePseudoStateStories.getArgTypes({
+    argStateAttrMapper: pseudoStateAttrMapper
   })
 } satisfies Meta;
 
@@ -30,4 +30,4 @@ export const Primary: Story = {
 };
 
 export const stories = (template = Primary) =>
-  generateDefaultPseudoStateStories(template, { showDefault: false });
+  generatePseudoStateStories(template, { showDefault: false });
