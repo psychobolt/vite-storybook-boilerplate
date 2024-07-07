@@ -1,4 +1,4 @@
-import { Button } from '../Button/index.ts';
+import { Button } from 'Button/index.ts';
 import classes from './Header.module.scss';
 
 interface User {

@@ -5,9 +5,11 @@ Storybook addons not associated to the [official addon registry](https://storybo
 - [addon-variants](#variants)
 - More coming soon!
 
-## Variants
+## [Variants](addon-variants.ts)
 
-This addon will allow variant story generation from a `enum` of values.
+This addon extends the [Component Story Format](https://github.com/ComponentDriven/csf), by collecting Story Variants from a array export ( `stories`). See [here](../utils/README.md#story-generators) for general utilities.
+
+### Setup
 
 ```ts
 // Setup for .storybook/main.ts
@@ -38,11 +40,13 @@ export default {
 };
 ```
 
+### Usage
+
 ```ts
 // MyComponent.variants.ts
 import type { StoryObj } from "@storybook/web-components";
 import type { VariantsMeta } from "commons/esm/.storybook/addons/vite-plugin-storybook-variants.js";
-import { type VariantStoryObj, generateStories } from "commons/esm/.storybook/utils.js";
+import { type VariantStoryObj, generateStories } from "commons/esm/.storybook/utils/story-generators.js";
 
 import type { Props } from "./MyComponent.ts";
 
@@ -56,12 +60,12 @@ export const meta = {
 type Story = StoryObj<typeof Props> & VariantStoryObj<Props>;
 
 export const MyComponent: Story = {
-  name: "My Component (Default)", // required
+  name: "My Component (Default)",
   // ...
 }
 
 export const MyComponentDisabled: Story {
-  name: "My Component (Disabled)" // required
+  name: "My Component (Disabled)"
   args: {
     disabled: true
   }
@@ -73,7 +77,8 @@ export const SizeEnum {
   large
 }
 
-export const getStories = () => generateStories<Props, typeof SizeEnum>( // required
+// required
+export const stories = () => generateStoriesByEnum<Props, typeof SizeEnum>(
   [MyComponent, MyComponentDisabled],
   "size", // prop name
   SizeEnum
@@ -97,9 +102,125 @@ export const getStories = () => generateStories<Props, typeof SizeEnum>( // requ
 **/
 ```
 
-#### Limitations
+### Motivation
+
+For example, let's say you want to map a Story `arg` to your component prop `state` to support a matrix of UI states:
+| |Open|Closed|
+|---------|----|------|
+|Active |t1 |t2 |
+|Disabled |t3 |t4 |
+
+To test each variant, traditionally, you would need to export 4 total stories imperatively:
+
+```ts
+// my-component.stories.ts
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+import { type Props, MyComponent } from './my-component.ts';
+
+/* CSF Declarations */
+const meta = {
+  title: 'Components/MyComponent',
+  tags: ['autodocs'],
+  render: MyComponent
+} satisfies Meta<Props>;
+
+export default meta;
+
+type Story = StoryObj<Props>;
+
+const Active: Story = {
+  args: {
+    state: 'active',
+  }
+};
+
+const Disabled: Story = {
+  args: {
+    state: 'disabled'
+  }
+};
+
+const Open: Story = {
+  args: {
+    open: true,
+  }
+};
+
+const Closed: Story = {
+  args: {
+    open: false,
+  }
+};
+
+/* CSF Story exports begin */
+export const T1: Story = {
+  name: 'Open (Active)',
+  args: {
+    ...Open.args
+    ...Active.args,
+  }
+};
+
+/* Rest...
+export const T2;
+export const T3;
+export const T4;
+...
+*/
+```
+
+As the UI matrix grows...
+
+|           | Open | Closed |
+| --------- | ---- | ------ |
+| Active    | t1   | t2     |
+| Disabled  | t3   | t4     |
+| Visited   | t5   | t6     |
+| Read Only | t7   | t8     |
+
+the complexity grows...
+
+```ts
+/* ... */
+export const T5;
+export const T6;
+export const T7;
+export const T8;
+```
+
+By using the addon and [generateStoriesByEnum](../utils/README.md#stories-by-enum) utility, we can simplify to:
+
+```ts
+// continued...
+
+enum States = {
+  Active,
+  Disabled,
+  Visited,
+  ReadOnly
+};
+
+const OpenedTemplate: Story = {
+  ...Open,
+  name: 'Open',
+};
+
+const ClosedTemplate: Story = {
+  ...Closed,
+  name: 'Closed',
+};
+
+export const stories = () => generateStoriesByEnum([OpenedTemplate, ClosedTemplate], 'state', States);
+```
+
+As you can see, we only need to manage one export (`stories`) and the utility will generate a flat list of matrix stories for the Storybook addon renderer. This removes complexity in structuring Story using the default [Component Story Format](https://github.com/ComponentDriven/csf).
+
+> _Note: Also remember to add required metadata and exports as mentioned in [setup](../addons/README.md#setup)._
+
+### Limitations
 
 - `default` export is not allowed for variant files
 - Direct imports to component files should be avoided (except for type references)
-- `args` props are serialized to JSON, so please be careful of non-JSON types
-- You must run `test-runner` with [Index.json mode](https://storybook.js.org/docs/writing-tests/test-runner#indexjson-mode). See related [issue](https://github.com/storybookjs/test-runner/issues/262)
+- `args` properties are serialized to JSON, so please be careful of **non-JSON** types
+- For testing, you must run `test-runner` with [Index.json mode](https://storybook.js.org/docs/writing-tests/test-runner#indexjson-mode). See related [issue](https://github.com/storybookjs/test-runner/issues/262)

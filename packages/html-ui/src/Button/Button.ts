@@ -1,11 +1,14 @@
-import { html } from 'lit';
+import { spread } from '@open-wc/lit-helpers';
+import { html, nothing } from 'lit';
 import { styleMap } from 'lit/directives/style-map.js';
-import type { SizeEnum } from './Primary.variant.ts';
+import type { StoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators.js';
+
+import type { SizeEnum } from './Sizes/Primary.variants.ts';
 import classes from './Button.module.scss';
 
 type Size = keyof typeof SizeEnum;
 
-export interface Props {
+export interface Props extends StoryPseudoStateProps {
   /**
    * Is this the principal call to action on the page?
    */
@@ -35,6 +38,8 @@ export const Button = ({
   backgroundColor,
   size = 'medium',
   label,
+  storyPseudo,
+  storyAttr,
   onClick
 }: Props) => {
   const mode = primary
@@ -47,9 +52,11 @@ export const Button = ({
       class=${[
         classes.storybookButton,
         classes[`storybook-button--${size}`],
-        mode
+        mode,
+        storyPseudo
       ].join(' ')}
-      style=${styleMap({ backgroundColor })}
+      style=${backgroundColor ? styleMap({ backgroundColor }) : nothing}
+      ${storyAttr}
       @click=${onClick}
     >
       ${label}
