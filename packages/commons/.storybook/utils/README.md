@@ -10,11 +10,11 @@ These utilities are ideally used with the [Variant addon](../addons/README.md#va
 
 The default export utility to create stories targeting a single `arg` type from the list of Story `templates` and `enumerators`.
 
-### Default Pseudo State Stories
+### Pseudo State Stories
 
-`generateDefaultPseudoStateStories(template, { showDefault?, pseudoClasses? = DefaultPseudoClsEnum, stateAttributes? = DefaultStateAttrEnum });`
+`generatePseudoStateStories(template, { showDefault?, pseudoClasses? = DefaultPseudoClsEnum, stateAttributes? = DefaultStateAttrEnum });`
 
-The utility will take a single story template and decorate its `args` with additional default pseudo-states. Unlike [generateStoriesByEnum](#stories-by-enum), it expects the predefined `args` ( `storyPseudo`, `storyAttr`) to be generated based on `pseudoClasses` and `stateAttributes` enums. The utility also exports `generateDefaultPseudoStateStories.getArgTypes` which is a function aliased to [getPseudoStateArgTypes](#get-pseudo-state-arg-types).
+The utility will take a single story template and decorate its `args` with additional pseudo-states. Unlike [generateStoriesByEnum](#stories-by-enum), it expects the predefined `args` ( `storyPseudo`, `storyAttr`) to be generated based on `pseudoClasses` and `stateAttributes` enums. The utility also exports `generatePseudoStateStories.getArgTypes` which is a function aliased to [getPseudoStateArgTypes](#get-pseudo-state-arg-types).
 
 #### Options
 
@@ -62,7 +62,7 @@ type Story = StoryObj<Props> & VariantStoryObj<Props>;
 const Template: Story = {};
 
 export const stories = () =>
-  generateDefaultPseudoStateStories(Template, {
+  generatePseudoStateStories(Template, {
     pseudoClasses: MyPseudoClsEnum,
     stateAttributes: MyStateAttrEnum
   });
@@ -74,13 +74,13 @@ General utilities for Storybook.
 
 ### Get Pseudo State Arg Types
 
-Ideally used with [generateDefaultPseudoStateStories](#default-pseudo-state-stories).
+Ideally used with [generatePseudoStateStories](#default-pseudo-state-stories).
 
 `getPseudoStateArgTypes({ pseudoClasses?, stateAttributes?, argStateAttrMapper? })`
 
 #### Options
 
-- `pseudoClasses` Similar to `generateDefaultPseudoStateStories`, if you decided to override the defaults, you will need to override them here as well.
+- `pseudoClasses` Similar to `generatePseudoStateStories`, if you decided to override the defaults, you will need to override them here as well.
 - `stateAttributes` Ditto
 - `argStateAttrMapper` (Default: `(key, value) => [key, value]`) By default, the Story input type for `stateAttributes` will be [mapped](https://storybook.js.org/docs/api/arg-types#mapping) and passed to the Story's `render` as a `prop`. You can use this option to augment the respective key or value.
 
@@ -92,7 +92,7 @@ const meta = {
   /* ... */
   argTypes: {
     /* ... */
-    ...generateDefaultPseudoStateStories.getArgTypes(/* options */);
+    ...generatePseudoStateStories.getArgTypes(/* options */);
   }
 } satisfies Story<Props>;
 

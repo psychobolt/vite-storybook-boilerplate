@@ -2,8 +2,8 @@
 
 ## [Functions](functions.ts)
 
-### Default Pseudo State Attr Mapper
+### Pseudo State Attr Mapper
 
-`defaultPseudoStateAttrMapper(key, value)`
+`pseudoStateAttrMapper(key, value)`
 
-Augments state attribute for [spreading](https://open-wc.org/docs/development/lit-helpers/#spread-directives).
+For augmenting [getPseudoStateArgTypes](../../../commons/.storybook/utils/README.md#get-pseudo-state-arg-types) state attribute for [spreading](https://open-wc.org/docs/development/lit-helpers/#spread-directives) in Lit.

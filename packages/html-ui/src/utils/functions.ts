@@ -1,10 +1,7 @@
 import { spread } from '@open-wc/lit-helpers';
 import type { ArgStateAttrMapper } from 'commons/esm/.storybook/utils/functions.js';
 
-export const defaultPseudoStateAttrMapper: ArgStateAttrMapper = (
-  key,
-  value
-) => {
+export const pseudoStateAttrMapper: ArgStateAttrMapper = (key, value) => {
   let newVal = value;
   if (typeof value === 'object') {
     debugger;
