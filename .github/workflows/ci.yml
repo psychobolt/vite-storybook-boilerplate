@@ -123,7 +123,7 @@ jobs:
     uses: ./.github/workflows/packages.yml
     secrets: inherit
     with:
-      ref_name: ${{ inputs.base_ref || github.base_ref }}
+      ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
       force: ${{ needs.diff.outputs.force == 'true' }}
 
