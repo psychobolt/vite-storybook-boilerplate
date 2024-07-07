@@ -30,5 +30,5 @@ declare module 'postcss-pseudo-classes' {
 
   const postcssPseudoClasses: PluginCreator<Options>;
 
-  export = postcssPseudoClasses;
+  export default postcssPseudoClasses;
 }
