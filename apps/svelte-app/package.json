@@ -32,7 +32,7 @@
 		"@types/eslint-config-prettier": "6.11.3",
 		"@types/eslint__js": "8.42.3",
 		"@types/node": "20.14.10",
-		"@typescript-eslint/utils": "7.15.0",
+		"@typescript-eslint/utils": "7.16.0",
 		"commons": "workspace:*",
 		"eslint": "8.57.0",
 		"eslint-config-prettier": "9.1.0",
@@ -52,7 +52,7 @@
 		"tslib": "2.6.3",
 		"turbo": "2.0.6",
 		"typescript": "5.5.3",
-		"typescript-eslint": "7.15.0",
+		"typescript-eslint": "7.16.0",
 		"vite": "5.3.3"
 	},
 	"resolutions": {
