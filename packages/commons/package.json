@@ -67,7 +67,7 @@
     "prettier": "3.3.2",
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-sh": "0.14.0",
-    "rimraf": "5.0.9",
+    "rimraf": "6.0.0",
     "storybook": "8.1.11",
     "tsconfig-to-dual-package": "1.2.0",
     "turbo": "2.0.6",
