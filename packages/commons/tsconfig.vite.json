@@ -4,6 +4,8 @@
     "types": ["vite/client"],
     "esModuleInterop": true,
     "isolatedModules": true,
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
     "useDefineForClassFields": true,
     "noEmit": true,
     "allowImportingTsExtensions": true

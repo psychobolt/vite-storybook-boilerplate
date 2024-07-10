@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import type { Meta } from '@storybook/web-components';
-import { vitePluginStorybookVariants } from 'commons/esm/.storybook/addons/addon-variants.js';
+import { vitePluginStorybookVariants } from 'commons/esm/.storybook/addons/addon-variants';
 
 export default defineConfig({
   plugins: [vitePluginStorybookVariants<Meta>('lit')]

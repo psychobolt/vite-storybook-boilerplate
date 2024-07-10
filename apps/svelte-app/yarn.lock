@@ -6268,6 +6268,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     ts-enum-util: "npm:4.1.0"
+    tsconfck: "npm:3.1.1"
     typescript-eslint: "npm:7.16.0"
     vite: "npm:5.3.3"
     vite-tsconfig-paths: "npm:4.3.2"
@@ -15240,6 +15241,20 @@ __metadata:
   version: 4.1.0
   resolution: "ts-enum-util@npm:4.1.0"
   checksum: 10c0/561478e75abf3c8747c16cf0271b0eec78cad291c2b9cef4c40df1be2a5df221536d7fa1bad133ec54c47fd66cf624993670fb31863ef953e0d39c34291793ab
+  languageName: node
+  linkType: hard
+
+"tsconfck@npm:3.1.1":
+  version: 3.1.1
+  resolution: "tsconfck@npm:3.1.1"
+  peerDependencies:
+    typescript: ^5.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: 10c0/e133eb308ba37e8db8dbac1905bddaaf4a62f0e01aa88143e19867e274a877b86b35cf69c9a0172ca3e7d1a4bb32400381ac7f7a1429e34250a8d7ae55aee3e7
   languageName: node
   linkType: hard
 

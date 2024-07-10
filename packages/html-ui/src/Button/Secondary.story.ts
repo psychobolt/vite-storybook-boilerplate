@@ -1,7 +1,4 @@
-import primaryMeta, {
-  type Story,
-  Default as Primary
-} from './Primary.story.ts';
+import primaryMeta, { type Story, Default as Primary } from './Primary.story';
 
 const meta = {
   ...primaryMeta,

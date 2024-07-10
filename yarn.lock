@@ -10200,6 +10200,7 @@ __metadata:
     rimraf: "npm:6.0.0"
     storybook: "npm:8.1.11"
     ts-enum-util: "npm:4.1.0"
+    tsconfck: "npm:3.1.1"
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:2.0.6"
     typescript: "npm:5.5.3"
@@ -22044,6 +22045,20 @@ __metadata:
     ts-node-script: dist/bin-script.js
     ts-node-transpile-only: dist/bin-transpile.js
   checksum: 10c0/5f29938489f96982a25ba650b64218e83a3357d76f7bede80195c65ab44ad279c8357264639b7abdd5d7e75fc269a83daa0e9c62fd8637a3def67254ecc9ddc2
+  languageName: node
+  linkType: hard
+
+"tsconfck@npm:3.1.1":
+  version: 3.1.1
+  resolution: "tsconfck@npm:3.1.1"
+  peerDependencies:
+    typescript: ^5.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: 10c0/e133eb308ba37e8db8dbac1905bddaaf4a62f0e01aa88143e19867e274a877b86b35cf69c9a0172ca3e7d1a4bb32400381ac7f7a1429e34250a8d7ae55aee3e7
   languageName: node
   linkType: hard
 

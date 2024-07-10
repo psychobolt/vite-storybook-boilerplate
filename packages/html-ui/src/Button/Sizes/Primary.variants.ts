@@ -1,11 +1,11 @@
 import type { StoryObj } from '@storybook/web-components';
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
+import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
 import {
   type VariantStoryObj,
   generateStoriesByEnum
-} from 'commons/esm/.storybook/utils/story-generators.js';
+} from 'commons/esm/.storybook/utils/story-generators';
 
-import type { Props } from '../Button.ts';
+import type { Props } from '../Button';
 
 export type Meta = VariantsMeta<Props>;
 

@@ -1,9 +1,8 @@
-import type { Args } from '@storybook/types';
 import type { StringKeyOf } from 'ts-enum-util/dist/types/types.js';
 import { $enum } from 'ts-enum-util';
 import _ from 'lodash';
 
-import type { VariantStory } from '../addons/addon-variants.ts';
+import type { VariantStory } from '../addons/addon-variants.js';
 import { getPseudoStateArgTypes } from './functions.js';
 
 export interface VariantStoryObj<TArgs> {
