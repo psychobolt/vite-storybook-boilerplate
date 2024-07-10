@@ -137,7 +137,7 @@ See [source](.storybook/preview.ts)
 
 ```ts
 import type { Preview } from '@storybook/react'; // preview-api type
-import commonConfig from 'commons/esm/.storybook/preview.js';
+import commonConfig from 'commons/esm/.storybook/preview';
 
 const preview: Preview = {
   ...commonConfig
@@ -155,7 +155,7 @@ See [source](.storybook/test-runner-jest.config.ts)
 /your/project/.storybook/test-runner-jest.config.ts
 
 ```ts
-import commonConfig from 'commons/esm/.storybook/test-runner-jest.config.js';
+import commonConfig from 'commons/esm/.storybook/test-runner-jest.config';
 
 export default {
   ...commonConfig

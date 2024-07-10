@@ -116,7 +116,7 @@ To test each variant, traditionally, you would need to export 4 total stories im
 // my-component.stories.ts
 import type { Meta, StoryObj } from '@storybook/web-components';
 
-import { type Props, MyComponent } from './my-component.ts';
+import { type Props, MyComponent } from './my-component';
 
 /* CSF Declarations */
 const meta = {

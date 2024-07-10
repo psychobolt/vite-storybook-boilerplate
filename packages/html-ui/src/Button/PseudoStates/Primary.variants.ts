@@ -12,7 +12,7 @@ export type Meta = VariantsMeta<Props>;
 
 export const meta = {
   title: 'Components/Button/Primary/Pseudo States',
-  fileName: '../Button.ts',
+  fileName: '../Button',
   importName: 'Button',
   tags: ['autodocs'],
   argTypes: generatePseudoStateStories.getArgTypes({
