@@ -41,17 +41,17 @@ export const MyComponent = ({
 
 ```ts
 // my-component.story.ts
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
+import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
 
-import type { Props } from './my-component.ts';
+import type { Props } from './my-component';
 import type {
   MyPseudoClsEnum,
   MyStateAttrEnum
-} from './my-component-story.types.ts';
+} from './my-component-story.types';
 
 const meta = {
   title: 'Components/My Component',
-  fileName: './my-component.ts',
+  fileName: './my-component',
   importName: 'MyComponent'
 } satisfies VariantsMeta<Props>;
 

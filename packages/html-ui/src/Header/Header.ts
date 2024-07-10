@@ -1,6 +1,6 @@
 import { html } from 'lit';
 
-import { Button } from 'Button/index.ts';
+import { Button } from 'Button';
 import classes from './Header.module.scss';
 
 interface User {

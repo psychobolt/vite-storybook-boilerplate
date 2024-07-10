@@ -1,11 +1,11 @@
-import { Button } from 'Button/index.ts';
+import { Button } from 'Button';
 import classes from './Header.module.scss';
 
 interface User {
   name: string;
 }
 
-interface Props {
+export interface Props {
   user?: User;
   onLogin: () => void;
   onLogout: () => void;

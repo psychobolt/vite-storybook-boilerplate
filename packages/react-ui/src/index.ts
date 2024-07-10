@@ -1,2 +1,2 @@
-export * from './Button/index.ts';
-export * from './Header/index.ts';
+export * from './Button';
+export * from './Header';

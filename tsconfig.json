@@ -9,11 +9,13 @@
     "target": "ESNext",
     "moduleResolution": "NodeNext",
     "allowSyntheticDefaultImports": true,
-    "noEmit": true,
     "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "strict": true
   },
   "include": ["**/*"],
   "exclude": ["apps", "packages"],
-  "references": [{ "path": "packages/commons" }]
+  "references": [{ "path": "./packages/commons/tsconfig.json" }]
 }

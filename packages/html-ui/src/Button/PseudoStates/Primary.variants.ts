@@ -1,18 +1,18 @@
 import type { StoryObj } from '@storybook/web-components';
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
+import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
 import {
   type VariantStoryObj,
   generatePseudoStateStories
-} from 'commons/esm/.storybook/utils/story-generators.js';
+} from 'commons/esm/.storybook/utils/story-generators';
 
-import { pseudoStateAttrMapper } from 'utils/functions.ts';
-import type { Props } from '../Button.ts';
+import { pseudoStateAttrMapper } from 'utils/functions';
+import type { Props } from '../Button';
 
 export type Meta = VariantsMeta<Props>;
 
 export const meta = {
   title: 'Components/Button/Primary/Pseudo States',
-  fileName: '../Button.ts',
+  fileName: '../Button',
   importName: 'Button',
   tags: ['autodocs'],
   argTypes: generatePseudoStateStories.getArgTypes({

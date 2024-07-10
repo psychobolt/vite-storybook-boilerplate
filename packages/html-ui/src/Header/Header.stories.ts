@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
-import { type Props, Header } from './Header.ts';
+import { type Props, Header } from './Header';
 
 const meta = {
   title: 'Components/Header',

@@ -1,18 +1,18 @@
 import type { StoryObj } from '@storybook/web-components';
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
+import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
 import {
   type VariantStoryObj,
   generateStoriesByEnum
-} from 'commons/esm/.storybook/utils/story-generators.js';
+} from 'commons/esm/.storybook/utils/story-generators';
 
-import type { Props } from '../Button.ts';
+import type { Props } from '../Button';
 
 export type Meta = VariantsMeta<Props>;
 
 // More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
 export const meta = {
   title: 'Components/Button/Primary/Sizes',
-  fileName: '../Button.ts',
+  fileName: '../Button',
   importName: 'Button',
   tags: ['autodocs'],
   argTypes: {

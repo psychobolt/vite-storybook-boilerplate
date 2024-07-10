@@ -12,5 +12,5 @@
     "baseUrl": "src"
   },
   "include": [".storybook/**/*", "**/*"],
-  "references": [{ "path": "../commons" }]
+  "references": [{ "path": "../commons/tsconfig.json" }]
 }

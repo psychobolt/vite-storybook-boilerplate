@@ -1,9 +1,9 @@
-import type { Meta, Story } from './Primary.variants.ts';
+import type { Meta, Story } from './Primary.variants';
 import {
   meta as primaryMeta,
   Primary,
   stories as getStories
-} from './Primary.variants.ts';
+} from './Primary.variants';
 
 // More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
 export const meta = {

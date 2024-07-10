@@ -1,16 +1,16 @@
 import { createRequire } from 'node:module';
 import type { Meta } from '@storybook/web-components';
 import { mergeConfig } from 'vite';
-import type { StorybookViteCommonConfig } from 'commons/esm/.storybook/vite-main.js';
+import type { StorybookViteCommonConfig } from 'commons/esm/.storybook/vite-main';
 import {
   config as commonConfig,
   stories,
   getAbsolutePath,
   mainDir
-} from 'commons/esm/.storybook/vite-main.js';
-import { storybookVariantsIndexer } from 'commons/esm/.storybook/addons/addon-variants.js';
+} from 'commons/esm/.storybook/vite-main';
+import { storybookVariantsIndexer } from 'commons/esm/.storybook/addons/addon-variants';
 
-import viteConfig from './vite.config.ts';
+import viteConfig from './vite.config';
 
 const require = createRequire(import.meta.url);
 

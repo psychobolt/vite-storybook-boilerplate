@@ -1,7 +1,7 @@
 import type { Args, ArgTypes } from '@storybook/types';
 import { $enum } from 'ts-enum-util';
 
-import type { EnumLike, PseudoStateOptions } from './story-generators.ts';
+import type { EnumLike, PseudoStateOptions } from './story-generators.js';
 import {
   DefaultPseudoClsEnum,
   DefaultStateAttrEnum

@@ -6,6 +6,8 @@ import tsParser from '@typescript-eslint/parser';
 import love from 'eslint-config-love';
 import * as mdx from 'eslint-plugin-mdx';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import type { CompilerOptions } from 'typescript';
+import { parse } from 'tsconfck';
 import tseslint from 'typescript-eslint';
 
 export { default as tseslint } from 'typescript-eslint';
@@ -20,6 +22,40 @@ const compat = new FlatCompat({
   resolvePluginsRelativeTo: _dirname
 });
 
+function banImportExtension(extension: string) {
+  const message = `Unexpected use of file extension (.${extension}) in import. Use without extension or with .js extension`;
+  const literalAttributeMatcher = `Literal[value=/\\.${extension}$/]`;
+  return [
+    {
+      // import foo from 'bar.js';
+      selector: `ImportDeclaration > ${literalAttributeMatcher}.source`,
+      message
+    },
+    {
+      // const foo = import('bar.js');
+      selector: `ImportExpression > ${literalAttributeMatcher}.source`,
+      message
+    },
+    {
+      // type Foo = typeof import('bar.js');
+      selector: `TSImportType > TSLiteralType > ${literalAttributeMatcher}`,
+      message
+    },
+    {
+      // const foo = require('foo.js');
+      selector: `CallExpression[callee.name = "require"] > ${literalAttributeMatcher}.arguments`,
+      message
+    }
+  ];
+}
+
+type TSConfig = { compilerOptions: CompilerOptions };
+const tsconfigParseResult = await parse(
+  path.resolve(process.env.INIT_CWD ?? '.', 'eslint.config.ts')
+);
+const tsconfigFile = tsconfigParseResult.tsconfigFile;
+const tsconfig: TSConfig = tsconfigParseResult.tsconfig;
+
 export default tseslint.config(
   {
     ...love,
@@ -27,8 +63,7 @@ export default tseslint.config(
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        tsconfigRootDir: process.env.INIT_CWD,
-        project: './tsconfig.json'
+        project: tsconfigFile
       }
     },
     rules: {
@@ -57,6 +92,18 @@ export default tseslint.config(
   mdx.flat,
   mdx.flatCodeBlocks,
   eslintConfigPrettier,
+  tsconfig.compilerOptions.allowImportingTsExtensions
+    ? {}
+    : {
+        rules: {
+          'no-restricted-syntax': [
+            'error',
+            ...banImportExtension('ts'),
+            ...banImportExtension('tsx'),
+            ...banImportExtension('mts')
+          ]
+        }
+      },
   {
     ignores: [
       '.turbo/',
