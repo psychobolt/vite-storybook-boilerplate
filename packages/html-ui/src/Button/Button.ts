@@ -1,9 +1,8 @@
-import { spread } from '@open-wc/lit-helpers';
 import { html, nothing } from 'lit';
 import { styleMap } from 'lit/directives/style-map.js';
-import type { StoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators.js';
+import type { StoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators';
 
-import type { SizeEnum } from './Sizes/Primary.variants.ts';
+import type { SizeEnum } from './Sizes/Primary.variants';
 import classes from './Button.module.scss';
 
 type Size = keyof typeof SizeEnum;

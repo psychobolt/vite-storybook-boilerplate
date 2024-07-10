@@ -1,6 +1,6 @@
 import { globSync } from 'glob';
 import { defineConfig, mergeConfig } from 'vite';
-import commonConfig from 'commons/esm/vite.config.js';
+import commonConfig from 'commons/esm/vite.config';
 
 interface Module {
   entry: RegExp;
@@ -27,7 +27,7 @@ const modules: Module[] = [
   }
 ];
 
-function getAssetName({ entry, assetName, ext }: Module, moduleId: string) {
+function getAssetName({ entry, ext }: Module, moduleId: string) {
   const [, module] = moduleId.match(entry) ?? [];
   return `${module}.${ext}`;
 }

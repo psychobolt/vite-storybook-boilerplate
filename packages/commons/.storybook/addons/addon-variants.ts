@@ -8,7 +8,7 @@ import type {
 } from '@storybook/types';
 import type { PluginOption } from 'vite';
 import _ from 'lodash';
-import type { VariantStoryObj } from '../utils/story-generators.ts';
+import type { VariantStoryObj } from '../utils/story-generators.js';
 
 export type VariantsMeta<TArgs> = ComponentAnnotations<Renderer, TArgs> & {
   fileName: string;

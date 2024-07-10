@@ -10197,9 +10197,10 @@ __metadata:
     prettier-plugin-sh: "npm:0.14.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
-    rimraf: "npm:6.0.0"
+    rimraf: "npm:6.0.1"
     storybook: "npm:8.1.11"
     ts-enum-util: "npm:4.1.0"
+    tsconfck: "npm:3.1.1"
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:2.0.6"
     typescript: "npm:5.5.3"
@@ -20051,14 +20052,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:6.0.0":
-  version: 6.0.0
-  resolution: "rimraf@npm:6.0.0"
+"rimraf@npm:6.0.1":
+  version: 6.0.1
+  resolution: "rimraf@npm:6.0.1"
   dependencies:
     glob: "npm:^11.0.0"
+    package-json-from-dist: "npm:^1.0.0"
   bin:
     rimraf: dist/esm/bin.mjs
-  checksum: 10c0/32d07c542490db96efd515b27f857f45b71b2169a1b533052630d119034450d3afcf766adc2df43314378f9168407ef222d7d1104c48cc9d385e97b17964b3bf
+  checksum: 10c0/b30b6b072771f0d1e73b4ca5f37bb2944ee09375be9db5f558fcd3310000d29dfcfa93cf7734d75295ad5a7486dc8e40f63089ced1722a664539ffc0c3ece8c6
   languageName: node
   linkType: hard
 
@@ -22044,6 +22046,20 @@ __metadata:
     ts-node-script: dist/bin-script.js
     ts-node-transpile-only: dist/bin-transpile.js
   checksum: 10c0/5f29938489f96982a25ba650b64218e83a3357d76f7bede80195c65ab44ad279c8357264639b7abdd5d7e75fc269a83daa0e9c62fd8637a3def67254ecc9ddc2
+  languageName: node
+  linkType: hard
+
+"tsconfck@npm:3.1.1":
+  version: 3.1.1
+  resolution: "tsconfck@npm:3.1.1"
+  peerDependencies:
+    typescript: ^5.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: 10c0/e133eb308ba37e8db8dbac1905bddaaf4a62f0e01aa88143e19867e274a877b86b35cf69c9a0172ca3e7d1a4bb32400381ac7f7a1429e34250a8d7ae55aee3e7
   languageName: node
   linkType: hard
 

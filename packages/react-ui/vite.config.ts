@@ -1,5 +1,5 @@
 import { defineConfig, mergeConfig } from 'vite';
-import commonConfig from 'commons/esm/vite.config.js';
+import commonConfig from 'commons/esm/vite.config';
 
 export default mergeConfig(
   commonConfig,
