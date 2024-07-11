@@ -123,6 +123,7 @@ pipelines:
                 changesets:
                   includePaths:
                     - packages.json
+                    - packages/commons/**
                     - packages/stylelint-config/**
               caches:
                 - yarn-6b932ddd254658cc
