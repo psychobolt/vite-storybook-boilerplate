@@ -77,7 +77,8 @@ jobs:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Run Chromatic
-        if: matrix.os == 'ubuntu-latest'
-        run: yarn workspace ${{ inputs.workspace }} turbo run chromatic --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: >-
+          yarn workspace ${{ inputs.workspace }} turbo run chromatic--env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+          ${{ matrix.os == 'windows-latest' && '-- --dry-run' || '' }}
         env:
           DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
