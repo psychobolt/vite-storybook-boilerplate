@@ -5988,6 +5988,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:4.6.2"
     lodash: "npm:4.17.21"
     postcss: "npm:8.4.39"
+    postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
@@ -12621,6 +12622,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-pseudo-classes@npm:0.4.0":
+  version: 0.4.0
+  resolution: "postcss-pseudo-classes@npm:0.4.0"
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: 10c0/da044c10f269ce1bceb1d00e7f2317f32a888638c2e982d1fe1fab8379a2e297212957d8f42e44e94c8a58ff58b420548a695a4b39fed255de834e2c9f3570a2
+  languageName: node
+  linkType: hard
+
 "postcss-resolve-nested-selector@npm:^0.1.1":
   version: 0.1.1
   resolution: "postcss-resolve-nested-selector@npm:0.1.1"
@@ -14562,6 +14572,7 @@ __metadata:
     eslint-plugin-svelte: "npm:2.42.0"
     globals: "npm:15.8.0"
     html-ui: "workspace:*"
+    postcss: "npm:8.4.39"
     prettier: "npm:3.3.2"
     prettier-plugin-svelte: "npm:3.2.5"
     sass: "npm:1.77.7"
