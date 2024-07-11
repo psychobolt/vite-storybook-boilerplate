@@ -1,7 +1,6 @@
 import type { StoryObj } from '@storybook/web-components';
 import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
 import {
-  DefaultPseudoClsEnum,
   type StoryPseudoStateArgs,
   type VariantStoryObj,
   generatePseudoStateStories
