@@ -113,8 +113,8 @@ See [documentation](https://dotenvx.com/docs) for usage.
 
 ### Best Practices
 
-- Keep CI secrets in a `.env.ci` file. Utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) environment variables e.g. (`yarn [workspace workspace-name] g:dotenv set -f .env.ci`), to save or update environment variables for your CI.
-- Keep personal secrets or local overrides in a `.env*.local` file.
+- Keep team secrets in a `.env.*` file. Utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) environment variables e.g. (`yarn [workspace workspace-name] g:dotenv set -f .env.`), to save or update variables for your environment. Make sure to share private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) with your team and CI after commit respective environment files.
+- Keep personal secrets or local overrides in a `.env` file.
   By default, it is best practice to not commit `.env*` files. However, the exception is default or encyrpted variables for a environment file (e.g. `.env.defaults`, `.env.production`, `.env.development`, etc...).
 
 ## [Workflows](WORKFLOWS.md)
