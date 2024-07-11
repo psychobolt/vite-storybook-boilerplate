@@ -20858,6 +20858,7 @@ __metadata:
     eslint-plugin-svelte: "npm:2.42.0"
     globals: "npm:15.8.0"
     html-ui: "workspace:*"
+    postcss: "npm:8.4.39"
     prettier: "npm:3.3.2"
     prettier-plugin-svelte: "npm:3.2.5"
     sass: "npm:1.77.7"

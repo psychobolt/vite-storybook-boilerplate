@@ -39,6 +39,7 @@
 		"eslint-plugin-svelte": "2.42.0",
 		"globals": "15.8.0",
 		"html-ui": "workspace:*",
+		"postcss": "8.4.39",
 		"prettier": "3.3.2",
 		"prettier-plugin-svelte": "3.2.5",
 		"sass": "1.77.7",
