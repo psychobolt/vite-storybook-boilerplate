@@ -3,7 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "yarn build-esm --watch & yarn build-cjs --watch",
     "build": "yarn build-esm && yarn build-cjs",
     "build-esm": "rimraf esm/ && tsc --project tsconfig.esm.json",
     "build-cjs": "rimraf cjs/ && tsc --project tsconfig.cjs.json && tsconfig-to-dual-package tsconfig.cjs.json",
@@ -59,7 +58,6 @@
     "@storybook/addon-essentials": "8.2.1",
     "@storybook/addon-interactions": "8.2.1",
     "@storybook/addon-links": "8.2.1",
-    "@storybook/addon-onboarding": "8.2.1",
     "@types/lint-staged": "13.3.0",
     "jest-junit": "16.0.0",
     "playwright": "1.45.1",
