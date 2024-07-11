@@ -21,8 +21,8 @@ vite.config.*.timestamp-*
 .env*
 .flaskenv*
 *.secrets
-!.env.defaults
-!.env.vault
+!.env.*
+.env.keys
 
 # yarn
 .pnp.*

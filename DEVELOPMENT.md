@@ -104,18 +104,18 @@ yarn [workspace workspace-name] add -[D]E library-or-workspace-name
 ### Using environment files
 
 ```sh
-yarn [workspace] g:dotenv help                    # print usage
-yarn [workspace] g:dotenv-get MY_VARIABLE         # Print a environment variable
-yarn [workspace] g:dotenv-run -- my-script-or-bin # Loads envronment variables with your script or bin
+yarn [workspace workspace-name] g:dotenv help                    # print usage
+yarn [workspace workspace-name] g:dotenv-get MY_VARIABLE         # Print a environment variable
+yarn [workspace workspace-name] g:dotenv-run -- my-script-or-bin # Loads envronment variables with your script or bin
 ```
 
 See [documentation](https://dotenvx.com/docs) for usage.
 
 ### Best Practices
 
-- Keep team shared secrets in a `.env` file. Utilize [`dotenv-vault`](https://www.dotenv.org/) e.g. (`yarn [workspace] g:dotenv-vault [pull/push]`), to sync environment variables with your CI or the team.
-- Keep personal secrets or local overrides in a `.env*.local` file.
-  By default, it is best practice to not commit `.env*` files. However, the exception is default variables for a project (e.g. `.env.defaults`, `.env.production`, `.env.development`, etc...).
+- Keep personal secrets or local overrides in a `.env` file.
+- Keep shared secrets in a `.env.*` file.
+- Before committing shared secrets, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to share private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) with your team or CI after committing respective environment files.
 
 ## [Workflows](WORKFLOWS.md)
 
