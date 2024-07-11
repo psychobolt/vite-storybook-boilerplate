@@ -3,11 +3,5 @@
   "extends": ["config:best-practices"],
   "baseBranches": ["$default", "bitbucket"],
   "useBaseBranchConfig": "merge",
-  "automerge": true,
-  "packageRules": [
-    {
-      "matchPackageNames": ["@swc-node/register", "dotenv-vault"],
-      "automerge": false
-    }
-  ]
+  "automerge": true
 }
