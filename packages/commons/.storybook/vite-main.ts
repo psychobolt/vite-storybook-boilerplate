@@ -50,7 +50,6 @@ export const config: StorybookViteCommonConfig = {
   addons: [
     getAbsolutePath('@storybook/addon-links', resolveConfig),
     getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-onboarding'),
     getAbsolutePath('@storybook/addon-interactions', resolveConfig),
     getAbsolutePath('@storybook/addon-coverage')
   ],
@@ -67,6 +66,10 @@ export const config: StorybookViteCommonConfig = {
         }
       })
     );
+
+    if (configType === 'DEVELOPMENT') {
+      process.env.VITE_COVERAGE = 'false';
+    }
 
     if (configType !== 'PRODUCTION') {
       finalConfig = mergeConfig(

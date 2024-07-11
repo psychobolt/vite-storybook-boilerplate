@@ -82,7 +82,7 @@ Ideally used with [generatePseudoStateStories](#default-pseudo-state-stories).
 
 - `pseudoClasses` Similar to `generatePseudoStateStories`, if you decided to override the defaults, you will need to override them here as well.
 - `stateAttributes` Ditto
-- `argStateAttrMapper` (Default: `(key, value) => [key, value]`) By default, the Story input type for `stateAttributes` will be [mapped](https://storybook.js.org/docs/api/arg-types#mapping) and passed to the Story's `render` as a `prop`. You can use this option to augment the respective key or value.
+- `argStateAttrMapper` (Default: `(attributes) => attributes`) By default, the Story input type for `stateAttributes` will be [mapped](https://storybook.js.org/docs/api/arg-types#mapping) and passed to the Story's `render` as a list of `props`. You can use this option to augment the respective key or value for each available attribute.
 
 #### Usage
 

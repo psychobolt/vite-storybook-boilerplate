@@ -1,3 +1,4 @@
+import { Args } from '@storybook/types';
 import type { StringKeyOf } from 'ts-enum-util/dist/types/types.js';
 import { $enum } from 'ts-enum-util';
 import _ from 'lodash';
@@ -23,7 +24,7 @@ export function generateStoriesByEnum<TArgs, E extends EnumLike<E>>(
       ...Array.from($enum(enumerator).keys()).map<VariantStory<TArgs>>(
         (key) => ({
           name: `${story.name ? story.name + ' - ' : ''}${_.startCase(key)}`,
-          exportName: _.snakeCase(`${story.name}_${key}`),
+          exportName: _.snakeCase(story.name ? `${story.name}_${key}` : key),
           args: {
             ...story.args,
             [arg]: key
@@ -44,8 +45,10 @@ export enum DefaultStateAttrEnum {
   disabled = '{"disabled": true}'
 }
 
+export type PseudoClsEnumLike<T = DefaultPseudoClsEnum> = EnumLike<T>;
+
 export interface PseudoStateOptions<
-  P extends EnumLike<P>,
+  P extends PseudoClsEnumLike<P>,
   A extends EnumLike<A>
 > {
   pseudoClasses?: P;
@@ -95,6 +98,14 @@ export const generatePseudoStateStories = <
     stateAttributes || DefaultStateAttrEnum
   )
 ];
+
+export interface StoryPseudoStateArgs<
+  P = typeof DefaultPseudoClsEnum,
+  A = typeof DefaultStateAttrEnum
+> extends Args {
+  storyPseudo: 'none' | keyof P;
+  storyAttr: 'none' | keyof A;
+}
 
 export interface StoryPseudoStateProps {
   storyPseudo?: string;

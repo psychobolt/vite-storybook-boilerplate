@@ -1,6 +1,8 @@
 import type { StoryObj } from '@storybook/web-components';
 import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
 import {
+  DefaultPseudoClsEnum,
+  type StoryPseudoStateArgs,
   type VariantStoryObj,
   generatePseudoStateStories
 } from 'commons/esm/.storybook/utils/story-generators';
@@ -20,12 +22,16 @@ export const meta = {
   })
 } satisfies Meta;
 
-export type Story = StoryObj<Props> & VariantStoryObj<Props>;
+type Args = Omit<Props, 'storyPseudo' | 'storyAttr'> & StoryPseudoStateArgs;
+
+export type Story = StoryObj<Args> & VariantStoryObj<Args>;
 
 export const Primary: Story = {
   args: {
     label: 'Button',
-    primary: true
+    primary: true,
+    storyPseudo: 'none',
+    storyAttr: 'none'
   }
 };
 

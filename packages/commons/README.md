@@ -18,7 +18,7 @@ See [source](vite.config.ts)
 
 ```js
 import { defineConfig, mergeConfig } fromn "vite";
-import commonConfig from "commons/esm/vite.config.js";
+import commonConfig from 'commons/esm/vite.config';
 
 export default mergeConfig(
   commonConfig,
@@ -110,7 +110,7 @@ See [source](tsconfig.js)
    /your/project/.storybook/main.ts
 
    ```ts
-   import commonConfig from "commons/esm/.storybook/vite-main.js";
+   import commonConfig from 'commons/esm/.storybook/vite-main';
 
    export default mergeConfig({
      ...commonConfig,
