@@ -40,9 +40,7 @@ jobs:
           ref: ${{ inputs.ref_name || github.ref }}
           fetch-depth: 2
       - name: Set Yarn global folder
-        if: matrix.os == 'windows-latest'
-        run: echo "\nGLOBAL_YARN_FOLDER=.temp/.yarn/berry" >> .env
-        shell: bash
+        run: echo "\nYARN_GLOBAL_FOLDER=${{ runner.temp }}/.yarn/berry" >> .env
       - name: Setup Node.js environment
         if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
