@@ -83,7 +83,7 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
       process.env.YARN_GLOBAL_FOLDER = sharedFolder;
       await appendFile(
         join(root, '.env'),
-        `\nYARN_GLOBAL_FOLDER=${sharedFolder}`
+        `\n#Overrides Yarn's global folder path\nYARN_GLOBAL_FOLDER=${sharedFolder}\n`
       );
       console.log('Cleaning node_modules...');
       fs.rmSync(join(workspace.location, 'node_modules'), {
