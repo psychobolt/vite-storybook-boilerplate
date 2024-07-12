@@ -78,7 +78,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Run Chromatic
         run: >-
-          yarn workspace ${{ inputs.workspace }} turbo run chromatic--env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+          yarn workspace ${{ inputs.workspace }} turbo run chromatic --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
           ${{ matrix.os == 'windows-latest' && '-- --dry-run' || '' }}
         env:
           DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
