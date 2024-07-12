@@ -51,6 +51,10 @@ jobs:
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
           ref: ${{ inputs.ref_name || github.ref }}
+      - name: Set Yarn global folder
+        if: matrix.os == 'windows-latest'
+        run: echo "\nGLOBAL_YARN_FOLDER=.temp/.yarn/berry" >> .env
+        shell: bash
       - name: Setup Node.js environment
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
