@@ -5,6 +5,8 @@
   },
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.validate.enable": true,
+  "editor.tabSize": 2,
   "eslint.nodePath": ".yarn/sdks",
   "eslint.runtime": "node",
   "eslint.execArgv": ["${workspaceFolder}/bin/swc-node.js"],
@@ -12,7 +14,6 @@
   "eslint.options": {
     "overrideConfigFile": "./eslint.config.ts"
   },
-  "editor.tabSize": 2,
   "eslint.workingDirectories": [
     {
       "pattern": "./apps/*/"
