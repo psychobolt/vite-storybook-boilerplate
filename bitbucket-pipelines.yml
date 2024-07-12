@@ -9,7 +9,7 @@ definitions:
       key:
         files:
           - yarn.lock
-      path: /root/.yarn/berry/cache
+      path: .temp/.yarn/berry/cache
     pnpm-fb8c70eafecbce3f:
       key:
         files:
@@ -24,6 +24,9 @@ definitions:
   scripts:
     - script: &git-auth |
         git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
+    - script: &env |
+        export YARN_GLOBAL_FOLDER=.temp/.yarn/berry
+        echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
     - script: &install |
         yarn config set globalFolder .temp/.yarn/berry
         yarn install
@@ -107,11 +110,12 @@ pipelines:
               condition:
                 changesets:
                   includePaths:
-                    - packages.json
+                    - package.json
                     - packages/commons/**
               caches:
                 - yarn-fb8c70eafecbce3f
               script:
+                - *env
                 - export PACKAGE_NAME=commons
                 - yarn install
                 - *test
@@ -122,12 +126,14 @@ pipelines:
               condition:
                 changesets:
                   includePaths:
-                    - packages.json
+                    - *env
+                    - package.json
                     - packages/commons/**
                     - packages/stylelint-config/**
               caches:
                 - yarn-fb8c70eafecbce3f
               script:
+                - *env
                 - export PACKAGE_NAME=stylelint-config
                 - yarn install
                 - *test
@@ -141,11 +147,12 @@ pipelines:
               condition:
                 changesets:
                   includePaths:
-                    - packages.json
+                    - package.json
                     - packages/commons/**
                     - packages/stylelint-config/**
                     - packages/html-ui/**
               script:
+                - *env
                 - export PACKAGE_NAME=html-ui
                 - *setup
                 - *test
@@ -163,12 +170,13 @@ pipelines:
               condition:
                 changesets:
                   includePaths:
-                    - packages.json
+                    - package.json
                     - packages/commons/**
                     - packages/stylelint-config/**
                     - packages/html-ui/**
                     - packages/react-ui/**
               script:
+                - *env
                 - export PACKAGE_NAME=react-ui
                 - *setup
                 - *test
@@ -185,11 +193,12 @@ pipelines:
               condition:
                 changesets:
                   includePaths:
-                    - packages.json
+                    - package.json
                     - packages/commons/**
                     - packages/react-ui/**
                     - apps/next-app/**
               script:
+                - *env
                 - export PACKAGE_NAME=next-app
                 - yarn install
                 - *test
@@ -203,12 +212,13 @@ pipelines:
               condition:
                 changesets:
                   includePaths:
-                    - packages.json
+                    - package.json
                     - bin/bootstrap.ts
                     - packages/commons/**
                     - packages/react-ui/**
                     - apps/svelte-app/**
               script:
+                - *env
                 - export PACKAGE_NAME=svelte-app
                 - corepack enable
                 - *install
@@ -231,6 +241,7 @@ pipelines:
                 - apps/**
                 - packages/**
           script:
+            - *env
             - >-
               export STABLE=$( [[ "$BITBUCKET_BRANCH" == release-* ]] && echo
               "true" || echo "false" )
@@ -262,6 +273,7 @@ pipelines:
             enabled: true
             depth: 50
           script:
+            - *env
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
             - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
             - nvm install --lts
@@ -312,6 +324,7 @@ pipelines:
             enabled: true
             depth: full
           script:
+            - *env
             - export STABLE=true
             - export STRATEGY=launch
             - export BASE_REF_NAME=$(git branch --show-current)
@@ -336,6 +349,7 @@ pipelines:
             enabled: true
             depth: 50
           script:
+            - *env
             - *git-auth
             - export BASE_REF_NAME=$(git branch --show-current)
             - |
@@ -380,6 +394,7 @@ pipelines:
           caches:
             - yarn-fb8c70eafecbce3f
           script:
+            - *env
             - yarn install
             - export LOG_LEVEL=debug
             - export RENOVATE_CONFIG_FILE=renovate.config.cjs
