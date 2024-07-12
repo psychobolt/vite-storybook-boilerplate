@@ -45,6 +45,12 @@ jobs:
         run: git merge origin/main --no-commit --ff || true
       - name: Prune deleted files
         run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
+      - name: Set Yarn global folder
+        env:
+          YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
+        run: |
+          echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
+          echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> $GITHUB_ENV
       - name: Setup Node.js environment
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:

@@ -52,6 +52,12 @@ jobs:
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
       - name: Fetch ${{ github.base_ref }}
         run: git fetch --depth=1 origin ${{ github.base_ref }}:base_branch
+      - name: Set Yarn global folder
+        env:
+          YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
+        run: |
+          echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
+          echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> $GITHUB_ENV
       - name: Setup Node.js environment
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
