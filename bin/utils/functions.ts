@@ -6,7 +6,7 @@ interface ExecResult<E> {
   stderr: string;
 }
 
-interface StdioExecOptions extends ExecOptions {
+export interface StdioExecOptions extends ExecOptions {
   silent?: boolean;
 }
 
