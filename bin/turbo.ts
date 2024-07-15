@@ -1,7 +1,7 @@
-import { execa } from 'execa';
-import type { SyncOptions } from 'execa';
+import { type ExecOptions } from 'node:child_process';
 import arg from 'arg';
 
+import { $ } from './utils/functions.ts';
 import getWorkspaces from './ls-workspaces.ts';
 
 process.env.FORCE_COLOR = '0';
@@ -22,14 +22,11 @@ if (end > start) {
 }
 
 /* eslint-disable-next-line @typescript-eslint/promise-function-async */
-const yarnCmd = (args: string[] = [], config?: SyncOptions) =>
-  execa('yarn', args, {
-    stdio: [process.stdin, process.stdout, process.stderr],
-    ...config
-  });
+const yarnCmd = (args: string[] = [], config?: ExecOptions) =>
+  $(['yarn', ...args].join(' '), config);
 
 /* eslint-disable-next-line @typescript-eslint/promise-function-async */
-const turboCmd = (args: string[] = [], config?: SyncOptions) =>
+const turboCmd = (args: string[] = [], config?: ExecOptions) =>
   yarnCmd(['exec', 'turbo', ...args, ...taskArgs], config);
 
 const filters = [];
@@ -38,10 +35,10 @@ if (
   argv.includes('run') &&
   argv.findIndex((arg) => arg.startsWith('//#')) === -1
 ) {
-  const { stdout } = await turboCmd(
-    [...argv.filter((arg) => !arg.startsWith('--dry-run')), '--dry-run=json'],
-    { stdio: 'pipe' }
-  );
+  const { stdout } = await turboCmd([
+    ...argv.filter((arg) => !arg.startsWith('--dry-run')),
+    '--dry-run=json'
+  ]);
   const { packages }: { packages: string[] } = JSON.parse(stdout);
 
   const workspaces = await getWorkspaces<Workspace[]>({
