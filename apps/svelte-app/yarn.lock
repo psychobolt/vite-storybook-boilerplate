@@ -2690,11 +2690,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:8.2.2":
-  version: 8.2.2
-  resolution: "@storybook/builder-vite@npm:8.2.2"
+"@storybook/builder-vite@npm:8.2.3":
+  version: 8.2.3
+  resolution: "@storybook/builder-vite@npm:8.2.3"
   dependencies:
-    "@storybook/csf-plugin": "npm:8.2.2"
+    "@storybook/csf-plugin": "npm:8.2.3"
     "@types/find-cache-dir": "npm:^3.2.1"
     browser-assert: "npm:^1.2.1"
     es-module-lexer: "npm:^1.5.0"
@@ -2705,7 +2705,7 @@ __metadata:
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
     "@preact/preset-vite": "*"
-    storybook: ^8.2.2
+    storybook: ^8.2.3
     typescript: ">= 4.3.x"
     vite: ^4.0.0 || ^5.0.0
     vite-plugin-glimmerx: "*"
@@ -2716,7 +2716,7 @@ __metadata:
       optional: true
     vite-plugin-glimmerx:
       optional: true
-  checksum: 10c0/91043986838d5cf4ab9c6de3cc6f1adbe8c079f05ab995eed7bcb3cc632b3d53125736536b03f722d8c8463b5c6bd25f8e75acf2fe8b4efc2979e1f12f0abec3
+  checksum: 10c0/fcdbd02102c8820b0bbdf3a8f3da6ca10cb8bfbaefac5c22ff365ec66ccf88286ea44ab2c2815eee896b490d8fe8146ae83a7d9fdfd71575c35ecb51b0ddb48d
   languageName: node
   linkType: hard
 
@@ -2951,14 +2951,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/csf-plugin@npm:8.2.2":
-  version: 8.2.2
-  resolution: "@storybook/csf-plugin@npm:8.2.2"
+"@storybook/csf-plugin@npm:8.2.3":
+  version: 8.2.3
+  resolution: "@storybook/csf-plugin@npm:8.2.3"
   dependencies:
     unplugin: "npm:^1.3.1"
   peerDependencies:
-    storybook: ^8.2.2
-  checksum: 10c0/f1dd1b0908392d02dd20be351acd1b109de75e283bfc3f53cf39307bcdb07a0eb642684ef8d751f769c21fdeb564b8925a3ea5fc5dbe9cd56118bf7ab0fca413
+    storybook: ^8.2.3
+  checksum: 10c0/f1ad746963e024d4b9e85253c2a56fbcf28e032dc344b6f538bb7c321ec51a2077514a94876e29df4f9828de9595a4bb7b109645719052e96eb830d316ce0df7
   languageName: node
   linkType: hard
 
@@ -3371,12 +3371,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/types@npm:8.2.2":
-  version: 8.2.2
-  resolution: "@storybook/types@npm:8.2.2"
+"@storybook/types@npm:8.2.3":
+  version: 8.2.3
+  resolution: "@storybook/types@npm:8.2.3"
   peerDependencies:
-    storybook: ^8.2.2
-  checksum: 10c0/9b2def12449cb4a20bca5be16f47d418199a396a255588b8ca72e36c17b7c677fe52e67d025212e05308f104d6e0120b3b13bd20b69ab12166b9f8f0cbf41cb5
+    storybook: ^8.2.3
+  checksum: 10c0/2c8eee6ffcae3c5d31c15552c197c31973f5493eceb5fe8425ceee8e060d9203bf1be2c2f9477bfef9f81cb8e83b31de6ccf15e9caca669693acebd4e3acbfdc
   languageName: node
   linkType: hard
 
@@ -5974,9 +5974,9 @@ __metadata:
   dependencies:
     "@eslint/eslintrc": "npm:3.1.0"
     "@jest/types": "npm:29.6.3"
-    "@storybook/builder-vite": "npm:8.2.2"
+    "@storybook/builder-vite": "npm:8.2.3"
     "@storybook/test-runner": "npm:0.19.1"
-    "@storybook/types": "npm:8.2.2"
+    "@storybook/types": "npm:8.2.3"
     "@types/eslint": "npm:8.56.10"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/lodash": "npm:4"
