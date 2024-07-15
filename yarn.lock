@@ -5275,21 +5275,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/csf@npm:0.1.11":
+"@storybook/csf@npm:0.1.11, @storybook/csf@npm:^0.1.11":
   version: 0.1.11
   resolution: "@storybook/csf@npm:0.1.11"
   dependencies:
     type-fest: "npm:^2.19.0"
   checksum: 10c0/c5329fc13e7d762049b5c91df1bc1c0e510a1a898c401b72b68f1ff64139a85ab64a92f8e681d2fcb226c0a4a55d0f23b569b2bdb517e0f067bd05ea46228356
-  languageName: node
-  linkType: hard
-
-"@storybook/csf@npm:0.1.9":
-  version: 0.1.9
-  resolution: "@storybook/csf@npm:0.1.9"
-  dependencies:
-    type-fest: "npm:^2.19.0"
-  checksum: 10c0/f94765d671d80fabbf6b372c82ab80cc2960027bfab0dc2f47001fe49d78caab90f32abab372aa27ab7b67b4a8f39d3dc0c5c43b7c83ce9f60d238e9fb1f0499
   languageName: node
   linkType: hard
 
@@ -5678,9 +5669,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.19.0":
-  version: 0.19.0
-  resolution: "@storybook/test-runner@npm:0.19.0"
+"@storybook/test-runner@npm:0.19.1":
+  version: 0.19.1
+  resolution: "@storybook/test-runner@npm:0.19.1"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -5688,7 +5679,7 @@ __metadata:
     "@babel/types": "npm:^7.22.5"
     "@jest/types": "npm:^29.6.3"
     "@storybook/core-common": "npm:^8.0.0"
-    "@storybook/csf": "npm:^0.1.2"
+    "@storybook/csf": "npm:^0.1.11"
     "@storybook/csf-tools": "npm:^8.0.0"
     "@storybook/preview-api": "npm:^8.0.0"
     "@swc/core": "npm:^1.5.22"
@@ -5706,7 +5697,7 @@ __metadata:
     playwright: "npm:^1.14.0"
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/f51dd3baf7b6153fcfe8d6db7cb54409138d1496561c7833ebfe25a1b38db6bbc6e134f7a5ff540eae9bee987d9011054677ffee00c6097f720a2075d29555ca
+  checksum: 10c0/728a23cb7952e52433b21addc4b916fc0a6e0fb7c74ff560489e35f5fc831d73a25dcbc2812f62dfe3d3adb067d1cb16dd0a4141428b71bd080b6da46e63abfd
   languageName: node
   linkType: hard
 
@@ -9311,7 +9302,7 @@ __metadata:
     "@storybook/addon-interactions": "npm:8.2.2"
     "@storybook/addon-links": "npm:8.2.2"
     "@storybook/builder-vite": "npm:8.2.2"
-    "@storybook/test-runner": "npm:0.19.0"
+    "@storybook/test-runner": "npm:0.19.1"
     "@storybook/types": "npm:8.2.2"
     "@types/eslint": "npm:8.56.10"
     "@types/eslint-config-prettier": "npm:6.11.3"
