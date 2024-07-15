@@ -1,4 +1,3 @@
-import { $ } from 'execa';
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 import type { Scalar } from 'yaml';
@@ -12,7 +11,11 @@ import {
   Pair
 } from 'yaml';
 
-const { stdout } = await $`yarn turbo run //#config-ci --dry-run=json`;
+import { $ } from './utils/functions.ts';
+
+const { stdout } = await $('yarn turbo run //#config-ci --dry-run=json', {
+  silent: true
+});
 const [, info] = stdout.match(/(\{\n(\s+.+)*\n\})/) ?? [];
 const FILENAME = 'bitbucket-pipelines.yml';
 const filePath = resolve(FILENAME);
@@ -54,4 +57,4 @@ visit(doc, {
 
 writeFileSync(filePath, doc.toString());
 
-await $`yarn g:format ${filePath}`;
+await $(`yarn g:format ${filePath}`);
