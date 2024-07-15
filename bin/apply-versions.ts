@@ -1,7 +1,7 @@
 import arg from 'arg';
-import { $ } from 'execa';
 import semver from 'semver';
 
+import { $ } from './utils/functions.ts';
 import getWorkspaces from './ls-workspaces.ts';
 
 enum Strategy {
@@ -19,22 +19,28 @@ const args = arg({
 
 const type = args['--strategy'] ?? Strategy[Strategy.build];
 const force = args['--force'] === true;
+const execOptions = { silent: true };
 
 switch (type) {
   case Strategy[Strategy.minor]:
   // fall through
   case Strategy[Strategy.patch]:
-    $.sync`yarn workspaces foreach --since --no-private version ${type} --deferred`;
+    await $(
+      `yarn workspaces foreach --since --no-private version ${type} --deferred`,
+      execOptions
+    );
     break;
 }
 
 async function* getTagAnnotation() {
-  await $`git fetch --tags --force`;
-  const { stdout: tags } = await $`git tag`;
+  await $('git fetch --tags --force', execOptions);
+  const { stdout: tags } = await $('git tag', execOptions);
   for await (const tag of tags.split('\n')) {
-    const { stdout } =
-      await $`git tag -l --format="%(contents:subject)" ${tag}`;
-    yield stdout.slice(1, -1);
+    const { stdout } = await $(
+      `git tag -l --format="%(contents:subject)" ${tag}`,
+      execOptions
+    );
+    yield stdout;
   }
 }
 
@@ -75,7 +81,7 @@ const prev = { ...current };
 const changed: string[] = [];
 
 async function applyAll() {
-  const { stdout } = await $`yarn version apply --all --json`;
+  const { stdout } = await $('yarn version apply --all --json', execOptions);
   if (stdout === '') process.exit();
   for (const line of stdout.split('\n')) {
     try {
@@ -107,13 +113,19 @@ switch (type) {
   case Strategy[Strategy.minor]:
   // falls through
   case Strategy[Strategy.patch]:
-    $.sync`yarn workspaces foreach --since --no-private --exclude ${changed.join(
-      ' --exclude '
-    )} version ${type} --deferred`;
+    await $(
+      `yarn workspaces foreach --since --no-private --exclude ${changed.join(
+        ' --exclude '
+      )} version ${type} --deferred`,
+      execOptions
+    );
     await applyAll();
     break;
   case Strategy[Strategy.build]: {
-    const { stdout } = $.sync`yarn run -B turbo run build --dry-run=json`;
+    const { stdout } = await $(
+      'yarn run -B turbo run build --dry-run=json',
+      execOptions
+    );
     const { tasks = [] }: BuildInfo = JSON.parse(stdout);
     for (const { task, package: name, hash } of tasks) {
       if (task === 'build') {
@@ -135,9 +147,10 @@ switch (type) {
         case Strategy[Strategy.build]: {
           const hashId = hashIds[name];
           if (!hashId) {
-            throw Error(
+            console.error(
               `Build task was not found for workspace "${name}". Did you configure it in turbo config?`
             );
+            process.exit(1);
           }
           bump = `${semver.major(version)}.${semver.minor(
             version
@@ -182,7 +195,7 @@ switch (type) {
           i < (prerelease == null ? 1 : 2);
           i += 1 // https://github.com/yarnpkg/berry/issues/3868
         )
-          $.sync`yarn workspace ${name} version ${bump}`;
+          await $(`yarn workspace ${name} version ${bump}`, execOptions);
       }
     }
 }

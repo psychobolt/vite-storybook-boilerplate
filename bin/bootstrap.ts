@@ -1,35 +1,14 @@
 import fs from 'node:fs';
 import { join } from 'node:path';
-import {
-  exec,
-  execSync,
-  type ExecException,
-  type ExecOptions
-} from 'node:child_process';
+import { type ExecOptions, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
+import { $ } from './utils/functions.ts';
 import getWorkspaces from './ls-workspaces.ts';
 
 const { appendFile } = fs.promises;
 
-interface ExecResult {
-  error: ExecException | null;
-  stdout?: string;
-  stderr?: string;
-}
-
-const install = (options?: ExecOptions) =>
-  new Promise<ExecResult>((resolve) => {
-    const installProcess = exec(
-      'yarn install',
-      options,
-      (error, stdout, stderr) =>
-        resolve({ error, stdout: stdout.toString(), stderr: stderr.toString() })
-    );
-    installProcess.stdin?.pipe(process.stdin);
-    installProcess.stdout?.pipe(process.stdout);
-    installProcess.stderr?.pipe(process.stderr);
-  });
+const install = (options?: ExecOptions) => $('yarn install', options);
 
 async function* getWorkspacesByLinker() {
   const linkers: NodeLinker[] = ['pnpm', 'node-modules'];
