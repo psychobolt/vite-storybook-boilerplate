@@ -33,7 +33,6 @@ definitions:
         yarn bootstrap
     - script: &setup |
         set -o pipefail
-        export DOTENV_KEY=$(echo $DOTENV_KEYS | jq -r .\"$PACKAGE_NAME\")
         nvm install --lts
         corepack enable
         yarn install
@@ -43,7 +42,11 @@ definitions:
         yarn workspace $PACKAGE_NAME turbo run build
     - script: &chromatic |
         npx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "npx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv-get TARGET_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
-        yarn workspace $PACKAGE_NAME turbo run chromatic
+        if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
+          yarn workspace $PACKAGE_NAME chromatic --auto-accept-changes
+        else
+          yarn workspace $PACKAGE_NAME turbo run chromatic
+        fi
     - script: &release |
         if [ "$RELEASE_TAGS" ]; then
           RELEASE_TAG=$( echo "$RELEASE_TAGS" | jq -r --arg keyvar "$BITBUCKET_BRANCH" --arg tag "$RELEASE_TAG" '.[$keyvar] // $tag' )
