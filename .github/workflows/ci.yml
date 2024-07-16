@@ -82,17 +82,29 @@ jobs:
       TURBO_GLOBAL_WARNING_DISABLED: 1
     outputs:
       package_names: ${{ steps.changes.outputs.package_names }}
-      force: ${{ steps.filter.outputs.force }}
+      release: ${{ steps.filter.outputs.release }}
     steps:
       - name: Check out code
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
           fetch-depth: ${{ inputs.diff_count || 2 }}
           ref: ${{ inputs.ref_name || github.ref }}
+      - name: Fetch base branch
+        if: env.BASE_REF != ''
+        run: git fetch --depth=1 origin ${{ env.BASE_REF }}:base_branch
       - name: Setup Node.js environment
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           node-version: lts/*
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
+        id: filter
+        with:
+          filters: |
+            release:
+              - '.yarn/versions/**'
+          base: ${{ inputs.head_ref || (env.BASE_REF && 'base_branch') || '' }}
+          ref: ${{ inputs.ref_name }}
+          initial-fetch-depth: ${{ inputs.diff_count || 1 }}
       - name: Install Turbo
         run: |
           TURBO_VERSION=$(jq -r .devDependencies.turbo package.json)
@@ -100,9 +112,6 @@ jobs:
           npm install -g turbo@$TURBO_VERSION
           turbo bin
           turbo --version
-      - name: Fetch base branch
-        if: env.BASE_REF != ''
-        run: git fetch --depth=1 origin ${{ env.BASE_REF }}:base_branch
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
@@ -123,7 +132,6 @@ jobs:
       ref_name: ${{ inputs.ref_name }}
       base_ref: ${{ inputs.base_ref || github.base_ref }}
       package_names: ${{ needs.diff.outputs.package_names }}
-      force: ${{ needs.diff.outputs.force == 'true' }}
 
   packages:
     needs: diff
@@ -132,11 +140,10 @@ jobs:
     with:
       ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
-      force: ${{ needs.diff.outputs.force == 'true' }}
 
   release:
-    needs: [apps, packages]
-    if: needs.apps.outputs.release == 'true' || needs.packages.outputs.release == 'true'
+    needs: [diff, apps, packages]
+    if: always() && !contains(needs.*.result, 'failure') && contains(needs.*.outputs.release, 'true')
     timeout-minutes: 15
     runs-on: ubuntu-latest
     environment: ${{ (contains(fromJson('["main", "develop"]'), inputs.ref_name || github.ref_name) || startsWith(inputs.ref_name || github.ref_name, 'release-')) && (inputs.ref_name || github.ref_name) || null }}

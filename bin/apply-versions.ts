@@ -82,7 +82,10 @@ const changed: string[] = [];
 
 async function applyAll() {
   const { stdout } = await $('yarn version apply --all --json', execOptions);
-  if (stdout === '') process.exit();
+  if (stdout === '') {
+    console.log('{}');
+    process.exit();
+  }
   for (const line of stdout.split('\n')) {
     try {
       const { ident, newVersion }: Record<string, string> = JSON.parse(line);
