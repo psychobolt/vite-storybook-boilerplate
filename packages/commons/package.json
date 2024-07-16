@@ -51,7 +51,7 @@
     "ts-enum-util": "4.1.0",
     "tsconfck": "3.1.1",
     "typescript-eslint": "7.16.1",
-    "vite": "5.3.3",
+    "vite": "5.3.4",
     "vite-tsconfig-paths": "4.3.2"
   },
   "devDependencies": {
