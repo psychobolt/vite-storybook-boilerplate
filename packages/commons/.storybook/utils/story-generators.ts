@@ -37,6 +37,7 @@ export function generateStoriesByEnum<TArgs, E extends EnumLike<E>>(
 }
 
 export enum DefaultPseudoClsEnum {
+  focus = ':focus',
   active = ':active',
   hover = ':hover'
 }

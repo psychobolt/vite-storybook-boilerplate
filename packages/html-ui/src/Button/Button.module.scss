@@ -11,6 +11,11 @@
     background-color: #1ea7fd;
     color: white;
 
+    &:focus {
+      border: 2px white solid;
+      outline: #00b7ff solid 3px;
+    }
+
     &:hover {
       background-color: #00b7ff;
     }

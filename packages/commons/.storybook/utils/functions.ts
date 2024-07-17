@@ -60,7 +60,11 @@ export const getPseudoStateArgTypes = <
             .getEntries()
             .map(([key, value]) => {
               let newValue;
-              if (typeof value === 'string') {
+              if (
+                typeof value === 'string' &&
+                value.startsWith('{') &&
+                value.endsWith('}')
+              ) {
                 try {
                   newValue = JSON.parse(value);
                 } catch (e) {}

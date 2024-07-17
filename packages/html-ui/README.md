@@ -7,7 +7,8 @@ UI Components used for the [svelte-app demo](https://github.com/psychobolt/vite-
 Powered by:
 
 - [Lit](https://lit.dev)
-- [Sass](https://sass-lang.com)
+- [Sass](https://sass-lang.com) and PostCSS plugins:
+  - [postcss-pseudo-classes](https://www.npmjs.com/package/postcss-pseudo-classes)
 - Docs Renderer [@storybook/web-components](https://www.npmjs.com/package/@storybook/web-components) with CSS Module support [typescript-plugin-css-modules](https://github.com/mrmckeb/typescript-plugin-css-modules)
 
 ## Install
@@ -34,8 +35,8 @@ yarn [workspace workspace-name] add [-D[E]] html-ui
 ```js
 import 'html-ui/style.css';
 // or
-import 'html-ui/[ComponentA][.css]';
-import 'html-ui/[ComponentB][.css]';
+import 'html-ui/[ComponentA].css';
+import 'html-ui/[ComponentB].css';
 ```
 
 ### as Mixin
