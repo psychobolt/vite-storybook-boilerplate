@@ -10,10 +10,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.umd.cjs"
     },
-    "./style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
+    "./*": "./dist/*"
   },
   "types": "./dist/index.d.ts",
   "scripts": {

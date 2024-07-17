@@ -23,10 +23,10 @@ yarn [workspace workspace-name] add [-D[E]] html-ui
 #### Sass
 
 ```scss
-@use 'html-ui/style.css';
+@use 'html-ui/style[.css]';
 // or
-@use 'html-ui/[ComponentA].css';
-@use 'html-ui/[ComponentB].css';
+@use 'html-ui/[ComponentA][.css]';
+@use 'html-ui/[ComponentB][.css]';
 ```
 
 #### JS or JSX
@@ -34,8 +34,8 @@ yarn [workspace workspace-name] add [-D[E]] html-ui
 ```js
 import 'html-ui/style.css';
 // or
-import 'html-ui/[ComponentA].css';
-import 'html-ui/[ComponentB].css';
+import 'html-ui/[ComponentA][.css]';
+import 'html-ui/[ComponentB][.css]';
 ```
 
 ### as Mixin
@@ -46,10 +46,10 @@ import 'html-ui/[ComponentB].css';
 @use 'sass:meta';
 
 .html-ui {
-  @include meta.load-css('html-ui/style.css');
+  @include meta.load-css('html-ui/style[.css]');
   // or
-  @include meta.load-css('html-ui/[ComponentA].css');
-  @include meta.load-css('html-ui/[ComponentB].css');
+  @include meta.load-css('html-ui/[ComponentA][.css]');
+  @include meta.load-css('html-ui/[ComponentB][.css]');
 }
 ```
 
