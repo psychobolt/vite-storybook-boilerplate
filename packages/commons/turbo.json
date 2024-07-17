@@ -3,7 +3,6 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "inputs": ["$TURBO_DEFAULT", "../../.yarn/versions/*"],
       "outputs": ["esm/**", "cjs/**"]
     },
     "lint": {
