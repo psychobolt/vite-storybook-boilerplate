@@ -13297,12 +13297,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:9.0.11":
-  version: 9.0.11
-  resolution: "husky@npm:9.0.11"
+"husky@npm:9.1.0":
+  version: 9.1.0
+  resolution: "husky@npm:9.1.0"
   bin:
-    husky: bin.mjs
-  checksum: 10c0/2c787dcf74a837fc9a4fea7da907509d4bd9a289f4ea10ecc9d86279e4d4542b0f5f6443a619bccae19e265f2677172cc2b86aae5c932a35a330cc227d914605
+    husky: bin.js
+  checksum: 10c0/2d2d202cbad1fdd32112270391d04006b52232b0ab8314176b7352c58727725275d783bbc76d79b2868aa658d90e0164479ca241e09c3e445dd1dc1d11ce4bcc
   languageName: node
   linkType: hard
 
@@ -17985,13 +17985,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:3.2.5":
-  version: 3.2.5
-  resolution: "prettier-plugin-svelte@npm:3.2.5"
+"prettier-plugin-svelte@npm:3.2.6":
+  version: 3.2.6
+  resolution: "prettier-plugin-svelte@npm:3.2.6"
   peerDependencies:
     prettier: ^3.0.0
     svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
-  checksum: 10c0/fd9d44848522fbaaeb73d70cc7f90bc01ddfbb5f1f937d2e1c4f15575d2c154451d96618075a0d41b18254a63a647aaa03600767dc4e4fcce58df541bd43b748
+  checksum: 10c0/d7e89e03bf6c6c36b0062302bd8b80c345059be9d01927cfdc63ee44b6ac7bb5cf952f5f4aa087de1bd614521abcd7ee1e395509fc1236be4dd66c3b41ce5586
   languageName: node
   linkType: hard
 
@@ -20434,7 +20434,7 @@ __metadata:
     html-ui: "workspace:*"
     postcss: "npm:8.4.39"
     prettier: "npm:3.3.3"
-    prettier-plugin-svelte: "npm:3.2.5"
+    prettier-plugin-svelte: "npm:3.2.6"
     sass: "npm:1.77.8"
     stylelint: "npm:16.7.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
@@ -21976,7 +21976,7 @@ __metadata:
     dotenv-flow: "npm:4.1.0"
     eslint: "npm:8.57.0"
     glob-to-regexp: "npm:0.4.1"
-    husky: "npm:9.0.11"
+    husky: "npm:9.1.0"
     lint-staged: "npm:15.2.7"
     playwright: "npm:1.45.2"
     semver: "npm:7.6.3"

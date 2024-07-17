@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/web-components';
+import { html } from 'lit';
 import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
 import {
   type StoryPseudoStateArgs,
@@ -6,7 +7,7 @@ import {
   generatePseudoStateStories
 } from 'commons/esm/.storybook/utils/story-generators';
 
-import { pseudoStateAttrMapper } from 'utils/functions';
+import { getPseudoStateArgTypes } from 'utils/functions';
 import type { Props } from '../Button';
 
 export type Meta = VariantsMeta<Props>;
@@ -16,9 +17,8 @@ export const meta = {
   fileName: '../Button',
   importName: 'Button',
   tags: ['autodocs'],
-  argTypes: generatePseudoStateStories.getArgTypes({
-    argStateAttrMapper: pseudoStateAttrMapper
-  })
+  decorators: [(Story) => html`<div style="padding: 3px">${Story()}</div>`],
+  argTypes: getPseudoStateArgTypes()
 } satisfies Meta;
 
 type Args = Omit<Props, 'storyPseudo' | 'storyAttr'> & StoryPseudoStateArgs;

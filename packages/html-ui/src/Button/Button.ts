@@ -52,8 +52,10 @@ export const Button = ({
         classes.storybookButton,
         classes[`storybook-button--${size}`],
         mode,
-        storyPseudo
-      ].join(' ')}
+        storyPseudo || false
+      ]
+        .filter(Boolean)
+        .join(' ')}
       style=${backgroundColor ? styleMap({ backgroundColor }) : nothing}
       ${storyAttr}
       @click=${onClick}
