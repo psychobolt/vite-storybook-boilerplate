@@ -142,8 +142,8 @@ jobs:
       package_names: ${{ needs.diff.outputs.package_names }}
 
   release:
-    needs: [diff, apps, packages]
-    if: always() && !contains(needs.*.result, 'failure') && contains(needs.*.outputs.release, 'true')
+    needs: [diff, test, apps, packages]
+    if: always() && !contains(needs.*.result, 'canceled') && !contains(needs.*.result, 'failure') && contains(needs.*.outputs.release, 'true')
     timeout-minutes: 15
     runs-on: ubuntu-latest
     environment: ${{ (contains(fromJson('["main", "develop"]'), inputs.ref_name || github.ref_name) || startsWith(inputs.ref_name || github.ref_name, 'release-')) && (inputs.ref_name || github.ref_name) || null }}
