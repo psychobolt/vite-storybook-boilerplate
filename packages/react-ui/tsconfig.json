@@ -1,7 +1,8 @@
 {
   "extends": [
     "@tsconfig/vite-react/tsconfig.json",
-    "commons/tsconfig.vite.json"
+    "commons/tsconfig.vite.json",
+    "commons/tsconfig.paths.json"
   ],
   "compilerOptions": {
     "plugins": [
@@ -13,11 +14,8 @@
       }
     ],
     "baseUrl": "src",
-    "paths": {
-      "react-ui": ["index.ts"],
-      "html-ui/*": ["../../html-ui/dist/*"]
-    }
+    "rootDir": "./"
   },
   "include": [".storybook/**/*", "**/*"],
-  "references": [{ "path": "../commons/tsconfig.json" }]
+  "references": [{ "path": "../html-ui/tsconfig.dist.json" }]
 }

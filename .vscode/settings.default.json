@@ -14,14 +14,7 @@
   "eslint.options": {
     "overrideConfigFile": "./eslint.config.ts"
   },
-  "eslint.workingDirectories": [
-    {
-      "pattern": "./apps/*/"
-    },
-    {
-      "pattern": "./packages/*/"
-    }
-  ],
+  "eslint.workingDirectories": [{ "mode": "location" }],
   "eslint.validate": [
     "markdown",
     "mdx",

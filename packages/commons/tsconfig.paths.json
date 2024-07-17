@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "html-ui/*": [
+        "${configDir}/../html-ui/dist/*.css",
+        "${configDir}/../html-ui/dist/*",
+        "${configDir}/../html-ui/*"
+      ]
+    }
+  }
+}
