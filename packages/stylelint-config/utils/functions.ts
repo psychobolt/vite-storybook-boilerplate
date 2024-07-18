@@ -8,6 +8,7 @@ export const require = createRequire(
     : path.join(process.cwd(), 'packages/unplugged/node_modules')
 );
 
-export const resolvePlugins = (plugins: Array<string | Plugin>) => 
-  plugins.map(plugin => typeof plugin === 'string' ? require.resolve(plugin) : plugin);
-
+export const resolvePlugins = (plugins: Array<string | Plugin>) =>
+  plugins.map((plugin) =>
+    typeof plugin === 'string' ? require.resolve(plugin) : plugin
+  );

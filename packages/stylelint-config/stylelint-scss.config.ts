@@ -9,9 +9,7 @@ const config: Config = {
     require.resolve('stylelint-config-standard-scss'),
     require.resolve('stylelint-config-prettier-scss')
   ],
-  plugins: [
-    ...orderPlugins
-  ],
+  plugins: [...orderPlugins],
   rules: {
     ...orderRules
   },
