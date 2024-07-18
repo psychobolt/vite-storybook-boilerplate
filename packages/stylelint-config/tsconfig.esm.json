@@ -3,5 +3,8 @@
   "compilerOptions": {
     "outDir": "esm"
   },
-  "include": ["stylelint-*.config.ts"]
+  "include": [
+    "*/*",
+    "stylelint-*.config.ts"
+  ]
 }
