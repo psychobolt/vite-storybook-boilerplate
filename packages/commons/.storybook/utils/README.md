@@ -14,7 +14,7 @@ The default export utility to create stories targeting a single `arg` type from 
 
 `generatePseudoStateStories(template, { showDefault?, pseudoClasses? = DefaultPseudoClsEnum, stateAttributes? = DefaultStateAttrEnum });`
 
-The utility will take a single story template and decorate its `args` with additional pseudo-states. Unlike [generateStoriesByEnum](#stories-by-enum), it expects the predefined `args` ( `storyPseudo`, `storyAttr`) to be generated based on `pseudoClasses` and `stateAttributes` enums. The utility also exports `generatePseudoStateStories.getArgTypes` which is a function aliased to [getPseudoStateArgTypes](#get-pseudo-state-arg-types).
+The utility will take a single story template and decorate its `args` with additional pseudo-states. Unlike [generateStoriesByEnum](#stories-by-enum), it expects the predefined `args` ( `storyPseudo`, `storyAttr`) to be generated based on `pseudoClasses` and `stateAttributes` enums.
 
 #### Options
 
@@ -92,9 +92,15 @@ const meta = {
   /* ... */
   argTypes: {
     /* ... */
-    ...generatePseudoStateStories.getArgTypes(/* options */);
+    ...getPseudoStateArgTypes(/* options */);
   }
 } satisfies Story<Props>;
 
 export default meta;
 ```
+
+### Class Names
+
+`classNames(class1, class2, ...)`
+
+Joins multiple classes into a string e.g. `classNames('class-one', 'with-variant-name') // returns 'class-one variant-name'`. Any falsy values are not included.
