@@ -1,3 +1,5 @@
+import { classNames } from 'commons/esm/.storybook/utils/functions';
+
 import classes from './Button.module.scss';
 
 interface Props {
@@ -39,11 +41,11 @@ export function Button({
   return (
     <button
       type='button'
-      className={[
+      className={classNames(
         classes.storybookButton,
         classes[`storybook-button--${size}`],
         mode
-      ].join(' ')}
+      )}
       style={{ backgroundColor }}
       {...props}
     >

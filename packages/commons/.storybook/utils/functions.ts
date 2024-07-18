@@ -1,12 +1,10 @@
 import type { ArgTypes } from '@storybook/types';
 import { $enum } from 'ts-enum-util';
 
-import type {
-  EnumLike,
-  PseudoStateOptions,
-  StoryPseudoStateArgs
-} from './story-generators.js';
 import {
+  type EnumLike,
+  type PseudoStateOptions,
+  type StoryPseudoStateArgs,
   DefaultPseudoClsEnum,
   DefaultStateAttrEnum
 } from './story-generators.js';
@@ -85,3 +83,8 @@ export const getPseudoStateArgTypes = <
     }
   };
 };
+
+type Falsy = 0 | '' | false | null | undefined | -0 | 0n;
+
+export const classNames = <T extends string | Falsy>(...classes: Array<T>) =>
+  classes.filter(Boolean).join(' ');

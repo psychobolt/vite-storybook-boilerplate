@@ -1,6 +1,6 @@
 import { spread } from '@open-wc/lit-helpers';
 import type { ArgStateAttrMapper } from 'commons/esm/.storybook/utils/functions';
-import { generatePseudoStateStories } from 'commons/esm/.storybook/utils/story-generators';
+import * as functions from 'commons/esm/.storybook/utils/functions';
 
 export const pseudoStateAttrMapper: ArgStateAttrMapper = (attributes) =>
   spread(
@@ -12,6 +12,6 @@ export const pseudoStateAttrMapper: ArgStateAttrMapper = (attributes) =>
     )
   );
 
-export const getPseudoStateArgTypes: typeof generatePseudoStateStories.getArgTypes =
+export const getPseudoStateArgTypes: typeof functions.getPseudoStateArgTypes =
   ({ argStateAttrMapper = pseudoStateAttrMapper, ...options } = {}) =>
-    generatePseudoStateStories.getArgTypes({ argStateAttrMapper, ...options });
+    functions.getPseudoStateArgTypes({ argStateAttrMapper, ...options });
