@@ -45,10 +45,8 @@ export enum DefaultStateAttrEnum {
   disabled = '{"disabled": true}'
 }
 
-export type PseudoClsEnumLike<T = DefaultPseudoClsEnum> = EnumLike<T>;
-
 export interface PseudoStateOptions<
-  P extends PseudoClsEnumLike<P>,
+  P extends EnumLike<P>,
   A extends EnumLike<A>
 > {
   pseudoClasses?: P;
@@ -66,7 +64,7 @@ interface PseudoStateStoryOptions<
 export const generatePseudoStateStories = <
   TArgs,
   P extends EnumLike<P>,
-  A extends EnumLike<P>
+  A extends EnumLike<A>
 >(
   Template: VariantStoryObj<TArgs>,
   {
