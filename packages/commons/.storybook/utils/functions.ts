@@ -86,5 +86,5 @@ export const getPseudoStateArgTypes = <
 
 type Falsy = 0 | '' | false | null | undefined | -0 | 0n;
 
-export const classNames = <T extends string | Falsy>(...classes: Array<T>) =>
+export const classNames = (...classes: Array<string | Falsy>) =>
   classes.filter(Boolean).join(' ');
