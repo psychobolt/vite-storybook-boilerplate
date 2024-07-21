@@ -35,13 +35,3 @@ git add .                                # after resolving any conflicts
 git commit -m "upgrading infrastructure" # your comment
 git push
 ```
-
-## Best Practices
-
-### Scripting
-
-Coming soon
-
-### Version Strategy
-
-Coming soon
