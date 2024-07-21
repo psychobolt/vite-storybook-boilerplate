@@ -10,7 +10,6 @@ export default mergeConfig(
       }
     },
     build: {
-      emptyOutDir: false, // TODO only on watch
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
