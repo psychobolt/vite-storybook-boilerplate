@@ -1,5 +1,6 @@
 import { globSync } from 'glob';
 import { defineConfig, mergeConfig } from 'vite';
+import sassGlobImport from 'vite-plugin-sass-glob-import';
 import commonConfig from 'commons/esm/vite.config';
 
 interface Module {
@@ -59,6 +60,7 @@ function shiftAssets(assetName?: string) {
 export default mergeConfig(
   commonConfig,
   defineConfig({
+    plugins: [sassGlobImport()],
     build: {
       lib: false,
       rollupOptions: {

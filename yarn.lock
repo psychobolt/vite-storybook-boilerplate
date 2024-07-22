@@ -4899,6 +4899,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-colors@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "ansi-colors@npm:4.1.3"
+  checksum: 10c0/ec87a2f59902f74e61eada7f6e6fe20094a628dab765cfdbd03c3477599368768cffccdb5d3bb19a1b6c99126783a143b1fee31aab729b31ffe5836c7e5e28b9
+  languageName: node
+  linkType: hard
+
 "ansi-escapes@npm:^4.2.1":
   version: 4.3.2
   resolution: "ansi-escapes@npm:4.3.2"
@@ -9167,6 +9174,7 @@ __metadata:
     typescript: "npm:5.5.3"
     typescript-plugin-css-modules: "npm:5.1.0"
     vite: "npm:5.3.4"
+    vite-plugin-sass-glob-import: "npm:3.0.2"
   languageName: unknown
   linkType: soft
 
@@ -16786,6 +16794,19 @@ __metadata:
     picocolors: "npm:^1.0.0"
     test-exclude: "npm:^6.0.0"
   checksum: 10c0/1bf7c51ba10bb68c89cc1abbd7e7c1be985c60ae8af8fa5f1fc8586a76b01fef2b44615934395970d7e9951d2e170141dff094366b9e8f6c28aadda21e39dbea
+  languageName: node
+  linkType: hard
+
+"vite-plugin-sass-glob-import@npm:3.0.2":
+  version: 3.0.2
+  resolution: "vite-plugin-sass-glob-import@npm:3.0.2"
+  dependencies:
+    ansi-colors: "npm:^4.1.3"
+    glob: "npm:^7.2.0"
+    minimatch: "npm:^3.0.5"
+  peerDependencies:
+    vite: ^3.0.0 || ^4.0.0 || ^5.0.0
+  checksum: 10c0/754d5623585a4af3ee8332c544bf9aba70dacb2267450d6c661001c41acefcb965f5e61a6994f91e9d9349ba6274fd1ff02507824784c6efefba5a4538b58142
   languageName: node
   linkType: hard
 
