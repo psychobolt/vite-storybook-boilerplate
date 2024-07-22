@@ -6215,7 +6215,7 @@ __metadata:
     eslint-plugin-import: "npm:2.29.1"
     eslint-plugin-mdx: "npm:3.1.5"
     eslint-plugin-n: "npm:17.9.0"
-    eslint-plugin-promise: "npm:6.5.1"
+    eslint-plugin-promise: "npm:6.6.0"
     eslint-plugin-react: "npm:7.35.0"
     eslint-plugin-react-hooks: "npm:4.6.2"
     jest-junit: "npm:16.0.0"
@@ -7703,7 +7703,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:6.5.1, eslint-plugin-promise@npm:^6.0.0":
+"eslint-plugin-promise@npm:6.6.0":
+  version: 6.6.0
+  resolution: "eslint-plugin-promise@npm:6.6.0"
+  peerDependencies:
+    eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+  checksum: 10c0/93a667dbc9ff15c4d586b0d40a31c7828314cbbb31b2b9a75802aa4ef536e9457bb3e1a89b384b07aa336dd61b315ae8b0aadc0870210378023dd018819b59b3
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-promise@npm:^6.0.0":
   version: 6.5.1
   resolution: "eslint-plugin-promise@npm:6.5.1"
   peerDependencies:
