@@ -5845,7 +5845,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:7.16.1"
     "@typescript-eslint/utils": "npm:7.16.1"
     eslint: "npm:8.57.0"
-    eslint-config-love: "npm:56.0.0"
+    eslint-config-love: "npm:57.0.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-config-standard: "npm:17.1.0"
     eslint-config-standard-jsx: "npm:11.0.0"
@@ -7152,9 +7152,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-love@npm:56.0.0":
-  version: 56.0.0
-  resolution: "eslint-config-love@npm:56.0.0"
+"eslint-config-love@npm:57.0.0":
+  version: 57.0.0
+  resolution: "eslint-config-love@npm:57.0.0"
   dependencies:
     eslint-plugin-import: "npm:^2.25.2"
     eslint-plugin-n: "npm:^17.0.0"
@@ -7163,7 +7163,7 @@ __metadata:
   peerDependencies:
     eslint: ^8.0.1
     typescript: "*"
-  checksum: 10c0/e918794583ef45fc8debe145db1f06c4b2514a1ab1856afdd4b3766c1b01cff70ddf32dec6f3b3ef9ce0e2f3f9b8817bae0302251a231a5220e4b1ec2fba4b5a
+  checksum: 10c0/36e96e3db8be3ddf5f46da71a617052e675ee2cdcb711c415f5f5425381a6c24e95fd32ed2995acaa57a549b6165055fe60abc566eee6304a848622840cbe75e
   languageName: node
   linkType: hard
 
