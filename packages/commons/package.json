@@ -70,6 +70,6 @@
     "storybook": "8.2.5",
     "tsconfig-to-dual-package": "1.2.0",
     "turbo": "2.0.9",
-    "typescript": "5.5.3"
+    "typescript": "5.5.4"
   }
 }
