@@ -5845,7 +5845,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:7.17.0"
     "@typescript-eslint/utils": "npm:7.17.0"
     eslint: "npm:8.57.0"
-    eslint-config-love: "npm:59.0.0"
+    eslint-config-love: "npm:60.0.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-config-standard: "npm:17.1.0"
     eslint-config-standard-jsx: "npm:11.0.0"
@@ -7152,18 +7152,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-love@npm:59.0.0":
-  version: 59.0.0
-  resolution: "eslint-config-love@npm:59.0.0"
+"eslint-config-love@npm:60.0.0":
+  version: 60.0.0
+  resolution: "eslint-config-love@npm:60.0.0"
   dependencies:
     eslint-plugin-import: "npm:^2.25.2"
     eslint-plugin-n: "npm:^17.0.0"
-    eslint-plugin-promise: "npm:^6.0.0"
+    eslint-plugin-promise: "npm:^7.0.0"
     typescript-eslint: "npm:^7.14.1"
   peerDependencies:
     eslint: ^8.0.1
     typescript: "*"
-  checksum: 10c0/44d729c12ef291bc052751bda4303b70d79a3ab28a69a7f4f742633069a6cbb240a1ace8b220a92b3d3fcf775eb6ea97b30c94c5159a528bce5615d54d5b95e9
+  checksum: 10c0/d552021909b53fd8898ae4af6a789f232f9691957710e097581e1b577bd457a7e96530d84768acc296aed2cb2ec9080751d0cf666bf3f1e9368e8483b3502850
   languageName: node
   linkType: hard
 
@@ -7363,21 +7363,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:7.0.0":
+"eslint-plugin-promise@npm:7.0.0, eslint-plugin-promise@npm:^7.0.0":
   version: 7.0.0
   resolution: "eslint-plugin-promise@npm:7.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
   checksum: 10c0/9a9b5e057ed2d109aabe0d38f98142df0b02f555a2660fbacc58a7ea473f170dcd02ab2f88e514b7a4cbae314945343fbb26cdc04cd36d4f082bfcd6d5a2c650
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-promise@npm:^6.0.0":
-  version: 6.2.0
-  resolution: "eslint-plugin-promise@npm:6.2.0"
-  peerDependencies:
-    eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/5f42ee774023c089453ecb792076c64c6d0739ea6e9d6cdc9d6a63da5ba928c776e349d01cc110548f2c67045ec55343136aa7eb8b486e4ab145ac016c06a492
   languageName: node
   linkType: hard
 
