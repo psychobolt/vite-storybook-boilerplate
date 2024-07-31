@@ -4520,10 +4520,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vscode/l10n@npm:^0.0.16":
-  version: 0.0.16
-  resolution: "@vscode/l10n@npm:0.0.16"
-  checksum: 10c0/eca5c65eb1023165f63cf98ee7e7af1c57e32097f8a8ba7590065d8664322b4116f6f467dfa14360b376200bfdacb5612be344f265c217484688a377173fb647
+"@vscode/l10n@npm:^0.0.18":
+  version: 0.0.18
+  resolution: "@vscode/l10n@npm:0.0.18"
+  checksum: 10c0/d1fc797001f7d508ab3fa91175f7a50ea98516c4e47830ff2be79163cde9279279514a167a3bad15b7ab7fc243e7808d8f32d3eb41f4a7d6721d9dfdbb38d89e
   languageName: node
   linkType: hard
 
@@ -14278,7 +14278,7 @@ __metadata:
     svelte: "npm:4.2.18"
     svelte-check: "npm:3.8.5"
     svelte-eslint-parser: "npm:0.41.0"
-    svelte-language-server: "npm:0.16.13"
+    svelte-language-server: "npm:0.16.14"
     tslib: "npm:2.6.3"
     turbo: "npm:2.0.9"
     typescript: "npm:5.5.4"
@@ -14341,9 +14341,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.16.13":
-  version: 0.16.13
-  resolution: "svelte-language-server@npm:0.16.13"
+"svelte-language-server@npm:0.16.14":
+  version: 0.16.14
+  resolution: "svelte-language-server@npm:0.16.14"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.17"
     "@vscode/emmet-helper": "npm:2.8.4"
@@ -14358,15 +14358,15 @@ __metadata:
     svelte2tsx: "npm:~0.7.0"
     typescript: "npm:^5.5.2"
     typescript-auto-import-cache: "npm:^0.3.3"
-    vscode-css-languageservice: "npm:~6.2.10"
-    vscode-html-languageservice: "npm:~5.1.1"
+    vscode-css-languageservice: "npm:~6.3.0"
+    vscode-html-languageservice: "npm:~5.3.0"
     vscode-languageserver: "npm:8.0.2"
     vscode-languageserver-protocol: "npm:3.17.2"
     vscode-languageserver-types: "npm:3.17.2"
     vscode-uri: "npm:~3.0.0"
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/10e24202ac7b013803b3e37832fceb67006a349f05809439dcdee3d88c394783ff277cf8f5dd739cabab3e0a125d3a768192bd558d46af13c2ebca455dcfc08c
+  checksum: 10c0/ce26235ae1fac11985dc7669223abf469789e5199969390dd7f3d96eebc57f804466896e9f1af85089a93b5a9438c2f215efdf8a965240f9a9a50b6793d454d3
   languageName: node
   linkType: hard
 
@@ -15681,27 +15681,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vscode-css-languageservice@npm:~6.2.10":
-  version: 6.2.10
-  resolution: "vscode-css-languageservice@npm:6.2.10"
+"vscode-css-languageservice@npm:~6.3.0":
+  version: 6.3.0
+  resolution: "vscode-css-languageservice@npm:6.3.0"
   dependencies:
-    "@vscode/l10n": "npm:^0.0.16"
+    "@vscode/l10n": "npm:^0.0.18"
     vscode-languageserver-textdocument: "npm:^1.0.11"
     vscode-languageserver-types: "npm:3.17.5"
     vscode-uri: "npm:^3.0.8"
-  checksum: 10c0/f044acdd905017d4c7cde55503ce1a15d7c8aa5e9990bfae2c128cc854df061cdf460d8a3c7309ac39a338204981951aa1ca7d555f95013d8949870e16b8dc82
+  checksum: 10c0/3afca42c36936583880ba99c1d5236a8bc8e410b2ccc3be49580dc1c448d78e7098701fc0ea12d76eecdf0a282630a3bd96ce6dfd867051f0c1c365276287ad3
   languageName: node
   linkType: hard
 
-"vscode-html-languageservice@npm:~5.1.1":
-  version: 5.1.1
-  resolution: "vscode-html-languageservice@npm:5.1.1"
+"vscode-html-languageservice@npm:~5.3.0":
+  version: 5.3.0
+  resolution: "vscode-html-languageservice@npm:5.3.0"
   dependencies:
-    "@vscode/l10n": "npm:^0.0.16"
+    "@vscode/l10n": "npm:^0.0.18"
     vscode-languageserver-textdocument: "npm:^1.0.11"
     vscode-languageserver-types: "npm:^3.17.5"
     vscode-uri: "npm:^3.0.8"
-  checksum: 10c0/19fdc50088c0e944534019b8fe2b61aa19a7fcfe1ec4a0e0dc047d52a634ca27c5fe97e7fda39b48f42f72c58d809a13db23f788fbbf0776d8202ab9d43a54f0
+  checksum: 10c0/2db5703568a654b6cad9f20b5374ef73ec058aac86efd886edce441eecb41d21204818c76b2784bb5f57c6127f44d5a2c8809da4b90e257981e6a20943ae31b5
   languageName: node
   linkType: hard
 
