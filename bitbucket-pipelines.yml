@@ -398,6 +398,7 @@ pipelines:
             - yarn-7ce5ef9f1fab7c3f
           script:
             - *env
+            - corepack enable
             - yarn install
             - export LOG_LEVEL=debug
             - export RENOVATE_CONFIG_FILE=renovate.config.cjs
