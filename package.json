@@ -44,7 +44,7 @@
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.4",
     "lint-staged": "15.2.8",
-    "playwright": "1.45.3",
+    "playwright": "1.46.0",
     "semver": "7.6.3",
     "stylelint": "16.8.1",
     "turbo": "2.0.11",
