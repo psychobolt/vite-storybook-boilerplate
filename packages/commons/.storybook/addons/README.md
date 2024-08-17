@@ -220,7 +220,7 @@ As you can see, we only need to manage one export (`stories`) and the utility wi
 
 ### Limitations
 
-- `default` export is not allowed for variant files
+- `default` export and `exportName: 'default'` is not allowed for variant files or Story templates
 - Direct imports to component files should be avoided (except for type references)
 - `args` properties are serialized to JSON, so please be careful of **non-JSON** types
 - For testing, you must run `test-runner` with [Index.json mode](https://storybook.js.org/docs/writing-tests/test-runner#indexjson-mode). See related [issue](https://github.com/storybookjs/test-runner/issues/262)
