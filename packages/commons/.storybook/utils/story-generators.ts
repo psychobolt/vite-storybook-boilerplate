@@ -7,6 +7,7 @@ import type { VariantStory } from '../addons/addon-variants.js';
 
 export interface VariantStoryObj<TArgs> {
   name?: string;
+  exportName?: string;
   args?: Partial<TArgs>;
 }
 
@@ -75,7 +76,6 @@ export const generatePseudoStateStories = <
 ) => [
   ...[
     showDefault ?? {
-      name: 'Default',
       exportName: 'Default',
       ...Template,
       args: {
