@@ -4153,12 +4153,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.14.15":
-  version: 20.14.15
-  resolution: "@types/node@npm:20.14.15"
+"@types/node@npm:20.15.0, @types/node@npm:^20.0.0":
+  version: 20.15.0
+  resolution: "@types/node@npm:20.15.0"
   dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10c0/093713db52dc544f3931a3dec9d7d8ef661f323e57becd083a7918c778cef1eb6ec32d1017bf5ade06bb06dc5c7551f4f4d749a14e40868cce44d51e54acd8ed
+    undici-types: "npm:~6.13.0"
+  checksum: 10c0/5d682b360e747c789a8b95fd680c102666610df5db69ac5da908c87d6571bafeeae444cad1700f56a147c5c1527a7c9c38ba234840d447ef9ed96cabfe5821cb
   languageName: node
   linkType: hard
 
@@ -4168,15 +4168,6 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/298915f9097ad4b2749417b159eeb39fcd8c8bb60866759c9c5139c9492b7030ba6c359da510db5f5305c637c3448ac58dfafefe9801549e04ea11ca29c2a046
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^20.0.0":
-  version: 20.15.0
-  resolution: "@types/node@npm:20.15.0"
-  dependencies:
-    undici-types: "npm:~6.13.0"
-  checksum: 10c0/5d682b360e747c789a8b95fd680c102666610df5db69ac5da908c87d6571bafeeae444cad1700f56a147c5c1527a7c9c38ba234840d447ef9ed96cabfe5821cb
   languageName: node
   linkType: hard
 
@@ -12368,7 +12359,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@types/node": "npm:20.14.15"
+    "@types/node": "npm:20.15.0"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     eslint: "npm:8.57.0"
@@ -15619,7 +15610,7 @@ __metadata:
     "@types/eslint": "npm:9.6.0"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/eslint__js": "npm:8.42.3"
-    "@types/node": "npm:20.14.15"
+    "@types/node": "npm:20.15.0"
     "@typescript-eslint/utils": "npm:8.1.0"
     commons: "workspace:*"
     eslint: "npm:8.57.0"
@@ -16918,7 +16909,7 @@ __metadata:
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
     "@types/glob-to-regexp": "npm:0.4.4"
-    "@types/node": "npm:20.14.15"
+    "@types/node": "npm:20.15.0"
     "@types/semver": "npm:7.5.8"
     "@yarnpkg/core": "npm:4.1.2"
     "@yarnpkg/fslib": "npm:3.1.0"
