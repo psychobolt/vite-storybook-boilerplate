@@ -43,7 +43,7 @@
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "4.6.2",
     "lodash": "4.17.21",
-    "postcss": "8.4.40",
+    "postcss": "8.4.41",
     "postcss-pseudo-classes": "0.4.0",
     "postcss-scss": "4.0.9",
     "react": "18.3.1",
