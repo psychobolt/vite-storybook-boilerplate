@@ -15,7 +15,7 @@
     "ls-workspaces": "yarn run-script bin/ls-workspaces.ts",
     "bootstrap": "yarn workspace stylelint-config turbo build --log-order=stream && yarn run-script bin/bootstrap.ts",
     "apply-versions": "yarn run-script bin/apply-versions.ts",
-    "dev": "yarn turbo --background run dev",
+    "dev": "yarn turbo run dev",
     "build": "yarn turbo run build",
     "config-ci": "yarn run-script bin/config-ci.ts",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
