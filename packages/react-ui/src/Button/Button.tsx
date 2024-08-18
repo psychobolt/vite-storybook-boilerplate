@@ -1,7 +1,5 @@
 import { classNames } from 'commons/esm/.storybook/utils/functions';
 
-import classes from './Button.module.scss';
-
 interface Props {
   /**
    * Is this the principal call to action on the page?
@@ -36,14 +34,14 @@ export function Button({
   ...props
 }: Props) {
   const mode = primary
-    ? classes.storybookButtonPrimary
-    : classes.storybookButtonSecondary;
+    ? 'storybook-button--primary'
+    : 'storybook-button--secondary';
   return (
     <button
       type='button'
       className={classNames(
-        classes.storybookButton,
-        classes[`storybook-button--${size}`],
+        'storybook-button',
+        `storybook-button--${size}`,
         mode
       )}
       style={{ backgroundColor }}
