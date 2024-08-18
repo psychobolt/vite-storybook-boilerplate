@@ -13,7 +13,7 @@ export default mergeConfig(
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: ['react', 'react-dom'],
+        external: ['react', 'react-dom', 'html-ui'],
         output: {
           // Provide global variables to use in the UMD build
           // for externalized deps

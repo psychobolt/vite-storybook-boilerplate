@@ -13,13 +13,22 @@ Powered by:
 ## Install
 
 ```sh
-yarn [workspace workspace-name] add [-D[E]] react-ui
+yarn [workspace workspace-name] add [-D[E]] html-ui react-ui
 ```
 
 ## Usage
 
-```JSX
-import "react-ui/style.css"
+```jsx
+// index.jsx
+import 'react-ui/style.css';
+```
+
+```jsx
+// Component.jsx
+import "html-ui/style.css";
+// or
+import "html-ui/ComponentA.css";
+import "html-ui/ComponentB.css";
 
 import React from "react";
 import { ComponentA, ComponentB } from "react-ui";

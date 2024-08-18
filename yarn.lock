@@ -12364,6 +12364,7 @@ __metadata:
     "@types/react-dom": "npm:18.3.0"
     eslint: "npm:8.57.0"
     eslint-config-next: "npm:14.2.5"
+    html-ui: "workspace:*"
     next: "npm:14.2.5"
     open-cli: "npm:8.0.0"
     react: "npm:18.3.1"
