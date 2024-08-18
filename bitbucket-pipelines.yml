@@ -5,18 +5,18 @@ definitions:
     docker:
       memory: 7128
   caches:
-    yarn-66fe9af3ae76e59c:
+    yarn-d27a48e7373d472d:
       key:
         files:
           - yarn.lock
       path: .temp/.yarn/berry/cache
-    pnpm-66fe9af3ae76e59c:
+    pnpm-d27a48e7373d472d:
       key:
         files:
           - apps/svelte-app/yarn.lock
           - yarnrc.yml
       path: .temp/.yarn/berry/cache
-    unplugged-66fe9af3ae76e59c:
+    unplugged-d27a48e7373d472d:
       key:
         files:
           - packages/unplugged/yarn.lock
@@ -101,7 +101,7 @@ pipelines:
           max-time: 10
           size: 2x
           caches:
-            - yarn-66fe9af3ae76e59c
+            - yarn-d27a48e7373d472d
           script:
             - yarn install
             - yarn turbo run //#lint
@@ -116,7 +116,7 @@ pipelines:
                     - package.json
                     - packages/commons/**
               caches:
-                - yarn-66fe9af3ae76e59c
+                - yarn-d27a48e7373d472d
               script:
                 - *env
                 - export PACKAGE_NAME=commons
@@ -134,7 +134,7 @@ pipelines:
                     - packages/commons/**
                     - packages/stylelint-config/**
               caches:
-                - yarn-66fe9af3ae76e59c
+                - yarn-d27a48e7373d472d
               script:
                 - *env
                 - export PACKAGE_NAME=stylelint-config
@@ -146,7 +146,7 @@ pipelines:
               max-time: 15
               size: 2x
               caches:
-                - yarn-66fe9af3ae76e59c
+                - yarn-d27a48e7373d472d
               condition:
                 changesets:
                   includePaths:
@@ -166,7 +166,7 @@ pipelines:
               max-time: 15
               size: 2x
               caches:
-                - yarn-66fe9af3ae76e59c
+                - yarn-d27a48e7373d472d
               clone:
                 enabled: true
                 depth: 50
@@ -189,7 +189,7 @@ pipelines:
               max-time: 15
               size: 2x
               caches:
-                - yarn-66fe9af3ae76e59c
+                - yarn-d27a48e7373d472d
               clone:
                 enabled: true
                 depth: 50
@@ -210,8 +210,8 @@ pipelines:
               max-time: 15
               size: 2x
               caches:
-                - pnpm-66fe9af3ae76e59c
-                - unplugged-66fe9af3ae76e59c
+                - pnpm-d27a48e7373d472d
+                - unplugged-d27a48e7373d472d
               condition:
                 changesets:
                   includePaths:
@@ -232,8 +232,8 @@ pipelines:
           max-time: 25
           size: 2x
           caches:
-            - pnpm-66fe9af3ae76e59c
-            - unplugged-66fe9af3ae76e59c
+            - pnpm-d27a48e7373d472d
+            - unplugged-d27a48e7373d472d
           clone:
             enabled: true
             depth: 50
@@ -270,8 +270,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - pnpm-66fe9af3ae76e59c
-            - unplugged-66fe9af3ae76e59c
+            - pnpm-d27a48e7373d472d
+            - unplugged-d27a48e7373d472d
           clone:
             enabled: true
             depth: 50
@@ -321,8 +321,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - pnpm-66fe9af3ae76e59c
-            - unplugged-66fe9af3ae76e59c
+            - pnpm-d27a48e7373d472d
+            - unplugged-d27a48e7373d472d
           clone:
             enabled: true
             depth: full
@@ -395,7 +395,7 @@ pipelines:
           image: renovate/renovate:latest@sha256:55a19944128e98f02d8327c3999174fe32755159c66ddda0c5985ed6ac7e64a5
           size: 2x
           caches:
-            - yarn-66fe9af3ae76e59c
+            - yarn-d27a48e7373d472d
           script:
             - *env
             - corepack enable
