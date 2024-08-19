@@ -28,6 +28,10 @@ const updatedRules: Rules = unflatten(
         type: 'at-rule',
         name: 'include'
       },
+      {
+        type: 'at-rule',
+        name: 'at-root'
+      },
       'rules',
       'at-rules'
     ],
