@@ -76,6 +76,7 @@ export const generatePseudoStateStories = <
 ) => [
   ...[
     showDefault ?? {
+      name: 'Default',
       exportName: 'Default',
       ...Template,
       args: {
