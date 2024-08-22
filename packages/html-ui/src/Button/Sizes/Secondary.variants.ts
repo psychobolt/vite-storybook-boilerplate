@@ -20,4 +20,4 @@ export const Secondary: Story = {
   }
 };
 
-export const stories = () => getStories(Secondary);
+export const stories = getStories(Secondary);
