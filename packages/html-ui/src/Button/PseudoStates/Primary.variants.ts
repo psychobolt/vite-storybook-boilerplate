@@ -8,13 +8,13 @@ import {
 } from 'commons/esm/.storybook/utils/story-generators';
 
 import { getPseudoStateArgTypes } from 'utils/functions';
-import type { Props } from '../Button';
+import type { Props } from 'Button';
 
 export type Meta = VariantsMeta<Props>;
 
 export const meta = {
   title: 'Components/Button/Primary/Pseudo States',
-  fileName: '../Button',
+  fileName: 'Button',
   importName: 'Button',
   tags: ['autodocs'],
   decorators: [(Story) => html`<div style="padding: 3px">${Story()}</div>`],
