@@ -2,6 +2,8 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
+import postcssConfig from './postcss.config.mjs';
+
 const root = process.cwd();
 const packageName = process.env.npm_package_name ?? '';
 const entry = resolve(root, './src/index.ts');
@@ -20,5 +22,8 @@ export default defineConfig({
       // the proper extensions will be added
       fileName: 'index'
     }
+  },
+  css: {
+    postcss: postcssConfig
   }
 });
