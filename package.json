@@ -17,7 +17,6 @@
     "apply-versions": "yarn run-script bin/apply-versions.ts",
     "dev": "yarn turbo run dev",
     "build": "yarn turbo run build",
-    "config-ci": "yarn run-script bin/config-ci.ts",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
     "lint-staged": "yarn workspace commons turbo run build && lint-staged",
     "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",

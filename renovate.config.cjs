@@ -21,7 +21,7 @@ module.exports = {
         commands: [
           'YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install && yarn bootstrap'
         ],
-        fileFilters: ['**/yarn.lock', 'bitbucket-pipelines.yml']
+        fileFilters: ['**/yarn.lock']
       }
     }
   ]
