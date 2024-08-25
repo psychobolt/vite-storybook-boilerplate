@@ -1826,12 +1826,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:1.9.1":
-  version: 1.9.1
-  resolution: "@dotenvx/dotenvx@npm:1.9.1"
+"@dotenvx/dotenvx@npm:1.10.3":
+  version: 1.10.3
+  resolution: "@dotenvx/dotenvx@npm:1.10.3"
   dependencies:
     commander: "npm:^11.1.0"
-    diff: "npm:^5.2.0"
     dotenv: "npm:^16.4.5"
     eciesjs: "npm:^0.4.6"
     fdir: "npm:^6.2.0"
@@ -1840,11 +1839,10 @@ __metadata:
     picomatch: "npm:^4.0.2"
     tinyexec: "npm:^0.2.0"
     which: "npm:^4.0.0"
-    xxhashjs: "npm:^0.2.2"
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/9d0e1eb19b39d3f262e10f38835fe479c1c1dced98bcf3ee8346d3fba5aea919226e32079ee11ca1f17e19e57a8bbd212045479dc429259573cf06a969f3b6eb
+  checksum: 10c0/df502aab1f6949a2208690d73d3c4a1df79c30207a9cf2ad624974a9d9fcc0581fb0a2c632ace834d4f7891063fd72cc33d03916aeade680d0590d8a6f90c55f
   languageName: node
   linkType: hard
 
@@ -6114,13 +6112,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cuint@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "cuint@npm:0.2.2"
-  checksum: 10c0/ba56735799e04cd8fd8e386bfde52298e26179665f0063a7a22aaf5771e1b350f1b3baa83c719097cb650766b0e5067d16121db71f88fad4b2ef1ed423d646b7
-  languageName: node
-  linkType: hard
-
 "cwd@npm:^0.10.0":
   version: 0.10.0
   resolution: "cwd@npm:0.10.0"
@@ -6412,13 +6403,6 @@ __metadata:
   version: 5.1.0
   resolution: "diff@npm:5.1.0"
   checksum: 10c0/77a0d9beb9ed54796154ac2511872288432124ac90a1cabb1878783c9b4d81f1847f3b746a0630b1e836181461d2c76e1e6b95559bef86ed16294d114862e364
-  languageName: node
-  linkType: hard
-
-"diff@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "diff@npm:5.2.0"
-  checksum: 10c0/aed0941f206fe261ecb258dc8d0ceea8abbde3ace5827518ff8d302f0fc9cc81ce116c4d8f379151171336caf0516b79e01abdc1ed1201b6440d895a66689eb4
   languageName: node
   linkType: hard
 
@@ -14277,7 +14261,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.9.1"
+    "@dotenvx/dotenvx": "npm:1.10.3"
     "@eslint/js": "npm:9.9.1"
     "@fontsource/fira-mono": "npm:5.0.14"
     "@neoconfetti/svelte": "npm:2.2.1"
@@ -16140,15 +16124,6 @@ __metadata:
   version: 1.0.1
   resolution: "xml@npm:1.0.1"
   checksum: 10c0/04bcc9b8b5e7b49392072fbd9c6b0f0958bd8e8f8606fee460318e43991349a68cbc5384038d179ff15aef7d222285f69ca0f067f53d071084eb14c7fdb30411
-  languageName: node
-  linkType: hard
-
-"xxhashjs@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "xxhashjs@npm:0.2.2"
-  dependencies:
-    cuint: "npm:^0.2.2"
-  checksum: 10c0/78f3a5e10c7ba026bfc52f07ab02acb972c9c681dd53c283b386042822bae15577667103efe843725e9b0914f7bc53d70fe2f24a3e85d15aac13378fdf2db50e
   languageName: node
   linkType: hard
 
