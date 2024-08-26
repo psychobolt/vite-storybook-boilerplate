@@ -42,4 +42,4 @@ export const Component = ({ label = "Default Text" }) => (
 
 ## API
 
-See [Docs](https://main--642f33339c5eee1cdf95b318.chromatic.com/?path=/docs/readme--docs)
+See main Storybook [docs](https://main--642f33339c5eee1cdf95b318.chromatic.com/?path=/docs/readme--docs)
