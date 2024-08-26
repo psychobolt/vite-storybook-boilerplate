@@ -24,7 +24,7 @@
     "@storybook/builder-vite": "8.2.9",
     "@storybook/test-runner": "0.19.1",
     "@storybook/types": "8.2.9",
-    "@types/eslint": "9.6.0",
+    "@types/eslint": "9.6.1",
     "@types/eslint-config-prettier": "6.11.3",
     "@types/lodash": "4",
     "@typescript-eslint/eslint-plugin": "8.2.0",
