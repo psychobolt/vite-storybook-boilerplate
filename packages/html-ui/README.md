@@ -91,4 +91,4 @@ export const Component = (props) => (
 
 ## API
 
-See [Docs](https://main--642f32dc32967ec57a93be46.chromatic.com/?path=/docs/readme--docs)
+See main Storybook [docs](https://main--642f32dc32967ec57a93be46.chromatic.com/?path=/docs/readme--docs)

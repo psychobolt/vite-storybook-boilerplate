@@ -6,7 +6,7 @@ type Config = ProcessOptions & { plugins?: AcceptedPlugin[] };
 const config: Config = {
   plugins: [
     pseudoClasses({
-      blacklist: [':not', ':nth-child', ':last-child', ':checked']
+      restrictTo: ['focus', 'hover', 'active']
     })
   ]
 };

@@ -3,6 +3,10 @@ import type {
   ProjectAnnotations,
   Renderer
 } from '@storybook/types';
+import { SyntaxHighlighter } from '@storybook/components';
+import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
+
+SyntaxHighlighter.registerLanguage('scss', scss);
 
 const decorators: Array<DecoratorFunction> = [];
 
