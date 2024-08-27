@@ -74,13 +74,6 @@ export default mergeConfig(
         }
       },
       cssCodeSplit: true
-    },
-    css: {
-      modules: {
-        globalModulePaths: [/src/],
-        exportGlobals: true,
-        localsConvention: 'camelCase'
-      }
     }
   }),
   false
