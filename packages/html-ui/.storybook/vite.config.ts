@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [vitePluginStorybookVariants<Meta>('lit')],
   css: {
     modules: {
+      globalModulePaths: [/src/],
+      exportGlobals: true,
       localsConvention: 'camelCase'
     }
   }
