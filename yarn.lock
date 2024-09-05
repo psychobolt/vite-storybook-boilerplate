@@ -6647,7 +6647,7 @@ __metadata:
     lodash: "npm:4.17.21"
     playwright: "npm:1.47.0"
     playwright-chromium: "npm:1.47.0"
-    postcss: "npm:8.4.41"
+    postcss: "npm:8.4.45"
     postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
     prettier: "npm:3.3.3"
@@ -14037,7 +14037,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.41, postcss@npm:^8.0.0, postcss@npm:^8.4.32, postcss@npm:^8.4.35, postcss@npm:^8.4.38, postcss@npm:^8.4.39, postcss@npm:^8.4.41":
+"postcss@npm:8.4.45":
+  version: 8.4.45
+  resolution: "postcss@npm:8.4.45"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.0.1"
+    source-map-js: "npm:^1.2.0"
+  checksum: 10c0/ad6f8b9b1157d678560373696109745ab97a947d449f8a997acac41c7f1e4c0f3ca4b092d6df1387f430f2c9a319987b1780dbdc27e35800a88cde9b606c1e8f
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.0.0, postcss@npm:^8.4.32, postcss@npm:^8.4.35, postcss@npm:^8.4.38, postcss@npm:^8.4.39, postcss@npm:^8.4.41":
   version: 8.4.41
   resolution: "postcss@npm:8.4.41"
   dependencies:
@@ -15995,7 +16006,7 @@ __metadata:
   dependencies:
     commons: "workspace:*"
     flat: "npm:6.0.1"
-    postcss: "npm:8.4.41"
+    postcss: "npm:8.4.45"
     stylelint: "npm:16.9.0"
     stylelint-config-hudochenkov: "npm:10.0.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
@@ -16176,7 +16187,7 @@ __metadata:
     eslint-plugin-svelte: "npm:2.43.0"
     globals: "npm:15.9.0"
     html-ui: "workspace:*"
-    postcss: "npm:8.4.41"
+    postcss: "npm:8.4.45"
     prettier: "npm:3.3.3"
     prettier-plugin-svelte: "npm:3.2.6"
     sass: "npm:1.78.0"
