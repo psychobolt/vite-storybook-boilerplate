@@ -4,6 +4,9 @@
   "baseBranches": ["$default", "bitbucket"],
   "useBaseBranchConfig": "merge",
   "automerge": true,
+  "constraints": {
+    "node": "^18"
+  },
   "packageRules": [
     {
       "matchPackageNames": ["vite", "postcss"],
