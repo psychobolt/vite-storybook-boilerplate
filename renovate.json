@@ -2,5 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:best-practices"],
   "enabledManagers": ["bitbucket-pipelines"],
-  "automerge": true
+  "automerge": true,
+  "packageRules": [
+    {
+      "matchPackageNames": ["vite", "postcss"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Vite and PostCSS (non-major)"
+    }
+  ]
 }
