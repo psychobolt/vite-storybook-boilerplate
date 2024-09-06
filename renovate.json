@@ -3,5 +3,12 @@
   "extends": ["config:best-practices"],
   "baseBranches": ["$default", "bitbucket"],
   "useBaseBranchConfig": "merge",
-  "automerge": true
+  "automerge": true,
+  "packageRules": [
+    {
+      "matchPackageNames": ["vite", "postcss"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Vite and PostCSS (non-major)"
+    }
+  ]
 }
