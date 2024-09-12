@@ -19,7 +19,7 @@
 	"devDependencies": {
 		"@dotenvx/dotenvx": "1.14.0",
 		"@eslint/js": "9.10.0",
-		"@fontsource/fira-mono": "5.0.15",
+		"@fontsource/fira-mono": "5.1.0",
 		"@neoconfetti/svelte": "2.2.1",
 		"@sveltejs/adapter-auto": "3.2.4",
 		"@sveltejs/adapter-vercel": "5.4.3",
@@ -47,7 +47,7 @@
 		"stylelint-config-prettier-scss": "1.0.0",
 		"stylelint-config-standard-scss": "13.1.0",
 		"svelte": "4.2.19",
-		"svelte-check": "4.0.1",
+		"svelte-check": "4.0.2",
 		"svelte-eslint-parser": "0.41.0",
 		"svelte-language-server": "0.17.0",
 		"tslib": "2.7.0",

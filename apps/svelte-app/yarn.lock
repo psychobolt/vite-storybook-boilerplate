@@ -2282,10 +2282,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/fira-mono@npm:5.0.15":
-  version: 5.0.15
-  resolution: "@fontsource/fira-mono@npm:5.0.15"
-  checksum: 10c0/838fba6507592b23197d3a53c34882eccf8fb342f1478bda54832855537ef476dabb45a3f81a65f2b6287ba5148f8675e35af5469e51612cc99979e38470687a
+"@fontsource/fira-mono@npm:5.1.0":
+  version: 5.1.0
+  resolution: "@fontsource/fira-mono@npm:5.1.0"
+  checksum: 10c0/ff0667bffd1bb32ad29e1d777e7bb7416be101f1c764fbf624973d38eaffb1748e063c0efd606b6801e9d7d2e0e72f7b1bf8019af95d81e04e4472c542b1d520
   languageName: node
   linkType: hard
 
@@ -14394,7 +14394,7 @@ __metadata:
   dependencies:
     "@dotenvx/dotenvx": "npm:1.14.0"
     "@eslint/js": "npm:9.10.0"
-    "@fontsource/fira-mono": "npm:5.0.15"
+    "@fontsource/fira-mono": "npm:5.1.0"
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:3.2.4"
     "@sveltejs/adapter-vercel": "npm:5.4.3"
@@ -14422,7 +14422,7 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.1.0"
     svelte: "npm:4.2.19"
-    svelte-check: "npm:4.0.1"
+    svelte-check: "npm:4.0.2"
     svelte-eslint-parser: "npm:0.41.0"
     svelte-language-server: "npm:0.17.0"
     tslib: "npm:2.7.0"
@@ -14433,9 +14433,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"svelte-check@npm:4.0.1":
-  version: 4.0.1
-  resolution: "svelte-check@npm:4.0.1"
+"svelte-check@npm:4.0.2":
+  version: 4.0.2
+  resolution: "svelte-check@npm:4.0.2"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     chokidar: "npm:^3.4.1"
@@ -14447,7 +14447,7 @@ __metadata:
     typescript: ">=5.0.0"
   bin:
     svelte-check: bin/svelte-check
-  checksum: 10c0/bcdb1fb0ec062c0e39bd601cce5b7e691981a621a2a69fb7975f602ce650536561c9b7caa67a2a1d960bc75fa0bd403e7907bcf15b5b32a99f7eaa7d20dbd5fc
+  checksum: 10c0/0fabe3f8a38ebb2c8370aaca6540e8542e211f4760b159480f19fdf5cd5394d9e96a68374d750260e9f7425f5523eacdfe1af9fd96d2daa06232843b108d1f2f
   languageName: node
   linkType: hard
 
