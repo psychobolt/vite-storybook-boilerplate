@@ -6494,9 +6494,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:11.8.0":
-  version: 11.8.0
-  resolution: "chromatic@npm:11.8.0"
+"chromatic@npm:11.9.0":
+  version: 11.9.0
+  resolution: "chromatic@npm:11.9.0"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -6509,7 +6509,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 10c0/273bf89b0f7a76d2eadfd4c6c5ae6c331a86ead3e4b8ecba4ff6a544d648f5510ac2d779f4e5b575aa5b2b6d237fbee0f583719d23fc7f99435b0de699216114
+  checksum: 10c0/84d64c04c4ef01080977bd13dd16c552ecdd03a3f7ea1f7235961c561d4d5252990fefc0131a49b1e504e3e52e5769779abd3ccf544751b651108f90ded34ac5
   languageName: node
   linkType: hard
 
@@ -9917,7 +9917,7 @@ __metadata:
     "@storybook/test": "npm:8.3.0"
     "@storybook/web-components": "npm:8.3.0"
     "@storybook/web-components-vite": "npm:8.3.0"
-    chromatic: "npm:11.8.0"
+    chromatic: "npm:11.9.0"
     commons: "workspace:*"
     glob: "npm:11.0.0"
     http-server: "npm:14.1.1"
@@ -14706,7 +14706,7 @@ __metadata:
     "@tsconfig/vite-react": "npm:3.0.2"
     "@types/react": "npm:18.3.5"
     "@types/react-dom": "npm:18.3.0"
-    chromatic: "npm:11.8.0"
+    chromatic: "npm:11.9.0"
     commons: "workspace:*"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
