@@ -3669,9 +3669,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.5.26":
-  version: 2.5.26
-  resolution: "@sveltejs/kit@npm:2.5.26"
+"@sveltejs/kit@npm:2.5.27":
+  version: 2.5.27
+  resolution: "@sveltejs/kit@npm:2.5.27"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     cookie: "npm:^0.6.0"
@@ -3691,7 +3691,7 @@ __metadata:
     vite: ^5.0.3
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/37a53577ed0fc5e13eb5a2e8545dd9c98a3ce040581948af81c85e472fe4ffadf1344ada6db2104628f9e2e641a61502bb8ce5d4c1582948c1ef0b3f820edc9a
+  checksum: 10c0/adf634fdaea79d8ae476491ad135a296317db3bddb3f71991bb5549f52bb8d0d13d7eceb7abaaddf69bbc14e39c34e2f4f603c6d1e5382e902e3ab7a8464e82c
   languageName: node
   linkType: hard
 
@@ -6841,8 +6841,8 @@ __metadata:
     eslint-plugin-react-hooks: "npm:4.6.2"
     jest-junit: "npm:16.0.0"
     lodash: "npm:4.17.21"
-    playwright: "npm:1.47.0"
-    playwright-chromium: "npm:1.47.0"
+    playwright: "npm:1.47.1"
+    playwright-chromium: "npm:1.47.1"
     postcss: "npm:8.4.45"
     postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
@@ -14090,14 +14090,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-chromium@npm:1.47.0":
-  version: 1.47.0
-  resolution: "playwright-chromium@npm:1.47.0"
+"playwright-chromium@npm:1.47.1":
+  version: 1.47.1
+  resolution: "playwright-chromium@npm:1.47.1"
   dependencies:
-    playwright-core: "npm:1.47.0"
+    playwright-core: "npm:1.47.1"
   bin:
     playwright: cli.js
-  checksum: 10c0/87b98a5e489dd2aa8baab5cb32f2e442ea73ff89140c54330fe87510147fb20f5f8b351e27ff97d72736ec252bd7c8c6776c81333d9ff285b4f5b5e4d5ea5996
+  checksum: 10c0/c25b34e83a7235955fc66959d33a9babb0262cecb3149b1d7f244089eca474d77ab932eaf1275281fb788fb2dea4e6c99814ece8159eb2448548150cd4aaff60
   languageName: node
   linkType: hard
 
@@ -14110,27 +14110,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.47.0":
-  version: 1.47.0
-  resolution: "playwright-core@npm:1.47.0"
+"playwright-core@npm:1.47.1":
+  version: 1.47.1
+  resolution: "playwright-core@npm:1.47.1"
   bin:
     playwright-core: cli.js
-  checksum: 10c0/70fdd2e62849176ff5403ec530a69d0ef07e6bebc8486f1f4bf49bc4b8a34ab27be0f91950f74a448db13b383d2ba6d934041493f286603de190937ebd0e7508
+  checksum: 10c0/c20f8f4fef2ce81fbe429d747fcb8a61564950b33e8d28ea51965fbfd7ddf0dcc4689efda056eed2666a5f511353a46570f18704962ccac62587c5351efa6396
   languageName: node
   linkType: hard
 
-"playwright@npm:1.47.0":
-  version: 1.47.0
-  resolution: "playwright@npm:1.47.0"
+"playwright@npm:1.47.1":
+  version: 1.47.1
+  resolution: "playwright@npm:1.47.1"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.47.0"
+    playwright-core: "npm:1.47.1"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10c0/fa47134246baf0951db435ae004a0ee98d5d1cfbb675d07a2c5dd3709866e69c092a568f0e8ec652e9e9fcb45e77335a44cd74b03d15369a7acb9c6e7a0a88d0
+  checksum: 10c0/45351f9c785c16000a39125b38e27e7ccf8b66fc63384cf8a77d8c6f8c7fdc7b2770a99802ab7ea5447a23630325e781852b08c08ed181f34cb595b60ae1f646
   languageName: node
   linkType: hard
 
@@ -16461,7 +16461,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:3.2.4"
     "@sveltejs/adapter-vercel": "npm:5.4.3"
-    "@sveltejs/kit": "npm:2.5.26"
+    "@sveltejs/kit": "npm:2.5.27"
     "@sveltejs/vite-plugin-svelte": "npm:3.1.2"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
@@ -17751,7 +17751,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.6"
     lint-staged: "npm:15.2.10"
-    playwright: "npm:1.47.0"
+    playwright: "npm:1.47.1"
     semver: "npm:7.6.3"
     stylelint: "npm:16.9.0"
     turbo: "npm:2.1.2"
