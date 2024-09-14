@@ -6,12 +6,5 @@
   "automerge": true,
   "constraints": {
     "node": "^18"
-  },
-  "packageRules": [
-    {
-      "matchPackageNames": ["vite", "postcss"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "Vite and PostCSS (non-major)"
-    }
-  ]
+  }
 }
