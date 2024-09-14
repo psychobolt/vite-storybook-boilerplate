@@ -46,6 +46,9 @@ jobs:
         uses: rharkor/caching-for-turbo@439abec0d28d21b192fa8817b744ffdf1ee5ac0d # v1.5
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Remove Lockfile
+        if: contains(inputs.ref, '-vite-') || contains(inputs.ref, '-postcss-')
+        run: rm yarn.lock
       - name: Install dependencies
         run: |
           yarn install
