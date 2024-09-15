@@ -67,7 +67,7 @@ export const generatePseudoStateStories = <
   P extends EnumLike<P>,
   A extends EnumLike<A>
 >(
-  Template: VariantStoryObj<TArgs>,
+  Template: VariantStoryObj<TArgs> | VariantStory<TArgs>,
   {
     showDefault,
     pseudoClasses,
@@ -85,7 +85,7 @@ export const generatePseudoStateStories = <
         storyAttr: 'none'
       }
     }
-  ].filter(Boolean),
+  ].filter(<T>(story: T | boolean): story is T => story !== false),
   ...generateStoriesByEnum(
     [Template],
     'storyPseudo',

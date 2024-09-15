@@ -14,7 +14,7 @@
   "eslint.options": {
     "overrideConfigFile": "./eslint.config.ts"
   },
-  "eslint.workingDirectories": [{ "mode": "location" }],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.validate": [
     "markdown",
     "mdx",

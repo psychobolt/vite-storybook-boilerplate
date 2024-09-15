@@ -50,10 +50,7 @@ function banImportExtension(extension: string) {
 }
 
 type TSConfig = { compilerOptions: CompilerOptions };
-const tsconfigParseResult = await parse(
-  path.resolve(process.env.INIT_CWD ?? '.', 'eslint.config.ts')
-);
-const tsconfigFile = tsconfigParseResult.tsconfigFile;
+const tsconfigParseResult = await parse(path.resolve('eslint.config.ts'));
 const tsconfig: TSConfig = tsconfigParseResult.tsconfig;
 
 export default tseslint.config(
@@ -63,7 +60,9 @@ export default tseslint.config(
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: tsconfigFile
+        project: true,
+        tsconfigRootDir: process.env.PROJECT_CWD,
+        warnOnUnsupportedTypeScriptVersion: false
       }
     },
     rules: {

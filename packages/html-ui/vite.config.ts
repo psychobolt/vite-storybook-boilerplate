@@ -1,76 +1,85 @@
 import { globSync } from 'glob';
 import { defineConfig, mergeConfig } from 'vite';
 import sassGlobImport from 'vite-plugin-sass-glob-import';
+import noEmit from 'rollup-plugin-no-emit';
 import commonConfig from 'commons/esm/vite.config';
 
 interface Module {
-  entry: RegExp;
-  assetName: RegExp;
+  pattern: RegExp;
   ext: string;
-  assets: string[];
-  index: number;
 }
 
 const modules: Module[] = [
   {
-    entry: /src[/\\](style).scss$/,
-    assetName: /^style.css$/,
-    ext: 'css',
-    assets: [],
-    index: -1
+    pattern: /src[/\\](style)\.scss$/,
+    ext: 'css'
   },
   {
-    entry: /^.+[/\\](.+)[/\\]index.scss$/,
-    assetName: /^index.css$/,
-    ext: 'css',
-    assets: [],
-    index: -1
+    pattern: /^.+[/\\].+[/\\](.+)\.module\.scss$/,
+    ext: 'css'
   }
 ];
 
-function getAssetName({ entry, ext }: Module, moduleId: string) {
-  const [, module] = moduleId.match(entry) ?? [];
-  return `${module}.${ext}`;
-}
+const srcPattern = /^(.*src)[/\\]/;
 
-function mapAssets(moduleId: string) {
-  for (const module of modules) {
-    if (!module.entry.test(moduleId)) continue;
-    module.assets.push(getAssetName(module, moduleId));
-    return;
-  }
-}
-
-const ASSET_FILE_NAMES = 'assets/[name]-[hash][extname]';
-
-function shiftAssets(assetName?: string) {
-  if (assetName) {
-    for (const module of modules) {
-      if (!module.assetName.test(assetName)) continue;
-      ++module.index;
-      if (module.index === module.assets.length) {
-        module.index = 0;
-      }
-      return module.assets[module.index];
+function getAssetFileName(moduleId: string) {
+  if (moduleId) {
+    for (const { pattern, ext } of modules) {
+      if (!pattern.test(moduleId)) continue;
+      const [, name] = moduleId.match(pattern) ?? [];
+      if (name) return `${name}.${ext}`;
     }
   }
-  return ASSET_FILE_NAMES;
+  return moduleId.replace(srcPattern, '');
 }
+
+const mainEntryJs = /^index.+\.js(?:\.map)?/;
+const assets = ['src/style.scss', ...globSync('src/*/*.module.scss')];
+
+interface AssetConfig {
+  input: Record<string, string>;
+  assetFileNames: Record<string, string>;
+}
+
+const { input, assetFileNames }: AssetConfig = assets.reduce(
+  (rest, file) => {
+    const assetFileName = getAssetFileName(file);
+    return {
+      input: {
+        ...rest.input,
+        [assetFileName]: file
+      },
+      assetFileNames: {
+        ...rest.assetFileNames,
+        [file]: assetFileName
+      }
+    };
+  },
+  { input: {}, assetFileNames: {} }
+);
 
 export default mergeConfig(
   commonConfig,
   defineConfig({
-    plugins: [sassGlobImport()],
+    plugins: [
+      sassGlobImport(),
+      noEmit({ match: (file) => mainEntryJs.test(file) })
+    ],
+    css: {
+      modules: {
+        scopeBehaviour: 'global'
+      }
+    },
     build: {
       lib: false,
       rollupOptions: {
-        input: ['src/style.scss', ...globSync('src/*/index.scss')],
+        input,
+        preserveEntrySignatures: 'strict',
         output: {
-          entryFileNames({ facadeModuleId }) {
-            if (facadeModuleId) mapAssets(facadeModuleId);
-            return '[name]';
-          },
-          assetFileNames: ({ name: assetName }) => shiftAssets(assetName)
+          entryFileNames: 'index.js', // disabling JS output is unsupported, use noEmit()
+          assetFileNames: ({ originalFileName }) =>
+            assetFileNames[originalFileName ?? ''] ??
+            'assets/[name]-[hash][extname]'
         }
       },
       cssCodeSplit: true
