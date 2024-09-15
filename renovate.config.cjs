@@ -6,11 +6,7 @@ const workspaces = JSON.parse(
 );
 
 const commands = [];
-if (
-  /^renovate\/(?:vite|postcss)-/.test(
-    execSync('git rev-parse --abbrev-ref HEAD')
-  )
-) {
+if (/^renovate\/(?:vite|postcss)-/.test(process.env.BITBUCKET_BRANCH)) {
   commands.push('rm yarn.lock');
 }
 
