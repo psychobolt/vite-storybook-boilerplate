@@ -31,8 +31,9 @@ export default tseslint.config(
 			parser: svelteParser,
 			parserOptions: {
 				parser: tseslint.parser,
-				tsconfigRootDir: process.env.INIT_CWD,
-				project: './tsconfig.json'
+				project: true,
+				tsconfigRootDir: process.env.PROJECT_CWD,
+				warnOnUnsupportedTypeScriptVersion: false
 			}
 		},
 		rules: {

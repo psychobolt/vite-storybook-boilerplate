@@ -8108,6 +8108,7 @@ __metadata:
     nyc: "npm:17.0.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
+    rollup-plugin-no-emit: "npm:1.2.1"
     sass: "npm:1.78.0"
     storybook: "npm:8.3.0"
     stylelint-config: "workspace:*"
@@ -12967,6 +12968,18 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 10c0/9cb7757acb489bd83757ba1a274ab545eafd75598a9d817e0c3f8b164238dd90eba50d6b848bd4dcc5f3040912e882dc7ba71653e35af660d77b25c381d402e8
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-no-emit@npm:1.2.1":
+  version: 1.2.1
+  resolution: "rollup-plugin-no-emit@npm:1.2.1"
+  peerDependencies:
+    rollup: ^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 10c0/fe8d96104ea248c12d24d1a40ffb3c8fdc6de72f3672c595ff76362a77214148b0e2cc6704f6eb6cb6cc6e8e7f8df41e0d92c6f0d15ffd226f1319d42b0068a0
   languageName: node
   linkType: hard
 
