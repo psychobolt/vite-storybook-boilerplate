@@ -1,11 +1,18 @@
 const { execSync } = require('node:child_process');
 const { join } = require('node:path');
 
-const stdout = execSync(
-  'yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules'
+const workspaces = JSON.parse(
+  execSync('yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules')
 );
 
-const workspaces = JSON.parse(stdout);
+const commands = [];
+if (
+  /^renovate\/(?:vite|postcss)-/.test(
+    execSync('git rev-parse --abbrev-ref HEAD')
+  )
+) {
+  commands.push('rm yarn.lock');
+}
 
 module.exports = {
   platform: 'bitbucket',
@@ -19,6 +26,7 @@ module.exports = {
       ],
       postUpgradeTasks: {
         commands: [
+          ...commands,
           'YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install && yarn bootstrap'
         ],
         fileFilters: ['**/yarn.lock']
