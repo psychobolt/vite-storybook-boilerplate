@@ -15,7 +15,7 @@ const modules: Module[] = [
     ext: 'css'
   },
   {
-    pattern: /^.+[/\\].+[/\\](.+)\.module\.scss$/,
+    pattern: /^.+[/\\]+.+[/\\]+(.+)\.module\.scss$/,
     ext: 'css'
   }
 ];
@@ -34,29 +34,6 @@ function getAssetFileName(moduleId: string) {
 }
 
 const mainEntryJs = /^index.+\.js(?:\.map)?/;
-const assets = ['src/style.scss', ...globSync('src/*/*.module.scss')];
-
-interface AssetConfig {
-  input: Record<string, string>;
-  assetFileNames: Record<string, string>;
-}
-
-const { input, assetFileNames }: AssetConfig = assets.reduce(
-  (rest, file) => {
-    const assetFileName = getAssetFileName(file);
-    return {
-      input: {
-        ...rest.input,
-        [assetFileName]: file
-      },
-      assetFileNames: {
-        ...rest.assetFileNames,
-        [file]: assetFileName
-      }
-    };
-  },
-  { input: {}, assetFileNames: {} }
-);
 
 export default mergeConfig(
   commonConfig,
@@ -73,13 +50,21 @@ export default mergeConfig(
     build: {
       lib: false,
       rollupOptions: {
-        input,
+        input: ['src/style.scss', ...globSync('src/*/*.module.scss')].reduce(
+          (rest, file) => {
+            const assetFileName = getAssetFileName(file);
+            return {
+              ...rest,
+              [assetFileName]: file
+            };
+          },
+          {}
+        ),
         preserveEntrySignatures: 'strict',
         output: {
           entryFileNames: 'index.js', // disabling JS output is unsupported, use noEmit()
-          assetFileNames: ({ originalFileName }) =>
-            assetFileNames[originalFileName ?? ''] ??
-            'assets/[name]-[hash][extname]'
+          assetFileNames: ({ name }) =>
+            name ? name : 'assets/[name]-[hash][extname]'
         }
       },
       cssCodeSplit: true
