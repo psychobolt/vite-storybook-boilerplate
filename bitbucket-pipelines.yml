@@ -198,6 +198,7 @@ pipelines:
                   includePaths:
                     - package.json
                     - packages/commons/**
+                    - packages/html-ui/**
                     - packages/react-ui/**
                     - apps/next-app/**
               script:
@@ -218,7 +219,7 @@ pipelines:
                     - package.json
                     - bin/bootstrap.ts
                     - packages/commons/**
-                    - packages/react-ui/**
+                    - packages/html-ui/**
                     - apps/svelte-app/**
               script:
                 - *env
