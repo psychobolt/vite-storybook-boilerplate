@@ -33,7 +33,7 @@ definitions:
         yarn bootstrap
     - script: &setup |
         set -o pipefail
-        nvm install --lts
+        nvm install
         corepack enable
         yarn install
         yarn playwright install --with-deps chromium
@@ -257,7 +257,7 @@ pipelines:
               if [ "$STABLE" = true ]; then
                 git fetch --depth=50 origin "$BASE_REF_NAME":"$BASE_REF_NAME"
               fi
-            - nvm install --lts
+            - nvm install
             - corepack enable
             - *install
             - *release
@@ -280,7 +280,7 @@ pipelines:
             - *env
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
             - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
-            - nvm install --lts
+            - nvm install
             - corepack enable
             - set +e
             - yarn version check
