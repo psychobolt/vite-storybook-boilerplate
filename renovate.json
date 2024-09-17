@@ -6,5 +6,8 @@
   "automerge": true,
   "nvm": {
     "enabled": false
+  },
+  "constraints": {
+    "node": "^18"
   }
 }
