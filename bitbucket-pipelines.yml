@@ -1,4 +1,4 @@
-image: node:lts-alpine@sha256:2d07db07a2df6830718ae2a47db6fedce6745f5bcd174c398f2acdda90a11c03
+image: node:18-alpine@sha256:02376a266c84acbf45bd19440e08e48b1c8b98037417334046029ab585de03e2
 
 definitions:
   services:
@@ -399,6 +399,13 @@ pipelines:
             - yarn
           script:
             - *env
+            - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+            - set +e
+            - . ~/.nvm/nvm.sh
+            - export CHECK_STATUS=$?
+            - set -e
+            - '[ $CHECK_STATUS != 0 ] && exit $CHECK_STATUS || true'
+            - nvm install
             - corepack enable
             - yarn install
             - export LOG_LEVEL=debug
