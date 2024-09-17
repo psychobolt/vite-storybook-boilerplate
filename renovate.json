@@ -5,5 +5,14 @@
   "automerge": true,
   "nvm": {
     "enabled": false
-  }
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["bitbucket-pipelines"],
+      "matchPackageNames": ["node"],
+      "versionCompatibility": "^(?<version>[^-]+)(?<compatibility>-.*)?$",
+      "versioning": "node",
+      "allowedVersions": "< 19"
+    }
+  ]
 }
