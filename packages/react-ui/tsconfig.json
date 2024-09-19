@@ -19,7 +19,8 @@
         "${configDir}/../html-ui/dist/*",
         "${configDir}/../html-ui/*"
       ],
-      "react-ui": ["index.ts"]
+      "react-ui": ["index.ts"],
+      "react-ui/*": ["*/index.ts"]
     }
   },
   "include": [".storybook/**/*", "**/*"],

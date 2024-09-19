@@ -7,5 +7,5 @@
     "outDir": "dist"
   },
   "include": ["src"],
-  "exclude": ["**/*.stories.ts"]
+  "exclude": ["**/*.stories.*"]
 }

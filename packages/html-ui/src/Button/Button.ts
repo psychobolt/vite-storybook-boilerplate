@@ -1,7 +1,7 @@
 import { html, nothing } from 'lit';
 import { styleMap } from 'lit/directives/style-map.js';
 import type { StoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators';
-import { classNames } from 'commons/esm/.storybook/utils/functions';
+import classNames from 'classnames';
 
 import type { SizeEnum } from './Sizes/Primary.variants';
 import classes from './Button.module.scss';
