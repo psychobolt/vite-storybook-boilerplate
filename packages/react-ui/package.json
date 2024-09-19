@@ -42,7 +42,7 @@
     "commons": "workspace:*",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
-    "nyc": "17.0.0",
+    "nyc": "17.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sass": "1.79.1",
