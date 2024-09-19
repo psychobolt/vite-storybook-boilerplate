@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header } from 'react-ui';
+import { Header } from 'react-ui/Header';
 import './page.css';
 
 interface User {

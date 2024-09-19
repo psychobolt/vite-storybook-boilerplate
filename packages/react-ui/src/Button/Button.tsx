@@ -1,4 +1,4 @@
-import { classNames } from 'commons/esm/.storybook/utils/functions';
+import classNames from 'classnames';
 
 interface Props {
   /**

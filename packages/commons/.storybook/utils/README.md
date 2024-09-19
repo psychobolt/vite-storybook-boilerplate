@@ -98,9 +98,3 @@ const meta = {
 
 export default meta;
 ```
-
-### Class Names
-
-`classNames(class1, class2, ...)`
-
-Joins multiple classes into a string e.g. `classNames('class-one', 'with-variant-name') // returns 'class-one variant-name'`. Any falsy values are not included.

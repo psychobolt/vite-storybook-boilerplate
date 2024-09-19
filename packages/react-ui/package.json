@@ -3,14 +3,19 @@
   "private": true,
   "type": "module",
   "packageManager": "yarn@4.5.0",
-  "main": "./dist/index.umd.cjs",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "exports": {
     ".": {
+      "types": "./types/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
+      "require": "./dist/index.cjs"
     },
-    "./*": "./dist/*"
+    "./*": {
+      "types": "./dist/*/index.d.ts",
+      "import": "./dist/*/index.js",
+      "require": "./dist/*/index.cjs"
+    }
   },
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -36,10 +41,12 @@
     "@storybook/react-vite": "8.3.2",
     "@storybook/test": "8.3.2",
     "@tsconfig/vite-react": "3.0.2",
-    "@types/react": "18.3.7",
+    "@types/react": "18.3.8",
     "@types/react-dom": "18.3.0",
     "chromatic": "11.10.2",
+    "classnames": "2.5.1",
     "commons": "workspace:*",
+    "glob": "11.0.0",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
     "nyc": "17.1.0",

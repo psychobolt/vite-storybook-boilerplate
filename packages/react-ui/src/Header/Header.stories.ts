@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import 'html-ui/Button.css';
+import 'html-ui/Header.css';
 import { Header } from './Header';
 
 const meta = {

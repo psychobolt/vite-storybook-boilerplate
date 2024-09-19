@@ -1,5 +1,4 @@
-import 'react-ui/style.css';
-import 'html-ui/Button.css';
+import 'html-ui/style.css';
 
 import Head from 'next/head'
 import Image from 'next/image'
