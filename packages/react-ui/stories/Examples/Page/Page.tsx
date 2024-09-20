@@ -1,5 +1,7 @@
 import React from 'react';
 
+import 'html-ui/Button.css';
+import 'html-ui/Header.css';
 import { Header } from 'react-ui/Header';
 import './page.css';
 
