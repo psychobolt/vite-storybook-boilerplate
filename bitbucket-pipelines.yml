@@ -68,7 +68,7 @@ definitions:
           echo BASE_REF="$BASE_REF" >> .env
         fi
 
-        SEMVER=$(yarn apply-versions --strategy "$STRATEGY")
+        SEMVER=$(yarn apply-versions --strategy $STRATEGY)
         if [[ "$SEMVER" != "{}" ]]; then
           echo $SEMVER
           yarn build
