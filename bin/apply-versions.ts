@@ -17,7 +17,7 @@ const args = arg({
   '--force': Boolean
 });
 
-const type = args['--strategy'] ?? Strategy[Strategy.build];
+const type = args['--strategy'] || Strategy[Strategy.build];
 const force = args['--force'] === true;
 const execOptions = { silent: true };
 
