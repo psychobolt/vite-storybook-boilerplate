@@ -18,7 +18,7 @@
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
     "format": "yarn g:format",
-    "chromatic": "yarn g:dotenv-run -f .env.ci -- chromatic --config-file ../commons/chromatic.config.json"
+    "chromatic": "yarn g:dotenv-run -f .env.ci -- chromatic"
   },
   "devDependencies": {
     "@open-wc/lit-helpers": "0.7.0",
