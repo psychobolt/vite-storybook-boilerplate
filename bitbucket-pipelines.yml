@@ -60,6 +60,8 @@ definitions:
           COUNT=${#PARTS[@]}
           COUNT=$((COUNT - 2))
           BASE_REF+="~$COUNT"
+        elif [[ "$BITBUCKET_PR_DESTINATION_BRANCH" ]]; then
+          BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH
         else
           BASE_REF+="~1"
         fi
