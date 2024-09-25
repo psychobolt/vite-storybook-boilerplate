@@ -126,7 +126,7 @@ switch (type) {
     break;
   case Strategy[Strategy.build]: {
     const { stdout } = await $(
-      'yarn run -B turbo run build --dry-run=json',
+      'yarn turbo run build --dry-run=json',
       execOptions
     );
     const { tasks = [] }: BuildInfo = JSON.parse(stdout);

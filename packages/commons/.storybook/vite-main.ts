@@ -14,9 +14,6 @@ interface ResolveConfig {
 }
 
 const require = createRequire(import.meta.url);
-const resolveConfig: ResolveOptions & ResolveConfig = {
-  alias: {}
-};
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -24,11 +21,12 @@ const resolveConfig: ResolveOptions & ResolveConfig = {
  */
 export function getAbsolutePath(
   moduleId: string,
-  resolveConfig: NodeRequire | ResolveConfig | unknown = {}
+  resolveConfig: NodeRequire | ResolveConfig = {}
 ): string {
-  const { resolve = require.resolve } = resolveConfig as NodeRequire;
+  const resolve =
+    'resolve' in resolveConfig ? resolveConfig.resolve : require.resolve;
   const absolutePath = dirname(resolve(join(moduleId, 'package.json')));
-  const { alias } = resolveConfig as ResolveConfig;
+  const alias = 'alias' in resolveConfig ? resolveConfig.alias : null;
   if (alias) {
     alias[moduleId] = absolutePath;
   }
@@ -45,13 +43,18 @@ export const stories = [
 export type StorybookViteCommonConfig = StorybookConfig &
   Required<StorybookConfigVite>;
 
+const resolveConfig: ResolveOptions & ResolveConfig = {
+  alias: {}
+};
+
 export const config: StorybookViteCommonConfig = {
   stories,
   addons: [
     getAbsolutePath('@storybook/addon-links', resolveConfig),
     getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-interactions', resolveConfig),
-    getAbsolutePath('@storybook/addon-coverage')
+    getAbsolutePath('@storybook/addon-coverage'),
+    getAbsolutePath('@chromatic-com/storybook')
   ],
   docs: {
     autodocs: 'tag'
@@ -60,7 +63,17 @@ export const config: StorybookViteCommonConfig = {
     let finalConfig = mergeConfig(
       config,
       defineConfig({
-        resolve: resolveConfig,
+        resolve: {
+          ...resolveConfig,
+          conditions: [
+            configType === 'DEVELOPMENT' ? 'development' : 'production',
+            'browser',
+            'module',
+            'import',
+            'default',
+            'require'
+          ]
+        },
         css: {
           postcss: postcssConfig
         }
