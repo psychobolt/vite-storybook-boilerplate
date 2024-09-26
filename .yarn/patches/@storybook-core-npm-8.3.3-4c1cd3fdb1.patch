@@ -1,40 +1,103 @@
-diff --git a/dist/builder-manager/index.js b/dist/builder-manager/index.js
-index a4f1ef5f313e83e455423a470d1fdaaad0dbed30..0ef9df119c39d4f7023b56fc3ee32a66d4d517ad 100644
---- a/dist/builder-manager/index.js
-+++ b/dist/builder-manager/index.js
-@@ -2994,11 +2994,11 @@ var Ue, he, si = /* @__PURE__ */ a(async (e) => {
+diff --git a/dist/builder-manager/index.cjs b/dist/builder-manager/index.cjs
+index e714cdb06e9a1cea756d4275189beeff0239df9d..3c36a2a7b66540b859fb0a1cca7a936b2b813cd3 100644
+--- a/dist/builder-manager/index.cjs
++++ b/dist/builder-manager/index.cjs
+@@ -2985,12 +2985,8 @@ var ze, he, St = /* @__PURE__ */ a(async (e) => {
+     tsconfig: n,
      legalComments: "external",
      plugins: [
-       (0, vi.default)({
--        process: b.resolve("process/browser.js"),
-         util: b.resolve("util/util.js"),
-         assert: b.resolve("browser-assert")
-       }),
-       Ve(qs),
+-      (0, Fi.default)({
+-        process: require.resolve("process/browser.js"),
+-        util: require.resolve("util/util.js"),
+-        assert: require.resolve("browser-assert")
+-      }),
+       Xe(Oi.globalsModuleInfoMap),
 +      require('node-stdlib-browser/helpers/esbuild/plugin')(require('node-stdlib-browser')),
-       (0, gi.pnpPlugin)()
+       (0, Pi.pnpPlugin)()
      ],
      banner: {
-@@ -3007,10 +3007,13 @@ var Ue, he, si = /* @__PURE__ */ a(async (e) => {
+@@ -2999,10 +2995,13 @@ var ze, he, St = /* @__PURE__ */ a(async (e) => {
      footer: {
        js: '}catch(e){ console.error("[Storybook] One of your manager-entries failed: " + import.meta.url, e); }'
      },
 +    inject: [b.resolve('node-stdlib-browser/helpers/esbuild/shim')],
      define: {
++      process: "process",
        "process.env": JSON.stringify(i),
-       ...js(i),
--      global: "window",
-+      global: "global",
-+      process: 'process',
-+      Buffer: 'Buffer',
+       ...(0, xi.stringifyProcessEnvs)(i),
+       global: "window",
++      Buffer: "Buffer",
        module: "{}"
      }
    };
+diff --git a/dist/builder-manager/index.js b/dist/builder-manager/index.js
+index a4f1ef5f313e83e455423a470d1fdaaad0dbed30..2689239e663ad173ecc00a6beaeef0cfec90d127 100644
+--- a/dist/builder-manager/index.js
++++ b/dist/builder-manager/index.js
+@@ -2993,12 +2993,8 @@ var Ue, he, si = /* @__PURE__ */ a(async (e) => {
+     tsconfig: n,
+     legalComments: "external",
+     plugins: [
+-      (0, vi.default)({
+-        process: b.resolve("process/browser.js"),
+-        util: b.resolve("util/util.js"),
+-        assert: b.resolve("browser-assert")
+-      }),
+       Ve(qs),
++      require('node-stdlib-browser/helpers/esbuild/plugin')(require('node-stdlib-browser')),
+       (0, gi.pnpPlugin)()
+     ],
+     banner: {
+@@ -3007,10 +3003,13 @@ var Ue, he, si = /* @__PURE__ */ a(async (e) => {
+     footer: {
+       js: '}catch(e){ console.error("[Storybook] One of your manager-entries failed: " + import.meta.url, e); }'
+     },
++    inject: [b.resolve('node-stdlib-browser/helpers/esbuild/shim')],
+     define: {
++      process: "process",
+       "process.env": JSON.stringify(i),
+       ...js(i),
+       global: "window",
++      Buffer: "Buffer",
+       module: "{}"
+     }
+   };
+diff --git a/dist/common/index.cjs b/dist/common/index.cjs
+index e4ad1cd46ff0e2cebc7f7cd6677e61646ed439a9..92dfb6030a5bf9cfb6af5408313006835bba4daa 100644
+--- a/dist/common/index.cjs
++++ b/dist/common/index.cjs
+@@ -134618,7 +134618,7 @@ function wq(e) {
+     zwe = !0, a({
+       target: `node${process.version.slice(1)}`,
+       format: "cjs",
+-      hookIgnoreNodeModules: !0,
++      hookIgnoreNodeModules: false,
+       // Some frameworks, like Stylus, rely on the 'name' property of classes or functions
+       // https://github.com/storybookjs/storybook/issues/19049
+       keepNames: !0,
+diff --git a/dist/common/index.js b/dist/common/index.js
+index 734cf03441f3cb9978a9c26051650a95bd20aeb7..34d5c297cb8727e5e401ae25ddc42671b835c582 100644
+--- a/dist/common/index.js
++++ b/dist/common/index.js
+@@ -134579,7 +134579,7 @@ function ice(e) {
+     z3e = !0, a({
+       target: `node${process.version.slice(1)}`,
+       format: "cjs",
+-      hookIgnoreNodeModules: !0,
++      hookIgnoreNodeModules: false,
+       // Some frameworks, like Stylus, rely on the 'name' property of classes or functions
+       // https://github.com/storybookjs/storybook/issues/19049
+       keepNames: !0,
 diff --git a/package.json b/package.json
-index 6ac738929e6e8e6108aa236343b4d15b206cece6..dc1f81dfe8cf95939c162bd2b03f2b6e78a761f3 100644
+index 6ac738929e6e8e6108aa236343b4d15b206cece6..ff0b3d4024dac3b2f40a4439a33e9a557db0ad8c 100644
 --- a/package.json
 +++ b/package.json
-@@ -285,6 +285,7 @@
+@@ -280,15 +280,14 @@
+     "@storybook/csf": "^0.1.11",
+     "@types/express": "^4.17.21",
+     "better-opn": "^3.0.2",
+-    "browser-assert": "^1.2.1",
+     "esbuild": "^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0",
      "esbuild-register": "^3.5.0",
      "express": "^4.19.2",
      "jsdoc-type-pratt-parser": "^4.0.0",
@@ -42,3 +105,7 @@ index 6ac738929e6e8e6108aa236343b4d15b206cece6..dc1f81dfe8cf95939c162bd2b03f2b6e
      "process": "^0.11.10",
      "recast": "^0.23.5",
      "semver": "^7.6.2",
+-    "util": "^0.12.5",
+     "ws": "^8.2.3"
+   },
+   "devDependencies": {

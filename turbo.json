@@ -1,7 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["RUNNER_OS"],
-  "ui": "tui",
   "tasks": {
     "start": {
       "cache": false,

@@ -55,7 +55,7 @@ export const config: StorybookViteCommonConfig = {
     getAbsolutePath('@storybook/addon-interactions', resolveConfig),
     getAbsolutePath('@storybook/addon-coverage'),
     getAbsolutePath('@chromatic-com/storybook'),
-    join(getAbsolutePath('storybook-zeplin'), 'register')
+    join(getAbsolutePath('storybook-zeplin'), 'dist/register')
   ],
   docs: {
     autodocs: 'tag'
