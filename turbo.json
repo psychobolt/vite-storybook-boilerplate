@@ -1,7 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["package.json"],
-  "ui": "tui",
   "tasks": {
     "start": {
       "cache": false,

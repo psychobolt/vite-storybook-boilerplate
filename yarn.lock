@@ -2177,7 +2177,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:8.3.3, @storybook/components@npm:^8.3.3":
+"@storybook/components@npm:*, @storybook/components@npm:8.3.3, @storybook/components@npm:^8.3.3":
   version: 8.3.3
   resolution: "@storybook/components@npm:8.3.3"
   peerDependencies:
@@ -2237,7 +2237,7 @@ __metadata:
 
 "@storybook/core@patch:@storybook/core@npm%3A8.3.3#~/.yarn/patches/@storybook-core-npm-8.3.3-4c1cd3fdb1.patch":
   version: 8.3.3
-  resolution: "@storybook/core@patch:@storybook/core@npm%3A8.3.3#~/.yarn/patches/@storybook-core-npm-8.3.3-4c1cd3fdb1.patch::version=8.3.3&hash=890d05"
+  resolution: "@storybook/core@patch:@storybook/core@npm%3A8.3.3#~/.yarn/patches/@storybook-core-npm-8.3.3-4c1cd3fdb1.patch::version=8.3.3&hash=2523a0"
   dependencies:
     "@storybook/csf": "npm:^0.1.11"
     "@types/express": "npm:^4.17.21"
@@ -2252,7 +2252,7 @@ __metadata:
     semver: "npm:^7.6.2"
     util: "npm:^0.12.5"
     ws: "npm:^8.2.3"
-  checksum: 10c0/e7f62ae0456363806bc65d38ab0b71752930f7f0c5cf70df3ac9128228bd2750b0358736bdd22516dc2f35626a5d5d431748a4bae726dd55cb1f17d6450739ec
+  checksum: 10c0/b30cb9dbb2385b00c201832f4de43f9ed8023b3ac6d3537a3e23e09321d5aae7c346daab01f362fa4350a93e8c1798b853b67743a1db2302aa7f73e802fb1260
   languageName: node
   linkType: hard
 
@@ -2315,7 +2315,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/manager-api@npm:^8.3.3":
+"@storybook/manager-api@npm:*, @storybook/manager-api@npm:^8.3.3":
   version: 8.3.3
   resolution: "@storybook/manager-api@npm:8.3.3"
   peerDependencies:

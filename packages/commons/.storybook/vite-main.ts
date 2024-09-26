@@ -1,5 +1,6 @@
 import { createRequire } from 'node:module';
 import { join, dirname } from 'node:path';
+import { platform } from 'node:process';
 import type { StorybookConfig } from '@storybook/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
 import type { ResolveOptions } from 'vite';
@@ -55,7 +56,9 @@ export const config: StorybookViteCommonConfig = {
     getAbsolutePath('@storybook/addon-interactions', resolveConfig),
     getAbsolutePath('@storybook/addon-coverage'),
     getAbsolutePath('@chromatic-com/storybook'),
-    join(getAbsolutePath('storybook-zeplin'), 'register')
+    ...(platform === 'win32'
+      ? []
+      : [join(getAbsolutePath('storybook-zeplin'), 'dist/register')])
   ],
   docs: {
     autodocs: 'tag'
