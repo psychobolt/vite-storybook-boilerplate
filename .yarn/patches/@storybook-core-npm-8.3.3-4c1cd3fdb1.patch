@@ -1,0 +1,44 @@
+diff --git a/dist/builder-manager/index.js b/dist/builder-manager/index.js
+index a4f1ef5f313e83e455423a470d1fdaaad0dbed30..0ef9df119c39d4f7023b56fc3ee32a66d4d517ad 100644
+--- a/dist/builder-manager/index.js
++++ b/dist/builder-manager/index.js
+@@ -2994,11 +2994,11 @@ var Ue, he, si = /* @__PURE__ */ a(async (e) => {
+     legalComments: "external",
+     plugins: [
+       (0, vi.default)({
+-        process: b.resolve("process/browser.js"),
+         util: b.resolve("util/util.js"),
+         assert: b.resolve("browser-assert")
+       }),
+       Ve(qs),
++      require('node-stdlib-browser/helpers/esbuild/plugin')(require('node-stdlib-browser')),
+       (0, gi.pnpPlugin)()
+     ],
+     banner: {
+@@ -3007,10 +3007,13 @@ var Ue, he, si = /* @__PURE__ */ a(async (e) => {
+     footer: {
+       js: '}catch(e){ console.error("[Storybook] One of your manager-entries failed: " + import.meta.url, e); }'
+     },
++    inject: [b.resolve('node-stdlib-browser/helpers/esbuild/shim')],
+     define: {
+       "process.env": JSON.stringify(i),
+       ...js(i),
+-      global: "window",
++      global: "global",
++      process: 'process',
++      Buffer: 'Buffer',
+       module: "{}"
+     }
+   };
+diff --git a/package.json b/package.json
+index 6ac738929e6e8e6108aa236343b4d15b206cece6..dc1f81dfe8cf95939c162bd2b03f2b6e78a761f3 100644
+--- a/package.json
++++ b/package.json
+@@ -285,6 +285,7 @@
+     "esbuild-register": "^3.5.0",
+     "express": "^4.19.2",
+     "jsdoc-type-pratt-parser": "^4.0.0",
++    "node-stdlib-browser": "^1.2.1",
+     "process": "^0.11.10",
+     "recast": "^0.23.5",
+     "semver": "^7.6.2",
