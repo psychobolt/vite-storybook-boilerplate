@@ -47,7 +47,7 @@
 		"stylelint-config-prettier-scss": "1.0.0",
 		"stylelint-config-standard-scss": "13.1.0",
 		"svelte": "4.2.19",
-		"svelte-check": "4.0.2",
+		"svelte-check": "4.0.3",
 		"svelte-eslint-parser": "0.41.1",
 		"svelte-language-server": "0.17.0",
 		"tslib": "2.7.0",
