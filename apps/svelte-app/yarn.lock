@@ -5921,6 +5921,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chokidar@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "chokidar@npm:4.0.1"
+  dependencies:
+    readdirp: "npm:^4.0.1"
+  checksum: 10c0/4bb7a3adc304059810bb6c420c43261a15bb44f610d77c35547addc84faa0374265c3adc67f25d06f363d9a4571962b02679268c40de07676d260de1986efea9
+  languageName: node
+  linkType: hard
+
 "chownr@npm:^2.0.0":
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
@@ -13357,7 +13366,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:3.2.6, prettier-plugin-svelte@npm:^3.2.6":
+"prettier-plugin-svelte@npm:3.2.7":
+  version: 3.2.7
+  resolution: "prettier-plugin-svelte@npm:3.2.7"
+  peerDependencies:
+    prettier: ^3.0.0
+    svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
+  checksum: 10c0/0f3b7cbbedd17983eecea4006dbe3069cc138fc2dc985ccffde4914e86640586b5db896802c1cdb5764c99c8c30fca0377c5872edc1b5a9099544296c545e7bc
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-svelte@npm:^3.2.6":
   version: 3.2.6
   resolution: "prettier-plugin-svelte@npm:3.2.6"
   peerDependencies:
@@ -15335,13 +15354,13 @@ __metadata:
     html-ui: "workspace:*"
     postcss: "npm:8.4.47"
     prettier: "npm:3.3.3"
-    prettier-plugin-svelte: "npm:3.2.6"
+    prettier-plugin-svelte: "npm:3.2.7"
     sass: "npm:1.79.3"
     stylelint: "npm:16.9.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.1.0"
     svelte: "npm:4.2.19"
-    svelte-check: "npm:4.0.2"
+    svelte-check: "npm:4.0.3"
     svelte-eslint-parser: "npm:0.41.1"
     svelte-language-server: "npm:0.17.0"
     tslib: "npm:2.7.0"
@@ -15352,12 +15371,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"svelte-check@npm:4.0.2":
-  version: 4.0.2
-  resolution: "svelte-check@npm:4.0.2"
+"svelte-check@npm:4.0.3":
+  version: 4.0.3
+  resolution: "svelte-check@npm:4.0.3"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
-    chokidar: "npm:^3.4.1"
+    chokidar: "npm:^4.0.1"
     fdir: "npm:^6.2.0"
     picocolors: "npm:^1.0.0"
     sade: "npm:^1.7.4"
@@ -15366,7 +15385,7 @@ __metadata:
     typescript: ">=5.0.0"
   bin:
     svelte-check: bin/svelte-check
-  checksum: 10c0/0fabe3f8a38ebb2c8370aaca6540e8542e211f4760b159480f19fdf5cd5394d9e96a68374d750260e9f7425f5523eacdfe1af9fd96d2daa06232843b108d1f2f
+  checksum: 10c0/b702727fe8db0367afb2d5ed3b0d01ca1dff65a3d9ea59b5f662987232cc826c7434f77b581cc5b8bf255948a4bec8f8a9daace9e8396b0e56dd47e34f91cd8f
   languageName: node
   linkType: hard
 
