@@ -5334,7 +5334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.4.1":
+"chokidar@npm:>=3.0.0 <4.0.0":
   version: 3.6.0
   resolution: "chokidar@npm:3.6.0"
   dependencies:
@@ -15393,7 +15393,7 @@ __metadata:
     svelte: "npm:4.2.19"
     svelte-check: "npm:4.0.3"
     svelte-eslint-parser: "npm:0.41.1"
-    svelte-language-server: "npm:0.17.0"
+    svelte-language-server: "npm:0.17.1"
     tslib: "npm:2.7.0"
     turbo: "npm:2.1.2"
     typescript: "npm:5.6.2"
@@ -15447,13 +15447,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.17.0":
-  version: 0.17.0
-  resolution: "svelte-language-server@npm:0.17.0"
+"svelte-language-server@npm:0.17.1":
+  version: 0.17.1
+  resolution: "svelte-language-server@npm:0.17.1"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     "@vscode/emmet-helper": "npm:2.8.4"
-    chokidar: "npm:^3.4.1"
+    chokidar: "npm:^4.0.1"
     estree-walker: "npm:^2.0.1"
     fdir: "npm:^6.2.0"
     lodash: "npm:^4.17.21"
@@ -15471,7 +15471,7 @@ __metadata:
     vscode-uri: "npm:~3.0.0"
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/5347627d49e125c2ccc4e67ead4398c26a7780a8ddd3e6168c98e32a4d9879704aa9f39aa48d8db794c8a7285f45d90c4a7ec89c01133c6f5734b0e7f1f1f67e
+  checksum: 10c0/6d55711b7564e09b13a665a3091647b255f64fee35030332a93ca9d7becc53bfec88e77b307a0957628eb0d5dfd885bf850ceff2b81b7b789339bf83028e0437
   languageName: node
   linkType: hard
 
