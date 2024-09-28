@@ -34,7 +34,7 @@
     "@typescript-eslint/utils": "8.7.0",
     "autoprefixer": "10.4.20",
     "eslint": "8.57.1",
-    "eslint-config-love": "71.0.0",
+    "eslint-config-love": "83.0.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-config-standard": "17.1.0",
     "eslint-config-standard-jsx": "11.0.0",
