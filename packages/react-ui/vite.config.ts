@@ -31,17 +31,12 @@ export default mergeConfig(
           ...globSync('src/**/*[!@(.story|.stories)].{ts,tsx}')
         ])
       },
+      target: 'es2015',
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: ['react', 'react/jsx-runtime', 'react-dom', 'html-ui'],
+        external: ['prop-types', 'react', 'react/jsx-runtime', 'react-dom'],
         output: {
-          // Provide global variables to use in the UMD build
-          // for externalized deps
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM'
-          },
           // chunkFileNames: '[name]', // name is handled in manualChunks
           manualChunks(id) {
             if (!srcPattern.test(id)) return 'vendor';

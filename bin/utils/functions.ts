@@ -1,7 +1,6 @@
-import { exec, type ExecException, type ExecOptions } from 'node:child_process';
+import { exec, type ExecOptions } from 'node:child_process';
 
-interface ExecResult<E> {
-  error: E | null;
+interface ExecResult {
   stdout: string;
   stderr: string;
 }
@@ -14,13 +13,18 @@ export const $ = (
   command: string,
   { silent = false, ...options }: StdioExecOptions = {}
 ) =>
-  new Promise<ExecResult<ExecException>>((resolve) => {
-    const childProcess = exec(command, options, (error, stdout, stderr) =>
-      resolve({ error, stdout: stdout.toString(), stderr: stderr.toString() })
-    );
+  new Promise<ExecResult>((resolve, reject) => {
+    const childProcess = exec(command, options, (error, stdout, stderr) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve({ stdout, stderr });
+      }
+    });
     if (!silent) {
-      childProcess.stdin?.pipe(process.stdin);
-      childProcess.stdout?.pipe(process.stdout);
-      childProcess.stderr?.pipe(process.stderr);
+      const options = { end: false };
+      childProcess.stdin?.pipe(process.stdin, options);
+      childProcess.stdout?.pipe(process.stdout, options);
+      childProcess.stderr?.pipe(process.stderr, options);
     }
   });

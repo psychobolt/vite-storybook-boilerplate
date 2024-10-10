@@ -1,4 +1,7 @@
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+const sizes = ['small', 'medium', 'large'] as const;
 
 interface Props {
   /**
@@ -12,7 +15,7 @@ interface Props {
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: (typeof sizes)[number];
   /**
    * Button contents
    */
@@ -51,3 +54,11 @@ export function Button({
     </button>
   );
 }
+
+Button.propTypes = {
+  primary: PropTypes.bool,
+  backgroundColor: PropTypes.string,
+  size: PropTypes.oneOf(sizes),
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+};
