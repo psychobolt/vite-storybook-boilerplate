@@ -77,8 +77,9 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         } catch (error) {
           process.exit(1);
         }
+      } else {
+        process.exit(1);
       }
-      process.exit(1);
     }
   }
 }
