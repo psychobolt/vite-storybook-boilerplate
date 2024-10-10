@@ -12,6 +12,7 @@
         }
       }
     ],
+    "target": "ES2015",
     "baseUrl": "src",
     "paths": {
       "html-ui/*": [

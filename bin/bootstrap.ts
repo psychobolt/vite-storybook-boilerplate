@@ -34,43 +34,50 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
       console.log(`Verifying ${workspace.name}...`);
       return install(options);
     };
-    let { error } = await run();
-    if (error?.message.includes("code: 'EXDEV'")) {
-      console.log(
-        'Failed to link to global index. Attempting to migrate global cache to local project...'
-      );
-      const root = join(import.meta.dirname, '..');
-      const temp = join(root, '.temp');
-      const sharedFolder = join(temp, '.yarn/berry');
-      const sharedCacheFolder = join(sharedFolder, 'cache');
-      if (!fs.existsSync(sharedCacheFolder)) {
-        console.log('Copying global cache...');
-        const cacheFolder = fileURLToPath(
-          `file://${process.env.YARN_GLOBAL_FOLDER}/cache`
+    try {
+      await run();
+    } catch (error) {
+      if (error instanceof Error && error.message.includes("code: 'EXDEV'")) {
+        console.log(
+          'Failed to link to global index. Attempting to migrate global cache to local project...'
         );
-        if (
-          execSync('yarn config get enableGlobalCache', options).toString() ===
-          'false'
-        ) {
-          fs.renameSync(cacheFolder, sharedCacheFolder);
-        } else {
-          fs.cpSync(cacheFolder, sharedCacheFolder, {
-            recursive: true
-          });
+        const root = join(import.meta.dirname, '..');
+        const temp = join(root, '.temp');
+        const sharedFolder = join(temp, '.yarn/berry');
+        const sharedCacheFolder = join(sharedFolder, 'cache');
+        if (!fs.existsSync(sharedCacheFolder)) {
+          console.log('Copying global cache...');
+          const cacheFolder = fileURLToPath(
+            `file://${process.env.YARN_GLOBAL_FOLDER}/cache`
+          );
+          if (
+            execSync(
+              'yarn config get enableGlobalCache',
+              options
+            ).toString() === 'false'
+          ) {
+            fs.renameSync(cacheFolder, sharedCacheFolder);
+          } else {
+            fs.cpSync(cacheFolder, sharedCacheFolder, {
+              recursive: true
+            });
+          }
+        }
+        process.env.YARN_GLOBAL_FOLDER = sharedFolder;
+        await appendFile(
+          join(root, '.env'),
+          `\n#Overrides Yarn's global folder path\nYARN_GLOBAL_FOLDER=${sharedFolder}\n`
+        );
+        console.log('Cleaning node_modules...');
+        fs.rmSync(join(workspace.location, 'node_modules'), {
+          recursive: true
+        });
+        try {
+          await run();
+        } catch (error) {
+          process.exit(1);
         }
       }
-      process.env.YARN_GLOBAL_FOLDER = sharedFolder;
-      await appendFile(
-        join(root, '.env'),
-        `\n#Overrides Yarn's global folder path\nYARN_GLOBAL_FOLDER=${sharedFolder}\n`
-      );
-      console.log('Cleaning node_modules...');
-      fs.rmSync(join(workspace.location, 'node_modules'), {
-        recursive: true
-      });
-      error = (await run()).error;
-    }
-    if (error) {
       process.exit(1);
     }
   }
