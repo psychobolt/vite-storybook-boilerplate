@@ -51,7 +51,7 @@
     "postcss-scss": "4.0.9",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-syntax-highlighter": "15.5.0",
+    "react-syntax-highlighter": "15.6.1",
     "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
     "tsconfck": "3.1.4",
