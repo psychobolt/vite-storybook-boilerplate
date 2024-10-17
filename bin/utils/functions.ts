@@ -1,9 +1,4 @@
-import { exec, type ExecOptions } from 'node:child_process';
-
-interface ExecResult {
-  stdout: string;
-  stderr: string;
-}
+import { type ExecOptions, exec } from 'node:child_process';
 
 export interface StdioExecOptions extends ExecOptions {
   silent?: boolean;
@@ -12,13 +7,19 @@ export interface StdioExecOptions extends ExecOptions {
 export const $ = (
   command: string,
   { silent = false, ...options }: StdioExecOptions = {}
-) =>
-  new Promise<ExecResult>((resolve, reject) => {
-    const childProcess = exec(command, options, (error, stdout, stderr) => {
-      if (error) {
+) => {
+  const error = new Error();
+  return new Promise<string>((resolve, reject) => {
+    const childProcess = exec(command, options, (e, stdout, stderr) => {
+      if (e) {
+        error.message = e.message;
+        if (silent) {
+          e.message = stderr || stdout;
+          error.cause = e;
+        }
         reject(error);
       } else {
-        resolve({ stdout, stderr });
+        resolve(stdout);
       }
     });
     if (!silent) {
@@ -28,3 +29,4 @@ export const $ = (
       childProcess.stderr?.pipe(process.stderr, options);
     }
   });
+};
