@@ -34,9 +34,9 @@ switch (type) {
 
 async function* getTagAnnotation() {
   await $('git fetch --tags --force', execOptions);
-  const { stdout: tags } = await $('git tag', execOptions);
+  const tags = await $('git tag', execOptions);
   for await (const tag of tags.split('\n')) {
-    const { stdout } = await $(
+    const stdout = await $(
       `git tag -l --format="%(contents:subject)" ${tag}`,
       execOptions
     );
@@ -81,7 +81,7 @@ const prev = { ...current };
 const changed: string[] = [];
 
 async function applyAll() {
-  const { stdout } = await $('yarn version apply --all --json', execOptions);
+  const stdout = await $('yarn version apply --all --json', execOptions);
   if (stdout === '') {
     console.log('{}');
     process.exit();
@@ -125,10 +125,7 @@ switch (type) {
     await applyAll();
     break;
   case Strategy[Strategy.build]: {
-    const { stdout } = await $(
-      'yarn turbo run build --dry-run=json',
-      execOptions
-    );
+    const stdout = await $('yarn turbo run build --dry-run=json', execOptions);
     const { tasks = [] }: BuildInfo = JSON.parse(stdout);
     for (const { task, package: name, hash } of tasks) {
       if (task === 'build') {

@@ -13,7 +13,8 @@
     "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strict": true
+    "strict": true,
+    "sourceMap": true
   },
   "include": ["**/*"],
   "exclude": ["apps", "packages"],
