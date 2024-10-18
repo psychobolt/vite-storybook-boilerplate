@@ -1855,9 +1855,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:1.19.3":
-  version: 1.19.3
-  resolution: "@dotenvx/dotenvx@npm:1.19.3"
+"@dotenvx/dotenvx@npm:1.20.0":
+  version: 1.20.0
+  resolution: "@dotenvx/dotenvx@npm:1.20.0"
   dependencies:
     commander: "npm:^11.1.0"
     dotenv: "npm:^16.4.5"
@@ -1871,7 +1871,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/b675de63b2da3ed4457bf4e716be85601eb8c5af9738a45645dab02764b0b629e210d417acd53af6e2477047728a807988d1f8a912a8af6f73fa2865671bedc1
+  checksum: 10c0/e9c6833748598ea03bea30ce1a67366335f9ab0f7b272c635bae0fe86a1e9f5c7f3df82e9957805fc4bdbd8571b4986dbb2b114affd5095ec533c2dc69e056ae
   languageName: node
   linkType: hard
 
@@ -15404,7 +15404,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.19.3"
+    "@dotenvx/dotenvx": "npm:1.20.0"
     "@eslint/js": "npm:9.12.0"
     "@fontsource/fira-mono": "npm:5.1.0"
     "@neoconfetti/svelte": "npm:2.2.1"
