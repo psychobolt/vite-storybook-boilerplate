@@ -1,7 +1,7 @@
 {
   "name": "next-app",
   "private": true,
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.5.1",
   "scripts": {
     "dev": "open-cli http://localhost:3000/ --background && next dev -p 3000",
     "build": "next build",
