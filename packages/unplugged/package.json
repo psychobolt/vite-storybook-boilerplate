@@ -2,7 +2,7 @@
   "name": "unplugged",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.5.1",
   "devDependencies": {
     "stylelint-config": "workspace:*"
   },
