@@ -17105,6 +17105,9 @@ __metadata:
     turbo: "npm:2.2.1"
     typescript: "npm:5.6.3"
     yaml: "npm:2.6.0"
+  dependenciesMeta:
+    vite-plugin-sass-glob-import@4.0.0:
+      unplugged: true
   languageName: unknown
   linkType: soft
 
