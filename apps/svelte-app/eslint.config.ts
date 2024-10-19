@@ -52,6 +52,17 @@ export default tseslint.config(
 	})),
 	eslintConfigPrettier,
 	{
-		ignores: ['*.cjs', '.svelte-kit/', '.turbo/', 'node_modules/']
+		ignores: [
+			'.DS_Store/',
+			'node_modules/',
+			'.svelte-kit/',
+			'.turbo/',
+			'*.cjs',
+			'.env',
+			'.env.*',
+			'!.env.example',
+			// Ignore files YARN
+			'yarn.lock'
+		]
 	}
 );
