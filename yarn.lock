@@ -9300,7 +9300,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     rollup-plugin-no-emit: "npm:1.2.1"
-    sass: "npm:1.80.2"
+    sass: "npm:1.80.3"
     storybook: "npm:8.3.6"
     stylelint-config: "workspace:*"
     turbo: "npm:2.2.0"
@@ -14151,7 +14151,7 @@ __metadata:
     prop-types: "npm:15.8.1"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
-    sass: "npm:1.80.2"
+    sass: "npm:1.80.3"
     storybook: "npm:8.3.6"
     stylelint-config: "workspace:*"
     turbo: "npm:2.2.0"
@@ -14762,9 +14762,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.80.2":
-  version: 1.80.2
-  resolution: "sass@npm:1.80.2"
+"sass@npm:1.80.3":
+  version: 1.80.3
+  resolution: "sass@npm:1.80.3"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -14772,7 +14772,7 @@ __metadata:
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 10c0/0006e2ee7a732abaa96a663167b078b8d53b4d7fe5ce435636a8bca6e8a3b6ebc12308c0725f577a456329ed962436d96cfcdd50a8e733ed4c4e4590f21243c9
+  checksum: 10c0/fa08043fc36b854717b6eaf6247ee11341d0aff5e17a645965071866bd677930c9c9467d82ed5a4a666d7897a82be8a61427cd81b808e6b9e2d3b32cf278bebd
   languageName: node
   linkType: hard
 
@@ -15878,7 +15878,7 @@ __metadata:
     postcss: "npm:8.4.47"
     prettier: "npm:3.3.3"
     prettier-plugin-svelte: "npm:3.2.7"
-    sass: "npm:1.80.2"
+    sass: "npm:1.80.3"
     stylelint: "npm:16.10.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.1.0"
