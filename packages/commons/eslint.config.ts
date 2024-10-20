@@ -1,11 +1,8 @@
 /// <reference path="./modules.d.ts" preserve="true" />
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { FlatCompat } from '@eslint/eslintrc';
-import tsParser from '@typescript-eslint/parser';
-import love from 'eslint-config-love';
 import * as mdx from 'eslint-plugin-mdx';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import neostandard from 'neostandard';
 import type { CompilerOptions } from 'typescript';
 import { parse } from 'tsconfck';
 import tseslint from 'typescript-eslint';
@@ -13,14 +10,6 @@ import tseslint from 'typescript-eslint';
 export { default as tseslint } from 'typescript-eslint';
 
 export { default as jsxRuntime } from 'eslint-plugin-react/configs/jsx-runtime.js';
-
-const _filename = fileURLToPath(import.meta.url);
-const _dirname = path.dirname(_filename);
-
-const compat = new FlatCompat({
-  baseDirectory: _filename,
-  resolvePluginsRelativeTo: _dirname
-});
 
 function banImportExtension(extension: string) {
   const message = `Unexpected use of file extension (.${extension}) in import. Use without extension or with .js extension`;
@@ -52,13 +41,18 @@ function banImportExtension(extension: string) {
 type TSConfig = { compilerOptions: CompilerOptions };
 const tsconfigParseResult = await parse(path.resolve('eslint.config.ts'));
 const tsconfig: TSConfig = tsconfigParseResult.tsconfig;
+const tsFiles = ['**/*.{ts,tsx}'];
 
 export default tseslint.config(
+  ...neostandard({
+    files: ['**/*.{cj,j}s', '**/*.jsx'],
+    filesTs: tsFiles,
+    noStyle: true,
+    ts: true
+  }),
   {
-    ...love,
-    files: ['**/*.{ts,tsx}'],
+    files: tsFiles,
     languageOptions: {
-      parser: tsParser,
       parserOptions: {
         project: true,
         tsconfigRootDir: process.env.PROJECT_CWD,
@@ -76,17 +70,6 @@ export default tseslint.config(
         }
       ]
     }
-  },
-  {
-    files: ['**/*.{cj,j}s'],
-    extends: compat.extends('standard')
-  },
-  {
-    files: ['**/*.jsx'],
-    extends: [
-      ...compat.extends('standard-jsx'),
-      ...compat.extends('standard-react')
-    ]
   },
   mdx.flat,
   mdx.flatCodeBlocks,

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import process from 'node:process';
-import child_process from 'node:child_process';
+import childProcess from 'node:child_process';
 import util from 'node:util';
 import arg from 'arg';
 import globToRegExp from 'glob-to-regexp';
@@ -9,8 +9,8 @@ import YAML from 'yaml';
 import { type PortablePath, npath } from '@yarnpkg/fslib';
 import { Configuration, Project } from '@yarnpkg/core';
 
-const { execSync } = child_process;
-const exec = util.promisify(child_process.exec);
+const { execSync } = childProcess;
+const exec = util.promisify(childProcess.exec);
 const invalidFilterExpression = /^[.*]$/g;
 
 const filters: Filters = {
