@@ -63,7 +63,7 @@ index a4f1ef5f313e83e455423a470d1fdaaad0dbed30..2689239e663ad173ecc00a6beaeef0cf
      }
    };
 diff --git a/dist/common/index.cjs b/dist/common/index.cjs
-index 47f3153b9b42a50861ce6b69773bb2022daa66c8..8d23d5cba6a8e7cca0c096e26a5b59c6d68f98b8 100644
+index b06daa8c1337233b4940e84c8033f5fcdffee28c..c72a8ea2b4ed4b1aeca1264538822135218e74fc 100644
 --- a/dist/common/index.cjs
 +++ b/dist/common/index.cjs
 @@ -134618,7 +134618,7 @@ function wq(e) {
@@ -76,7 +76,7 @@ index 47f3153b9b42a50861ce6b69773bb2022daa66c8..8d23d5cba6a8e7cca0c096e26a5b59c6
        // https://github.com/storybookjs/storybook/issues/19049
        keepNames: !0,
 diff --git a/dist/common/index.js b/dist/common/index.js
-index 506359da4cb75e8eb816cfd8eb80d9687785fc4f..7ffc106d70963f49d004eea0140926f687fcb224 100644
+index 7619b3c010ae63e3b94acbae830a92d87aef10ca..330be3d753415a9feb106071f4c3627692f9265c 100644
 --- a/dist/common/index.js
 +++ b/dist/common/index.js
 @@ -134579,7 +134579,7 @@ function ice(e) {
@@ -89,7 +89,7 @@ index 506359da4cb75e8eb816cfd8eb80d9687785fc4f..7ffc106d70963f49d004eea0140926f6
        // https://github.com/storybookjs/storybook/issues/19049
        keepNames: !0,
 diff --git a/package.json b/package.json
-index 7ffed272f7b5721cabad198354fd961203a65a2a..31d8b32764996173a7d8937255c441844e22aca5 100644
+index fc2fd7807027855948497d7c3bd126b275061ea3..9653ef1f52b771bfd33f6d90e13d840cc2cdc169 100644
 --- a/package.json
 +++ b/package.json
 @@ -280,15 +280,14 @@
