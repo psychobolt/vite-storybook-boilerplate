@@ -20,7 +20,8 @@ export const meta = {
       control: { type: 'select' },
       options: ['small', 'medium', 'large']
     }
-  }
+  },
+  decorators: [(Story) => Story()]
 } satisfies Meta;
 
 export type Story = StoryObj<Props> & VariantStoryObj<Props>;
