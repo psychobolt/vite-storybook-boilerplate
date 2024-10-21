@@ -10,10 +10,11 @@ import type { PluginOption } from 'vite';
 import _ from 'lodash';
 import type { VariantStoryObj } from '../utils/story-generators.js';
 
-export type VariantsMeta<TArgs> = ComponentAnnotations<Renderer, TArgs> & {
+export interface VariantsMeta<TArgs, TRenderer extends Renderer = Renderer>
+  extends ComponentAnnotations<TRenderer, TArgs> {
   fileName: string;
   importName: string;
-};
+}
 
 export type VariantStory<TArgs> = StoryAnnotations<Renderer, TArgs> & {
   exportName: string;

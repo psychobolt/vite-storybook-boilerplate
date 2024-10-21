@@ -1,9 +1,9 @@
 import { createRequire } from 'node:module';
 import _ from 'lodash';
 import type { Config as _Config } from 'prettier';
-import standardConfig from 'prettier-config-standard' assert { type: 'json' };
 
 const require = createRequire(import.meta.url);
+const standardConfig = require('prettier-config-standard');
 
 export type Config = _Config;
 

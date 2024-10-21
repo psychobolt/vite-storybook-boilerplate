@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { styleMap } from 'lit/directives/style-map.js';
-import type { HTMLStoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators';
+import type { StoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators';
 import classNames from 'classnames';
 
 import type { SizeEnum } from './Sizes/Primary.variants';
@@ -8,7 +8,7 @@ import classes from './Button.module.scss';
 
 type Size = keyof typeof SizeEnum;
 
-export interface Props extends HTMLStoryPseudoStateProps {
+export interface Props extends StoryPseudoStateProps {
   /**
    * Is this the principal call to action on the page?
    */
