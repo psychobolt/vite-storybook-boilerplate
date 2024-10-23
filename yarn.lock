@@ -493,13 +493,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:1.20.0":
-  version: 1.20.0
-  resolution: "@dotenvx/dotenvx@npm:1.20.0"
+"@dotenvx/dotenvx@npm:1.20.1":
+  version: 1.20.1
+  resolution: "@dotenvx/dotenvx@npm:1.20.1"
   dependencies:
     commander: "npm:^11.1.0"
     dotenv: "npm:^16.4.5"
-    eciesjs: "npm:^0.4.6"
+    eciesjs: "npm:^0.4.10"
     execa: "npm:^5.1.1"
     fdir: "npm:^6.2.0"
     ignore: "npm:^5.3.0"
@@ -509,7 +509,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/e9c6833748598ea03bea30ce1a67366335f9ab0f7b272c635bae0fe86a1e9f5c7f3df82e9957805fc4bdbd8571b4986dbb2b114affd5095ec533c2dc69e056ae
+  checksum: 10c0/77fc6597d1360132c3f33685b282e74358a9e92a9f66d75a7477f2db4891253f29b08542b7937e5ca83795b9a0dcbe5db911ed9b512a9ba04c593628517f5105
   languageName: node
   linkType: hard
 
@@ -517,6 +517,15 @@ __metadata:
   version: 4.1.0
   resolution: "@dual-bundle/import-meta-resolve@npm:4.1.0"
   checksum: 10c0/55069e550ee2710e738dd8bbd34aba796cede456287454b50c3be46fbef8695d00625677f3f41f5ffbec1174c0f57f314da9a908388bc9f8ad41a8438db884d9
+  languageName: node
+  linkType: hard
+
+"@ecies/ciphers@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@ecies/ciphers@npm:0.2.0"
+  peerDependencies:
+    "@noble/ciphers": ^1.0.0
+  checksum: 10c0/1aa83fd46c52325e267c67eb2ab1575751da008a18ef806b4ade3ff3db71df7e29155287c3b66e1dcc3c47bf5ce7b302509518569763b6c91cc5b6f9f6f12cb3
   languageName: node
   linkType: hard
 
@@ -1786,14 +1795,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/ciphers@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "@noble/ciphers@npm:0.5.3"
-  checksum: 10c0/2303217304baf51ec6caa2d984f4e640a66d3d586162ed8fecf37a00268fbf362e22cd5bceae4b0ccda4fa06ad0cb294d6a6b158260bbd2eac6a3dc0448f5254
+"@noble/ciphers@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@noble/ciphers@npm:1.0.0"
+  checksum: 10c0/6c04d6e9d10a922fff170efc44622c95a25fb817f4b593e0f150dd27599576f3fe3c5b61eb02054b22d1507e3839879ddd5acb2d2acf8efbea4efab99bbcd333
   languageName: node
   linkType: hard
 
-"@noble/curves@npm:^1.4.0":
+"@noble/curves@npm:^1.6.0":
   version: 1.6.0
   resolution: "@noble/curves@npm:1.6.0"
   dependencies:
@@ -1802,7 +1811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/hashes@npm:1.5.0, @noble/hashes@npm:^1.4.0":
+"@noble/hashes@npm:1.5.0, @noble/hashes@npm:^1.5.0":
   version: 1.5.0
   resolution: "@noble/hashes@npm:1.5.0"
   checksum: 10c0/1b46539695fbfe4477c0822d90c881a04d4fa2921c08c552375b444a48cac9930cb1ee68de0a3c7859e676554d0f3771999716606dc4d8f826e414c11692cdd9
@@ -6964,14 +6973,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eciesjs@npm:^0.4.6":
-  version: 0.4.7
-  resolution: "eciesjs@npm:0.4.7"
+"eciesjs@npm:^0.4.10":
+  version: 0.4.10
+  resolution: "eciesjs@npm:0.4.10"
   dependencies:
-    "@noble/ciphers": "npm:^0.5.3"
-    "@noble/curves": "npm:^1.4.0"
-    "@noble/hashes": "npm:^1.4.0"
-  checksum: 10c0/0f5272eab3eb1a1f8501c2eec71b11bb82dd8f9234eb766bc6d37dff539f765a3520ea2f4298f8fa52fb989ab5cca6d137a94f7b8c2c8aa4d92e4d8ed69af010
+    "@ecies/ciphers": "npm:^0.2.0"
+    "@noble/ciphers": "npm:^1.0.0"
+    "@noble/curves": "npm:^1.6.0"
+    "@noble/hashes": "npm:^1.5.0"
+  checksum: 10c0/f9e0603a839b763c1bb0a00a64686d553f2d8c10efcfab57461d9e052ebacc80dca0e28cbad8548015a99bee90c60cb085486be4c44261283535873d97aba59e
   languageName: node
   linkType: hard
 
@@ -16097,7 +16107,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.20.0"
+    "@dotenvx/dotenvx": "npm:1.20.1"
     "@eslint/js": "npm:9.13.0"
     "@fontsource/fira-mono": "npm:5.1.0"
     "@neoconfetti/svelte": "npm:2.2.1"
@@ -17352,7 +17362,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.20.0"
+    "@dotenvx/dotenvx": "npm:1.20.1"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
     "@types/glob-to-regexp": "npm:0.4.4"
