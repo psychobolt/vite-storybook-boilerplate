@@ -48,7 +48,7 @@ jobs:
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Check out code
-        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Set Yarn global folder
@@ -85,7 +85,7 @@ jobs:
       release: ${{ steps.filter.outputs.release }}
     steps:
       - name: Check out code
-        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: ${{ inputs.diff_count || 2 }}
           ref: ${{ inputs.ref_name || github.ref }}
@@ -159,7 +159,7 @@ jobs:
           git config --global user.name github-actions[bot]
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
-        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: ${{ startsWith(env.REF_NAME, 'release-') && 50 || 2 }}
           ref: ${{ inputs.ref_name || github.ref }}
