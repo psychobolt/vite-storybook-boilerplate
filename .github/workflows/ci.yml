@@ -59,7 +59,7 @@ jobs:
           echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> $GITHUB_ENV
         shell: bash
       - name: Setup Node.js environment
-        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
         with:
           node-version: lts/Hydrogen
           cache: yarn
@@ -93,7 +93,7 @@ jobs:
         if: env.BASE_REF != ''
         run: git fetch --depth=1 origin ${{ env.BASE_REF }}:base_branch
       - name: Setup Node.js environment
-        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
         with:
           node-version: lts/Hydrogen
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
@@ -173,7 +173,7 @@ jobs:
           echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
           echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> $GITHUB_ENV
       - name: Setup Node.js environment
-        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
         with:
           node-version: lts/Hydrogen
           cache: yarn
