@@ -3648,14 +3648,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-auto@npm:3.3.0":
-  version: 3.3.0
-  resolution: "@sveltejs/adapter-auto@npm:3.3.0"
+"@sveltejs/adapter-auto@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@sveltejs/adapter-auto@npm:3.3.1"
   dependencies:
     import-meta-resolve: "npm:^4.1.0"
   peerDependencies:
     "@sveltejs/kit": ^2.0.0
-  checksum: 10c0/d84c2175ab752f1ee2c4c2057fa31646b3773da6272a24b2bbd065d7aff5c7cf60729a9ad7258e2c25bcd61d561b2626d408caa2c1ba4ff4e93c1affdc784fc6
+  checksum: 10c0/c7d75e82331fd26fb6ff312b242c248da9508e4388281c20b13359b20577fc9dc3e9151ab176bbbd55f3367f90a61552e508e69d203c3a2f97284f787fc0e3e5
   languageName: node
   linkType: hard
 
@@ -15380,7 +15380,7 @@ __metadata:
     "@eslint/js": "npm:9.13.0"
     "@fontsource/fira-mono": "npm:5.1.0"
     "@neoconfetti/svelte": "npm:2.2.1"
-    "@sveltejs/adapter-auto": "npm:3.3.0"
+    "@sveltejs/adapter-auto": "npm:3.3.1"
     "@sveltejs/adapter-vercel": "npm:5.4.5"
     "@sveltejs/kit": "npm:2.7.2"
     "@sveltejs/vite-plugin-svelte": "npm:4.0.0"
