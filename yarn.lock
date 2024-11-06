@@ -5959,9 +5959,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:11.16.4":
-  version: 11.16.4
-  resolution: "chromatic@npm:11.16.4"
+"chromatic@npm:11.16.5":
+  version: 11.16.5
+  resolution: "chromatic@npm:11.16.5"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -5974,7 +5974,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 10c0/a6023b2667914b3e68573d6a23548985ef2027389aa956887eddb2efbe99ce646f896acd1ee43983cff43e787d0c45ef582ec57db8e039effd38149c46d897ef
+  checksum: 10c0/94fc65de8fdde6dfbc8c88419903e5f39a94945dc6de70d39570d4b522855e132fdaa4dcb1e0e3799d81d70db2bd07725c12c816b69617facfae10b5fd74585c
   languageName: node
   linkType: hard
 
@@ -9476,7 +9476,7 @@ __metadata:
     "@storybook/test": "npm:8.4.1"
     "@storybook/web-components": "npm:8.4.1"
     "@storybook/web-components-vite": "npm:8.4.1"
-    chromatic: "npm:11.16.4"
+    chromatic: "npm:11.16.5"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     glob: "npm:11.0.0"
@@ -14355,7 +14355,7 @@ __metadata:
     "@types/prop-types": "npm:15.7.13"
     "@types/react": "npm:18.3.12"
     "@types/react-dom": "npm:18.3.1"
-    chromatic: "npm:11.16.4"
+    chromatic: "npm:11.16.5"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     glob: "npm:11.0.0"
