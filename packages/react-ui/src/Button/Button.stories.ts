@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import 'html-ui/Button.css';
+import styles from './Button.module.scss';
 import { Button } from './Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -17,38 +17,36 @@ const meta = {
   argTypes: {
     backgroundColor: { control: 'color' },
     onClick: { action: 'onClick' }
+  },
+  args: {
+    label: 'Button'
   }
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const args = {
-  label: 'Button'
-};
-
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    ...args,
-    primary: true
+    variant: styles.storybookButtonPrimary
   }
 };
 
 export const Secondary: Story = {
-  args
+  args: {
+    variant: styles.storybookButtonSecondary
+  }
 };
 
 export const Large: Story = {
   args: {
-    ...args,
     size: 'large'
   }
 };
 
 export const Small: Story = {
   args: {
-    ...args,
     size: 'small'
   }
 };
