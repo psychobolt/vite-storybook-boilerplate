@@ -7,7 +7,7 @@ interface Props {
   /**
    * Is this the principal call to action on the page?
    */
-  primary?: boolean;
+  variant?: string;
   /**
    * What background color to use
    */
@@ -30,22 +30,19 @@ interface Props {
  * Primary UI component for user interaction
  */
 export function Button({
-  primary = false,
+  variant = 'storybook-button--primary',
   size = 'medium',
   backgroundColor,
   label,
   ...props
 }: Props) {
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary';
   return (
     <button
       type='button'
       className={classNames(
         'storybook-button',
         `storybook-button--${size}`,
-        mode
+        variant
       )}
       style={{ backgroundColor }}
       {...props}

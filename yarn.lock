@@ -2752,6 +2752,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/core@patch:@storybook/core@npm%3A8.4.2#~/.yarn/patches/@storybook-core-npm-8.4.2-ce8ec351ea.patch":
+  version: 8.4.2
+  resolution: "@storybook/core@patch:@storybook/core@npm%3A8.4.2#~/.yarn/patches/@storybook-core-npm-8.4.2-ce8ec351ea.patch::version=8.4.2&hash=39bb38"
+  dependencies:
+    "@storybook/csf": "npm:^0.1.11"
+    better-opn: "npm:^3.0.2"
+    browser-assert: "npm:^1.2.1"
+    esbuild: "npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0"
+    esbuild-register: "npm:^3.5.0"
+    jsdoc-type-pratt-parser: "npm:^4.0.0"
+    process: "npm:^0.11.10"
+    recast: "npm:^0.23.5"
+    semver: "npm:^7.6.2"
+    util: "npm:^0.12.5"
+    ws: "npm:^8.2.3"
+  peerDependencies:
+    prettier: ^2 || ^3
+  peerDependenciesMeta:
+    prettier:
+      optional: true
+  checksum: 10c0/ebf11134a5f2740a74344e9281987c13a155f8e9016b36498f6a18fc39723f7ae5634df786b6d1fa29169aa1101871dadca484ac20f1acd3500df0227c1ed22a
+  languageName: node
+  linkType: hard
+
 "@storybook/csf-plugin@npm:8.4.2":
   version: 8.4.2
   resolution: "@storybook/csf-plugin@npm:8.4.2"

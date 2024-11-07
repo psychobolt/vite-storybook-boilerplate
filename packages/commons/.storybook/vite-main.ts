@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { join, dirname } from 'node:path';
 import { platform } from 'node:process';
@@ -41,12 +42,16 @@ export const stories = [
   `../${mainDir}/**/*.@(story|stories).@(js|jsx|ts|tsx)`
 ];
 
-export type StorybookViteCommonConfig = StorybookConfig &
-  Required<StorybookConfigVite>;
-
 const resolveConfig: ResolveOptions & ResolveConfig = {
   alias: {}
 };
+
+const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
+  encoding: 'utf8'
+}).trim();
+
+export type StorybookViteCommonConfig = StorybookConfig &
+  Required<StorybookConfigVite>;
 
 export const config: StorybookViteCommonConfig = {
   stories,
@@ -55,7 +60,9 @@ export const config: StorybookViteCommonConfig = {
     getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-interactions', resolveConfig),
     getAbsolutePath('@storybook/addon-coverage'),
-    getAbsolutePath('@chromatic-com/storybook'),
+    ...(new RegExp(`^origin/${gitBranch}$`).test(process.env.BASE_REF ?? '')
+      ? []
+      : [getAbsolutePath('@chromatic-com/storybook')]),
     ...(platform === 'win32'
       ? []
       : [join(getAbsolutePath('storybook-zeplin'), 'dist/register')])
