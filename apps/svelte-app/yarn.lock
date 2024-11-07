@@ -2261,6 +2261,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint-community/eslint-utils@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "@eslint-community/eslint-utils@npm:4.4.1"
+  dependencies:
+    eslint-visitor-keys: "npm:^3.4.3"
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
+  checksum: 10c0/2aa0ac2fc50ff3f234408b10900ed4f1a0b19352f21346ad4cc3d83a1271481bdda11097baa45d484dd564c895e0762a27a8240be7a256b3ad47129e96528252
+  languageName: node
+  linkType: hard
+
 "@eslint-community/regexpp@npm:^4.10.0":
   version: 4.10.0
   resolution: "@eslint-community/regexpp@npm:4.10.0"
@@ -3648,9 +3659,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.7.4":
-  version: 2.7.4
-  resolution: "@sveltejs/kit@npm:2.7.4"
+"@sveltejs/kit@npm:2.7.7":
+  version: 2.7.7
+  resolution: "@sveltejs/kit@npm:2.7.7"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     cookie: "npm:^0.6.0"
@@ -3670,7 +3681,7 @@ __metadata:
     vite: ^5.0.3
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/40ea5cf10b52f62f005bea0ae3c6f2b93c3489226b82e71a55498918c459721283c76bc8b7af60bc99c1934280945711ae225f70d45a32bc1a076df3d247f54e
+  checksum: 10c0/f72278fc75750226f9ecd0cfba5d97c734a16cfbe4321aabb6cf3de1e0fb490380c1bc7b828a15df59209fc5d6c3519c3f9b6dcc2c89455455f40d3b7e4f7fd0
   languageName: node
   linkType: hard
 
@@ -6437,7 +6448,7 @@ __metadata:
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-import: "npm:2.31.0"
     eslint-plugin-mdx: "npm:3.1.5"
-    eslint-plugin-n: "npm:17.12.0"
+    eslint-plugin-n: "npm:17.13.0"
     eslint-plugin-promise: "npm:7.1.0"
     eslint-plugin-react: "npm:7.37.1"
     eslint-plugin-react-hooks: "npm:5.0.0"
@@ -7980,11 +7991,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:17.12.0":
-  version: 17.12.0
-  resolution: "eslint-plugin-n@npm:17.12.0"
+"eslint-plugin-n@npm:17.13.0":
+  version: 17.13.0
+  resolution: "eslint-plugin-n@npm:17.13.0"
   dependencies:
-    "@eslint-community/eslint-utils": "npm:^4.4.0"
+    "@eslint-community/eslint-utils": "npm:^4.4.1"
     enhanced-resolve: "npm:^5.17.1"
     eslint-plugin-es-x: "npm:^7.8.0"
     get-tsconfig: "npm:^4.8.1"
@@ -7994,7 +8005,7 @@ __metadata:
     semver: "npm:^7.6.3"
   peerDependencies:
     eslint: ">=8.23.0"
-  checksum: 10c0/fccc82f86b22d0861bc89bccd25632e33542fb12175c1d75046ba093d5260af3f83efe434e4b0cc7246b03bc4ab3567d909f5f185365b3658815d46a7484facd
+  checksum: 10c0/565247e6ebe39e1879d5d8d28a2ead1ceeb8a4895b6cf46a162e5e93e805decd8a6d7b672bf90ae6057ddd2153e987b007150a53e47710cb38253e2d43484520
   languageName: node
   linkType: hard
 
@@ -15555,7 +15566,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:3.3.1"
     "@sveltejs/adapter-vercel": "npm:5.4.6"
-    "@sveltejs/kit": "npm:2.7.4"
+    "@sveltejs/kit": "npm:2.7.7"
     "@sveltejs/vite-plugin-svelte": "npm:4.0.0"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
