@@ -15059,7 +15059,7 @@ __metadata:
     svelte: "npm:5.1.12"
     svelte-check: "npm:4.0.6"
     svelte-eslint-parser: "npm:0.43.0"
-    svelte-language-server: "npm:0.17.2"
+    svelte-language-server: "npm:0.17.4"
     tslib: "npm:2.8.1"
     turbo: "npm:2.2.3"
     typescript: "npm:5.6.3"
@@ -15104,22 +15104,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.17.2":
-  version: 0.17.2
-  resolution: "svelte-language-server@npm:0.17.2"
+"svelte-language-server@npm:0.17.4":
+  version: 0.17.4
+  resolution: "svelte-language-server@npm:0.17.4"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     "@vscode/emmet-helper": "npm:2.8.4"
     chokidar: "npm:^4.0.1"
     estree-walker: "npm:^2.0.1"
     fdir: "npm:^6.2.0"
+    globrex: "npm:^0.1.2"
     lodash: "npm:^4.17.21"
     prettier: "npm:~3.3.3"
     prettier-plugin-svelte: "npm:^3.2.6"
     svelte: "npm:^4.2.19"
-    svelte2tsx: "npm:~0.7.0"
-    typescript: "npm:^5.5.2"
-    typescript-auto-import-cache: "npm:^0.3.3"
+    svelte2tsx: "npm:~0.7.23"
+    typescript: "npm:^5.6.3"
+    typescript-auto-import-cache: "npm:^0.3.5"
     vscode-css-languageservice: "npm:~6.3.0"
     vscode-html-languageservice: "npm:~5.3.0"
     vscode-languageserver: "npm:9.0.1"
@@ -15128,20 +15129,20 @@ __metadata:
     vscode-uri: "npm:~3.0.0"
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/bf1890497592c8ed9825773e2753c5e3cd81e3d4046da0adcdce5bc034aa38e32afca1ff2399b100833e06fa9aa18e2489360599685d3767daf4e94f1ae3275a
+  checksum: 10c0/373441ba0a1ffb7ff58984fb3aaf5f9349b0b753d543e39e62b420abad68cd81d56183ff6d1146683852bda79c19113dc5c1070d18e090e0acbfe47623337d67
   languageName: node
   linkType: hard
 
-"svelte2tsx@npm:~0.7.0":
-  version: 0.7.22
-  resolution: "svelte2tsx@npm:0.7.22"
+"svelte2tsx@npm:~0.7.23":
+  version: 0.7.23
+  resolution: "svelte2tsx@npm:0.7.23"
   dependencies:
     dedent-js: "npm:^1.0.1"
     pascal-case: "npm:^3.1.1"
   peerDependencies:
     svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
     typescript: ^4.9.4 || ^5.0.0
-  checksum: 10c0/a39b151e64cd67d3237db0dbfed567d567320a618ef3e3d7598730a51853b9e55640441473cc7478fb606d2252f1c18a55b7480b128ae3195256fcdb7ff58577
+  checksum: 10c0/18636434ac9b4e67fa4e408b2ad527a2de7bc3133c9f8a197423640de37539690bf47c79e60f42bb71187b848b4da3b8cd8c670bba9a5e6fb6ee771d663dd988
   languageName: node
   linkType: hard
 
@@ -15705,7 +15706,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-auto-import-cache@npm:^0.3.3":
+"typescript-auto-import-cache@npm:^0.3.5":
   version: 0.3.5
   resolution: "typescript-auto-import-cache@npm:0.3.5"
   dependencies:
@@ -15768,7 +15769,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.6.3":
+"typescript@npm:5.6.3, typescript@npm:^5.6.3":
   version: 5.6.3
   resolution: "typescript@npm:5.6.3"
   bin:
@@ -15778,33 +15779,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.5.2":
-  version: 5.6.2
-  resolution: "typescript@npm:5.6.2"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/3ed8297a8c7c56b7fec282532503d1ac795239d06e7c4966b42d4330c6cf433a170b53bcf93a130a7f14ccc5235de5560df4f1045eb7f3550b46ebed16d3c5e5
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
   version: 5.6.3
   resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^5.5.2#optional!builtin<compat/typescript>":
-  version: 5.6.2
-  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/94eb47e130d3edd964b76da85975601dcb3604b0c848a36f63ac448d0104e93819d94c8bdf6b07c00120f2ce9c05256b8b6092d23cf5cf1c6fa911159e4d572f
   languageName: node
   linkType: hard
 
