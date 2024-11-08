@@ -27,7 +27,7 @@
     "@storybook/test": "8.4.2",
     "@storybook/web-components": "8.4.2",
     "@storybook/web-components-vite": "8.4.2",
-    "chromatic": "11.17.0",
+    "chromatic": "11.18.0",
     "classnames": "2.5.1",
     "commons": "workspace:*",
     "glob": "11.0.0",
