@@ -4,7 +4,7 @@ import type { StoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-g
 import classNames from 'classnames';
 
 import type { SizeEnum } from './Sizes/Primary.variants';
-import classes from './Button.module.scss';
+import styles from './Button.module.scss';
 
 type Size = keyof typeof SizeEnum;
 
@@ -43,15 +43,15 @@ export const Button = ({
   onClick
 }: Props) => {
   const mode = primary
-    ? classes.storybookButtonPrimary
-    : classes.storybookButtonSecondary;
+    ? styles.storybookButtonPrimary
+    : styles.storybookButtonSecondary;
 
   return html`
     <button
       type="button"
       class=${classNames(
-        classes.storybookButton,
-        classes[`storybook-button--${size}`],
+        styles.storybookButton,
+        styles[`storybook-button--${size}`],
         mode,
         storyPseudo
       )}

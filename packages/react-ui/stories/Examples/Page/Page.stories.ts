@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { within, userEvent } from '@storybook/test';
 
-import 'html-ui/Button.css';
 import { Page } from './Page';
 
 const meta = {

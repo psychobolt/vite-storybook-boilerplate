@@ -1,7 +1,7 @@
 import { html } from 'lit';
 
 import { Button } from 'Button';
-import classes from './Header.module.scss';
+import styles from './Header.module.scss';
 
 interface User {
   name: string;
@@ -21,7 +21,7 @@ export const Header = ({
   onCreateAccount
 }: Props) => html`
   <header>
-    <div class="${classes.storybookHeader}">
+    <div class="${styles.storybookHeader}">
       <div>
         <svg
           width="32"
@@ -49,7 +49,7 @@ export const Header = ({
       <div>
         ${user
           ? html`
-              <span class="${classes.welcome}">
+              <span class="${styles.welcome}">
                 Welcome, <b>${user.name}</b>!
               </span>
               ${Button({ size: 'small', onClick: onLogout, label: 'Log out' })}

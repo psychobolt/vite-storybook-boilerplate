@@ -1,4 +1,6 @@
+import buttonStyles from 'Button/Button.module.scss';
 import { Button } from 'Button';
+import styles from './Header.module.scss';
 
 interface User {
   name: string;
@@ -13,7 +15,7 @@ export interface Props {
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }: Props) => (
   <header>
-    <div className='storybook-header'>
+    <div className={styles.storybookHeader}>
       <div>
         <svg
           width='32'
@@ -41,11 +43,11 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: Props) => (
       <div>
         {user ? (
           <>
-            <span className='welcome'>
+            <span className={styles.welcome}>
               Welcome, <b>{user.name}</b>!
             </span>
             <Button
-              variant='storybook-button--secondary'
+              variant={buttonStyles.storybookButtonSecondary}
               size='small'
               onClick={onLogout}
               label='Log out'
@@ -53,13 +55,13 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: Props) => (
           </>
         ) : (
           <>
-            <Button size='small' onClick={onLogin} label='Log in' />
             <Button
-              primary
+              variant={buttonStyles.storybookButtonSecondary}
               size='small'
-              onClick={onCreateAccount}
-              label='Sign up'
+              onClick={onLogin}
+              label='Log in'
             />
+            <Button size='small' onClick={onCreateAccount} label='Sign up' />
           </>
         )}
       </div>

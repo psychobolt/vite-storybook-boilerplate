@@ -1,9 +1,7 @@
 import React from 'react';
 
-import 'html-ui/Button.css';
-import 'html-ui/Header.css';
+import styles from './Page.module.scss';
 import { Header } from 'react-ui/Header';
-import './page.css';
 
 interface User {
   name: string;
@@ -27,7 +25,7 @@ export const Page: React.FC = () => {
         }}
       />
 
-      <section className='storybook-page'>
+      <section className={styles.storybookPage}>
         <h2>Pages in Storybook</h2>
         <p>
           We recommend building UIs with a{' '}
@@ -74,9 +72,9 @@ export const Page: React.FC = () => {
           </a>
           .
         </p>
-        <div className='tip-wrapper'>
-          <span className='tip'>Tip</span> Adjust the width of the canvas with
-          the{' '}
+        <div className={styles.tipWrapper}>
+          <span className={styles.tip}>Tip</span> Adjust the width of the canvas
+          with the{' '}
           <svg
             width='10'
             height='10'
