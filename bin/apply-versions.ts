@@ -168,8 +168,9 @@ switch (type) {
           if (
             oldVersion === highest ||
             !(semver.lt(oldVersion, highest) && semver.lte(version, highest))
-          )
+          ) {
             break;
+          }
           const prerelease = semver.prerelease(oldVersion);
           let release;
           if (prerelease != null) {
@@ -194,8 +195,9 @@ switch (type) {
           let i = 0;
           i < (prerelease == null ? 1 : 2);
           i += 1 // https://github.com/yarnpkg/berry/issues/3868
-        )
+        ) {
           await $(`yarn workspace ${name} version ${bump}`, execOptions);
+        }
       }
     }
 }
