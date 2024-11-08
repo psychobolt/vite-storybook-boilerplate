@@ -1,9 +1,3 @@
-declare module 'eslint-plugin-react/configs/jsx-runtime.js' {
-  import type { TSESLint } from '@typescript-eslint/utils';
-  const _default: TSESLint.FlatConfig.Config;
-  export default _default;
-}
-
 declare module 'prettier-config-standard';
 
 declare module 'postcss-pseudo-classes' {
