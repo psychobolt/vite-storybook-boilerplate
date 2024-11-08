@@ -5,7 +5,8 @@
       {
         "name": "typescript-plugin-css-modules",
         "options": {
-          "classnameTransform": "camelCase"
+          "classnameTransform": "camelCase",
+          "goToDefinition": true
         }
       }
     ],

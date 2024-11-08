@@ -11,7 +11,13 @@ const config: Config = {
   ],
   plugins: [...orderPlugins],
   rules: {
-    ...orderRules
+    ...orderRules,
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global']
+      }
+    ]
   },
   allowEmptyInput: true
 };

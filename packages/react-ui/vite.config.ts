@@ -21,6 +21,7 @@ export default mergeConfig(
   defineConfig({
     css: {
       modules: {
+        exportGlobals: true,
         localsConvention: 'camelCase'
       }
     },

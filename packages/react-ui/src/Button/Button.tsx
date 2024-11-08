@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import styles from './Button.module.scss';
+
 const sizes = ['small', 'medium', 'large'] as const;
 
 interface Props {
@@ -30,7 +32,7 @@ interface Props {
  * Primary UI component for user interaction
  */
 export function Button({
-  variant = 'storybook-button--primary',
+  variant = styles.storybookButtonPrimary,
   size = 'medium',
   backgroundColor,
   label,
@@ -40,8 +42,8 @@ export function Button({
     <button
       type='button'
       className={classNames(
-        'storybook-button',
-        `storybook-button--${size}`,
+        styles.storybookButton,
+        styles[`storybook-button--${size}`],
         variant
       )}
       style={{ backgroundColor }}
