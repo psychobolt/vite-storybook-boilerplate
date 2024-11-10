@@ -6401,7 +6401,7 @@ __metadata:
     eslint-plugin-mdx: "npm:3.1.5"
     lodash: "npm:4.17.21"
     neostandard: "npm:0.11.7"
-    postcss: "npm:8.4.47"
+    postcss: "npm:8.4.48"
     postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
     react: "npm:18.3.1"
@@ -13101,6 +13101,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picocolors@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "picocolors@npm:1.1.1"
+  checksum: 10c0/e2e3e8170ab9d7c7421969adaa7e1b31434f789afb9b3f115f6b96d91945041ac3ceb02e9ec6fe6510ff036bcc0bf91e69a1772edc0b707e12b19c0f2d6bcf58
+  languageName: node
+  linkType: hard
+
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2, picomatch@npm:^2.2.3, picomatch@npm:^2.3.0, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
@@ -13321,14 +13328,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.47, postcss@npm:^8.4.47":
-  version: 8.4.47
-  resolution: "postcss@npm:8.4.47"
+"postcss@npm:8.4.48":
+  version: 8.4.48
+  resolution: "postcss@npm:8.4.48"
   dependencies:
     nanoid: "npm:^3.3.7"
-    picocolors: "npm:^1.1.0"
+    picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
-  checksum: 10c0/929f68b5081b7202709456532cee2a145c1843d391508c5a09de2517e8c4791638f71dd63b1898dba6712f8839d7a6da046c72a5e44c162e908f5911f57b5f44
+  checksum: 10c0/d586361fda12fc7ab5650ce9b5763fc61d6ea2cecac9da98fceea6a3f27e42ed34db830582411bc06743492d9bb414c52b0c81da65440682d244d692da2f928a
   languageName: node
   linkType: hard
 
@@ -13362,6 +13369,17 @@ __metadata:
     picocolors: "npm:^1.0.1"
     source-map-js: "npm:^1.2.0"
   checksum: 10c0/ad6f8b9b1157d678560373696109745ab97a947d449f8a997acac41c7f1e4c0f3ca4b092d6df1387f430f2c9a319987b1780dbdc27e35800a88cde9b606c1e8f
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.47":
+  version: 8.4.47
+  resolution: "postcss@npm:8.4.47"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.1.0"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10c0/929f68b5081b7202709456532cee2a145c1843d391508c5a09de2517e8c4791638f71dd63b1898dba6712f8839d7a6da046c72a5e44c162e908f5911f57b5f44
   languageName: node
   linkType: hard
 
@@ -15354,7 +15372,7 @@ __metadata:
     eslint-plugin-svelte: "npm:2.46.0"
     globals: "npm:15.12.0"
     html-ui: "workspace:*"
-    postcss: "npm:8.4.47"
+    postcss: "npm:8.4.48"
     prettier: "npm:3.3.3"
     prettier-plugin-svelte: "npm:3.2.7"
     sass: "npm:1.80.6"
