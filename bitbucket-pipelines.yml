@@ -1,4 +1,4 @@
-image: node:18-alpine@sha256:02376a266c84acbf45bd19440e08e48b1c8b98037417334046029ab585de03e2
+image: node:18-alpine@sha256:a25c1e4ecc284985f4cbc449021e9259560c644dd9611e5a72d9c4750f24f6c7
 
 definitions:
   services:
