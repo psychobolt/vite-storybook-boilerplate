@@ -53,7 +53,7 @@
 		"turbo": "2.2.3",
 		"typescript": "5.6.3",
 		"typescript-eslint": "8.13.0",
-		"vite": "5.4.10"
+		"vite": "5.4.11"
 	},
 	"resolutions": {
 		"@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#../../.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
