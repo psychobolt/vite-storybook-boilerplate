@@ -74,7 +74,7 @@ jobs:
           "yarn workspace ${{ inputs.workspace }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} -- --silent"
           "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
       - name: Upload Coverage Reports
-        uses: codecov/codecov-action@5c47607acb93fed5485fdbf7232e8a31425f672a # v5
+        uses: codecov/codecov-action@05f5a9cfad807516dbbef9929c4a42df3eb78766 # v5
         with:
           files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
           flags: ${{ inputs.workspace }}
