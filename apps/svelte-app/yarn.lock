@@ -3626,15 +3626,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:5.4.7":
-  version: 5.4.7
-  resolution: "@sveltejs/adapter-vercel@npm:5.4.7"
+"@sveltejs/adapter-vercel@npm:5.4.8":
+  version: 5.4.8
+  resolution: "@sveltejs/adapter-vercel@npm:5.4.8"
   dependencies:
     "@vercel/nft": "npm:^0.27.1"
     esbuild: "npm:^0.21.5"
   peerDependencies:
     "@sveltejs/kit": ^2.4.0
-  checksum: 10c0/d4c62bd1704ce3e44804403e44067011ee76816eabb9c223ab7792c88a8ec562fb9400301c6db506019a5404387ccd3077fe14cc942d3408b6e95c4fef8ea61b
+  checksum: 10c0/3d6c8d37ba2eb0fe930c174e818189464260554312b8a0d0f09b78382d9ab65de00b2c2b30a6cbdf661133a26f7d1221080e510ec55b05f249be7bf0fdb2ccbd
   languageName: node
   linkType: hard
 
@@ -15287,7 +15287,7 @@ __metadata:
     "@fontsource/fira-mono": "npm:5.1.0"
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:3.3.1"
-    "@sveltejs/adapter-vercel": "npm:5.4.7"
+    "@sveltejs/adapter-vercel": "npm:5.4.8"
     "@sveltejs/kit": "npm:2.8.1"
     "@sveltejs/vite-plugin-svelte": "npm:4.0.1"
     "@swc-node/register": "npm:1.10.0"
