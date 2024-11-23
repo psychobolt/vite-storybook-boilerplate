@@ -12599,13 +12599,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:3.2.8, prettier-plugin-svelte@npm:^3.2.8":
+"prettier-plugin-svelte@npm:3.2.8":
   version: 3.2.8
   resolution: "prettier-plugin-svelte@npm:3.2.8"
   peerDependencies:
     prettier: ^3.0.0
     svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
   checksum: 10c0/aa5d8f3777911cf14ac920aaf74cbefa47b71cdb06279ea7eecab92cd7964f928ff3e213cf3194f30ffc3d4d1621c94eee97717a2c0cfc906cefc4e9e191aff6
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-svelte@npm:^3.3.0":
+  version: 3.3.2
+  resolution: "prettier-plugin-svelte@npm:3.3.2"
+  peerDependencies:
+    prettier: ^3.0.0
+    svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
+  checksum: 10c0/00c428e18fcc5db84eb55969425041aa80bb82c95b9abeb5bf5354605f84e31301e104bb7c7ab3264dbe42a8b7b12c994e795effcf71c3c4b51dfd0a5ff41a9b
   languageName: node
   linkType: hard
 
@@ -14714,7 +14724,7 @@ __metadata:
     svelte: "npm:5.2.7"
     svelte-check: "npm:4.0.9"
     svelte-eslint-parser: "npm:0.43.0"
-    svelte-language-server: "npm:0.17.6"
+    svelte-language-server: "npm:0.17.7"
     tslib: "npm:2.8.1"
     turbo: "npm:2.3.1"
     typescript: "npm:5.6.3"
@@ -14759,9 +14769,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.17.6":
-  version: 0.17.6
-  resolution: "svelte-language-server@npm:0.17.6"
+"svelte-language-server@npm:0.17.7":
+  version: 0.17.7
+  resolution: "svelte-language-server@npm:0.17.7"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     "@vscode/emmet-helper": "npm:2.8.4"
@@ -14771,7 +14781,7 @@ __metadata:
     globrex: "npm:^0.1.2"
     lodash: "npm:^4.17.21"
     prettier: "npm:~3.3.3"
-    prettier-plugin-svelte: "npm:^3.2.8"
+    prettier-plugin-svelte: "npm:^3.3.0"
     svelte: "npm:^4.2.19"
     svelte2tsx: "npm:~0.7.25"
     typescript: "npm:^5.6.3"
@@ -14784,7 +14794,7 @@ __metadata:
     vscode-uri: "npm:~3.0.0"
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/bfe11d55ee27a56ef49eabe21435c571e62366d7dd07f7d16f4389d2303e5759c447a10f07114dad6e0752e795d127c1384d648d95b19f73c9c09bd55d417bc8
+  checksum: 10c0/d641cb81793d55504cc76a4e15088e4d9cf0749af81c1a05bb20873cac11836c2c804eed3650b4031c30a66d9b124b5bfa22edf88c44e277d48cf4aa49a4cb16
   languageName: node
   linkType: hard
 
