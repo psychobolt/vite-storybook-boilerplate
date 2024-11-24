@@ -3938,7 +3938,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/core@npm:4.1.4, @yarnpkg/core@npm:^4.1.2":
+"@yarnpkg/core@npm:4.1.5":
+  version: 4.1.5
+  resolution: "@yarnpkg/core@npm:4.1.5"
+  dependencies:
+    "@arcanis/slice-ansi": "npm:^1.1.1"
+    "@types/semver": "npm:^7.1.0"
+    "@types/treeify": "npm:^1.0.0"
+    "@yarnpkg/fslib": "npm:^3.1.1"
+    "@yarnpkg/libzip": "npm:^3.1.0"
+    "@yarnpkg/parsers": "npm:^3.0.2"
+    "@yarnpkg/shell": "npm:^4.1.0"
+    camelcase: "npm:^5.3.1"
+    chalk: "npm:^3.0.0"
+    ci-info: "npm:^4.0.0"
+    clipanion: "npm:^4.0.0-rc.2"
+    cross-spawn: "npm:7.0.3"
+    diff: "npm:^5.1.0"
+    dotenv: "npm:^16.3.1"
+    fast-glob: "npm:^3.2.2"
+    got: "npm:^11.7.0"
+    lodash: "npm:^4.17.15"
+    micromatch: "npm:^4.0.2"
+    p-limit: "npm:^2.2.0"
+    semver: "npm:^7.1.2"
+    strip-ansi: "npm:^6.0.0"
+    tar: "npm:^6.0.5"
+    tinylogic: "npm:^2.0.0"
+    treeify: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+    tunnel: "npm:^0.0.6"
+  checksum: 10c0/a02b497c8209a19336f26bd28931d039bf10cb14f3fa98fe19d90860e7577c5a71004338f924b38c8ddcfca211aff053ded4b45f563bd428315aa40e67edc917
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/core@npm:^4.1.2":
   version: 4.1.4
   resolution: "@yarnpkg/core@npm:4.1.4"
   dependencies:
@@ -3972,7 +4006,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/fslib@npm:3.1.0, @yarnpkg/fslib@npm:^3.1.0":
+"@yarnpkg/fslib@npm:3.1.1, @yarnpkg/fslib@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@yarnpkg/fslib@npm:3.1.1"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  checksum: 10c0/e7478066397161a18e05c5041a09fd4362d0fa49650ffdfd9b70d5cf6e10628624d7065c28cac1ef654048e2c9b369ed0c0df8e73c57ad3fac4e90b790a61e2c
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/fslib@npm:^3.1.0":
   version: 3.1.0
   resolution: "@yarnpkg/fslib@npm:3.1.0"
   dependencies:
@@ -15828,8 +15871,8 @@ __metadata:
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/node": "npm:22.9.3"
     "@types/semver": "npm:7.5.8"
-    "@yarnpkg/core": "npm:4.1.4"
-    "@yarnpkg/fslib": "npm:3.1.0"
+    "@yarnpkg/core": "npm:4.1.5"
+    "@yarnpkg/fslib": "npm:3.1.1"
     "@yarnpkg/sdks": "npm:3.2.0"
     arg: "npm:5.0.2"
     commons: "workspace:*"
