@@ -3885,41 +3885,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/core@npm:4.1.5":
-  version: 4.1.5
-  resolution: "@yarnpkg/core@npm:4.1.5"
-  dependencies:
-    "@arcanis/slice-ansi": "npm:^1.1.1"
-    "@types/semver": "npm:^7.1.0"
-    "@types/treeify": "npm:^1.0.0"
-    "@yarnpkg/fslib": "npm:^3.1.1"
-    "@yarnpkg/libzip": "npm:^3.1.0"
-    "@yarnpkg/parsers": "npm:^3.0.2"
-    "@yarnpkg/shell": "npm:^4.1.0"
-    camelcase: "npm:^5.3.1"
-    chalk: "npm:^3.0.0"
-    ci-info: "npm:^4.0.0"
-    clipanion: "npm:^4.0.0-rc.2"
-    cross-spawn: "npm:7.0.3"
-    diff: "npm:^5.1.0"
-    dotenv: "npm:^16.3.1"
-    fast-glob: "npm:^3.2.2"
-    got: "npm:^11.7.0"
-    lodash: "npm:^4.17.15"
-    micromatch: "npm:^4.0.2"
-    p-limit: "npm:^2.2.0"
-    semver: "npm:^7.1.2"
-    strip-ansi: "npm:^6.0.0"
-    tar: "npm:^6.0.5"
-    tinylogic: "npm:^2.0.0"
-    treeify: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-    tunnel: "npm:^0.0.6"
-  checksum: 10c0/a02b497c8209a19336f26bd28931d039bf10cb14f3fa98fe19d90860e7577c5a71004338f924b38c8ddcfca211aff053ded4b45f563bd428315aa40e67edc917
-  languageName: node
-  linkType: hard
-
-"@yarnpkg/core@npm:^4.1.2":
+"@yarnpkg/core@npm:4.1.6, @yarnpkg/core@npm:^4.1.2":
   version: 4.1.6
   resolution: "@yarnpkg/core@npm:4.1.6"
   dependencies:
@@ -4003,7 +3969,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/shell@npm:^4.1.0, @yarnpkg/shell@npm:^4.1.1":
+"@yarnpkg/shell@npm:^4.1.1":
   version: 4.1.1
   resolution: "@yarnpkg/shell@npm:4.1.1"
   dependencies:
@@ -5665,17 +5631,6 @@ __metadata:
   version: 1.1.1
   resolution: "create-require@npm:1.1.1"
   checksum: 10c0/157cbc59b2430ae9a90034a5f3a1b398b6738bf510f713edc4d4e45e169bc514d3d99dd34d8d01ca7ae7830b5b8b537e46ae8f3c8f932371b0875c0151d7ec91
-  languageName: node
-  linkType: hard
-
-"cross-spawn@npm:7.0.3":
-  version: 7.0.3
-  resolution: "cross-spawn@npm:7.0.3"
-  dependencies:
-    path-key: "npm:^3.1.0"
-    shebang-command: "npm:^2.0.0"
-    which: "npm:^2.0.1"
-  checksum: 10c0/5738c312387081c98d69c98e105b6327b069197f864a60593245d64c8089c8a0a744e16349281210d56835bb9274130d825a78b2ad6853ca13cfbeffc0c31750
   languageName: node
   linkType: hard
 
@@ -15782,7 +15737,7 @@ __metadata:
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/node": "npm:22.9.3"
     "@types/semver": "npm:7.5.8"
-    "@yarnpkg/core": "npm:4.1.5"
+    "@yarnpkg/core": "npm:4.1.6"
     "@yarnpkg/fslib": "npm:3.1.1"
     "@yarnpkg/sdks": "npm:3.2.0"
     arg: "npm:5.0.2"
