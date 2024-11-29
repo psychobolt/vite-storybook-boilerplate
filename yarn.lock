@@ -2444,15 +2444,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/core-common@npm:^8.0.0":
-  version: 8.4.5
-  resolution: "@storybook/core-common@npm:8.4.5"
-  peerDependencies:
-    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-  checksum: 10c0/3046056a9bb5333b09a926e5e678bd7187b69d3cb006b854d0f93672a4e20f6aac378101b054569da2a02cff67bdf2f929fd52ce648abb9127936699e6e41d6a
-  languageName: node
-  linkType: hard
-
 "@storybook/core@npm:8.4.5":
   version: 8.4.5
   resolution: "@storybook/core@npm:8.4.5"
@@ -2485,15 +2476,6 @@ __metadata:
   peerDependencies:
     storybook: ^8.4.5
   checksum: 10c0/c23b423740820679a4fcef9df8b077b24a047f250d1710e87a2fd6918b71bfeb513749eb41c0c072f1ac86e5888e666486cd7f58105d44e5e5bd727653ca1401
-  languageName: node
-  linkType: hard
-
-"@storybook/csf-tools@npm:^8.0.0":
-  version: 8.4.5
-  resolution: "@storybook/csf-tools@npm:8.4.5"
-  peerDependencies:
-    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-  checksum: 10c0/4fc2a750f98d0356625beb5d208cb0a388b4ec1d7a2245ac470df43fb9c485803b92826d8549941465ef836340f3f7602fd7ace3aad9e6b7944e09f78e2eb46b
   languageName: node
   linkType: hard
 
@@ -2544,7 +2526,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/preview-api@npm:8.4.5, @storybook/preview-api@npm:^8.0.0":
+"@storybook/preview-api@npm:8.4.5":
   version: 8.4.5
   resolution: "@storybook/preview-api@npm:8.4.5"
   peerDependencies:
@@ -2611,19 +2593,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.19.1":
-  version: 0.19.1
-  resolution: "@storybook/test-runner@npm:0.19.1"
+"@storybook/test-runner@npm:0.20.0":
+  version: 0.20.0
+  resolution: "@storybook/test-runner@npm:0.20.0"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
     "@babel/template": "npm:^7.22.5"
     "@babel/types": "npm:^7.22.5"
     "@jest/types": "npm:^29.6.3"
-    "@storybook/core-common": "npm:^8.0.0"
     "@storybook/csf": "npm:^0.1.11"
-    "@storybook/csf-tools": "npm:^8.0.0"
-    "@storybook/preview-api": "npm:^8.0.0"
     "@swc/core": "npm:^1.5.22"
     "@swc/jest": "npm:^0.2.23"
     expect-playwright: "npm:^0.8.0"
@@ -2637,9 +2616,11 @@ __metadata:
     jest-watch-typeahead: "npm:^2.0.0"
     nyc: "npm:^15.1.0"
     playwright: "npm:^1.14.0"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/728a23cb7952e52433b21addc4b916fc0a6e0fb7c74ff560489e35f5fc831d73a25dcbc2812f62dfe3d3adb067d1cb16dd0a4141428b71bd080b6da46e63abfd
+  checksum: 10c0/757353ddce87929d7d021d986c9c7615a32f0c9267cad7049c16d4ccd2a03c65510b62141678ebf222200988c9584c6e6e794a3eff5f891d0bb846a9ad0ea99d
   languageName: node
   linkType: hard
 
@@ -5576,7 +5557,7 @@ __metadata:
     "@storybook/addon-links": "npm:8.4.5"
     "@storybook/builder-vite": "npm:8.4.5"
     "@storybook/components": "npm:8.4.5"
-    "@storybook/test-runner": "npm:0.19.1"
+    "@storybook/test-runner": "npm:0.20.0"
     "@storybook/types": "npm:8.4.5"
     "@types/eslint": "npm:9.6.1"
     "@types/lint-staged": "npm:13.3.0"
