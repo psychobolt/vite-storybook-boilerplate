@@ -7200,6 +7200,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esm-env@npm:^1.2.0":
+  version: 1.2.1
+  resolution: "esm-env@npm:1.2.1"
+  checksum: 10c0/3a7efb5943cac44c84359d0bb25a918f90f1002c0cf9fd3c24d57f27068ba3b508a9c19c8603f8c37ea5730ae4a35efad4735447fd91ae760e275cc081702e69
+  languageName: node
+  linkType: hard
+
 "espree@npm:^10.0.1, espree@npm:^10.3.0":
   version: 10.3.0
   resolution: "espree@npm:10.3.0"
@@ -14778,7 +14785,7 @@ __metadata:
     stylelint: "npm:16.10.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:13.1.0"
-    svelte: "npm:5.2.8"
+    svelte: "npm:5.2.10"
     svelte-check: "npm:4.1.0"
     svelte-eslint-parser: "npm:0.43.0"
     svelte-language-server: "npm:0.17.7"
@@ -14868,9 +14875,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.2.8":
-  version: 5.2.8
-  resolution: "svelte@npm:5.2.8"
+"svelte@npm:5.2.10":
+  version: 5.2.10
+  resolution: "svelte@npm:5.2.10"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -14879,13 +14886,13 @@ __metadata:
     acorn-typescript: "npm:^1.4.13"
     aria-query: "npm:^5.3.1"
     axobject-query: "npm:^4.1.0"
-    esm-env: "npm:^1.0.0"
+    esm-env: "npm:^1.2.0"
     esrap: "npm:^1.2.2"
     is-reference: "npm:^3.0.3"
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/60e55ffd73fa4f8b63f59ce2df765f05ba8ba986b6ceabc451a609a3900846889610e848306db56be65323c19add699fbc892646070ba77ec794a0401515692f
+  checksum: 10c0/f885569736a85c057ac672a89cd72bae0738ff2fa51029bb9e825069c61dbd17dce4a940c817af85ea92dc89ee5f6f52e530b292889883d6a4ccab3ca14dd339
   languageName: node
   linkType: hard
 
