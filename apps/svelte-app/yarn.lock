@@ -3454,14 +3454,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.8.5":
-  version: 2.8.5
-  resolution: "@sveltejs/kit@npm:2.8.5"
+"@sveltejs/kit@npm:2.9.0":
+  version: 2.9.0
+  resolution: "@sveltejs/kit@npm:2.9.0"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     cookie: "npm:^0.6.0"
     devalue: "npm:^5.1.0"
-    esm-env: "npm:^1.0.0"
+    esm-env: "npm:^1.2.1"
     import-meta-resolve: "npm:^4.1.0"
     kleur: "npm:^4.1.5"
     magic-string: "npm:^0.30.5"
@@ -3471,12 +3471,12 @@ __metadata:
     sirv: "npm:^3.0.0"
     tiny-glob: "npm:^0.2.9"
   peerDependencies:
-    "@sveltejs/vite-plugin-svelte": ^3.0.0 || ^4.0.0-next.1
+    "@sveltejs/vite-plugin-svelte": ^3.0.0 || ^4.0.0-next.1 || ^5.0.0
     svelte: ^4.0.0 || ^5.0.0-next.0
-    vite: ^5.0.3
+    vite: ^5.0.3 || ^6.0.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/0c60b409f8a52ff37c22cfa61434afd51866e5359cc5625b6944704bcf6c6dcc0646680d68a6025dc144d215c2fc81862d19e29eeb5b11b9a10316da36401940
+  checksum: 10c0/40630b15534cb695869795533aab05fad8faff5334a25ca22e4e1bab46109d777ebee47a284e67ee1900ce2973fd5987ae5fa39dabe9a56d093b6b1460269ed7
   languageName: node
   linkType: hard
 
@@ -7731,13 +7731,6 @@ __metadata:
   bin:
     eslint: bin/eslint.js
   checksum: 10c0/f36d12652c6f20bab8a77375b8ad29a6af030c3840deb0a5f9dd4cee49d68a2d68d7dc73b0c25918df59d83cd686dd5712e11387e696e1f3842e8dde15cd3255
-  languageName: node
-  linkType: hard
-
-"esm-env@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "esm-env@npm:1.0.0"
-  checksum: 10c0/6ea0001410224ebc18de4a83ce97dbdca6abc83ea4bbe91625aa3aead70793bb98dfa089f38e2cc5c13b7b025668d0649d5e25f2f9e8cca0f4aa3ad3406870d0
   languageName: node
   linkType: hard
 
@@ -14980,7 +14973,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:3.3.1"
     "@sveltejs/adapter-vercel": "npm:5.5.0"
-    "@sveltejs/kit": "npm:2.8.5"
+    "@sveltejs/kit": "npm:2.9.0"
     "@sveltejs/vite-plugin-svelte": "npm:4.0.2"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
