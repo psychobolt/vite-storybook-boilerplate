@@ -8555,7 +8555,7 @@ __metadata:
     typescript: "npm:5.7.2"
     typescript-plugin-css-modules: "npm:5.1.0"
     vite: "npm:5.4.11"
-    vite-plugin-sass-glob-import: "npm:4.0.0"
+    vite-plugin-sass-glob-import: "npm:4.1.0"
   languageName: unknown
   linkType: soft
 
