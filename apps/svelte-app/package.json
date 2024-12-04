@@ -39,7 +39,7 @@
 		"globals": "15.13.0",
 		"html-ui": "workspace:*",
 		"postcss": "8.4.49",
-		"prettier": "3.4.1",
+		"prettier": "3.4.2",
 		"prettier-plugin-svelte": "3.3.2",
 		"sass": "1.81.1",
 		"stylelint": "16.11.0",
