@@ -3540,10 +3540,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:15.7.13":
+"@types/prop-types@npm:*":
   version: 15.7.13
   resolution: "@types/prop-types@npm:15.7.13"
   checksum: 10c0/1b20fc67281902c6743379960247bc161f3f0406ffc0df8e7058745a85ea1538612109db0406290512947f9632fe9e10e7337bf0ce6338a91d6c948df16a7c61
+  languageName: node
+  linkType: hard
+
+"@types/prop-types@npm:15.7.14":
+  version: 15.7.14
+  resolution: "@types/prop-types@npm:15.7.14"
+  checksum: 10c0/1ec775160bfab90b67a782d735952158c7e702ca4502968aa82565bd8e452c2de8601c8dfe349733073c31179116cf7340710160d3836aa8a1ef76d1532893b1
   languageName: node
   linkType: hard
 
@@ -11583,7 +11590,7 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@types/node": "npm:22.10.1"
-    "@types/prop-types": "npm:15.7.13"
+    "@types/prop-types": "npm:15.7.14"
     "@types/react": "npm:18.3.13"
     "@types/react-dom": "npm:18.3.1"
     eslint: "npm:9.16.0"
@@ -13199,7 +13206,7 @@ __metadata:
     "@storybook/react-vite": "npm:8.4.6"
     "@storybook/test": "npm:8.4.6"
     "@tsconfig/vite-react": "npm:3.4.0"
-    "@types/prop-types": "npm:15.7.13"
+    "@types/prop-types": "npm:15.7.14"
     "@types/react": "npm:18.3.13"
     "@types/react-dom": "npm:18.3.1"
     chromatic: "npm:11.20.0"
