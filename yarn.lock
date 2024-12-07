@@ -3497,19 +3497,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:15.7.14":
+"@types/prop-types@npm:15.7.14":
   version: 15.7.14
   resolution: "@types/prop-types@npm:15.7.14"
   checksum: 10c0/1ec775160bfab90b67a782d735952158c7e702ca4502968aa82565bd8e452c2de8601c8dfe349733073c31179116cf7340710160d3836aa8a1ef76d1532893b1
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.3.2":
-  version: 18.3.2
-  resolution: "@types/react-dom@npm:18.3.2"
+"@types/react-dom@npm:19.0.1":
+  version: 19.0.1
+  resolution: "@types/react-dom@npm:19.0.1"
   dependencies:
-    "@types/react": "npm:^18"
-  checksum: 10c0/22510231af67044a9542633b5b52ec16a8d71fa1da177f82428b8120d36619fd874c3b975b2eda6895baa53667f9fe8cba3acea1232a0244dffe8b11f6b32284
+    "@types/react": "npm:*"
+  checksum: 10c0/fb40069a7c5c70475155dff91d25ff5a51226c14d45c8ad55894480366876426981c8be63ef322486af879bb220bf48443f2344c1a89cb75a47a1a761acee9d3
   languageName: node
   linkType: hard
 
@@ -3522,22 +3522,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:19.0.1":
   version: 19.0.1
   resolution: "@types/react@npm:19.0.1"
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 10c0/25eb69114abb9a6d5fc4414ee584388275bbc9ac32976449cf58b95fe9880efe6b3f936c3842be9bed8c571546a9752e8d3e2095288381e9c809269f5f574f2e
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.3.14, @types/react@npm:^18":
-  version: 18.3.14
-  resolution: "@types/react@npm:18.3.14"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10c0/d925fbfcf084238b93d1a0b5406d4cf9aeb37c4a1191559aa4ee107c2e55cc15327989140f03eddda4d471f5b935d4673fd74a86f451860edea18eae48ca44f8
   languageName: node
   linkType: hard
 
@@ -5443,8 +5433,8 @@ __metadata:
     prettier: "npm:3.4.2"
     prettier-config-standard: "npm:7.0.0"
     prettier-plugin-sh: "npm:0.14.0"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
+    react: "npm:19.0.0"
+    react-dom: "npm:19.0.0"
     react-syntax-highlighter: "npm:15.6.1"
     rimraf: "npm:6.0.1"
     storybook: "npm:8.4.7"
@@ -8285,8 +8275,8 @@ __metadata:
     http-server: "npm:14.1.1"
     lit: "npm:3.2.1"
     nyc: "npm:17.1.0"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
+    react: "npm:19.0.0"
+    react-dom: "npm:19.0.0"
     rollup-plugin-no-emit: "npm:1.2.1"
     sass: "npm:1.82.0"
     storybook: "npm:8.4.7"
@@ -11331,16 +11321,16 @@ __metadata:
   dependencies:
     "@types/node": "npm:22.10.1"
     "@types/prop-types": "npm:15.7.14"
-    "@types/react": "npm:18.3.14"
-    "@types/react-dom": "npm:18.3.2"
+    "@types/react": "npm:19.0.1"
+    "@types/react-dom": "npm:19.0.1"
     eslint: "npm:9.16.0"
     eslint-config-next: "npm:15.0.4"
     html-ui: "workspace:*"
     next: "npm:15.0.4"
     open-cli: "npm:8.0.0"
     prop-types: "npm:15.8.1"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
+    react: "npm:19.0.0"
+    react-dom: "npm:19.0.0"
     react-ui: "workspace:*"
     turbo: "npm:2.3.3"
     typescript: "npm:5.7.2"
@@ -12882,7 +12872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:*":
+"react-dom@npm:*, react-dom@npm:19.0.0":
   version: 19.0.0
   resolution: "react-dom@npm:19.0.0"
   dependencies:
@@ -12893,7 +12883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.3.1, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:^18.3.1":
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:^18.3.1":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -12974,8 +12964,8 @@ __metadata:
     "@storybook/test": "npm:8.4.7"
     "@tsconfig/vite-react": "npm:3.4.0"
     "@types/prop-types": "npm:15.7.14"
-    "@types/react": "npm:18.3.14"
-    "@types/react-dom": "npm:18.3.2"
+    "@types/react": "npm:19.0.1"
+    "@types/react-dom": "npm:19.0.1"
     chromatic: "npm:11.20.0"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
@@ -12984,8 +12974,8 @@ __metadata:
     http-server: "npm:14.1.1"
     nyc: "npm:17.1.0"
     prop-types: "npm:15.8.1"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
+    react: "npm:19.0.0"
+    react-dom: "npm:19.0.0"
     sass: "npm:1.82.0"
     storybook: "npm:8.4.7"
     stylelint-config: "workspace:*"
@@ -12995,19 +12985,19 @@ __metadata:
     vite: "npm:5.4.11"
   peerDependencies:
     prop-types: ^15.8.1
-    react: ^18.2.0
-    react-dom: ^18.2.0
+    react: ^18.2.0 || ^19.0.0
+    react-dom: ^18.2.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
-"react@npm:*":
+"react@npm:*, react@npm:19.0.0":
   version: 19.0.0
   resolution: "react@npm:19.0.0"
   checksum: 10c0/9cad8f103e8e3a16d15cb18a0d8115d8bd9f9e1ce3420310aea381eb42aa0a4f812cf047bb5441349257a05fba8a291515691e3cb51267279b2d2c3253f38471
   languageName: node
   linkType: hard
 
-"react@npm:18.3.1, react@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react@npm:^18.3.1":
+"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:
