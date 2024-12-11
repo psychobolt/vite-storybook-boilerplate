@@ -42,7 +42,7 @@
     "eslint": "9.16.0",
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
-    "lint-staged": "15.2.10",
+    "lint-staged": "15.2.11",
     "playwright": "1.49.0",
     "semver": "7.6.3",
     "stylelint": "16.11.0",
