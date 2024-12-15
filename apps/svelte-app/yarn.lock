@@ -3506,9 +3506,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/vite-plugin-svelte@npm:4.0.2":
-  version: 4.0.2
-  resolution: "@sveltejs/vite-plugin-svelte@npm:4.0.2"
+"@sveltejs/vite-plugin-svelte@npm:4.0.3":
+  version: 4.0.3
+  resolution: "@sveltejs/vite-plugin-svelte@npm:4.0.3"
   dependencies:
     "@sveltejs/vite-plugin-svelte-inspector": "npm:^3.0.0-next.0||^3.0.0"
     debug: "npm:^4.3.7"
@@ -3519,7 +3519,7 @@ __metadata:
   peerDependencies:
     svelte: ^5.0.0-next.96 || ^5.0.0
     vite: ^5.0.0
-  checksum: 10c0/3e08c3fd0e7554d9d2ef84208e49fc8afc411c616f4e19c4eaaae16a83ecbcf610ed368df8b9500415264aa4e6519f23790149cf565f40ed5981ef30b6bd430c
+  checksum: 10c0/b0ebf2fc4e0ecae29a0e8fde0588be041f2d6f61c92f49ca9885677ab1c66d8e1611dc9b86949f486a38ee258694bdeeebc77f8ee7e0f288a9fb709425b4b898
   languageName: node
   linkType: hard
 
@@ -15055,7 +15055,7 @@ __metadata:
     "@sveltejs/adapter-auto": "npm:3.3.1"
     "@sveltejs/adapter-vercel": "npm:5.5.2"
     "@sveltejs/kit": "npm:2.10.1"
-    "@sveltejs/vite-plugin-svelte": "npm:4.0.2"
+    "@sveltejs/vite-plugin-svelte": "npm:4.0.3"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
     "@types/eslint": "npm:9.6.1"
