@@ -3520,12 +3520,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:19.0.1":
+"@types/react@npm:*":
   version: 19.0.1
   resolution: "@types/react@npm:19.0.1"
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 10c0/25eb69114abb9a6d5fc4414ee584388275bbc9ac32976449cf58b95fe9880efe6b3f936c3842be9bed8c571546a9752e8d3e2095288381e9c809269f5f574f2e
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:19.0.2":
+  version: 19.0.2
+  resolution: "@types/react@npm:19.0.2"
+  dependencies:
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/8992f39701fcf1bf893ef8f94a56196445667baf08fe4f6050a14e229a17aad3265ad3efc01595ff3b4d5d5c69da885f9aa4ff80f164a613018734efcff1eb8f
   languageName: node
   linkType: hard
 
@@ -11236,7 +11245,7 @@ __metadata:
   dependencies:
     "@types/node": "npm:22.10.2"
     "@types/prop-types": "npm:15.7.14"
-    "@types/react": "npm:19.0.1"
+    "@types/react": "npm:19.0.2"
     "@types/react-dom": "npm:19.0.2"
     eslint: "npm:9.17.0"
     eslint-config-next: "npm:15.1.0"
@@ -12855,7 +12864,7 @@ __metadata:
     "@storybook/test": "npm:8.4.7"
     "@tsconfig/vite-react": "npm:3.4.0"
     "@types/prop-types": "npm:15.7.14"
-    "@types/react": "npm:19.0.1"
+    "@types/react": "npm:19.0.2"
     "@types/react-dom": "npm:19.0.2"
     chromatic: "npm:11.20.2"
     classnames: "npm:2.5.1"
