@@ -1,11 +1,7 @@
-import path from 'node:path';
+import { flatten, unflatten } from 'flat';
 import type { Config } from 'stylelint';
 
 import { require } from '../utils/functions.js';
-
-const { flatten, unflatten } = await import(
-  path.join('file://', require.resolve('flat'))
-);
 
 const { rules = {} }: Config = require('stylelint-config-hudochenkov/order');
 type Rules = NonNullable<typeof rules>;
