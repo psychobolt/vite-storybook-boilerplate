@@ -5547,7 +5547,7 @@ __metadata:
     eslint-plugin-mdx: "npm:3.1.5"
     jest-junit: "npm:16.0.0"
     lodash: "npm:4.17.21"
-    neostandard: "npm:0.12.0"
+    neostandard: "npm:0.12.1"
     playwright: "npm:1.49.1"
     playwright-chromium: "npm:1.49.1"
     postcss: "npm:8.4.49"
@@ -11697,9 +11697,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"neostandard@npm:0.12.0":
-  version: 0.12.0
-  resolution: "neostandard@npm:0.12.0"
+"neostandard@npm:0.12.1":
+  version: 0.12.1
+  resolution: "neostandard@npm:0.12.1"
   dependencies:
     "@humanwhocodes/gitignore-to-minimatch": "npm:^1.0.2"
     "@stylistic/eslint-plugin": "npm:2.11.0"
@@ -11716,7 +11716,7 @@ __metadata:
     eslint: ^9.0.0
   bin:
     neostandard: cli.mjs
-  checksum: 10c0/8a890f41ed9e59508cb324ca98410d36299018b02584211c288f943450f70d08c4d632ebccf531759ce6adffdf5f9793dc5ceae302a3fc45ce200f196f24c034
+  checksum: 10c0/a6c3b770c7d883c20290d59ceed3422332ab9acbc08167cccb7ad8107ad93a472f63521a84b6e7ac2f1f34a0d68ee2ac7da1b306e8788312aa0e1a49dcba7a9d
   languageName: node
   linkType: hard
 
