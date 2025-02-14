@@ -55,6 +55,7 @@ jobs:
   ci:
     uses: ./.github/workflows/ci.yml
     with:
+      ref: ${{ github.event.pull_request.head.ref }}
       base_ref: ${{ github.base_ref }}
     secrets: inherit
 

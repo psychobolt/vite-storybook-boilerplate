@@ -3,6 +3,8 @@ name: Packages
 on:
   workflow_call:
     inputs:
+      ref:
+        type: string
       ref_name:
         type: string
       package_names:
@@ -33,7 +35,7 @@ jobs:
     uses: ./.github/workflows/test-package.yml
     if: contains(fromJSON(inputs.package_names), 'html-ui')
     with:
-      ref_name: ${{ inputs.ref_name }}
+      ref: ${{ inputs.ref }}
       workspace: html-ui
       path: packages/html-ui
     secrets: inherit
@@ -42,7 +44,7 @@ jobs:
     if: contains(fromJSON(inputs.package_names), 'react-ui')
     uses: ./.github/workflows/test-package.yml
     with:
-      ref_name: ${{ inputs.ref_name }}
+      ref: ${{ inputs.ref }}
       workspace: react-ui
       path: packages/react-ui
     secrets: inherit

@@ -8,6 +8,8 @@ on:
       - release-*
   workflow_call:
     inputs:
+      ref:
+        type: string
       ref_name:
         type: string
       base_ref:
@@ -138,6 +140,7 @@ jobs:
     uses: ./.github/workflows/packages.yml
     secrets: inherit
     with:
+      ref: ${{ inputs.ref }}
       ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
 
