@@ -171,7 +171,7 @@ pipelines:
                 - yarn
               clone:
                 enabled: true
-                depth: 50
+                depth: 75
               condition:
                 changesets:
                   includePaths:
@@ -194,7 +194,7 @@ pipelines:
                 - yarn
               clone:
                 enabled: true
-                depth: 50
+                depth: 75
               condition:
                 changesets:
                   includePaths:
@@ -239,7 +239,7 @@ pipelines:
             - unplugged
           clone:
             enabled: true
-            depth: 50
+            depth: 75
           condition:
             changesets:
               includePaths:
@@ -277,7 +277,7 @@ pipelines:
             - unplugged
           clone:
             enabled: true
-            depth: 50
+            depth: 75
           script:
             - *env
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
@@ -353,7 +353,7 @@ pipelines:
           max-time: 15
           clone:
             enabled: true
-            depth: 50
+            depth: 75
           script:
             - *env
             - *git-auth
