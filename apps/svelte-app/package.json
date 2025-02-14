@@ -2,7 +2,7 @@
 	"name": "svelte-app",
 	"private": true,
 	"type": "module",
-	"packageManager": "yarn@4.5.3",
+	"packageManager": "yarn@4.6.0",
 	"scripts": {
 		"dotenv-run": "yarn dotenvx -q run -f ../../.env.defaults -f ../../.env -f .env.defaults -f .env --overload",
 		"swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
@@ -36,7 +36,7 @@
 		"eslint": "9.17.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-svelte": "2.46.1",
-		"globals": "15.13.0",
+		"globals": "15.15.0",
 		"html-ui": "workspace:*",
 		"postcss": "8.5.2",
 		"prettier": "3.4.2",

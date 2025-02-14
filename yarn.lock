@@ -3959,41 +3959,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/core@npm:4.1.6":
-  version: 4.1.6
-  resolution: "@yarnpkg/core@npm:4.1.6"
-  dependencies:
-    "@arcanis/slice-ansi": "npm:^1.1.1"
-    "@types/semver": "npm:^7.1.0"
-    "@types/treeify": "npm:^1.0.0"
-    "@yarnpkg/fslib": "npm:^3.1.1"
-    "@yarnpkg/libzip": "npm:^3.1.0"
-    "@yarnpkg/parsers": "npm:^3.0.2"
-    "@yarnpkg/shell": "npm:^4.1.1"
-    camelcase: "npm:^5.3.1"
-    chalk: "npm:^3.0.0"
-    ci-info: "npm:^4.0.0"
-    clipanion: "npm:^4.0.0-rc.2"
-    cross-spawn: "npm:^7.0.3"
-    diff: "npm:^5.1.0"
-    dotenv: "npm:^16.3.1"
-    fast-glob: "npm:^3.2.2"
-    got: "npm:^11.7.0"
-    lodash: "npm:^4.17.15"
-    micromatch: "npm:^4.0.2"
-    p-limit: "npm:^2.2.0"
-    semver: "npm:^7.1.2"
-    strip-ansi: "npm:^6.0.0"
-    tar: "npm:^6.0.5"
-    tinylogic: "npm:^2.0.0"
-    treeify: "npm:^1.1.0"
-    tslib: "npm:^2.4.0"
-    tunnel: "npm:^0.0.6"
-  checksum: 10c0/09d8dac4cf7917d37d3b3e9de510a2422d0a49a5f351ccda1ba0246d1d53e7fbde213ff72298474711f375f6e0394a75123afc3b0fda0cd54d7c7246f538d343
-  languageName: node
-  linkType: hard
-
-"@yarnpkg/core@npm:^4.1.2":
+"@yarnpkg/core@npm:4.2.0, @yarnpkg/core@npm:^4.1.2":
   version: 4.2.0
   resolution: "@yarnpkg/core@npm:4.2.0"
   dependencies:
@@ -5596,7 +5562,7 @@ __metadata:
     storybook: "npm:8.4.7"
     storybook-zeplin: "npm:3.0.0"
     ts-enum-util: "npm:4.1.0"
-    tsconfck: "npm:3.1.4"
+    tsconfck: "npm:3.1.5"
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:2.3.3"
     typescript: "npm:5.7.3"
@@ -8024,10 +7990,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:15.13.0":
-  version: 15.13.0
-  resolution: "globals@npm:15.13.0"
-  checksum: 10c0/640365115ca5f81d91e6a7667f4935021705e61a1a5a76a6ec5c3a5cdf6e53f165af7f9db59b7deb65cf2e1f83d03ac8d6660d0b14c569c831a9b6483eeef585
+"globals@npm:15.15.0":
+  version: 15.15.0
+  resolution: "globals@npm:15.15.0"
+  checksum: 10c0/f9ae80996392ca71316495a39bec88ac43ae3525a438b5626cd9d5ce9d5500d0a98a266409605f8cd7241c7acf57c354a48111ea02a767ba4f374b806d6861fe
   languageName: node
   linkType: hard
 
@@ -15013,7 +14979,7 @@ __metadata:
     eslint: "npm:9.17.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-svelte: "npm:2.46.1"
-    globals: "npm:15.13.0"
+    globals: "npm:15.15.0"
     html-ui: "workspace:*"
     postcss: "npm:8.5.2"
     prettier: "npm:3.4.2"
@@ -15392,21 +15358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:3.1.4":
-  version: 3.1.4
-  resolution: "tsconfck@npm:3.1.4"
-  peerDependencies:
-    typescript: ^5.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  bin:
-    tsconfck: bin/tsconfck.js
-  checksum: 10c0/5120e91b3388574b449d57d08f45d05d9966cf4b9d6aa1018652c1fff6d7d37b1ed099b07e6ebf6099aa40b8a16968dd337198c55b7274892849112b942861ed
-  languageName: node
-  linkType: hard
-
-"tsconfck@npm:^3.0.3":
+"tsconfck@npm:3.1.5, tsconfck@npm:^3.0.3":
   version: 3.1.5
   resolution: "tsconfck@npm:3.1.5"
   peerDependencies:
@@ -16166,7 +16118,7 @@ __metadata:
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/node": "npm:22.10.2"
     "@types/semver": "npm:7.5.8"
-    "@yarnpkg/core": "npm:4.1.6"
+    "@yarnpkg/core": "npm:4.2.0"
     "@yarnpkg/fslib": "npm:3.1.1"
     "@yarnpkg/sdks": "npm:3.2.0"
     arg: "npm:5.0.2"

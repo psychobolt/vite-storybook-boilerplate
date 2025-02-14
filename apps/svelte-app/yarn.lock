@@ -6480,7 +6480,7 @@ __metadata:
     react-syntax-highlighter: "npm:15.6.1"
     storybook-zeplin: "npm:3.0.0"
     ts-enum-util: "npm:4.1.0"
-    tsconfck: "npm:3.1.4"
+    tsconfck: "npm:3.1.5"
     typescript-eslint: "npm:8.18.0"
     vite: "npm:6.1.0"
     vite-tsconfig-paths: "npm:5.1.4"
@@ -9440,10 +9440,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:15.13.0":
-  version: 15.13.0
-  resolution: "globals@npm:15.13.0"
-  checksum: 10c0/640365115ca5f81d91e6a7667f4935021705e61a1a5a76a6ec5c3a5cdf6e53f165af7f9db59b7deb65cf2e1f83d03ac8d6660d0b14c569c831a9b6483eeef585
+"globals@npm:15.15.0":
+  version: 15.15.0
+  resolution: "globals@npm:15.15.0"
+  checksum: 10c0/f9ae80996392ca71316495a39bec88ac43ae3525a438b5626cd9d5ce9d5500d0a98a266409605f8cd7241c7acf57c354a48111ea02a767ba4f374b806d6861fe
   languageName: node
   linkType: hard
 
@@ -16212,7 +16212,7 @@ __metadata:
     eslint: "npm:9.17.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-svelte: "npm:2.46.1"
-    globals: "npm:15.13.0"
+    globals: "npm:15.15.0"
     html-ui: "workspace:*"
     postcss: "npm:8.5.2"
     prettier: "npm:3.4.2"
@@ -16597,9 +16597,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:3.1.4":
-  version: 3.1.4
-  resolution: "tsconfck@npm:3.1.4"
+"tsconfck@npm:3.1.5":
+  version: 3.1.5
+  resolution: "tsconfck@npm:3.1.5"
   peerDependencies:
     typescript: ^5.0.0
   peerDependenciesMeta:
@@ -16607,7 +16607,7 @@ __metadata:
       optional: true
   bin:
     tsconfck: bin/tsconfck.js
-  checksum: 10c0/5120e91b3388574b449d57d08f45d05d9966cf4b9d6aa1018652c1fff6d7d37b1ed099b07e6ebf6099aa40b8a16968dd337198c55b7274892849112b942861ed
+  checksum: 10c0/9b62cd85d5702aa23ea50ea578d7124f3d59cc4518fcc7eacc04f4f9c9c481f720738ff8351bd4472247c0723a17dfd01af95a5b60ad623cdb8727fbe4881847
   languageName: node
   linkType: hard
 
