@@ -1,7 +1,7 @@
 on:
   workflow_call:
     inputs:
-      ref_name:
+      ref:
         type: string
       workspace:
         required: true
@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 50
-          ref: ${{ inputs.ref_name || github.ref }}
+          ref: ${{ inputs.ref || github.ref }}
       - name: Set Yarn global folder
         env:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
@@ -86,3 +86,6 @@ jobs:
           ${{ matrix.os == 'windows-latest' && '-- --dry-run' || '' }}
         env:
           DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
+          CHROMATIC_BRANCH: ${{ inputs.ref || github.ref_name }}
+          CHROMATIC_SHA: ${{ github.event.pull_request.head.sha || github.ref }}
+          CHROMATIC_SLUG: ${{ github.repository }}
