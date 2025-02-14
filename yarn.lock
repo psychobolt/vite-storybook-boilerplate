@@ -5562,7 +5562,7 @@ __metadata:
     storybook: "npm:8.4.7"
     storybook-zeplin: "npm:3.0.0"
     ts-enum-util: "npm:4.1.0"
-    tsconfck: "npm:3.1.4"
+    tsconfck: "npm:3.1.5"
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:2.3.3"
     typescript: "npm:5.7.3"
@@ -15358,21 +15358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:3.1.4":
-  version: 3.1.4
-  resolution: "tsconfck@npm:3.1.4"
-  peerDependencies:
-    typescript: ^5.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  bin:
-    tsconfck: bin/tsconfck.js
-  checksum: 10c0/5120e91b3388574b449d57d08f45d05d9966cf4b9d6aa1018652c1fff6d7d37b1ed099b07e6ebf6099aa40b8a16968dd337198c55b7274892849112b942861ed
-  languageName: node
-  linkType: hard
-
-"tsconfck@npm:^3.0.3":
+"tsconfck@npm:3.1.5, tsconfck@npm:^3.0.3":
   version: 3.1.5
   resolution: "tsconfck@npm:3.1.5"
   peerDependencies:
