@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-import postcssConfig from './postcss.config.mjs';
+import postcssConfig from './postcss.config.js';
 
 const root = process.cwd();
 const packageName = process.env.npm_package_name ?? '';
