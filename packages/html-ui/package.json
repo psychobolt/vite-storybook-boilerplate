@@ -37,7 +37,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "rollup-plugin-no-emit": "1.2.1",
-    "sass": "1.83.0",
+    "sass": "1.85.0",
     "storybook": "8.4.7",
     "stylelint-config": "workspace:*",
     "turbo": "2.3.3",
