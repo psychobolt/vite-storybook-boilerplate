@@ -5292,6 +5292,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "clsx@npm:2.1.1"
+  checksum: 10c0/c4c8eb865f8c82baab07e71bfa8897c73454881c4f99d6bc81585aecd7c441746c1399d08363dc096c550cceaf97bd4ce1e8854e1771e9998d9f94c4fe075839
+  languageName: node
+  linkType: hard
+
 "co@npm:^4.6.0":
   version: 4.6.0
   resolution: "co@npm:4.6.0"
@@ -7082,12 +7089,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esrap@npm:^1.2.3":
-  version: 1.4.4
-  resolution: "esrap@npm:1.4.4"
+"esrap@npm:^1.4.3":
+  version: 1.4.5
+  resolution: "esrap@npm:1.4.5"
   dependencies:
     "@jridgewell/sourcemap-codec": "npm:^1.4.15"
-  checksum: 10c0/03e8156dd7cbc3bd3691525073f8b45e6aff31ede152bb1ad194ad78cf3ec974e531322a0378c0c4b7b140aa559ef171707b3cf2b74e3a6fad6a6e84fcef4693
+  checksum: 10c0/7dd93c2481bcee8e53f1a9b15094ebba2724a0fa17c864aa728d5cfc3db9aca1640293cdb873243eb981c2cad5eb0bfed6e7f3cf427e5467e698042b3cc0ec3b
   languageName: node
   linkType: hard
 
@@ -14837,7 +14844,7 @@ __metadata:
     stylelint: "npm:16.12.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:14.0.0"
-    svelte: "npm:5.14.0"
+    svelte: "npm:5.20.1"
     svelte-check: "npm:4.1.4"
     svelte-eslint-parser: "npm:0.43.0"
     svelte-language-server: "npm:0.17.10"
@@ -14927,9 +14934,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.14.0":
-  version: 5.14.0
-  resolution: "svelte@npm:5.14.0"
+"svelte@npm:5.20.1":
+  version: 5.20.1
+  resolution: "svelte@npm:5.20.1"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -14938,13 +14945,14 @@ __metadata:
     acorn-typescript: "npm:^1.4.13"
     aria-query: "npm:^5.3.1"
     axobject-query: "npm:^4.1.0"
+    clsx: "npm:^2.1.1"
     esm-env: "npm:^1.2.1"
-    esrap: "npm:^1.2.3"
+    esrap: "npm:^1.4.3"
     is-reference: "npm:^3.0.3"
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/57543c9939b583bc6deacb74442c2f2ccf8626cce97f3fc047f80563db9c2d49c77c95d4ec25154d2aead437b15bbdb1245b46e324f56e5e01b6de35478b5e86
+  checksum: 10c0/e975beb9a74e98cc9abca7926822045de7b5f77b400d102feb444927a1789f1f961718ab05cb8d930380c12f11af4ca211744dd04ca2988d0adcb6e9af7c7b1f
   languageName: node
   linkType: hard
 
