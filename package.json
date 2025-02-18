@@ -39,7 +39,7 @@
     "arg": "5.0.2",
     "commons": "workspace:*",
     "dotenv-flow": "4.1.0",
-    "eslint": "9.17.0",
+    "eslint": "9.20.1",
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
     "lint-staged": "15.4.3",
