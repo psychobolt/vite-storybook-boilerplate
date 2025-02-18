@@ -3613,9 +3613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.21.1":
-  version: 0.21.1
-  resolution: "@storybook/test-runner@npm:0.21.1"
+"@storybook/test-runner@npm:0.21.2":
+  version: 0.21.2
+  resolution: "@storybook/test-runner@npm:0.21.2"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -3640,7 +3640,7 @@ __metadata:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/d84d98b605bb0cc6c5e73941bcad7e5a9b419b2fff2c33f80191fef1f85a9ef60a28f6c9c983116c825c8df95f29a8220d771e7146a5a8e489fbb8d41e69fed5
+  checksum: 10c0/7201a48fd60d94e4005ef8bbccc55da894348515fd417b2ead4b373935587be73ede191dd6a08b8ff3688b528f680538f206e94be26eec99f2d865bfae0e3090
   languageName: node
   linkType: hard
 
@@ -6509,7 +6509,7 @@ __metadata:
     "@jest/types": "npm:29.6.3"
     "@storybook/builder-vite": "npm:8.4.7"
     "@storybook/components": "npm:8.4.7"
-    "@storybook/test-runner": "npm:0.21.1"
+    "@storybook/test-runner": "npm:0.21.2"
     "@storybook/types": "npm:8.4.7"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4"
@@ -14133,12 +14133,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.4.2":
-  version: 3.4.2
-  resolution: "prettier@npm:3.4.2"
+"prettier@npm:3.5.1":
+  version: 3.5.1
+  resolution: "prettier@npm:3.5.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/99e076a26ed0aba4ebc043880d0f08bbb8c59a4c6641cdee6cdadf2205bdd87aa1d7823f50c3aea41e015e99878d37c58d7b5f0e663bba0ef047f94e36b96446
+  checksum: 10c0/9f6f810eae455d6e4213845151a484a2338f2e0d6a8b84ee8e13a83af8a2421ef6c1e31e61e4b135671fb57b9541f6624648880cc2061ac803e243ac898c0123
   languageName: node
   linkType: hard
 
@@ -16315,13 +16315,13 @@ __metadata:
     html-ui: "workspace:*"
     jiti: "npm:2.4.2"
     postcss: "npm:8.5.2"
-    prettier: "npm:3.4.2"
+    prettier: "npm:3.5.1"
     prettier-plugin-svelte: "npm:3.3.3"
     sass: "npm:1.85.0"
     stylelint: "npm:16.14.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:14.0.0"
-    svelte: "npm:5.20.1"
+    svelte: "npm:5.20.2"
     svelte-check: "npm:4.1.4"
     svelte-eslint-parser: "npm:0.43.0"
     svelte-language-server: "npm:0.17.10"
@@ -16411,9 +16411,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.20.1":
-  version: 5.20.1
-  resolution: "svelte@npm:5.20.1"
+"svelte@npm:5.20.2":
+  version: 5.20.2
+  resolution: "svelte@npm:5.20.2"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -16429,7 +16429,7 @@ __metadata:
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/e975beb9a74e98cc9abca7926822045de7b5f77b400d102feb444927a1789f1f961718ab05cb8d930380c12f11af4ca211744dd04ca2988d0adcb6e9af7c7b1f
+  checksum: 10c0/b7c8825bc0c6fab6452664f3e688da97738171c85534a3ab8b77c645ca304966406e0afd3b91625656a8ec1995fbce84ca835d91f3df25f83507ef26e89e5f30
   languageName: node
   linkType: hard
 
