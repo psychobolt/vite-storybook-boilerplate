@@ -1,4 +1,4 @@
-.husky/_
+.husky/*
 .yarn/*
 !.yarn/plugins/
 !.yarnrc.yml
