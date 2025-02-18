@@ -5478,6 +5478,7 @@ __metadata:
     eslint: "npm:9.17.0"
     eslint-plugin-mdx: "npm:3.1.5"
     jest-junit: "npm:16.0.0"
+    jiti: "npm:2.4.2"
     lodash: "npm:4.17.21"
     neostandard: "npm:0.12.1"
     playwright: "npm:1.49.1"
@@ -9760,6 +9761,15 @@ __metadata:
   bin:
     jest: bin/jest.js
   checksum: 10c0/f40eb8171cf147c617cc6ada49d062fbb03b4da666cb8d39cdbfb739a7d75eea4c3ca150fb072d0d273dce0c753db4d0467d54906ad0293f59c54f9db4a09d8b
+  languageName: node
+  linkType: hard
+
+"jiti@npm:2.4.2":
+  version: 2.4.2
+  resolution: "jiti@npm:2.4.2"
+  bin:
+    jiti: lib/jiti-cli.mjs
+  checksum: 10c0/4ceac133a08c8faff7eac84aabb917e85e8257f5ad659e843004ce76e981c457c390a220881748ac67ba1b940b9b729b30fb85cbaf6e7989f04b6002c94da331
   languageName: node
   linkType: hard
 
@@ -14868,6 +14878,7 @@ __metadata:
     eslint-plugin-svelte: "npm:2.46.1"
     globals: "npm:15.15.0"
     html-ui: "workspace:*"
+    jiti: "npm:2.4.2"
     postcss: "npm:8.5.2"
     prettier: "npm:3.4.2"
     prettier-plugin-svelte: "npm:3.3.3"
