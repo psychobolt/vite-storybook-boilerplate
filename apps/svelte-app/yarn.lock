@@ -6517,6 +6517,7 @@ __metadata:
     autoprefixer: "npm:10.4.20"
     eslint: "npm:9.20.1"
     eslint-plugin-mdx: "npm:3.1.5"
+    jiti: "npm:2.4.2"
     lodash: "npm:4.17.21"
     neostandard: "npm:0.12.1"
     postcss: "npm:8.5.2"
@@ -11494,6 +11495,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jiti@npm:2.4.2":
+  version: 2.4.2
+  resolution: "jiti@npm:2.4.2"
+  bin:
+    jiti: lib/jiti-cli.mjs
+  checksum: 10c0/4ceac133a08c8faff7eac84aabb917e85e8257f5ad659e843004ce76e981c457c390a220881748ac67ba1b940b9b729b30fb85cbaf6e7989f04b6002c94da331
+  languageName: node
+  linkType: hard
+
 "joi@npm:^17.11.0":
   version: 17.11.0
   resolution: "joi@npm:17.11.0"
@@ -16303,6 +16313,7 @@ __metadata:
     eslint-plugin-svelte: "npm:2.46.1"
     globals: "npm:15.15.0"
     html-ui: "workspace:*"
+    jiti: "npm:2.4.2"
     postcss: "npm:8.5.2"
     prettier: "npm:3.4.2"
     prettier-plugin-svelte: "npm:3.3.3"
