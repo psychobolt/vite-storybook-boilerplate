@@ -57,7 +57,7 @@
     "jest-junit": "16.0.0",
     "playwright": "1.49.1",
     "playwright-chromium": "1.49.1",
-    "prettier": "3.4.2",
+    "prettier": "3.5.1",
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-sh": "0.14.0",
     "rimraf": "6.0.1",
