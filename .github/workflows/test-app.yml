@@ -80,7 +80,7 @@ jobs:
         run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Fetch base branch
         if: matrix.os == 'ubuntu-latest' && inputs.base_ref != ''
-        run: git fetch --depth=1 origin ${{ inputs.base_ref }}:bash_branch
+        run: git fetch --depth=1 origin ${{ inputs.base_ref }}:base_branch
       - name: Install Vercel Tools
         if: matrix.os == 'ubuntu-latest'
         run: npm install -g vercel turbo-ignore
