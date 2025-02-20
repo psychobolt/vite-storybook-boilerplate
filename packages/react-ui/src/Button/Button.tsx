@@ -11,6 +11,12 @@ interface Props {
    */
   variant?: string;
   /**
+   * Please use `variant` property
+   * 
+   * @deprecated
+  */
+  primary?: boolean;
+  /**
    * What background color to use
    */
   backgroundColor?: string;
@@ -32,6 +38,7 @@ interface Props {
  * Primary UI component for user interaction
  */
 export function Button({
+  primary = true,
   variant = styles.storybookButtonPrimary,
   size = 'medium',
   backgroundColor,
@@ -44,7 +51,7 @@ export function Button({
       className={classNames(
         styles.storybookButton,
         styles[`storybook-button--${size}`],
-        variant
+        typeof primary === 'boolean' && primary ? styles.storybookButtonPrimary : variant
       )}
       style={{ backgroundColor }}
       {...props}

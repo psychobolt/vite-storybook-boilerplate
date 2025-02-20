@@ -61,7 +61,7 @@ index bca8212bb8ca5b948e2539aa0aa09c928522a479..959d85bdc3a6a1033b388bef4590b69c
      }
    };
 diff --git a/dist/common/index.cjs b/dist/common/index.cjs
-index 4adcc83615b4b460a1a1a9d837ea7af85fbb2f18..57a02dc8126b38a5e587a879ee03cefe45c6ac5f 100644
+index 00aed1ccbb5ac59daf1fb03306e3c98b0571ccd1..9c855a784c82e70c21a4f7b3b9f77e045d617a1f 100644
 --- a/dist/common/index.cjs
 +++ b/dist/common/index.cjs
 @@ -11686,7 +11686,7 @@ function hi(r) {
@@ -74,7 +74,7 @@ index 4adcc83615b4b460a1a1a9d837ea7af85fbb2f18..57a02dc8126b38a5e587a879ee03cefe
        // https://github.com/storybookjs/storybook/issues/19049
        keepNames: !0,
 diff --git a/dist/common/index.js b/dist/common/index.js
-index 9cd55dbfff70967592b1e29e7b3b0257fcaf707e..2abe40a4dd47721e16c0cf844b112f03471cf371 100644
+index eb53a43e44e2ab91cfabc054d1c8faab79490aee..c893383d1e6443ac103322888e9031f98064f513 100644
 --- a/dist/common/index.js
 +++ b/dist/common/index.js
 @@ -11617,7 +11617,7 @@ function Mo(r) {

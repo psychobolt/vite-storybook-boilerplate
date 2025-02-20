@@ -10,6 +10,10 @@ const require = createRequire(import.meta.url);
 
 export const config: StorybookConfig | StorybookViteCommonConfig = {
   ...commonConfig,
+  addons: [
+    ...commonConfig.addons,
+    getAbsolutePath('@storybook/experimental-addon-test', require)
+  ],
   framework: {
     name: getAbsolutePath('@storybook/react-vite', require),
     options: {}
