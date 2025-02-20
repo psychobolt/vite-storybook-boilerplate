@@ -19,7 +19,7 @@ const config: StorybookViteCommonConfig = {
   addons: [
     ...commonConfig.addons,
     getAbsolutePath('@storybook/addon-interactions', require),
-    getAbsolutePath('@storybook/addon-coverage', require),
+    getAbsolutePath('@storybook/addon-coverage', require)
   ],
   stories: [...stories, `../${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`],
   framework: {

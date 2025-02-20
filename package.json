@@ -18,7 +18,7 @@
     "dev": "yarn turbo run dev",
     "build": "yarn turbo run build",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
-    "lint-staged": "yarn workspace commons turbo run build && lint-staged --config lint-staged.config.js",
+    "lint-staged": "yarn workspace commons turbo run build && lint-staged",
     "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
     "format": "yarn g:format"
   },

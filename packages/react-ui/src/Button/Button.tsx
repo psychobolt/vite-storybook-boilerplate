@@ -12,9 +12,9 @@ interface Props {
   variant?: string;
   /**
    * Please use `variant` property
-   * 
+   *
    * @deprecated
-  */
+   */
   primary?: boolean;
   /**
    * What background color to use
@@ -51,7 +51,9 @@ export function Button({
       className={classNames(
         styles.storybookButton,
         styles[`storybook-button--${size}`],
-        typeof primary === 'boolean' && primary ? styles.storybookButtonPrimary : variant
+        typeof primary === 'boolean' && primary
+          ? styles.storybookButtonPrimary
+          : variant
       )}
       style={{ backgroundColor }}
       {...props}

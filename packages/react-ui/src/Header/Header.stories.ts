@@ -15,8 +15,8 @@ const meta = {
   args: {
     onLogin: fn(),
     onLogout: fn(),
-    onCreateAccount: fn(),
-  },
+    onCreateAccount: fn()
+  }
 } satisfies Meta<typeof Header>;
 
 export default meta;

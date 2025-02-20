@@ -5,9 +5,6 @@ import storybookConfig from './.storybook/vitest.config';
 import viteConfig from './vite.config';
 
 export default mergeConfig(
-  mergeConfig(
-    commonConfig,
-    viteConfig
-  ),
-  storybookConfig,
+  mergeConfig(commonConfig, viteConfig),
+  storybookConfig
 );

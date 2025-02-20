@@ -5,6 +5,6 @@ import commonConfig from 'commons/esm/vite.config';
 export default mergeConfig(
   commonConfig,
   defineConfig({
-    plugins: [react()],
+    plugins: [react()]
   })
 );

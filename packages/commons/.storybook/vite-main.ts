@@ -4,7 +4,12 @@ import { join, dirname } from 'node:path';
 import { platform } from 'node:process';
 import type { StorybookConfig } from '@storybook/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
-import { type ResolveOptions, type Alias, defineConfig, mergeConfig } from 'vite';
+import {
+  type ResolveOptions,
+  type Alias,
+  defineConfig,
+  mergeConfig
+} from 'vite';
 
 import postcssConfig from './postcss.config.mjs';
 
@@ -40,7 +45,7 @@ export const stories = [
 ];
 
 const resolveConfig: ResolveOptions & ResolveConfig = {
-  alias: [],
+  alias: []
 };
 
 const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {

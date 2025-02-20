@@ -12,6 +12,7 @@
       "outputs": ["test-reports/junit.xml"]
     },
     "coverage": {
+      "dependsOn": ["^build"],
       "outputs": ["coverage/**"]
     }
   }
