@@ -3613,9 +3613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.21.2":
-  version: 0.21.2
-  resolution: "@storybook/test-runner@npm:0.21.2"
+"@storybook/test-runner@npm:0.21.3":
+  version: 0.21.3
+  resolution: "@storybook/test-runner@npm:0.21.3"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -3640,7 +3640,7 @@ __metadata:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/7201a48fd60d94e4005ef8bbccc55da894348515fd417b2ead4b373935587be73ede191dd6a08b8ff3688b528f680538f206e94be26eec99f2d865bfae0e3090
+  checksum: 10c0/aec04919852dfc5efd52bc05f74d2e1c3d0f7b207d3e54e05a351cd6727225c4010f9b1c133108460c5868430604fd0732f7200bfd431aad9ece21f0311e8e48
   languageName: node
   linkType: hard
 
@@ -6509,7 +6509,7 @@ __metadata:
     "@jest/types": "npm:29.6.3"
     "@storybook/builder-vite": "npm:8.4.7"
     "@storybook/components": "npm:8.4.7"
-    "@storybook/test-runner": "npm:0.21.2"
+    "@storybook/test-runner": "npm:0.21.3"
     "@storybook/types": "npm:8.4.7"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4"
@@ -6520,7 +6520,7 @@ __metadata:
     jiti: "npm:2.4.2"
     lodash: "npm:4.17.21"
     neostandard: "npm:0.12.1"
-    postcss: "npm:8.5.2"
+    postcss: "npm:8.5.3"
     postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
     react: "npm:19.0.0"
@@ -14053,14 +14053,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.2":
-  version: 8.5.2
-  resolution: "postcss@npm:8.5.2"
+"postcss@npm:8.5.3":
+  version: 8.5.3
+  resolution: "postcss@npm:8.5.3"
   dependencies:
     nanoid: "npm:^3.3.8"
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
-  checksum: 10c0/3044d49bc725029ab62292e8bf9849741251b95f3b754e191bf8b4025414d40ec3b4ac05c5a563d4b50060b5c8e96683eb4d783d8d8fa3867eb7b763cbe66127
+  checksum: 10c0/b75510d7b28c3ab728c8733dd01538314a18c52af426f199a3c9177e63eb08602a3938bfb66b62dc01350b9aed62087eabbf229af97a1659eb8d3513cec823b3
   languageName: node
   linkType: hard
 
@@ -16314,7 +16314,7 @@ __metadata:
     globals: "npm:15.15.0"
     html-ui: "workspace:*"
     jiti: "npm:2.4.2"
-    postcss: "npm:8.5.2"
+    postcss: "npm:8.5.3"
     prettier: "npm:3.5.1"
     prettier-plugin-svelte: "npm:3.3.3"
     sass: "npm:1.85.0"
