@@ -8,5 +8,6 @@ export default defineConfig({
         '*.config.js'
       ], 
     },
+    reporters: ['junit']
   }
 });
