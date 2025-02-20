@@ -5535,7 +5535,7 @@ __metadata:
     postcss-scss: "npm:4.0.9"
     prettier: "npm:3.5.1"
     prettier-config-standard: "npm:7.0.0"
-    prettier-plugin-sh: "npm:0.14.0"
+    prettier-plugin-sh: "npm:0.15.0"
     react: "npm:19.0.0"
     react-dom: "npm:19.0.0"
     react-syntax-highlighter: "npm:15.6.1"
@@ -5548,7 +5548,7 @@ __metadata:
     turbo: "npm:2.4.2"
     typescript: "npm:5.7.3"
     typescript-eslint: "npm:8.24.1"
-    vite: "npm:6.1.0"
+    vite: "npm:6.1.1"
     vite-tsconfig-paths: "npm:5.1.4"
   languageName: unknown
   linkType: soft
@@ -8404,7 +8404,7 @@ __metadata:
     turbo: "npm:2.4.2"
     typescript: "npm:5.7.3"
     typescript-plugin-css-modules: "npm:5.1.0"
-    vite: "npm:6.1.0"
+    vite: "npm:6.1.1"
     vite-plugin-sass-glob-import: "npm:5.0.0"
   languageName: unknown
   linkType: soft
@@ -12688,15 +12688,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-sh@npm:0.14.0":
-  version: 0.14.0
-  resolution: "prettier-plugin-sh@npm:0.14.0"
+"prettier-plugin-sh@npm:0.15.0":
+  version: 0.15.0
+  resolution: "prettier-plugin-sh@npm:0.15.0"
   dependencies:
     mvdan-sh: "npm:^0.10.1"
-    sh-syntax: "npm:^0.4.1"
+    sh-syntax: "npm:^0.4.2"
   peerDependencies:
     prettier: ^3.0.3
-  checksum: 10c0/9df1a5f3a7d18b562064724809ce8be0efed6a5e03ef6eb41f1015ffca3471cd62ce83a01de5fe5e6bb13a3affb0c4c653ba4ab6b662e1e06742c65b5b646c5e
+  checksum: 10c0/256599d89deb83bd9fd85041936b852841fa198735ae2327ea4889f375b8c5a02e39139dd63a77911f49ef2fe7d44c36d01350ca4f93967d807bbadf2513a9bd
   languageName: node
   linkType: hard
 
@@ -13128,7 +13128,7 @@ __metadata:
     turbo: "npm:2.4.2"
     typescript: "npm:5.7.3"
     typescript-plugin-css-modules: "npm:5.1.0"
-    vite: "npm:6.1.0"
+    vite: "npm:6.1.1"
   peerDependencies:
     prop-types: ^15.8.1
     react: ^18.2.0 || ^19.0.0
@@ -13901,7 +13901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sh-syntax@npm:^0.4.1":
+"sh-syntax@npm:^0.4.2":
   version: 0.4.2
   resolution: "sh-syntax@npm:0.4.2"
   dependencies:
@@ -14962,7 +14962,7 @@ __metadata:
     turbo: "npm:2.4.2"
     typescript: "npm:5.7.3"
     typescript-eslint: "npm:8.24.1"
-    vite: "npm:6.1.0"
+    vite: "npm:6.1.1"
   languageName: unknown
   linkType: soft
 
@@ -16098,7 +16098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:*":
+"vite@npm:*, vite@npm:6.1.1":
   version: 6.1.1
   resolution: "vite@npm:6.1.1"
   dependencies:
@@ -16147,58 +16147,6 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10c0/4ec5ddc9436951a68b213cd59c2a157663ef423658c387400774582ea33da40dcae18e55f3adb3b629173e2183b10d49db8370bc51a0aa89797e4ca5a34702a0
-  languageName: node
-  linkType: hard
-
-"vite@npm:6.1.0":
-  version: 6.1.0
-  resolution: "vite@npm:6.1.0"
-  dependencies:
-    esbuild: "npm:^0.24.2"
-    fsevents: "npm:~2.3.3"
-    postcss: "npm:^8.5.1"
-    rollup: "npm:^4.30.1"
-  peerDependencies:
-    "@types/node": ^18.0.0 || ^20.0.0 || >=22.0.0
-    jiti: ">=1.21.0"
-    less: "*"
-    lightningcss: ^1.21.0
-    sass: "*"
-    sass-embedded: "*"
-    stylus: "*"
-    sugarss: "*"
-    terser: ^5.16.0
-    tsx: ^4.8.1
-    yaml: ^2.4.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    jiti:
-      optional: true
-    less:
-      optional: true
-    lightningcss:
-      optional: true
-    sass:
-      optional: true
-    sass-embedded:
-      optional: true
-    stylus:
-      optional: true
-    sugarss:
-      optional: true
-    terser:
-      optional: true
-    tsx:
-      optional: true
-    yaml:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: 10c0/e1cad1cfbd29923a37d2dbd60f7387901ed8356758073a0226cbe844fd032425ba3bf41651332cab4965d5c54d0b51d208889ff32ce81bd282d230c0c9f0f8f1
   languageName: node
   linkType: hard
 
