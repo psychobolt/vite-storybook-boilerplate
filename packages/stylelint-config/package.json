@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "flat": "6.0.1",
-    "postcss": "8.5.2",
+    "postcss": "8.5.3",
     "stylelint": "16.14.1",
     "stylelint-config-hudochenkov": "11.0.0",
     "stylelint-config-prettier-scss": "1.0.0",
