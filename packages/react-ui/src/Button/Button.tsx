@@ -38,7 +38,7 @@ interface Props {
  * Primary UI component for user interaction
  */
 export function Button({
-  primary = true,
+  primary,
   variant = styles.storybookButtonPrimary,
   size = 'medium',
   backgroundColor,
