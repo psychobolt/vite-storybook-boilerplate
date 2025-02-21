@@ -6,7 +6,7 @@
 	"scripts": {
 		"dotenv-run": "yarn dotenvx -q run -f ../../.env.defaults -f ../../.env -f .env.defaults -f .env --overload",
 		"swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
-		"run-script": "cd $INIT_CWD && yarn dotenv-run --env=\"ESM_REGISTER=file://$(yarn swc-register-path)\" -- node --enable-source-maps --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, '../../bin/esm-register.js')\")",
+		"run-script": "cd $INIT_CWD && yarn dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" --env=\"ESM_REGISTER=file://$(yarn swc-register-path)\" -- node --enable-source-maps --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, '../../bin/esm-register.js')\")",
 		"dev": "vite dev --open",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -17,7 +17,7 @@
 		"format": "prettier --write $(echo \"${@:-.}\")"
 	},
 	"devDependencies": {
-		"@dotenvx/dotenvx": "1.24.0",
+		"@dotenvx/dotenvx": "1.36.0",
 		"@eslint/js": "9.20.0",
 		"@fontsource/fira-mono": "5.1.1",
 		"@neoconfetti/svelte": "2.2.1",
