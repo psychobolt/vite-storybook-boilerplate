@@ -62,9 +62,6 @@ jobs:
           cache-dependency-path: |
             **/yarn.lock
             yarnrc.yml
-      - name: Create Turbo Cache Server Log
-        run: mkdir D:/tmp && touch D:/tmp/turbogha.log || exit 0
-        shell: bash
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@c3de885e542eec7eb01eb1a6a59e97c7a2448615 # v1.6
         with:
