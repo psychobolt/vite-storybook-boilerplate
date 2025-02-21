@@ -203,7 +203,9 @@ async function getWorkspaces<T>(options?: Options) {
         );
         const value = doc.get('nodeLinker') as string;
         return (
-          filterValue.includes(value) || (typeof value === 'undefined' && isPnp)
+          filterValue.includes(value) ||
+          `\${YARN_NODE_LINKER:-${filterValue}}` === value ||
+          (typeof value === 'undefined' && isPnp)
         );
       }
       return isPnp;
