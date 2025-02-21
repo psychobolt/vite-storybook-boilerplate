@@ -9,6 +9,8 @@ on:
       path:
         required: true
         type: string
+      test-runner:
+        type: string
 
 jobs:
   deploy:
@@ -66,6 +68,7 @@ jobs:
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Coverage
+        if: inputs.test-runner != 'vitest'
         env:
           # Workaround for https://github.com/facebook/jest/issues/8536
           TEMP: ${{ runner.temp }}
@@ -73,10 +76,14 @@ jobs:
           yarn dlx concurrently -k -s first -n "SB,TEST"
           "yarn workspace ${{ inputs.workspace }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} -- --silent"
           "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get TARGET_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
+
+      - name: Run Coverage
+        if: inputs.test-runner == 'vitest'
+        run: yarn workspace ${{ inputs.workspace }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@13ce06bfc6bbe3ecf90edbbf1bc32fe5978ca1d3 # v5
         with:
-          files: ${{ inputs.path }}/coverage/storybook/coverage-storybook.json
+          files: ${{ inputs.path }}/coverage/${{ inputs.test-runner == 'vitest' &&  'coverage-final.json' || 'storybook/coverage-storybook.json'}}
           flags: ${{ inputs.workspace }}
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}

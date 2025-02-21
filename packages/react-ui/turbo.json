@@ -9,10 +9,11 @@
       "outputs": ["dist/**"]
     },
     "test": {
-      "outputs": ["test-results/junit.xml"]
+      "outputs": ["test-reports/junit.xml"]
     },
     "coverage": {
-      "outputs": ["coverage/coverage.json", "coverage/coverage-*.json"]
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"]
     }
   }
 }

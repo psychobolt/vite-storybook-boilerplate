@@ -47,4 +47,5 @@ jobs:
       ref: ${{ inputs.ref }}
       workspace: react-ui
       path: packages/react-ui
+      test-runner: vitest
     secrets: inherit
