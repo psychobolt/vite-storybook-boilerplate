@@ -16983,7 +16983,6 @@ __metadata:
     stylelint: "npm:16.14.1"
     turbo: "npm:2.4.2"
     typescript: "npm:5.7.3"
-    vitest: "npm:3.0.6"
     yaml: "npm:2.7.0"
   languageName: unknown
   linkType: soft
