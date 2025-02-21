@@ -144,7 +144,7 @@ pipelines:
                 - *test
           - step:
               name: Build and Test HTML UI
-              image: atlassian/default-image:4@sha256:673c80ac148d45569aabf3be1ba4ccf4c49443e54c843b70abe51498a5304da6
+              image: atlassian/default-image:4@sha256:71960b111dfa043daa26d7c794b70b40385371edea552e94b3ab05b0a5999796
               max-time: 15
               size: 2x
               caches:
@@ -164,7 +164,7 @@ pipelines:
                 - *chromatic
           - step:
               name: Build and Test React UI
-              image: atlassian/default-image:4@sha256:673c80ac148d45569aabf3be1ba4ccf4c49443e54c843b70abe51498a5304da6
+              image: atlassian/default-image:4@sha256:71960b111dfa043daa26d7c794b70b40385371edea552e94b3ab05b0a5999796
               max-time: 15
               size: 2x
               caches:
@@ -231,7 +231,7 @@ pipelines:
                 - *test
       - step: &build-releases
           name: Release
-          image: atlassian/default-image:4@sha256:673c80ac148d45569aabf3be1ba4ccf4c49443e54c843b70abe51498a5304da6
+          image: atlassian/default-image:4@sha256:71960b111dfa043daa26d7c794b70b40385371edea552e94b3ab05b0a5999796
           max-time: 25
           size: 2x
           caches:
@@ -269,7 +269,7 @@ pipelines:
     '**':
       - step:
           name: Prepare Version Strategy
-          image: atlassian/default-image:4@sha256:673c80ac148d45569aabf3be1ba4ccf4c49443e54c843b70abe51498a5304da6
+          image: atlassian/default-image:4@sha256:71960b111dfa043daa26d7c794b70b40385371edea552e94b3ab05b0a5999796
           max-time: 15
           size: 2x
           caches:
@@ -320,7 +320,7 @@ pipelines:
             default: release-
       - step:
           name: Create new releases
-          image: atlassian/default-image:4@sha256:673c80ac148d45569aabf3be1ba4ccf4c49443e54c843b70abe51498a5304da6
+          image: atlassian/default-image:4@sha256:71960b111dfa043daa26d7c794b70b40385371edea552e94b3ab05b0a5999796
           max-time: 15
           size: 2x
           caches:
@@ -349,7 +349,7 @@ pipelines:
               branch
       - step:
           name: Create a PR with cherry-picked commits
-          image: atlassian/default-image:4@sha256:673c80ac148d45569aabf3be1ba4ccf4c49443e54c843b70abe51498a5304da6
+          image: atlassian/default-image:4@sha256:71960b111dfa043daa26d7c794b70b40385371edea552e94b3ab05b0a5999796
           max-time: 15
           clone:
             enabled: true
