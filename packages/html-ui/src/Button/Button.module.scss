@@ -8,20 +8,20 @@
   cursor: pointer;
 
   &--primary {
-    background-color: #1ea7fd;
+    background-color: #555ab9;
     color: white;
 
     &:focus {
       border: 2px white solid;
-      outline: #00b7ff solid 3px;
+      outline: #6970e4 solid 3px;
     }
 
     &:hover {
-      background-color: #00b7ff;
+      background-color: #6970e4;
     }
 
     &:active {
-      background-color: #1e86fd;
+      background-color: #3036b2;
     }
   }
 

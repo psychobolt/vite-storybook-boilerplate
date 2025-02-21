@@ -78,7 +78,6 @@ yarn [workspace workspace-name] turbo run format # This is automatically called 
 yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
 yarn [workspace workspace-name] turbo run test
 yarn [workspace workspace-name] turbo run coverage # Collect code coverage (also may run tests)
-yarn [workspace workspace-name] turbo run lcov # Generate interactive coverage report (after running command above)
 ```
 
 You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turbo run format --filter=react-ui --filter=html-ui --filter=apps/**`.

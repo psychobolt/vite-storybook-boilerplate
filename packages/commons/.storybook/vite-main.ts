@@ -4,15 +4,17 @@ import { join, dirname } from 'node:path';
 import { platform } from 'node:process';
 import type { StorybookConfig } from '@storybook/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
-import type { ResolveOptions } from 'vite';
-import { defineConfig, mergeConfig } from 'vite';
+import {
+  type ResolveOptions,
+  type Alias,
+  defineConfig,
+  mergeConfig
+} from 'vite';
 
 import postcssConfig from './postcss.config.mjs';
 
-type AliasOptions = Record<string, string>;
-
 interface ResolveConfig {
-  alias?: AliasOptions;
+  alias?: Alias[];
 }
 
 const require = createRequire(import.meta.url);
@@ -23,14 +25,14 @@ const require = createRequire(import.meta.url);
  */
 export function getAbsolutePath(
   moduleId: string,
-  resolveConfig: NodeRequire | ResolveConfig = {}
+  resolveConfig: NodeJS.Require | ResolveConfig = {}
 ): string {
   const resolve =
     'resolve' in resolveConfig ? resolveConfig.resolve : require.resolve;
   const absolutePath = dirname(resolve(join(moduleId, 'package.json')));
   const alias = 'alias' in resolveConfig ? resolveConfig.alias : null;
   if (alias) {
-    alias[moduleId] = absolutePath;
+    alias.push({ find: moduleId, replacement: absolutePath });
   }
   return absolutePath;
 }
@@ -43,7 +45,7 @@ export const stories = [
 ];
 
 const resolveConfig: ResolveOptions & ResolveConfig = {
-  alias: {}
+  alias: []
 };
 
 const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
@@ -51,15 +53,15 @@ const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
 }).trim();
 
 export type StorybookViteCommonConfig = StorybookConfig &
+  Required<Pick<StorybookConfig, 'addons'>> &
   Required<StorybookConfigVite>;
 
 export const config: StorybookViteCommonConfig = {
   stories,
   addons: [
+    getAbsolutePath('@storybook/addon-onboarding', resolveConfig),
     getAbsolutePath('@storybook/addon-links', resolveConfig),
     getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-interactions', resolveConfig),
-    getAbsolutePath('@storybook/addon-coverage'),
     ...(new RegExp(`^origin/${gitBranch}$`).test(process.env.BASE_REF ?? '')
       ? []
       : [getAbsolutePath('@chromatic-com/storybook')]),

@@ -8,9 +8,9 @@ interface User {
 
 export interface Props {
   user?: User;
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
+  onLogin?: () => void;
+  onLogout?: () => void;
+  onCreateAccount?: () => void;
 }
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }: Props) => (

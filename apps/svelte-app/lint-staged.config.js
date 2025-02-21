@@ -1,1 +1,1 @@
-export { default } from 'commons/esm/lint-staged.config.js';
+export { default } from 'commons/esm/lint-staged.base.config.js';
