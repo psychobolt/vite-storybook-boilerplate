@@ -37,15 +37,18 @@ definitions:
         corepack enable
         yarn install
         yarn playwright install --with-deps chromium
-    - script: &test |
+    - script: &check |
         yarn workspace $PACKAGE_NAME turbo run lint
         yarn workspace $PACKAGE_NAME turbo run build
-    - script: &chromatic |
+    - script: &test |
+        yarn workspace $PACKAGE_NAME turbo run coverage
+    - script: &test-runner |
         npx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "npx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv-get TARGET_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
-        if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
-          yarn workspace $PACKAGE_NAME chromatic --auto-accept-changes
+    - script:
+        &chromatic if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
+        yarn workspace $PACKAGE_NAME chromatic --auto-accept-changes
         else
-          yarn workspace $PACKAGE_NAME turbo run chromatic
+        yarn workspace $PACKAGE_NAME turbo run chromatic
         fi
     - script: &release |
         if [ "$RELEASE_TAGS" ]; then
@@ -160,7 +163,8 @@ pipelines:
                 - *env
                 - export PACKAGE_NAME=html-ui
                 - *setup
-                - *test
+                - *check
+                - *test-runner
                 - *chromatic
           - step:
               name: Build and Test React UI
@@ -184,6 +188,7 @@ pipelines:
                 - *env
                 - export PACKAGE_NAME=react-ui
                 - *setup
+                - *check
                 - *test
                 - *chromatic
           - step:
