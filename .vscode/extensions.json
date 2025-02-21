@@ -4,8 +4,8 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "unifiedjs.vscode-mdx",
-    "bierner.lit-html",
     "svelte.svelte-vscode",
-    "nojsja.vscode-nvm"
+    "nojsja.vscode-nvm",
+    "runem.lit-plugin"
   ]
 }

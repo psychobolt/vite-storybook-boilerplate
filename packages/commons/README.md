@@ -28,6 +28,34 @@ export default mergeConfig(
 );
 ```
 
+#### Vitest
+
+1. Create your own config:
+
+   See [source](vitest.config.ts)
+
+   /your/project/vitest.config.ts
+
+   ```ts
+   import { mergeConfig } from 'vitest/config';
+   import commonConfig from 'commons/esm/vitest.config';
+
+   import viteConfig from './vite.config';
+
+   export default mergeConfig(commonConfig, viteConfig);
+   ```
+
+2. Add scripts to /your/project/package.json
+
+   ```json
+   {
+     "scripts": {
+       "test": "yarn g:vitest run",
+       "coverage": "yarn test --coverage"
+     }
+   }
+   ```
+
 #### ESLint
 
 1. Create your own config:
@@ -61,11 +89,14 @@ export default mergeConfig(
 
    See [source](prettier.config.ts)
 
-   /your/project/prettier.config.ts
+   /your/project/prettier.config.js
 
-   ```ts
+   ```js
    import commonConfig from 'commons/esm/prettier.config.js';
 
+   /**
+    * @type {import("prettier").Config}
+    */
    export default {
      ...commonConfig
      // your overrides
@@ -82,6 +113,24 @@ export default mergeConfig(
      }
    }
    ```
+
+#### Lint Staged
+
+See [source](lint-staged.base.config.ts)
+
+/your/project/lint-staged.config.js
+
+```js
+import commonConfig from 'commons/esm/lint-staged.base.config.js`
+
+/**
+* @type {import('lint-staged').Configuration}
+*/
+export default {
+  ...commonConfig
+  // your overrides
+};
+```
 
 #### Stylelint
 
@@ -148,17 +197,65 @@ export default preview;
 
 ##### [Addons](.storybook/addons/README.md)
 
-##### Jest
+##### Test Runner
 
-See [source](.storybook/test-runner-jest.config.ts)
+1. Create your own config:
 
-/your/project/.storybook/test-runner-jest.config.ts
+   See [source](.storybook/test-runner-jest.config.ts)
 
-```ts
-import commonConfig from 'commons/esm/.storybook/test-runner-jest.config';
+   /your/project/.storybook/test-runner-jest.config.ts
 
-export default {
-  ...commonConfig
-  // your overrides
-};
-```
+   ```ts
+   import commonConfig from 'commons/esm/.storybook/test-runner-jest.config';
+
+   export default {
+     ...commonConfig
+     // your overrides
+   };
+   ```
+
+2. Add scripts to /your/project/package.json
+
+   ```json
+   {
+     "scripts": {
+       "test": "yarn g:test-storybook --index-json"
+     }
+   }
+   ```
+
+##### Vitest
+
+1. Add a [Vitest](#vite-1) root config.
+
+2. Create your own config:
+
+   See [source](.storybook/vitest.config.ts)
+
+   /your/project/.storybook/vitest.config.ts
+
+   ```ts
+   import { mergeConfig } from 'vitest/config';
+   import commonConfig from 'commons/esm/.storybook/vitest.config.js';
+
+   import viteConfig from './vite.config';
+
+   export default mergeConfig(commonConfig, viteConfig);
+   ```
+
+3. Extend the root config:
+
+   /your/project/vitest.config.ts
+
+   ```ts
+   import { mergeConfig } from 'vitest/config';
+   import commonConfig from 'commons/esm/vitest.config';
+
+   import storybookConfig from './.storybook/vitest.config';
+   import viteConfig from './vite.config';
+
+   export default mergeConfig(
+     mergeConfig(commonConfig, viteConfig),
+     storybookConfig
+   );
+   ```

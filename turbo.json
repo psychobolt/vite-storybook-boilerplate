@@ -29,12 +29,10 @@
     "lint": {
       "dependsOn": ["^build"]
     },
-    "test": {},
-    "coverage": {},
-    "lcov": {
-      "inputs": ["coverage/coverage.json", "coverage/coverage-*.json"],
-      "outputs": ["coverage/**/lcov.info", "coverage/**/lcov-report/**"]
+    "test": {
+      "dependsOn": ["^build"]
     },
+    "coverage": {},
     "//#format": {
       "dependsOn": ["^build"]
     },

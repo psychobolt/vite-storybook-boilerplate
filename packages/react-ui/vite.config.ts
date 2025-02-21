@@ -32,7 +32,6 @@ export default mergeConfig(
           ...globSync('src/**/*[!@(.story|.stories)].{ts,tsx}')
         ])
       },
-      target: 'es2015',
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
