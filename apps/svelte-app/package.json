@@ -39,7 +39,7 @@
 		"html-ui": "workspace:*",
 		"jiti": "2.4.2",
 		"postcss": "8.5.3",
-		"prettier": "3.5.1",
+		"prettier": "3.5.2",
 		"prettier-plugin-svelte": "3.3.3",
 		"sass": "1.85.0",
 		"stylelint": "16.14.1",
