@@ -46,6 +46,7 @@ definitions:
         npx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "npx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv-get TARGET_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
     - script: &chromatic |
         if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
+          yarn workspace $PACKAGE_NAME turbo run build-storybook
           yarn workspace $PACKAGE_NAME chromatic --auto-accept-changes
         else
           yarn workspace $PACKAGE_NAME turbo run chromatic
