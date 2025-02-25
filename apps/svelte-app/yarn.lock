@@ -3682,9 +3682,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.17.2":
-  version: 2.17.2
-  resolution: "@sveltejs/kit@npm:2.17.2"
+"@sveltejs/kit@npm:2.17.3":
+  version: 2.17.3
+  resolution: "@sveltejs/kit@npm:2.17.3"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     cookie: "npm:^0.6.0"
@@ -3703,7 +3703,7 @@ __metadata:
     vite: ^5.0.3 || ^6.0.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/b470dbe1a8b4b5953ed18293f07187e9975619b309e18e76239ae5be1987e204100c1260d13a2a64a1457b1a88d287f430d6e30c64a1f9f783e5717b0b6442a5
+  checksum: 10c0/6b5baf41254289f8e8aceac7c27a5c37a46dea9a4e71cabacbed7347371b188e4938dbd0da549fc060eba030031a25700e1b48b5a9f887f847b5f26d666b846a
   languageName: node
   linkType: hard
 
@@ -16270,7 +16270,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:4.0.0"
     "@sveltejs/adapter-vercel": "npm:5.6.3"
-    "@sveltejs/kit": "npm:2.17.2"
+    "@sveltejs/kit": "npm:2.17.3"
     "@sveltejs/vite-plugin-svelte": "npm:5.0.3"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
@@ -16292,7 +16292,7 @@ __metadata:
     stylelint: "npm:16.14.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:14.0.0"
-    svelte: "npm:5.20.2"
+    svelte: "npm:5.20.4"
     svelte-check: "npm:4.1.4"
     svelte-eslint-parser: "npm:0.43.0"
     svelte-language-server: "npm:0.17.10"
@@ -16382,9 +16382,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.20.2":
-  version: 5.20.2
-  resolution: "svelte@npm:5.20.2"
+"svelte@npm:5.20.4":
+  version: 5.20.4
+  resolution: "svelte@npm:5.20.4"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -16400,7 +16400,7 @@ __metadata:
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/b7c8825bc0c6fab6452664f3e688da97738171c85534a3ab8b77c645ca304966406e0afd3b91625656a8ec1995fbce84ca835d91f3df25f83507ef26e89e5f30
+  checksum: 10c0/f89590e506307698fbbf09bf36fdaae640936cf83cead43a1e283f99c525d53ac109e8f8259448a0925d0578db4f956f2a248b54f4d93cb9baeb9d2707a42129
   languageName: node
   linkType: hard
 
