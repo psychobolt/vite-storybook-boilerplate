@@ -4,7 +4,7 @@
 	"type": "module",
 	"packageManager": "yarn@4.6.0",
 	"scripts": {
-		"dotenv-run": "yarn dotenvx -q run -f ../../.env.defaults -f ../../.env -f .env.defaults -f .env --overload",
+		"dotenv-run": "yarn dotenvx run -q --ignore=MISSING_ENV_FILE -f ../../.env.defaults -f ../../.env -f .env.defaults -f .env --overload",
 		"swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
 		"run-script": "cd $INIT_CWD && yarn dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" --env=\"ESM_REGISTER=file://$(yarn swc-register-path)\" -- node --enable-source-maps --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, '../../bin/esm-register.js')\")",
 		"dev": "vite dev --open",
