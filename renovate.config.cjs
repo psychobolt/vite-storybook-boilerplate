@@ -13,7 +13,7 @@ if (/^renovate\/(?:vite|postcss)-/.test(process.env.BITBUCKET_BRANCH)) {
 module.exports = {
   platform: 'bitbucket',
   repositories: ['psychobolt/vite-storybook-boilerplate'],
-  allowedPostUpgradeCommands: ['^.+$'],
+  allowedCommands: ['^.+$'],
   packageRules: [
     {
       matchFileNames: [
