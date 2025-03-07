@@ -8429,6 +8429,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"espree@npm:^10.0.0, espree@npm:^10.3.0":
+  version: 10.3.0
+  resolution: "espree@npm:10.3.0"
+  dependencies:
+    acorn: "npm:^8.14.0"
+    acorn-jsx: "npm:^5.3.2"
+    eslint-visitor-keys: "npm:^4.2.0"
+  checksum: 10c0/272beeaca70d0a1a047d61baff64db04664a33d7cfb5d144f84bc8a5c6194c6c8ebe9cc594093ca53add88baa23e59b01e69e8a0160ab32eac570482e165c462
+  languageName: node
+  linkType: hard
+
 "espree@npm:^10.0.1":
   version: 10.0.1
   resolution: "espree@npm:10.0.1"
@@ -8437,17 +8448,6 @@ __metadata:
     acorn-jsx: "npm:^5.3.2"
     eslint-visitor-keys: "npm:^4.0.0"
   checksum: 10c0/7c0f84afa0f9db7bb899619e6364ed832ef13fe8943691757ddde9a1805ae68b826ed66803323015f707a629a5507d0d290edda2276c25131fe0ad883b8b5636
-  languageName: node
-  linkType: hard
-
-"espree@npm:^10.3.0":
-  version: 10.3.0
-  resolution: "espree@npm:10.3.0"
-  dependencies:
-    acorn: "npm:^8.14.0"
-    acorn-jsx: "npm:^5.3.2"
-    eslint-visitor-keys: "npm:^4.2.0"
-  checksum: 10c0/272beeaca70d0a1a047d61baff64db04664a33d7cfb5d144f84bc8a5c6194c6c8ebe9cc594093ca53add88baa23e59b01e69e8a0160ab32eac570482e165c462
   languageName: node
   linkType: hard
 
@@ -14025,7 +14025,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.3, postcss@npm:^8.5.3":
+"postcss@npm:8.5.3, postcss@npm:^8.4.49, postcss@npm:^8.5.3":
   version: 8.5.3
   resolution: "postcss@npm:8.5.3"
   dependencies:
@@ -16294,7 +16294,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:14.0.0"
     svelte: "npm:5.20.4"
     svelte-check: "npm:4.1.4"
-    svelte-eslint-parser: "npm:0.43.0"
+    svelte-eslint-parser: "npm:1.0.0"
     svelte-language-server: "npm:0.17.10"
     tslib: "npm:2.8.1"
     turbo: "npm:2.4.2"
@@ -16322,7 +16322,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-eslint-parser@npm:0.43.0, svelte-eslint-parser@npm:^0.43.0":
+"svelte-eslint-parser@npm:1.0.0":
+  version: 1.0.0
+  resolution: "svelte-eslint-parser@npm:1.0.0"
+  dependencies:
+    eslint-scope: "npm:^8.2.0"
+    eslint-visitor-keys: "npm:^4.0.0"
+    espree: "npm:^10.0.0"
+    postcss: "npm:^8.4.49"
+    postcss-scss: "npm:^4.0.9"
+    postcss-selector-parser: "npm:^7.0.0"
+  peerDependencies:
+    svelte: ^3.37.0 || ^4.0.0 || ^5.0.0
+  peerDependenciesMeta:
+    svelte:
+      optional: true
+  checksum: 10c0/372c67ba40f1a52b57ffe849b568e0b79156d103e2b8c03eed3564979c79caa225d60a9205d83a252c61cfa879ec31f66cde749426acbab174982ca75fab20ee
+  languageName: node
+  linkType: hard
+
+"svelte-eslint-parser@npm:^0.43.0":
   version: 0.43.0
   resolution: "svelte-eslint-parser@npm:0.43.0"
   dependencies:
