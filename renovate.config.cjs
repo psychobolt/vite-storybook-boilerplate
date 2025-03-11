@@ -1,9 +1,7 @@
 const { execSync } = require('node:child_process');
 const { join } = require('node:path');
 
-const workspaces = JSON.parse(
-  execSync('yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules')
-);
+const workspaces = JSON.parse(process.env.NM_WORKSPACES);
 
 const branch = execSync('git rev-parse --abbrev-ref HEAD').toString();
 
