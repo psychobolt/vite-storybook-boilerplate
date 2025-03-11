@@ -1,14 +1,8 @@
-const { execSync } = require('node:child_process');
 const { join } = require('node:path');
 
-const workspaces = JSON.parse(process.env.NM_WORKSPACES);
-
-const branch = execSync('git rev-parse --abbrev-ref HEAD').toString();
-
-const commands = [];
-if (/^renovate\/(?:vite|postcss)-/.test(branch)) {
-  commands.push('rm yarn.lock');
-}
+const workspaces = process.env.RENOVATE_POST_UPGRADE_WORKSPACES
+  ? JSON.parse(process.env.RENOVATE_POST_UPGRADE_WORKSPACES)
+  : [];
 
 module.exports = {
   allowedCommands: ['^.+$'],
@@ -19,10 +13,7 @@ module.exports = {
         ...workspaces.map(({ location }) => join(location, 'package.json'))
       ],
       postUpgradeTasks: {
-        commands: [
-          ...commands,
-          'YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap'
-        ],
+        commands: ['YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap'],
         fileFilters: ['**/yarn.lock']
       }
     }
