@@ -57,14 +57,14 @@ jobs:
           cache-dependency-path: |
             yarn.lock
             yarnrc.yml
-      - name: Install dependencies
-        run: yarn install
-      - name: Install Playwright
-        run: yarn playwright install --with-deps chromium
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@c3de885e542eec7eb01eb1a6a59e97c7a2448615 # v1.6
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Install Playwright
+        run: yarn playwright install --with-deps chromium
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Coverage

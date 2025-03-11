@@ -30,16 +30,21 @@ jobs:
           node-version: lts/Hydrogen
           cache: yarn
           cache-dependency-path: ./yarn.lock
-      - name: Install dependencies
-        run: yarn install
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@c3de885e542eec7eb01eb1a6a59e97c7a2448615 # v1.6
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Install dependencies
+        run: yarn install
+      - name: List Workspaces
+        id: list_workspaces
+        run: |
+          echo "nm-workspaces=$(yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules)" >> $GITHUB_OUTPUT
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@02f4fdeb479bbb229caa7ad82cb5e691c07e80b3 # v41.0.14
         env:
           RENOVATE_PLATFORM_COMMIT: 'true'
+          NM_WORKSPACES: ${{ steps.list_workspaces.outputs.nm-workspaces }}
         with:
           configurationFile: renovate.config.cjs
           token: '${{ steps.get_token.outputs.token }}'

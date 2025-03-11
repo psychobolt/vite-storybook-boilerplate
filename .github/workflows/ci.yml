@@ -66,12 +66,12 @@ jobs:
           node-version: lts/Hydrogen
           cache: yarn
           cache-dependency-path: ./yarn.lock
-      - name: Install dependencies
-        run: yarn install
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@c3de885e542eec7eb01eb1a6a59e97c7a2448615 # v1.6
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Install dependencies
+        run: yarn install
       - name: Lint
         run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
 
