@@ -48,3 +48,4 @@ jobs:
         with:
           configurationFile: renovate.config.cjs
           token: '${{ steps.get_token.outputs.token }}'
+          env-regex: "^(?:RENOVATE_\\w+|GITHUB_COM_TOKEN|NODE_OPTIONS|NM_WORKSPACES)$"
