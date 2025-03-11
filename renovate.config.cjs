@@ -5,8 +5,10 @@ const workspaces = JSON.parse(
   execSync('yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules')
 );
 
+const branch = execSync('git rev-parse --abbrev-ref HEAD').toString();
+
 const commands = [];
-if (/^renovate\/(?:vite|postcss)-/.test(process.env.BITBUCKET_BRANCH)) {
+if (/^renovate\/(?:vite|postcss)-/.test(branch)) {
   commands.push('rm yarn.lock');
 }
 
@@ -23,7 +25,7 @@ module.exports = {
       postUpgradeTasks: {
         commands: [
           ...commands,
-          'YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install && yarn bootstrap'
+          'YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap'
         ],
         fileFilters: ['**/yarn.lock']
       }
