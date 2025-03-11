@@ -1,0 +1,60 @@
+name: Renovate Post Upgrade Task
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        type: string
+        required: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.ref }}
+  cancel-in-progress: true
+
+jobs:
+  post-upgrade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_TELEMETRY_DISABLED: 1
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+    steps:
+      - name: Check out code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 10
+          token: ${{ secrets.RENOVATE_GH_TOKEN }}
+      - name: Configure git
+        run: |
+          git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+          git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+      - name: Set Yarn global folder
+        env:
+          YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
+        run: |
+          echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
+          echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> $GITHUB_ENV
+      - name: Setup Node.js environment
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
+        with:
+          node-version: lts/Hydrogen
+          cache: yarn
+          cache-dependency-path: '**/yarn.lock'
+      - name: Start Turbo Cache Server
+        uses: rharkor/caching-for-turbo@c3de885e542eec7eb01eb1a6a59e97c7a2448615 # v1.6
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Remove Lockfile
+        if: contains(inputs.ref, '-vite-') || contains(inputs.ref, '-postcss-')
+        run: rm yarn.lock
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Update previous commit
+        run: |
+          git add .
+          git commit -C HEAD --amend
+          git push --force
