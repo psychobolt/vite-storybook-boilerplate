@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"],
+  "globalExtends": ["config:best-practices"],
   "baseBranches": ["$default", "bitbucket"],
   "useBaseBranchConfig": "merge",
   "automerge": true,
