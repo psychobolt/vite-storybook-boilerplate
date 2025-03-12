@@ -1123,10 +1123,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/fira-mono@npm:5.1.1":
-  version: 5.1.1
-  resolution: "@fontsource/fira-mono@npm:5.1.1"
-  checksum: 10c0/cae39b8cf8f4f88bb06293eaaec719b63f9609e953528aee52d48f8ea78da3e62f0f0e82fc43d5024c8a126f37b7329a0688e7fa5cc71f67c9b16a90baa17eff
+"@fontsource/fira-mono@npm:5.2.5":
+  version: 5.2.5
+  resolution: "@fontsource/fira-mono@npm:5.2.5"
+  checksum: 10c0/8d606987e6da40ed14b247cb61686c787ea5608335c8dad3656a84543ccf96be43efb3eb43b05ee5f90eeb6942cd191b23e12075b4e8b6b0e2c5e2581ab6e4b1
   languageName: node
   linkType: hard
 
@@ -15853,7 +15853,7 @@ __metadata:
   dependencies:
     "@dotenvx/dotenvx": "npm:1.38.5"
     "@eslint/js": "npm:9.21.0"
-    "@fontsource/fira-mono": "npm:5.1.1"
+    "@fontsource/fira-mono": "npm:5.2.5"
     "@neoconfetti/svelte": "npm:2.2.1"
     "@sveltejs/adapter-auto": "npm:4.0.0"
     "@sveltejs/adapter-vercel": "npm:5.6.3"
