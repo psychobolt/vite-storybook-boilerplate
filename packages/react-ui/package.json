@@ -2,7 +2,7 @@
   "name": "react-ui",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@4.7.0",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "exports": {
