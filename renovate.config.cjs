@@ -11,8 +11,6 @@ module.exports = {
   nvm: {
     enabled: false
   },
-  username: 'renovate[bot]',
-  gitAuthor: 'renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>',
   allowedCommands: ['^.+$'],
   packageRules: [
     {
