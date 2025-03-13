@@ -6,8 +6,9 @@ const workspaces = process.env.RENOVATE_POST_UPGRADE_WORKSPACES
 
 /* Renovate Global Config */
 module.exports = {
-  extends: ['config:best-practices', ':dependencyDashboard'],
+  extends: ['config:best-practices'],
   automerge: true,
+  dependencyDashboard: true,
   nvm: {
     enabled: false
   },
