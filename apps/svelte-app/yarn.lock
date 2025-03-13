@@ -2945,10 +2945,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@neoconfetti/svelte@npm:2.2.1":
-  version: 2.2.1
-  resolution: "@neoconfetti/svelte@npm:2.2.1"
-  checksum: 10c0/f69f498039bb03910e765d7f097b0068f62a7b1e934f633abd2b8cfb4e6678999098e9bab83830bc41435a35c582a3f542c3057cd25f4b8d5e1ecea1037d091b
+"@neoconfetti/svelte@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@neoconfetti/svelte@npm:2.2.2"
+  peerDependencies:
+    svelte: ^3.0.0 || ^4.0.0 || ^5.0.0
+  checksum: 10c0/9373d63a211904e079dde12add2b6523be8f9895b2d6836f7df78ee3fa47e9ef1fd24640c817fe4dc73111fcb62a377cd185628171754239bcd59713135e0cb3
   languageName: node
   linkType: hard
 
@@ -16267,7 +16269,7 @@ __metadata:
     "@dotenvx/dotenvx": "npm:1.38.5"
     "@eslint/js": "npm:9.21.0"
     "@fontsource/fira-mono": "npm:5.2.5"
-    "@neoconfetti/svelte": "npm:2.2.1"
+    "@neoconfetti/svelte": "npm:2.2.2"
     "@sveltejs/adapter-auto": "npm:4.0.0"
     "@sveltejs/adapter-vercel": "npm:5.6.3"
     "@sveltejs/kit": "npm:2.17.3"
