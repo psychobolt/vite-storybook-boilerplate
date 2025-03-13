@@ -24,7 +24,7 @@
     "@jest/types": "29.6.3",
     "@storybook/builder-vite": "8.6.4",
     "@storybook/components": "8.6.4",
-    "@storybook/test-runner": "0.21.3",
+    "@storybook/test-runner": "0.22.0",
     "@storybook/types": "8.6.4",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4",

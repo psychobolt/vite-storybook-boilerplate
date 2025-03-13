@@ -2955,9 +2955,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.21.3":
-  version: 0.21.3
-  resolution: "@storybook/test-runner@npm:0.21.3"
+"@storybook/test-runner@npm:0.22.0":
+  version: 0.22.0
+  resolution: "@storybook/test-runner@npm:0.22.0"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -2979,10 +2979,10 @@ __metadata:
     nyc: "npm:^15.1.0"
     playwright: "npm:^1.14.0"
   peerDependencies:
-    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+    storybook: ^0.0.0-0 || ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0 || ^9.0.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/aec04919852dfc5efd52bc05f74d2e1c3d0f7b207d3e54e05a351cd6727225c4010f9b1c133108460c5868430604fd0732f7200bfd431aad9ece21f0311e8e48
+  checksum: 10c0/f644ee495298e013f85f57643afbcbd26fe6579890aeb2e7e28a06f1a488e3dbbaf01473a3d961e75c5b9b341a484895eb464cd1b5781abdc6db8dd796eabafd
   languageName: node
   linkType: hard
 
@@ -6259,7 +6259,7 @@ __metadata:
     "@storybook/builder-vite": "npm:8.6.4"
     "@storybook/components": "npm:8.6.4"
     "@storybook/experimental-addon-test": "npm:8.6.4"
-    "@storybook/test-runner": "npm:0.21.3"
+    "@storybook/test-runner": "npm:0.22.0"
     "@storybook/types": "npm:8.6.4"
     "@types/eslint": "npm:9.6.1"
     "@types/lint-staged": "npm:13.3.0"
