@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "baseBranches": ["$default", "bitbucket"],
-  "useBaseBranchConfig": "merge"
+  "useBaseBranchConfig": "merge",
+  "dependencyDashboard": true
 }
