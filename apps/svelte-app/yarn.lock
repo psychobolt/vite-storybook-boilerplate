@@ -6502,7 +6502,7 @@ __metadata:
     ts-enum-util: "npm:4.1.0"
     tsconfck: "npm:3.1.5"
     typescript-eslint: "npm:8.25.0"
-    vite: "npm:6.2.1"
+    vite: "npm:6.2.2"
     vite-tsconfig-paths: "npm:5.1.4"
   languageName: node
   linkType: soft
@@ -16307,7 +16307,7 @@ __metadata:
     turbo: "npm:2.4.4"
     typescript: "npm:5.7.3"
     typescript-eslint: "npm:8.25.0"
-    vite: "npm:6.2.1"
+    vite: "npm:6.2.2"
   languageName: unknown
   linkType: soft
 
@@ -17646,9 +17646,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:6.2.1":
-  version: 6.2.1
-  resolution: "vite@npm:6.2.1"
+"vite@npm:6.2.2":
+  version: 6.2.2
+  resolution: "vite@npm:6.2.2"
   dependencies:
     esbuild: "npm:^0.25.0"
     fsevents: "npm:~2.3.3"
@@ -17694,7 +17694,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/2c024376a840eae2ce9cfba98d62e9f1eae93caa8304875854dbc0740414aedcfbe157c2244567bd456cdb60a300312af02ae9b5c63c147d35cf4da3a0591312
+  checksum: 10c0/52f5b1c10cfe5e3b6382c6de1811ebbf76df9b5a8bab3d65169446c6b54a5f1528f775b1548009a6d8aad11def20fba046bb3e9abb10c0c2c9ccd78118623bb8
   languageName: node
   linkType: hard
 
