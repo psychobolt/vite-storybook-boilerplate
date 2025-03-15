@@ -16,7 +16,7 @@
     "eslint": "9.21.0",
     "eslint-config-next": "15.1.7",
     "html-ui": "workspace:*",
-    "next": "15.1.7",
+    "next": "15.2.2",
     "open-cli": "8.0.0",
     "prop-types": "15.8.1",
     "react": "19.0.0",
