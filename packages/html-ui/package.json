@@ -23,7 +23,7 @@
   "devDependencies": {
     "@open-wc/lit-helpers": "0.7.0",
     "@storybook/addon-coverage": "1.0.5",
-    "@storybook/addon-essentials": "8.6.4",
+    "@storybook/addon-essentials": "8.6.6",
     "@storybook/addon-interactions": "8.6.4",
     "@storybook/blocks": "8.6.4",
     "@storybook/test": "8.6.4",
