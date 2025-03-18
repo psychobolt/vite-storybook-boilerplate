@@ -9,7 +9,7 @@ jobs:
   renovate:
     runs-on: ubuntu-latest
     env:
-      DOCKER_USER: ubuntu
+      DOCKER_USER: root
       DOCKER_USER_HOME: /home/ubuntu
     steps:
       - name: Get token
