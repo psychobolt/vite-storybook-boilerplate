@@ -45,7 +45,7 @@
     "lint-staged": "15.4.3",
     "playwright": "1.50.1",
     "semver": "7.7.1",
-    "stylelint": "16.14.1",
+    "stylelint": "16.16.0",
     "turbo": "2.4.4",
     "typescript": "5.7.3",
     "yaml": "2.7.0"
