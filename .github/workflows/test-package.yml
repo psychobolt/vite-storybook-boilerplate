@@ -37,9 +37,7 @@ jobs:
       - name: Set Yarn global folder
         env:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
-        run: |
-          echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
-          echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> $GITHUB_ENV
+        run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
         shell: bash
       - name: Setup Node.js environment
         if: matrix.os == 'ubuntu-latest'
