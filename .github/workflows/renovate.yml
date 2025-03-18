@@ -9,8 +9,8 @@ jobs:
   renovate:
     runs-on: ubuntu-latest
     env:
-      DOCKER_USER: renovate
-      DOCKER_USER_HOME: /home/renovate
+      DOCKER_USER: ubuntu
+      DOCKER_USER_HOME: /home/ubuntu
     steps:
       - name: Get token
         id: get_token
