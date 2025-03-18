@@ -154,7 +154,7 @@ switch (type) {
           }
           bump = `${semver.major(version)}.${semver.minor(
             version
-          )}.${semver.patch(version)}-${buildTag}.${hashId.substring(0, 7)}`;
+          )}.${semver.patch(version)}-${buildTag}-${hashId.substring(0, 7)}`;
           break;
         }
         case Strategy[Strategy.launch]:
