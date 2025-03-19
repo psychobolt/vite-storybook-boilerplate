@@ -2,7 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "baseBranches": ["$default", "bitbucket"],
   "useBaseBranchConfig": "merge",
-  "dependencyDashboard": true,
-  "platformCommit": "disabled",
-  "gitAuthor": "renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>"
+  "dependencyDashboard": true
 }
