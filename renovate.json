@@ -1,11 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"],
   "enabledManagers": ["bitbucket-pipelines"],
-  "automerge": true,
-  "nvm": {
-    "enabled": false
-  },
+  "useBaseBranchConfig": "merge",
+  "dependencyDashboard": true,
+  "ignorePrAuthor": true,
   "packageRules": [
     {
       "matchManagers": ["bitbucket-pipelines"],
