@@ -75,14 +75,25 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Get token
+        id: get_token
+        uses: actions/create-github-app-token@21cfef2b496dd8ef5b904c159339626a10ad380e # v1.11.6
+        with:
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          app-id: ${{ secrets.BOT_APP_ID }}
+      - name: Get GitHub App User ID
+        id: get_user_id
+        env:
+          GH_TOKEN: ${{ steps.get_token.outputs.token }}
+        run: echo "user-id=$(gh api "/users/${{ steps.get_token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
       - name: Configure git
         run: |
-          git config --global user.name github-actions[bot]
-          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global user.name ${{ steps.get_token.outputs.app-slug }}[bot]
+          git config --global user.email ${{ steps.get_user_id.outputs.user-id }}+${{ steps.get_token.outputs.app-slug }}[bot]@users.noreply.github.com
       - name: Check out code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
-          token: ${{ secrets.GH_ACTIONS_TOKEN }}
+          token: ${{ steps.get_token.outputs.token }}
       - name: Fetch branch
         run: git fetch --depth=50 origin ${{ needs.create_branch.outputs.ref_name }}:${{ needs.create_branch.outputs.ref_name }}
       - name: Merge
