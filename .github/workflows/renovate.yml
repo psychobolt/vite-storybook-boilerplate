@@ -54,6 +54,7 @@ jobs:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           RENOVATE_POST_UPGRADE_WORKSPACES: ${{ steps.list_workspaces.outputs.nm-workspaces }}
           RENOVATE_BASE_DIR: ${{ env.DOCKER_USER_HOME }}
+          RENOVATE_IGNORE_PR_AUTHOR: ${{ vars.RENOVATE_IGNORE_PR_AUTHOR }}
           LOG_LEVEL: debug
         with:
           configurationFile: renovate.config.cjs
