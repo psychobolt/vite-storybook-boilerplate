@@ -1767,9 +1767,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:3.2.5":
-  version: 3.2.5
-  resolution: "@chromatic-com/storybook@npm:3.2.5"
+"@chromatic-com/storybook@npm:3.2.6":
+  version: 3.2.6
+  resolution: "@chromatic-com/storybook@npm:3.2.6"
   dependencies:
     chromatic: "npm:^11.15.0"
     filesize: "npm:^10.0.12"
@@ -1778,7 +1778,7 @@ __metadata:
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-  checksum: 10c0/a8064e433caf8842079a676a9ecc0e423b6599e2549d14f9d69cef19d0a4f527c819c9577975436463925dcc8046278fc2f1f3d2bb2d1c250df14e37b0ae44a4
+  checksum: 10c0/3388de20d12b1003990520726b0b4a20570c81d017292afa72f9ce88ab5146935663db7e5e8e7d58b5e94893c83bc1447d77c3cbc3ddc8c807325f9613d346d8
   languageName: node
   linkType: hard
 
@@ -3613,9 +3613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.21.3":
-  version: 0.21.3
-  resolution: "@storybook/test-runner@npm:0.21.3"
+"@storybook/test-runner@npm:0.22.0":
+  version: 0.22.0
+  resolution: "@storybook/test-runner@npm:0.22.0"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -3637,10 +3637,10 @@ __metadata:
     nyc: "npm:^15.1.0"
     playwright: "npm:^1.14.0"
   peerDependencies:
-    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+    storybook: ^0.0.0-0 || ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0 || ^9.0.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/aec04919852dfc5efd52bc05f74d2e1c3d0f7b207d3e54e05a351cd6727225c4010f9b1c133108460c5868430604fd0732f7200bfd431aad9ece21f0311e8e48
+  checksum: 10c0/f644ee495298e013f85f57643afbcbd26fe6579890aeb2e7e28a06f1a488e3dbbaf01473a3d961e75c5b9b341a484895eb464cd1b5781abdc6db8dd796eabafd
   languageName: node
   linkType: hard
 
@@ -6486,11 +6486,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "commons@portal:../../packages/commons::locator=svelte-app%40workspace%3A."
   dependencies:
-    "@chromatic-com/storybook": "npm:3.2.5"
+    "@chromatic-com/storybook": "npm:3.2.6"
     "@jest/types": "npm:29.6.3"
     "@storybook/builder-vite": "npm:8.6.7"
     "@storybook/components": "npm:8.6.7"
-    "@storybook/test-runner": "npm:0.21.3"
+    "@storybook/test-runner": "npm:0.22.0"
     "@storybook/types": "npm:8.6.7"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4"
