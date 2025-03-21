@@ -32,7 +32,7 @@
 		"@types/node": "22.13.11",
 		"@typescript-eslint/utils": "8.27.0",
 		"commons": "workspace:*",
-		"eslint": "9.22.0",
+		"eslint": "9.23.0",
 		"eslint-config-prettier": "10.1.1",
 		"eslint-plugin-svelte": "2.46.1",
 		"globals": "16.0.0",
