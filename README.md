@@ -1,6 +1,6 @@
 # Vite Storybook Boilerplate
 
-[<img src="https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/branch/main/graph/badge.svg">](https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/tree/main) [<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/ci.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/ci.yml?query=branch%3Amain)
+[<img src="https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/branch/main/graph/badge.svg">](https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/tree/main) [<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/status.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/status.yml?query=branch%3Amain)
 
 A modern starter plate for building front-end components
 

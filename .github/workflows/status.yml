@@ -1,4 +1,4 @@
-name: Merge Check
+name: Status
 
 on:
   push:
