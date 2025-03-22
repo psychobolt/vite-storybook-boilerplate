@@ -88,7 +88,7 @@ See Turbo's docs for more [usages](https://turbo.build/repo/docs/reference/comma
 
 ## Managing Dependencies
 
-This project supports continious upgrades with [renovate](https://docs.renovatebot.com/). Refer to official docs for [onboarding](https://docs.renovatebot.com/getting-started/installing-onboarding/) your project setup.
+This project supports continious upgrades with [renovatebot](https://docs.renovatebot.com/) and provides a default [global and repository config](https://docs.renovatebot.com/config-overview/). See [renovate.config.cjs](renovate.config.cjs) and [renovate.json](renovate.json) respectively. It is recommended to setup and allow permissions based on your repository [platform](https://docs.renovatebot.com/modules/platform/).
 
 ### Adding Dependencies
 
