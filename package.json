@@ -32,7 +32,7 @@
     "@swc/core": "1.6.7",
     "@types/glob-to-regexp": "0.4.4",
     "@types/node": "22.13.13",
-    "@types/semver": "7.5.8",
+    "@types/semver": "7.7.0",
     "@yarnpkg/core": "4.2.1",
     "@yarnpkg/fslib": "3.1.2",
     "@yarnpkg/sdks": "3.2.1",
