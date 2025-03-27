@@ -29,7 +29,7 @@
 		"@swc/core": "1.6.7",
 		"@types/eslint": "9.6.1",
 		"@types/eslint-config-prettier": "6.11.3",
-		"@types/node": "22.13.13",
+		"@types/node": "22.13.14",
 		"@typescript-eslint/utils": "8.28.0",
 		"commons": "workspace:*",
 		"eslint": "9.23.0",
