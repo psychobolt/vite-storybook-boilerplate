@@ -2,7 +2,7 @@
   "name": "vite-storybook-boilerplate",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.8.0",
   "scripts": {
     "postinstall": "husky",
     "g:dotenv": "cd $INIT_CWD && dotenvx",
