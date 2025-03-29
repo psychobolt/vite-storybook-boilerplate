@@ -48,7 +48,7 @@
     "stylelint": "16.17.0",
     "turbo": "2.4.4",
     "typescript": "5.8.2",
-    "yaml": "2.7.0"
+    "yaml": "2.7.1"
   },
   "resolutions": {
     "@storybook/core@npm:8.5.8": "patch:@storybook/core@npm%3A8.5.8#~/.yarn/patches/@storybook-core-npm-8.5.8-c2169a8fe3.patch",
