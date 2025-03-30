@@ -4721,9 +4721,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/core@npm:4.3.0":
-  version: 4.3.0
-  resolution: "@yarnpkg/core@npm:4.3.0"
+"@yarnpkg/core@npm:4.3.1":
+  version: 4.3.1
+  resolution: "@yarnpkg/core@npm:4.3.1"
   dependencies:
     "@arcanis/slice-ansi": "npm:^1.1.1"
     "@types/semver": "npm:^7.1.0"
@@ -4751,7 +4751,7 @@ __metadata:
     treeify: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
     tunnel: "npm:^0.0.6"
-  checksum: 10c0/db5fec40cdbdcd71866e2fd39d5540197f278a15077ba886867201c9f707f0e3ae314043d12da6ed690c5440939fa2c6ddb74fc3b3b2f24a02df350f3227b0ae
+  checksum: 10c0/2c926b096e7daa331e1acc92dc3dda11d945e89baebc6cbe2d969289a4b3f0b93d0ef420c5e64908586e8c1174aa2e0f1464ba4f6dccf47ea61169b025722952
   languageName: node
   linkType: hard
 
@@ -17301,7 +17301,7 @@ __metadata:
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/node": "npm:22.13.14"
     "@types/semver": "npm:7.7.0"
-    "@yarnpkg/core": "npm:4.3.0"
+    "@yarnpkg/core": "npm:4.3.1"
     "@yarnpkg/fslib": "npm:3.1.2"
     "@yarnpkg/sdks": "npm:3.2.1"
     arg: "npm:5.0.2"
