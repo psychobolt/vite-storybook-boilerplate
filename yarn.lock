@@ -3946,12 +3946,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:19.0.5":
-  version: 19.0.5
-  resolution: "@types/react-dom@npm:19.0.5"
+"@types/react-dom@npm:19.0.6":
+  version: 19.0.6
+  resolution: "@types/react-dom@npm:19.0.6"
   peerDependencies:
     "@types/react": ^19.0.0
-  checksum: 10c0/a0b71ab7203f62e58ee6ffba6716ed72ddc15f354db1d3de34ef5003c8f5d28e6c6f2c00589df656ffb47ba89e257907d7cd8dc7e26c4de629014f436b39145a
+  checksum: 10c0/dd5dd04c56d55fcd4507ecf67a7bd4e1b7bf13700bd9ebd49dd17603a41fc4cf6a5d5b8ec4ee4e77975716e60861b9c01164d6cfd7cf44b708ea1dd826a6836b
   languageName: node
   linkType: hard
 
@@ -3973,12 +3973,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.0.13":
-  version: 19.0.13
-  resolution: "@types/react@npm:19.0.13"
+"@types/react@npm:19.0.14":
+  version: 19.0.14
+  resolution: "@types/react@npm:19.0.14"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10c0/c320f000f636cccb9fc3e307f6a38e3545bbfb96630a6bd605eb2bb35b4f45da61a7ace471bcc11c88046e545184be16234999218fa639291c1fa10ec7a51c79
+  checksum: 10c0/e5d9ac42fc6d66c21b7020c8ae1a8190c486e63e5daf2f67b67694dd39c6264cc92a57f90b84525bf73774b90f91bd3b1d907022bcc9b36d6d4ffbcf001f8feb
   languageName: node
   linkType: hard
 
@@ -12419,8 +12419,8 @@ __metadata:
   dependencies:
     "@types/node": "npm:22.13.17"
     "@types/prop-types": "npm:15.7.14"
-    "@types/react": "npm:19.0.13"
-    "@types/react-dom": "npm:19.0.5"
+    "@types/react": "npm:19.0.14"
+    "@types/react-dom": "npm:19.0.6"
     eslint: "npm:9.23.0"
     eslint-config-next: "npm:15.2.4"
     html-ui: "workspace:*"
@@ -14165,8 +14165,8 @@ __metadata:
     "@storybook/test": "npm:8.6.11"
     "@tsconfig/vite-react": "npm:3.4.0"
     "@types/prop-types": "npm:15.7.14"
-    "@types/react": "npm:19.0.13"
-    "@types/react-dom": "npm:19.0.5"
+    "@types/react": "npm:19.0.14"
+    "@types/react-dom": "npm:19.0.6"
     "@vitejs/plugin-react": "npm:4.3.4"
     "@vitest/browser": "npm:3.0.9"
     "@vitest/coverage-v8": "npm:3.0.9"
