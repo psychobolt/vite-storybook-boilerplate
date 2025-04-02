@@ -3946,12 +3946,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:19.0.6":
-  version: 19.0.6
-  resolution: "@types/react-dom@npm:19.0.6"
+"@types/react-dom@npm:19.1.1":
+  version: 19.1.1
+  resolution: "@types/react-dom@npm:19.1.1"
   peerDependencies:
     "@types/react": ^19.0.0
-  checksum: 10c0/dd5dd04c56d55fcd4507ecf67a7bd4e1b7bf13700bd9ebd49dd17603a41fc4cf6a5d5b8ec4ee4e77975716e60861b9c01164d6cfd7cf44b708ea1dd826a6836b
+  checksum: 10c0/83833af502f501a372b370fdeb7cf933dfc8780903fe0e0d6e6a76b4ea3adbe5316159a62a0388d8afdd409afd76a40959e2ce82fbb788f57d32c786a63601ee
   languageName: node
   linkType: hard
 
@@ -3973,12 +3973,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.0.14":
-  version: 19.0.14
-  resolution: "@types/react@npm:19.0.14"
+"@types/react@npm:19.1.0":
+  version: 19.1.0
+  resolution: "@types/react@npm:19.1.0"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10c0/e5d9ac42fc6d66c21b7020c8ae1a8190c486e63e5daf2f67b67694dd39c6264cc92a57f90b84525bf73774b90f91bd3b1d907022bcc9b36d6d4ffbcf001f8feb
+  checksum: 10c0/632fd20ee176e55801a61c5f854141b043571a3e363ef106b047b766a813a12735cbb37abb3d61d126346979f530f2ed269a60c8ef3cdee54e5e9fe4174e5dad
   languageName: node
   linkType: hard
 
@@ -12419,8 +12419,8 @@ __metadata:
   dependencies:
     "@types/node": "npm:22.13.17"
     "@types/prop-types": "npm:15.7.14"
-    "@types/react": "npm:19.0.14"
-    "@types/react-dom": "npm:19.0.6"
+    "@types/react": "npm:19.1.0"
+    "@types/react-dom": "npm:19.1.1"
     eslint: "npm:9.23.0"
     eslint-config-next: "npm:15.2.4"
     html-ui: "workspace:*"
@@ -14165,8 +14165,8 @@ __metadata:
     "@storybook/test": "npm:8.6.11"
     "@tsconfig/vite-react": "npm:3.4.0"
     "@types/prop-types": "npm:15.7.14"
-    "@types/react": "npm:19.0.14"
-    "@types/react-dom": "npm:19.0.6"
+    "@types/react": "npm:19.1.0"
+    "@types/react-dom": "npm:19.1.1"
     "@vitejs/plugin-react": "npm:4.3.4"
     "@vitest/browser": "npm:3.0.9"
     "@vitest/coverage-v8": "npm:3.0.9"
