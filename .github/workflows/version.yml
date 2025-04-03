@@ -42,7 +42,7 @@ jobs:
     steps:
       - name: Get token
         id: get_token
-        uses: actions/create-github-app-token@86e24964d68ec4c8b52e8e73e2592920edeef469 # v2.0.1
+        uses: actions/create-github-app-token@3ff1caaa28b64c9cc276ce0a02e2ff584f3900c5 # v2.0.2
         with:
           private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
           app-id: ${{ secrets.BOT_APP_ID }}
