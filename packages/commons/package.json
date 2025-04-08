@@ -28,7 +28,7 @@
     "@storybook/types": "8.6.12",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4",
-    "@typescript-eslint/utils": "8.29.0",
+    "@typescript-eslint/utils": "8.29.1",
     "autoprefixer": "10.4.21",
     "eslint": "9.24.0",
     "eslint-plugin-mdx": "3.2.0",
@@ -44,7 +44,7 @@
     "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
     "tsconfck": "3.1.5",
-    "typescript-eslint": "8.29.0",
+    "typescript-eslint": "8.29.1",
     "vite": "6.2.5",
     "vite-tsconfig-paths": "5.1.4"
   },
