@@ -16365,7 +16365,7 @@ __metadata:
     stylelint: "npm:16.18.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:14.0.0"
-    svelte: "npm:5.25.10"
+    svelte: "npm:5.25.11"
     svelte-check: "npm:4.1.5"
     svelte-eslint-parser: "npm:1.1.2"
     svelte-language-server: "npm:0.17.11"
@@ -16474,9 +16474,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.25.10":
-  version: 5.25.10
-  resolution: "svelte@npm:5.25.10"
+"svelte@npm:5.25.11":
+  version: 5.25.11
+  resolution: "svelte@npm:5.25.11"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -16492,7 +16492,7 @@ __metadata:
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/b6e8f40e4bdd1f452d1fa248672acd81647750193247451f9e0531d4993ad272082e9dc79b868ad3de3c1e1e022d2263a0fc2ac3bee2deae7ae208110ce1ac8b
+  checksum: 10c0/362ca6416e48ffcd110fee303e3036ab899a368d115b79d84a887dee4be6c119a072f7315cc03b58cb21050da9aea357338ed089f5edb9caa968c11fc63d73e8
   languageName: node
   linkType: hard
 
