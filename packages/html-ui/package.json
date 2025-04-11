@@ -34,7 +34,7 @@
     "commons": "workspace:*",
     "glob": "11.0.1",
     "http-server": "14.1.1",
-    "lit": "3.2.1",
+    "lit": "3.3.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "rollup-plugin-no-emit": "1.2.1",
