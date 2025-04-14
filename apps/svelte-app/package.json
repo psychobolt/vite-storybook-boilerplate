@@ -23,7 +23,7 @@
 		"@neoconfetti/svelte": "2.2.2",
 		"@sveltejs/adapter-auto": "6.0.0",
 		"@sveltejs/adapter-vercel": "5.7.0",
-		"@sveltejs/kit": "2.20.5",
+		"@sveltejs/kit": "2.20.6",
 		"@sveltejs/vite-plugin-svelte": "5.0.3",
 		"@swc-node/register": "1.10.0",
 		"@swc/core": "1.6.7",
