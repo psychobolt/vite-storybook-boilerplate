@@ -54,7 +54,7 @@ jobs:
         run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
         shell: bash
       - name: Setup Node.js environment
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: lts/Hydrogen
           cache: yarn
@@ -88,7 +88,7 @@ jobs:
         if: env.BASE_REF != ''
         run: git fetch --depth=1 origin ${{ env.BASE_REF }}:base_branch
       - name: Setup Node.js environment
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: lts/Hydrogen
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
@@ -167,7 +167,7 @@ jobs:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
         run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
       - name: Setup Node.js environment
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: lts/Hydrogen
           cache: yarn
