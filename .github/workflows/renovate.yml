@@ -49,7 +49,7 @@ jobs:
         run: |
           echo "nm-workspaces=$(yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules)" >> $GITHUB_OUTPUT
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@df489653e39e161d9570cb30c90674f697e16742 # v41.0.19
+        uses: renovatebot/github-action@19e3d87179488d6a0cd9da744d37123ea4b338e5 # v41.0.20
         env:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           RENOVATE_POST_UPGRADE_WORKSPACES: ${{ steps.list_workspaces.outputs.nm-workspaces }}
