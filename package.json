@@ -43,7 +43,7 @@
     "husky": "9.1.7",
     "jiti": "2.4.2",
     "lint-staged": "15.5.1",
-    "playwright": "1.51.1",
+    "playwright": "1.52.0",
     "semver": "7.7.1",
     "stylelint": "16.18.0",
     "turbo": "2.5.0",
