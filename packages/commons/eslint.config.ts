@@ -32,7 +32,12 @@ export default defineConfig(
       ]
     }
   },
-  mdx.flat,
+  {
+    ...mdx.flat,
+    plugins: {
+      mdx
+    }
+  },
   mdx.flatCodeBlocks,
   {
     ignores: [
