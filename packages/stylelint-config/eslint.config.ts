@@ -1,1 +1,3 @@
-export { default } from 'commons/esm/eslint.config.js';
+import commonConfig from 'commons/esm/eslint.config.js';
+
+export default commonConfig;
