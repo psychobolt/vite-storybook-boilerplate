@@ -16,6 +16,7 @@ module.exports = {
     {
       matchFileNames: [
         'packages/commons/package.json',
+        'packages/stylelint-config/package.json',
         ...workspaces.map(({ location }) => join(location, 'package.json'))
       ],
       postUpgradeTasks: {
