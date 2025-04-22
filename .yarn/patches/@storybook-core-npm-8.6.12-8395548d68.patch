@@ -1,71 +1,71 @@
 diff --git a/dist/builder-manager/index.cjs b/dist/builder-manager/index.cjs
-index fad8c8ab214e4b5f62283c1934ea8e06b6fb87c2..3859d07c8c335e26e4f1456a6840f631fe3f7192 100644
+index 85839d02b2d113e2a28dec74e93dce4b712f3053..9435432245b2479803de5f7a82836ff907bc01b2 100644
 --- a/dist/builder-manager/index.cjs
 +++ b/dist/builder-manager/index.cjs
-@@ -1999,12 +1999,8 @@ var Ki = /^\/($|\?)/, ie, D, he = /* @__PURE__ */ o(async (e) => {
-     tsconfig: r,
+@@ -1966,12 +1966,8 @@ var Vi = /^\/($|\?)/, ie, D, xe = /* @__PURE__ */ o(async (e) => {
+     tsconfig: a,
      legalComments: "external",
      plugins: [
--      (0, Ut.default)({
+-      (0, zt.default)({
 -        process: require.resolve("process/browser.js"),
 -        util: require.resolve("util/util.js"),
 -        assert: require.resolve("browser-assert")
 -      }),
-       oe(Ht.globalsModuleInfoMap),
+       oe(Mt.globalsModuleInfoMap),
 +      require('node-stdlib-browser/helpers/esbuild/plugin')(require('node-stdlib-browser')),
-       (0, Jt.pnpPlugin)()
+       (0, qt.pnpPlugin)()
      ],
      banner: {
-@@ -2013,10 +2009,13 @@ var Ki = /^\/($|\?)/, ie, D, he = /* @__PURE__ */ o(async (e) => {
+@@ -1980,10 +1976,13 @@ var Vi = /^\/($|\?)/, ie, D, xe = /* @__PURE__ */ o(async (e) => {
      footer: {
        js: '}catch(e){ console.error("[Storybook] One of your manager-entries failed: " + import.meta.url, e); }'
      },
 +    inject: [b.resolve('node-stdlib-browser/helpers/esbuild/shim')],
      define: {
 +      process: "process",
-       "process.env": JSON.stringify(a),
-       ...(0, Bt.stringifyProcessEnvs)(a),
+       "process.env": JSON.stringify(r),
+       ...(0, It.stringifyProcessEnvs)(r),
        global: "window",
 +      Buffer: "Buffer",
        module: "{}"
      }
    };
 diff --git a/dist/builder-manager/index.js b/dist/builder-manager/index.js
-index bca8212bb8ca5b948e2539aa0aa09c928522a479..959d85bdc3a6a1033b388bef4590b69c0adbdeb7 100644
+index e4bee0203edd534420e6f8e58ebc26c0f7de8c85..897de6b2b81b4ded3d653c0ebcf42ef04cc3a87a 100644
 --- a/dist/builder-manager/index.js
 +++ b/dist/builder-manager/index.js
-@@ -2011,12 +2011,8 @@ var ur = /^\/($|\?)/, G, C, _t = /* @__PURE__ */ o(async (e) => {
-     tsconfig: r,
+@@ -1978,12 +1978,8 @@ var pa = /^\/($|\?)/, G, C, xt = /* @__PURE__ */ o(async (e) => {
+     tsconfig: a,
      legalComments: "external",
      plugins: [
--      (0, Ct.default)({
+-      (0, St.default)({
 -        process: O.resolve("process/browser.js"),
 -        util: O.resolve("util/util.js"),
 -        assert: O.resolve("browser-assert")
 -      }),
-       Z(mr),
+       Z(ca),
 +      require('node-stdlib-browser/helpers/esbuild/plugin')(require('node-stdlib-browser')),
-       (0, Lt.pnpPlugin)()
+       (0, Pt.pnpPlugin)()
      ],
      banner: {
-@@ -2026,9 +2022,11 @@ var ur = /^\/($|\?)/, G, C, _t = /* @__PURE__ */ o(async (e) => {
+@@ -1993,9 +1989,11 @@ var pa = /^\/($|\?)/, G, C, xt = /* @__PURE__ */ o(async (e) => {
        js: '}catch(e){ console.error("[Storybook] One of your manager-entries failed: " + import.meta.url, e); }'
      },
      define: {
 +      process: "process",
-       "process.env": JSON.stringify(a),
-       ...pr(a),
+       "process.env": JSON.stringify(r),
+       ...la(r),
        global: "window",
 +      Buffer: "Buffer",
        module: "{}"
      }
    };
 diff --git a/dist/common/index.cjs b/dist/common/index.cjs
-index 00aed1ccbb5ac59daf1fb03306e3c98b0571ccd1..9c855a784c82e70c21a4f7b3b9f77e045d617a1f 100644
+index 0812d42a5eef4624fb323d8b55e3b3a29a242a52..fcf9b81f83d07da2d2e5dfc7d367f109e280d51f 100644
 --- a/dist/common/index.cjs
 +++ b/dist/common/index.cjs
-@@ -11686,7 +11686,7 @@ function hi(r) {
-     yC = !0, i({
+@@ -11689,7 +11689,7 @@ function fi(r) {
+     NC = !0, i({
        target: `node${process.version.slice(1)}`,
        format: "cjs",
 -      hookIgnoreNodeModules: !0,
@@ -74,11 +74,11 @@ index 00aed1ccbb5ac59daf1fb03306e3c98b0571ccd1..9c855a784c82e70c21a4f7b3b9f77e04
        // https://github.com/storybookjs/storybook/issues/19049
        keepNames: !0,
 diff --git a/dist/common/index.js b/dist/common/index.js
-index eb53a43e44e2ab91cfabc054d1c8faab79490aee..c893383d1e6443ac103322888e9031f98064f513 100644
+index 90fd885141ee5941eb54311927d910565bc32525..93281ad756359a8cdc4d12edcb2b174c13d25e2a 100644
 --- a/dist/common/index.js
 +++ b/dist/common/index.js
-@@ -11617,7 +11617,7 @@ function Mo(r) {
-     Fn = !0, i({
+@@ -11617,7 +11617,7 @@ function Ro(r) {
+     kn = !0, i({
        target: `node${process.version.slice(1)}`,
        format: "cjs",
 -      hookIgnoreNodeModules: !0,
