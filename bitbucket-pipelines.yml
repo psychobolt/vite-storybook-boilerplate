@@ -418,4 +418,6 @@ pipelines:
             - yarn install
             - export LOG_LEVEL=debug
             - export RENOVATE_CONFIG_FILE=renovate.config.cjs
+            - export RENOVATE_POST_UPGRADE_WORKSPACES=$(yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules)
+            - export RENOVATE_REPOSITORIES=${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
             - renovate

@@ -8,7 +8,6 @@ const workspaces = process.env.RENOVATE_POST_UPGRADE_WORKSPACES
 module.exports = {
   extends: ['config:best-practices'],
   platform: 'bitbucket',
-  repositories: ['psychobolt/vite-storybook-boilerplate'],
   automerge: true,
   nvm: {
     enabled: false
