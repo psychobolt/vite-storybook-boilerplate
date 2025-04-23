@@ -9601,7 +9601,7 @@ __metadata:
     lit: "npm:3.3.0"
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
-    rollup-plugin-no-emit: "npm:1.2.1"
+    rollup-plugin-no-emit: "npm:1.3.0"
     sass: "npm:1.87.0"
     storybook: "npm:8.6.12"
     stylelint-config: "workspace:*"
@@ -14868,15 +14868,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-no-emit@npm:1.2.1":
-  version: 1.2.1
-  resolution: "rollup-plugin-no-emit@npm:1.2.1"
+"rollup-plugin-no-emit@npm:1.3.0":
+  version: 1.3.0
+  resolution: "rollup-plugin-no-emit@npm:1.3.0"
   peerDependencies:
     rollup: ^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10c0/fe8d96104ea248c12d24d1a40ffb3c8fdc6de72f3672c595ff76362a77214148b0e2cc6704f6eb6cb6cc6e8e7f8df41e0d92c6f0d15ffd226f1319d42b0068a0
+  checksum: 10c0/428a30727ea281dd5f28a5f45d7490e5826443a1702a8d8b82f880c6ede9535b21f704c5ee24bae7ff89155f8ea1e20ecf8049a9ec05426a6cc74bb5011c6126
   languageName: node
   linkType: hard
 
