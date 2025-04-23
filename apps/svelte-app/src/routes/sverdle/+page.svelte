@@ -101,11 +101,11 @@
 	<a class="how-to-play" href="/sverdle/how-to-play">How to play</a>
 
 	<div class="grid" class:playing={!won} class:bad-guess={form?.badGuess}>
-		{#each Array(6) as _, row}
+		{#each Array(6) as _, row (row)}
 			{@const current = row === i}
 			<h2 class="visually-hidden">Row {row + 1}</h2>
 			<div class="row" class:current>
-				{#each Array(5) as _, column}
+				{#each Array(5) as _, column (column)}
 					{@const answer = data.answers[row]?.[column]}
 					{@const value = data.guesses[row]?.[column] ?? ''}
 					{@const selected = current && column === data.guesses[row].length}
@@ -154,9 +154,9 @@
 					back
 				</button>
 
-				{#each ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'] as row}
+				{#each ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'] as row (row)}
 					<div class="row">
-						{#each row as letter}
+						{#each row as letter (letter)}
 							<button
 								on:click|preventDefault={update}
 								data-key={letter}
