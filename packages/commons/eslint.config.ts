@@ -1,12 +1,11 @@
 /// <reference path="./modules.d.ts" preserve="true" />
+import { defineConfig } from 'eslint/config';
 import * as mdx from 'eslint-plugin-mdx';
 import neostandard from 'neostandard';
-import tseslint from 'typescript-eslint';
 
-export { default as tseslint } from 'typescript-eslint';
 const tsFiles = ['**/*.{ts,tsx}'];
 
-export default tseslint.config(
+export default defineConfig(
   ...neostandard({
     files: ['**/*.{cj,j}s', '**/*.jsx'],
     filesTs: tsFiles,
@@ -23,7 +22,6 @@ export default tseslint.config(
       }
     },
     rules: {
-      '@typescript-eslint/explicit-function-return-type': 0,
       '@typescript-eslint/strict-boolean-expressions': [
         'error',
         {
@@ -34,7 +32,12 @@ export default tseslint.config(
       ]
     }
   },
-  mdx.flat,
+  {
+    ...mdx.flat,
+    plugins: {
+      mdx
+    }
+  },
   mdx.flatCodeBlocks,
   {
     ignores: [

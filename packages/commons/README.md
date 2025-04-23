@@ -65,12 +65,13 @@ export default mergeConfig(
    /your/project/eslint.config.ts
 
    ```ts
+   import { defineConfig } from 'eslint/config';
    import commonConfig from 'commons/esm/eslint.config.js';
 
-   export default {
+   export default defineConfig(
      ...commonConfig
      // your overrides
-   };
+   );
    ```
 
 2. Add scripts to /your/project/package.json
