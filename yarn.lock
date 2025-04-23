@@ -6712,7 +6712,6 @@ __metadata:
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:2.5.1"
     typescript: "npm:5.8.3"
-    typescript-eslint: "npm:8.31.0"
     vite: "npm:6.3.2"
     vite-tsconfig-paths: "npm:5.1.4"
     vitest: "npm:3.1.2"
