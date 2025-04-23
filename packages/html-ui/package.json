@@ -32,7 +32,7 @@
     "chromatic": "11.28.2",
     "classnames": "2.5.1",
     "commons": "workspace:*",
-    "glob": "11.0.1",
+    "glob": "11.0.2",
     "http-server": "14.1.1",
     "lit": "3.3.0",
     "react": "19.1.0",
