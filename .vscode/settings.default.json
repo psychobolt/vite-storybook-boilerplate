@@ -12,8 +12,10 @@
   "eslint.execArgv": ["${workspaceFolder}/bin/swc-node.js"],
   "eslint.useFlatConfig": true,
   "eslint.options": {
-    "flags": ["unstable_native_nodejs_ts_config"],
-    "overrideConfigFile": "eslint.config.ts"
+    "flags": [
+      "unstable_config_lookup_from_file",
+      "unstable_native_nodejs_ts_config"
+    ]
   },
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.validate": [
