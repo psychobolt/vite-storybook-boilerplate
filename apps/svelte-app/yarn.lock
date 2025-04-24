@@ -6516,7 +6516,6 @@ __metadata:
     storybook-zeplin: "npm:3.0.0"
     ts-enum-util: "npm:4.1.0"
     tsconfck: "npm:3.1.5"
-    vite: "npm:6.3.3"
     vite-tsconfig-paths: "npm:5.1.4"
   languageName: node
   linkType: soft
