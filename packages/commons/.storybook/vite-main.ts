@@ -11,7 +11,7 @@ import {
   mergeConfig
 } from 'vite';
 
-import postcssConfig from './postcss.config.mjs';
+import postcssConfig from './postcss.config.js';
 
 interface ResolveConfig {
   alias?: Alias[];
