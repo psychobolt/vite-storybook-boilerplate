@@ -27,7 +27,7 @@ export default defineConfig({
         '**/*.@(story|stories).@(js|jsx|ts|tsx)',
         // 👇 This pattern must align with the output directory of `storybook build`
         '**/storybook-static/**'
-      ] // test
+      ]
     },
     setupFiles: [join(configDir, 'vitest.setup.ts')]
   }
