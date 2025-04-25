@@ -25,10 +25,9 @@ definitions:
     - script: &git-auth |
         git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
     - script: &env |
-        export YARN_GLOBAL_FOLDER=.temp/.yarn/berry
+        export YARN_GLOBAL_FOLDER=
         echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
     - script: &install |
-        yarn config set globalFolder .temp/.yarn/berry
         yarn install
         yarn bootstrap
     - script: &setup |
@@ -43,7 +42,7 @@ definitions:
     - script: &test |
         yarn workspace $PACKAGE_NAME turbo run coverage
     - script: &test-runner |
-        npx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "npx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv-get TARGET_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
+        npx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "npx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv-get SB_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
     - script: &chromatic |
         if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
           yarn workspace $PACKAGE_NAME turbo run build-storybook
