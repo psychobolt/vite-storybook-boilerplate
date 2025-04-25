@@ -10,7 +10,7 @@
     "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv get $(yarn g:dotenv-args)",
     "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q $(yarn g:dotenv-args)",
     "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
-    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" -- node --enable-source-maps --import @swc-node/register/esm-register",
+    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" --env=\"ESM_REGISTER=file://$(yarn g:swc-register-path)\" -- node --enable-source-maps --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, 'bin/esm-register.js')\")",
     "run-script": "yarn g:run-script",
     "ls-workspaces": "yarn run-script bin/ls-workspaces.ts",
     "bootstrap": "yarn workspace stylelint-config turbo build --log-order=stream && yarn run-script bin/bootstrap.ts",
