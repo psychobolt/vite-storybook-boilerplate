@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "commons": "workspace:*",
-    "turbo": "2.5.1",
+    "turbo": "2.5.2",
     "typescript": "5.8.3"
   }
 }
