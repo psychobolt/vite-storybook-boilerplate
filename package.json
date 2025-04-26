@@ -53,7 +53,6 @@
   "resolutions": {
     "@storybook/core@npm:8.6.12": "patch:@storybook/core@npm%3A8.6.12#~/.yarn/patches/@storybook-core-npm-8.6.12-8395548d68.patch",
     "@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
-    "eslint@npm:9.25.1": "patch:eslint@npm%3A9.25.1#~/.yarn/patches/eslint-npm-9.25.1-be5aefaed2.patch",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
   }
 }

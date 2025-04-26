@@ -25,6 +25,7 @@ export default function run(args) {
     env: {
       ...process.env,
       ESM_REGISTER: swcRegisterPath,
+      NODE_TRANSFORM: 'typescript',
       NODE_OPTIONS: `${nodeOptions} --import file://${join(_dirname, 'esm-register.js')}`
     },
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
