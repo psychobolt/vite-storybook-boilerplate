@@ -8,28 +8,6 @@ Folder for scripts, executables, and any runtimes for workspace or infrastructur
 
 Installs workspaces that do not support `pnp` linker
 
-## List Unmerged
-
-`git-ls-unmerged.sh` ([Source](git-ls-unmerged.sh))
-
-Given a list of SHA (`COMMITS`), export a list of changes (referenced by `REF`) that are not in `BASE_REF`.
-
-### Example
-
-We can validate and cherry-pick several commits that are not in `BASE_REF`. The following is executed in git bash:
-
-```sh
-COMMITS="f67dda88fe9d0a892c44af923cbbc50bfe454e0e bf7352d6328221cd1c02104c99f57faf5be54c7d" # possible commits
-BASE_REF=master                                                                             # if not declared, uses `origin/main`
-source ./git-ls-unmerged.sh
-echo $REF
-echo $COUNT                         # returns number of commits not in BASE_REF
-echo $OUTPUT                        # shortened REF, each SHA seperated by '-'
-git checkout -b cherry-pick-$OUTPUT # create a PR branch
-git cherry-pick $REF -x             # note we should always provide the original SHA in the commit message. The 'x' arg will handle this.
-git push
-```
-
 ## List Workspaces
 
 `ls-workspaces.ts` ([Source](ls-workspaces.ts))
@@ -42,21 +20,23 @@ Returns a list of workspaces in the project. See options bellow.
 
 ### Filters
 
-#### Location
-
-`--location/-l [globExp]`
-
 #### Name
 
-`--name/-n [regExp]` and/or `--filter [globExp]`.
+`--name/-n [regExp]`
 
-Returns only workspaces that fullfills the match. For `filter`, you may use a negative expression e.g. `--filter "!apps/*"`.
+Returns only workspaces that fullfills the match.
 
-#### Linker
+#### Include/Exclude
 
-`--node-modules`
+`--include [globExp]` and/or `--exclude [globExp]`
 
-Returns only workspaces that use `node_modules` linked directories.
+List workspaces that matches a glob pattern. You may use a combination of filters (e.g. `--include "packages/*" --exclude "packages/*-{ui,config}"`).
+
+#### Node Linker
+
+`--node-linker [type]`
+
+Returns only workspaces that matches the linker type (e.g. `pnpm`). You can specify more than one filters e.g. `--node-linker=pnpm --node-linker=node-modules`
 
 #### Turbo Only
 
@@ -104,7 +84,7 @@ Utility for applying version strategy targets from `.yarn/versions`. Before runn
 
 | Type        | SemVer                                 |
 | ----------- | -------------------------------------- |
-| `build`     | \_.\_.1-dev.^x                         |
+| `build`     | \_.\_.1-build-\<hash\>                 |
 | `launch`    | ^X.^x.0                                |
 | `stable`    | \_.^x.^x[-rc.^x] <br> \_.\_.\_-rc.^x\* |
 | `minor`\*\* | \_.^x.\_                               |
@@ -114,17 +94,19 @@ Utility for applying version strategy targets from `.yarn/versions`. Before runn
 
 [ ] = optional tag that is used to prevent version conflicts. For instance, if 1.2.0 is the latest and there is a new a minor version strategy on 1.1.0, bump to preminor instead: 1.2.0-rc.1. \*Additional long releases will only increment prerelease.
 
+\<hash\> = 6 character hash from the package's build task
+
 \*\* Applies all target workspaces and additionally apply bump. It will also bump changed workspaces.
 
 ## SWC Node
 
 `swc-node.js` [Source](swc-node.js)
 
-Start a SWC enabled runtime that hooks on loading modules based on Yarn PnP resolvers. Ideally is used for tools that do not invoke the yarn CLI.
+Start a SWC enabled runtime that hooks on loading modules based on Yarn PnP resolvers. Ideally is used by tools that do not invoke the Yarn CLI directly e.g. `vscode-eslint`
 
 ```sh
 # Example
-node bin/swc-node.js [my-script.js] [options]
+node bin/swc-node.js [my-script.ts] [options]
 ```
 
 ## ESM Register
@@ -138,3 +120,25 @@ ESM_REGISTER="my-hook.js" node --import bin/esm-register.js
 ```
 
 For example, by default, the [run-script](../DEVELOPMENT.md#main-project) command is setup with the [SWC register hook](../package.json#L13). Please see [API docs](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) on defining your own hook.
+
+## List Unmerged
+
+`git-ls-unmerged.sh` ([Source](git-ls-unmerged.sh))
+
+Given a list of SHA (`COMMITS`), export a list of commits (referenced by `REF`) that are not in `BASE_REF`. Can be used by the CI to create a pull request with selective changes from several feature branches.
+
+### Example
+
+We can validate and cherry-pick several commits that are not in `BASE_REF`. The following is executed in git bash:
+
+```sh
+COMMITS="f67dda88fe9d0a892c44af923cbbc50bfe454e0e bf7352d6328221cd1c02104c99f57faf5be54c7d" # possible commits
+BASE_REF=master                                                                             # if not declared, uses `origin/main`
+source ./git-ls-unmerged.sh
+echo $REF
+echo $COUNT                         # returns number of commits not in BASE_REF
+echo $OUTPUT                        # shortened REF, each SHA seperated by '-'
+git checkout -b cherry-pick-$OUTPUT # create a PR branch
+git cherry-pick $REF -x             # note we should always provide the original SHA in the commit message. The 'x' arg will handle this.
+git push
+```
