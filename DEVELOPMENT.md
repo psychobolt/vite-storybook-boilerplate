@@ -16,7 +16,7 @@
 
 #### Troubleshooting
 
-Manual overriding Yarn's default global folder (e.g. `YARN_GLOBAL_FOLDER=${HOME}/.yarn/berry` or `YARN_GLOBAL_FOLDER=${LOCALAPPDATA}/Yarn/berry`) in your local `.env` file may help resolve issues during bootstrapping
+Overriding Yarn's default global folder (e.g. `YARN_GLOBAL_FOLDER=${HOME}/.yarn/berry` or `YARN_GLOBAL_FOLDER=${LOCALAPPDATA}/Yarn/berry`) in your local `.env` file may help resolve issues during bootstrapping.
 
 ### ESLint Setup
 
