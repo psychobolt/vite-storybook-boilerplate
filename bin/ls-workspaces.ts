@@ -13,37 +13,46 @@ const { execSync } = childProcess;
 const exec = util.promisify(childProcess.exec);
 const invalidFilterExpression = /^[.*]$/g;
 
+const globMatcher = (negate?: boolean) => (expressions: string[]) => {
+  const matchers = expressions.reduce((list: RegExp[], expression) => {
+    if (invalidFilterExpression.test(expression)) {
+      return list;
+    }
+    return [...list, globToRegExp(expression, { extended: true })];
+  }, []);
+  return {
+    test: (value: string) => {
+      let result = true;
+      for (const matcher of matchers) {
+        result &&= matcher.test(value);
+        if (negate) {
+          result = !result;
+        }
+        if (result) {
+          return result;
+        }
+      }
+      return result;
+    }
+  };
+};
+
 const filters: Filters = {
-  '--location': {
-    alias: '-l',
-    type: String,
-    value: '',
-    matcher: globToRegExp
-  },
   '--name': {
     alias: '-n',
     type: String,
     value: '',
     matcher: RegExp
   },
-  '--filter': {
+  '--include': {
     type: [String],
     value: [],
-    matcher: (expressions = []) => {
-      const matchers = (expressions as string[]).reduce(
-        (list: RegExp[], expression) => {
-          if (invalidFilterExpression.test(expression)) {
-            return list;
-          }
-          return [...list, globToRegExp(expression)];
-        },
-        []
-      );
-      return {
-        test: (value: string) =>
-          matchers.reduce((prev, matcher) => prev && matcher.test(value), true)
-      };
-    }
+    matcher: globMatcher()
+  },
+  '--exclude': {
+    type: [String],
+    value: [],
+    matcher: globMatcher(true)
   },
   '--node-linker': {
     key: 'nodeLinker',
@@ -265,9 +274,9 @@ async function getWorkspaces<T>(options?: Options) {
             const workspace: Workspace = JSON.parse(line);
             const keep =
               true &&
-              passthrough(workspace, 'location', 'location') &&
+              passthrough(workspace, 'include', 'location') &&
+              passthrough(workspace, 'exclude', 'location') &&
               passthrough(workspace, 'name', 'name') &&
-              passthrough(workspace, 'filter', 'name') &&
               passthrough(workspace, 'node-linker') &&
               passthrough(workspace, 'turbo-only');
             return keep ? [workspace, ...list] : list;
