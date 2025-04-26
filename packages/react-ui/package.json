@@ -27,8 +27,8 @@
     "build-dts": "tsc --project tsconfig.dts.json",
     "build-storybook": "yarn g:storybook build --stats-json",
     "start": "yarn g:dotenv-run -- http-server storybook-static",
-    "test": "yarn g:vitest run",
-    "coverage": "yarn test --coverage",
+    "test": "yarn g:vitest",
+    "coverage": "yarn test run --coverage",
     "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
     "format": "yarn g:format",
     "chromatic": "yarn g:dotenv-run -f .env.ci -- chromatic"

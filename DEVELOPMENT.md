@@ -7,6 +7,7 @@
 1. Install the latest v18 (Hydrogen) node (https://nodejs.org/en/) standalone or with [nvm](https://nodejs.org/en/download/package-manager#nvm)/[nvm-windows](https://github.com/coreybutler/nvm-windows)
 2. Setup Yarn (https://yarnpkg.com/getting-started/install)
 3. Run command `yarn install && yarn bootstrap` in the your project directory
+   > Note: If you're using a linux subsystem on Windows, ensure `YARN_GLOBAL_FOLDER` is overriden (e.g. `${HOME}/.yarn/berry` or `${LOCALAPPDATA}/Yarn/berry`) in your local `.env` file.
 4. Download and install [Visual Studio Code](https://code.visualstudio.com/)
 5. Open your project in VSCode with latest v18 (Hydrogen) node (e.g. `nvm use 18 && code ./vite-storybook-boilerplate`)
 6. Check notifications (bottom right of VSCode status bar) and install all recommended extensions
@@ -114,7 +115,7 @@ See [documentation](https://dotenvx.com/docs) for usage.
 
 - Keep personal secrets or local overrides in a `.env` file.
 - Keep shared secrets in a `.env.*` file.
-- Before committing shared secrets, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to share private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) with your team or CI after committing respective environment files.
+- Before committing shared secrets, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to provide private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) with your team or CI setup after committing respective environment files.
 
 ## [Workflows](WORKFLOWS.md)
 
