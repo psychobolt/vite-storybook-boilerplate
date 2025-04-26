@@ -25,7 +25,7 @@ definitions:
     - script: &git-auth |
         git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
     - script: &env |
-        export YARN_GLOBAL_FOLDER=
+        export YARN_GLOBAL_FOLDER=.temp/.yarn/berry
         echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
     - script: &install |
         yarn install
