@@ -9,7 +9,8 @@
       "outputs": ["dist/**"]
     },
     "test": {
-      "persistent": true
+      "cache": false,
+      "interactive": true
     },
     "coverage": {
       "dependsOn": ["^build"],
