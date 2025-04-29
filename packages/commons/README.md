@@ -30,7 +30,7 @@ export default mergeConfig(
 
 #### Vitest
 
-1. Create your own config:
+1. Create your own root or workspace config:
 
    See [source](vitest.config.ts)
 
@@ -44,6 +44,8 @@ export default mergeConfig(
 
    export default mergeConfig(commonConfig, viteConfig);
    ```
+
+   > To organize different test environment configurations, it is recommended to set up within [workspaces](https://vitest.dev/guide/workspace.html#defining-a-workspace).
 
 2. Add scripts to /your/project/package.json
 
@@ -240,11 +242,15 @@ export default preview;
    import commonConfig from 'commons/esm/.storybook/vitest.config.js';
 
    import viteConfig from './vite.config';
+   import vitestConfig from '../vitest.config';
 
-   export default mergeConfig(commonConfig, viteConfig);
+   export default mergeConfig(
+     vitestConfig,
+     mergeConfig(commonConfig, viteConfig)
+   );
    ```
 
-3. Extend the root config:
+3. Setup workspaces inside your root config:
 
    /your/project/vitest.config.ts
 
@@ -252,11 +258,21 @@ export default preview;
    import { mergeConfig } from 'vitest/config';
    import commonConfig from 'commons/esm/vitest.config';
 
-   import storybookConfig from './.storybook/vitest.config';
    import viteConfig from './vite.config';
 
-   export default mergeConfig(
-     mergeConfig(commonConfig, viteConfig),
-     storybookConfig
-   );
+   export default mergeConfig(mergeConfig(commonConfig, viteConfig), {
+     test: {
+       workspaces: [
+         '.storybook/vitest.config.ts'
+         /* 
+        {
+          extends: true,
+          test: {
+            // ...
+          }
+        }
+        */
+       ]
+     }
+   });
    ```
