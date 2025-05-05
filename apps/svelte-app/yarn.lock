@@ -4438,12 +4438,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.15.5":
-  version: 22.15.5
-  resolution: "@types/node@npm:22.15.5"
+"@types/node@npm:22.15.6":
+  version: 22.15.6
+  resolution: "@types/node@npm:22.15.6"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/eb8c186123d5fd05e9b94fbb3e05ebc0cb50672caeb2fa3eef615726e557748ed386fe69e1fa502eef5ac381b27aaf24f7a109a581baeadc2c0a91dbab19fa31
+  checksum: 10c0/9b77c184a320a5ba3900350a1b5e80559f42ca7ec9b0e1fa8399cd6fd8f23bda17eb5f3e58d7bf98fd1abd81854948cc92c7bee6c2de9afdccb11c26c5d27d82
   languageName: node
   linkType: hard
 
@@ -16578,7 +16578,7 @@ __metadata:
     "@swc/core": "npm:1.6.7"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
-    "@types/node": "npm:22.15.5"
+    "@types/node": "npm:22.15.6"
     "@typescript-eslint/utils": "npm:8.32.0"
     commons: "workspace:*"
     eslint: "npm:9.26.0"
