@@ -40,8 +40,8 @@ export function getAbsolutePath(
 export const mainDir = '@(src|stories)';
 
 export const stories = [
-  `../${mainDir}/**/*.mdx`,
-  `../${mainDir}/**/*.@(story|stories).@(js|jsx|ts|tsx)`
+  `../${mainDir}/**/*.@(story|stories).@(js|jsx|ts|tsx)`,
+  `../${mainDir}/**/*.mdx`
 ];
 
 const resolveConfig: ResolveOptions & ResolveConfig = {
