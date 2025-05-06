@@ -25,8 +25,8 @@ export default defineConfig({
       exclude: [
         '**/.storybook/**',
         // 👇 This pattern must align with the `stories` property of your `.storybook/main.ts` config
-        '**/*.mdx',
         '**/*.@(story|stories).@(js|jsx|ts|tsx)',
+        '**/*.mdx',
         // 👇 This pattern must align with the output directory of `storybook build`
         '**/storybook-static/**'
       ]
