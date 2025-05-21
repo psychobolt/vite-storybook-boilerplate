@@ -16676,7 +16676,7 @@ __metadata:
     svelte: "npm:5.32.1"
     svelte-check: "npm:4.2.1"
     svelte-eslint-parser: "npm:1.2.0"
-    svelte-language-server: "npm:0.17.14"
+    svelte-language-server: "npm:0.17.15"
     tslib: "npm:2.8.1"
     turbo: "npm:2.5.3"
     typescript: "npm:5.8.3"
@@ -16722,9 +16722,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.17.14":
-  version: 0.17.14
-  resolution: "svelte-language-server@npm:0.17.14"
+"svelte-language-server@npm:0.17.15":
+  version: 0.17.15
+  resolution: "svelte-language-server@npm:0.17.15"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     "@vscode/emmet-helper": "npm:2.8.4"
@@ -16738,7 +16738,7 @@ __metadata:
     svelte: "npm:^4.2.19"
     svelte2tsx: "npm:~0.7.35"
     typescript: "npm:^5.8.2"
-    typescript-auto-import-cache: "npm:^0.3.5"
+    typescript-auto-import-cache: "npm:^0.3.6"
     vscode-css-languageservice: "npm:~6.3.5"
     vscode-html-languageservice: "npm:~5.4.0"
     vscode-languageserver: "npm:9.0.1"
@@ -16747,7 +16747,7 @@ __metadata:
     vscode-uri: "npm:~3.1.0"
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/9bbd5713fff16fd3bb9b535a808cb05a9af47c0040881308d8dcc18bccf11016899ef2797c5aa2b5092b68577b769670eb363a056d309dfbc67f6a4eeab6b50f
+  checksum: 10c0/2df69c217abb2dd7a8cf78079b3e9673e9cd46689ae3a263ac8f08fd71a289b2bc5dd80c0c9ed1790ce642aa7752d0c29a27304f5b19f88faea36c4e480f3010
   languageName: node
   linkType: hard
 
@@ -17374,12 +17374,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-auto-import-cache@npm:^0.3.5":
-  version: 0.3.5
-  resolution: "typescript-auto-import-cache@npm:0.3.5"
+"typescript-auto-import-cache@npm:^0.3.6":
+  version: 0.3.6
+  resolution: "typescript-auto-import-cache@npm:0.3.6"
   dependencies:
     semver: "npm:^7.3.8"
-  checksum: 10c0/2ce50daf05d493637cfb1c161cd055c6c790b13361d2d0fd6acc4a398c2008eddbbbdbb3437736fa4b6a5059d010d52fd6a277d60e2f2a935d5f68d626738475
+  checksum: 10c0/aad48d6aa9985f9a056c5c89ab91b6781c5430c0b80652586c2a997f2cc394f3ed70ec18c0c818a8423991a1cfe7e64d010cc2fded9ea192067a3188476c2b51
   languageName: node
   linkType: hard
 
