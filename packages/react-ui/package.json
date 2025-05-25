@@ -40,7 +40,7 @@
     "@storybook/react": "8.6.14",
     "@storybook/react-vite": "8.6.14",
     "@storybook/test": "8.6.14",
-    "@tsconfig/vite-react": "3.4.0",
+    "@tsconfig/vite-react": "6.3.5",
     "@types/prop-types": "15.7.14",
     "@types/react": "19.1.5",
     "@types/react-dom": "19.1.5",
