@@ -5,7 +5,7 @@ import type {
   StoryAnnotations,
   Renderer,
   Indexer
-} from '@storybook/types';
+} from 'storybook/internal/types';
 import type { PluginOption } from 'vite';
 import _ from 'lodash';
 import type { VariantStoryObj } from '../utils/story-generators.js';

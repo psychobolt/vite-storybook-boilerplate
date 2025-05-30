@@ -7,9 +7,10 @@ const { flatten, unflatten } = await import(
 );
 
 const { rules = {} }: Config = require('stylelint-config-hudochenkov/order');
+const { 'order/order': _, ...order } = rules;
 type Rules = NonNullable<typeof rules>;
 
-const rulesFlattened: Record<keyof Rules, Rules[keyof Rules]> = flatten(rules);
+const rulesFlattened: Record<string, Rules[keyof Rules]> = flatten(order);
 
 const updatedRules: Rules = unflatten(
   {
