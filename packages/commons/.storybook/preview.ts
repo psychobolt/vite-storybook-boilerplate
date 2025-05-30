@@ -2,11 +2,7 @@ import type {
   DecoratorFunction,
   ProjectAnnotations,
   Renderer
-} from '@storybook/types';
-import { SyntaxHighlighter } from '@storybook/components';
-import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
-
-SyntaxHighlighter.registerLanguage('scss', scss);
+} from 'storybook/internal/types';
 
 const decorators: Array<DecoratorFunction> = [];
 
@@ -18,11 +14,6 @@ const preview: ProjectAnnotations<any> = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i
-      }
-    },
-    docs: {
-      source: {
-        excludeDecorators: true
       }
     }
   }
