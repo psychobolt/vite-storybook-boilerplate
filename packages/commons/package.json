@@ -20,7 +20,7 @@
     "format": "yarn g:prettier --write --config esm/prettier.config.js $(echo \"${@:-.}\")"
   },
   "dependencies": {
-    "@chromatic-com/storybook": "3.2.6",
+    "@chromatic-com/storybook": "4.0.0",
     "@jest/types": "29.6.3",
     "@storybook/builder-vite": "8.6.14",
     "@storybook/components": "8.6.14",
