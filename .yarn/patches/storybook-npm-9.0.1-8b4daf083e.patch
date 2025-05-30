@@ -1,3 +1,18 @@
+diff --git a/bin/index.cjs b/bin/index.cjs
+index d0395f4f3f9e415065d539f1dc7cf14f1eb2c824..ce13973e4eb9c3858483445373249c20f2a7261d 100755
+--- a/bin/index.cjs
++++ b/bin/index.cjs
+@@ -1,8 +1,8 @@
+ #!/usr/bin/env node
+ 
+ const majorNodeVersion = parseInt(process.versions.node, 10);
+-if (majorNodeVersion < 20) {
+-  console.error('To run Storybook you need to have Node.js 20 or higher');
++if (majorNodeVersion < 18) {
++  console.error('To run Storybook you need to have Node.js 18 or higher');
+   process.exit(1);
+ }
+ 
 diff --git a/dist/builder-manager/index.cjs b/dist/builder-manager/index.cjs
 index d25c8bd1565cb9746c9ca42be8a3766287dfa3df..9054e933e1c958dcc297b64284ea1b74f5a616a1 100644
 --- a/dist/builder-manager/index.cjs
