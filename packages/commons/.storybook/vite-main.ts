@@ -2,7 +2,7 @@ import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { join, dirname } from 'node:path';
 import { platform } from 'node:process';
-import type { StorybookConfig } from '@storybook/types';
+import type { StorybookConfig } from 'storybook/internal/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
 import {
   type ResolveOptions,
@@ -61,7 +61,7 @@ export const config: StorybookViteCommonConfig = {
   addons: [
     getAbsolutePath('@storybook/addon-onboarding', resolveConfig),
     getAbsolutePath('@storybook/addon-links', resolveConfig),
-    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-docs'),
     ...(new RegExp(`^origin/${gitBranch}$`).test(process.env.BASE_REF ?? '')
       ? []
       : [getAbsolutePath('@chromatic-com/storybook')]),
@@ -69,9 +69,6 @@ export const config: StorybookViteCommonConfig = {
       ? []
       : [join(getAbsolutePath('storybook-zeplin'), 'dist/register')])
   ],
-  docs: {
-    autodocs: 'tag'
-  },
   viteFinal(config, { configType }) {
     let finalConfig = mergeConfig(
       config,

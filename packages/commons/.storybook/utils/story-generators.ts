@@ -1,4 +1,4 @@
-import type { Args } from '@storybook/types';
+import type { Args } from 'storybook/internal/types';
 import type { StringKeyOf } from 'ts-enum-util/dist/types/types.js';
 import { $enum } from 'ts-enum-util';
 import _ from 'lodash';

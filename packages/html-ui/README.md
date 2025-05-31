@@ -21,6 +21,15 @@ yarn [workspace workspace-name] add [-D[E]] html-ui
 
 ### as Import
 
+#### CSS
+
+```scss
+@import 'html-ui/style[.css]';
+// or
+@import 'html-ui/[ComponentA][.css]';
+@import 'html-ui/[ComponentB][.css]';
+```
+
 #### Sass
 
 ```scss
