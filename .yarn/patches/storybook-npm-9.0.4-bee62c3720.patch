@@ -1,5 +1,5 @@
 diff --git a/bin/index.cjs b/bin/index.cjs
-index d0395f4f3f9e415065d539f1dc7cf14f1eb2c824..ce13973e4eb9c3858483445373249c20f2a7261d 100755
+index d0395f4f3f9e415065d539f1dc7cf14f1eb2c824..ce13973e4eb9c3858483445373249c20f2a7261d 100644
 --- a/bin/index.cjs
 +++ b/bin/index.cjs
 @@ -1,8 +1,8 @@
@@ -66,7 +66,7 @@ index abe09a07cb1ee3b3bac4ca0480823c720b358235..399eaa2e99d7cf11358adc492b8edb68
      }
    };
 diff --git a/dist/common/index.cjs b/dist/common/index.cjs
-index c0f1c8f30299937a63fbedc3fbfa94e13d2a6fd9..f778ab3506fafd8c799e4e98bf1887cac7012da0 100644
+index 126afc5585a910a805197155c192c3fb7e802481..162f76221fb10ccc3b717df2b760de592fa7d931 100644
 --- a/dist/common/index.cjs
 +++ b/dist/common/index.cjs
 @@ -18751,7 +18751,7 @@ function nn(t) {
@@ -79,7 +79,7 @@ index c0f1c8f30299937a63fbedc3fbfa94e13d2a6fd9..f778ab3506fafd8c799e4e98bf1887ca
        // https://github.com/storybookjs/storybook/issues/19049
        keepNames: !0,
 diff --git a/dist/common/index.js b/dist/common/index.js
-index c436020ce196a5b78ddb4501f0a32a7563b984d6..d421fc92b17a46b21c0d2890ef158e67e01cc29f 100644
+index e8c154e452e129df330fb0f850ef0dd85c2f7757..838e5a4e9d3a6f4d0a6558e44ec35fee85e47664 100644
 --- a/dist/common/index.js
 +++ b/dist/common/index.js
 @@ -18683,7 +18683,7 @@ function hg(t) {
