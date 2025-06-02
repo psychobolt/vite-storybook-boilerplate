@@ -21,16 +21,6 @@ export default defineConfig({
       provider: 'playwright',
       instances: [{ browser: 'chromium' }]
     },
-    coverage: {
-      exclude: [
-        '**/.storybook/**',
-        // 👇 This pattern must align with the `stories` property of your `.storybook/main.ts` config
-        '**/*.@(story|stories).@(js|jsx|ts|tsx)',
-        '**/*.mdx',
-        // 👇 This pattern must align with the output directory of `storybook build`
-        '**/storybook-static/**'
-      ]
-    },
     setupFiles: [join(configDir, 'vitest.setup.ts')]
   }
 });
