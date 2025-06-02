@@ -14121,6 +14121,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"storybook@patch:storybook@npm%3A9.0.4#~/.yarn/patches/storybook-npm-9.0.4-bee62c3720.patch":
+  version: 9.0.4
+  resolution: "storybook@patch:storybook@npm%3A9.0.4#~/.yarn/patches/storybook-npm-9.0.4-bee62c3720.patch::version=9.0.4&hash=7574ef"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    "@testing-library/jest-dom": "npm:^6.6.3"
+    "@testing-library/user-event": "npm:^14.6.1"
+    "@vitest/expect": "npm:3.0.9"
+    "@vitest/spy": "npm:3.0.9"
+    better-opn: "npm:^3.0.2"
+    esbuild: "npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0"
+    esbuild-register: "npm:^3.5.0"
+    recast: "npm:^0.23.5"
+    semver: "npm:^7.6.2"
+    ws: "npm:^8.18.0"
+  peerDependencies:
+    prettier: ^2 || ^3
+  peerDependenciesMeta:
+    prettier:
+      optional: true
+  bin:
+    storybook: ./bin/index.cjs
+  checksum: 10c0/9254f0fb58748d9cac564daf3e322433fcdf071cb2f4068f258aa9c503296122f4eb1f49183ea17589e120886a093f8ef966f57d8591aeb31551ab50a3089e79
+  languageName: node
+  linkType: hard
+
 "stream-browserify@npm:^3.0.0":
   version: 3.0.0
   resolution: "stream-browserify@npm:3.0.0"
