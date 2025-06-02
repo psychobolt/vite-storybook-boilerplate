@@ -5,7 +5,10 @@ export default defineConfig({
     coverage: {
       exclude: [
         ...coverageConfigDefaults.exclude,
-        'storybook-static/**',
+        '**/.storybook/**',
+        '**/storybook-static/**',
+        '**/*.@(story|stories).@(js|jsx|ts|tsx)',
+        '**/*.mdx',
         '*.config.?(c|m)[jt]s?(x)'
       ]
     },
