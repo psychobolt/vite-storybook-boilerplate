@@ -2382,9 +2382,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.22.0":
-  version: 0.22.0
-  resolution: "@storybook/test-runner@npm:0.22.0"
+"@storybook/test-runner@npm:0.22.1":
+  version: 0.22.1
+  resolution: "@storybook/test-runner@npm:0.22.1"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -2409,7 +2409,7 @@ __metadata:
     storybook: ^0.0.0-0 || ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0 || ^9.0.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/f644ee495298e013f85f57643afbcbd26fe6579890aeb2e7e28a06f1a488e3dbbaf01473a3d961e75c5b9b341a484895eb464cd1b5781abdc6db8dd796eabafd
+  checksum: 10c0/2f9d3ba4cab137893b77ef1626ed9f328942c38c7dd8d6aa71eaccbfef5eb1afe350e080e6c5c88bc46b795a26749cd2186c64ad9a63b608866da9d3dad1f855
   languageName: node
   linkType: hard
 
@@ -5583,7 +5583,7 @@ __metadata:
     "@storybook/addon-onboarding": "npm:9.0.4"
     "@storybook/addon-vitest": "npm:9.0.4"
     "@storybook/builder-vite": "npm:9.0.4"
-    "@storybook/test-runner": "npm:0.22.0"
+    "@storybook/test-runner": "npm:0.22.1"
     "@types/eslint": "npm:9.6.1"
     "@types/lint-staged": "npm:13.3.0"
     "@types/lodash": "npm:4"
