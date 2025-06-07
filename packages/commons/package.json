@@ -24,7 +24,7 @@
     "@jest/types": "29.6.3",
     "@storybook/addon-docs": "9.0.4",
     "@storybook/builder-vite": "9.0.4",
-    "@storybook/test-runner": "0.22.0",
+    "@storybook/test-runner": "0.22.1",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4",
     "autoprefixer": "10.4.21",
