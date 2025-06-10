@@ -5605,8 +5605,8 @@ __metadata:
     jiti: "npm:2.4.2"
     lodash: "npm:4.17.21"
     neostandard: "npm:0.12.1"
-    playwright: "npm:1.52.0"
-    playwright-chromium: "npm:1.52.0"
+    playwright: "npm:1.53.0"
+    playwright-chromium: "npm:1.53.0"
     postcss: "npm:8.5.4"
     postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
@@ -12373,14 +12373,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-chromium@npm:1.52.0":
-  version: 1.52.0
-  resolution: "playwright-chromium@npm:1.52.0"
+"playwright-chromium@npm:1.53.0":
+  version: 1.53.0
+  resolution: "playwright-chromium@npm:1.53.0"
   dependencies:
-    playwright-core: "npm:1.52.0"
+    playwright-core: "npm:1.53.0"
   bin:
     playwright: cli.js
-  checksum: 10c0/5fce81fd48ef5289866c2740891e43a7063782b393f897b38c750c378fdbddb1b96e6e211fa2271a18dc1e137ac1ce41c96c9266f43ce1308c561838d0aa8b9f
+  checksum: 10c0/dddae9d4a94ad85f6f800853e0e5448756e1f3626b1db24e1bd00b997f97cc16c19db8879964ca33cd211ebdaa9932e4e6b902a3ac5e41527232eed2542779a0
   languageName: node
   linkType: hard
 
@@ -12393,7 +12393,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright@npm:1.52.0, playwright@npm:^1.14.0":
+"playwright-core@npm:1.53.0":
+  version: 1.53.0
+  resolution: "playwright-core@npm:1.53.0"
+  bin:
+    playwright-core: cli.js
+  checksum: 10c0/fda0cf76115b15b1ca5cbc69e14185904e5c85e9e7cddb0a48121e69d681c638ac497e8a103985976cae260aa02e9c03ea27d6cd0b5f3d3ca914d4c7fd96f930
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.53.0":
+  version: 1.53.0
+  resolution: "playwright@npm:1.53.0"
+  dependencies:
+    fsevents: "npm:2.3.2"
+    playwright-core: "npm:1.53.0"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 10c0/8d995114808b92f2005bd12ff5e494cdc3fa2d484f4d85a3e54be1fb99e88ae3e34b24792d83bb987462c73e553a0fa37a2a70264afbf67894b51c1498cf5a11
+  languageName: node
+  linkType: hard
+
+"playwright@npm:^1.14.0":
   version: 1.52.0
   resolution: "playwright@npm:1.52.0"
   dependencies:
@@ -16107,7 +16131,7 @@ __metadata:
     husky: "npm:9.1.7"
     jiti: "npm:2.4.2"
     lint-staged: "npm:16.1.0"
-    playwright: "npm:1.52.0"
+    playwright: "npm:1.53.0"
     semver: "npm:7.7.2"
     stylelint: "npm:16.20.0"
     turbo: "npm:2.5.4"
