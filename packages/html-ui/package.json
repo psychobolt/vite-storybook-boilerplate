@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@open-wc/lit-helpers": "0.7.0",
-    "@storybook/addon-coverage": "1.0.5",
+    "@storybook/addon-coverage": "2.0.0",
     "@storybook/addon-docs": "9.0.4",
     "@storybook/web-components": "9.0.4",
     "@storybook/web-components-vite": "9.0.4",
