@@ -48,7 +48,7 @@
     "chromatic": "12.2.0",
     "classnames": "2.5.1",
     "commons": "workspace:*",
-    "glob": "11.0.2",
+    "glob": "11.0.3",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
     "prop-types": "15.8.1",

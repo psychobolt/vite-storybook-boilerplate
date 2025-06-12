@@ -30,7 +30,7 @@
     "chromatic": "12.2.0",
     "classnames": "2.5.1",
     "commons": "workspace:*",
-    "glob": "11.0.2",
+    "glob": "11.0.3",
     "http-server": "14.1.1",
     "lit": "3.3.0",
     "nyc": "17.1.0",
