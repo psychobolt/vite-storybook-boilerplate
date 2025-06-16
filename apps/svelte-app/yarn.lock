@@ -2249,33 +2249,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:9.0.4":
-  version: 9.0.4
-  resolution: "@storybook/addon-docs@npm:9.0.4"
+"@storybook/addon-docs@npm:9.0.10":
+  version: 9.0.10
+  resolution: "@storybook/addon-docs@npm:9.0.10"
   dependencies:
     "@mdx-js/react": "npm:^3.0.0"
-    "@storybook/csf-plugin": "npm:9.0.4"
+    "@storybook/csf-plugin": "npm:9.0.10"
     "@storybook/icons": "npm:^1.2.12"
-    "@storybook/react-dom-shim": "npm:9.0.4"
+    "@storybook/react-dom-shim": "npm:9.0.10"
     react: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     react-dom: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^9.0.4
-  checksum: 10c0/c70937abe73ec77e80017f14f459224fcefae457999be7be25cd198d49bdff31d181a99d3ec7b72fa494063e4f229c7c4e324173b416a2710208c8a12882e2bd
+    storybook: ^9.0.10
+  checksum: 10c0/1fe07a2ca28a1beaa08b7469481a680ecf0a203835ca03896c422163aed3574cd91439627f0da59b591efed4ee54b013c7089ae754dda6fc82e852f32915367e
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:9.0.4":
-  version: 9.0.4
-  resolution: "@storybook/builder-vite@npm:9.0.4"
+"@storybook/builder-vite@npm:9.0.10":
+  version: 9.0.10
+  resolution: "@storybook/builder-vite@npm:9.0.10"
   dependencies:
-    "@storybook/csf-plugin": "npm:9.0.4"
+    "@storybook/csf-plugin": "npm:9.0.10"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^9.0.4
+    storybook: ^9.0.10
     vite: ^5.0.0 || ^6.0.0
-  checksum: 10c0/137c1b114d96f1e12f0d76b38d7d4ec10842b8d8284ead906e56d91d61dfbd9a82b84e7643be7cb226040d5829a72d580b441cb26cfa8d6634a7ebe4eff14071
+  checksum: 10c0/4034c0a5878001f1512faeb0b64264df0c0f394210e87795c5e4e6d96b1f195753e8d28f7cd8de283ee076c534a22581a9d7cacabf3c107ac8672031fb99f414
   languageName: node
   linkType: hard
 
@@ -2288,14 +2288,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/csf-plugin@npm:9.0.4":
-  version: 9.0.4
-  resolution: "@storybook/csf-plugin@npm:9.0.4"
+"@storybook/csf-plugin@npm:9.0.10":
+  version: 9.0.10
+  resolution: "@storybook/csf-plugin@npm:9.0.10"
   dependencies:
     unplugin: "npm:^1.3.1"
   peerDependencies:
-    storybook: ^9.0.4
-  checksum: 10c0/3988920c425b5ea8c2fd6d7148ae8d009ec4556fab2e14b6223ea6ae7422a0242a16c2e333f28218f85b7c0781c3540ecefbeaa94a492aaf9132e98a5785b254
+    storybook: ^9.0.10
+  checksum: 10c0/e3ef93592876aa79ef3fedf0081b0410f4bb714806cb871818cda20c9d2d919ef3a20dec8f4e1a1806c5ed91511341b99bcbe01bb06a75f8dc13ff73ec90f586
   languageName: node
   linkType: hard
 
@@ -2318,14 +2318,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-dom-shim@npm:9.0.4":
-  version: 9.0.4
-  resolution: "@storybook/react-dom-shim@npm:9.0.4"
+"@storybook/react-dom-shim@npm:9.0.10":
+  version: 9.0.10
+  resolution: "@storybook/react-dom-shim@npm:9.0.10"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-    storybook: ^9.0.4
-  checksum: 10c0/abee05aa500c90b15a850163965f6631c1cd95f688eb12f5c629de0b2ce47f340b540e1f76b15bb84219a8961c0389316f39f5cc10cf807f76ae7e8d0c33a1c7
+    storybook: ^9.0.10
+  checksum: 10c0/5740e172b9e399aea864f187f6b8c9fa8675cc7a14cb51a8e71609f814d753d1fa83b0519f8c281db9b39da45c7bacf047f6acc032f589f2d6a18e00c77eae09
   languageName: node
   linkType: hard
 
@@ -4750,8 +4750,8 @@ __metadata:
   dependencies:
     "@chromatic-com/storybook": "npm:4.0.0"
     "@jest/types": "npm:29.6.3"
-    "@storybook/addon-docs": "npm:9.0.4"
-    "@storybook/builder-vite": "npm:9.0.4"
+    "@storybook/addon-docs": "npm:9.0.10"
+    "@storybook/builder-vite": "npm:9.0.10"
     "@storybook/test-runner": "npm:0.23.0"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4"
