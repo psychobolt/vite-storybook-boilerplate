@@ -2936,10 +2936,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/vite-react@npm:6.3.5":
-  version: 6.3.5
-  resolution: "@tsconfig/vite-react@npm:6.3.5"
-  checksum: 10c0/7c6edf6171464934a57a908181199da36b55542bd0b21c405c752733f14d575954ad18df83c1b428d7c27ea9fe7026cef8fa28f8a72aa417261038e24956aecc
+"@tsconfig/vite-react@npm:6.3.6":
+  version: 6.3.6
+  resolution: "@tsconfig/vite-react@npm:6.3.6"
+  checksum: 10c0/cceb2561f0c488ec59fb1a6919e75983a277fae8c23f770af6e8a7ce8495392269f51ce19e597e0798e1283a3c00e561eecf090b9abd610ccadce5e07fb524b5
   languageName: node
   linkType: hard
 
@@ -13086,7 +13086,7 @@ __metadata:
     "@storybook/addon-vitest": "npm:9.0.4"
     "@storybook/react": "npm:9.0.4"
     "@storybook/react-vite": "npm:9.0.4"
-    "@tsconfig/vite-react": "npm:6.3.5"
+    "@tsconfig/vite-react": "npm:6.3.6"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.1.8"
     "@types/react-dom": "npm:19.1.6"
