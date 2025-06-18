@@ -5683,8 +5683,8 @@ __metadata:
     jiti: "npm:2.4.2"
     lodash: "npm:4.17.21"
     neostandard: "npm:0.12.1"
-    playwright: "npm:1.53.0"
-    playwright-chromium: "npm:1.53.0"
+    playwright: "npm:1.53.1"
+    playwright-chromium: "npm:1.53.1"
     postcss: "npm:8.5.4"
     postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
@@ -12563,14 +12563,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-chromium@npm:1.53.0":
-  version: 1.53.0
-  resolution: "playwright-chromium@npm:1.53.0"
+"playwright-chromium@npm:1.53.1":
+  version: 1.53.1
+  resolution: "playwright-chromium@npm:1.53.1"
   dependencies:
-    playwright-core: "npm:1.53.0"
+    playwright-core: "npm:1.53.1"
   bin:
     playwright: cli.js
-  checksum: 10c0/dddae9d4a94ad85f6f800853e0e5448756e1f3626b1db24e1bd00b997f97cc16c19db8879964ca33cd211ebdaa9932e4e6b902a3ac5e41527232eed2542779a0
+  checksum: 10c0/02240f8dbb378637fe66e047448a510ceb689c6cdb56595735f099bcd9b557897ce2f97bc2456056ba68e729b3732e5ab6d4b8a3b3989fe9ed21c591a2da4978
   languageName: node
   linkType: hard
 
@@ -12583,27 +12583,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.53.0":
-  version: 1.53.0
-  resolution: "playwright-core@npm:1.53.0"
+"playwright-core@npm:1.53.1":
+  version: 1.53.1
+  resolution: "playwright-core@npm:1.53.1"
   bin:
     playwright-core: cli.js
-  checksum: 10c0/fda0cf76115b15b1ca5cbc69e14185904e5c85e9e7cddb0a48121e69d681c638ac497e8a103985976cae260aa02e9c03ea27d6cd0b5f3d3ca914d4c7fd96f930
+  checksum: 10c0/8780552740741b94c346373ab6f949e9a44d3df54016b12123da9fe2f5fb60c1838197642916789b0a2ffb567e4ba0089f2e57d496bef7e460ddc4526f9b3b0f
   languageName: node
   linkType: hard
 
-"playwright@npm:1.53.0":
-  version: 1.53.0
-  resolution: "playwright@npm:1.53.0"
+"playwright@npm:1.53.1":
+  version: 1.53.1
+  resolution: "playwright@npm:1.53.1"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.53.0"
+    playwright-core: "npm:1.53.1"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10c0/8d995114808b92f2005bd12ff5e494cdc3fa2d484f4d85a3e54be1fb99e88ae3e34b24792d83bb987462c73e553a0fa37a2a70264afbf67894b51c1498cf5a11
+  checksum: 10c0/3dcbcd3791a7f0d1007db4d3126c8136258a2002c2fbfc8b840086b64cbc1fb628b2e25dd3b345d685fb27ba39790ab0f4ce81a8faade7dc748af3a63bdf3550
   languageName: node
   linkType: hard
 
@@ -16325,7 +16325,7 @@ __metadata:
     husky: "npm:9.1.7"
     jiti: "npm:2.4.2"
     lint-staged: "npm:16.1.2"
-    playwright: "npm:1.53.0"
+    playwright: "npm:1.53.1"
     semver: "npm:7.7.2"
     stylelint: "npm:16.20.0"
     turbo: "npm:2.5.4"
