@@ -7145,15 +7145,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-svelte@npm:3.9.2":
-  version: 3.9.2
-  resolution: "eslint-plugin-svelte@npm:3.9.2"
+"eslint-plugin-svelte@npm:3.9.3":
+  version: 3.9.3
+  resolution: "eslint-plugin-svelte@npm:3.9.3"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.6.1"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
     esutils: "npm:^2.0.3"
     globals: "npm:^16.0.0"
-    known-css-properties: "npm:^0.36.0"
+    known-css-properties: "npm:^0.37.0"
     postcss: "npm:^8.4.49"
     postcss-load-config: "npm:^3.1.4"
     postcss-safe-parser: "npm:^7.0.0"
@@ -7165,7 +7165,7 @@ __metadata:
   peerDependenciesMeta:
     svelte:
       optional: true
-  checksum: 10c0/b23bd9af5462f903c6e0fe5e450a9da24169677a2607fef00889cbf0ebbd660d2224def7e8f1686d89a82656d5472525446edc02e5f26973fd24366c80a7037f
+  checksum: 10c0/90ef2d9eb9763aca4b643daf546ba70c29ec501b86a278d2b2e3a5b95b33d591ac761530564f78ac3b4d1579e2b81de1acb26ae160f5f36fb3dbada02352c8a0
   languageName: node
   linkType: hard
 
@@ -15127,7 +15127,7 @@ __metadata:
     commons: "workspace:*"
     eslint: "npm:9.29.0"
     eslint-config-prettier: "npm:10.1.5"
-    eslint-plugin-svelte: "npm:3.9.2"
+    eslint-plugin-svelte: "npm:3.9.3"
     globals: "npm:16.2.0"
     html-ui: "workspace:*"
     jiti: "npm:2.4.2"
