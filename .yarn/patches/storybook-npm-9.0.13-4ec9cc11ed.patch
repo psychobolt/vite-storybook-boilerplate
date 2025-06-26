@@ -66,7 +66,7 @@ index abe09a07cb1ee3b3bac4ca0480823c720b358235..399eaa2e99d7cf11358adc492b8edb68
      }
    };
 diff --git a/dist/common/index.cjs b/dist/common/index.cjs
-index 85790ccf1d5cb67bb844e5953a9a0c21ca1e5bf1..795ba39aa05fa0bfd08cbc726bf3fbfb501e11be 100644
+index 85790ccf1d5cb67bb844e5953a9a0c21ca1e5bf1..8cd3ab8ed29a81e646075e45d94fc4c1005cc5db 100644
 --- a/dist/common/index.cjs
 +++ b/dist/common/index.cjs
 @@ -18738,14 +18738,14 @@ s(la, "getInterpretedFileWithExt");
@@ -91,7 +91,7 @@ index 85790ccf1d5cb67bb844e5953a9a0c21ca1e5bf1..795ba39aa05fa0bfd08cbc726bf3fbfb
      });
    }
 -  let e = require(t);
-+  let e = await import(t);
++  let e = await import(`file://${t}`);
    return typeof e == "object" && e !== null && typeof e.default < "u" ? e.default : e;
  }
  s(sn, "interopRequireDefault");
@@ -119,10 +119,10 @@ index 85790ccf1d5cb67bb844e5953a9a0c21ca1e5bf1..795ba39aa05fa0bfd08cbc726bf3fbfb
    ], n = Yu(i);
    return n.length < i.length && Xr.logger.warn(
 diff --git a/dist/common/index.js b/dist/common/index.js
-index 2cbde37aa2bd4c2b1884fe606a77015606051220..34a97f3ffb58019553ef53235f854cf7cf7a501c 100644
+index 2cbde37aa2bd4c2b1884fe606a77015606051220..ad244d0b9aba035005e11fc98eef28fc642a6d9a 100644
 --- a/dist/common/index.js
 +++ b/dist/common/index.js
-@@ -18669,7 +18669,7 @@ s(Bl, "getInterpretedFileWithExt");
+@@ -18669,14 +18669,14 @@ s(Bl, "getInterpretedFileWithExt");
  
  // src/common/utils/interpret-require.ts
  var Ql = !1;
@@ -131,12 +131,20 @@ index 2cbde37aa2bd4c2b1884fe606a77015606051220..34a97f3ffb58019553ef53235f854cf7
    let A = !!v("module")._extensions[".ts"];
    if (Ql === !1 && !A) {
      let { register: i } = v("esbuild-register/dist/node");
+     Ql = !0, i({
+       target: `node${process.version.slice(1)}`,
+       format: "cjs",
+-      hookIgnoreNodeModules: !0,
++      hookIgnoreNodeModules: !1,
+       // Some frameworks, like Stylus, rely on the 'name' property of classes or functions
+       // https://github.com/storybookjs/storybook/issues/19049
+       keepNames: !0,
 @@ -18688,7 +18688,7 @@ function dg(t) {
      }`
      });
    }
 -  let e = v(t);
-+  let e = await import(t);
++  let e = await import(`file://${t}`);
    return typeof e == "object" && e !== null && typeof e.default < "u" ? e.default : e;
  }
  s(dg, "interopRequireDefault");
