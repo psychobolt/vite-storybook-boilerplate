@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module';
 import type { StorybookConfig } from '@storybook/react-vite';
-import type { StorybookViteCommonConfig } from 'commons/esm/.storybook/vite-main';
 import {
+  type StorybookViteCommonConfig,
   config as commonConfig,
   getAbsolutePath
 } from 'commons/esm/.storybook/vite-main';

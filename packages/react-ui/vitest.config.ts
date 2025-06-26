@@ -10,7 +10,7 @@ export default mergeConfig(
   mergeConfig(commonConfig, viteConfig),
   defineConfig({
     test: {
-      workspace: [
+      projects: [
         '.storybook/vitest.config.ts',
         {
           extends: true,
