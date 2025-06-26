@@ -1,8 +1,8 @@
 import { createRequire } from 'node:module';
 import type { Meta } from '@storybook/web-components';
 import { mergeConfig } from 'vite';
-import type { StorybookViteCommonConfig } from 'commons/esm/.storybook/vite-main';
 import {
+  type StorybookViteCommonConfig,
   config as commonConfig,
   stories,
   getAbsolutePath,

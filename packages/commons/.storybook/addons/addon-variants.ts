@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { isAbsolute } from 'node:path';
 import type {
   ComponentAnnotations,
@@ -9,6 +10,8 @@ import type {
 import type { PluginOption } from 'vite';
 import _ from 'lodash';
 import type { VariantStoryObj } from '../utils/story-generators.js';
+
+const require = createRequire(import.meta.url);
 
 export interface VariantsMeta<TArgs, TRenderer extends Renderer = Renderer>
   extends ComponentAnnotations<TRenderer, TArgs> {
