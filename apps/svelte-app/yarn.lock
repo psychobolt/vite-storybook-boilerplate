@@ -14293,7 +14293,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/14c6069a85b0dfc201cb4bb3fb4aed6e0251b49dd2efa8611137c1f6825cfd200534de29a9aaf29102996c6a77f39605656a5c9ef2886a53e06614f8bf5a9fd9
+  checksum: 10c0/860838d223f877dd8e04bd2b8f33cf67a38706643bdf07e3153e2857d7c0d33c3ee94cea7e86e60937cc91b3793272912cc7af14565641476f814bd61b3a1374
   languageName: node
   linkType: hard
 
@@ -14348,7 +14348,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/36e0e9598b536e824d772c96ccf09ac74759e51c37ff6d50a1b66c9c59e4db374612f27bad05b38c446fe1e328259d4a402206d4b0432f01201a693d73d5b0ee
+  checksum: 10c0/503dd73f00de3ec2e69f2e741703fd93f1cc3a0e11fa98f723d56f3fac52db22bdfd074c9007210c443bf0b1bb6ad053806d1fc7b446bf19679086ccad93ca55
   languageName: node
   linkType: hard
 
