@@ -55,7 +55,7 @@
     "playwright-chromium": "1.53.1",
     "prettier": "3.6.1",
     "prettier-config-standard": "7.0.0",
-    "prettier-plugin-sh": "0.17.4",
+    "prettier-plugin-sh": "0.18.0",
     "rimraf": "6.0.1",
     "storybook": "9.0.13",
     "tsconfig-to-dual-package": "1.2.0",
