@@ -2,6 +2,30 @@
   "name": "commons",
   "private": true,
   "type": "module",
+  "exports": {
+    "./*.json": "./*.json",
+    "./esm/*": "./esm/*.js",
+    "./esm/.storybook/*": "./esm/.storybook/*.js",
+    "./esm/.storybook/addons/*": "./esm/.storybook/addons/*.js",
+    "./esm/.storybook/utils/*": "./esm/.storybook/utils/*.js",
+    "./cjs/*.cjs": "./cjs/*.cjs"
+  },
+  "typesVersions": {
+    "*": {
+      "./esm/*": [
+        "./esm/*.d.ts"
+      ],
+      "./esm/.storybook/*": [
+        "./esm/.storybook/*.d.ts"
+      ],
+      "./esm/.storybook/addons/*": [
+        "./esm/.storybook/addons/*.d.ts"
+      ],
+      "./esm/.storybook/utils/*": [
+        "./esm/.storybook/utils/*.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "build": "yarn build-esm && yarn build-cjs",
     "build-esm": "rimraf esm/ && tsc --project tsconfig.esm.json",
@@ -21,7 +45,7 @@
   },
   "dependencies": {
     "@chromatic-com/storybook": "4.0.1",
-    "@jest/types": "30.0.1",
+    "@jest/types": "29.6.3",
     "@storybook/addon-docs": "9.0.13",
     "@storybook/builder-vite": "9.0.13",
     "@storybook/test-runner": "0.23.0",

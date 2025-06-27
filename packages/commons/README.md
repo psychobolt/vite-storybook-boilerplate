@@ -68,7 +68,7 @@ export default mergeConfig(
 
    ```ts
    import { defineConfig } from 'eslint/config';
-   import commonConfig from 'commons/esm/eslint.config.js';
+   import commonConfig from 'commons/esm/eslint.config';
 
    export default defineConfig(
      ...commonConfig
@@ -95,7 +95,7 @@ export default mergeConfig(
    /your/project/prettier.config.js
 
    ```js
-   import commonConfig from 'commons/esm/prettier.config.js';
+   import commonConfig from 'commons/esm/prettier.config';
 
    /**
     * @type {import("prettier").Config}
@@ -124,11 +124,11 @@ See [source](lint-staged.base.config.ts)
 /your/project/lint-staged.config.js
 
 ```js
-import commonConfig from 'commons/esm/lint-staged.base.config.js`
+import commonConfig from 'commons/esm/lint-staged.base.config.js';
 
 /**
-* @type {import('lint-staged').Configuration}
-*/
+ * @type {import('lint-staged').Configuration}
+ */
 export default {
   ...commonConfig
   // your overrides
@@ -239,7 +239,7 @@ export default preview;
 
    ```ts
    import { mergeConfig } from 'vitest/config';
-   import commonConfig from 'commons/esm/.storybook/vitest.config.js';
+   import commonConfig from 'commons/esm/.storybook/vitest.config';
 
    import viteConfig from './vite.config';
    import vitestConfig from '../vitest.config';
