@@ -2522,7 +2522,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/global@npm:^5.0.0":
+"@storybook/global@npm:5.0.0, @storybook/global@npm:^5.0.0":
   version: 5.0.0
   resolution: "@storybook/global@npm:5.0.0"
   checksum: 10c0/8f1b61dcdd3a89584540896e659af2ecc700bc740c16909a7be24ac19127ea213324de144a141f7caf8affaed017d064fea0618d453afbe027cf60f54b4a6d0b
@@ -5885,6 +5885,7 @@ __metadata:
     "@storybook/addon-onboarding": "npm:9.0.13"
     "@storybook/addon-vitest": "npm:9.0.13"
     "@storybook/builder-vite": "npm:9.0.13"
+    "@storybook/global": "npm:5.0.0"
     "@storybook/test-runner": "npm:0.23.0"
     "@types/eslint": "npm:9.6.1"
     "@types/lint-staged": "npm:13.3.0"

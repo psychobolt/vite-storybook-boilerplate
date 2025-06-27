@@ -45,7 +45,12 @@ export const stories = [
 ];
 
 const resolveConfig: ResolveOptions & ResolveConfig = {
-  alias: []
+  alias: [
+    {
+      find: '@storybook/global',
+      replacement: require.resolve('@storybook/global')
+    }
+  ]
 };
 
 const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
@@ -83,6 +88,9 @@ export const config: StorybookViteCommonConfig = {
             'default',
             'require'
           ]
+        },
+        optimizeDeps: {
+          include: ['@storybook/global']
         },
         css: {
           postcss: postcssConfig
