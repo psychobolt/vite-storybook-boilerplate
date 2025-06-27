@@ -14903,7 +14903,7 @@ __metadata:
 
 "storybook@patch:storybook@npm%3A9.0.13#~/.yarn/patches/storybook-npm-9.0.13-4ec9cc11ed.patch":
   version: 9.0.13
-  resolution: "storybook@patch:storybook@npm%3A9.0.13#~/.yarn/patches/storybook-npm-9.0.13-4ec9cc11ed.patch::version=9.0.13&hash=4e8713"
+  resolution: "storybook@patch:storybook@npm%3A9.0.13#~/.yarn/patches/storybook-npm-9.0.13-4ec9cc11ed.patch::version=9.0.13&hash=54116d"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     "@testing-library/jest-dom": "npm:^6.6.3"
@@ -14923,7 +14923,7 @@ __metadata:
       optional: true
   bin:
     storybook: ./bin/index.cjs
-  checksum: 10c0/ffff0403542f3204db5daab7daf144319f521a49cf66b1aa4f53caa820008ac16590a021b9f97cac797d22d415dff16d1a4fb5806645493b06a4614494784db0
+  checksum: 10c0/018d5b03f21925bb6195bf61e12d3b0aab4bce328c908e39e7dafc254966eb1a83f7e92ac726c1c895be4e6b8d426b350cef4a4b2548ea04ea677f1bcd177afe
   languageName: node
   linkType: hard
 
@@ -16748,15 +16748,6 @@ __metadata:
     turbo: "npm:2.5.4"
     typescript: "npm:5.8.3"
     yaml: "npm:2.8.0"
-  dependenciesMeta:
-    "@storybook/addon-vitest@9.0.13":
-      unplugged: true
-    "@vitest/browser@3.2.4":
-      unplugged: true
-    playwright@1.53.1:
-      unplugged: true
-    vitest@3.2.4:
-      unplugged: true
   languageName: unknown
   linkType: soft
 

@@ -58,19 +58,5 @@
     "vite@npm:7.0.0": "patch:vite@npm%3A7.0.0#~/.yarn/patches/vite-npm-7.0.0-b411ea4d9a.patch",
     "vite@npm:7.0.0/postcss": "npm:8.5.6",
     "vitest@npm:3.2.4/vite": "patch:vite@npm%3A7.0.0#~/.yarn/patches/vite-npm-7.0.0-b411ea4d9a.patch"
-  },
-  "dependenciesMeta": {
-    "@storybook/addon-vitest@9.0.13": {
-      "unplugged": true
-    },
-    "@vitest/browser@3.2.4": {
-      "unplugged": true
-    },
-    "playwright@1.53.1": {
-      "unplugged": true
-    },
-    "vitest@3.2.4": {
-      "unplugged": true
-    }
   }
 }
