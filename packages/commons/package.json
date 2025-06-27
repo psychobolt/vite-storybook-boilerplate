@@ -4,27 +4,13 @@
   "type": "module",
   "exports": {
     "./*.json": "./*.json",
-    "./esm/*": "./esm/*.js",
-    "./esm/.storybook/*": "./esm/.storybook/*.js",
-    "./esm/.storybook/addons/*": "./esm/.storybook/addons/*.js",
-    "./esm/.storybook/utils/*": "./esm/.storybook/utils/*.js",
-    "./cjs/*.cjs": "./cjs/*.cjs"
-  },
-  "typesVersions": {
-    "*": {
-      "./esm/*": [
-        "./esm/*.d.ts"
-      ],
-      "./esm/.storybook/*": [
-        "./esm/.storybook/*.d.ts"
-      ],
-      "./esm/.storybook/addons/*": [
-        "./esm/.storybook/addons/*.d.ts"
-      ],
-      "./esm/.storybook/utils/*": [
-        "./esm/.storybook/utils/*.d.ts"
-      ]
-    }
+    "./esm/*": {
+      "types": "./esm/*.d.ts",
+      "import": "./esm/*.js",
+      "require": "./esm/*.js"
+    },
+    "./esm/*.d.ts": "./esm/*.d.ts",
+    "./cjs/*": "./cjs/*.cjs"
   },
   "scripts": {
     "build": "yarn build-esm && yarn build-cjs",
