@@ -68,7 +68,7 @@ export default mergeConfig(
 
    ```ts
    import { defineConfig } from 'eslint/config';
-   import commonConfig from 'commons/esm/eslint.config';
+   import commonConfig from 'commons/esm/eslint.config.js';
 
    export default defineConfig(
      ...commonConfig
@@ -95,7 +95,7 @@ export default mergeConfig(
    /your/project/prettier.config.js
 
    ```js
-   import commonConfig from 'commons/esm/prettier.config';
+   import commonConfig from 'commons/esm/prettier.config.js';
 
    /**
     * @type {import("prettier").Config}

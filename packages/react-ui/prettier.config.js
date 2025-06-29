@@ -1,1 +1,1 @@
-export { default } from 'commons/esm/prettier.config';
+export { default } from 'commons/esm/prettier.config.js';
