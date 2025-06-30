@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "enabledManagers": ["bitbucket-pipelines"],
+  "extends": ["config:best-practices"],
   "packageRules": [
     {
       "matchManagers": ["bitbucket-pipelines"],
