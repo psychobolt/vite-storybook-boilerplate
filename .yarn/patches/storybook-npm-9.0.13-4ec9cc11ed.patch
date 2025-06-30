@@ -147,8 +147,8 @@ index 2cbde37aa2bd4c2b1884fe606a77015606051220..2724124f13adcf685b6d714e39749996
    }
 -  let e = v(t);
 +  const { isAbsolute } = require('node:path');
-+  const { fileURLToPath } = require('module:url');
-+  let e = await import(isAbsolute(t) ? fileURLToPath(t).href : t);
++  const { pathToFileURL } = require('module:url');
++  let e = await import(isAbsolute(t) ? pathToFileURL(t).href : t);
    return typeof e == "object" && e !== null && typeof e.default < "u" ? e.default : e;
  }
  s(dg, "interopRequireDefault");

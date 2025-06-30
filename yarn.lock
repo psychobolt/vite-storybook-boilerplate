@@ -14904,7 +14904,7 @@ __metadata:
 
 "storybook@patch:storybook@npm%3A9.0.13#~/.yarn/patches/storybook-npm-9.0.13-4ec9cc11ed.patch":
   version: 9.0.13
-  resolution: "storybook@patch:storybook@npm%3A9.0.13#~/.yarn/patches/storybook-npm-9.0.13-4ec9cc11ed.patch::version=9.0.13&hash=54116d"
+  resolution: "storybook@patch:storybook@npm%3A9.0.13#~/.yarn/patches/storybook-npm-9.0.13-4ec9cc11ed.patch::version=9.0.13&hash=166782"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     "@testing-library/jest-dom": "npm:^6.6.3"
@@ -14924,7 +14924,7 @@ __metadata:
       optional: true
   bin:
     storybook: ./bin/index.cjs
-  checksum: 10c0/018d5b03f21925bb6195bf61e12d3b0aab4bce328c908e39e7dafc254966eb1a83f7e92ac726c1c895be4e6b8d426b350cef4a4b2548ea04ea677f1bcd177afe
+  checksum: 10c0/bb4fb692b9c158e74aa83680dbf9b09e9f754aeebffc4d1cc6c6e26397fbd83c862b5591d71d531d18a6ea3277c771f07d96d1654887c2d3d53fdf1ad829a94c
   languageName: node
   linkType: hard
 
