@@ -31,14 +31,14 @@
     "@swc-node/register": "1.10.0",
     "@swc/core": "1.6.7",
     "@types/glob-to-regexp": "0.4.4",
-    "@types/node": "22.15.33",
+    "@types/node": "22.15.34",
     "@types/semver": "7.7.0",
     "@yarnpkg/core": "4.4.2",
     "@yarnpkg/fslib": "3.1.2",
     "@yarnpkg/sdks": "3.2.2",
     "arg": "5.0.2",
     "commons": "workspace:*",
-    "eslint": "9.29.0",
+    "eslint": "9.30.0",
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
     "jiti": "2.4.2",
@@ -51,11 +51,12 @@
     "yaml": "2.8.0"
   },
   "resolutions": {
-    "@storybook/test-runner@npm:0.23.0/@jest/types": "npm:30.0.1",
+    "@storybook/test-runner@npm:0.23.0": "patch:@storybook/test-runner@npm%3A0.23.0#~/.yarn/patches/@storybook-test-runner-npm-0.23.0-397644f312.patch",
     "@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
     "storybook@npm:9.0.13": "patch:storybook@npm%3A9.0.13#~/.yarn/patches/storybook-npm-9.0.13-4ec9cc11ed.patch",
     "vite@npm:7.0.0": "patch:vite@npm%3A7.0.0#~/.yarn/patches/vite-npm-7.0.0-b411ea4d9a.patch",
-    "vite@npm:7.0.0/postcss": "npm:8.5.6"
+    "vite@npm:7.0.0/postcss": "npm:8.5.6",
+    "vitest@npm:3.2.4/vite": "patch:vite@npm%3A7.0.0#~/.yarn/patches/vite-npm-7.0.0-b411ea4d9a.patch"
   }
 }
