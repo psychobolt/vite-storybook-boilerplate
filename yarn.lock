@@ -5505,9 +5505,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:13.1.0":
-  version: 13.1.0
-  resolution: "chromatic@npm:13.1.0"
+"chromatic@npm:13.1.1":
+  version: 13.1.1
+  resolution: "chromatic@npm:13.1.1"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -5520,7 +5520,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 10c0/ec23095e0a079c632f88a410c2ecc19c093874565924509ebba465c94f727c3a8f98e58932ab01db1c3a34f1a149a192e29c4b19277a3d53a9e6810085d404bd
+  checksum: 10c0/6676f1c05d09041cf7bcae7815928294b5c80d59c47cf8baa01bc738efaaf069246418731d256ca6bebf725c39b344db2a6fa6a60fa769b369fe01aca9c15681
   languageName: node
   linkType: hard
 
@@ -8702,7 +8702,7 @@ __metadata:
     "@storybook/web-components": "npm:9.0.14"
     "@storybook/web-components-vite": "npm:9.0.14"
     "@types/react-syntax-highlighter": "npm:15.5.13"
-    chromatic: "npm:13.1.0"
+    chromatic: "npm:13.1.1"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     glob: "npm:11.0.3"
@@ -13503,7 +13503,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:4.6.0"
     "@vitest/browser": "npm:3.2.4"
     "@vitest/coverage-v8": "npm:3.2.4"
-    chromatic: "npm:13.1.0"
+    chromatic: "npm:13.1.1"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     glob: "npm:11.0.3"
