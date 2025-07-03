@@ -27,7 +27,7 @@
     "@storybook/web-components": "9.0.14",
     "@storybook/web-components-vite": "9.0.14",
     "@types/react-syntax-highlighter": "15.5.13",
-    "chromatic": "13.1.0",
+    "chromatic": "13.1.1",
     "classnames": "2.5.1",
     "commons": "workspace:*",
     "glob": "11.0.3",
