@@ -12745,7 +12745,7 @@ __metadata:
     turbo: "npm:2.5.4"
     typescript: "npm:5.8.3"
     typescript-eslint: "npm:8.35.1"
-    vite: "npm:7.0.0"
+    vite: "npm:7.0.2"
   languageName: unknown
   linkType: soft
 
@@ -13877,7 +13877,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:*, vite@npm:7.0.0":
+"vite@npm:*":
   version: 7.0.0
   resolution: "vite@npm:7.0.0"
   dependencies:
@@ -13932,9 +13932,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@patch:vite@npm%3A7.0.0#../../.yarn/patches/vite-npm-7.0.0-b411ea4d9a.patch::locator=svelte-app%40workspace%3A.":
-  version: 7.0.0
-  resolution: "vite@patch:vite@npm%3A7.0.0#../../.yarn/patches/vite-npm-7.0.0-b411ea4d9a.patch::version=7.0.0&hash=dc5539&locator=svelte-app%40workspace%3A."
+"vite@npm:7.0.2":
+  version: 7.0.2
+  resolution: "vite@npm:7.0.2"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.4.6"
@@ -13983,7 +13983,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/503dd73f00de3ec2e69f2e741703fd93f1cc3a0e11fa98f723d56f3fac52db22bdfd074c9007210c443bf0b1bb6ad053806d1fc7b446bf19679086ccad93ca55
+  checksum: 10c0/a68c0302c820b39fe1119c2bc9dda865f48f6abd1629346c189e4983aef7d30e698c55ffff879d4ca6858cb3650c94b085a822215af9bd74d1eb8ceb2ce3e8c6
   languageName: node
   linkType: hard
 
