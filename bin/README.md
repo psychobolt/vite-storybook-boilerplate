@@ -113,13 +113,15 @@ node bin/swc-node.js [my-script.ts] [options]
 
 `esm-register.js` [Source](esm-register.js)
 
-As of Node v20, [hooks](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) can be utilzed to customize the default resolution and loading of scripts. This is a general hook script that you can use with the `--import` flag.
+As of Node v20, [hooks](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) can be utilzed to customize the default resolver for loading JavaScript or TypeScript files. For exmaple, using `--import` flag hook:
 
 ```sh
 ESM_REGISTER="my-hook.js" node --import bin/esm-register.js
 ```
 
-For example, by default, the [run-script](../DEVELOPMENT.md#main-project) command is setup with the [SWC register hook](../package.json#L13). Please see [API docs](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) on defining your own hook. You may also supply a variable (`NODE_TRANSFORM='typescript'`) to override the [typescript feature flag](https://nodejs.org/docs/latest-v23.x/api/process.html#processfeaturestypescript).
+By default, the [run-script](../DEVELOPMENT.md#main-project) command is setup with the [SWC register hook](../package.json#L13). Please see [API docs](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) on defining your own hook.
+
+This script supplies a variable (`NODE_TRANSFORM='typescript'`) to override the [typescript feature flag](https://nodejs.org/docs/latest-v23.x/api/process.html#processfeaturestypescript). You may also modify this script to patch modules.
 
 ## List Unmerged
 
