@@ -400,7 +400,7 @@ pipelines:
 
     renovate:
       - step:
-          image: renovate/renovate:latest@sha256:8ee38783437970673c675334b445986980f8290813a736738c3190662253c0b6
+          image: renovate/renovate:latest@sha256:9eae5d3c127d90af45f67f014e89a6e4e499c313930efd6b346d2d5eeb1a1ad0
           size: 2x
           caches:
             - yarn
