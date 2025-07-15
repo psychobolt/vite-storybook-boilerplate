@@ -17,7 +17,7 @@
 		"format": "prettier --write $(echo \"${@:-.}\")"
 	},
 	"devDependencies": {
-		"@dotenvx/dotenvx": "1.47.5",
+		"@dotenvx/dotenvx": "1.47.6",
 		"@eslint/js": "9.31.0",
 		"@fontsource/fira-mono": "5.2.6",
 		"@neoconfetti/svelte": "2.2.2",
@@ -29,7 +29,7 @@
 		"@swc/core": "1.6.7",
 		"@types/eslint": "9.6.1",
 		"@types/eslint-config-prettier": "6.11.3",
-		"@types/node": "22.16.3",
+		"@types/node": "22.16.4",
 		"@typescript-eslint/utils": "8.37.0",
 		"commons": "workspace:*",
 		"eslint": "9.31.0",
@@ -45,7 +45,7 @@
 		"stylelint": "16.21.1",
 		"stylelint-config-prettier-scss": "1.0.0",
 		"stylelint-config-standard-scss": "15.0.1",
-		"svelte": "5.35.7",
+		"svelte": "5.36.0",
 		"svelte-check": "4.2.2",
 		"svelte-eslint-parser": "1.2.0",
 		"svelte-language-server": "0.17.16",

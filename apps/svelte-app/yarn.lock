@@ -510,9 +510,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:1.47.5":
-  version: 1.47.5
-  resolution: "@dotenvx/dotenvx@npm:1.47.5"
+"@dotenvx/dotenvx@npm:1.47.6":
+  version: 1.47.6
+  resolution: "@dotenvx/dotenvx@npm:1.47.6"
   dependencies:
     commander: "npm:^11.1.0"
     dotenv: "npm:^16.4.5"
@@ -525,7 +525,7 @@ __metadata:
     which: "npm:^4.0.0"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/ca3cb9aebdad10db01568d888aefacefa362a06243675c69bd9e521d793793f5ac80b3ec5f31f7d9ff0885f96a54a4dd04e79c4a7bc0a37810307676158c69bc
+  checksum: 10c0/139bdcabd5398af777f04e54e741c4093363fa1f017c001dcd04150c68e731a2671fcfc511a79f15e76ee2a2b77249e770647ef0bd1f6584af77a3e93e27d9cc
   languageName: node
   linkType: hard
 
@@ -2824,12 +2824,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.16.3":
-  version: 22.16.3
-  resolution: "@types/node@npm:22.16.3"
+"@types/node@npm:22.16.4":
+  version: 22.16.4
+  resolution: "@types/node@npm:22.16.4"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/ea6829d0691713e216c15a767f87e412fa0f45c7ed4d49419098d967467e20a5dcdf66fee024e314deab2779f7e5282e1839ee918e845be27f14179247ec947a
+  checksum: 10c0/a6e3f345c2d9656451ceac349e59c4cafa2b03f793acf3ab4f318fd90cee47d76c4fa79a7a08b8772978958a42fb03c8c71caa50c064b4e88613085dea287c2d
   languageName: node
   linkType: hard
 
@@ -12841,7 +12841,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.47.5"
+    "@dotenvx/dotenvx": "npm:1.47.6"
     "@eslint/js": "npm:9.31.0"
     "@fontsource/fira-mono": "npm:5.2.6"
     "@neoconfetti/svelte": "npm:2.2.2"
@@ -12853,7 +12853,7 @@ __metadata:
     "@swc/core": "npm:1.6.7"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
-    "@types/node": "npm:22.16.3"
+    "@types/node": "npm:22.16.4"
     "@typescript-eslint/utils": "npm:8.37.0"
     commons: "workspace:*"
     eslint: "npm:9.31.0"
@@ -12869,7 +12869,7 @@ __metadata:
     stylelint: "npm:16.21.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:15.0.1"
-    svelte: "npm:5.35.7"
+    svelte: "npm:5.36.0"
     svelte-check: "npm:4.2.2"
     svelte-eslint-parser: "npm:1.2.0"
     svelte-language-server: "npm:0.17.16"
@@ -12960,9 +12960,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.35.7":
-  version: 5.35.7
-  resolution: "svelte@npm:5.35.7"
+"svelte@npm:5.36.0":
+  version: 5.36.0
+  resolution: "svelte@npm:5.36.0"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -12978,7 +12978,7 @@ __metadata:
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/2d74d379efe73816c1356a0be4176d9736946201211187ce526af23e008b679b151a34426fac368c17aada25485a88c5b7ee24cd1f802df0761b8dda9806985c
+  checksum: 10c0/be79f4ba8b3bdb52d918dc8505a34cbd51fcde5fcd69ac35a7ea6d2c13c840cf95081046cf0c0337d3b0ed815cb219cd3ea88543e01283984c82f09b37003c94
   languageName: node
   linkType: hard
 
