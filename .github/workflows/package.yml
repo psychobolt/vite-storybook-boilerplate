@@ -12,22 +12,66 @@ on:
       test-runner:
         type: string
 
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+  TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
+  TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
+  TURBO_TELEMETRY_DISABLED: 1
+  YARN_ENABLE_HARDENED_MODE: 0
+
 jobs:
-  deploy:
-    name: Run Tests
-    timeout-minutes: 20
+  lint:
+    name: Run Linter
+    timeout-minutes: 7
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     environment: '${{ inputs.workspace }}/${{ matrix.os }}'
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
-      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
-      TURBO_TELEMETRY_DISABLED: 1
-      YARN_ENABLE_HARDENED_MODE: 0
+    steps:
+      - name: Check out code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 50
+          ref: ${{ inputs.ref || github.ref }}
+      - name: Set Yarn global folder
+        env:
+          YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
+        run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
+        shell: bash
+      - name: Setup Node.js environment
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: lts/Hydrogen
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Setup Node.js environment (Windows)
+        if: matrix.os == 'windows-latest'
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: lts/Hydrogen
+          cache: yarn
+          cache-dependency-path: |
+            yarn.lock
+            yarnrc.yml
+      - name: Start Turbo Cache Server
+        uses: rharkor/caching-for-turbo@a1c4079258ae08389be75b57d4d7a70f23c1c66d # v1.8
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Run Lint
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+  test:
+    name: Run Tests
+    timeout-minutes: 7
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    environment: '${{ inputs.workspace }}/${{ matrix.os }}'
     steps:
       - name: Check out code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -63,8 +107,6 @@ jobs:
         run: yarn install
       - name: Install Playwright
         run: yarn playwright install --with-deps chromium
-      - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Coverage
         if: inputs.test-runner != 'vitest'
         env:
@@ -74,7 +116,6 @@ jobs:
           yarn dlx concurrently -k -s first -n "SB,TEST"
           "yarn workspace ${{ inputs.workspace }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} -- --silent"
           "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get SB_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
-
       - name: Run Coverage
         if: inputs.test-runner == 'vitest'
         run: yarn workspace ${{ inputs.workspace }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
@@ -85,10 +126,37 @@ jobs:
           flags: ${{ inputs.workspace }}
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
+  deploy:
+    name: Deploy
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    environment: '${{ inputs.workspace }}/ubuntu-latest'
+    steps:
+      - name: Check out code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 50
+          ref: ${{ inputs.ref || github.ref }}
+      - name: Set Yarn global folder
+        env:
+          YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
+        run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
+        shell: bash
+      - name: Setup Node.js environment
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: lts/Hydrogen
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Start Turbo Cache Server
+        uses: rharkor/caching-for-turbo@a1c4079258ae08389be75b57d4d7a70f23c1c66d # v1.8
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Install dependencies
+        run: yarn install
       - name: Run Chromatic
         run: >-
           yarn workspace ${{ inputs.workspace }} turbo run chromatic --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
-          ${{ matrix.os == 'windows-latest' && '-- --dry-run' || '' }}
         env:
           DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
           CHROMATIC_BRANCH: ${{ inputs.ref || github.ref_name }}

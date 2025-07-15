@@ -32,7 +32,7 @@ jobs:
     secrets: inherit
 
   html-ui:
-    uses: ./.github/workflows/test-package.yml
+    uses: ./.github/workflows/package.yml
     if: contains(fromJSON(inputs.package_names), 'html-ui')
     with:
       ref: ${{ inputs.ref }}
@@ -42,7 +42,7 @@ jobs:
 
   react-ui:
     if: contains(fromJSON(inputs.package_names), 'react-ui')
-    uses: ./.github/workflows/test-package.yml
+    uses: ./.github/workflows/package.yml
     with:
       ref: ${{ inputs.ref }}
       workspace: react-ui
