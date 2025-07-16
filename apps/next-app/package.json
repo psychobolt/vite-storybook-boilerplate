@@ -22,7 +22,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-ui": "workspace:*",
-    "turbo": "2.5.4",
+    "turbo": "2.5.5",
     "typescript": "5.8.3"
   }
 }
