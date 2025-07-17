@@ -19,7 +19,8 @@ const config: Config = {
       }
     ]
   },
-  allowEmptyInput: true
+  allowEmptyInput: true,
+  formatter: process.env.CI ? 'compact' : 'string'
 };
 
 export default config;

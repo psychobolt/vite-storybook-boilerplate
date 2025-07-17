@@ -19,7 +19,6 @@
     "build": "yarn turbo run build",
     "lint": "yarn g:prettier --check . && yarn g:lint-js",
     "lint-staged": "yarn workspace commons turbo run build && lint-staged",
-    "g:lint-css": "cd $INIT_CWD && stylelint --ignore-path $PROJECT_CWD/.gitignore \"**/*.{sc,c}ss\"",
     "format": "yarn g:format"
   },
   "workspaces": [
@@ -45,7 +44,6 @@
     "lint-staged": "16.1.2",
     "playwright": "1.54.1",
     "semver": "7.7.2",
-    "stylelint": "16.21.1",
     "turbo": "2.5.5",
     "typescript": "5.8.3",
     "yaml": "2.8.0"
