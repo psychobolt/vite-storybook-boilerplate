@@ -11,8 +11,6 @@ export default function run(args) {
     process.chdir(_dirname);
   }
 
-  const foo = 'bar';
-
   const nodeOptions = execSync('yarn node -p process.env.NODE_OPTIONS')
     .toString()
     .slice(0, -1)
