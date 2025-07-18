@@ -10,6 +10,8 @@ inputs:
     description: The distribute tag
   dry_run_publish:
     description: If "true", publish is disabled
+  npm_registry_url:
+    description: The NPM publish registry URL
   npm_auth_token:
     description: The NPM authentication token
 
@@ -43,7 +45,8 @@ runs:
     - name: Publish
       if: inputs.tag != ''
       env:
-        NODE_AUTH_TOKEN: ${{ inputs.npm_auth_token }}
+        NPM_REGISTRY_URL: ${{ inputs.npm_registry_url }}
+        NPM_AUTH_TOKEN: ${{ inputs.npm_auth_token }}
       run: >-
         yarn workspaces foreach -A --no-private ${{ inputs.dry_run_publish != '' && '-n' || '' }}
         npm publish --tolerate-republish

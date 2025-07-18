@@ -172,7 +172,6 @@ jobs:
           node-version: lts/Hydrogen
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
-          registry-url: ${{ vars.NPM_REGISTRY_URL }}
       - name: Override BASE_REF variable
         run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.head_ref || 'HEAD~1' }}" >> .env
       - name: Start Turbo Cache Server
@@ -188,8 +187,9 @@ jobs:
         with:
           strategy: ${{ startsWith(env.REF_NAME, 'release-') && 'stable' || 'build' }}
           tag: ${{ vars.RELEASE_TAG }}
+          npm_registry_url: ${{ vars.NPM_REGISTRY_URL }}
           npm_auth_token: ${{ secrets.NPM_AUTH_TOKEN || secrets.GITHUB_TOKEN }}
-          dry_run_publish: ${{ vars.DRY_RUN_PUBLISH }}
+          dry_run_publish: ${{ startsWith(env.REF_NAME, 'renovate/') && 'true' || vars.DRY_RUN_PUBLISH }}
       - name: Push
         if: startsWith(env.REF_NAME, 'release-')
         run: git push
