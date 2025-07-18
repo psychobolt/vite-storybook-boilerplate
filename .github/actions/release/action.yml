@@ -10,6 +10,8 @@ inputs:
     description: The distribute tag
   dry_run_publish:
     description: If "true", publish is disabled
+  npm_auth_token:
+    description: The NPM authentication token
 
 runs:
   using: 'composite'
@@ -25,13 +27,13 @@ runs:
         yarn build
       shell: bash
     - name: Prepare commit
-      if: ${{ inputs.strategy != '' && inputs.strategy != 'build' }}
+      if: inputs.strategy != '' && inputs.strategy != 'build'
       run: |
         git add .
         git commit -m "chore(version): ${{ inputs.strategy }} release" || true
       shell: bash
     - name: Tag the HEAD
-      if: ${{ inputs.tag != '' && steps.versions.outputs.semver != '{}' }}
+      if: steps.versions.outputs.semver != '{}'
       run: |
         git tag -d ${{ inputs.tag }} || true
         git push origin --delete ${{ inputs.tag }} || true
@@ -39,7 +41,9 @@ runs:
         git push origin ${{ inputs.tag }}
       shell: bash
     - name: Publish
-      if: steps.versions.outputs.semver != '{}'
+      if: inputs.tag != ''
+      env:
+        NODE_AUTH_TOKEN: ${inputs.npm_auth_token}
       run: >-
         yarn workspaces foreach -A --no-private ${{ inputs.dry_run_publish != '' && '-n' || '' }}
         npm publish --tolerate-republish
