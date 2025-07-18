@@ -43,7 +43,7 @@ runs:
     - name: Publish
       if: inputs.tag != ''
       env:
-        NODE_AUTH_TOKEN: ${inputs.npm_auth_token}
+        NODE_AUTH_TOKEN: ${{ inputs.npm_auth_token }}
       run: >-
         yarn workspaces foreach -A --no-private ${{ inputs.dry_run_publish != '' && '-n' || '' }}
         npm publish --tolerate-republish
