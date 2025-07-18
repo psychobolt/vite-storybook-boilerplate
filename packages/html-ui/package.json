@@ -1,6 +1,5 @@
 {
   "name": "html-ui",
-  "private": true,
   "type": "module",
   "packageManager": "yarn@4.9.2",
   "exports": {
