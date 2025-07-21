@@ -20,18 +20,18 @@ yarn [workspace workspace-name] add [-D[E]] html-ui react-ui
 
 ```jsx
 // Component.jsx
-// import "html-ui/style.css";
+// import 'html-ui/style.css';
 // or
-import "html-ui/ComponentA.css";
-import "html-ui/ComponentB.css";
+import 'html-ui/ComponentA.css';
+import 'html-ui/ComponentB.css';
 
-import React from "react";
-// import { ComponentA, ComponentB } from "react-ui";
+import React from 'react';
+// import { ComponentA, ComponentB } from 'react-ui';
 // or
-import { ComponentA } from "react-ui/ComponentA";
-import { ComponentB } from "react-ui/ComponentB";
+import { ComponentA } from 'react-ui/ComponentA';
+import { ComponentB } from 'react-ui/ComponentB';
 
-export const Component = ({ label = "Default Text" }) => (
+export const Component = ({ label = 'Default Text' }) => (
   <ComponentA>
     <ComponentB>{label}</ComponentB>
   </ComponentB>
