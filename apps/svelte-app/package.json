@@ -17,7 +17,7 @@
 		"format": "prettier --write $(echo \"${@:-.}\")"
 	},
 	"devDependencies": {
-		"@dotenvx/dotenvx": "1.48.1",
+		"@dotenvx/dotenvx": "1.48.2",
 		"@eslint/js": "9.31.0",
 		"@fontsource/fira-mono": "5.2.6",
 		"@neoconfetti/svelte": "2.2.2",
