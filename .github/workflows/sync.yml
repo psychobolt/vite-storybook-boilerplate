@@ -1,28 +1,31 @@
-name: Release
+name: Sync Lastest Changes
 
 on:
   workflow_call:
     inputs:
       ref_name:
         type: string
-      head_ref:
-        type: string
+        required: true
   workflow_dispatch:
+
+concurrency:
+  group: sync-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
 
 jobs:
-  release:
-    timeout-minutes: 15
+  sync:
     runs-on: ubuntu-latest
-    environment: ${{ (contains(fromJson('["main", "next"]'), inputs.ref_name || github.ref_name) || startsWith(inputs.ref_name || github.ref_name, 'release-')) && (inputs.ref_name || github.ref_name) || null }}
+    timeout-minutes: 2
     env:
-      REF_NAME: ${{ inputs.ref_name || github.ref_name }}
+      REF_NAME: ${{ inputs.ref_name || github.ref_name}}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       TURBO_TELEMETRY_DISABLED: 1
-      YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Get token
         id: get_token
@@ -42,11 +45,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
-          fetch-depth: ${{ startsWith(env.REF_NAME, 'release-') && 50 || 2 }}
-          ref: ${{ inputs.ref_name || github.ref }}
-      - name: Fetch ${{ vars.BASE_REF_NAME }}
-        if: startsWith(env.REF_NAME, 'release-')
-        run: git fetch --depth=50 origin ${{ vars.BASE_REF_NAME }}:${{ vars.BASE_REF_NAME }}
+          fetch-depth: 0
+          token: ${{ steps.get_token.outputs.token }}
+      - name: Checkout ${{ env.REF_NAME }} branch
+        run: git checkout -b ${{ env.REF_NAME }} origin/${{ env.REF_NAME }}
+      - name: Merge with main branch
+        run: git merge origin/main --no-commit --ff || true
+      - name: Prune deleted files
+        run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
       - name: Set Yarn global folder
         env:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
@@ -57,8 +63,6 @@ jobs:
           node-version: lts/Hydrogen
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
-      - name: Override BASE_REF variable
-        run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.head_ref || 'HEAD~1' }}" >> .env
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@a1c4079258ae08389be75b57d4d7a70f23c1c66d # v1.8
         with:
@@ -67,14 +71,7 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
-      - name: ${{ startsWith(env.REF_NAME, 'release-') && 'Stable' || 'Dark' }} Release
-        uses: ./.github/actions/release
-        with:
-          strategy: ${{ startsWith(env.REF_NAME, 'release-') && 'stable' || 'build' }}
-          tag: ${{ vars.RELEASE_TAG }}
-          npm_registry_url: ${{ vars.NPM_REGISTRY_URL }}
-          npm_auth_token: ${{ secrets.NPM_AUTH_TOKEN || secrets.GITHUB_TOKEN }}
-          dry_run_publish: ${{ startsWith(env.REF_NAME, 'renovate/') && 'true' || vars.DRY_RUN_PUBLISH }}
-      - name: Push
-        if: startsWith(env.REF_NAME, 'release-')
-        run: git push
+      - name: Amend Merge
+        run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
+      - name: Update bitbucket branch
+        run: git push origin
