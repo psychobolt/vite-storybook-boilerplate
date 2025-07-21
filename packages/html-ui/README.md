@@ -24,28 +24,28 @@ yarn [workspace workspace-name] add [-D[E]] html-ui
 #### CSS
 
 ```scss
-@import 'html-ui/style[.css]';
+@import '@psychobolt/html-ui/style[.css]';
 // or
-@import 'html-ui/[ComponentA][.css]';
-@import 'html-ui/[ComponentB][.css]';
+@import '@psychobolt/html-ui/[ComponentA][.css]';
+@import '@psychobolt/html-ui/[ComponentB][.css]';
 ```
 
 #### Sass
 
 ```scss
-@use 'html-ui/style[.css]';
+@use '@psychobolt/html-ui/style[.css]';
 // or
-@use 'html-ui/[ComponentA][.css]';
-@use 'html-ui/[ComponentB][.css]';
+@use '@psychobolt/html-ui/[ComponentA][.css]';
+@use '@psychobolt/html-ui/[ComponentB][.css]';
 ```
 
 #### JS or JSX
 
 ```js
-import 'html-ui/style.css';
+import '@psychobolt/html-ui/style.css';
 // or
-import 'html-ui/[ComponentA].css';
-import 'html-ui/[ComponentB].css';
+import '@psychobolt/html-ui/[ComponentA].css';
+import '@psychobolt/html-ui/[ComponentB].css';
 ```
 
 ### as Mixin
@@ -56,10 +56,10 @@ import 'html-ui/[ComponentB].css';
 @use 'sass:meta';
 
 .html-ui {
-  @include meta.load-css('html-ui/style[.css]');
+  @include meta.load-css('@psychobolt/html-ui/style[.css]');
   // or
-  @include meta.load-css('html-ui/[ComponentA][.css]');
-  @include meta.load-css('html-ui/[ComponentB][.css]');
+  @include meta.load-css('@psychobolt/html-ui/[ComponentA][.css]');
+  @include meta.load-css('@psychobolt/html-ui/[ComponentB][.css]');
 }
 ```
 
@@ -68,8 +68,8 @@ import 'html-ui/[ComponentB].css';
 #### JS
 
 ```js
-import classesA from 'html-ui/[ComponentA].css';
-import classesB from 'html-ui/[ComponentB].css';
+import classesA from '@psychobolt/html-ui/[ComponentA].css';
+import classesB from '@psychobolt/html-ui/[ComponentB].css';
 
 export function render() {
   const body = document.createElement('body');
@@ -88,8 +88,8 @@ export function render() {
 #### JSX
 
 ```jsx
-import classesA from 'html-ui/[ComponentA].css';
-import classesB from 'html-ui/[ComponentB].css';
+import classesA from '@psychobolt/html-ui/[ComponentA].css';
+import classesB from '@psychobolt/html-ui/[ComponentB].css';
 
 export const Component = (props) => (
   <div className={classesA.componentA}>

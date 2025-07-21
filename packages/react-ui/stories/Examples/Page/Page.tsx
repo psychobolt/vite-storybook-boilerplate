@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Page.module.scss';
-import { Header } from 'react-ui/Header';
+import { Header } from '@psychobolt/react-ui/Header';
 
 interface User {
   name: string;
