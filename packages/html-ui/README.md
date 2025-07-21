@@ -14,7 +14,7 @@ Powered by:
 ## Install
 
 ```sh
-yarn [workspace workspace-name] add [-D[E]] html-ui
+yarn [workspace workspace-name] add [-D[E]] @psychobolt/html-ui
 ```
 
 ## Usage

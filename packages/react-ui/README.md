@@ -13,17 +13,17 @@ Powered by:
 ## Install
 
 ```sh
-yarn [workspace workspace-name] add [-D[E]] html-ui react-ui
+yarn [workspace workspace-name] add [-D[E]] @psychobolt/html-ui @psychobolt/react-ui
 ```
 
 ## Usage
 
 ```jsx
 // Component.jsx
-// import '@psychobolt/html-ui/style.css';
+// import '@psychobolt/react-ui/style.css';
 // or
-import '@psychobolt/html-ui/ComponentA.css';
-import '@psychobolt/html-ui/ComponentB.css';
+import '@psychobolt/react-ui/ComponentA.css';
+import '@psychobolt/react-ui/ComponentB.css';
 
 import React from 'react';
 // import { ComponentA, ComponentB } from '@psychobolt/react-ui';
