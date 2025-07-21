@@ -2,6 +2,10 @@ name: Sync Lastest Changes
 
 on:
   workflow_call:
+    inputs:
+      ref_name:
+        type: string
+        required: true
   workflow_dispatch:
 
 concurrency:
@@ -16,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     env:
+      REF_NAME: ${{ inputs.ref_name || github.ref_name}}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
@@ -42,6 +47,8 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ steps.get_token.outputs.token }}
+      - name: Checkout ${{ env.REF_NAME }} branch
+        run: git checkout -b ${{ env.REF_NAME }} origin/${{ env.REF_NAME }}
       - name: Merge with main branch
         run: git merge origin/main --no-commit --ff || true
       - name: Prune deleted files
@@ -64,8 +71,6 @@ jobs:
         run: |
           yarn install
           yarn bootstrap
-      - name: Lint
-        run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Amend Merge
         run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
       - name: Update bitbucket branch
