@@ -29,6 +29,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ inputs.ref_name || github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: Test

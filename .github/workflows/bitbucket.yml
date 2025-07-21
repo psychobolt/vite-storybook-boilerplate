@@ -1,4 +1,4 @@
-name: Sync Bitbucket Repo
+name: Mirror Bitbucket branches
 
 on:
   push:
@@ -9,69 +9,24 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+
 jobs:
+  sync:
+    uses: ./.github/workflows/sync.yml
+    secrets: inherit
   mirror:
+    needs: sync
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
-      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
-      TURBO_TELEMETRY_DISABLED: 1
-    permissions:
-      contents: write
+    timeout-minutes: 2
     steps:
-      - name: Get token
-        id: get_token
-        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
-        with:
-          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
-          app-id: ${{ secrets.BOT_APP_ID }}
-      - name: Get GitHub App User ID
-        id: get_user_id
-        env:
-          GH_TOKEN: ${{ steps.get_token.outputs.token }}
-        run: echo "user-id=$(gh api "/users/${{ steps.get_token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
-      - name: Configure git
-        run: |
-          git config --global user.name ${{ steps.get_token.outputs.app-slug }}[bot]
-          git config --global user.email ${{ steps.get_user_id.outputs.user-id }}+${{ steps.get_token.outputs.app-slug }}[bot]@users.noreply.github.com
       - name: Check out code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0
-          token: ${{ steps.get_token.outputs.token }}
       - name: Checkout bitbucket branch
         run: git checkout -b bitbucket origin/bitbucket
-      - name: Merge with main branch
-        run: git merge origin/main --no-commit --ff || true
-      - name: Prune deleted files
-        run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
-      - name: Set Yarn global folder
-        env:
-          YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
-        run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
-      - name: Setup Node.js environment
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
-        with:
-          node-version: lts/Hydrogen
-          cache: yarn
-          cache-dependency-path: '**/yarn.lock'
-      - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@a1c4079258ae08389be75b57d4d7a70f23c1c66d # v1.8
-        with:
-          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
-      - name: Install dependencies
-        run: |
-          yarn install
-          yarn bootstrap
-      - name: Lint
-        run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
-      - name: Amend Merge
-        run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
-      - name: Update bitbucket branch
-        run: git push origin
       - name: Install SSH key
         uses: shimataro/ssh-key-action@d4fffb50872869abe2d9a9098a6d9c5aa7d16be4 # v2.7.0
         with:
