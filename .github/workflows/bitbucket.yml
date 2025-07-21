@@ -12,7 +12,7 @@ concurrency:
 jobs:
   mirror:
     runs-on: ubuntu-latest
-    timeout-minutes: 32
+    timeout-minutes: 5
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
@@ -22,17 +22,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Install SSH key
-        uses: shimataro/ssh-key-action@d4fffb50872869abe2d9a9098a6d9c5aa7d16be4 # v2.7.0
-        with:
-          key: ${{ secrets.BITBUCKET_SSH_KEY }}
-          name: bitbucket
-          known_hosts: |
-            ${{ secrets.BITBUCKET_HOST_KEY }}
-          config: |
-            Host bitbucket.org
-            User ${{ secrets.BITBUCKET_USER }}
-            IdentityFile ~/.ssh/bitbucket
       - name: Get token
         id: get_token
         uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
@@ -83,6 +72,17 @@ jobs:
         run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
       - name: Update bitbucket branch
         run: git push origin
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@d4fffb50872869abe2d9a9098a6d9c5aa7d16be4 # v2.7.0
+        with:
+          key: ${{ secrets.BITBUCKET_SSH_KEY }}
+          name: bitbucket
+          known_hosts: |
+            ${{ secrets.BITBUCKET_HOST_KEY }}
+          config: |
+            Host bitbucket.org
+            User ${{ secrets.BITBUCKET_USER }}
+            IdentityFile ~/.ssh/bitbucket
       - name: Configure bitbucket upstream
         run: git remote add bitbucket ${{ secrets.BITBUCKET_REPO }}
       - name: Fetch bitbucket upstream
