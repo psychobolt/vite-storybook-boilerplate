@@ -104,7 +104,7 @@ jobs:
               - '.yarn/versions/**'
           base: ${{ inputs.head_ref || (env.BASE_REF && 'base_branch') || '' }}
           ref: ${{ inputs.ref_name }}
-          initial-fetch-depth: ${{ inputs.diff_count || 1 }}
+          initial-fetch-depth: ${{ inputs.diff_count || 2 }}
       - name: Install Turbo
         run: |
           TURBO_VERSION=$(jq -r .devDependencies.turbo package.json)
