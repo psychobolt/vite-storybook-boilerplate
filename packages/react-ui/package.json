@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/psychobolt/vite-storybook-boilerplate.git"
+    "url": "https://github.com/psychobolt/vite-storybook-boilerplate.git",
+    "directory": "packages/react-ui"
   },
   "type": "module",
   "packageManager": "yarn@4.9.2",
