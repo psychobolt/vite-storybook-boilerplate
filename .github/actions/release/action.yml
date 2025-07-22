@@ -35,11 +35,13 @@ runs:
         git commit -m "chore(version): ${{ inputs.strategy }} release" || true
       shell: bash
     - name: Tag the HEAD
-      if: steps.versions.outputs.semver != '{}'
+      if: inputs.tag != '' && steps.versions.outputs.semver != '{}'
       run: |
         git tag -d ${{ inputs.tag }} || true
+        git push --delete origin tag ${{ inputs.tag }} || true
         git tag ${{ inputs.tag }} -am '${{ steps.versions.outputs.semver }}'
-        git push origin ${{ inputs.tag }}
+        git push origin tag ${{ inputs.tag }}
+        git push
       shell: bash
     - name: Publish
       if: inputs.tag != ''
