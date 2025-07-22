@@ -1,0 +1,5 @@
+releases:
+  "@psychobolt/react-ui": minor
+
+undecided:
+  - "@psychobolt/html-ui"
