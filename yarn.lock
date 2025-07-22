@@ -12458,6 +12458,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
+    "@psychobolt/html-ui": "workspace:*"
     "@psychobolt/react-ui": "workspace:*"
     "@types/node": "npm:22.16.5"
     "@types/prop-types": "npm:15.7.15"
