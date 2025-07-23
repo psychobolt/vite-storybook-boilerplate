@@ -40,7 +40,7 @@
     "eslint": "9.31.0",
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
-    "jiti": "2.4.2",
+    "jiti": "2.5.0",
     "lint-staged": "16.1.2",
     "playwright": "1.54.1",
     "semver": "7.7.2",
@@ -52,7 +52,7 @@
     "@storybook/test-runner@npm:0.23.0": "patch:@storybook/test-runner@npm%3A0.23.0#~/.yarn/patches/@storybook-test-runner-npm-0.23.0-397644f312.patch",
     "@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
-    "storybook@npm:9.0.17": "patch:storybook@npm%3A9.0.17#~/.yarn/patches/storybook-npm-9.0.17-8f9db402a2.patch",
+    "storybook@npm:9.0.18": "patch:storybook@npm%3A9.0.18#~/.yarn/patches/storybook-npm-9.0.18-972f38fdec.patch",
     "vite@npm:7.0.2/postcss": "npm:8.5.6"
   }
 }
