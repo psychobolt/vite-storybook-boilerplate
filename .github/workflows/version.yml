@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - main
+      - next
       - release-*
 
 concurrency:
@@ -11,10 +12,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  check-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    environment: ${{ github.base_ref }}
+    permissions: read-all
+    steps:
+      - name: Get release tag
+        run: echo 'tag=${{ env.RELEASE_TAG }}' >> $GITHUB_OUTPUT
   check-version:
-    if: startsWith(github.ref_name, 'renovate/') != true && github.actor != 'renovate[bot]'
+    needs: check-release
+    if: needs.check-release.outputs.tag != ''
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: read
     steps:
       - name: Check out code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -32,6 +44,8 @@ jobs:
     needs: check-version
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: write
     env:
       APPLY_STRATEGY: ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
