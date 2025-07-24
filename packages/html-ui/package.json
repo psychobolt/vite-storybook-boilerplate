@@ -1,11 +1,7 @@
 {
   "name": "@psychobolt/html-ui",
   "version": "0.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/psychobolt/vite-storybook-boilerplate.git",
-    "directory": "packages/html-ui"
-  },
+  "url": "https://github.com/psychobolt/vite-storybook-boilerplate",
   "type": "module",
   "packageManager": "yarn@4.9.2",
   "exports": {
