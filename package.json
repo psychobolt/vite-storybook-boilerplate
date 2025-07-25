@@ -54,7 +54,6 @@
     "html-ui": "workspace:packages/html-ui",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
     "react-ui": "workspace:packages/react-ui",
-    "storybook@npm:9.0.18": "patch:storybook@npm%3A9.0.18#~/.yarn/patches/storybook-npm-9.0.18-972f38fdec.patch",
-    "vite@npm:7.0.2/postcss": "npm:8.5.6"
+    "storybook@npm:9.0.18": "patch:storybook@npm%3A9.0.18#~/.yarn/patches/storybook-npm-9.0.18-972f38fdec.patch"
   }
 }
