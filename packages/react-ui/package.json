@@ -57,7 +57,7 @@
     "classnames": "2.5.1",
     "commons": "workspace:*",
     "glob": "11.0.3",
-    "html-ui": "workspace:*",
+    "html-ui": "link:../html-ui",
     "http-server": "14.1.1",
     "prop-types": "15.8.1",
     "react": "19.1.0",

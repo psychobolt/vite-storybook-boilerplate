@@ -2404,7 +2404,7 @@ __metadata:
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     glob: "npm:11.0.3"
-    html-ui: "workspace:*"
+    html-ui: "link:../html-ui"
     http-server: "npm:14.1.1"
     prop-types: "npm:15.8.1"
     react: "npm:19.1.0"
