@@ -2360,7 +2360,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@psychobolt/html-ui@workspace:packages/html-ui":
+"@psychobolt/html-ui@workspace:packages/html-ui, html-ui@workspace:packages/html-ui, react-ui@workspace:packages/html-ui":
   version: 0.0.0-use.local
   resolution: "@psychobolt/html-ui@workspace:packages/html-ui"
   dependencies:
@@ -9378,13 +9378,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-ui@file:./packages/html-ui::locator=vite-storybook-boilerplate%40workspace%3A.":
-  version: 0.0.0
-  resolution: "html-ui@file:./packages/html-ui#./packages/html-ui::hash=1dd1b5&locator=vite-storybook-boilerplate%40workspace%3A."
-  checksum: 10c0/0daa00fec7ad0f36e44a8d4fed0fd32ff73a0c4ed2c0ef1c5ed21011dea5dbd0b36c6dc6578ac085163cdd3487308b4f9c680570ad3f24f225793677b9cd08ab
-  languageName: node
-  linkType: hard
-
 "htmlparser2@npm:^3.9.2":
   version: 3.10.1
   resolution: "htmlparser2@npm:3.10.1"
@@ -14171,17 +14164,6 @@ __metadata:
   peerDependencies:
     react: ">= 0.14.0"
   checksum: 10c0/4a4cf4695c45d7a6b25078970fb79ae5a85edeba5be0a2508766ee18e8aee1c0c4cdd97bf54f5055e4af671fe7e5e71348e81cafe09a0eb07a763ae876b7f073
-  languageName: node
-  linkType: hard
-
-"react-ui@file:./packages/react-ui::locator=vite-storybook-boilerplate%40workspace%3A.":
-  version: 0.0.0
-  resolution: "react-ui@file:./packages/react-ui#./packages/react-ui::hash=32148d&locator=vite-storybook-boilerplate%40workspace%3A."
-  peerDependencies:
-    prop-types: ^15.8.1
-    react: ^18.2.0 || ^19.0.0
-    react-dom: ^18.2.0 || ^19.0.0
-  checksum: 10c0/6038d43957a2e16c8d146636a19b95772a7f313f96dd493487ce9eb174b112971945f6707af8c0629342afc6c3f1dd3f61ade1628243b05e27a3e702ef921e53
   languageName: node
   linkType: hard
 
