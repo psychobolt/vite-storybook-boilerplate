@@ -16,9 +16,6 @@
 		"lint": "prettier --check . && stylelint **/*.{sc,c}ss && yarn lint-js",
 		"format": "prettier --write $(echo \"${@:-.}\")"
 	},
-	"workspaces": [
-		"../../packages/*"
-	],
 	"dependencies": {
 		"@psychobolt/html-ui": "workspace:*"
 	},
@@ -62,6 +59,7 @@
 		"vite": "7.0.6"
 	},
 	"resolutions": {
+		"@psychobolt/html-ui": "portal:../../packages/html-ui",
 		"@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#../../.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
 		"commons": "portal:../../packages/commons",
 		"html-ui": "portal:../../packages/html-ui",

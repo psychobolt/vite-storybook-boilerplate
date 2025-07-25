@@ -33,7 +33,7 @@ jobs:
 
   html-ui:
     uses: ./.github/workflows/package.yml
-    if: contains(fromJSON(inputs.package_names), 'html-ui')
+    if: contains(fromJSON(inputs.package_names), '@psychobolt/html-ui')
     with:
       ref: ${{ inputs.ref }}
       workspace: html-ui
@@ -41,7 +41,7 @@ jobs:
     secrets: inherit
 
   react-ui:
-    if: contains(fromJSON(inputs.package_names), 'react-ui')
+    if: contains(fromJSON(inputs.package_names), '@psychobolt/react-ui')
     uses: ./.github/workflows/package.yml
     with:
       ref: ${{ inputs.ref }}
