@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "dependencies": {
+    "@psychobolt/html-ui": "workspace:*",
+    "@psychobolt/react-ui": "workspace:*"
+  },
   "devDependencies": {
     "@types/node": "22.16.5",
     "@types/prop-types": "15.7.15",

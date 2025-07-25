@@ -38,6 +38,9 @@
     "format": "yarn g:format",
     "chromatic": "yarn g:dotenv-run -f .env.ci -- chromatic"
   },
+  "dependencies": {
+    "@psychobolt/html-ui": "workspace:*"
+  },
   "devDependencies": {
     "@storybook/addon-docs": "9.0.18",
     "@storybook/addon-vitest": "9.0.18",
