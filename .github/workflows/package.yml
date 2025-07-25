@@ -65,7 +65,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: yarn ${{ inputs.path }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
   test:
     name: Run Tests
     timeout-minutes: 7
@@ -118,11 +118,11 @@ jobs:
           TEMP: ${{ runner.temp }}
         run: >-
           yarn dlx concurrently -k -s first -n "SB,TEST"
-          "yarn workspace ${{ inputs.workspace }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} -- --silent"
-          "yarn dlx wait-on $(yarn workspace ${{ inputs.workspace }} g:dotenv-get SB_URL | tail -n1) -l && yarn workspace ${{ inputs.workspace }} coverage"
+          "yarn ${{ inputs.path }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} -- --silent"
+          "yarn dlx wait-on $(yarn ${{ inputs.path }} g:dotenv-get SB_URL | tail -n1) -l && yarn ${{ inputs.path }} coverage"
       - name: Run Coverage
         if: inputs.test-runner == 'vitest'
-        run: yarn workspace ${{ inputs.workspace }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: yarn ${{ inputs.path }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5
         with:
@@ -162,7 +162,7 @@ jobs:
         run: yarn install
       - name: Run Chromatic
         run: >-
-          yarn workspace ${{ inputs.workspace }} turbo run chromatic --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+          yarn ${{ inputs.path }} turbo run chromatic --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
         env:
           DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
           CHROMATIC_BRANCH: ${{ inputs.ref || github.ref_name }}
