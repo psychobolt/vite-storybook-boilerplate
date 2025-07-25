@@ -1903,19 +1903,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/env@npm:15.4.3"
-  checksum: 10c0/3f189da5eb1d70bad1dab21740f912b5931509111de4ac9782de3fa5641e4025ed515634370df2f9e1aec44780443fb07ec5b0c893d2879a589d7dfbecdc58e2
+"@next/env@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/env@npm:15.4.4"
+  checksum: 10c0/7f94deb0bb3ef8e4bc2d08f95bbc2f1155931813f0277a13e1c62e34259619f14e972280f8b6f423dfcd3ede3d96c76cb82bae0e842ea16402e20c9be0d14737
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/eslint-plugin-next@npm:15.4.3"
+"@next/eslint-plugin-next@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/eslint-plugin-next@npm:15.4.4"
   dependencies:
     fast-glob: "npm:3.3.1"
-  checksum: 10c0/da6d321ff4fb798c775711ff4d20369ee3c912b13a82c6cf7117ac8e98bbf122156dde609fff72df3f92c736a9cd559f193bd3d24c647eb5bda5aeac4d9f4830
+  checksum: 10c0/e32bd4c00beaaf7d815df678d99703824be840e6a416897aa69d861c72351b45343aaea4d79c489176f35ef94e0218fbee7185a55b0dea91a0ef1babaed8d602
   languageName: node
   linkType: hard
 
@@ -1926,9 +1926,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/swc-darwin-arm64@npm:15.4.3"
+"@next/swc-darwin-arm64@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/swc-darwin-arm64@npm:15.4.4"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
@@ -1940,9 +1940,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/swc-darwin-x64@npm:15.4.3"
+"@next/swc-darwin-x64@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/swc-darwin-x64@npm:15.4.4"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -1954,9 +1954,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/swc-linux-arm64-gnu@npm:15.4.3"
+"@next/swc-linux-arm64-gnu@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/swc-linux-arm64-gnu@npm:15.4.4"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
@@ -1968,9 +1968,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/swc-linux-arm64-musl@npm:15.4.3"
+"@next/swc-linux-arm64-musl@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/swc-linux-arm64-musl@npm:15.4.4"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
@@ -1982,9 +1982,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/swc-linux-x64-gnu@npm:15.4.3"
+"@next/swc-linux-x64-gnu@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/swc-linux-x64-gnu@npm:15.4.4"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
@@ -1996,9 +1996,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/swc-linux-x64-musl@npm:15.4.3"
+"@next/swc-linux-x64-musl@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/swc-linux-x64-musl@npm:15.4.4"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
@@ -2010,9 +2010,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/swc-win32-arm64-msvc@npm:15.4.3"
+"@next/swc-win32-arm64-msvc@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/swc-win32-arm64-msvc@npm:15.4.4"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -2024,9 +2024,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:15.4.3":
-  version: 15.4.3
-  resolution: "@next/swc-win32-x64-msvc@npm:15.4.3"
+"@next/swc-win32-x64-msvc@npm:15.4.4":
+  version: 15.4.4
+  resolution: "@next/swc-win32-x64-msvc@npm:15.4.4"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -2360,7 +2360,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@psychobolt/html-ui@workspace:*, @psychobolt/html-ui@workspace:packages/html-ui":
+"@psychobolt/html-ui@workspace:packages/html-ui":
   version: 0.0.0-use.local
   resolution: "@psychobolt/html-ui@workspace:packages/html-ui"
   dependencies:
@@ -2388,16 +2388,15 @@ __metadata:
     turbo: "npm:2.5.5"
     typescript: "npm:5.8.3"
     typescript-plugin-css-modules: "npm:5.2.0"
-    vite: "npm:7.0.5"
+    vite: "npm:7.0.6"
     vite-plugin-sass-glob-import: "npm:5.0.0"
   languageName: unknown
   linkType: soft
 
-"@psychobolt/react-ui@workspace:*, @psychobolt/react-ui@workspace:packages/react-ui":
+"@psychobolt/react-ui@workspace:packages/react-ui":
   version: 0.0.0-use.local
   resolution: "@psychobolt/react-ui@workspace:packages/react-ui"
   dependencies:
-    "@psychobolt/html-ui": "workspace:*"
     "@storybook/addon-docs": "npm:9.0.18"
     "@storybook/addon-vitest": "npm:9.0.18"
     "@storybook/react": "npm:9.0.18"
@@ -2413,6 +2412,7 @@ __metadata:
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     glob: "npm:11.0.3"
+    html-ui: "workspace:*"
     http-server: "npm:14.1.1"
     prop-types: "npm:15.8.1"
     react: "npm:19.1.0"
@@ -2424,7 +2424,7 @@ __metadata:
     turbo: "npm:2.5.5"
     typescript: "npm:5.8.3"
     typescript-plugin-css-modules: "npm:5.2.0"
-    vite: "npm:7.0.5"
+    vite: "npm:7.0.6"
     vitest: "npm:3.2.4"
   peerDependencies:
     prop-types: ^15.8.1
@@ -3143,9 +3143,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.25.2":
-  version: 2.25.2
-  resolution: "@sveltejs/kit@npm:2.25.2"
+"@sveltejs/kit@npm:2.26.0":
+  version: 2.26.0
+  resolution: "@sveltejs/kit@npm:2.26.0"
   dependencies:
     "@sveltejs/acorn-typescript": "npm:^1.0.5"
     "@types/cookie": "npm:^0.6.0"
@@ -3165,7 +3165,7 @@ __metadata:
     vite: ^5.0.3 || ^6.0.0 || ^7.0.0-beta.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/3f11e5f4f043979a559f323089fcae74604d867f69c1af402a0617884a5b015624a32751bb3819f55a75da4a4665f3d9cb40e0baaaa1160a9212178438d6d173
+  checksum: 10c0/2b9d450d05929eaada63a2105a13ce25d9a15343139ff5fb45ecd2c29ee2094adbc89c4a3ced0419d4dde65b8e275b3007648736e0938a4d201baf3738478385
   languageName: node
   linkType: hard
 
@@ -6529,7 +6529,7 @@ __metadata:
     eslint: "npm:9.31.0"
     eslint-plugin-mdx: "npm:3.6.2"
     jest-junit: "npm:16.0.0"
-    jiti: "npm:2.5.0"
+    jiti: "npm:2.5.1"
     lodash: "npm:4.17.21"
     neostandard: "npm:0.12.2"
     playwright: "npm:1.54.1"
@@ -6551,7 +6551,7 @@ __metadata:
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:2.5.5"
     typescript: "npm:5.8.3"
-    vite: "npm:7.0.5"
+    vite: "npm:7.0.6"
     vite-tsconfig-paths: "npm:5.1.4"
     vitest: "npm:3.2.4"
   languageName: unknown
@@ -7694,11 +7694,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:15.4.3":
-  version: 15.4.3
-  resolution: "eslint-config-next@npm:15.4.3"
+"eslint-config-next@npm:15.4.4":
+  version: 15.4.4
+  resolution: "eslint-config-next@npm:15.4.4"
   dependencies:
-    "@next/eslint-plugin-next": "npm:15.4.3"
+    "@next/eslint-plugin-next": "npm:15.4.4"
     "@rushstack/eslint-patch": "npm:^1.10.3"
     "@typescript-eslint/eslint-plugin": "npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0"
     "@typescript-eslint/parser": "npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0"
@@ -7714,7 +7714,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/3d1c7eecb59b0ffd4c24b6f7b51fe800e3b8ffa7c6b878f143d64f94362b768f166fcec25b53046190db52c4d2adb148c082fae0ace23175f1a45284e0a523fa
+  checksum: 10c0/bc7b288b5f7cb338d2af7dbba9403e0e0b3264d72626bd2e5198321dd208d999450d0f4188fb7f09326f071137c7e8c41cd0826312024611ef4222423a6ebe9d
   languageName: node
   linkType: hard
 
@@ -9378,6 +9378,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"html-ui@file:./packages/html-ui::locator=vite-storybook-boilerplate%40workspace%3A.":
+  version: 0.0.0
+  resolution: "html-ui@file:./packages/html-ui#./packages/html-ui::hash=000e95&locator=vite-storybook-boilerplate%40workspace%3A."
+  checksum: 10c0/ba991f808795eec7a2db7665ce06602aba97ddefd6409c5dfbfb14b532b1cf7b21203fbcfca9c17c049e1e963fa059b201c9d052c600971db3b98d4a5c5a1fa6
+  languageName: node
+  linkType: hard
+
 "htmlparser2@npm:^3.9.2":
   version: 3.10.1
   resolution: "htmlparser2@npm:3.10.1"
@@ -10870,12 +10877,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jiti@npm:2.5.0":
-  version: 2.5.0
-  resolution: "jiti@npm:2.5.0"
+"jiti@npm:2.5.1":
+  version: 2.5.1
+  resolution: "jiti@npm:2.5.1"
   bin:
     jiti: lib/jiti-cli.mjs
-  checksum: 10c0/62fa20669dbe038bf20f65bb2aa4a2c78d3c1a9c12e669cc93b7c2e61b8d85fa7363a4c927fceda35bc07e85195421abc7f878dd67a9bf1368cfe55da702f54a
+  checksum: 10c0/f0a38d7d8842cb35ffe883038166aa2d52ffd21f1a4fc839ae4076ea7301c22a1f11373f8fc52e2667de7acde8f3e092835620dd6f72a0fbe9296b268b0874bb
   languageName: node
   linkType: hard
 
@@ -12458,19 +12465,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@psychobolt/html-ui": "workspace:*"
-    "@psychobolt/react-ui": "workspace:*"
     "@types/node": "npm:22.16.5"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.1.8"
     "@types/react-dom": "npm:19.1.6"
     eslint: "npm:9.31.0"
-    eslint-config-next: "npm:15.4.3"
-    next: "npm:15.4.3"
+    eslint-config-next: "npm:15.4.4"
+    html-ui: "workspace:*"
+    next: "npm:15.4.4"
     open-cli: "npm:8.0.0"
     prop-types: "npm:15.8.1"
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
+    react-ui: "workspace:*"
     turbo: "npm:2.5.5"
     typescript: "npm:5.8.3"
   languageName: unknown
@@ -12537,19 +12544,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:15.4.3":
-  version: 15.4.3
-  resolution: "next@npm:15.4.3"
+"next@npm:15.4.4":
+  version: 15.4.4
+  resolution: "next@npm:15.4.4"
   dependencies:
-    "@next/env": "npm:15.4.3"
-    "@next/swc-darwin-arm64": "npm:15.4.3"
-    "@next/swc-darwin-x64": "npm:15.4.3"
-    "@next/swc-linux-arm64-gnu": "npm:15.4.3"
-    "@next/swc-linux-arm64-musl": "npm:15.4.3"
-    "@next/swc-linux-x64-gnu": "npm:15.4.3"
-    "@next/swc-linux-x64-musl": "npm:15.4.3"
-    "@next/swc-win32-arm64-msvc": "npm:15.4.3"
-    "@next/swc-win32-x64-msvc": "npm:15.4.3"
+    "@next/env": "npm:15.4.4"
+    "@next/swc-darwin-arm64": "npm:15.4.4"
+    "@next/swc-darwin-x64": "npm:15.4.4"
+    "@next/swc-linux-arm64-gnu": "npm:15.4.4"
+    "@next/swc-linux-arm64-musl": "npm:15.4.4"
+    "@next/swc-linux-x64-gnu": "npm:15.4.4"
+    "@next/swc-linux-x64-musl": "npm:15.4.4"
+    "@next/swc-win32-arm64-msvc": "npm:15.4.4"
+    "@next/swc-win32-x64-msvc": "npm:15.4.4"
     "@swc/helpers": "npm:0.5.15"
     caniuse-lite: "npm:^1.0.30001579"
     postcss: "npm:8.4.31"
@@ -12592,7 +12599,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 10c0/72b587d09ece0bf590f208550527fbacac9cc590684cdd203f2dc10a9b89ea2986e17ec5d21be7605dfba1e8443224c785c6619817d5d7797abb01421d7997a4
+  checksum: 10c0/b81c7c1270dbefa8e1e77d0fadc7368569d381190d00b45f647fe792337f93e3f7a188ff64813fe4c1f6d254e83306047d254967adc192c40561c46a28023d51
   languageName: node
   linkType: hard
 
@@ -13460,6 +13467,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picomatch@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "picomatch@npm:4.0.3"
+  checksum: 10c0/9582c951e95eebee5434f59e426cddd228a7b97a0161a375aed4be244bd3fe8e3a31b846808ea14ef2c8a2527a6eeab7b3946a67d5979e81694654f939473ae2
+  languageName: node
+  linkType: hard
+
 "pidtree@npm:^0.6.0":
   version: 0.6.0
   resolution: "pidtree@npm:0.6.0"
@@ -14157,6 +14171,17 @@ __metadata:
   peerDependencies:
     react: ">= 0.14.0"
   checksum: 10c0/4a4cf4695c45d7a6b25078970fb79ae5a85edeba5be0a2508766ee18e8aee1c0c4cdd97bf54f5055e4af671fe7e5e71348e81cafe09a0eb07a763ae876b7f073
+  languageName: node
+  linkType: hard
+
+"react-ui@file:./packages/react-ui::locator=vite-storybook-boilerplate%40workspace%3A.":
+  version: 0.0.0
+  resolution: "react-ui@file:./packages/react-ui#./packages/react-ui::hash=5197e4&locator=vite-storybook-boilerplate%40workspace%3A."
+  peerDependencies:
+    prop-types: ^15.8.1
+    react: ^18.2.0 || ^19.0.0
+    react-dom: ^18.2.0 || ^19.0.0
+  checksum: 10c0/69596f001fae145e7819eb6744f3b034887a1ecfb8915a3c51e5d171171268a1eb25477da6c0151331b14c75d757a95783b9cb3d65d57ac9198f3e8cd400ffce
   languageName: node
   linkType: hard
 
@@ -16172,10 +16197,9 @@ __metadata:
     "@eslint/js": "npm:9.31.0"
     "@fontsource/fira-mono": "npm:5.2.6"
     "@neoconfetti/svelte": "npm:2.2.2"
-    "@psychobolt/html-ui": "workspace:*"
     "@sveltejs/adapter-auto": "npm:6.0.1"
     "@sveltejs/adapter-vercel": "npm:5.8.0"
-    "@sveltejs/kit": "npm:2.25.2"
+    "@sveltejs/kit": "npm:2.26.0"
     "@sveltejs/vite-plugin-svelte": "npm:6.1.0"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
@@ -16188,15 +16212,17 @@ __metadata:
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-svelte: "npm:3.11.0"
     globals: "npm:16.3.0"
-    jiti: "npm:2.5.0"
+    html-ui: "workspace:*"
+    jiti: "npm:2.5.1"
     postcss: "npm:8.5.6"
     prettier: "npm:3.6.2"
     prettier-plugin-svelte: "npm:3.4.0"
+    react-ui: "workspace:*"
     sass: "npm:1.89.2"
     stylelint: "npm:16.22.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:15.0.1"
-    svelte: "npm:5.36.14"
+    svelte: "npm:5.36.16"
     svelte-check: "npm:4.3.0"
     svelte-eslint-parser: "npm:1.3.0"
     svelte-language-server: "npm:0.17.17"
@@ -16204,7 +16230,7 @@ __metadata:
     turbo: "npm:2.5.5"
     typescript: "npm:5.8.3"
     typescript-eslint: "npm:8.38.0"
-    vite: "npm:7.0.5"
+    vite: "npm:7.0.6"
   languageName: unknown
   linkType: soft
 
@@ -16287,9 +16313,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.36.14":
-  version: 5.36.14
-  resolution: "svelte@npm:5.36.14"
+"svelte@npm:5.36.16":
+  version: 5.36.16
+  resolution: "svelte@npm:5.36.16"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -16305,7 +16331,7 @@ __metadata:
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/04b1024aa6008bbff5eacc5eb735b1985bed74bacd8dc94f8627614dcb1177a3f650589771031283d395612b6fe1b0e0077fc32e5276da4b26f9733b3da797b6
+  checksum: 10c0/55b7031948640dd8c526a1bee323ca6007c59aef6ea1df8b493d27dfadd332d38db6ae47a96dfbf3697209dcfa7ca0d11fd4e3ec310de0a758f4d675915bac0f
   languageName: node
   linkType: hard
 
@@ -17503,7 +17529,7 @@ __metadata:
     eslint: "npm:9.31.0"
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
-    jiti: "npm:2.5.0"
+    jiti: "npm:2.5.1"
     lint-staged: "npm:16.1.2"
     playwright: "npm:1.54.1"
     semver: "npm:7.7.2"
@@ -17584,14 +17610,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:7.0.5":
-  version: 7.0.5
-  resolution: "vite@npm:7.0.5"
+"vite@npm:7.0.6":
+  version: 7.0.6
+  resolution: "vite@npm:7.0.6"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.4.6"
     fsevents: "npm:~2.3.3"
-    picomatch: "npm:^4.0.2"
+    picomatch: "npm:^4.0.3"
     postcss: "npm:^8.5.6"
     rollup: "npm:^4.40.0"
     tinyglobby: "npm:^0.2.14"
@@ -17635,7 +17661,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/95fb7f393adc2d2428e0e033ed4ea599323118f645415c35db3df40bd2c5a2962b0b4c967f35cfb80ca04efb1eb51bdb5f4b63529bb5f9aa3603d9fbeb50543f
+  checksum: 10c0/3b14dfa661281b4843789884199ba2a9cca940a7666970036fe3fb1abff52b88e63e8be5ab419dd04d9f96c0415ee0f1e3ec8ebe357041648af7ccd8e348b6ad
   languageName: node
   linkType: hard
 

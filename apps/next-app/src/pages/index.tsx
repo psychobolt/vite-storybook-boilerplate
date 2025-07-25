@@ -1,9 +1,9 @@
-import '@psychobolt/html-ui/style.css';
+import 'html-ui/style.css';
 
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import { Header } from '@psychobolt/react-ui';
+import { Header } from 'react-ui';
 
 import styles from '@/styles/Home.module.css'
 

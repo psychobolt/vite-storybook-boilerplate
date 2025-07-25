@@ -1,6 +1,6 @@
 @use 'sass:meta';
-@use '@psychobolt/html-ui/Button.css'; // required for typescript-plugin-css-modules
+@use 'html-ui/Button.css'; // required for typescript-plugin-css-modules
 
 :global {
-  @include meta.load-css('@psychobolt/html-ui/Button.css');
+  @include meta.load-css('html-ui/Button.css');
 }

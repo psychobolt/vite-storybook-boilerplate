@@ -1,6 +1,6 @@
 @use 'sass:meta';
-@use '@psychobolt/html-ui/Header.css';
+@use 'html-ui/Header.css';
 
 :global {
-  @include meta.load-css('@psychobolt/html-ui/Header.css');
+  @include meta.load-css('html-ui/Header.css');
 }

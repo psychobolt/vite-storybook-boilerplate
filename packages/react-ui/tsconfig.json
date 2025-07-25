@@ -15,13 +15,13 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "@psychobolt/html-ui/*": [
+      "html-ui/*": [
         "${configDir}/../html-ui/dist/*.css",
         "${configDir}/../html-ui/dist/*",
         "${configDir}/../html-ui/*"
       ],
-      "@psychobolt/react-ui": ["index.ts"],
-      "@psychobolt/react-ui/*": ["*/index.ts"]
+      "react-ui": ["index.ts"],
+      "react-ui/*": ["*/index.ts"]
     }
   },
   "include": [".storybook/**/*", "**/*"],
