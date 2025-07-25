@@ -9380,8 +9380,8 @@ __metadata:
 
 "html-ui@file:./packages/html-ui::locator=vite-storybook-boilerplate%40workspace%3A.":
   version: 0.0.0
-  resolution: "html-ui@file:./packages/html-ui#./packages/html-ui::hash=000e95&locator=vite-storybook-boilerplate%40workspace%3A."
-  checksum: 10c0/ba991f808795eec7a2db7665ce06602aba97ddefd6409c5dfbfb14b532b1cf7b21203fbcfca9c17c049e1e963fa059b201c9d052c600971db3b98d4a5c5a1fa6
+  resolution: "html-ui@file:./packages/html-ui#./packages/html-ui::hash=1dd1b5&locator=vite-storybook-boilerplate%40workspace%3A."
+  checksum: 10c0/0daa00fec7ad0f36e44a8d4fed0fd32ff73a0c4ed2c0ef1c5ed21011dea5dbd0b36c6dc6578ac085163cdd3487308b4f9c680570ad3f24f225793677b9cd08ab
   languageName: node
   linkType: hard
 
@@ -14176,12 +14176,12 @@ __metadata:
 
 "react-ui@file:./packages/react-ui::locator=vite-storybook-boilerplate%40workspace%3A.":
   version: 0.0.0
-  resolution: "react-ui@file:./packages/react-ui#./packages/react-ui::hash=5197e4&locator=vite-storybook-boilerplate%40workspace%3A."
+  resolution: "react-ui@file:./packages/react-ui#./packages/react-ui::hash=32148d&locator=vite-storybook-boilerplate%40workspace%3A."
   peerDependencies:
     prop-types: ^15.8.1
     react: ^18.2.0 || ^19.0.0
     react-dom: ^18.2.0 || ^19.0.0
-  checksum: 10c0/69596f001fae145e7819eb6744f3b034887a1ecfb8915a3c51e5d171171268a1eb25477da6c0151331b14c75d757a95783b9cb3d65d57ac9198f3e8cd400ffce
+  checksum: 10c0/6038d43957a2e16c8d146636a19b95772a7f313f96dd493487ce9eb174b112971945f6707af8c0629342afc6c3f1dd3f61ade1628243b05e27a3e702ef921e53
   languageName: node
   linkType: hard
 
