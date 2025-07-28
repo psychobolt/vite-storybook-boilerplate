@@ -23,8 +23,8 @@
     "next": "15.4.4",
     "open-cli": "8.0.0",
     "prop-types": "15.8.1",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "react-ui": "workspace:*",
     "turbo": "2.5.5",
     "typescript": "5.8.3"

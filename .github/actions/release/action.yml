@@ -8,6 +8,9 @@ inputs:
   tag:
     default: ''
     description: The distribute tag
+  push_tag:
+    default: 'true'
+    description: If "true", tag is pushed when there is a new version
   dry_run_publish:
     description: If "true", publish is disabled
   npm_registry_url:
@@ -35,7 +38,7 @@ runs:
         git commit -m "chore(version): ${{ inputs.strategy }} release" || true
       shell: bash
     - name: Tag the HEAD
-      if: inputs.tag != '' && steps.versions.outputs.semver != '{}'
+      if: inputs.push_tag == 'true' && inputs.tag != '' && steps.versions.outputs.semver != '{}'
       run: |
         git tag -d ${{ inputs.tag }} || true
         git push --delete origin tag ${{ inputs.tag }} || true

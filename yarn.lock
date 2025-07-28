@@ -2368,8 +2368,8 @@ __metadata:
     http-server: "npm:14.1.1"
     lit: "npm:3.3.1"
     nyc: "npm:17.1.0"
-    react: "npm:19.1.0"
-    react-dom: "npm:19.1.0"
+    react: "npm:19.1.1"
+    react-dom: "npm:19.1.1"
     react-syntax-highlighter: "npm:15.6.1"
     rollup-plugin-no-emit: "npm:1.3.0"
     sass: "npm:1.89.2"
@@ -2407,8 +2407,8 @@ __metadata:
     html-ui: "link:../html-ui"
     http-server: "npm:14.1.1"
     prop-types: "npm:15.8.1"
-    react: "npm:19.1.0"
-    react-dom: "npm:19.1.0"
+    react: "npm:19.1.1"
+    react-dom: "npm:19.1.1"
     sass: "npm:1.89.2"
     storybook: "npm:9.0.18"
     stylelint: "npm:16.22.0"
@@ -6532,8 +6532,8 @@ __metadata:
     prettier: "npm:3.6.2"
     prettier-config-standard: "npm:7.0.0"
     prettier-plugin-sh: "npm:0.18.0"
-    react: "npm:19.1.0"
-    react-dom: "npm:19.1.0"
+    react: "npm:19.1.1"
+    react-dom: "npm:19.1.1"
     react-syntax-highlighter: "npm:15.6.1"
     rimraf: "npm:6.0.1"
     storybook: "npm:9.0.18"
@@ -12462,8 +12462,8 @@ __metadata:
     next: "npm:15.4.4"
     open-cli: "npm:8.0.0"
     prop-types: "npm:15.8.1"
-    react: "npm:19.1.0"
-    react-dom: "npm:19.1.0"
+    react: "npm:19.1.1"
+    react-dom: "npm:19.1.1"
     react-ui: "workspace:*"
     turbo: "npm:2.5.5"
     typescript: "npm:5.8.3"
@@ -14073,7 +14073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:*, react-dom@npm:19.1.0, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+"react-dom@npm:*, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
   version: 19.1.0
   resolution: "react-dom@npm:19.1.0"
   dependencies:
@@ -14081,6 +14081,17 @@ __metadata:
   peerDependencies:
     react: ^19.1.0
   checksum: 10c0/3e26e89bb6c67c9a6aa86cb888c7a7f8258f2e347a6d2a15299c17eb16e04c19194e3452bc3255bd34000a61e45e2cb51e46292392340432f133e5a5d2dfb5fc
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:19.1.1":
+  version: 19.1.1
+  resolution: "react-dom@npm:19.1.1"
+  dependencies:
+    scheduler: "npm:^0.26.0"
+  peerDependencies:
+    react: ^19.1.1
+  checksum: 10c0/8c91198510521299c56e4e8d5e3a4508b2734fb5e52f29eeac33811de64e76fe586ad32c32182e2e84e070d98df67125da346c3360013357228172dbcd20bcdd
   languageName: node
   linkType: hard
 
@@ -14161,10 +14172,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:*, react@npm:19.1.0, react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+"react@npm:*, react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
   version: 19.1.0
   resolution: "react@npm:19.1.0"
   checksum: 10c0/530fb9a62237d54137a13d2cfb67a7db6a2156faed43eecc423f4713d9b20c6f2728b026b45e28fcd72e8eadb9e9ed4b089e99f5e295d2f0ad3134251bdd3698
+  languageName: node
+  linkType: hard
+
+"react@npm:19.1.1":
+  version: 19.1.1
+  resolution: "react@npm:19.1.1"
+  checksum: 10c0/8c9769a2dfd02e603af6445058325e6c8a24b47b185d0e461f66a6454765ddcaecb3f0a90184836c68bb509f3c38248359edbc42f0d07c23eb500a5c30c87b4e
   languageName: node
   linkType: hard
 
@@ -16198,7 +16216,7 @@ __metadata:
     stylelint: "npm:16.22.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:15.0.1"
-    svelte: "npm:5.36.16"
+    svelte: "npm:5.37.1"
     svelte-check: "npm:4.3.0"
     svelte-eslint-parser: "npm:1.3.0"
     svelte-language-server: "npm:0.17.17"
@@ -16289,9 +16307,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.36.16":
-  version: 5.36.16
-  resolution: "svelte@npm:5.36.16"
+"svelte@npm:5.37.1":
+  version: 5.37.1
+  resolution: "svelte@npm:5.37.1"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -16307,7 +16325,7 @@ __metadata:
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/55b7031948640dd8c526a1bee323ca6007c59aef6ea1df8b493d27dfadd332d38db6ae47a96dfbf3697209dcfa7ca0d11fd4e3ec310de0a758f4d675915bac0f
+  checksum: 10c0/a9acc1b72cdcc48ca9c2c52b38811ce9ada32a6baf2532a3e3f15fe3a9f4370409d7ebe4706f58992632e12c852393511d84417f7583b48b8eba23917bda3b98
   languageName: node
   linkType: hard
 
