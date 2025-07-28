@@ -73,6 +73,7 @@ jobs:
         with:
           strategy: ${{ startsWith(env.REF_NAME, 'release-') && 'stable' || 'build' }}
           tag: ${{ vars.RELEASE_TAG == '{branch}' && env.REF_NAME || vars.RELEASE_TAG }}
+          push_tag: ${{ (contains(fromJSON('["main", "next"]'), env.REF_NAME) || startsWith(env.REF_NAME, 'release-')) && 'true' }}
           npm_registry_url: ${{ vars.NPM_REGISTRY_URL }}
           npm_auth_token: ${{ secrets.NPM_AUTH_TOKEN || secrets.GITHUB_TOKEN }}
           dry_run_publish: ${{ startsWith(env.REF_NAME, 'renovate/') && 'true' || vars.DRY_RUN_PUBLISH }}
