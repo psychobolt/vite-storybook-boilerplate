@@ -589,12 +589,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:1.48.3":
-  version: 1.48.3
-  resolution: "@dotenvx/dotenvx@npm:1.48.3"
+"@dotenvx/dotenvx@npm:1.48.4":
+  version: 1.48.4
+  resolution: "@dotenvx/dotenvx@npm:1.48.4"
   dependencies:
     commander: "npm:^11.1.0"
-    dotenv: "npm:^16.4.5"
+    dotenv: "npm:^17.2.1"
     eciesjs: "npm:^0.4.10"
     execa: "npm:^5.1.1"
     fdir: "npm:^6.2.0"
@@ -604,7 +604,7 @@ __metadata:
     which: "npm:^4.0.0"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/4415bb59b6beb128e0bb9fac4f8dd84b2f0296090645262a02c2cb5f22d432b21156a1dd06da51ea04626496385e447fcb6cad0ced3bac6a1a7f1c73b6a3823a
+  checksum: 10c0/20ca9e1eaaad9a7f6d79c293fd60c41bdab2a055248f6f3896249c84be3841fdc937a11433b2490cce4fc664ac6153ac80db7c76f0ab8b3cf405b2b1a42a2a9f
   languageName: node
   linkType: hard
 
@@ -7132,10 +7132,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.3.1, dotenv@npm:^16.4.2, dotenv@npm:^16.4.5":
+"dotenv@npm:^16.3.1, dotenv@npm:^16.4.2":
   version: 16.5.0
   resolution: "dotenv@npm:16.5.0"
   checksum: 10c0/5bc94c919fbd955bf0ba44d33922a1e93d1078e64a1db5c30faeded1d996e7a83c55332cb8ea4fae5a9ca4d0be44cbceb95c5811e70f9f095298df09d1997dd9
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^17.2.1":
+  version: 17.2.1
+  resolution: "dotenv@npm:17.2.1"
+  checksum: 10c0/918dd2f9d8b8f86b0afabad9534793d51de3718c437f9e7b6525628cf68c1d4ae768cc37a5afff38c066f58a8ecf549f4ac6cd5617485bd328e826112cc2650a
   languageName: node
   linkType: hard
 
@@ -16175,7 +16182,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.48.3"
+    "@dotenvx/dotenvx": "npm:1.48.4"
     "@eslint/js": "npm:9.32.0"
     "@fontsource/fira-mono": "npm:5.2.6"
     "@neoconfetti/svelte": "npm:2.2.2"
@@ -17496,7 +17503,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.48.3"
+    "@dotenvx/dotenvx": "npm:1.48.4"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.6.7"
     "@types/glob-to-regexp": "npm:0.4.4"
