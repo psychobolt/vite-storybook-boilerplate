@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "commons": "workspace:*",
-    "stylelint": "16.22.0",
+    "stylelint": "16.23.0",
     "turbo": "2.5.5",
     "typescript": "5.8.3"
   },
