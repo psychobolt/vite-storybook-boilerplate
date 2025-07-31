@@ -17,7 +17,7 @@
     "apply-versions": "yarn run-script bin/apply-versions.ts",
     "dev": "yarn turbo run dev",
     "build": "yarn turbo run build",
-    "lint": "yarn g:prettier --check . && yarn g:lint-js",
+    "lint": "yarn g:prettier --check . && yarn g:lint",
     "lint-staged": "yarn workspace commons turbo run build && lint-staged",
     "format": "yarn g:format"
   },
@@ -44,6 +44,8 @@
     "lint-staged": "16.1.2",
     "playwright": "1.54.1",
     "semver": "7.7.2",
+    "stylelint": "16.23.0",
+    "stylelint-config": "workspace:*",
     "turbo": "2.5.5",
     "typescript": "5.9.2",
     "yaml": "2.8.0"

@@ -1,5 +1,3 @@
-type Args = Record<string, any>;
-
 interface Tester {
   test: (value: string) => boolean;
 }

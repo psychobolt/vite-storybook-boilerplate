@@ -29,7 +29,7 @@
     "start": "yarn g:dotenv-run -- http-server storybook-static",
     "test": "yarn g:vitest",
     "coverage": "yarn test run --coverage",
-    "lint": "yarn g:prettier --check . && yarn g:lint-css && yarn g:lint-js",
+    "lint": "yarn g:prettier --check . && yarn g:lint --runner stylelint --runner eslint",
     "format": "yarn g:format",
     "chromatic": "yarn g:dotenv-run -f .env.ci -- chromatic"
   },
