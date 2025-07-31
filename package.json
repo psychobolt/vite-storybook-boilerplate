@@ -45,7 +45,7 @@
     "playwright": "1.54.1",
     "semver": "7.7.2",
     "turbo": "2.5.5",
-    "typescript": "5.8.3",
+    "typescript": "5.9.2",
     "yaml": "2.8.0"
   },
   "resolutions": {
