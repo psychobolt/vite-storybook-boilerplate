@@ -1,4 +1,5 @@
 import { type ExecOptions, exec } from 'node:child_process';
+import crypto, { BinaryToTextEncoding } from 'node:crypto';
 
 export interface StdioExecOptions extends ExecOptions {
   silent?: boolean;
@@ -30,3 +31,19 @@ export const $ = (
     }
   });
 };
+
+export function hash(
+  algorithm: string,
+  data: string | Buffer | DataView,
+  options?:
+    | BinaryToTextEncoding
+    | {
+        encoding?: BinaryToTextEncoding;
+      }
+) {
+  const hash = crypto.createHash(algorithm);
+  hash.update(data);
+  return hash.digest(
+    (typeof options === 'object' ? options?.encoding : options) ?? 'hex'
+  );
+}

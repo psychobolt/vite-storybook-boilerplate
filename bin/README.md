@@ -72,6 +72,34 @@ E.g.
 { "[workspaceName1]": "[semVer1]", "[workspaceName2]": "[semVer2]" }
 ```
 
+## Lint
+
+`lint.ts` ([Source](lint.ts))
+
+```sh
+yarn g:run-script $PROJECT_CWD/bin/lint.ts [options]
+```
+
+A suite that executes and outputs the results from all supported runners (e.g. ESLint, Stylelint).
+
+### Options
+
+### Formatter
+
+```sh
+--formatter [formatter | reporter] # shorthand (-f)
+```
+
+Pass one or more formatter or reporter flags.
+
+### Runner
+
+```sh
+--runner [runner]
+```
+
+Pass one or more runner to be executed and return results.
+
 ## Apply Versions
 
 `apply-versions.ts` [Source](apply-versions.ts)

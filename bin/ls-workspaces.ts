@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import process from 'node:process';
 import childProcess from 'node:child_process';
 import util from 'node:util';
-import arg from 'arg';
+import arg, { type Spec } from 'arg';
 import globToRegExp from 'glob-to-regexp';
 import YAML from 'yaml';
 import { type PortablePath, npath } from '@yarnpkg/fslib';
@@ -129,7 +129,7 @@ async function setupProject() {
 }
 
 async function getWorkspaces<T>(options?: Options) {
-  const { _ = [], ...args } = arg<Args>(
+  const { _ = [], ...args } = arg<Spec>(
     specEntries.reduce(
       (config, [key, { alias, type }]) => ({
         [key]: type,
@@ -142,7 +142,7 @@ async function getWorkspaces<T>(options?: Options) {
   );
 
   if (options) {
-    function updateArg(key: keyof Args, value: any) {
+    function updateArg(key: keyof Spec, value: any) {
       if (!(key in args)) {
         args[key] = value;
       }
@@ -170,7 +170,7 @@ async function getWorkspaces<T>(options?: Options) {
     }
     const formatter: Formatter = formatters[key];
     if (typeof formatter !== 'undefined') {
-      formatter.value = value;
+      formatter.value = value ?? [];
     }
   });
 

@@ -1,0 +1,189 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import util from 'node:util';
+import { ESLint } from 'eslint';
+import type { Results, Reporter, Runner } from 'commons/index.d.ts';
+
+import { $, hash } from './functions.ts';
+
+const writeFile = util.promisify(fs.writeFile);
+
+enum AnnotationType {
+  VULNERABILITY = 'VULNERABILITY',
+  CODE_SMELL = 'CODE_SMELL',
+  BUG = 'BUG'
+}
+
+enum Severity {
+  LOW = 'LOW',
+  MEDIUM = 'MEDIUM',
+  HIGH = 'HIGH'
+}
+
+interface Annotation {
+  external_id: string;
+  path: string;
+  annotation_type: keyof typeof AnnotationType;
+  line: number;
+  severity: keyof typeof Severity;
+  [prop: string]: string | number;
+}
+
+export class Bitbucket implements Reporter {
+  report = {
+    title: 'Code Report',
+    details: '',
+    report_type: 'TEST',
+    data: [
+      {
+        title: 'Error Count',
+        type: 'NUMBER',
+        value: 0
+      },
+      {
+        title: 'Warning Count',
+        type: 'NUMBER',
+        value: 0
+      }
+    ]
+  };
+
+  annotations: Annotation[] = [];
+
+  async process(results: Results) {
+    const currentDir = process.cwd();
+    const baseDir = path.basename(process.env.PROJECT_CWD ?? '');
+    const commit = (await $('git rev-parse HEAD', { silent: true })).trim();
+
+    let workspace = path.basename(currentDir);
+    let totalErrorCount = 0;
+    let totalWarningCount = 0;
+
+    workspace = baseDir === workspace ? '' : workspace;
+
+    if (results.eslint) {
+      const SEVERITIES = Object.values(Severity);
+
+      for (const result of results.eslint) {
+        totalErrorCount += result.errorCount;
+        totalWarningCount += result.warningCount;
+
+        const relativePath = path.join(
+          workspace,
+          path.relative(currentDir, result.filePath)
+        );
+
+        for (const message of result.messages) {
+          this.annotations.push({
+            external_id: hash(
+              'sha1',
+              `${baseDir}:${relativePath}:${message.line}:${commit}:eslint`
+            ),
+            path: relativePath,
+            annotation_type: AnnotationType.CODE_SMELL,
+            summary: message.message,
+            line: message.line,
+            severity: SEVERITIES[message.severity] ?? Severity.MEDIUM
+          });
+        }
+      }
+    }
+
+    if (results.stylelint) {
+      const SEVERITIES = {
+        warning: Severity.MEDIUM,
+        error: Severity.HIGH
+      };
+
+      for (const result of results.stylelint) {
+        for (const warning of result.warnings) {
+          if (warning.severity === 'error') {
+            totalErrorCount++;
+          } else {
+            totalWarningCount++;
+          }
+
+          const relativePath =
+            result.source &&
+            path.join(workspace, path.relative(currentDir, result.source));
+          if (relativePath) {
+            this.annotations.push({
+              external_id: hash(
+                'sha1',
+                `${baseDir}:${relativePath}:${warning.line}:${commit}:stylelint`
+              ),
+              path: relativePath,
+              annotation_type: AnnotationType.CODE_SMELL,
+              summary: warning.text,
+              line: warning.line,
+              severity: SEVERITIES[warning.severity] ?? Severity.MEDIUM
+            });
+          }
+        }
+      }
+    }
+
+    this.report.data[0].value += totalErrorCount;
+    this.report.data[1].value += totalWarningCount;
+  }
+
+  async publish() {
+    await writeFile('bitbucket-report.json', JSON.stringify(this.report));
+    await writeFile(
+      'bitbucket-annotations.json',
+      JSON.stringify(this.annotations)
+    );
+  }
+}
+
+export class ErrorReporter implements Reporter {
+  async process(details: Results) {
+    const error = new Error('Failed code analysis');
+    if (details.eslint) {
+      for (const detail of details.eslint) {
+        if (detail.errorCount > 0) throw error;
+      }
+    }
+    if (details.stylelint) {
+      for (const detail of details.stylelint) {
+        if (detail.errored) throw error;
+      }
+    }
+    console.log('\nNo errors reported.');
+  }
+
+  async publish() {}
+}
+
+export const eslint: Runner<ESLint.LintResult[]> = async (
+  files,
+  formatters
+) => {
+  const eslint = new ESLint({
+    flags: ['v10_config_lookup_from_file']
+  });
+
+  console.log('\nRunning ESLint...');
+  const results = await eslint.lintFiles(files);
+
+  for (const formatter of formatters) {
+    let text;
+
+    if (typeof formatter === 'string') {
+      const textFormatter = await eslint.loadFormatter(
+        formatter === 'default' ? 'stylish' : formatter
+      );
+      text = await textFormatter.format(results);
+    } else if (typeof formatter === 'object') {
+      await formatter.process({ eslint: results });
+    } else {
+      text = await formatter({ eslint: results });
+    }
+
+    if (text) {
+      console.log(text);
+    }
+  }
+
+  return results;
+};

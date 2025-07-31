@@ -81,7 +81,7 @@ export default mergeConfig(
    ```json
    {
      "scripts": {
-       "lint": "yarn g:lint-css && yarn g:lint-js"
+       "lint": "yarn g:lint"
      }
    }
    ```

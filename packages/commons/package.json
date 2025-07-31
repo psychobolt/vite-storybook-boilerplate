@@ -13,8 +13,8 @@
     "g:test-storybook": "cd $INIT_CWD && yarn g:run-script $(yarn g:test-storybook-path)",
     "g:vitest": "cd $INIT_CWD && yarn g:run-script $(yarn bin vitest)",
     "g:prettier": "cd $INIT_CWD && prettier --ignore-path $PROJECT_CWD/.gitignore --ignore-path $PROJECT_CWD/packages/commons/.prettierignore --ignore-path $INIT_CWD/.gitignore --ignore-path ./.prettierignore",
-    "g:lint-js": "cd $INIT_CWD && yarn tsc --noEmit && eslint --flag v10_config_lookup_from_file .",
-    "lint": "yarn g:prettier --check --config esm/prettier.config.js . && yarn g:lint-js",
+    "g:lint": "cd $INIT_CWD && yarn tsc --noEmit && yarn g:run-script $PROJECT_CWD/bin/lint.ts",
+    "lint": "yarn g:prettier --check --config esm/prettier.config.js . && yarn g:lint",
     "g:format": "cd $INIT_CWD && yarn g:prettier --write $(echo \"${@:-.}\")",
     "format": "yarn g:prettier --write --config esm/prettier.config.js $(echo \"${@:-.}\")"
   },
@@ -58,6 +58,7 @@
     "prettier-plugin-sh": "0.18.0",
     "rimraf": "6.0.1",
     "storybook": "9.0.18",
+    "stylelint": "16.23.0",
     "tsconfig-to-dual-package": "1.2.0",
     "turbo": "2.5.5",
     "typescript": "5.9.2",

@@ -56,8 +56,8 @@ yarn format # This is automatically called on git commit
 
 # Global tasks that can be hoisted to any workspace scope
 yarn g:run-script ./path/to/script.ts # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:run-script ./path/to/script.ts"
-yarn g:lint-js                        # Lint js files with eslint
-yarn g:lint-css                       # Lint [s]css files with stylelint
+yarn g:lint --runner eslint           # Lint js files with eslint
+yarn g:lint --runner stylelint        # Lint [s]css files with stylelint
 yarn g:prettier [options]             # Runs prettier format tool
 ```
 
