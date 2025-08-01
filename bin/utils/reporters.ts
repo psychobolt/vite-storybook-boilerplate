@@ -70,14 +70,15 @@ export class Bitbucket implements Reporter {
 
   async process(results: Results) {
     const currentDir = process.cwd();
-    const baseDir = path.basename(process.env.PROJECT_CWD ?? '');
     const commit = (await $('git rev-parse HEAD', { silent: true })).trim();
 
-    let workspace = path.basename(currentDir);
     let totalErrorCount = 0;
     let totalWarningCount = 0;
-
-    workspace = baseDir === workspace ? '' : workspace;
+    let workspace = path.basename(currentDir);
+    workspace =
+      path.basename(process.env.PROJECT_CWD ?? '') === workspace
+        ? ''
+        : workspace;
 
     if (results.eslint) {
       const SEVERITIES = Object.values(Severity);
@@ -95,7 +96,7 @@ export class Bitbucket implements Reporter {
           this.annotations.push({
             external_id: hash(
               'sha1',
-              `${baseDir}:${relativePath}:${message.line}:${commit}:eslint`
+              `lint:${relativePath}:${message.line}:${commit}`
             ),
             path: relativePath,
             annotation_type: AnnotationType.CODE_SMELL,
@@ -128,7 +129,7 @@ export class Bitbucket implements Reporter {
             this.annotations.push({
               external_id: hash(
                 'sha1',
-                `${baseDir}:${relativePath}:${warning.line}:${commit}:stylelint`
+                `lint:${relativePath}:${warning.line}:${commit}`
               ),
               path: relativePath,
               annotation_type: AnnotationType.CODE_SMELL,
