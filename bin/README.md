@@ -80,17 +80,9 @@ E.g.
 yarn g:run-script $PROJECT_CWD/bin/lint.ts [options]
 ```
 
-A suite that executes and outputs the results from all supported runners (e.g. ESLint, Stylelint).
+A suite that executes and outputs the results from supported runners ([ESLint](utils/README.md#eslint), [Stylelint](../packages/stylelint-config/utils/runners.ts)).
 
 ### Options
-
-### Formatter
-
-```sh
---formatter [formatter | reporter] # shorthand (-f)
-```
-
-Pass one or more formatter or reporter flags.
 
 ### Runner
 
@@ -99,6 +91,14 @@ Pass one or more formatter or reporter flags.
 ```
 
 Pass one or more runner to be executed and return results.
+
+### Formatter
+
+```sh
+--formatter [formatter | reporter] # shorthand (-f)
+```
+
+Pass one or more formatter or reporter flags.
 
 ## Apply Versions
 

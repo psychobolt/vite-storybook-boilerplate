@@ -1,14 +1,14 @@
 import path from 'node:path';
-import stylelint from 'stylelint';
+import linter from 'stylelint';
 import type { Runner } from 'commons/index.d.ts';
 
-export const runner: Runner<stylelint.LintResult[]> = async (
+export const stylelint: Runner<linter.LintResult[]> = async (
   files,
   formatters
 ) => {
   console.log('\nRunning Stylelint...');
 
-  const { report, results } = await stylelint.lint({
+  const { report, results } = await linter.lint({
     files,
     ignorePath: path.join(
       process.env.PROJECT_CWD ?? process.cwd(),
