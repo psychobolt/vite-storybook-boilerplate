@@ -8,6 +8,34 @@ Folder for scripts, executables, and any runtimes for workspace or infrastructur
 
 Installs workspaces that do not support `pnp` linker
 
+## Lint
+
+`lint.ts` ([Source](lint.ts))
+
+```sh
+yarn g:run-script $PROJECT_CWD/bin/lint.ts [options]
+```
+
+A suite that executes and outputs the results from supported runners ([ESLint](utils/README.md#eslint), [Stylelint](../packages/stylelint-config/utils/runners.ts)).
+
+### Options
+
+### Runner
+
+```sh
+--runner [runner]
+```
+
+Pass one or more runner to be executed and return results.
+
+### Formatter
+
+```sh
+--formatter [formatter | reporter] # shorthand (-f)
+```
+
+Pass one or more formatter or reporter flags.
+
 ## List Workspaces
 
 `ls-workspaces.ts` ([Source](ls-workspaces.ts))
@@ -72,34 +100,6 @@ E.g.
 { "[workspaceName1]": "[semVer1]", "[workspaceName2]": "[semVer2]" }
 ```
 
-## Lint
-
-`lint.ts` ([Source](lint.ts))
-
-```sh
-yarn g:run-script $PROJECT_CWD/bin/lint.ts [options]
-```
-
-A suite that executes and outputs the results from supported runners ([ESLint](utils/README.md#eslint), [Stylelint](../packages/stylelint-config/utils/runners.ts)).
-
-### Options
-
-### Runner
-
-```sh
---runner [runner]
-```
-
-Pass one or more runner to be executed and return results.
-
-### Formatter
-
-```sh
---formatter [formatter | reporter] # shorthand (-f)
-```
-
-Pass one or more formatter or reporter flags.
-
 ## Apply Versions
 
 `apply-versions.ts` [Source](apply-versions.ts)
@@ -137,9 +137,21 @@ Start a SWC enabled runtime that hooks on loading modules based on Yarn PnP reso
 node bin/swc-node.js [my-script.ts] [options]
 ```
 
+## Hash
+
+`hash.ts` ([Source](hash.ts))
+
+Returns a hash string based on available algorithms supported by OpenSSL. For more info see Node API [docs](https://nodejs.org/api/crypto.html#cryptohashalgorithm-data-options).
+
+```sh
+# Examples
+yarn run-script bin/hash.ts sha256 "hello world"
+yarn run-script bin/hash.ts hello_world # use default algorithm - 'sha1'
+```
+
 ## ESM Register
 
-`esm-register.js` [Source](esm-register.js)
+`esm-register.js` ([Source](esm-register.js))
 
 As of Node v20, [hooks](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) can be utilzed to customize the default resolver for loading JavaScript or TypeScript files. For exmaple, using `--import` flag hook:
 
