@@ -42,7 +42,7 @@
     "husky": "9.1.7",
     "jiti": "2.5.1",
     "lint-staged": "16.1.2",
-    "playwright": "1.54.1",
+    "playwright": "1.54.2",
     "semver": "7.7.2",
     "stylelint": "16.23.0",
     "stylelint-config": "workspace:*",
