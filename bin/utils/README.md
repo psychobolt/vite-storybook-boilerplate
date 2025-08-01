@@ -20,6 +20,18 @@ const string = hash(algorihtm, data, options);
 
 This function is a placeholder of the built-in crypto library available in Node v20.12.0+. Refer to [docs](https://nodejs.org/api/crypto.html#cryptohashalgorithm-data-options) for usage.
 
+## Runners
+
+runners.ts ([Source](runners.ts))
+
+### `eslint`
+
+```ts
+const results = await eslint(files, formatters);
+```
+
+Lint files at the relative directory that is associated with [nearest config](https://eslint.org/docs/v9.x/use/configure/configuration-files#experimental-configuration-file-resolution).
+
 ## Reporters
 
 `reporters.ts` ([Source](reporters.ts))
@@ -46,11 +58,3 @@ await reporter.publish();
 ```
 
 Outputs a `bitbucket-report.json` and `bitbucket-annotations.json` file that can be used for [Bitbucket Code Insights](https://support.atlassian.com/bitbucket-cloud/docs/code-insights/).
-
-### `eslint`
-
-```ts
-const results = await eslint(files, formatters);
-```
-
-Lint files at the relative directory that is associated with [nearest config](https://eslint.org/docs/v9.x/use/configure/configuration-files#experimental-configuration-file-resolution).

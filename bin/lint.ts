@@ -1,7 +1,8 @@
 import arg from 'arg';
-import * as stylelint from 'stylelint-config/utils/reporters.ts';
+import { stylelint } from 'stylelint-config/esm/utils/runners.js';
 
-import * as reporters from './utils/reporters.ts';
+import { Bitbucket, ErrorReporter } from './utils/reporters.ts';
+import { eslint } from './utils/runners.ts';
 
 const args = arg({
   '--runner': [String],
@@ -14,7 +15,7 @@ try {
   const formatters = new Set(
     (args['--formatter'] ?? ['default']).map((name) => {
       if (name === 'bitbucket') {
-        return new reporters.Bitbucket();
+        return new Bitbucket();
       }
       return name;
     })
@@ -23,11 +24,9 @@ try {
   formatters.add('default');
 
   const results = {
-    eslint: runners.has('eslint')
-      ? await reporters.eslint(['.'], formatters)
-      : [],
+    eslint: runners.has('eslint') ? await eslint(['.'], formatters) : [],
     stylelint: runners.has('stylelint')
-      ? await stylelint.runner(['**/*.{sc,c}ss'], formatters)
+      ? await stylelint(['**/*.{sc,c}ss'], formatters)
       : []
   };
 
@@ -38,7 +37,7 @@ try {
   }
 
   try {
-    const errorReporter = new reporters.ErrorReporter();
+    const errorReporter = new ErrorReporter();
     await errorReporter.process(results);
   } catch (e) {
     process.exitCode = 1;

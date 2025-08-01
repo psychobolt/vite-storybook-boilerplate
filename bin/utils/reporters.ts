@@ -1,12 +1,30 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import util from 'node:util';
-import { ESLint } from 'eslint';
-import type { Results, Reporter, Runner } from 'commons/index.d.ts';
+import type { Results, Reporter } from 'commons/index.d.ts';
 
 import { $, hash } from './functions.ts';
 
 const writeFile = util.promisify(fs.writeFile);
+
+export class ErrorReporter implements Reporter {
+  async process(details: Results) {
+    const error = new Error('Failed code analysis');
+    if (details.eslint) {
+      for (const detail of details.eslint) {
+        if (detail.errorCount > 0) throw error;
+      }
+    }
+    if (details.stylelint) {
+      for (const detail of details.stylelint) {
+        if (detail.errored) throw error;
+      }
+    }
+    console.log('\nNo errors reported.');
+  }
+
+  async publish() {}
+}
 
 enum AnnotationType {
   VULNERABILITY = 'VULNERABILITY',
@@ -135,55 +153,3 @@ export class Bitbucket implements Reporter {
     );
   }
 }
-
-export class ErrorReporter implements Reporter {
-  async process(details: Results) {
-    const error = new Error('Failed code analysis');
-    if (details.eslint) {
-      for (const detail of details.eslint) {
-        if (detail.errorCount > 0) throw error;
-      }
-    }
-    if (details.stylelint) {
-      for (const detail of details.stylelint) {
-        if (detail.errored) throw error;
-      }
-    }
-    console.log('\nNo errors reported.');
-  }
-
-  async publish() {}
-}
-
-export const eslint: Runner<ESLint.LintResult[]> = async (
-  files,
-  formatters
-) => {
-  const eslint = new ESLint({
-    flags: ['v10_config_lookup_from_file']
-  });
-
-  console.log('\nRunning ESLint...');
-  const results = await eslint.lintFiles(files);
-
-  for (const formatter of formatters) {
-    let text;
-
-    if (typeof formatter === 'string') {
-      const textFormatter = await eslint.loadFormatter(
-        formatter === 'default' ? 'stylish' : formatter
-      );
-      text = await textFormatter.format(results);
-    } else if (typeof formatter === 'object') {
-      await formatter.process({ eslint: results });
-    } else {
-      text = await formatter({ eslint: results });
-    }
-
-    if (text) {
-      console.log(text);
-    }
-  }
-
-  return results;
-};
