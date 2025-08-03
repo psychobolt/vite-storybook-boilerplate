@@ -52,8 +52,6 @@ export function hash(
 export const resolve = async (moduleId: string, cwd = process.cwd()) =>
   pathToFileURL(
     (
-      await $(`cd ${cwd} && yarn node -p "require.resolve('${moduleId}')"`, {
-        silent: true
-      })
+      await $(`cd ${cwd} && yarn node -p "require.resolve('${moduleId}')"`)
     ).trim()
   ).toString();
