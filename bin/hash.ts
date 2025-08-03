@@ -1,6 +1,5 @@
 import arg from 'arg';
-
-import { hash } from './utils/functions.ts';
+import { hash } from 'commons/esm/bin/utils/functions.js';
 
 const { _ } = arg({}, { permissive: true });
 

@@ -1,14 +1,18 @@
-import arg from 'arg';
-import { stylelint } from 'stylelint-config/esm/utils/runners.js';
+import type { Spec, Result } from 'arg';
 
-import { Bitbucket, ErrorReporter } from './utils/reporters.ts';
-import { eslint } from './utils/runners.ts';
+import { resolve } from './utils/functions.js';
+import { Bitbucket, ErrorReporter } from './utils/reporters.js';
+import { eslint, stylelint } from './utils/runners.js';
 
-const args = arg({
+const arg = (await import(await resolve('arg'))).default;
+
+const spec: Spec = {
   '--runner': [String],
   '--formatter': [String],
   '-f': '--formatter'
-});
+};
+
+const args: Result<typeof spec> = arg(spec);
 
 try {
   const runners = new Set(args['--runner'] ?? ['eslint']);
