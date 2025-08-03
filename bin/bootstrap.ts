@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import { join } from 'node:path';
 import { type ExecOptions, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { $ } from 'commons/esm/bin/utils/functions.js';
 
-import { $ } from './utils/functions.ts';
 import getWorkspaces from './ls-workspaces.ts';
 
 const { appendFile } = fs.promises;

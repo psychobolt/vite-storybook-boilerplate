@@ -1,7 +1,7 @@
 import arg from 'arg';
 import semver from 'semver';
 
-import { $ } from './utils/functions.ts';
+import { $ } from 'commons/esm/bin/utils/functions.js';
 import getWorkspaces from './ls-workspaces.ts';
 
 enum Strategy {

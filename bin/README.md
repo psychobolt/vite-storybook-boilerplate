@@ -8,34 +8,6 @@ Folder for scripts, executables, and any runtimes for workspace or infrastructur
 
 Installs workspaces that do not support `pnp` linker
 
-## Lint
-
-`lint.ts` ([Source](lint.ts))
-
-```sh
-yarn g:run-script $PROJECT_CWD/bin/lint.ts [options]
-```
-
-A suite that executes and outputs the results from supported runners ([ESLint](utils/README.md#eslint), [Stylelint](../packages/stylelint-config/utils/runners.ts)).
-
-### Options
-
-### Runner
-
-```sh
---runner [runner]
-```
-
-Pass one or more runner to be executed and return results.
-
-### Formatter
-
-```sh
---formatter [formatter | reporter] # shorthand (-f)
-```
-
-Pass one or more formatter or reporter flags.
-
 ## List Workspaces
 
 `ls-workspaces.ts` ([Source](ls-workspaces.ts))

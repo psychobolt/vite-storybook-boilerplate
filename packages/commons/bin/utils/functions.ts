@@ -1,5 +1,6 @@
 import { type ExecOptions, exec } from 'node:child_process';
 import crypto, { BinaryToTextEncoding } from 'node:crypto';
+import { pathToFileURL } from 'node:url';
 
 export interface StdioExecOptions extends ExecOptions {
   silent?: boolean;
@@ -47,3 +48,12 @@ export function hash(
     (typeof options === 'object' ? options?.encoding : options) ?? 'hex'
   );
 }
+
+export const resolve = async (moduleId: string, cwd = process.cwd()) =>
+  pathToFileURL(
+    (
+      await $(`cd ${cwd} && yarn node -p require.resolve('${moduleId}')`, {
+        silent: true
+      })
+    ).trim()
+  ).toString();

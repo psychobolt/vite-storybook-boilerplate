@@ -1,11 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import util from 'node:util';
-import type { Results, Reporter } from 'commons/index.d.ts';
 
-import { $, hash } from './functions.ts';
+import { $, hash } from './functions.js';
+import type { Results } from './runners.js';
 
 const writeFile = util.promisify(fs.writeFile);
+
+export interface Reporter {
+  process(results: Results): Promise<void>;
+  publish(): Promise<void>;
+}
 
 export class ErrorReporter implements Reporter {
   async process(details: Results) {
