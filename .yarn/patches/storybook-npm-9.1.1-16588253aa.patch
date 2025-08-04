@@ -64,10 +64,10 @@ index ef1a9529887d63a28e3b8036229fb678d745b6ef..20d4de3e35c8e04a215c5c8adbeab146
      }
    };
 diff --git a/dist/common/index.cjs b/dist/common/index.cjs
-index 1a902b0905e3468a3268977659e8a6b61ae73faa..6b27231bd89ba21d5117389e17b93230e099fc5a 100644
+index 52162b71a235b3cee38ef41ac0cc1fb047984c8c..2caeeb047f7a16e16d4e775bab5927dd314e4528 100644
 --- a/dist/common/index.cjs
 +++ b/dist/common/index.cjs
-@@ -18738,14 +18738,14 @@ s(la, "getInterpretedFileWithExt");
+@@ -18774,14 +18774,14 @@ s(la, "getInterpretedFileWithExt");
  
  // src/common/utils/interpret-require.ts
  var SE = !1;
@@ -84,7 +84,7 @@ index 1a902b0905e3468a3268977659e8a6b61ae73faa..6b27231bd89ba21d5117389e17b93230
        // Some frameworks, like Stylus, rely on the 'name' property of classes or functions
        // https://github.com/storybookjs/storybook/issues/19049
        keepNames: !0,
-@@ -18757,7 +18757,9 @@ function sn(t) {
+@@ -18793,7 +18793,9 @@ function sn(t) {
      }`
      });
    }
@@ -95,34 +95,34 @@ index 1a902b0905e3468a3268977659e8a6b61ae73faa..6b27231bd89ba21d5117389e17b93230
    return typeof e == "object" && e !== null && typeof e.default < "u" ? e.default : e;
  }
  s(sn, "interopRequireDefault");
-@@ -23382,10 +23384,10 @@ async function ts(t, A) {
+@@ -23418,10 +23420,10 @@ async function ts(t, A) {
  s(ts, "validateConfigurationFiles");
  
  // src/common/utils/load-custom-presets.ts
 -function La({ configDir: t }) {
 +async function La({ configDir: t }) {
    ts(t);
--  let A = Pr((0, Kn.resolve)(t, "presets"));
--  if (Pr((0, Kn.resolve)(t, "main"))) {
-+  let A = await Pr((0, Kn.resolve)(t, "presets"));
-+  if (await Pr((0, Kn.resolve)(t, "main"))) {
-     let r = Ur((0, Kn.resolve)(t, "main"));
+-  let A = Ur((0, Kn.resolve)(t, "presets"));
+-  if (Ur((0, Kn.resolve)(t, "main"))) {
++  let A = await Ur((0, Kn.resolve)(t, "presets"));
++  if (await Ur((0, Kn.resolve)(t, "main"))) {
+     let r = _r((0, Kn.resolve)(t, "main"));
      if (r)
        return [r];
-@@ -23628,7 +23630,7 @@ s(Gu, "getPresets");
- async function sN(t) {
+@@ -23664,7 +23666,7 @@ s(Gu, "getPresets");
+ async function oN(t) {
    let { corePresets: A = [], overridePresets: e = [], ...r } = t, i = [
      ...A,
 -    ...La(t),
 +    ...await La(t),
      ...e
    ], n = Yu(i);
-   return n.length < i.length && $r.logger.warn(
+   return n.length < i.length && Zr.logger.warn(
 diff --git a/dist/common/index.js b/dist/common/index.js
-index 6e2dbd69d006f86246e450ef74a27e02b1644c32..7e33ad366b71af8d7a9a6a32d3a063c88d8aa16d 100644
+index 85b9581e568895cfadb9526028a292d0c657c71c..9c20cb76cfc2a184d21f9d0fafbcfe271ca8a7e3 100644
 --- a/dist/common/index.js
 +++ b/dist/common/index.js
-@@ -18669,14 +18669,14 @@ s(Bl, "getInterpretedFileWithExt");
+@@ -18704,14 +18704,14 @@ s(Bl, "getInterpretedFileWithExt");
  
  // src/common/utils/interpret-require.ts
  var Ql = !1;
@@ -139,7 +139,7 @@ index 6e2dbd69d006f86246e450ef74a27e02b1644c32..7e33ad366b71af8d7a9a6a32d3a063c8
        // Some frameworks, like Stylus, rely on the 'name' property of classes or functions
        // https://github.com/storybookjs/storybook/issues/19049
        keepNames: !0,
-@@ -18688,7 +18688,9 @@ function dg(t) {
+@@ -18723,7 +18723,9 @@ function dg(t) {
      }`
      });
    }
@@ -150,88 +150,88 @@ index 6e2dbd69d006f86246e450ef74a27e02b1644c32..7e33ad366b71af8d7a9a6a32d3a063c8
    return typeof e == "object" && e !== null && typeof e.default < "u" ? e.default : e;
  }
  s(dg, "interopRequireDefault");
-@@ -23321,10 +23323,10 @@ async function zs(t, A) {
+@@ -23356,10 +23358,10 @@ async function zs(t, A) {
  s(zs, "validateConfigurationFiles");
  
  // src/common/utils/load-custom-presets.ts
 -function BE({ configDir: t }) {
 +async function BE({ configDir: t }) {
    zs(t);
--  let A = hi(Gg(t, "presets"));
--  if (hi(Gg(t, "main"))) {
-+  let A = await hi(Gg(t, "presets"));
-+  if (await hi(Gg(t, "main"))) {
-     let r = li(Gg(t, "main"));
+-  let A = li(Gg(t, "presets"));
+-  if (li(Gg(t, "main"))) {
++  let A = await li(Gg(t, "presets"));
++  if (await li(Gg(t, "main"))) {
+     let r = Ei(Gg(t, "main"));
      if (r)
        return [r];
-@@ -23567,7 +23569,7 @@ s(qk, "getPresets");
- async function _1(t) {
+@@ -23602,7 +23604,7 @@ s(zk, "getPresets");
+ async function OH(t) {
    let { corePresets: A = [], overridePresets: e = [], ...r } = t, i = [
      ...A,
 -    ...BE(t),
 +    ...await BE(t),
      ...e
-   ], n = Jk(i);
-   return n.length < i.length && Ni.warn(
+   ], n = Ok(i);
+   return n.length < i.length && Mi.warn(
 diff --git a/dist/core-server/index.cjs b/dist/core-server/index.cjs
-index d2dfb3ebbe63b314da6cf34b7e12482b061725e0..e627c0bf74b20f214d159f3c204d1c6a1b78f5b8 100644
+index fb85a2c8769a3568e25805aed49a326a5f07c38e..ad4f680684559eb1ed87b65b92c94165ae2060ab 100644
 --- a/dist/core-server/index.cjs
 +++ b/dist/core-server/index.cjs
-@@ -35805,7 +35805,7 @@ async function ld(e) {
-   await (0, T2.rm)(e.outputDir, { recursive: !0, force: !0 }).catch(() => {
-   }), await (0, Ru.mkdir)(e.outputDir, { recursive: !0 });
-   let t = await (0, vr.loadMainConfig)(e), { framework: r } = t, i = [], n = typeof r == "string" ? r : r?.name;
--  n ? i.push((0, or.join)(n, "preset")) : e.ignorePreview || oi.logger.warn(`you have not specified a framework in your ${e.configDir}/main.\
-+  n ? i.push(require.resolve((0, or.join)(n, "preset"))) : e.ignorePreview || oi.logger.warn(`you have not specified a framework in your ${e.configDir}/main.\
- js`), oi.logger.info("=> Loading presets");
-   let o = await (0, vr.loadAllPresets)({
+@@ -39683,7 +39683,7 @@ async function Ng(e) {
+   await (0, fF.rm)(e.outputDir, { recursive: !0, force: !0 }).catch(() => {
+   }), await (0, bc.mkdir)(e.outputDir, { recursive: !0 });
+   let t = await (0, Vr.loadMainConfig)(e), { framework: r } = t, n = [], i = typeof r == "string" ? r : r?.name;
+-  i ? n.push((0, vr.join)(i, "preset")) : e.ignorePreview || Rn.logger.warn(`you have not specified a framework in your ${e.configDir}/main.\
++  i ? n.push(require.resolve((0, vr.join)(i, "preset"))) : e.ignorePreview || Rn.logger.warn(`you have not specified a framework in your ${e.configDir}/main.\
+ js`), Rn.logger.info("=> Loading presets");
+   let o = await (0, Vr.loadAllPresets)({
      corePresets: [
-@@ -37987,7 +37987,7 @@ async function jg(e) {
+@@ -44108,7 +44108,7 @@ async function bx(e) {
    e.smokeTest && (p = c), e.port = a, e.versionCheck = u, e.configType = "DEVELOPMENT", e.configDir = o, e.cacheKey = l, e.outputDir = p, e.
-   serverChannelUrl = D_(a, e);
-   let h = await (0, it.loadMainConfig)(e), { framework: f } = h, d = [], m = typeof f == "string" ? f : f?.name;
--  e.ignorePreview || (0, it.validateFrameworkName)(m), m && d.push((0, Ui.join)(m, "preset")), m = m || "custom";
-+  e.ignorePreview || (0, it.validateFrameworkName)(m), m && d.push(require.resolve((0, Ui.join)(m, "preset"))), m = m || "custom";
-   let g = it.JsPackageManagerFactory.getPackageManager({
+   serverChannelUrl = I6(a, e);
+   let h = await (0, ft.loadMainConfig)(e), { framework: f } = h, d = [], m = typeof f == "string" ? f : f?.name;
+-  e.ignorePreview || (0, ft.validateFrameworkName)(m), m && d.push((0, Ai.join)(m, "preset")), m = m || "custom";
++  e.ignorePreview || (0, ft.validateFrameworkName)(m), m && d.push(require.resolve((0, Ai.join)(m, "preset"))), m = m || "custom";
+   let g = ft.JsPackageManagerFactory.getPackageManager({
      configDir: e.configDir
    });
-@@ -38092,7 +38092,7 @@ async function Tl(e) {
-   let t = (0, Cs.resolve)(e.configDir), r = (0, PT.oneWayHash)((0, Cs.relative)((0, Fr.getProjectRoot)(), t));
+@@ -44213,7 +44213,7 @@ async function nh(e) {
+   let t = (0, Vo.resolve)(e.configDir), r = (0, GR.oneWayHash)((0, Vo.relative)((0, Xr.getProjectRoot)(), t));
    e.configType = "DEVELOPMENT", e.configDir = t, e.cacheKey = r;
-   let i = await (0, Fr.loadMainConfig)(e), { framework: n } = i, o = [], a = typeof n == "string" ? n : n?.name;
--  e.ignorePreview || (0, Fr.validateFrameworkName)(a), a && o.push((0, Cs.join)(a, "preset")), a = a || "custom";
-+  e.ignorePreview || (0, Fr.validateFrameworkName)(a), a && o.push(require.resolve((0, Cs.join)(a, "preset"))), a = a || "custom";
-   let u = await (0, Fr.loadAllPresets)({
+   let n = await (0, Xr.loadMainConfig)(e), { framework: i } = n, o = [], a = typeof i == "string" ? i : i?.name;
+-  e.ignorePreview || (0, Xr.validateFrameworkName)(a), a && o.push((0, Vo.join)(a, "preset")), a = a || "custom";
++  e.ignorePreview || (0, Xr.validateFrameworkName)(a), a && o.push(require.resolve((0, Vo.join)(a, "preset"))), a = a || "custom";
+   let u = await (0, Xr.loadAllPresets)({
      corePresets: o,
      overridePresets: [
 diff --git a/dist/core-server/index.js b/dist/core-server/index.js
-index 73d91be2d97e7aa2f4ab94aba193fc6756134112..1c36932f5572db3037e2a9d8ea20537765b2dd5d 100644
+index d244d886ab5a6fac6a43a8484586fb4e8b0d98c6..196674ac05616fdaa49564d805098e8d7fd9b3b5 100644
 --- a/dist/core-server/index.js
 +++ b/dist/core-server/index.js
-@@ -35826,7 +35826,7 @@ async function jC(e) {
-   await Bj(e.outputDir, { recursive: !0, force: !0 }).catch(() => {
-   }), await Tj(e.outputDir, { recursive: !0 });
-   let t = await Oj(e), { framework: r } = t, i = [], n = typeof r == "string" ? r : r?.name;
--  n ? i.push(lu(n, "preset")) : e.ignorePreview || vi.warn(`you have not specified a framework in your ${e.configDir}/main.js`), vi.info("=>\
-+  n ? i.push(require.resolve(lu(n, "preset"))) : e.ignorePreview || vi.warn(`you have not specified a framework in your ${e.configDir}/main.js`), vi.info("=>\
+@@ -39704,7 +39704,7 @@ async function lA(e) {
+   await uH(e.outputDir, { recursive: !0, force: !0 }).catch(() => {
+   }), await aH(e.outputDir, { recursive: !0 });
+   let t = await pH(e), { framework: r } = t, n = [], i = typeof r == "string" ? r : r?.name;
+-  i ? n.push(Ll(i, "preset")) : e.ignorePreview || Zn.warn(`you have not specified a framework in your ${e.configDir}/main.js`), Zn.info("=>\
++  i ? n.push(require.resolve(Ll(i, "preset"))) : e.ignorePreview || Zn.warn(`you have not specified a framework in your ${e.configDir}/main.js`), Zn.info("=>\
   Loading presets");
-   let o = await NC({
+   let o = await oA({
      corePresets: [
-@@ -38046,7 +38046,7 @@ async function Ak(e) {
+@@ -44204,7 +44204,7 @@ async function a8(e) {
    e.smokeTest && (p = c), e.port = a, e.versionCheck = u, e.configType = "DEVELOPMENT", e.configDir = o, e.cacheKey = l, e.outputDir = p, e.
-   serverChannelUrl = d3(a, e);
-   let h = await bX(e), { framework: f } = h, d = [], m = typeof f == "string" ? f : f?.name;
--  e.ignorePreview || AX(m), m && d.push(gX(m, "preset")), m = m || "custom";
-+  e.ignorePreview || AX(m), m && d.push(require.resolve(gX(m, "preset"))), m = m || "custom";
-   let g = yX.getPackageManager({
+   serverChannelUrl = XB(a, e);
+   let h = await Loe(e), { framework: f } = h, d = [], m = typeof f == "string" ? f : f?.name;
+-  e.ignorePreview || $oe(m), m && d.push(Poe(m, "preset")), m = m || "custom";
++  e.ignorePreview || $oe(m), m && d.push(require.resolve(Poe(m, "preset"))), m = m || "custom";
+   let g = Ooe.getPackageManager({
      configDir: e.configDir
    });
-@@ -38162,7 +38162,7 @@ async function ig(e) {
-   let t = OX(e.configDir), r = jX(PX(RX(), t));
+@@ -44320,7 +44320,7 @@ async function bD(e) {
+   let t = Xoe(e.configDir), r = tae(Zoe(Koe(), t));
    e.configType = "DEVELOPMENT", e.configDir = t, e.cacheKey = r;
-   let i = await NX(e), { framework: n } = i, o = [], a = typeof n == "string" ? n : n?.name;
--  e.ignorePreview || MX(a), a && o.push(IX(a, "preset")), a = a || "custom";
-+  e.ignorePreview || MX(a), a && o.push(require.resolve(IX(a, "preset"))), a = a || "custom";
-   let u = await Sk({
+   let n = await Yoe(e), { framework: i } = n, o = [], a = typeof i == "string" ? i : i?.name;
+-  e.ignorePreview || eae(a), a && o.push(Joe(a, "preset")), a = a || "custom";
++  e.ignorePreview || eae(a), a && o.push(require.resolve(Joe(a, "preset"))), a = a || "custom";
+   let u = await u8({
      corePresets: o,
      overridePresets: [
