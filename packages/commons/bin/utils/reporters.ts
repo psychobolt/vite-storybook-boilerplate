@@ -53,6 +53,8 @@ interface Annotation {
 }
 
 export class Bitbucket implements Reporter {
+  workspace = '';
+
   report = {
     title: 'Code Report',
     details: 'Summary of errors and warnings',
@@ -74,17 +76,22 @@ export class Bitbucket implements Reporter {
 
   annotations: Annotation[] = [];
 
+  constructor() {
+    const currentDir = process.cwd();
+    this.workspace = path.basename(currentDir);
+    this.workspace =
+      path.basename(process.env.PROJECT_CWD ?? '') === this.workspace
+        ? ''
+        : this.workspace;
+    this.report.title = `${this.workspace} ${this.report.title}`.trim();
+  }
+
   async process(results: Results) {
     const currentDir = process.cwd();
     const commit = (await $('git rev-parse HEAD', { silent: true })).trim();
 
     let totalErrorCount = 0;
     let totalWarningCount = 0;
-    let workspace = path.basename(currentDir);
-    workspace =
-      path.basename(process.env.PROJECT_CWD ?? '') === workspace
-        ? ''
-        : workspace;
 
     if (results.eslint) {
       const SEVERITIES = Object.values(Severity);
@@ -94,7 +101,7 @@ export class Bitbucket implements Reporter {
         totalWarningCount += result.warningCount;
 
         const relativePath = path.join(
-          workspace,
+          this.workspace,
           path.relative(currentDir, result.filePath)
         );
 
@@ -130,7 +137,7 @@ export class Bitbucket implements Reporter {
 
           const relativePath =
             result.source &&
-            path.join(workspace, path.relative(currentDir, result.source));
+            path.join(this.workspace, path.relative(currentDir, result.source));
           if (relativePath) {
             this.annotations.push({
               external_id: hash(
@@ -148,13 +155,14 @@ export class Bitbucket implements Reporter {
       }
     }
 
-    this.report.result =
-      totalErrorCount + totalWarningCount > 0 ? 'FAILED' : 'PASSED';
     this.report.data[0].value += totalErrorCount;
     this.report.data[1].value += totalWarningCount;
   }
 
   async publish() {
+    const [errorData, warningData] = this.report.data;
+    this.report.result =
+      errorData.value + warningData.value > 0 ? 'FAILED' : 'PASSED';
     await writeFile('bitbucket-report.json', JSON.stringify(this.report));
     await writeFile(
       'bitbucket-annotations.json',
