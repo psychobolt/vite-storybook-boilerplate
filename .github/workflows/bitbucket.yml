@@ -19,6 +19,7 @@ jobs:
       ref_name: bitbucket
     secrets: inherit
   mirror:
+    needs: setup
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
