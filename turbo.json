@@ -24,10 +24,12 @@
       "dependsOn": ["^build"]
     },
     "//#lint": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["*-report.json", "*-annotations.json"]
     },
     "lint": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["*-report.json", "*-annotations.json"]
     },
     "test": {
       "dependsOn": ["^build"]
