@@ -55,8 +55,9 @@ interface Annotation {
 export class Bitbucket implements Reporter {
   report = {
     title: 'Code Report',
-    details: '',
+    details: 'Summary of errors and warnings',
     report_type: 'TEST',
+    result: 'PENDING',
     data: [
       {
         title: 'Error Count',
@@ -147,6 +148,8 @@ export class Bitbucket implements Reporter {
       }
     }
 
+    this.report.result =
+      totalErrorCount + totalWarningCount > 0 ? 'FAILED' : 'PASSED';
     this.report.data[0].value += totalErrorCount;
     this.report.data[1].value += totalWarningCount;
   }
