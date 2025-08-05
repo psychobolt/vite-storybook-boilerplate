@@ -46,7 +46,7 @@
     "semver": "7.7.2",
     "turbo": "2.5.5",
     "typescript": "5.9.2",
-    "yaml": "2.8.0"
+    "yaml": "2.8.1"
   },
   "resolutions": {
     "@storybook/test-runner@npm:0.23.0": "patch:@storybook/test-runner@npm%3A0.23.0#~/.yarn/patches/@storybook-test-runner-npm-0.23.0-397644f312.patch",
