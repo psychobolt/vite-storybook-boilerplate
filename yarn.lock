@@ -3779,13 +3779,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lint-staged@npm:13.3.0":
-  version: 13.3.0
-  resolution: "@types/lint-staged@npm:13.3.0"
-  checksum: 10c0/b4da6c76bb93b546c5aa1ad98ad845ea9d10aec15df30d5e3b2567d0cc360c4be26b1af9e5ca32c956322da1be4b26dab02a1ec41b82dab2f4f75dc27b9b791b
-  languageName: node
-  linkType: hard
-
 "@types/lodash@npm:4":
   version: 4.17.20
   resolution: "@types/lodash@npm:4.17.20"
@@ -6455,7 +6448,6 @@ __metadata:
     "@storybook/global": "npm:5.0.0"
     "@storybook/test-runner": "npm:0.23.0"
     "@types/eslint": "npm:9.6.1"
-    "@types/lint-staged": "npm:13.3.0"
     "@types/lodash": "npm:4"
     "@types/react-syntax-highlighter": "npm:15.5.13"
     arg: "npm:5.0.2"
@@ -6464,6 +6456,7 @@ __metadata:
     eslint-plugin-mdx: "npm:3.6.2"
     jest-junit: "npm:16.0.0"
     jiti: "npm:2.5.1"
+    lint-staged: "npm:16.1.4"
     lodash: "npm:4.17.21"
     neostandard: "npm:0.12.2"
     playwright: "npm:1.54.2"
@@ -17587,7 +17580,6 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     jiti: "npm:2.5.1"
-    lint-staged: "npm:16.1.4"
     playwright: "npm:1.54.2"
     semver: "npm:7.7.2"
     turbo: "npm:2.5.5"
