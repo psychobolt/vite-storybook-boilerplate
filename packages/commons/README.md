@@ -124,14 +124,21 @@ See [source](lint-staged.base.config.ts)
 /your/project/lint-staged.config.js
 
 ```js
+export { default } from 'commons/esm/lint-staged.base.config.js';
+```
+
+Or
+
+```js
 import commonConfig from 'commons/esm/lint-staged.base.config.js';
 
 /**
+ * (optional) yarn [workspace workspace-name] add -DE lint-staged
  * @type {import('lint-staged').Configuration}
  */
 export default {
   ...commonConfig
-  // your overrides
+  // your overrides (optional)
 };
 ```
 
