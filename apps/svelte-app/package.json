@@ -13,8 +13,9 @@
 		"preview": "yarn vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && stylelint **/*.{sc,c}ss && yarn check && lint --runner eslint",
-		"format": "prettier --write $(echo \"${@:-.}\")"
+		"prettier": "prettier --ignore-path ../../.gitignore --ignore-path ../../packages/commons/.prettierignore --ignore-path ./.gitignore --ignore-path ./.prettierignore",
+		"lint": "yarn prettier --check . && stylelint **/*.{sc,c}ss && yarn check && lint --runner eslint",
+		"format": "yarn prettier --write $(echo \"${@:-.}\")"
 	},
 	"devDependencies": {
 		"@dotenvx/dotenvx": "1.48.4",

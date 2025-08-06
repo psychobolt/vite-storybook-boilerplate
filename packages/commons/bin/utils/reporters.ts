@@ -78,12 +78,12 @@ export class Bitbucket implements Reporter {
 
   constructor() {
     const currentDir = process.cwd();
-    this.workspace = path.basename(currentDir);
+    const workspace = path.basename(currentDir);
+    this.report.title = `${workspace} ${this.report.title}`.trim();
     this.workspace =
-      path.basename(process.env.PROJECT_CWD ?? '') === this.workspace
+      path.basename(process.env.PROJECT_CWD ?? '') === workspace
         ? ''
-        : this.workspace;
-    this.report.title = `${this.workspace} ${this.report.title}`.trim();
+        : workspace;
   }
 
   async process(results: Results) {
