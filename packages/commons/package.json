@@ -50,7 +50,7 @@
     "@storybook/addon-onboarding": "9.1.1",
     "@storybook/addon-vitest": "9.1.1",
     "@storybook/global": "5.0.0",
-    "@types/lint-staged": "13.3.0",
+    "@types/lint-staged": "14.0.0",
     "@types/react-syntax-highlighter": "15.5.13",
     "arg": "5.0.2",
     "eslint": "9.32.0",

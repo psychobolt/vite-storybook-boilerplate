@@ -3779,10 +3779,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lint-staged@npm:13.3.0":
-  version: 13.3.0
-  resolution: "@types/lint-staged@npm:13.3.0"
-  checksum: 10c0/b4da6c76bb93b546c5aa1ad98ad845ea9d10aec15df30d5e3b2567d0cc360c4be26b1af9e5ca32c956322da1be4b26dab02a1ec41b82dab2f4f75dc27b9b791b
+"@types/lint-staged@npm:14.0.0":
+  version: 14.0.0
+  resolution: "@types/lint-staged@npm:14.0.0"
+  dependencies:
+    lint-staged: "npm:*"
+  checksum: 10c0/ebafc9e84a4834bbd305378c737a6c74fcc945cefce8a2ac764fa74d1123793a5045a64e076f5d55af33194ad49d57703b2b2fe1814e33b770da431a42629665
   languageName: node
   linkType: hard
 
@@ -6455,7 +6457,7 @@ __metadata:
     "@storybook/global": "npm:5.0.0"
     "@storybook/test-runner": "npm:0.23.0"
     "@types/eslint": "npm:9.6.1"
-    "@types/lint-staged": "npm:13.3.0"
+    "@types/lint-staged": "npm:14.0.0"
     "@types/lodash": "npm:4"
     "@types/react-syntax-highlighter": "npm:15.5.13"
     arg: "npm:5.0.2"
@@ -11167,7 +11169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:16.1.4":
+"lint-staged@npm:*, lint-staged@npm:16.1.4":
   version: 16.1.4
   resolution: "lint-staged@npm:16.1.4"
   dependencies:
