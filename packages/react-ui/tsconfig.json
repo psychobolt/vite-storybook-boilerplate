@@ -15,6 +15,11 @@
     ],
     "baseUrl": "src",
     "paths": {
+      "html-ui/*": [
+        "${configDir}/../html-ui/dist/*.css",
+        "${configDir}/../html-ui/dist/*",
+        "${configDir}/../html-ui/*"
+      ],
       "react-ui": ["index.ts"],
       "react-ui/*": ["*/index.ts"]
     }
