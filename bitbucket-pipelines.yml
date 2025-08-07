@@ -23,36 +23,56 @@ definitions:
       path: packages/unplugged/node_modules
   scripts:
     - script: &git-auth |
-        git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
+        git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_FULL_NAME}
     - script: &env |
         export YARN_GLOBAL_FOLDER=.temp/.yarn/berry
         echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
-    - script: &install |
-        yarn install
-        yarn bootstrap
     - script: &setup |
-        set -o pipefail
         nvm install
         corepack enable
         yarn install
-        yarn playwright install --with-deps chromium
-    - script: &check |
-        yarn workspace $PACKAGE_NAME turbo run lint
-        yarn workspace $PACKAGE_NAME turbo run build
+    - script: &lint |
+        set +e
+        yarn $WORKSPACE turbo run lint -- -f bitbucket
+        export REPORT_STATUS=$?
+        set -e
     - script: &test |
-        yarn workspace $PACKAGE_NAME turbo run coverage
+        yarn $WORKSPACE turbo run coverage
     - script: &test-runner |
-        npx concurrently -k -s first -n "SB,TEST" "yarn workspace $PACKAGE_NAME turbo run start -- --silent" "npx wait-on $(yarn workspace $PACKAGE_NAME g:dotenv-get SB_URL | tail -n1) && yarn workspace $PACKAGE_NAME coverage"
+        set -o pipefail
+        npx concurrently -k -s first -n "SB,TEST" "yarn $WORKSPACE turbo run start -- --silent" "npx wait-on $(yarn $WORKSPACE g:dotenv-get SB_URL | tail -n1) && yarn $WORKSPACE coverage"
     - script: &chromatic |
         if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
-          yarn workspace $PACKAGE_NAME turbo run build-storybook
-          yarn workspace $PACKAGE_NAME chromatic --auto-accept-changes
+          yarn $WORKSPACE turbo run build-storybook
+          yarn $WORKSPACE chromatic --auto-accept-changes --zip
         else
-          yarn workspace $PACKAGE_NAME turbo run chromatic
+          yarn $WORKSPACE turbo run chromatic -- --zip
         fi
+    - script: &report |
+        curl --request PUT "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/commit/${BITBUCKET_COMMIT}/reports/${PACKAGE_NAME}/" \
+          -u "$CI_BOT_USERNAME:$CI_BOT_APP_SECRET" \
+          --header 'Accept: application/json' \
+          --header 'Content-Type: application/json' \
+          --data @${WORKSPACE:-.}/bitbucket-report.json \
+          --fail-with-body
+        export ANNOTATIONS_FILE="${WORKSPACE:-.}/bitbucket-annotations.json"
+        if [[ $(cat ${ANNOTATIONS_FILE} | jq 'length') > 0 ]]; then
+          curl --request POST \
+            --url "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/commit/${BITBUCKET_COMMIT}/reports/${PACKAGE_NAME}/annotations/" \
+            -u "$CI_BOT_USERNAME:$CI_BOT_APP_SECRET" \
+            --header 'Accept: application/json' \
+            --header 'Content-Type: application/json' \
+            --data @${ANNOTATIONS_FILE} \
+            --fail-with-body
+        fi
+        [ ${REPORT_STATUS:-0} = 0 ] && true || exit $REPORT_STATUS
     - script: &release |
         if [ "$RELEASE_TAGS" ]; then
           RELEASE_TAG=$( echo "$RELEASE_TAGS" | jq -r --arg keyvar "$BITBUCKET_BRANCH" --arg tag "$RELEASE_TAG" '.[$keyvar] // $tag' )
+        fi
+
+        if [ "$RELEASE_TAG" == "{branch}" ]; then
+          RELEASE_TAG="$BITBUCKET_BRANCH"
         fi
 
         BASE_REF="HEAD"
@@ -90,10 +110,12 @@ definitions:
 
         if [[ "$SEMVER" != "{}" ]]; then
           if [ "$RELEASE_TAG" ]; then
-            git tag -d "$RELEASE_TAG" || true
-            git push origin --delete "$RELEASE_TAG" || true
-            git tag "$RELEASE_TAG" -am "$SEMVER"
-            git push origin "$RELEASE_TAG"
+            if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
+              git tag -d "$RELEASE_TAG" || true
+              git push origin --delete "$RELEASE_TAG" || true
+              git tag "$RELEASE_TAG" -am "$SEMVER"
+              git push origin "$RELEASE_TAG"
+            fi
           fi
           yarn workspaces foreach -A --no-private --dry-run npm publish --tolerate-republish ${RELEASE_TAG:+--tag $RELEASE_TAG}
         fi
@@ -101,140 +123,13 @@ definitions:
 pipelines:
   branches:
     '{main,release-*}':
-      - step: &build-root
-          name: Build and Test Root
-          max-time: 10
-          size: 2x
-          caches:
-            - yarn
+      - step: &code-report
+          name: Code Report
+          type: pipeline
+          custom: code-report
           script:
-            - yarn install
-            - yarn turbo run //#lint
-      - parallel: &build-workspaces
-          - step:
-              name: Build and Test Commons
-              max-time: 10
-              size: 2x
-              condition:
-                changesets:
-                  includePaths:
-                    - package.json
-                    - packages/commons/**
-              caches:
-                - yarn
-              script:
-                - *env
-                - export PACKAGE_NAME=commons
-                - yarn install
-                - *test
-          - step:
-              name: Build and Test Stylelint Config
-              max-time: 10
-              size: 2x
-              condition:
-                changesets:
-                  includePaths:
-                    - *env
-                    - package.json
-                    - packages/commons/**
-                    - packages/stylelint-config/**
-              caches:
-                - yarn
-              script:
-                - *env
-                - export PACKAGE_NAME=stylelint-config
-                - yarn install
-                - *test
-          - step:
-              name: Build and Test HTML UI
-              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
-              max-time: 15
-              size: 2x
-              caches:
-                - yarn
-              condition:
-                changesets:
-                  includePaths:
-                    - package.json
-                    - packages/commons/**
-                    - packages/stylelint-config/**
-                    - packages/html-ui/**
-              script:
-                - *env
-                - export PACKAGE_NAME=html-ui
-                - *setup
-                - *check
-                - *test-runner
-                - *chromatic
-          - step:
-              name: Build and Test React UI
-              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
-              max-time: 15
-              size: 2x
-              caches:
-                - yarn
-              clone:
-                enabled: true
-                depth: 75
-              condition:
-                changesets:
-                  includePaths:
-                    - package.json
-                    - packages/commons/**
-                    - packages/stylelint-config/**
-                    - packages/html-ui/**
-                    - packages/react-ui/**
-              script:
-                - *env
-                - export PACKAGE_NAME=react-ui
-                - *setup
-                - *check
-                - *test
-                - *chromatic
-          - step:
-              name: Build and Test Next App
-              max-time: 15
-              size: 2x
-              caches:
-                - yarn
-              clone:
-                enabled: true
-                depth: 75
-              condition:
-                changesets:
-                  includePaths:
-                    - package.json
-                    - packages/commons/**
-                    - packages/html-ui/**
-                    - packages/react-ui/**
-                    - apps/next-app/**
-              script:
-                - *env
-                - export PACKAGE_NAME=next-app
-                - yarn install
-                - *test
-          - step:
-              name: Build and Test Svelte App
-              max-time: 15
-              size: 2x
-              caches:
-                - pnpm
-                - unplugged
-              condition:
-                changesets:
-                  includePaths:
-                    - package.json
-                    - bin/bootstrap.ts
-                    - packages/commons/**
-                    - packages/html-ui/**
-                    - apps/svelte-app/**
-              script:
-                - *env
-                - export PACKAGE_NAME=svelte-app
-                - corepack enable
-                - *install
-                - *test
-      - step: &build-releases
+            - echo "Running Code Report..."
+      - step: &releases
           name: Release
           image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
           max-time: 25
@@ -262,14 +157,12 @@ pipelines:
             - *git-auth
             - |
               if [ "$STABLE" = true ]; then
-                git fetch --depth=50 origin "$BASE_REF_NAME":"$BASE_REF_NAME"
+                git fetch --depth=50 origin "$BASE_REF_NAME:$BASE_REF_NAME"
               fi
-            - nvm install
-            - corepack enable
-            - *install
+            - *setup
+            - yarn bootstrap
             - *release
             - '[ "$STABLE" = true ] && git push || true'
-
   pull-requests:
     '**':
       - step:
@@ -291,9 +184,9 @@ pipelines:
             - corepack enable
             - set +e
             - yarn version check
-            - export CHECK_STATUS=$?
+            - export REPORT_STATUS=$?
             - set -e
-            - '[ $CHECK_STATUS = 0 ] && exit 0 || true'
+            - '[ $REPORT_STATUS = 0 ] && exit 0 || true'
             - >-
               [[ "$BITBUCKET_BRANCH" != issue/* && "$BITBUCKET_BRANCH" !=
               feature/* ]] && exit 1 || true
@@ -303,7 +196,8 @@ pipelines:
             - *git-auth
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
             - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
-            - *install
+            - yarn install
+            - yarn bootstrap
             - rm -rf .yarn/versions || true
             - export SEMVER=$( yarn apply-versions --strategy $APPLY_STRATEGY )
             - git stash
@@ -314,10 +208,198 @@ pipelines:
                 git commit -m "[skip ci] [DEV] Add Version Strategy"
                 git push
               fi
-      - step: *build-root
-      - parallel: *build-workspaces
-      - step: *build-releases
+      - parallel:
+          - step: *code-report
+          - step:
+              name: Deploy HTML UI
+              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+              max-time: 5
+              size: 2x
+              caches:
+                - yarn
+              condition: &html-ui-changed
+                changesets:
+                  includePaths:
+                    - package.json
+                    - packages/commons/**
+                    - packages/stylelint-config/**
+                    - packages/html-ui/**
+              script:
+                - *env
+                - export WORKSPACE=packages/html-ui
+                - export PACKAGE_NAME=html-ui
+                - nvm install
+                - corepack enable
+                - yarn install
+                - *chromatic
+          - step:
+              name: Deploy React UI
+              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+              max-time: 5
+              size: 2x
+              caches:
+                - yarn
+              condition:
+                changesets: &react-ui-changed
+                  includePaths:
+                    - package.json
+                    - packages/commons/**
+                    - packages/stylelint-config/**
+                    - packages/html-ui/**
+                    - packages/react-ui/**
+              script:
+                - *env
+                - export WORKSPACE=packages/react-ui
+                - export PACKAGE_NAME=react-ui
+                - nvm install
+                - corepack enable
+                - yarn install
+                - *chromatic
+          - step: *releases
   custom:
+    code-report:
+      - step:
+          name: Lint and Test Root
+          image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+          max-time: 10
+          size: 2x
+          caches:
+            - yarn
+          script:
+            - *env
+            - export PACKAGE_NAME=ui-kitchen-sink
+            - *setup
+            - yarn turbo run //#lint -- -f bitbucket
+            - *report
+      - parallel:
+          - step:
+              name: Lint and Test Commons
+              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+              max-time: 10
+              size: 2x
+              condition:
+                changesets:
+                  includePaths:
+                    - package.json
+                    - packages/commons/**
+              caches:
+                - yarn
+              script:
+                - *env
+                - export WORKSPACE=packages/commons
+                - export PACKAGE_NAME=commons
+                - *setup
+                - *lint
+                - *test
+                - *report
+          - step:
+              name: Lint and Test Stylelint Config
+              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+              max-time: 10
+              size: 2x
+              condition:
+                changesets:
+                  includePaths:
+                    - *env
+                    - package.json
+                    - packages/commons/**
+                    - packages/stylelint-config/**
+              caches:
+                - yarn
+              script:
+                - *env
+                - export WORKSPACE=packages/stylelint-config
+                - export PACKAGE_NAME=stylelint-config
+                - *setup
+                - *lint
+                - *test
+                - *report
+          - step:
+              name: Lint and Test HTML UI
+              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+              max-time: 10
+              size: 2x
+              caches:
+                - yarn
+              clone:
+                enabled: true
+                depth: 75
+              changeset: *html-ui-changed
+              script:
+                - *env
+                - export WORKSPACE=packages/html-ui
+                - export PACKAGE_NAME=html-ui
+                - *setup
+                - yarn playwright install --with-deps chromium
+                - *lint
+                - *test-runner
+                - *report
+          - step:
+              name: Lint and Test React UI
+              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+              max-time: 10
+              size: 2x
+              caches:
+                - yarn
+              clone:
+                enabled: true
+                depth: 75
+              changeset: *react-ui-changed
+              script:
+                - *env
+                - export WORKSPACE=packages/react-ui
+                - export PACKAGE_NAME=react-ui
+                - *setup
+                - yarn playwright install --with-deps chromium
+                - *lint
+                - *test
+                - *report
+          - step:
+              name: Lint and Test Next App
+              max-time: 15
+              size: 2x
+              caches:
+                - yarn
+              condition:
+                changesets:
+                  includePaths:
+                    - package.json
+                    - packages/commons/**
+                    - packages/html-ui/**
+                    - packages/react-ui/**
+                    - apps/next-app/**
+              script:
+                - *env
+                - export WORKSPACE=apps/next-app
+                - export PACKAGE_NAME=next-app
+                - yarn install
+                - yarn $WORKSPACE turbo run lint
+                - *test
+          - step:
+              name: Lint and Test Svelte App
+              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+              max-time: 15
+              size: 2x
+              caches:
+                - pnpm
+                - unplugged
+              condition:
+                changesets:
+                  includePaths:
+                    - package.json
+                    - bin/bootstrap.ts
+                    - packages/commons/**
+                    - packages/html-ui/**
+                    - apps/svelte-app/**
+              script:
+                - *env
+                - export WORKSPACE=apps/svelte-app
+                - export PACKAGE_NAME=svelte-app
+                - *setup
+                - yarn bootstrap
+                - *lint
+                - *test
+                - *report
     launch:
       - variables:
           - name: REF_NAME
@@ -340,8 +422,8 @@ pipelines:
             - export STRATEGY=launch
             - export BASE_REF_NAME=$(git branch --show-current)
             - *git-auth
-            - corepack enable
-            - *install
+            - *setup
+            - yarn bootstrap
             - *release
             - git push
             - git checkout -b $REF_NAME
@@ -376,47 +458,50 @@ pipelines:
             - git push -u origin $BASE_REF
             - >-
               curl
-              https://api.bitbucket.org/2.0/repositories/${BITBUCKET_WORKSPACE}/${BITBUCKET_REPO_SLUG}/pullrequests
-              -u "$CI_BOT_USERNAME":"$CI_BOT_APP_SECRET" --request POST --header
-              "Content-Type: application/json" --data "{
-                \"title\": \"Cherry Pick ${SHORT//-/ } into $BASE_REF_NAME\",
-                \"source\": {
-                  \"branch\": {
-                    \"name\": \"$BASE_REF\"
-                  }
-                },
-                \"destination\": {
-                  \"branch\": {
-                    \"name\": \"$BASE_REF_NAME\"
-                  }
-                },
-                \"reviewers\": [
-                  {
-                    \"uuid\": \"$BITBUCKET_STEP_TRIGGERER_UUID\"
-                  }
-                ],
-                \"close_source_branch\": true
-              }"
-
+              https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/pullrequests
+                -u "$CI_BOT_USERNAME:$CI_BOT_APP_SECRET" \
+                --request POST \
+                --header \
+                  "Content-Type: application/json" --data "{
+                    \"title\": \"Cherry Pick ${SHORT//-/ } into $BASE_REF_NAME\",
+                    \"source\": {
+                      \"branch\": {
+                        \"name\": \"$BASE_REF\"
+                      }
+                    },
+                    \"destination\": {
+                      \"branch\": {
+                        \"name\": \"$BASE_REF_NAME\"
+                      }
+                    },
+                    \"reviewers\": [
+                      {
+                        \"uuid\": \"$BITBUCKET_STEP_TRIGGERER_UUID\"
+                      }
+                    ],
+                    \"close_source_branch\": true
+                  }" \
+                --fail-with-body
     renovate:
       - step:
-          image: renovate/renovate:latest@sha256:2de58c8a5acc1618ea5e8d2e97b0aa1323586f025022c35117c6f504588e19a9
+          image: renovate/renovate:latest@sha256:35c3a2d5de0217c50aeb557c054b743c9d2704da4203816d49baa5a29091cb9b
           size: 2x
           caches:
             - yarn
           script:
             - *env
+            - set -o pipefail
             - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
             - set +e
             - . ~/.nvm/nvm.sh
-            - export CHECK_STATUS=$?
+            - export REPORT_STATUS=$?
             - set -e
-            - '[ $CHECK_STATUS != 0 ] && exit $CHECK_STATUS || true'
+            - '[ $REPORT_STATUS != 0 ] && exit $REPORT_STATUS || true'
             - nvm install
             - corepack enable
             - yarn install
             - export LOG_LEVEL=debug
             - export RENOVATE_CONFIG_FILE=renovate.config.cjs
             - export RENOVATE_POST_UPGRADE_WORKSPACES=$(yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules)
-            - export RENOVATE_REPOSITORIES=${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}
+            - export RENOVATE_REPOSITORIES=${BITBUCKET_REPO_FULL_NAME}
             - renovate
