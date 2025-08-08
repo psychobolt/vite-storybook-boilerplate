@@ -930,6 +930,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/js@npm:9.33.0":
+  version: 9.33.0
+  resolution: "@eslint/js@npm:9.33.0"
+  checksum: 10c0/4c42c9abde76a183b8e47205fd6c3116b058f82f07b6ad4de40de56cdb30a36e9ecd40efbea1b63a84d08c206aadbb0aa39a890197e1ad6455a8e542df98f186
+  languageName: node
+  linkType: hard
+
 "@eslint/object-schema@npm:^2.1.6":
   version: 2.1.6
   resolution: "@eslint/object-schema@npm:2.1.6"
@@ -16427,7 +16434,7 @@ __metadata:
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
     "@dotenvx/dotenvx": "npm:1.48.4"
-    "@eslint/js": "npm:9.32.0"
+    "@eslint/js": "npm:9.33.0"
     "@fontsource/fira-mono": "npm:5.2.6"
     "@neoconfetti/svelte": "npm:2.2.2"
     "@sveltejs/adapter-auto": "npm:6.0.2"
