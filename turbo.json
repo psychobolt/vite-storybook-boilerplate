@@ -24,12 +24,10 @@
       "dependsOn": ["^build"]
     },
     "//#lint": {
-      "env": ["BITBUCKET_CLONE_DIR", "BITBUCKET_REPO_SLUG"],
       "dependsOn": ["^build"],
       "outputs": ["*-report.json", "*-annotations.json"]
     },
     "lint": {
-      "env": ["BITBUCKET_CLONE_DIR", "BITBUCKET_REPO_SLUG"],
       "dependsOn": ["^build"],
       "outputs": ["*-report.json", "*-annotations.json"]
     },
