@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import util from 'node:util';
+import { execSync } from 'node:child_process';
 
 import { $, hash } from './functions.js';
 import type { Results } from './runners.js';
@@ -77,12 +78,15 @@ export class Bitbucket implements Reporter {
   annotations: Annotation[] = [];
 
   constructor() {
+    const repoUrl = execSync('git ls-remote --get-url').toString().trim();
+    const repoDir = execSync('git rev-parse --show-toplevel').toString().trim();
+    const repoName = repoUrl.split('/').pop()?.replace(/\..+$/, '');
     const currentDir = process.cwd();
+
     this.workspace =
-      process.env.BITBUCKET_CLONE_DIR === currentDir
-        ? (process.env.BITBUCKET_REPO_SLUG ?? '')
-        : path.basename(currentDir);
-    this.report.title = `${this.workspace} ${this.report.title}`.trim();
+      repoDir === currentDir ? '' : path.relative(repoDir, currentDir);
+    this.report.title =
+      `${this.workspace ?? repoName} ${this.report.title}`.trim();
   }
 
   async process(results: Results) {
