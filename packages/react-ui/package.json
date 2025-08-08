@@ -49,7 +49,7 @@
     "chromatic": "13.1.3",
     "classnames": "2.5.1",
     "commons": "workspace:*",
-    "eslint": "9.32.0",
+    "eslint": "9.33.0",
     "glob": "11.0.3",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
