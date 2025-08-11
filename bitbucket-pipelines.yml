@@ -129,40 +129,18 @@ pipelines:
           custom: code-report
           script:
             - echo "Running Code Report..."
-      - step: &releases
-          name: Release
-          image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
-          max-time: 25
-          size: 2x
-          caches:
-            - pnpm
-            - unplugged
-          clone:
-            enabled: true
-            depth: 75
-          condition:
-            changesets:
-              includePaths:
-                - .yarn/versions/**
-                - apps/**
-                - packages/**
+      - step: &deploy
+          name: Deploy
+          type: pipeline
+          custom: deploy
           script:
-            - *env
-            - >-
-              export STABLE=$( [[ "$BITBUCKET_BRANCH" == release-* ]] && echo
-              "true" || echo "false" )
-            - >-
-              export STRATEGY=$( [ "$STABLE" = true ] &&   echo "stable" || echo
-              "build" )
-            - *git-auth
-            - |
-              if [ "$STABLE" = true ]; then
-                git fetch --depth=50 origin "$BASE_REF_NAME:$BASE_REF_NAME"
-              fi
-            - *setup
-            - yarn bootstrap
-            - *release
-            - '[ "$STABLE" = true ] && git push || true'
+            - echo "Deploying..."
+      - step: &publish
+          name: Release
+          type: pipeline
+          custom: release
+          script:
+            - echo "Publishing..."
   pull-requests:
     '**':
       - step:
@@ -210,52 +188,8 @@ pipelines:
               fi
       - parallel:
           - step: *code-report
-          - step:
-              name: Deploy HTML UI
-              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
-              max-time: 5
-              size: 2x
-              caches:
-                - yarn
-              condition: &html-ui-changed
-                changesets:
-                  includePaths:
-                    - package.json
-                    - packages/commons/**
-                    - packages/stylelint-config/**
-                    - packages/html-ui/**
-              script:
-                - *env
-                - export WORKSPACE=packages/html-ui
-                - export PACKAGE_NAME=html-ui
-                - nvm install
-                - corepack enable
-                - yarn install
-                - *chromatic
-          - step:
-              name: Deploy React UI
-              image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
-              max-time: 5
-              size: 2x
-              caches:
-                - yarn
-              condition:
-                changesets: &react-ui-changed
-                  includePaths:
-                    - package.json
-                    - packages/commons/**
-                    - packages/stylelint-config/**
-                    - packages/html-ui/**
-                    - packages/react-ui/**
-              script:
-                - *env
-                - export WORKSPACE=packages/react-ui
-                - export PACKAGE_NAME=react-ui
-                - nvm install
-                - corepack enable
-                - yarn install
-                - *chromatic
-          - step: *releases
+          - step: *deploy
+          - step: *publish
   custom:
     code-report:
       - step:
@@ -324,7 +258,13 @@ pipelines:
               clone:
                 enabled: true
                 depth: 75
-              changeset: *html-ui-changed
+              condition: &html-ui-changed
+                changesets:
+                  includePaths:
+                    - package.json
+                    - packages/commons/**
+                    - packages/stylelint-config/**
+                    - packages/html-ui/**
               script:
                 - *env
                 - export WORKSPACE=packages/html-ui
@@ -344,7 +284,14 @@ pipelines:
               clone:
                 enabled: true
                 depth: 75
-              changeset: *react-ui-changed
+              condition:
+                changesets: &react-ui-changed
+                  includePaths:
+                    - package.json
+                    - packages/commons/**
+                    - packages/stylelint-config/**
+                    - packages/html-ui/**
+                    - packages/react-ui/**
               script:
                 - *env
                 - export WORKSPACE=packages/react-ui
@@ -400,6 +347,70 @@ pipelines:
                 - *lint
                 - *test
                 - *report
+    deploy:
+      - step:
+          name: Deploy HTML UI
+          image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+          max-time: 5
+          size: 2x
+          caches:
+            - yarn
+          changeset: *html-ui-changed
+          script:
+            - *env
+            - export WORKSPACE=packages/html-ui
+            - export PACKAGE_NAME=html-ui
+            - *setup
+            - *chromatic
+      - step:
+          name: Deploy React UI
+          image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+          max-time: 5
+          size: 2x
+          caches:
+            - yarn
+          changeset: *react-ui-changed
+          script:
+            - *env
+            - export WORKSPACE=packages/react-ui
+            - export PACKAGE_NAME=react-ui
+            - *setup
+            - *chromatic
+    release:
+      - step:
+          name: Release
+          image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+          max-time: 25
+          size: 2x
+          caches:
+            - pnpm
+            - unplugged
+          clone:
+            enabled: true
+            depth: 75
+          condition:
+            changesets:
+              includePaths:
+                - .yarn/versions/**
+                - apps/**
+                - packages/**
+          script:
+            - *env
+            - >-
+              export STABLE=$( [[ "$BITBUCKET_BRANCH" == release-* ]] && echo
+              "true" || echo "false" )
+            - >-
+              export STRATEGY=$( [ "$STABLE" = true ] &&   echo "stable" || echo
+              "build" )
+            - *git-auth
+            - |
+              if [ "$STABLE" = true ]; then
+                git fetch --depth=50 origin "$BASE_REF_NAME:$BASE_REF_NAME"
+              fi
+            - *setup
+            - yarn bootstrap
+            - *release
+            - '[ "$STABLE" = true ] && git push || true'
     launch:
       - variables:
           - name: REF_NAME
@@ -484,7 +495,7 @@ pipelines:
                 --fail-with-body
     renovate:
       - step:
-          image: renovate/renovate:latest@sha256:9882a30015455b4cb06155a533e58eb5d18e9e6ff362405edf236cb0d6e3ce42
+          image: renovate/renovate:latest@sha256:b05baeb940ebc6185578603e22173365e293440726ca6d724f3069a15ccf8f07
           size: 2x
           caches:
             - yarn
@@ -497,9 +508,7 @@ pipelines:
             - export REPORT_STATUS=$?
             - set -e
             - '[ $REPORT_STATUS != 0 ] && exit $REPORT_STATUS || true'
-            - nvm install
-            - corepack enable
-            - yarn install
+            - *setup
             - export LOG_LEVEL=debug
             - export RENOVATE_CONFIG_FILE=renovate.config.cjs
             - export RENOVATE_POST_UPGRADE_WORKSPACES=$(yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules)
