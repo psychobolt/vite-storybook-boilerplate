@@ -51,6 +51,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ steps.get_token.outputs.token }}
+          ref: origin/next
       - name: Set Yarn global folder
         env:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
