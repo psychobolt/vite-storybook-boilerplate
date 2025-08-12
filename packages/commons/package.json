@@ -67,7 +67,7 @@
     "tsconfig-to-dual-package": "1.2.0",
     "turbo": "2.5.5",
     "typescript": "5.9.2",
-    "vite": "7.1.1",
+    "vite": "7.1.2",
     "vitest": "3.2.4"
   }
 }
