@@ -6634,7 +6634,7 @@ __metadata:
     ts-enum-util: "npm:4.1.0"
     tsconfck: "npm:3.1.6"
     tsconfig-to-dual-package: "npm:1.2.0"
-    turbo: "npm:2.5.5"
+    turbo: "npm:2.5.6"
     typescript: "npm:5.9.2"
     vite: "npm:7.1.2"
     vite-tsconfig-paths: "npm:5.1.4"
@@ -9492,7 +9492,7 @@ __metadata:
     storybook: "npm:9.1.2"
     stylelint: "npm:16.23.1"
     stylelint-config: "workspace:*"
-    turbo: "npm:2.5.5"
+    turbo: "npm:2.5.6"
     typescript: "npm:5.9.2"
     typescript-plugin-css-modules: "npm:5.2.0"
     vite: "npm:7.1.2"
@@ -12593,7 +12593,7 @@ __metadata:
     react: "npm:19.1.1"
     react-dom: "npm:19.1.1"
     react-ui: "workspace:*"
-    turbo: "npm:2.5.5"
+    turbo: "npm:2.5.6"
     typescript: "npm:5.9.2"
   languageName: unknown
   linkType: soft
@@ -14330,7 +14330,7 @@ __metadata:
     storybook: "npm:9.1.2"
     stylelint: "npm:16.23.1"
     stylelint-config: "workspace:*"
-    turbo: "npm:2.5.5"
+    turbo: "npm:2.5.6"
     typescript: "npm:5.9.2"
     typescript-plugin-css-modules: "npm:5.2.0"
     vite: "npm:7.1.2"
@@ -16281,7 +16281,7 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:15.0.1"
     stylelint-order: "npm:7.0.0"
-    turbo: "npm:2.5.5"
+    turbo: "npm:2.5.6"
     typescript: "npm:5.9.2"
   peerDependencies:
     stylelint: "*"
@@ -16470,7 +16470,7 @@ __metadata:
     svelte-eslint-parser: "npm:1.3.1"
     svelte-language-server: "npm:0.17.19"
     tslib: "npm:2.8.1"
-    turbo: "npm:2.5.5"
+    turbo: "npm:2.5.6"
     typescript: "npm:5.9.2"
     typescript-eslint: "npm:8.39.1"
     vite: "npm:7.1.2"
@@ -16953,58 +16953,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:2.5.5":
-  version: 2.5.5
-  resolution: "turbo-darwin-64@npm:2.5.5"
+"turbo-darwin-64@npm:2.5.6":
+  version: 2.5.6
+  resolution: "turbo-darwin-64@npm:2.5.6"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:2.5.5":
-  version: 2.5.5
-  resolution: "turbo-darwin-arm64@npm:2.5.5"
+"turbo-darwin-arm64@npm:2.5.6":
+  version: 2.5.6
+  resolution: "turbo-darwin-arm64@npm:2.5.6"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:2.5.5":
-  version: 2.5.5
-  resolution: "turbo-linux-64@npm:2.5.5"
+"turbo-linux-64@npm:2.5.6":
+  version: 2.5.6
+  resolution: "turbo-linux-64@npm:2.5.6"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:2.5.5":
-  version: 2.5.5
-  resolution: "turbo-linux-arm64@npm:2.5.5"
+"turbo-linux-arm64@npm:2.5.6":
+  version: 2.5.6
+  resolution: "turbo-linux-arm64@npm:2.5.6"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:2.5.5":
-  version: 2.5.5
-  resolution: "turbo-windows-64@npm:2.5.5"
+"turbo-windows-64@npm:2.5.6":
+  version: 2.5.6
+  resolution: "turbo-windows-64@npm:2.5.6"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:2.5.5":
-  version: 2.5.5
-  resolution: "turbo-windows-arm64@npm:2.5.5"
+"turbo-windows-arm64@npm:2.5.6":
+  version: 2.5.6
+  resolution: "turbo-windows-arm64@npm:2.5.6"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:2.5.5":
-  version: 2.5.5
-  resolution: "turbo@npm:2.5.5"
+"turbo@npm:2.5.6":
+  version: 2.5.6
+  resolution: "turbo@npm:2.5.6"
   dependencies:
-    turbo-darwin-64: "npm:2.5.5"
-    turbo-darwin-arm64: "npm:2.5.5"
-    turbo-linux-64: "npm:2.5.5"
-    turbo-linux-arm64: "npm:2.5.5"
-    turbo-windows-64: "npm:2.5.5"
-    turbo-windows-arm64: "npm:2.5.5"
+    turbo-darwin-64: "npm:2.5.6"
+    turbo-darwin-arm64: "npm:2.5.6"
+    turbo-linux-64: "npm:2.5.6"
+    turbo-linux-arm64: "npm:2.5.6"
+    turbo-windows-64: "npm:2.5.6"
+    turbo-windows-arm64: "npm:2.5.6"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -17020,7 +17020,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10c0/f51ec295286b4126fee2a5020754126ccff8d062332599aeb2ad26edabd1847bc8c535f81cd4fa3aedcca9fd47e70c4effe3d38cbbac487ceed2db393e89fb0f
+  checksum: 10c0/b9657bf211bbcfe3911496e4fee6c9a24526bc37e9cadf7f0c76d0376e9c9dfafaacec27f5a61bb621dfe330600ce68c1b21e4cdc19bdccd3ebfe66766fcf62f
   languageName: node
   linkType: hard
 
@@ -17794,7 +17794,7 @@ __metadata:
     jiti: "npm:2.5.1"
     playwright: "npm:1.54.2"
     semver: "npm:7.7.2"
-    turbo: "npm:2.5.5"
+    turbo: "npm:2.5.6"
     typescript: "npm:5.9.2"
     yaml: "npm:2.8.1"
   languageName: unknown
