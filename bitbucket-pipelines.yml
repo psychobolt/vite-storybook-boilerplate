@@ -21,9 +21,27 @@ definitions:
         files:
           - packages/unplugged/yarn.lock
       path: packages/unplugged/node_modules
+  conditions:
+    - condition: &html-ui-changed
+        changesets:
+          includePaths:
+            - package.json
+            - packages/commons/**
+            - packages/stylelint-config/**
+            - packages/html-ui/**
+    - condition: &react-ui-changed
+        changesets:
+          includePaths:
+            - package.json
+            - packages/commons/**
+            - packages/stylelint-config/**
+            - packages/html-ui/**
+            - packages/react-ui/**
+    - condition
   scripts:
     - script: &git-auth |
-        git remote set-url origin https://${CI_BOT_USERNAME}:${CI_BOT_APP_SECRET}@bitbucket.org/${BITBUCKET_REPO_FULL_NAME}
+        git remote set-url origin https://x-token-auth:${CI_BOT_USER_TOKEN}@bitbucket.org/${BITBUCKET_REPO_FULL_NAME}.git
+        git config user.email "${CI_BOT_USER_ID}@bots.bitbucket.org"
     - script: &env |
         export YARN_GLOBAL_FOLDER=.temp/.yarn/berry
         echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
@@ -33,8 +51,13 @@ definitions:
         yarn install
     - script: &lint |
         set +e
-        yarn $WORKSPACE turbo run lint -- -f bitbucket
-        export REPORT_STATUS=$?
+        if [ "$WORKSPACE" ]; then
+          yarn $WORKSPACE turbo run lint -- -f bitbucket
+          export REPORT_STATUS=$?
+        else
+          yarn turbo run //#lint -- -f bitbucket
+          export REPORT_STATUS=$?
+        fi
         set -e
     - script: &test |
         yarn $WORKSPACE turbo run coverage
@@ -50,7 +73,7 @@ definitions:
         fi
     - script: &report |
         curl --request PUT "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/commit/${BITBUCKET_COMMIT}/reports/${PACKAGE_NAME}/" \
-          -u "$CI_BOT_USERNAME:$CI_BOT_APP_SECRET" \
+          --header "Authorization: Bearer $CI_BOT_USER_TOKEN" \
           --header 'Accept: application/json' \
           --header 'Content-Type: application/json' \
           --data @${WORKSPACE:-.}/bitbucket-report.json \
@@ -59,7 +82,7 @@ definitions:
         if [[ $(cat ${ANNOTATIONS_FILE} | jq 'length') > 0 ]]; then
           curl --request POST \
             --url "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/commit/${BITBUCKET_COMMIT}/reports/${PACKAGE_NAME}/annotations/" \
-            -u "$CI_BOT_USERNAME:$CI_BOT_APP_SECRET" \
+            --header "Authorization: Bearer $CI_BOT_USER_TOKEN" \
             --header 'Accept: application/json' \
             --header 'Content-Type: application/json' \
             --data @${ANNOTATIONS_FILE} \
@@ -74,6 +97,8 @@ definitions:
         if [ "$RELEASE_TAG" == "{branch}" ]; then
           RELEASE_TAG="$BITBUCKET_BRANCH"
         fi
+
+        RELEASE_TAG=$(echo "$RELEASE_TAG" | sed 's/\//_/g')
 
         BASE_REF="HEAD"
         if [[ "$STABLE" = true && "$BASE_REF_NAME" ]]; then
@@ -110,7 +135,7 @@ definitions:
 
         if [[ "$SEMVER" != "{}" ]]; then
           if [ "$RELEASE_TAG" ]; then
-            if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
+            if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release/* ]]; then
               git tag -d "$RELEASE_TAG" || true
               git push origin --delete "$RELEASE_TAG" || true
               git tag "$RELEASE_TAG" -am "$SEMVER"
@@ -121,26 +146,31 @@ definitions:
         fi
 
 pipelines:
+  default:
+    - parallel:
+        - step: &code-report
+            name: Code Report
+            type: pipeline
+            custom: code-report
+            script:
+              - echo "Running Code Report..."
+        - step: &publish
+            name: Release
+            type: pipeline
+            custom: release
+            script:
+              - echo "Publishing..."
   branches:
-    '{main,release-*}':
-      - step: &code-report
-          name: Code Report
-          type: pipeline
-          custom: code-report
-          script:
-            - echo "Running Code Report..."
-      - step: &deploy
-          name: Deploy
-          type: pipeline
-          custom: deploy
-          script:
-            - echo "Deploying..."
-      - step: &publish
-          name: Release
-          type: pipeline
-          custom: release
-          script:
-            - echo "Publishing..."
+    '{main,release/*}':
+      - parallel:
+          - step: *code-report
+          - step: &deploy
+              name: Deploy
+              type: pipeline
+              custom: deploy
+              script:
+                - echo "Deploying..."
+          - step: *publish
   pull-requests:
     '**':
       - step:
@@ -186,10 +216,7 @@ pipelines:
                 git commit -m "[skip ci] [DEV] Add Version Strategy"
                 git push
               fi
-      - parallel:
-          - step: *code-report
-          - step: *deploy
-          - step: *publish
+      - step: *deploy
   custom:
     code-report:
       - step:
@@ -203,7 +230,7 @@ pipelines:
             - *env
             - export PACKAGE_NAME=ui-kitchen-sink
             - *setup
-            - yarn turbo run //#lint -- -f bitbucket
+            - *lint
             - *report
       - parallel:
           - step:
@@ -258,13 +285,7 @@ pipelines:
               clone:
                 enabled: true
                 depth: 75
-              condition: &html-ui-changed
-                changesets:
-                  includePaths:
-                    - package.json
-                    - packages/commons/**
-                    - packages/stylelint-config/**
-                    - packages/html-ui/**
+              condition: *html-ui-changed
               script:
                 - *env
                 - export WORKSPACE=packages/html-ui
@@ -284,14 +305,7 @@ pipelines:
               clone:
                 enabled: true
                 depth: 75
-              condition:
-                changesets: &react-ui-changed
-                  includePaths:
-                    - package.json
-                    - packages/commons/**
-                    - packages/stylelint-config/**
-                    - packages/html-ui/**
-                    - packages/react-ui/**
+              condition: *react-ui-changed
               script:
                 - *env
                 - export WORKSPACE=packages/react-ui
@@ -355,7 +369,7 @@ pipelines:
           size: 2x
           caches:
             - yarn
-          changeset: *html-ui-changed
+          condition: *html-ui-changed
           script:
             - *env
             - export WORKSPACE=packages/html-ui
@@ -369,7 +383,7 @@ pipelines:
           size: 2x
           caches:
             - yarn
-          changeset: *react-ui-changed
+          condition: *react-ui-changed
           script:
             - *env
             - export WORKSPACE=packages/react-ui
@@ -415,7 +429,7 @@ pipelines:
       - variables:
           - name: REF_NAME
             description: The branch name you wish to create for the release
-            default: release-
+            default: release/
       - step:
           name: Create new releases
           image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
@@ -470,7 +484,7 @@ pipelines:
             - >-
               curl
               https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/pullrequests
-                -u "$CI_BOT_USERNAME:$CI_BOT_APP_SECRET" \
+                --header 'Authorization: Bearer $CI_BOT_USER_TOKEN' \
                 --request POST \
                 --header \
                   "Content-Type: application/json" --data "{
