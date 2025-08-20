@@ -1,4 +1,4 @@
-import { beforeAll } from 'vitest';
+import { vi, beforeEach, afterEach } from 'vitest';
 
 // TODO: remove this when vitest supports PointerEvent.
 // See https://github.com/vitest-dev/vitest/blob/main/packages/vitest/src/integrations/env/jsdom-keys.ts
@@ -13,6 +13,18 @@ class PointerEvent extends MouseEvent {
   }
 }
 
-beforeAll(() => {
-  (window as any).PointerEvent = PointerEvent;
+beforeEach(() => {
+  vi.stubGlobal('PointerEvent', PointerEvent);
+
+  vi.stubGlobal('jest', {
+    advanceTimersByTime: vi.advanceTimersByTime.bind(vi)
+  });
+
+  vi.useFakeTimers();
+});
+
+afterEach(() => {
+  vi.runOnlyPendingTimers();
+  vi.useRealTimers();
+  vi.unstubAllGlobals();
 });
