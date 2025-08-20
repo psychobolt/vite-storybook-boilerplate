@@ -147,23 +147,21 @@ definitions:
 
 pipelines:
   default:
-    - parallel:
-        - step: &code-report
-            name: Code Report
-            type: pipeline
-            custom: code-report
-            script:
-              - echo "Running Code Report..."
-        - step: &publish
-            name: Release
-            type: pipeline
-            custom: release
-            script:
-              - echo "Publishing..."
+    - step: &publish
+        name: Release
+        type: pipeline
+        custom: release
+        script:
+          - echo "Publishing..."
   branches:
     '{main,release/*}':
       - parallel:
-          - step: *code-report
+          - step: &code-report
+              name: Code Report
+              type: pipeline
+              custom: code-report
+              script:
+                - echo "Running Code Report..."
           - step: &deploy
               name: Deploy
               type: pipeline
@@ -216,7 +214,9 @@ pipelines:
                 git commit -m "[skip ci] [DEV] Add Version Strategy"
                 git push
               fi
-      - step: *deploy
+      - parallel:
+          - step: *code-report
+          - step: *deploy
   custom:
     code-report:
       - step:
