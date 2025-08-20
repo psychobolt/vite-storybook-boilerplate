@@ -1,6 +1,9 @@
+import { createRequire } from 'node:module';
 import { join } from 'node:path';
 import { defineConfig } from 'vitest/config';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+
+const require = createRequire(import.meta.url);
 
 const configDir = join(process.cwd(), '.storybook');
 
@@ -21,6 +24,9 @@ export default defineConfig({
       provider: 'playwright',
       instances: [{ browser: 'chromium' }]
     },
-    setupFiles: [join(configDir, 'vitest.setup.ts')]
+    setupFiles: [
+      require.resolve('../vitest.setup'),
+      join(configDir, 'vitest.setup.ts')
+    ]
   }
 });

@@ -57,6 +57,8 @@ const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
   encoding: 'utf8'
 }).trim();
 
+const addonDocs = getAbsolutePath('@storybook/addon-docs');
+
 export type StorybookViteCommonConfig = StorybookConfig &
   Required<Pick<StorybookConfig, 'addons'>> &
   Required<StorybookConfigVite>;
@@ -66,7 +68,7 @@ export const config: StorybookViteCommonConfig = {
   addons: [
     getAbsolutePath('@storybook/addon-onboarding', resolveConfig),
     getAbsolutePath('@storybook/addon-links', resolveConfig),
-    getAbsolutePath('@storybook/addon-docs'),
+    addonDocs,
     ...(new RegExp(`^origin/${gitBranch}$`).test(process.env.BASE_REF ?? '')
       ? []
       : [getAbsolutePath('@chromatic-com/storybook')]),
@@ -74,6 +76,11 @@ export const config: StorybookViteCommonConfig = {
       ? []
       : [join(getAbsolutePath('storybook-zeplin'), 'dist/register')])
   ],
+  build: {
+    test: {
+      disabledAddons: [addonDocs]
+    }
+  },
   viteFinal(config, { configType }) {
     let finalConfig = mergeConfig(
       config,
