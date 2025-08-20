@@ -2431,9 +2431,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@sveltejs/kit@npm:2.35.0"
+"@sveltejs/kit@npm:2.36.0":
+  version: 2.36.0
+  resolution: "@sveltejs/kit@npm:2.36.0"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     "@sveltejs/acorn-typescript": "npm:^1.0.5"
@@ -2458,7 +2458,7 @@ __metadata:
       optional: true
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/e9814c75fef69e63d674783abbd5dabf289947c66e0f1bb2373c8b7a8cfc12453847f622419edec8f69fed479312acec3ff8bd78ae3cc07b6ff097b286aa5972
+  checksum: 10c0/b90ef33ee3d2b779f41b402a7ec2108ceb56e7eb9c8da2fdf654eb580b512dd3178848357e7b6b99fb7add3a6a5f45458d4b93f580cf676b2181852120452024
   languageName: node
   linkType: hard
 
@@ -12239,7 +12239,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.2"
     "@sveltejs/adapter-auto": "npm:6.1.0"
     "@sveltejs/adapter-vercel": "npm:5.10.2"
-    "@sveltejs/kit": "npm:2.35.0"
+    "@sveltejs/kit": "npm:2.36.0"
     "@sveltejs/vite-plugin-svelte": "npm:6.1.3"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.13.3"
