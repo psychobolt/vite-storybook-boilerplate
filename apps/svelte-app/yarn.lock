@@ -4640,7 +4640,7 @@ __metadata:
     postcss-scss: "npm:4.0.9"
     react: "npm:19.1.1"
     react-dom: "npm:19.1.1"
-    react-syntax-highlighter: "npm:15.6.1"
+    react-syntax-highlighter: "npm:15.6.2"
     storybook-zeplin: "npm:3.0.0"
     ts-enum-util: "npm:4.1.0"
     tsconfck: "npm:3.1.6"
@@ -10627,7 +10627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.27.0":
+"prismjs@npm:^1.30.0":
   version: 1.30.0
   resolution: "prismjs@npm:1.30.0"
   checksum: 10c0/f56205bfd58ef71ccfcbcb691fd0eb84adc96c6ff21b0b69fc6fdcf02be42d6ef972ba4aed60466310de3d67733f6a746f89f2fb79c00bf217406d465b3e8f23
@@ -10814,19 +10814,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-syntax-highlighter@npm:15.6.1":
-  version: 15.6.1
-  resolution: "react-syntax-highlighter@npm:15.6.1"
+"react-syntax-highlighter@npm:15.6.2":
+  version: 15.6.2
+  resolution: "react-syntax-highlighter@npm:15.6.2"
   dependencies:
     "@babel/runtime": "npm:^7.3.1"
     highlight.js: "npm:^10.4.1"
     highlightjs-vue: "npm:^1.0.0"
     lowlight: "npm:^1.17.0"
-    prismjs: "npm:^1.27.0"
+    prismjs: "npm:^1.30.0"
     refractor: "npm:^3.6.0"
   peerDependencies:
     react: ">= 0.14.0"
-  checksum: 10c0/4a4cf4695c45d7a6b25078970fb79ae5a85edeba5be0a2508766ee18e8aee1c0c4cdd97bf54f5055e4af671fe7e5e71348e81cafe09a0eb07a763ae876b7f073
+  checksum: 10c0/8ac2338cbc523858d61d5020de5869b3dcea3104278b86c3695c7cd2ff7b76e130180e09dfb4bc30e7d3436725682c412acf8ba6fcb622494508b0450f1b6e75
   languageName: node
   linkType: hard
 
