@@ -4640,7 +4640,7 @@ __metadata:
     postcss-scss: "npm:4.0.9"
     react: "npm:19.1.1"
     react-dom: "npm:19.1.1"
-    react-syntax-highlighter: "npm:15.6.2"
+    react-syntax-highlighter: "npm:15.6.3"
     storybook-zeplin: "npm:3.0.0"
     ts-enum-util: "npm:4.1.0"
     tsconfck: "npm:3.1.6"
@@ -10814,9 +10814,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-syntax-highlighter@npm:15.6.2":
-  version: 15.6.2
-  resolution: "react-syntax-highlighter@npm:15.6.2"
+"react-syntax-highlighter@npm:15.6.3":
+  version: 15.6.3
+  resolution: "react-syntax-highlighter@npm:15.6.3"
   dependencies:
     "@babel/runtime": "npm:^7.3.1"
     highlight.js: "npm:^10.4.1"
@@ -10826,7 +10826,7 @@ __metadata:
     refractor: "npm:^3.6.0"
   peerDependencies:
     react: ">= 0.14.0"
-  checksum: 10c0/8ac2338cbc523858d61d5020de5869b3dcea3104278b86c3695c7cd2ff7b76e130180e09dfb4bc30e7d3436725682c412acf8ba6fcb622494508b0450f1b6e75
+  checksum: 10c0/05006e3229407c5f5c9d37bbb31005cd1ccfb54b429a816fdc35a271d0ee340ba5e24937b860ad819b54eeb3eb7fefba2855a8fa330721e06c3ee378979dc8fa
   languageName: node
   linkType: hard
 
