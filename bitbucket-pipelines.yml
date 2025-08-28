@@ -140,6 +140,12 @@ definitions:
               git push origin --delete "$RELEASE_TAG" || true
               git tag "$RELEASE_TAG" -am "$SEMVER"
               git push origin "$RELEASE_TAG"
+
+              echo "$SEMVER" | jq -c 'to_entries | .[]' | while read $semver; do
+                name=$(echo $semver | jq -r '.key')
+                version=$(echo $semver | jq -r '.value')
+                npm unpublish $name@$version
+              done
             fi
           fi
           yarn workspaces foreach -A --no-private --dry-run npm publish --tolerate-republish ${RELEASE_TAG:+--tag $RELEASE_TAG}
@@ -365,7 +371,7 @@ pipelines:
       - step:
           name: Deploy HTML UI
           image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
-          max-time: 5
+          max-time: 6
           size: 2x
           caches:
             - yarn
@@ -379,7 +385,7 @@ pipelines:
       - step:
           name: Deploy React UI
           image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
-          max-time: 5
+          max-time: 6
           size: 2x
           caches:
             - yarn
