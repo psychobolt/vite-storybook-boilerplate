@@ -141,9 +141,9 @@ definitions:
               git tag "$RELEASE_TAG" -am "$SEMVER"
               git push origin "$RELEASE_TAG"
 
-              echo "$SEMVER" | jq -c 'to_entries | .[]' | while read $semver; do
-                name=$(echo $semver | jq -r '.key')
-                version=$(echo $semver | jq -r '.value')
+              echo $SEMVER | jq -c 'to_entries | .[]' | while read entry; do
+                name=$(echo $entry | jq -r '.key')
+                version=$(echo $entry | jq -r '.value')
                 npm unpublish $name@$version
               done
             fi
