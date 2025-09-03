@@ -30,7 +30,7 @@
     "@swc/core": "1.13.3",
     "@types/glob-to-regexp": "0.4.4",
     "@types/node": "22.18.0",
-    "@types/semver": "7.7.0",
+    "@types/semver": "7.7.1",
     "@yarnpkg/core": "4.4.3",
     "@yarnpkg/fslib": "3.1.2",
     "@yarnpkg/sdks": "3.2.3",
