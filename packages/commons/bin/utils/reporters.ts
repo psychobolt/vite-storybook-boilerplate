@@ -75,7 +75,7 @@ export class Bitbucket implements Reporter {
     ]
   };
 
-  annotations: Annotation[] = [];
+  annotations = new Map<string, Annotation>();
 
   constructor() {
     const repoUrl = execSync('git ls-remote --get-url').toString().trim();
@@ -109,11 +109,12 @@ export class Bitbucket implements Reporter {
         );
 
         for (const message of result.messages) {
-          this.annotations.push({
-            external_id: hash(
-              'sha1',
-              `lint:${relativePath}:${message.line}:${commit}`
-            ),
+          const id = hash(
+            'sha1',
+            `lint:${relativePath}:${message.line}:${commit}:${message.ruleId}`
+          );
+          this.annotations.set(id, {
+            external_id: id,
             path: relativePath,
             annotation_type: AnnotationType.CODE_SMELL,
             summary: message.message,
@@ -142,11 +143,12 @@ export class Bitbucket implements Reporter {
             result.source &&
             path.join(this.workspace, path.relative(currentDir, result.source));
           if (relativePath) {
-            this.annotations.push({
-              external_id: hash(
-                'sha1',
-                `lint:${relativePath}:${warning.line}:${commit}`
-              ),
+            const id = hash(
+              'sha1',
+              `lint:${relativePath}:${warning.line}:${commit}:${warning.rule}`
+            );
+            this.annotations.set(id, {
+              external_id: id,
               path: relativePath,
               annotation_type: AnnotationType.CODE_SMELL,
               summary: warning.text,
@@ -169,7 +171,7 @@ export class Bitbucket implements Reporter {
     await writeFile('bitbucket-report.json', JSON.stringify(this.report));
     await writeFile(
       'bitbucket-annotations.json',
-      JSON.stringify(this.annotations)
+      JSON.stringify(Array.from(this.annotations.values()))
     );
   }
 }
