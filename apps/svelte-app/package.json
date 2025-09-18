@@ -2,7 +2,7 @@
 	"name": "svelte-app",
 	"private": true,
 	"type": "module",
-	"packageManager": "yarn@4.9.4",
+	"packageManager": "yarn@4.10.1",
 	"scripts": {
 		"dotenv-run": "yarn dotenvx run -q --ignore=MISSING_ENV_FILE -f ../../.env.defaults -f ../../.env -f .env.defaults -f .env --overload",
 		"swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
