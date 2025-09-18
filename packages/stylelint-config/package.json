@@ -2,7 +2,7 @@
   "name": "stylelint-config",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.10.1",
+  "packageManager": "yarn@4.10.2",
   "scripts": {
     "build": "yarn g:rimraf esm/ && yarn tsc --project tsconfig.esm.json",
     "lint": "yarn g:prettier --check . && yarn g:lint",
