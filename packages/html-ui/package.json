@@ -31,7 +31,7 @@
     "chromatic": "13.1.5",
     "classnames": "2.5.1",
     "commons": "workspace:*",
-    "eslint": "9.35.0",
+    "eslint": "9.36.0",
     "glob": "11.0.3",
     "http-server": "14.1.1",
     "lit": "3.3.1",
