@@ -8745,15 +8745,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lower-case@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "lower-case@npm:2.0.2"
-  dependencies:
-    tslib: "npm:^2.0.3"
-  checksum: 10c0/3d925e090315cf7dc1caa358e0477e186ffa23947740e4314a7429b6e62d72742e0bbe7536a5ae56d19d7618ce998aba05caca53c2902bd5742fdca5fc57fd7b
-  languageName: node
-  linkType: hard
-
 "lowlight@npm:^1.17.0":
   version: 1.20.0
   resolution: "lowlight@npm:1.20.0"
@@ -9733,16 +9724,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"no-case@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "no-case@npm:3.0.4"
-  dependencies:
-    lower-case: "npm:^2.0.2"
-    tslib: "npm:^2.0.3"
-  checksum: 10c0/8ef545f0b3f8677c848f86ecbd42ca0ff3cd9dd71c158527b344c69ba14710d816d8489c746b6ca225e7b615108938a0bda0a54706f8c255933703ac1cf8e703
-  languageName: node
-  linkType: hard
-
 "node-addon-api@npm:^7.0.0":
   version: 7.1.1
   resolution: "node-addon-api@npm:7.1.1"
@@ -10261,16 +10242,6 @@ __metadata:
   version: 1.0.0
   resolution: "parse-passwd@npm:1.0.0"
   checksum: 10c0/1c05c05f95f184ab9ca604841d78e4fe3294d46b8e3641d305dcc28e930da0e14e602dbda9f3811cd48df5b0e2e27dbef7357bf0d7c40e41b18c11c3a8b8d17b
-  languageName: node
-  linkType: hard
-
-"pascal-case@npm:^3.1.1":
-  version: 3.1.2
-  resolution: "pascal-case@npm:3.1.2"
-  dependencies:
-    no-case: "npm:^3.0.4"
-    tslib: "npm:^2.0.3"
-  checksum: 10c0/05ff7c344809fd272fc5030ae0ee3da8e4e63f36d47a1e0a4855ca59736254192c5a27b5822ed4bae96e54048eec5f6907713cfcfff7cdf7a464eaf7490786d8
   languageName: node
   linkType: hard
 
@@ -11378,6 +11349,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"scule@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "scule@npm:1.3.0"
+  checksum: 10c0/5d1736daa10622c420f2aa74e60d3c722e756bfb139fa784ae5c66669fdfe92932d30ed5072e4ce3107f9c3053e35ad73b2461cb18de45b867e1d4dea63f8823
+  languageName: node
+  linkType: hard
+
 "semver@npm:^6.0.0, semver@npm:^6.3.0, semver@npm:^6.3.1":
   version: 6.3.1
   resolution: "semver@npm:6.3.1"
@@ -12248,7 +12226,7 @@ __metadata:
     svelte: "npm:5.39.4"
     svelte-check: "npm:4.3.1"
     svelte-eslint-parser: "npm:1.3.3"
-    svelte-language-server: "npm:0.17.19"
+    svelte-language-server: "npm:0.17.20"
     tslib: "npm:2.8.1"
     turbo: "npm:2.5.6"
     typescript: "npm:5.9.2"
@@ -12313,9 +12291,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.17.19":
-  version: 0.17.19
-  resolution: "svelte-language-server@npm:0.17.19"
+"svelte-language-server@npm:0.17.20":
+  version: 0.17.20
+  resolution: "svelte-language-server@npm:0.17.20"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     "@vscode/emmet-helper": "npm:2.8.4"
@@ -12327,7 +12305,7 @@ __metadata:
     prettier: "npm:~3.3.3"
     prettier-plugin-svelte: "npm:^3.4.0"
     svelte: "npm:^4.2.19"
-    svelte2tsx: "npm:~0.7.35"
+    svelte2tsx: "npm:~0.7.44"
     typescript: "npm:^5.9.2"
     typescript-auto-import-cache: "npm:^0.3.6"
     vscode-css-languageservice: "npm:~6.3.5"
@@ -12338,20 +12316,20 @@ __metadata:
     vscode-uri: "npm:~3.1.0"
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/ece5e2761a40d4af5ede68237e01924c493bb537b2b646a61f4d160d6d613725e2fc082bac97f49031318b720f39c6e6a39f6d2de8b7318dee12ab0384cb61d8
+  checksum: 10c0/476515a8e515ee68e1c0c99947b4aec0d947afbc80f5fc4084bdd860263a07f12803ba54c8fbe7f6a7ff74d4ecb8cdca3859842663e32e676d6cb8b9de4b91ee
   languageName: node
   linkType: hard
 
-"svelte2tsx@npm:~0.7.35":
-  version: 0.7.35
-  resolution: "svelte2tsx@npm:0.7.35"
+"svelte2tsx@npm:~0.7.44":
+  version: 0.7.44
+  resolution: "svelte2tsx@npm:0.7.44"
   dependencies:
     dedent-js: "npm:^1.0.1"
-    pascal-case: "npm:^3.1.1"
+    scule: "npm:^1.3.0"
   peerDependencies:
     svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
     typescript: ^4.9.4 || ^5.0.0
-  checksum: 10c0/7e17fecff452654ec8178871037051d79d998e570006a49006e8640678ec39392f6b6409acfb0a12139dff4e344796cb56f5ebfc18a6c52941486ee74faa0d0a
+  checksum: 10c0/3ca19f97eeee5837defd7c4f7e6c36d975ebd520cb78047e56a6ff2d1bb5390e3aadc9c79626901ed0eb911d0f8706c08ef5d85ad71b6dee897dca76374a1157
   languageName: node
   linkType: hard
 
@@ -12595,7 +12573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.6.2":
+"tslib@npm:^2.6.2":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 10c0/e03a8a4271152c8b26604ed45535954c0a45296e32445b4b87f8a5abdb2421f40b59b4ca437c4346af0f28179780d604094eb64546bee2019d903d01c6c19bdb
