@@ -42,7 +42,7 @@
     "jiti": "2.6.0",
     "playwright": "1.55.1",
     "semver": "7.7.2",
-    "turbo": "2.5.6",
+    "turbo": "2.5.7",
     "typescript": "5.9.2",
     "yaml": "2.8.1"
   },
