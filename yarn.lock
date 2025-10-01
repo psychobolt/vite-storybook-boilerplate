@@ -4076,12 +4076,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:19.1.10":
-  version: 19.1.10
-  resolution: "@types/react-dom@npm:19.1.10"
+"@types/react-dom@npm:19.1.11":
+  version: 19.1.11
+  resolution: "@types/react-dom@npm:19.1.11"
   peerDependencies:
     "@types/react": ^19.0.0
-  checksum: 10c0/a07c1c7e4042d740cbaef95b4a06d029ef12066ad930eaf484be5ae876e990dd26e6ccf2ce3165c69a86c2e6008cab56e590d8e8e0409c3fde8ea50624ead6e1
+  checksum: 10c0/417da6414f43ea2e416ab19666f78f8a29b349f4273ee6d8d468516606c65ee0e6f31939cd3255dfaf466a50a5cdf16b6fd988cf7e9aaf678c61d1fff81e5c20
   languageName: node
   linkType: hard
 
@@ -12734,7 +12734,7 @@ __metadata:
     "@types/node": "npm:22.18.8"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.1.17"
-    "@types/react-dom": "npm:19.1.10"
+    "@types/react-dom": "npm:19.1.11"
     eslint: "npm:9.36.0"
     eslint-config-next: "npm:15.5.4"
     html-ui: "workspace:*"
@@ -14442,7 +14442,7 @@ __metadata:
     "@tsconfig/vite-react": "npm:7.0.1"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.1.17"
-    "@types/react-dom": "npm:19.1.10"
+    "@types/react-dom": "npm:19.1.11"
     "@vitejs/plugin-react": "npm:5.0.4"
     "@vitest/browser": "npm:3.2.4"
     "@vitest/coverage-v8": "npm:3.2.4"
