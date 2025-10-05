@@ -36,7 +36,7 @@
 		"commons": "workspace:*",
 		"eslint": "9.36.0",
 		"eslint-config-prettier": "10.1.8",
-		"eslint-plugin-svelte": "3.11.0",
+		"eslint-plugin-svelte": "3.12.4",
 		"globals": "16.4.0",
 		"html-ui": "workspace:*",
 		"jiti": "2.6.1",
