@@ -12,7 +12,7 @@
 		"build": "yarn vite build",
 		"preview": "yarn vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"check:watch": "yarn check --watch",
 		"prettier": "prettier --ignore-path ../../.gitignore --ignore-path ../../packages/commons/.prettierignore --ignore-path ./.gitignore --ignore-path ./.prettierignore",
 		"lint": "yarn prettier --check . && stylelint **/*.{sc,c}ss && yarn check && lint --runner eslint",
 		"format": "yarn prettier --write $(echo \"${@:-.}\")"
@@ -40,6 +40,7 @@
 		"globals": "16.4.0",
 		"html-ui": "workspace:*",
 		"jiti": "2.6.1",
+		"kleur": "4.1.5",
 		"postcss": "8.5.6",
 		"prettier": "3.6.2",
 		"prettier-plugin-svelte": "3.4.0",
