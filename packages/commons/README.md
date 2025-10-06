@@ -160,6 +160,23 @@ See [source](tsconfig.js)
 
 #### Storybook
 
+##### ESLint
+
+1. Create your own config:
+
+See [source](.storybook/eslint.config.ts)
+
+/your/project/eslint.config.ts
+
+```ts
+import { defineConfig } from 'eslint/config';
+import storybookConfig from 'commons/esm/.storybook/eslint.config.js';
+
+export default defineConfig(storybookConfig, {
+  /* ... */
+});
+```
+
 ##### Vite
 
 1. Create your own config:
@@ -195,7 +212,7 @@ See [source](.storybook/preview.ts)
 /your/project.storybook/preview.ts
 
 ```ts
-import type { Preview } from '@storybook/react'; // preview-api type
+import type { Preview } from '@storybook/react-vite'; // preview-api type
 import commonConfig from 'commons/esm/.storybook/preview';
 
 const preview: Preview = {
