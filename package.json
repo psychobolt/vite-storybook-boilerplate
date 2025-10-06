@@ -50,6 +50,6 @@
     "@storybook/test-runner@npm:0.23.0": "patch:@storybook/test-runner@npm%3A0.23.0#~/.yarn/patches/@storybook-test-runner-npm-0.23.0-397644f312.patch",
     "@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
-    "storybook@npm:9.1.3": "patch:storybook@npm%3A9.1.3#~/.yarn/patches/storybook-npm-9.1.3-bc4674ae69.patch"
+    "storybook@npm:9.1.10": "patch:storybook@npm%3A9.1.10#~/.yarn/patches/storybook-npm-9.1.10-974d1c3f53.patch"
   }
 }
