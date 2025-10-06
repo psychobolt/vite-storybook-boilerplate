@@ -994,7 +994,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/core@npm:^0.16.0":
+"@eslint/core@npm:0.16.0, @eslint/core@npm:^0.16.0":
   version: 0.16.0
   resolution: "@eslint/core@npm:0.16.0"
   dependencies:
@@ -4617,6 +4617,7 @@ __metadata:
   resolution: "commons@portal:../../packages/commons::locator=svelte-app%40workspace%3A."
   dependencies:
     "@chromatic-com/storybook": "npm:4.1.1"
+    "@eslint/core": "npm:0.16.0"
     "@jest/types": "npm:29.6.3"
     "@storybook/addon-docs": "npm:9.1.3"
     "@storybook/builder-vite": "npm:9.1.3"
