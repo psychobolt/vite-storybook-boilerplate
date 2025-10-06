@@ -4572,7 +4572,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.46.0":
+"@typescript-eslint/utils@npm:8.46.0, @typescript-eslint/utils@npm:^8.8.1":
   version: 8.46.0
   resolution: "@typescript-eslint/utils@npm:8.46.0"
   dependencies:
@@ -6743,6 +6743,7 @@ __metadata:
     autoprefixer: "npm:10.4.21"
     eslint: "npm:9.37.0"
     eslint-plugin-mdx: "npm:3.6.2"
+    eslint-plugin-storybook: "npm:9.1.10"
     jest-junit: "npm:16.0.0"
     jiti: "npm:2.6.1"
     lint-staged: "npm:16.2.3"
@@ -8248,6 +8249,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-storybook@npm:9.1.10":
+  version: 9.1.10
+  resolution: "eslint-plugin-storybook@npm:9.1.10"
+  dependencies:
+    "@typescript-eslint/utils": "npm:^8.8.1"
+  peerDependencies:
+    eslint: ">=8"
+    storybook: ^9.1.10
+  checksum: 10c0/4a1a9db221a417c26cdbc5e8a97e22fb5f443e0d1b96c19becbcef1536d05e05cf3f3ed5d400ca2398c7dd5bf27a81326c8825711f97e843eab6830b905d28d4
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-svelte@npm:3.12.4":
   version: 3.12.4
   resolution: "eslint-plugin-svelte@npm:3.12.4"
@@ -9663,7 +9676,6 @@ __metadata:
     "@open-wc/lit-helpers": "npm:0.7.0"
     "@storybook/addon-coverage": "npm:2.0.0"
     "@storybook/addon-docs": "npm:9.1.10"
-    "@storybook/web-components": "npm:9.1.10"
     "@storybook/web-components-vite": "npm:9.1.10"
     "@types/react-syntax-highlighter": "npm:15.5.13"
     arg: "npm:5.0.2"
@@ -14451,7 +14463,6 @@ __metadata:
   dependencies:
     "@storybook/addon-docs": "npm:9.1.10"
     "@storybook/addon-vitest": "npm:9.1.10"
-    "@storybook/react": "npm:9.1.10"
     "@storybook/react-vite": "npm:9.1.10"
     "@tsconfig/vite-react": "npm:7.0.1"
     "@types/prop-types": "npm:15.7.15"

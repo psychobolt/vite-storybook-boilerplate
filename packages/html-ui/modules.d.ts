@@ -1,5 +1,5 @@
 declare module 'commons/esm/.storybook/addons/addon-variants' {
-  import type { WebComponentsRenderer } from '@storybook/web-components';
+  import type { WebComponentsRenderer } from '@storybook/web-components-vite';
   import type { VariantsMeta as DefaultVariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.d.ts';
 
   export * from 'commons/esm/.storybook/addons/addon-variants.d.ts';
