@@ -41,7 +41,7 @@
     "husky": "9.1.7",
     "jiti": "2.6.1",
     "playwright": "1.56.0",
-    "semver": "7.7.2",
+    "semver": "7.7.3",
     "turbo": "2.5.8",
     "typescript": "5.9.3",
     "yaml": "2.8.1"
