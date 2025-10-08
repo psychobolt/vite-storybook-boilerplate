@@ -15,11 +15,13 @@
 		"check:watch": "yarn check --watch",
 		"prettier": "prettier --ignore-path ../../.gitignore --ignore-path ../../packages/commons/.prettierignore --ignore-path ./.gitignore --ignore-path ./.prettierignore",
 		"lint": "yarn prettier --check . && stylelint **/*.{sc,c}ss && yarn check && lint --runner eslint",
-		"format": "yarn prettier --write $(echo \"${@:-.}\")"
+		"format": "yarn prettier --write $(echo \"${@:-.}\")",
+		"mcp:eslint": "yarn run-script $(yarn node -p \"require.resolve('@eslint/mcp/src/mcp-cli.js')\")"
 	},
 	"devDependencies": {
 		"@dotenvx/dotenvx": "1.51.0",
 		"@eslint/js": "9.37.0",
+		"@eslint/mcp": "0.1.1",
 		"@fontsource/fira-mono": "5.2.7",
 		"@neoconfetti/svelte": "2.2.2",
 		"@sveltejs/adapter-auto": "6.1.1",
