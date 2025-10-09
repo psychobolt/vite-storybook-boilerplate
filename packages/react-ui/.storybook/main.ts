@@ -12,10 +12,10 @@ export const config: StorybookConfig | StorybookViteCommonConfig = {
   ...commonConfig,
   addons: [
     ...commonConfig.addons,
-    getAbsolutePath('@storybook/addon-vitest', require)
+    getAbsolutePath('@storybook/addon-vitest', require.resolve)
   ],
   framework: {
-    name: getAbsolutePath('@storybook/react-vite', require),
+    name: getAbsolutePath('@storybook/react-vite', require.resolve),
     options: {}
   }
 };
