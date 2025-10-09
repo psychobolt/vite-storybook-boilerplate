@@ -18,11 +18,11 @@ const config: StorybookViteCommonConfig = {
   ...commonConfig,
   addons: [
     ...commonConfig.addons,
-    getAbsolutePath('@storybook/addon-coverage', require)
+    getAbsolutePath('@storybook/addon-coverage', require.resolve)
   ],
   stories: [...stories, `../${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`],
   framework: {
-    name: getAbsolutePath('@storybook/web-components-vite', require),
+    name: getAbsolutePath('@storybook/web-components-vite', require.resolve),
     options: {}
   },
   experimental_indexers: (existingIndexers = []) => [
