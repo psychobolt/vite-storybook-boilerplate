@@ -4,9 +4,18 @@ import { join, dirname } from 'node:path';
 import { platform } from 'node:process';
 import type { StorybookConfig } from 'storybook/internal/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
-import { defineConfig, mergeConfig } from 'vite';
+import {
+  type ResolveOptions,
+  type Alias,
+  defineConfig,
+  mergeConfig
+} from 'vite';
 
 import postcssConfig from './postcss.config.js';
+
+interface ResolveConfig {
+  alias?: Alias[];
+}
 
 const require = createRequire(import.meta.url);
 
@@ -16,9 +25,16 @@ const require = createRequire(import.meta.url);
  */
 export function getAbsolutePath(
   moduleId: string,
-  resolveFn = require.resolve
+  resolveConfig: NodeJS.Require | ResolveConfig = {}
 ): string {
-  return dirname(resolveFn(join(moduleId, 'package.json')));
+  const resolve =
+    'resolve' in resolveConfig ? resolveConfig.resolve : require.resolve;
+  const absolutePath = dirname(resolve(join(moduleId, 'package.json')));
+  const alias = 'alias' in resolveConfig ? resolveConfig.alias : null;
+  if (alias) {
+    alias.push({ find: moduleId, replacement: absolutePath });
+  }
+  return absolutePath;
 }
 
 export const mainDir = '@(src|stories)';
@@ -27,6 +43,15 @@ export const stories = [
   `../${mainDir}/**/*.@(story|stories).@(js|jsx|ts|tsx)`,
   `../${mainDir}/**/*.mdx`
 ];
+
+const resolveConfig: ResolveOptions & ResolveConfig = {
+  alias: [
+    {
+      find: '@storybook/global',
+      replacement: require.resolve('@storybook/global')
+    }
+  ]
+};
 
 const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
   encoding: 'utf8'
@@ -41,8 +66,8 @@ export type StorybookViteCommonConfig = StorybookConfig &
 export const config: StorybookViteCommonConfig = {
   stories,
   addons: [
-    getAbsolutePath('@storybook/addon-onboarding'),
-    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-onboarding', resolveConfig),
+    getAbsolutePath('@storybook/addon-links', resolveConfig),
     addonDocs,
     ...(new RegExp(`^origin/${gitBranch}$`).test(process.env.BASE_REF ?? '')
       ? []
@@ -61,6 +86,7 @@ export const config: StorybookViteCommonConfig = {
       config,
       defineConfig({
         resolve: {
+          ...resolveConfig,
           conditions: [
             configType === 'DEVELOPMENT' ? 'development' : 'production',
             'browser',
