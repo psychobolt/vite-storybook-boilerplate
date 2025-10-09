@@ -43,7 +43,6 @@ export const config: StorybookViteCommonConfig = {
   addons: [
     getAbsolutePath('@storybook/addon-onboarding'),
     getAbsolutePath('@storybook/addon-links'),
-    getAbsolutePath('@storybook/addon-mcp'),
     addonDocs,
     ...(new RegExp(`^origin/${gitBranch}$`).test(process.env.BASE_REF ?? '')
       ? []
