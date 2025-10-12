@@ -18,7 +18,7 @@
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint --runner stylelint --runner eslint",
     "format": "yarn g:format",
-    "chromatic": "yarn g:dotenv-run -f .env.ci -- chromatic"
+    "chromatic": "yarn g:chromatic"
   },
   "devDependencies": {
     "@open-wc/lit-helpers": "0.7.0",
@@ -27,7 +27,6 @@
     "@storybook/web-components-vite": "9.1.10",
     "@types/react-syntax-highlighter": "15.5.13",
     "arg": "5.0.2",
-    "chromatic": "13.3.0",
     "classnames": "2.5.1",
     "commons": "workspace:*",
     "eslint": "9.37.0",
