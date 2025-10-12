@@ -1,6 +1,6 @@
 # Web Automation
 
-Collection of scripts for automateing web related tests.
+Collection of scripts for automating web test related tasks.
 
 ## Highlight
 
@@ -11,6 +11,10 @@ This script generates a screenshot capture a webpage and highlights any elements
 ```sh
 yarn run-script bin/web-automation/highlight.ts --url [url] --class [class-one] --class [class-two]
 ```
+
+(e.g `yarn run-script bin/web-automation/highlight.ts --url https://vite-storybook-boilerplate-next-app.psychobolt.vercel.app  --class ^storybook-.+`)
+
+![Alt text](../../apps/next-app/public/highlighted-elements.png)
 
 ### Options
 
