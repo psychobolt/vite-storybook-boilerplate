@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "husky",
     "g:dotenv": "cd $INIT_CWD && dotenvx",
-    "g:dotenv-args": "echo \"--ignore=MISSING_ENV_FILE -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults -f $INIT_CWD/.env --overload\"",
+    "g:dotenv-args": "echo \"--ignore=MISSING_ENV_FILE -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults -f $INIT_CWD/.env.ci -f $INIT_CWD/.env --overload\"",
     "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv get $(yarn g:dotenv-args)",
     "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q $(yarn g:dotenv-args)",
     "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
@@ -19,7 +19,7 @@
     "build": "yarn turbo run build",
     "lint": "yarn g:prettier --check . && yarn g:lint",
     "format": "yarn g:format",
-    "mcp:eslint": "yarn run-script $(yarn node -p \"require.resolve('@eslint/mcp/src/mcp-cli.js')\")"
+    "mcp:playwright": "yarn mcp-server-playwright"
   },
   "workspaces": [
     "packages/*",
@@ -27,7 +27,7 @@
   ],
   "devDependencies": {
     "@dotenvx/dotenvx": "1.51.0",
-    "@eslint/mcp": "0.1.1",
+    "@playwright/mcp": "0.0.42",
     "@swc-node/register": "1.10.0",
     "@swc/core": "1.13.3",
     "@types/glob-to-regexp": "0.4.4",
