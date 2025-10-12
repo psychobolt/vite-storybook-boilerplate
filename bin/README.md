@@ -1,6 +1,6 @@
 # Bin
 
-Folder for scripts, executables, and any runtimes for workspace or infrastructure related workflows.
+Collection of scripts, executables, and any runtimes for workspace or infrastructure related workflows.
 
 ## Bootstrap
 
@@ -156,3 +156,7 @@ git checkout -b cherry-pick-$OUTPUT # create a PR branch
 git cherry-pick $REF -x             # note we should always provide the original SHA in the commit message. The 'x' arg will handle this.
 git push
 ```
+
+## Web Automation
+
+See [docs](web-automation/README.md)

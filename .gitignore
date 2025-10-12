@@ -8,6 +8,7 @@ build
 dist
 cjs
 esm
+**/__snapshots__/*.png
 .next
 .vercel
 next-env.d.ts
