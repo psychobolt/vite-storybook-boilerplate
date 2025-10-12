@@ -2457,6 +2457,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright/mcp@npm:0.0.42":
+  version: 0.0.42
+  resolution: "@playwright/mcp@npm:0.0.42"
+  dependencies:
+    playwright: "npm:1.57.0-alpha-2025-10-09"
+    playwright-core: "npm:1.57.0-alpha-2025-10-09"
+  bin:
+    mcp-server-playwright: cli.js
+  checksum: 10c0/dea54fcbbca23db0451c49ac9990b4c2cdc149b8c1913ecb07d36d14013e05dbd2d1c38682ab32dfd31eb5174547150311cdaefc03a9da70d5e60168e313a4f2
+  languageName: node
+  linkType: hard
+
 "@polka/url@npm:^1.0.0-next.24":
   version: 1.0.0-next.29
   resolution: "@polka/url@npm:1.0.0-next.29"
@@ -14142,6 +14154,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.57.0-alpha-2025-10-09":
+  version: 1.57.0-alpha-2025-10-09
+  resolution: "playwright-core@npm:1.57.0-alpha-2025-10-09"
+  bin:
+    playwright-core: cli.js
+  checksum: 10c0/3b8a754a96f507f512487223a665758d9f3acdac68bd65267b3c8a8b8534c64f6524be0f269f2b4560113eebb6ca219f0e14d6a1c673cc4615589c19e0b29d6b
+  languageName: node
+  linkType: hard
+
 "playwright@npm:1.56.0":
   version: 1.56.0
   resolution: "playwright@npm:1.56.0"
@@ -14154,6 +14175,21 @@ __metadata:
   bin:
     playwright: cli.js
   checksum: 10c0/54294c71169859c74a7335ce3ae2586e86e9c72845e0f894fd1672fc66f8c2b92488b6ac654a7a2ea79d79cdc5dc23c7b59ceed4907e442a672e7e67337e1f1e
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.57.0-alpha-2025-10-09":
+  version: 1.57.0-alpha-2025-10-09
+  resolution: "playwright@npm:1.57.0-alpha-2025-10-09"
+  dependencies:
+    fsevents: "npm:2.3.2"
+    playwright-core: "npm:1.57.0-alpha-2025-10-09"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 10c0/2e30e9cc263c968c22eb8cd9ffe764967deb74a691a6b68a37eab6d48b5019ffe091193e487f22816d24d65609696cef5b499ed814ae7f91b49948e27018e598
   languageName: node
   linkType: hard
 
@@ -18441,7 +18477,7 @@ __metadata:
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
     "@dotenvx/dotenvx": "npm:1.51.0"
-    "@eslint/mcp": "npm:0.1.1"
+    "@playwright/mcp": "npm:0.0.42"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.13.3"
     "@types/glob-to-regexp": "npm:0.4.4"

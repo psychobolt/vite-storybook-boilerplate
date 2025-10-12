@@ -1,14 +1,8 @@
 {
   "servers": {
-    "ESLint": {
-      "type": "stdio",
+    "playwright": {
       "command": "yarn",
-      "args": ["mcp:eslint"]
-    },
-    "ESLint (svelte-app)": {
-      "type": "stdio",
-      "command": "yarn",
-      "args": ["apps/svelte-app", "mcp:eslint"]
+      "args": ["mcp:playwright"]
     }
   }
 }
