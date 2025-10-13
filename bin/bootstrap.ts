@@ -6,6 +6,8 @@ import { $ } from 'commons/esm/bin/utils/functions.js';
 
 import getWorkspaces from './ls-workspaces.ts';
 
+const EXIT_UNKNOWN_ERROR = 3;
+
 const { appendFile } = fs.promises;
 
 const install = (options?: ExecOptions) => $('yarn install', options);
@@ -75,10 +77,10 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         try {
           await run();
         } catch (error) {
-          process.exit(1);
+          process.exit(EXIT_UNKNOWN_ERROR);
         }
       } else {
-        process.exit(1);
+        process.exit(EXIT_UNKNOWN_ERROR);
       }
     }
   }

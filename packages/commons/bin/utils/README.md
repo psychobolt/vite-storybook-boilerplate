@@ -4,6 +4,14 @@
 
 `functions.ts` ([Source](functionts.ts))
 
+### General Exit Codes
+
+The following are constants that can be imported to script files. It is best in practice to be consistent with exit codes throughout scripts.
+
+- `EXIT_SUCCESS` - The script has no errors
+- `EXIT_INVALID_USAGE` - For general or usage errors
+- `EXIT_INVALID_ARGUMENTS` - For specific errors with passed arguments
+
 ### `$`
 
 ```ts

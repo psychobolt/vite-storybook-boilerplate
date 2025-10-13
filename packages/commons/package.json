@@ -9,7 +9,7 @@
     "build": "yarn build-esm && yarn build-cjs",
     "build-esm": "rimraf esm/ && tsc --project tsconfig.esm.json",
     "build-cjs": "rimraf cjs/ && tsc --project tsconfig.cjs.json && tsconfig-to-dual-package tsconfig.cjs.json",
-    "g:build-inventory": "cd $INIT_CWD && yarn g:run-script $PROJECT_CWD/bin/web-automation/chromatic.ts",
+    "g:build-inventory": "cd $INIT_CWD && yarn g:run-script $PROJECT_CWD/bin/web-automation/inventory.ts",
     "g:rimraf": "cd $INIT_CWD && rimraf",
     "g:chromatic-path": "yarn bin chromatic",
     "g:chromatic": "cd $INIT_CWD && yarn g:run-script $(yarn g:chromatic-path)",
