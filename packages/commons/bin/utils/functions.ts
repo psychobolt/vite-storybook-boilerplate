@@ -2,6 +2,10 @@ import { type ExecOptions, exec } from 'node:child_process';
 import crypto, { BinaryToTextEncoding } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 
+export const EXIT_SUCCESS = 0;
+export const EXIT_INVALID_USAGE = 1;
+export const EXIT_INVALID_ARGUMENTS = 2;
+
 export interface StdioExecOptions extends ExecOptions {
   silent?: boolean;
 }

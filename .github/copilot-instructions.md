@@ -1,4 +1,4 @@
-# Copilot Instructions for Vite Storybook Boilerplate
+# Copilot Instructions
 
 This monorepo is optimized for rapid front-end component development using Vite, Storybook, and modern frameworks. For details on architecture, workflows, and conventions, always reference the following documentation files:
 
@@ -9,6 +9,7 @@ This monorepo is optimized for rapid front-end component development using Vite,
 
 ## General Guidance
 
+- This project is ESM-first. The root `package.json` is configured with `"type": "module"`, so all scripts and packages should use ESM import/export syntax. Top-level async/await is allowed in all scripts, and you do not need to wrap async code in an IIFE or main function unless desired for clarity.
 - Extend shared configs from `commons` for Vite, Vitest, ESLint, and Prettier. See examples in `commons/README.md`.
 - UI libraries (`html-ui`, `react-ui`) are designed for cross-app usage; follow usage patterns in their respective READMEs.
 - For hybrid PnP/node_modules setups, consult `WORKFLOWS.md` and `bin/bootstrap.ts`.
@@ -28,7 +29,17 @@ This monorepo is optimized for rapid front-end component development using Vite,
 - Print errors to `stderr` and exit with non-zero status on failure.
 - Output should be JSON or human-readable text, depending on the script's purpose.
 - Reference `bin/README.md` for usage patterns and flag conventions.
-- Place reusable utilities in `commons/esm/bin/utils/` and import as needed.
-  For ESM scripts, always use direct imports from `node:fs/promises` for promise-based APIs (e.g., `import { mkdir, unlink } from 'node:fs/promises'`). Avoid using `require` and `util.promisify` in ESM modules unless strictly necessary. For some modules such as `node:child_process`, you must use `util.promisify` to convert callback-based functions (e.g., `exec`, `execFile`) to promise-based usage. See examples in `bin/ls-workspaces.ts` and `bin/web-automation/chromatic.ts`.
+- For ESM scripts, always use direct imports from Node.js built-in modules with the node: prefix and no file extension (e.g., import { mkdir, unlink } from 'node:fs/promises').
+- For some modules such as node:child_process, you must use util.promisify to convert callback-based functions (e.g., exec, execFile) to promise-based usage. See examples in ls-workspaces.ts and bin/web-automation/chromatic.ts.
+- When importing local TypeScript modules or scripts, always use the explicit .ts extension (e.g., import { foo } from './utils.ts'). This ensures compatibility with Node.js ESM and TypeScript module resolution settings.
 
-If any section is unclear or missing, provide feedback to improve these instructions.
+## Workspace Package Imports
+
+When importing from workspace packages (such as `commons`, `html-ui`, `react-ui`), always use the package name (e.g., `import { EXIT_USAGE_ERROR } from 'commons/esm/bin/utils/functions.js'`).
+Do not use relative paths to reference workspace packages from scripts or apps; use the package name as defined in `package.json` dependencies.
+For any use of these packages in scripts, always reference the `esm/` or `cjs/` folders for JavaScript or TypeScript imports (e.g., `import { EXIT_USAGE_ERROR } from 'commons/esm/bin/utils/functions.js'`).
+This ensures compatibility with monorepo tooling, TypeScript, and Node.js ESM resolution.
+
+## TypeScript Typing Guidance
+
+- Prefer using `interface` over `type` for object shapes and data structures when possible. This improves code clarity, supports declaration merging, and is the recommended convention for most TypeScript projects in this monorepo.

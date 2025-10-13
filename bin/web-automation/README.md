@@ -33,5 +33,7 @@ yarn run-script bin/web-automation/highlight.ts --url [url] --class [class-one] 
 [Chromatic](https://www.chromatic.com/) is a Visual Testing platform which scans changes with your UI components in Storybook. This script can be executed to download Chromatic snapshots to the project after starting or deploying Storybook. Snapshots are saved to the relative `__snapshots__` folder in the component source directories.
 
 ```sh
-yarn [workspace workspace-name] g:build-inventory --storybook-url [url]
+yarn [workspace workspace-name] g:build-inventory [--storybook-url url]
 ```
+
+If a environment under the workspace defines `SB_URL`, the script will use it.
