@@ -1,11 +1,14 @@
 import arg from 'arg';
 import { chromium } from 'playwright';
 import Color from 'color';
+
 import {
+  type Story,
   EXIT_INVALID_USAGE,
-  EXIT_INVALID_ARGUMENTS
-} from 'commons/esm/bin/utils/functions.js';
-import { getStories, Story } from './utils.ts';
+  EXIT_INVALID_ARGUMENTS,
+  getStories
+} from './utils/functions.js';
+import {} from './utils/functions.js';
 
 const EXIT_INVALID_COLOR = 3;
 const EXIT_INVALID_STORYBOOK = 4;

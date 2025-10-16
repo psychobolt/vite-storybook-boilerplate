@@ -19,6 +19,23 @@ This monorepo is optimized for rapid front-end component development using Vite,
 - Demo apps (`next-app`, `svelte-app`) import UI packages for integration and testing.
 - CI/CD is set up with Codecov and GitHub Actions for coverage and workflow automation.
 
+## Import Organization & Workspace Imports
+
+- Always place package imports (from npm or workspace packages) first. Add a blank line after package imports, then list local file imports.
+- When importing from workspace packages (such as `commons`, `html-ui`, `react-ui`), always use the package name (e.g., `import { EXIT_USAGE_ERROR } from 'commons/esm/bin/utils/functions.js'`).
+- Do not use relative paths to reference workspace packages from scripts or apps; use the package name as defined in `package.json` dependencies.
+- For any use of these packages in scripts, always reference the `esm/` or `cjs/` folders for JavaScript or TypeScript imports (e.g., `import { EXIT_USAGE_ERROR } from 'commons/esm/bin/utils/functions.js'`).
+- This ensures compatibility with monorepo tooling, TypeScript, and Node.js ESM resolution.
+- Example:
+
+  ```ts
+  import React from 'react';
+  import { Button } from 'html-ui';
+
+  import styles from './Button.module.css';
+  import { getColor } from './utils';
+  ```
+
 ## Script File Guidance (bin/)
 
 - Always use the `node:` prefix for native Node.js imports (e.g., `import fs from 'node:fs'`).
@@ -33,13 +50,20 @@ This monorepo is optimized for rapid front-end component development using Vite,
 - For some modules such as node:child_process, you must use util.promisify to convert callback-based functions (e.g., exec, execFile) to promise-based usage. See examples in ls-workspaces.ts and bin/web-automation/chromatic.ts.
 - When importing local TypeScript modules or scripts, always use the explicit .ts extension (e.g., import { foo } from './utils.ts'). This ensures compatibility with Node.js ESM and TypeScript module resolution settings.
 
-## Workspace Package Imports
-
-When importing from workspace packages (such as `commons`, `html-ui`, `react-ui`), always use the package name (e.g., `import { EXIT_USAGE_ERROR } from 'commons/esm/bin/utils/functions.js'`).
-Do not use relative paths to reference workspace packages from scripts or apps; use the package name as defined in `package.json` dependencies.
-For any use of these packages in scripts, always reference the `esm/` or `cjs/` folders for JavaScript or TypeScript imports (e.g., `import { EXIT_USAGE_ERROR } from 'commons/esm/bin/utils/functions.js'`).
-This ensures compatibility with monorepo tooling, TypeScript, and Node.js ESM resolution.
-
 ## TypeScript Typing Guidance
 
 - Prefer using `interface` over `type` for object shapes and data structures when possible. This improves code clarity, supports declaration merging, and is the recommended convention for most TypeScript projects in this monorepo.
+
+## Function Style Guidance
+
+- For any function that consists of a single immediate return statement, prefer using a shorthand arrow function for conciseness and readability. Example:
+
+  ```ts
+  // Instead of:
+  function isValid(x: number) {
+    return x > 0;
+  }
+
+  // Use:
+  const isValid = (x: number) => x > 0;
+  ```
