@@ -1,6 +1,6 @@
 import { type ExecOptions, exec } from 'node:child_process';
 import crypto, { BinaryToTextEncoding } from 'node:crypto';
-import { pathToFileURL } from 'node:url';
+import { pathToFileURL, URL } from 'node:url';
 
 export const EXIT_SUCCESS = 0;
 export const EXIT_INVALID_USAGE = 1;
@@ -61,3 +61,29 @@ export const resolve = async (moduleId: string, cwd = process.cwd()) =>
       })
     ).trim()
   ).toString();
+
+interface StorybookIndex {
+  entries: Record<string, Story>;
+}
+
+export interface Story {
+  id: string;
+  importPath: string;
+  name: string;
+  type?: string;
+  [key: string]: unknown;
+}
+
+export async function getStories(
+  storybookUrl: string
+): Promise<Record<string, Story>> {
+  const indexUrl = new URL('/index.json', storybookUrl).toString();
+  const res = await fetch(indexUrl);
+  if (!res.ok) {
+    throw new Error(
+      `Failed to fetch index.json: ${res.status} ${res.statusText}`
+    );
+  }
+  const json: StorybookIndex = await res.json();
+  return json.entries;
+}

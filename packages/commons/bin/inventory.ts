@@ -4,11 +4,13 @@ import readline from 'node:readline';
 import arg from 'arg';
 import { chromium } from 'playwright';
 import sharp from 'sharp';
+
 import {
+  type Story,
   EXIT_INVALID_USAGE,
-  EXIT_SUCCESS
-} from 'commons/esm/bin/utils/functions.js';
-import { getStories, Story } from './utils.ts';
+  EXIT_SUCCESS,
+  getStories
+} from './utils/functions.js';
 
 const args = arg({
   '--storybook-url': String
@@ -167,7 +169,6 @@ const page = await browser.newPage();
 // Navigate to the first story before prompt
 const firstStory = stories[0];
 const firstStoryUrl = `${SB_URL}/?path=/story/${firstStory.id}`;
-console.log(`Navigating to first story: ${firstStoryUrl}`);
 await navigateToStory(page, firstStoryUrl);
 await clickVisualTestTab(page);
 
