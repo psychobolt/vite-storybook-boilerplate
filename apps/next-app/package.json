@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "devDependencies": {
-    "@types/node": "22.18.10",
+    "@types/node": "22.18.11",
     "@types/prop-types": "15.7.15",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
