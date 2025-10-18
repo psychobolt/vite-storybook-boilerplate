@@ -29,7 +29,7 @@
     "arg": "5.0.2",
     "classnames": "2.5.1",
     "commons": "workspace:*",
-    "eslint": "9.37.0",
+    "eslint": "9.38.0",
     "glob": "11.0.3",
     "http-server": "14.1.1",
     "lit": "3.3.1",
