@@ -71,12 +71,14 @@ for await (const annotation of getTagAnnotation()) {
   }
 }
 
-const getVersions = async (options?: Options): Promise<SemVer> =>
-  await getWorkspaces({
+async function getVersions(options?: Options) {
+  const result = await getWorkspaces<SemVer>({
     format: ['semver'],
     noPrivate: true,
     ...options
   });
+  return Array.isArray(result) ? {} : result;
+}
 
 let current = await getVersions({
   since: !force && type !== Strategy[Strategy.launch]

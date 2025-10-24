@@ -2,11 +2,10 @@
   "name": "stylelint-config",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.10.3",
   "scripts": {
     "build": "yarn g:rimraf esm/ && yarn tsc --project tsconfig.esm.json",
-    "lint": "yarn g:prettier --check . && yarn g:lint",
-    "format": "yarn g:format"
+    "format": "yarn g:format",
+    "lint": "yarn g:prettier --check . && yarn g:lint"
   },
   "dependencies": {
     "flat": "6.0.1",
@@ -26,5 +25,6 @@
   },
   "peerDependencies": {
     "stylelint": "*"
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }

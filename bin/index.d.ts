@@ -32,7 +32,7 @@ type Mapper<T> = (workspaces: Workspace[], result?: unknown) => T;
 
 interface Formatter extends Spec {
   value: string[];
-  mapper: (type: string[]) => Mapper<any>;
+  mapper: <T extends Workspace>(type: string[]) => Mapper<T[]>;
 }
 
 type Formatters = Record<string, Formatter>;
