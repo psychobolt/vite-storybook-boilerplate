@@ -2,29 +2,34 @@
   "name": "vite-storybook-boilerplate",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.10.3",
-  "scripts": {
-    "postinstall": "husky",
-    "g:dotenv": "cd $INIT_CWD && dotenvx",
-    "g:dotenv-args": "echo \"--ignore=MISSING_ENV_FILE -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults -f $INIT_CWD/.env.ci -f $INIT_CWD/.env --overload\"",
-    "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv get $(yarn g:dotenv-args)",
-    "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q $(yarn g:dotenv-args)",
-    "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
-    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" --env=\"ESM_REGISTER=file://$(yarn g:swc-register-path)\" -- node --enable-source-maps --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, 'bin/esm-register.js')\")",
-    "run-script": "yarn g:run-script",
-    "ls-workspaces": "yarn run-script bin/ls-workspaces.ts",
-    "bootstrap": "yarn workspace stylelint-config turbo build --log-order=stream && yarn run-script bin/bootstrap.ts",
-    "apply-versions": "yarn run-script bin/apply-versions.ts",
-    "dev": "yarn turbo run dev",
-    "build": "yarn turbo run build",
-    "lint": "yarn g:prettier --check . && yarn g:lint",
-    "format": "yarn g:format",
-    "mcp:playwright": "yarn mcp-server-playwright"
-  },
   "workspaces": [
     "packages/*",
     "apps/*"
   ],
+  "scripts": {
+    "apply-versions": "yarn run-script bin/apply-versions.ts",
+    "bootstrap": "yarn workspace stylelint-config turbo build --log-order=stream && yarn run-script bin/bootstrap.ts",
+    "build": "yarn turbo run build",
+    "dev": "yarn turbo run dev",
+    "format": "yarn g:format",
+    "g:dotenv": "cd $INIT_CWD && dotenvx",
+    "g:dotenv-args": "echo \"--ignore=MISSING_ENV_FILE -f $PROJECT_CWD/.env.defaults -f $PROJECT_CWD/.env -f $INIT_CWD/.env.defaults -f $INIT_CWD/.env.ci -f $INIT_CWD/.env --overload\"",
+    "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv get $(yarn g:dotenv-args)",
+    "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q $(yarn g:dotenv-args)",
+    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" --env=\"ESM_REGISTER=file://$(yarn g:swc-register-path)\" -- node --enable-source-maps --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, 'bin/esm-register.js')\")",
+    "g:swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
+    "postinstall": "husky",
+    "lint": "yarn g:prettier --check . && yarn g:lint",
+    "ls-workspaces": "yarn run-script bin/ls-workspaces.ts",
+    "mcp:playwright": "yarn mcp-server-playwright",
+    "run-script": "yarn g:run-script"
+  },
+  "resolutions": {
+    "@storybook/test-runner@npm:0.23.0": "patch:@storybook/test-runner@npm%3A0.23.0#~/.yarn/patches/@storybook-test-runner-npm-0.23.0-397644f312.patch",
+    "@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
+    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
+    "storybook@npm:9.1.10": "patch:storybook@npm%3A9.1.10#~/.yarn/patches/storybook-npm-9.1.10-974d1c3f53.patch"
+  },
   "devDependencies": {
     "@dotenvx/dotenvx": "1.51.0",
     "@playwright/mcp": "0.0.43",
@@ -48,10 +53,5 @@
     "typescript": "5.9.3",
     "yaml": "2.8.1"
   },
-  "resolutions": {
-    "@storybook/test-runner@npm:0.23.0": "patch:@storybook/test-runner@npm%3A0.23.0#~/.yarn/patches/@storybook-test-runner-npm-0.23.0-397644f312.patch",
-    "@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
-    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch",
-    "storybook@npm:9.1.10": "patch:storybook@npm%3A9.1.10#~/.yarn/patches/storybook-npm-9.1.10-974d1c3f53.patch"
-  }
+  "packageManager": "yarn@4.10.3"
 }

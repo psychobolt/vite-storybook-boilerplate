@@ -2,9 +2,6 @@
   "name": "react-ui",
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "yarn@4.10.3",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
@@ -17,21 +14,23 @@
       "require": "./dist/*/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prepack": "yarn turbo run build",
-    "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv-get PORT)",
     "build": "yarn build-src && yarn build-dts",
-    "watch": "yarn build-src -w & yarn build-dts --watch",
-    "build-src": "vite build",
     "build-dts": "tsc --project tsconfig.dts.json",
+    "build-src": "vite build",
     "build-storybook": "yarn g:storybook build --stats-json",
+    "chromatic": "yarn g:chromatic",
+    "coverage": "yarn test run --coverage",
+    "dev": "yarn watch & yarn g:storybook dev -p $(yarn g:dotenv-get PORT)",
+    "format": "yarn g:format",
+    "lint": "yarn g:prettier --check . && yarn g:lint --runner stylelint --runner eslint",
+    "prepack": "yarn turbo run build",
     "start": "yarn g:dotenv-run -- http-server storybook-static",
     "test": "yarn g:vitest",
-    "coverage": "yarn test run --coverage",
-    "lint": "yarn g:prettier --check . && yarn g:lint --runner stylelint --runner eslint",
-    "format": "yarn g:format",
-    "chromatic": "yarn g:chromatic"
+    "watch": "yarn build-src -w & yarn build-dts --watch"
   },
   "devDependencies": {
     "@storybook/addon-docs": "9.1.10",
@@ -68,5 +67,6 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0 || ^19.0.0",
     "react-dom": "^18.2.0 || ^19.0.0"
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }

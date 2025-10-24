@@ -17,7 +17,7 @@ async function* getWorkspacesByLinker() {
   for (const linker of linkers) {
     const result: [NodeLinker, Workspace[]] = [
       linker,
-      await getWorkspaces<Workspace[]>({
+      await getWorkspaces({
         nodeLinker: [linker]
       })
     ];
