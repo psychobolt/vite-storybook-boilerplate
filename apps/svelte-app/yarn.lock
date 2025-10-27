@@ -2727,6 +2727,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sveltejs/vite-plugin-svelte@patch:@sveltejs/vite-plugin-svelte@npm%3A6.2.1#../../.yarn/patches/@sveltejs-vite-plugin-svelte-npm-6.2.1-109bf2663f.patch::locator=svelte-app%40workspace%3A.":
+  version: 6.2.1
+  resolution: "@sveltejs/vite-plugin-svelte@patch:@sveltejs/vite-plugin-svelte@npm%3A6.2.1#../../.yarn/patches/@sveltejs-vite-plugin-svelte-npm-6.2.1-109bf2663f.patch::version=6.2.1&hash=d42957&locator=svelte-app%40workspace%3A."
+  dependencies:
+    "@sveltejs/vite-plugin-svelte-inspector": "npm:^5.0.0"
+    debug: "npm:^4.4.1"
+    deepmerge: "npm:^4.3.1"
+    magic-string: "npm:^0.30.17"
+    vitefu: "npm:^1.1.1"
+  peerDependencies:
+    svelte: ^5.0.0
+    vite: ^6.3.0 || ^7.0.0
+  checksum: 10c0/a636013f1f9794dde47ce95b94311b5e75631972510acb6db2524e3ad01ca4b15d92ae48588fa6376c409d965a28157ff987e04e4b6c4fa0401c0f8729ffbe37
+  languageName: node
+  linkType: hard
+
 "@swc-node/core@npm:^1.13.1":
   version: 1.13.1
   resolution: "@swc-node/core@npm:1.13.1"
@@ -9203,17 +9219,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kleur@npm:*, kleur@npm:^4.0.3, kleur@npm:^4.1.5":
+  version: 4.1.5
+  resolution: "kleur@npm:4.1.5"
+  checksum: 10c0/e9de6cb49657b6fa70ba2d1448fd3d691a5c4370d8f7bbf1c2f64c24d461270f2117e1b0afe8cb3114f13bbd8e51de158c2a224953960331904e636a5e4c0f2a
+  languageName: node
+  linkType: hard
+
 "kleur@npm:^3.0.3":
   version: 3.0.3
   resolution: "kleur@npm:3.0.3"
   checksum: 10c0/cd3a0b8878e7d6d3799e54340efe3591ca787d9f95f109f28129bdd2915e37807bf8918bb295ab86afb8c82196beec5a1adcaf29042ce3f2bd932b038fe3aa4b
-  languageName: node
-  linkType: hard
-
-"kleur@npm:^4.0.3, kleur@npm:^4.1.5":
-  version: 4.1.5
-  resolution: "kleur@npm:4.1.5"
-  checksum: 10c0/e9de6cb49657b6fa70ba2d1448fd3d691a5c4370d8f7bbf1c2f64c24d461270f2117e1b0afe8cb3114f13bbd8e51de158c2a224953960331904e636a5e4c0f2a
   languageName: node
   linkType: hard
 

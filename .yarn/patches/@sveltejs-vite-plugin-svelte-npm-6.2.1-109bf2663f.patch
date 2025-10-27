@@ -1,0 +1,14 @@
+diff --git a/src/utils/log.js b/src/utils/log.js
+index 61b32bc82ba83666548b1de5d9191426edb625c9..0efc8c51195342aa05ec9c3548b765425080b5d9 100644
+--- a/src/utils/log.js
++++ b/src/utils/log.js
+@@ -1,7 +1,8 @@
+ /* eslint-disable no-console */
+ 
+ // eslint-disable-next-line n/no-unsupported-features/node-builtins
+-import { styleText } from 'node:util';
++import kleur from 'kleur';
++const styleText = (color, text) => kleur[color] ? kleur[color](text) : text;
+ const cyan = (/** @type {string} */ txt) => styleText('cyan', txt);
+ const yellow = (/** @type {string} */ txt) => styleText('yellow', txt);
+ const red = (/** @type {string} */ txt) => styleText('red', txt);

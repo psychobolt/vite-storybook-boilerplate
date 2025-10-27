@@ -60,6 +60,7 @@
 		"vite": "7.1.12"
 	},
 	"resolutions": {
+		"@sveltejs/vite-plugin-svelte@6.2.1": "patch:@sveltejs/vite-plugin-svelte@npm%3A6.2.1#../../.yarn/patches/@sveltejs-vite-plugin-svelte-npm-6.2.1-109bf2663f.patch",
 		"@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#../../.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
 		"commons": "portal:../../packages/commons",
 		"html-ui": "portal:../../packages/html-ui"
