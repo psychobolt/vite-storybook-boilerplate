@@ -1,15 +1,4 @@
-import { createRequire } from 'node:module';
-import util from 'node:util';
 import adapter from '@sveltejs/adapter-auto';
-
-const require = createRequire(import.meta.url);
-
-if (!util.styleText) {
-	util.styleText = (color, text) => {
-		const colorize = require('kleur')(color);
-		return colorize(text);
-	};
-}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
