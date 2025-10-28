@@ -1,18 +1,14 @@
 # packages
 node_modules
 .turbo
+.vercel
 .vscode/settings.json
-.env
 storybook-static
 build
 dist
 cjs
 esm
 **/__snapshots__/*.png
-.next
-.vercel
-next-env.d.ts
-.svelte-kit
 coverage
 test-reports
 *.tsbuildinfo
