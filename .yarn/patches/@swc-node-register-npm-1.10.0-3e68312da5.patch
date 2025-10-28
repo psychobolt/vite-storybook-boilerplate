@@ -25,3 +25,16 @@ index 1e7429abec21338477f904b17a35161b75d01e19..faa28e6f6f3b1f13ef2dedff5f695557
  };
  //# sourceMappingURL=esm.mjs.map
 \ No newline at end of file
+diff --git a/lib/register.js b/lib/register.js
+index d4ecace8dc5aa7c31f3f150f4a0f2c314ceb337c..75640201af40bf8c605136bd9fb1221fa31840ae 100644
+--- a/lib/register.js
++++ b/lib/register.js
+@@ -53,7 +53,7 @@ const injectInlineSourceMap = ({ filename, code, map, }) => {
+     return code;
+ };
+ function compile(sourcecode, filename, options, async = false) {
+-    if ((filename.includes('node_modules') && !exports.AVAILABLE_TS_EXTENSION_PATTERN.test(filename)) ||
++    if (typeof sourcecode === 'undefined' || (filename.includes('node_modules') && !exports.AVAILABLE_TS_EXTENSION_PATTERN.test(filename)) ||
+         !exports.AVAILABLE_EXTENSION_PATTERN.test(filename)) {
+         return sourcecode;
+     }
