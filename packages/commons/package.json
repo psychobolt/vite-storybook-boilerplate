@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@chromatic-com/storybook": "4.1.2",
-    "@eslint/core": "0.16.0",
+    "@eslint/core": "0.17.0",
     "@jest/types": "29.6.3",
     "@storybook/builder-vite": "9.1.10",
     "@storybook/test-runner": "0.23.0",
