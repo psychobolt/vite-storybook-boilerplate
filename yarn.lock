@@ -975,7 +975,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/core@npm:0.16.0, @eslint/core@npm:^0.16.0":
+"@eslint/core@npm:0.17.0":
+  version: 0.17.0
+  resolution: "@eslint/core@npm:0.17.0"
+  dependencies:
+    "@types/json-schema": "npm:^7.0.15"
+  checksum: 10c0/9a580f2246633bc752298e7440dd942ec421860d1946d0801f0423830e67887e4aeba10ab9a23d281727a978eb93d053d1922a587d502942a713607f40ed704e
+  languageName: node
+  linkType: hard
+
+"@eslint/core@npm:^0.16.0":
   version: 0.16.0
   resolution: "@eslint/core@npm:0.16.0"
   dependencies:
@@ -6868,7 +6877,7 @@ __metadata:
   resolution: "commons@workspace:packages/commons"
   dependencies:
     "@chromatic-com/storybook": "npm:4.1.2"
-    "@eslint/core": "npm:0.16.0"
+    "@eslint/core": "npm:0.17.0"
     "@jest/types": "npm:29.6.3"
     "@storybook/addon-docs": "npm:9.1.10"
     "@storybook/addon-links": "npm:9.1.10"
