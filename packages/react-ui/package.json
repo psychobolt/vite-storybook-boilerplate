@@ -53,7 +53,7 @@
     "prop-types": "15.8.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "sass": "1.93.2",
+    "sass": "1.93.3",
     "storybook": "9.1.10",
     "stylelint": "16.25.0",
     "stylelint-config": "workspace:*",
