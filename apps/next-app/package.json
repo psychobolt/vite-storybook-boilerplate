@@ -30,7 +30,7 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-ui": "workspace:*",
-    "turbo": "2.5.8",
+    "turbo": "2.6.0",
     "typescript": "5.9.3"
   },
   "packageManager": "yarn@4.10.3"
