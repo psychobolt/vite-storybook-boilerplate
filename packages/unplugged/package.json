@@ -4,7 +4,7 @@
   "type": "module",
   "packageManager": "yarn@4.11.0",
   "devDependencies": {
-    "stylelint": "16.25.0",
+    "stylelint": "16.26.0",
     "stylelint-config": "workspace:*"
   },
   "resolutions": {
