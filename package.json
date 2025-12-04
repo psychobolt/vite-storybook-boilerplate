@@ -51,7 +51,7 @@
     "semver": "7.7.3",
     "turbo": "2.6.1",
     "typescript": "5.9.3",
-    "yaml": "2.8.1"
+    "yaml": "2.8.2"
   },
   "packageManager": "yarn@4.12.0"
 }
