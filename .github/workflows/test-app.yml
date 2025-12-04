@@ -56,14 +56,14 @@ jobs:
         shell: bash
       - name: Setup Node.js environment
         if: matrix.os == 'ubuntu-latest'
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
           node-version: ${{ inputs.node_version }}
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
           node-version: ${{ inputs.node_version }}
           cache: yarn
