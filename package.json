@@ -47,7 +47,7 @@
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
     "jiti": "2.6.1",
-    "playwright": "1.56.1",
+    "playwright": "1.57.0",
     "semver": "7.7.3",
     "turbo": "2.6.1",
     "typescript": "5.9.3",
