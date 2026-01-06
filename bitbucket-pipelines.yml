@@ -65,7 +65,7 @@ definitions:
         set -o pipefail
         npx concurrently -k -s first -n "SB,TEST" "yarn $WORKSPACE turbo run start -- --silent" "npx wait-on $(yarn $WORKSPACE g:dotenv-get SB_URL | tail -n1) && yarn $WORKSPACE coverage"
     - script: &chromatic |
-        if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release-* ]]; then
+        if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release/* ]]; then
           yarn $WORKSPACE turbo run build-storybook
           yarn $WORKSPACE chromatic --auto-accept-changes --zip
         else
@@ -417,7 +417,7 @@ pipelines:
           script:
             - *env
             - >-
-              export STABLE=$( [[ "$BITBUCKET_BRANCH" == release-* ]] && echo
+              export STABLE=$( [[ "$BITBUCKET_BRANCH" == release/* ]] && echo
               "true" || echo "false" )
             - >-
               export STRATEGY=$( [ "$STABLE" = true ] &&   echo "stable" || echo
