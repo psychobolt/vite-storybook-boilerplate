@@ -2,8 +2,8 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 
-/** @type {import('prettier').Options} */
-export default {
+/** @type {import('prettier').Config} */
+const config = {
   plugins: [
     require.resolve("prettier-plugin-sh"),
     require.resolve("prettier-plugin-packagejson"),
@@ -18,3 +18,5 @@ export default {
     },
   ],
 };
+
+export default config;

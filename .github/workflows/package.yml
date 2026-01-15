@@ -46,14 +46,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: |
             yarn.lock
@@ -91,14 +91,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: |
             yarn.lock
@@ -151,7 +151,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server

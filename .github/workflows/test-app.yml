@@ -11,10 +11,6 @@ on:
       path:
         required: true
         type: string
-      node_version:
-        type: string
-        default: lts/Hydrogen
-        description: The Node.js version to use.
 
 permissions:
   contents: read
@@ -58,14 +54,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
-          node-version: ${{ inputs.node_version }}
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
-          node-version: ${{ inputs.node_version }}
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: |
             **/yarn.lock

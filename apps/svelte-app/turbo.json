@@ -6,7 +6,7 @@
 			"inputs": ["$TURBO_DEFAULT$", "../../bin/bootstrap.ts"],
 			"outputs": [".svelte-kit/**", ".vercel/**"]
 		},
-		"preview": {
+		"start": {
 			"cache": false,
 			"persistent": true,
 			"dependsOn": ["build"]
