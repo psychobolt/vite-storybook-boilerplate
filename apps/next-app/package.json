@@ -10,7 +10,6 @@
   },
   "resolutions": {
     "html-ui": "portal:../../packages/html-ui",
-    "next@npm:16.0.0": "patch:next@npm%3A16.0.0#../../.yarn/patches/next-npm-16.0.0-62f173390a.patch",
     "react-ui": "portal:../../packages/react-ui"
   },
   "devDependencies": {
