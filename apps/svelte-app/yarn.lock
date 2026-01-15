@@ -2736,22 +2736,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/vite-plugin-svelte@patch:@sveltejs/vite-plugin-svelte@npm%3A6.2.1#../../.yarn/patches/@sveltejs-vite-plugin-svelte-npm-6.2.1-109bf2663f.patch::locator=svelte-app%40workspace%3A.":
-  version: 6.2.1
-  resolution: "@sveltejs/vite-plugin-svelte@patch:@sveltejs/vite-plugin-svelte@npm%3A6.2.1#../../.yarn/patches/@sveltejs-vite-plugin-svelte-npm-6.2.1-109bf2663f.patch::version=6.2.1&hash=d42957&locator=svelte-app%40workspace%3A."
-  dependencies:
-    "@sveltejs/vite-plugin-svelte-inspector": "npm:^5.0.0"
-    debug: "npm:^4.4.1"
-    deepmerge: "npm:^4.3.1"
-    magic-string: "npm:^0.30.17"
-    vitefu: "npm:^1.1.1"
-  peerDependencies:
-    svelte: ^5.0.0
-    vite: ^6.3.0 || ^7.0.0
-  checksum: 10c0/a636013f1f9794dde47ce95b94311b5e75631972510acb6db2524e3ad01ca4b15d92ae48588fa6376c409d965a28157ff987e04e4b6c4fa0401c0f8729ffbe37
-  languageName: node
-  linkType: hard
-
 "@swc-node/core@npm:^1.13.1":
   version: 1.13.1
   resolution: "@swc-node/core@npm:1.13.1"

@@ -11,13 +11,12 @@
 		"format": "yarn prettier --write $(echo \"${@:-.}\")",
 		"lint": "yarn prettier --check . && stylelint **/*.{sc,c}ss && yarn check && lint --runner eslint",
 		"prettier": "prettier --ignore-path ../../.gitignore --ignore-path ../../packages/commons/.prettierignore --ignore-path ./.gitignore --ignore-path ./.prettierignore",
-		"preview": "yarn vite preview",
 		"run-script": "cd $INIT_CWD && yarn dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" --env=\"ESM_REGISTER=file://$(yarn swc-register-path)\" -- node --enable-source-maps --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, '../../bin/esm-register.js')\")",
+		"start": "yarn vite preview",
 		"swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
 		"vite": "yarn run-script $(yarn bin vite)"
 	},
 	"resolutions": {
-		"@sveltejs/vite-plugin-svelte@6.2.1": "patch:@sveltejs/vite-plugin-svelte@npm%3A6.2.1#../../.yarn/patches/@sveltejs-vite-plugin-svelte-npm-6.2.1-109bf2663f.patch",
 		"@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#../../.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
 		"commons": "portal:../../packages/commons",
 		"html-ui": "portal:../../packages/html-ui"
