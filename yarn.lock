@@ -2667,13 +2667,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pkgr/core@npm:^0.2.9":
-  version: 0.2.9
-  resolution: "@pkgr/core@npm:0.2.9"
-  checksum: 10c0/ac8e4e8138b1a7a4ac6282873aef7389c352f1f8b577b4850778f5182e4a39a5241facbe48361fec817f56d02b51691b383010843fb08b34a8e8ea3614688fd5
-  languageName: node
-  linkType: hard
-
 "@playwright/mcp@npm:0.0.55":
   version: 0.0.55
   resolution: "@playwright/mcp@npm:0.0.55"
@@ -7273,7 +7266,7 @@ __metadata:
     postcss-scss: "npm:4.0.9"
     prettier: "npm:3.6.2"
     prettier-config-standard: "npm:7.0.0"
-    prettier-plugin-packagejson: "npm:2.5.20"
+    prettier-plugin-packagejson: "npm:2.5.21"
     prettier-plugin-sh: "npm:0.18.0"
     react: "npm:19.2.0"
     react-dom: "npm:19.2.0"
@@ -13403,7 +13396,7 @@ __metadata:
     next: "npm:16.1.2"
     open-cli: "npm:8.0.0"
     prettier: "npm:3.6.2"
-    prettier-plugin-packagejson: "npm:2.5.20"
+    prettier-plugin-packagejson: "npm:2.5.21"
     prettier-plugin-sh: "npm:0.18.0"
     prop-types: "npm:15.8.1"
     react: "npm:19.2.0"
@@ -14627,18 +14620,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-packagejson@npm:2.5.20":
-  version: 2.5.20
-  resolution: "prettier-plugin-packagejson@npm:2.5.20"
+"prettier-plugin-packagejson@npm:2.5.21":
+  version: 2.5.21
+  resolution: "prettier-plugin-packagejson@npm:2.5.21"
   dependencies:
     sort-package-json: "npm:3.5.0"
-    synckit: "npm:0.11.11"
   peerDependencies:
     prettier: ">= 1.16.0"
   peerDependenciesMeta:
     prettier:
       optional: true
-  checksum: 10c0/620fbb1018120f01432f86b88f7fe06b84284e2b7acd30a90ca9aabd524b48b03e0fbb9617918721574c46eac362fcb49f7543b7fa17342b6a82b6c558e6d2c7
+  checksum: 10c0/48c4b478ffdb6a8c105d9ac014b186f2f43e2ed78513745fff05b9ef8a48f27d49d22261169159ae779f463eabc7722c61c319823b4f5dc6de968c521b36dbf9
   languageName: node
   linkType: hard
 
@@ -17258,7 +17250,7 @@ __metadata:
     jiti: "npm:2.6.1"
     postcss: "npm:8.5.6"
     prettier: "npm:3.6.2"
-    prettier-plugin-packagejson: "npm:2.5.20"
+    prettier-plugin-packagejson: "npm:2.5.21"
     prettier-plugin-sh: "npm:0.18.0"
     prettier-plugin-svelte: "npm:3.4.0"
     sass: "npm:1.94.2"
@@ -17405,15 +17397,6 @@ __metadata:
   version: 1.0.0
   resolution: "svg-tags@npm:1.0.0"
   checksum: 10c0/5867e29e8f431bf7aecf5a244d1af5725f80a1086187dbc78f26d8433b5e96b8fe9361aeb10d1699ff483b9afec785a10916b9312fe9d734d1a7afd48226c954
-  languageName: node
-  linkType: hard
-
-"synckit@npm:0.11.11":
-  version: 0.11.11
-  resolution: "synckit@npm:0.11.11"
-  dependencies:
-    "@pkgr/core": "npm:^0.2.9"
-  checksum: 10c0/f0761495953d12d94a86edf6326b3a565496c72f9b94c02549b6961fb4d999f4ca316ce6b3eb8ed2e4bfc5056a8de65cda0bd03a233333a35221cd2fdc0e196b
   languageName: node
   linkType: hard
 
