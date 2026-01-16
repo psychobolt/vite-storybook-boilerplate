@@ -63,7 +63,7 @@
     "@types/react-syntax-highlighter": "15.5.13",
     "arg": "5.0.2",
     "chromatic": "13.3.5",
-    "eslint": "9.39.1",
+    "eslint": "9.39.2",
     "jest-junit": "16.0.0",
     "playwright": "1.57.0",
     "playwright-chromium": "1.57.0",
