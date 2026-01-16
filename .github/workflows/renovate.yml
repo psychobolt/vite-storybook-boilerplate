@@ -6,6 +6,9 @@ on:
     # string has to be quoted.
     - cron: '0/10 * * * *' # Every 10 minutes
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 permissions:
   contents: read
 
