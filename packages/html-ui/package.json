@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@open-wc/lit-helpers": "0.7.0",
-    "@storybook/addon-coverage": "2.0.0",
+    "@storybook/addon-coverage": "3.0.0",
     "@storybook/addon-docs": "9.1.17",
     "@storybook/web-components-vite": "9.1.17",
     "@types/react-syntax-highlighter": "15.5.13",
