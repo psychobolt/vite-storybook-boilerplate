@@ -62,7 +62,7 @@
     "@storybook/global": "5.0.0",
     "@types/react-syntax-highlighter": "15.5.13",
     "arg": "5.0.2",
-    "chromatic": "13.3.4",
+    "chromatic": "13.3.5",
     "eslint": "9.39.1",
     "jest-junit": "16.0.0",
     "playwright": "1.57.0",
