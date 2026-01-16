@@ -3,13 +3,12 @@ import type { NextConfig } from "next";
 
 const nextConfig = async (): Promise<NextConfig> => ({
   reactStrictMode: true,
+  outputFileTracingRoot: path.resolve('../../'),
   turbopack: {
     resolveAlias: {
       "prop-types": "./node_modules/prop-types",
     },
   },
 });
-
-console.log(path.resolve());
 
 export default nextConfig;
