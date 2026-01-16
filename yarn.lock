@@ -3205,9 +3205,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-coverage@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@storybook/addon-coverage@npm:2.0.0"
+"@storybook/addon-coverage@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@storybook/addon-coverage@npm:3.0.0"
   dependencies:
     "@istanbuljs/load-nyc-config": "npm:^1.1.0"
     "@jsdevtools/coverage-istanbul-loader": "npm:^3.0.5"
@@ -3217,7 +3217,7 @@ __metadata:
     istanbul-lib-instrument: "npm:^6.0.1"
     test-exclude: "npm:^6.0.0"
     vite-plugin-istanbul: "npm:^6.0.2"
-  checksum: 10c0/a471e34e7dc11b099ac60bdee90966442da0acf03c36029206b2dbf050990f4acf297fb77e0aae0495d34538743dbb2f3e41e10877467fa287d77e415c0411d8
+  checksum: 10c0/f688310b41f35a914e82bf5b75b7f6e113c0414503b887497c8ce48efe8e00daeee1b5ea5fd42595a38a051e9860fc82338a94fdca0ecd3b492f162f20dae2a5
   languageName: node
   linkType: hard
 
@@ -10311,7 +10311,7 @@ __metadata:
   resolution: "html-ui@workspace:packages/html-ui"
   dependencies:
     "@open-wc/lit-helpers": "npm:0.7.0"
-    "@storybook/addon-coverage": "npm:2.0.0"
+    "@storybook/addon-coverage": "npm:3.0.0"
     "@storybook/addon-docs": "npm:9.1.17"
     "@storybook/web-components-vite": "npm:9.1.17"
     "@types/react-syntax-highlighter": "npm:15.5.13"
