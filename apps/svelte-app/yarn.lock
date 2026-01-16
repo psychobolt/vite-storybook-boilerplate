@@ -11021,18 +11021,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-packagejson@npm:2.5.20":
-  version: 2.5.20
-  resolution: "prettier-plugin-packagejson@npm:2.5.20"
+"prettier-plugin-packagejson@npm:2.5.21":
+  version: 2.5.21
+  resolution: "prettier-plugin-packagejson@npm:2.5.21"
   dependencies:
     sort-package-json: "npm:3.5.0"
-    synckit: "npm:0.11.11"
   peerDependencies:
     prettier: ">= 1.16.0"
   peerDependenciesMeta:
     prettier:
       optional: true
-  checksum: 10c0/620fbb1018120f01432f86b88f7fe06b84284e2b7acd30a90ca9aabd524b48b03e0fbb9617918721574c46eac362fcb49f7543b7fa17342b6a82b6c558e6d2c7
+  checksum: 10c0/48c4b478ffdb6a8c105d9ac014b186f2f43e2ed78513745fff05b9ef8a48f27d49d22261169159ae779f463eabc7722c61c319823b4f5dc6de968c521b36dbf9
   languageName: node
   linkType: hard
 
@@ -12852,7 +12851,7 @@ __metadata:
     jiti: "npm:2.6.1"
     postcss: "npm:8.5.6"
     prettier: "npm:3.6.2"
-    prettier-plugin-packagejson: "npm:2.5.20"
+    prettier-plugin-packagejson: "npm:2.5.21"
     prettier-plugin-sh: "npm:0.18.0"
     prettier-plugin-svelte: "npm:3.4.0"
     sass: "npm:1.94.2"
@@ -13002,7 +13001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"synckit@npm:0.11.11, synckit@npm:^0.11.8":
+"synckit@npm:^0.11.8":
   version: 0.11.11
   resolution: "synckit@npm:0.11.11"
   dependencies:
