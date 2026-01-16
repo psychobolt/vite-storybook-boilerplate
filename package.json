@@ -31,7 +31,7 @@
     "storybook@npm:9.1.10": "patch:storybook@npm%3A9.1.10#~/.yarn/patches/storybook-npm-9.1.10-974d1c3f53.patch"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "1.51.1",
+    "@dotenvx/dotenvx": "1.51.4",
     "@playwright/mcp": "0.0.49",
     "@swc-node/register": "1.10.0",
     "@swc/core": "1.13.3",
