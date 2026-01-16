@@ -33,7 +33,7 @@ jobs:
       contents: read
     steps:
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: 50
           ref: ${{ inputs.ref || github.ref }}
@@ -44,16 +44,16 @@ jobs:
         shell: bash
       - name: Setup Node.js environment
         if: matrix.os == 'ubuntu-latest'
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: |
             yarn.lock
@@ -78,7 +78,7 @@ jobs:
       contents: read
     steps:
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: 50
           ref: ${{ inputs.ref || github.ref }}
@@ -89,16 +89,16 @@ jobs:
         shell: bash
       - name: Setup Node.js environment
         if: matrix.os == 'ubuntu-latest'
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: |
             yarn.lock
@@ -124,7 +124,7 @@ jobs:
         if: inputs.test-runner == 'vitest'
         run: yarn ${{ inputs.path }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Upload Coverage Reports
-        uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5
+        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5
         with:
           files: ${{ inputs.path }}/coverage/${{ inputs.test-runner == 'vitest' &&  'coverage-final.json' || 'storybook/coverage-storybook.json'}}
           flags: ${{ inputs.workspace }}
@@ -139,7 +139,7 @@ jobs:
       contents: read
     steps:
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: 50
           ref: ${{ inputs.ref || github.ref }}
@@ -149,9 +149,9 @@ jobs:
         run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
         shell: bash
       - name: Setup Node.js environment
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server

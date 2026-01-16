@@ -1,32 +1,42 @@
 {
   "name": "next-app",
   "private": true,
-  "packageManager": "yarn@4.9.2",
+  "type": "module",
   "scripts": {
-    "dev": "open-cli http://localhost:3000/ --background && next dev -p 3000",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "open-cli http://localhost:3000/ --background && next dev -p 3000",
+    "format": "prettier --ignore-path ../../.gitignore --ignore-path ./.gitignore --write .",
+    "lint": "eslint .",
+    "start": "next start"
+  },
+  "resolutions": {
+    "@psychobolt/html-ui": "portal:../../packages/html-ui",
+    "@psychobolt/react-ui": "portal:../../packages/react-ui"
   },
   "dependencies": {
-    "@psychobolt/html-ui": "workspace:*",
-    "@psychobolt/react-ui": "workspace:*"
+    "@psychobolt/html-ui": "0.0.0",
+    "@psychobolt/react-ui": "0.0.0"
   },
   "devDependencies": {
-    "@types/node": "22.16.5",
+    "@psychobolt/react-ui": "workspace:*",
+    "@types/node": "25.0.9",
     "@types/prop-types": "15.7.15",
-    "@types/react": "19.1.8",
-    "@types/react-dom": "19.1.6",
-    "eslint": "9.32.0",
-    "eslint-config-next": "15.4.4",
-    "html-ui": "workspace:*",
-    "next": "15.4.4",
+    "@types/react": "19.2.8",
+    "@types/react-dom": "19.2.3",
+    "@vercel/nft": "0.30.4",
+    "eslint": "9.39.2",
+    "eslint-config-next": "16.1.2",
+    "next": "16.1.2",
     "open-cli": "8.0.0",
+    "prettier": "3.6.2",
+    "prettier-plugin-packagejson": "2.5.21",
+    "prettier-plugin-sh": "0.18.0",
     "prop-types": "15.8.1",
-    "react": "19.1.1",
-    "react-dom": "19.1.1",
-    "react-ui": "workspace:*",
-    "turbo": "2.5.5",
-    "typescript": "5.8.3"
-  }
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "styled-jsx": "5.1.7",
+    "turbo": "2.6.1",
+    "typescript": "5.9.3"
+  },
+  "packageManager": "yarn@4.12.0"
 }

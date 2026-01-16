@@ -1,6 +1,5 @@
 import 'react-syntax-highlighter';
-
-import type { Preview } from '@storybook/web-components';
+import type { Preview } from '@storybook/web-components-vite';
 import commonConfig from 'commons/esm/.storybook/preview';
 import { SyntaxHighlighter } from 'storybook/internal/components';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';

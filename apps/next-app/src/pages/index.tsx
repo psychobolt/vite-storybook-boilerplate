@@ -1,15 +1,13 @@
-import 'html-ui/style.css';
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import { Header } from "@psychobolt/react-ui";
 
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import { Header } from 'react-ui';
+import styles from "@/styles/Home.module.css";
 
-import styles from '@/styles/Home.module.css'
+const inter = Inter({ subsets: ["latin"] });
 
-const inter = Inter({ subsets: ['latin'] })
-
-const user = { name: 'Anonymous User' };
+const user = { name: "Anonymous User" };
 
 const dummyFunc = () => {};
 
@@ -22,7 +20,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header user={user} onLogin={dummyFunc} onLogout={dummyFunc} onCreateAccount={dummyFunc}></Header>
+      <Header
+        user={user}
+        onLogin={dummyFunc}
+        onLogout={dummyFunc}
+        onCreateAccount={dummyFunc}
+      ></Header>
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
@@ -35,7 +38,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -128,5 +131,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }

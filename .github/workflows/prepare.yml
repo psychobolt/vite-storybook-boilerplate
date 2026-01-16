@@ -19,7 +19,7 @@ jobs:
       count: ${{ steps.unmerged.outputs.count }}
     steps:
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: 50
       - name: Filter commits not found in ${{ github.ref_name }}
@@ -50,7 +50,7 @@ jobs:
           git config --global user.name github-actions[bot]
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
       - name: Fetch commits
         run: git fetch --depth=2 origin ${{ needs.unmerged_commits.outputs.ref }}
       - name: Cherry pick
@@ -77,7 +77,7 @@ jobs:
     steps:
       - name: Get token
         id: get_token
-        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
+        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
         with:
           private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
           app-id: ${{ secrets.BOT_APP_ID }}
@@ -91,7 +91,7 @@ jobs:
           git config --global user.name ${{ steps.get_token.outputs.app-slug }}[bot]
           git config --global user.email ${{ steps.get_user_id.outputs.user-id }}+${{ steps.get_token.outputs.app-slug }}[bot]@users.noreply.github.com
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           token: ${{ steps.get_token.outputs.token }}
       - name: Fetch branch

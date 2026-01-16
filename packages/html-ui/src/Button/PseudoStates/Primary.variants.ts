@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/web-components';
+import type { StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
 import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
 import {

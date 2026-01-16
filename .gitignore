@@ -1,22 +1,22 @@
 # packages
 node_modules
 .turbo
+.vercel
 .vscode/settings.json
-.env
 storybook-static
 build
 dist
 cjs
 esm
-.next
-.vercel
-next-env.d.ts
-.svelte-kit
+**/__snapshots__/*.png
 coverage
 test-reports
 *.tsbuildinfo
 vite.config.*.timestamp-*
 telemetry.json
+bitbucket-report.json
+bitbucket-annotations.json
+inventory.json
 
 # environment
 .env*

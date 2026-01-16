@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent } from 'storybook/test';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within } from 'storybook/test';
 
+import { userEventSession } from 'utils/test/functions';
 import { Page } from './Page';
 
 const meta = {
@@ -24,6 +25,7 @@ export const LoggedIn: Story = {
     const loginButton = canvas.getByRole('button', {
       name: /Log in/i
     });
-    await userEvent.click(loginButton);
+    const user = userEventSession();
+    await user.click(loginButton);
   }
 };

@@ -2,9 +2,11 @@ import fs from 'node:fs';
 import { join } from 'node:path';
 import { type ExecOptions, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { $ } from 'commons/esm/bin/utils/functions.js';
 
-import { $ } from './utils/functions.ts';
 import getWorkspaces from './ls-workspaces.ts';
+
+const EXIT_UNKNOWN_ERROR = 3;
 
 const { appendFile } = fs.promises;
 
@@ -15,7 +17,7 @@ async function* getWorkspacesByLinker() {
   for (const linker of linkers) {
     const result: [NodeLinker, Workspace[]] = [
       linker,
-      await getWorkspaces<Workspace[]>({
+      await getWorkspaces({
         nodeLinker: [linker]
       })
     ];
@@ -75,10 +77,10 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
         try {
           await run();
         } catch (error) {
-          process.exit(1);
+          process.exit(EXIT_UNKNOWN_ERROR);
         }
       } else {
-        process.exit(1);
+        process.exit(EXIT_UNKNOWN_ERROR);
       }
     }
   }

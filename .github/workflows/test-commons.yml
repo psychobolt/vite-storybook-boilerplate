@@ -18,14 +18,13 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-      TURBO_REMOTE_ONLY: ${{ matrix.os == 'windows-latest' }}
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       TURBO_TELEMETRY_DISABLED: 1
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Set Yarn global folder
@@ -35,16 +34,16 @@ jobs:
         shell: bash
       - name: Setup Node.js environment
         if: matrix.os == 'ubuntu-latest'
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: |
             yarn.lock

@@ -1,5 +1,5 @@
 import { createRequire } from 'node:module';
-import type { Meta } from '@storybook/web-components';
+import type { Meta } from '@storybook/web-components-vite';
 import { mergeConfig } from 'vite';
 import {
   type StorybookViteCommonConfig,

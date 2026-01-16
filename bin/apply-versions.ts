@@ -1,7 +1,11 @@
 import arg from 'arg';
 import semver from 'semver';
 
-import { $ } from './utils/functions.ts';
+import {
+  $,
+  EXIT_SUCCESS,
+  EXIT_INVALID_USAGE
+} from 'commons/esm/bin/utils/functions.js';
 import getWorkspaces from './ls-workspaces.ts';
 
 enum Strategy {
@@ -67,12 +71,14 @@ for await (const annotation of getTagAnnotation()) {
   }
 }
 
-const getVersions = async (options?: Options): Promise<SemVer> =>
-  await getWorkspaces({
+async function getVersions(options?: Options) {
+  const result = await getWorkspaces<SemVer>({
     format: ['semver'],
     noPrivate: true,
     ...options
   });
+  return Array.isArray(result) ? {} : result;
+}
 
 let current = await getVersions({
   since: !force && type !== Strategy[Strategy.launch]
@@ -84,7 +90,7 @@ async function applyAll() {
   const stdout = await $('yarn version apply --all --json', execOptions);
   if (stdout === '') {
     console.log('{}');
-    process.exit();
+    process.exit(EXIT_SUCCESS);
   }
   for (const line of stdout.split('\n')) {
     try {
@@ -150,7 +156,7 @@ switch (type) {
             console.error(
               `Build task was not found for workspace "${name}". Did you configure it in turbo config?`
             );
-            process.exit(1);
+            process.exit(EXIT_INVALID_USAGE);
           }
           bump = `${semver.major(version)}.${semver.minor(
             version

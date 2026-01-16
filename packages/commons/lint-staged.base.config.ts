@@ -1,6 +1,6 @@
-import type { Config } from 'lint-staged';
+import type { Configuration } from 'lint-staged';
 
-const config: Config = {
+const config: Configuration = {
   '*': (filenames) => `yarn format -- ${filenames.join(' ')}`
 };
 

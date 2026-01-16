@@ -1,6 +1,6 @@
 # Bin
 
-Folder for scripts, executables, and any runtimes for workspace or infrastructure related workflows.
+Collection of scripts, executables, and any runtimes for workspace or infrastructure related workflows.
 
 ## Bootstrap
 
@@ -109,9 +109,21 @@ Start a SWC enabled runtime that hooks on loading modules based on Yarn PnP reso
 node bin/swc-node.js [my-script.ts] [options]
 ```
 
+## Hash
+
+`hash.ts` ([Source](hash.ts))
+
+Returns a hash string based on available algorithms supported by OpenSSL. For more info see Node API [docs](https://nodejs.org/api/crypto.html#cryptohashalgorithm-data-options).
+
+```sh
+# Examples
+yarn run-script bin/hash.ts sha256 "hello world"
+yarn run-script bin/hash.ts hello_world # use default algorithm - 'sha1'
+```
+
 ## ESM Register
 
-`esm-register.js` [Source](esm-register.js)
+`esm-register.js` ([Source](esm-register.js))
 
 As of Node v20, [hooks](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) can be utilzed to customize the default resolver for loading JavaScript or TypeScript files. For exmaple, using `--import` flag hook:
 

@@ -8,7 +8,10 @@ const standardConfig = require('prettier-config-standard');
 export type Config = _Config;
 
 const config: Config = _.merge<Config, Config, Config>({}, standardConfig, {
-  plugins: [require.resolve('prettier-plugin-sh')],
+  plugins: [
+    require.resolve('prettier-plugin-sh'),
+    require.resolve('prettier-plugin-packagejson')
+  ],
   semi: true,
   overrides: [
     {

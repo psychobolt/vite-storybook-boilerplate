@@ -13,12 +13,12 @@ This addon extends the [Component Story Format](https://github.com/ComponentDriv
 
 ```ts
 // Setup for .storybook/main.ts
-import type { Meta } from '@storybook/web-components';
+import type { Meta } from '@storybook/web-components-vite';
 import { mergeConfig, defineConfig } from 'vite';
 import {
   vitePluginStorybookVariants,
   storybookVariantsIndexer
-} from 'commons/esm/.storybook/addons/addon-variants.js';
+} from 'commons/esm/.storybook/addons/addon-variants';
 
 export default {
   // ...
@@ -38,6 +38,42 @@ export default {
       })
     )
 };
+```
+
+#### ESLint Rules (Optional)
+
+See main [docs](../../README.md#eslint-1) for more info.
+
+```ts
+import { defineConfig } from 'eslint/config';
+import { mainDir } from 'commons/esm/.storybook/vite-main.js';
+import storybookConfig from 'commons/esm/.storybook/eslint.config.js';
+
+const variantFiles = `${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`;
+
+export default defineConfig(
+  storybookConfig.map((config) => {
+    switch (config.name) {
+      case 'storybook:recommended:stories-rules':
+        return {
+          ...config,
+          files: [
+            `${mainDir}/**/*.@(story|stories).@(js|jsx|ts|tsx)`,
+            variantFiles
+          ]
+        };
+      default:
+        return config;
+    }
+  }),
+  {
+    files: [variantFiles],
+    rules: {
+      'storybook/default-exports': 0,
+      'storybook/prefer-pascal-case': 0
+    }
+  }
+);
 ```
 
 ### Usage
@@ -114,7 +150,7 @@ To test each variant, traditionally, you would need to export 4 total stories im
 
 ```ts
 // my-component.stories.ts
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 import { type Props, MyComponent } from './my-component';
 

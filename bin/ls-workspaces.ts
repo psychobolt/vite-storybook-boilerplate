@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import process from 'node:process';
 import childProcess from 'node:child_process';
 import util from 'node:util';
-import arg from 'arg';
+import arg, { type Spec } from 'arg';
 import globToRegExp from 'glob-to-regexp';
 import YAML from 'yaml';
 import { type PortablePath, npath } from '@yarnpkg/fslib';
@@ -11,15 +11,15 @@ import { Configuration, Project } from '@yarnpkg/core';
 
 const { execSync } = childProcess;
 const exec = util.promisify(childProcess.exec);
-const invalidFilterExpression = /^[.*]$/g;
 
 const globMatcher = (negate?: boolean) => (expressions: string[]) => {
-  const matchers = expressions.reduce((list: RegExp[], expression) => {
-    if (invalidFilterExpression.test(expression)) {
-      return list;
-    }
-    return [...list, globToRegExp(expression, { extended: true })];
-  }, []);
+  const matchers = expressions.reduce(
+    (list: RegExp[], expression) => [
+      ...list,
+      globToRegExp(expression, { extended: true })
+    ],
+    []
+  );
   return {
     test: (value: string) => {
       let result = true;
@@ -35,44 +35,6 @@ const globMatcher = (negate?: boolean) => (expressions: string[]) => {
       return result;
     }
   };
-};
-
-const filters: Filters = {
-  '--name': {
-    alias: '-n',
-    type: String,
-    value: '',
-    matcher: RegExp
-  },
-  '--include': {
-    type: [String],
-    value: [],
-    matcher: globMatcher()
-  },
-  '--exclude': {
-    type: [String],
-    value: [],
-    matcher: globMatcher(true)
-  },
-  '--node-linker': {
-    key: 'nodeLinker',
-    type: [String],
-    value: []
-  },
-  '--turbo-only': {
-    key: 'turboOnly',
-    type: Boolean,
-    value: false
-  },
-  '--no-private': {
-    key: 'noPrivate',
-    type: Boolean
-  },
-  '--since': {
-    key: 'since',
-    type: Boolean,
-    value: false
-  }
 };
 
 function getFormatter(type: string): Mapper<any> {
@@ -100,21 +62,6 @@ function getFormatter(type: string): Mapper<any> {
   }
 }
 
-const formatters: Formatters = {
-  '--format': {
-    key: 'format',
-    type: [String],
-    mapper: (formatters) => (workspaces) =>
-      formatters.reduce(
-        (result, formatter) => getFormatter(formatter)(workspaces, result),
-        workspaces
-      ),
-    value: []
-  }
-};
-
-const specEntries = Object.entries({ ...filters, ...formatters });
-
 async function setupProject() {
   const configuration = await Configuration.find(
     npath.toPortablePath(process.cwd()),
@@ -129,7 +76,63 @@ async function setupProject() {
 }
 
 async function getWorkspaces<T>(options?: Options) {
-  const { _ = [], ...args } = arg<Args>(
+  const filters: Filters = {
+    '--name': {
+      key: 'name',
+      alias: '-n',
+      type: String,
+      value: '',
+      matcher: RegExp
+    },
+    '--include': {
+      key: 'include',
+      type: [String],
+      value: [],
+      matcher: globMatcher()
+    },
+    '--exclude': {
+      key: 'exclude',
+      type: [String],
+      value: [],
+      matcher: globMatcher(true)
+    },
+    '--node-linker': {
+      key: 'nodeLinker',
+      type: [String],
+      value: []
+    },
+    '--turbo-only': {
+      key: 'turboOnly',
+      type: Boolean,
+      value: false
+    },
+    '--no-private': {
+      key: 'noPrivate',
+      type: Boolean
+    },
+    '--since': {
+      key: 'since',
+      type: Boolean,
+      value: false
+    }
+  };
+
+  const formatters: Formatters = {
+    '--format': {
+      key: 'format',
+      type: [String],
+      mapper: (formatters) => (workspaces) =>
+        formatters.reduce<any>(
+          (result, formatter) => getFormatter(formatter)(workspaces, result),
+          workspaces
+        ),
+      value: []
+    }
+  };
+
+  const specEntries = Object.entries({ ...filters, ...formatters });
+
+  const { _ = [], ...args } = arg<Spec>(
     specEntries.reduce(
       (config, [key, { alias, type }]) => ({
         [key]: type,
@@ -142,7 +145,7 @@ async function getWorkspaces<T>(options?: Options) {
   );
 
   if (options) {
-    function updateArg(key: keyof Args, value: any) {
+    function updateArg(key: keyof Spec, value: any) {
       if (!(key in args)) {
         args[key] = value;
       }
@@ -170,7 +173,7 @@ async function getWorkspaces<T>(options?: Options) {
     }
     const formatter: Formatter = formatters[key];
     if (typeof formatter !== 'undefined') {
-      formatter.value = value;
+      formatter.value = value ?? [];
     }
   });
 
@@ -247,13 +250,13 @@ async function getWorkspaces<T>(options?: Options) {
     return filter.value === workspace[propName];
   }
 
-  const format = (workspaces: Workspace[]) => {
-    return Object.values(formatters).reduce(
-      (result, formatter) =>
-        formatter.mapper(formatter.value)(workspaces, result),
-      workspaces
-    );
-  };
+  function format<T>(workspaces: Workspace[]): T | Workspace[] {
+    let result;
+    for (const formatter of Object.values(formatters)) {
+      result = formatter.mapper(formatter.value)(result ?? workspaces);
+    }
+    return result ?? workspaces;
+  }
 
   const listArgs = ['--json'];
   if (noPrivate === true) {
@@ -282,7 +285,7 @@ async function getWorkspaces<T>(options?: Options) {
             return keep ? [workspace, ...list] : list;
           }, []);
 
-  return format(workspaces) as T;
+  return format<T>(workspaces);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

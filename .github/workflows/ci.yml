@@ -48,7 +48,7 @@ jobs:
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Set Yarn global folder
@@ -57,9 +57,9 @@ jobs:
         run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
         shell: bash
       - name: Setup Node.js environment
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: ./yarn.lock
       - name: Start Turbo Cache Server
@@ -85,7 +85,7 @@ jobs:
       release: ${{ steps.filter.outputs.release }}
     steps:
       - name: Check out code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: ${{ inputs.diff_count || 2 }}
           ref: ${{ inputs.ref_name || github.ref }}
@@ -93,9 +93,10 @@ jobs:
         if: env.BASE_REF != ''
         run: git fetch --depth=1 origin ${{ env.BASE_REF }}:base_branch
       - name: Setup Node.js environment
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: lts/Hydrogen
+          node-version: 22.x
+          cache: npm
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
         id: filter
         with:

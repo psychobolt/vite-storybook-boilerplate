@@ -81,7 +81,7 @@ export default mergeConfig(
    ```json
    {
      "scripts": {
-       "lint": "yarn g:lint-css && yarn g:lint-js"
+       "lint": "yarn g:lint"
      }
    }
    ```
@@ -124,14 +124,21 @@ See [source](lint-staged.base.config.ts)
 /your/project/lint-staged.config.js
 
 ```js
+export { default } from 'commons/esm/lint-staged.base.config.js';
+```
+
+Or
+
+```js
 import commonConfig from 'commons/esm/lint-staged.base.config.js';
 
 /**
+ * (optional) yarn [workspace workspace-name] add -DE lint-staged
  * @type {import('lint-staged').Configuration}
  */
 export default {
   ...commonConfig
-  // your overrides
+  // your overrides (optional)
 };
 ```
 
@@ -152,6 +159,23 @@ See [source](tsconfig.js)
 ```
 
 #### Storybook
+
+##### ESLint
+
+1. Create your own config:
+
+See [source](.storybook/eslint.config.ts)
+
+/your/project/eslint.config.ts
+
+```ts
+import { defineConfig } from 'eslint/config';
+import storybookConfig from 'commons/esm/.storybook/eslint.config.js';
+
+export default defineConfig(storybookConfig, {
+  /* ... */
+});
+```
 
 ##### Vite
 
@@ -188,7 +212,7 @@ See [source](.storybook/preview.ts)
 /your/project.storybook/preview.ts
 
 ```ts
-import type { Preview } from '@storybook/react'; // preview-api type
+import type { Preview } from '@storybook/react-vite'; // preview-api type
 import commonConfig from 'commons/esm/.storybook/preview';
 
 const preview: Preview = {
