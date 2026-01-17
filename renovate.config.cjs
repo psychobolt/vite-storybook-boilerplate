@@ -43,17 +43,17 @@ module.exports = {
     bootstrapRule,
     ...postPackageTasks,
     ...postPackageTasks.map(({ postUpgradeTasks, ...rule }) => {
-      if (postPackageTasks) {
+      if (postUpgradeTasks) {
         return {
           ...rule,
           postUpgradeTasks: {
             commands: [
               ...bootstrapRule.postUpgradeTasks.commands,
-              ...postPackageTasks.commands
+              ...postUpgradeTasks.commands
             ],
             fileFilters: [
               ...bootstrapRule.postUpgradeTasks.fileFilters,
-              ...postPackageTasks.fileFilters
+              ...postUpgradeTasks.fileFilters
             ]
           }
         };
