@@ -75,7 +75,7 @@
     "storybook": "9.1.17",
     "stylelint": "16.26.1",
     "tsconfig-to-dual-package": "1.2.0",
-    "turbo": "2.6.1",
+    "turbo": "2.7.4",
     "typescript": "5.9.3",
     "vite": "7.2.6",
     "vitest": "3.2.4"
