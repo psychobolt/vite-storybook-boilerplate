@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Check status of all required jobs'
+        if: github.ref_name != 'main' && !contains(github.ref_name, 'release-')
         run: |-
           NEEDS_CONTEXT='${{ toJson(needs) }}'
           JOB_IDS=$(echo "$NEEDS_CONTEXT" | jq -r 'keys[]')
