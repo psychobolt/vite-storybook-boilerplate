@@ -4,8 +4,10 @@ declare module 'commons/esm/.storybook/addons/addon-variants' {
 
   export * from 'commons/esm/.storybook/addons/addon-variants.d.ts';
 
-  export interface VariantsMeta<TArgs>
-    extends DefaultVariantsMeta<TArgs, WebComponentsRenderer> {}
+  export interface VariantsMeta<TArgs> extends DefaultVariantsMeta<
+    TArgs,
+    WebComponentsRenderer
+  > {}
 }
 
 declare module 'commons/esm/.storybook/utils/story-generators' {
