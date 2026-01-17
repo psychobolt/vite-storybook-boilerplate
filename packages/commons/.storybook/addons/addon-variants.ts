@@ -13,8 +13,10 @@ import type { VariantStoryObj } from '../utils/story-generators.js';
 
 const require = createRequire(import.meta.url);
 
-export interface VariantsMeta<TArgs, TRenderer extends Renderer = Renderer>
-  extends ComponentAnnotations<TRenderer, TArgs> {
+export interface VariantsMeta<
+  TArgs,
+  TRenderer extends Renderer = Renderer
+> extends ComponentAnnotations<TRenderer, TArgs> {
   fileName: string;
   importName: string;
 }
