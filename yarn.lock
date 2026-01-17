@@ -12063,7 +12063,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esrap@npm:^2.2.0":
+"esrap@npm:^2.2.1":
   version: 2.2.1
   resolution: "esrap@npm:2.2.1"
   dependencies:
@@ -22103,7 +22103,7 @@ __metadata:
     stylelint: "npm:16.26.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:16.0.0"
-    svelte: "npm:5.45.2"
+    svelte: "npm:5.46.3"
     svelte-check: "npm:4.3.5"
     svelte-eslint-parser: "npm:1.4.1"
     svelte-language-server: "npm:0.17.23"
@@ -22213,9 +22213,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.45.2":
-  version: 5.45.2
-  resolution: "svelte@npm:5.45.2"
+"svelte@npm:5.46.3":
+  version: 5.46.3
+  resolution: "svelte@npm:5.46.3"
   dependencies:
     "@jridgewell/remapping": "npm:^2.3.4"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -22227,12 +22227,12 @@ __metadata:
     clsx: "npm:^2.1.1"
     devalue: "npm:^5.5.0"
     esm-env: "npm:^1.2.1"
-    esrap: "npm:^2.2.0"
+    esrap: "npm:^2.2.1"
     is-reference: "npm:^3.0.3"
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/cdc522e103fb38e2f38e9e799850a3e03cbab3fe0d42f082202205b08d765c4970b7b497f198fc498623fac4fcea225b7c4e69b80f03b1cb0e9705255eec0897
+  checksum: 10c0/883d62a858297935848b0cc6998419c7c1070ed625f08930fd791f82a87f22b611cf2cc1f906690ee64213c5e473f3b5d187dae329a9a6ef21d9b898e11bcf7d
   languageName: node
   linkType: hard
 
