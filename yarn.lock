@@ -13209,6 +13209,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"glob@npm:13.0.0, glob@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "glob@npm:13.0.0"
+  dependencies:
+    minimatch: "npm:^10.1.1"
+    minipass: "npm:^7.1.2"
+    path-scurry: "npm:^2.0.0"
+  checksum: 10c0/8e2f5821f3f7c312dd102e23a15b80c79e0837a9872784293ba2e15ec73b3f3749a49a42a31bfcb4e52c84820a474e92331c2eebf18819d20308f5c33876630a
+  languageName: node
+  linkType: hard
+
 "glob@npm:^10.0.0, glob@npm:^10.2.2, glob@npm:^10.4.1":
   version: 10.4.5
   resolution: "glob@npm:10.4.5"
@@ -13238,17 +13249,6 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10c0/100705eddbde6323e7b35e1d1ac28bcb58322095bd8e63a7d0bef1a2cdafe0d0f7922a981b2b48369a4f8c1b077be5c171804534c3509dfe950dde15fbe6d828
-  languageName: node
-  linkType: hard
-
-"glob@npm:^13.0.0":
-  version: 13.0.0
-  resolution: "glob@npm:13.0.0"
-  dependencies:
-    minimatch: "npm:^10.1.1"
-    minipass: "npm:^7.1.2"
-    path-scurry: "npm:^2.0.0"
-  checksum: 10c0/8e2f5821f3f7c312dd102e23a15b80c79e0837a9872784293ba2e15ec73b3f3749a49a42a31bfcb4e52c84820a474e92331c2eebf18819d20308f5c33876630a
   languageName: node
   linkType: hard
 
@@ -13822,7 +13822,7 @@ __metadata:
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     eslint: "npm:9.39.2"
-    glob: "npm:11.1.0"
+    glob: "npm:13.0.0"
     http-server: "npm:14.1.1"
     lit: "npm:3.3.2"
     nyc: "npm:17.1.0"
@@ -19597,7 +19597,7 @@ __metadata:
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     eslint: "npm:9.39.2"
-    glob: "npm:11.1.0"
+    glob: "npm:13.0.0"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
     prop-types: "npm:15.8.1"
