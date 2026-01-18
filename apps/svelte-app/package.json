@@ -34,7 +34,7 @@
 		"@swc/core": "1.13.3",
 		"@types/eslint": "9.6.1",
 		"@types/eslint-config-prettier": "6.11.3",
-		"@types/node": "24.10.8",
+		"@types/node": "24.10.9",
 		"@typescript-eslint/utils": "8.53.0",
 		"arg": "5.0.2",
 		"commons": "workspace:*",
