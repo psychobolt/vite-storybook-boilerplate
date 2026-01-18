@@ -14,7 +14,7 @@
     "react-ui": "portal:../../packages/react-ui"
   },
   "devDependencies": {
-    "@types/node": "24.10.1",
+    "@types/node": "24.10.8",
     "@types/prop-types": "15.7.15",
     "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
@@ -24,7 +24,7 @@
     "html-ui": "workspace:*",
     "next": "16.1.2",
     "open-cli": "8.0.0",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "prettier-plugin-packagejson": "2.5.21",
     "prettier-plugin-sh": "0.18.0",
     "prop-types": "15.8.1",
