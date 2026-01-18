@@ -52,7 +52,7 @@
     "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
     "tsconfck": "3.1.6",
-    "vite-tsconfig-paths": "5.1.4"
+    "vite-tsconfig-paths": "6.0.4"
   },
   "devDependencies": {
     "@storybook/addon-docs": "9.1.17",
