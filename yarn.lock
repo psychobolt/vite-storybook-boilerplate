@@ -21948,13 +21948,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-hudochenkov@npm:12.0.0":
-  version: 12.0.0
-  resolution: "stylelint-config-hudochenkov@npm:12.0.0"
+"stylelint-config-hudochenkov@npm:12.0.1":
+  version: 12.0.1
+  resolution: "stylelint-config-hudochenkov@npm:12.0.1"
   peerDependencies:
-    stylelint: ^16.19.0
-    stylelint-order: ^7.0.0
-  checksum: 10c0/3ce65e3e5006f675fa04e67799759c31adce337286521011f1b5ab5f0160ccb179e45a5ae5d7ff806079abc17d232edd43747d8c073f27c635a960a6898fee0f
+    stylelint: ^16.19.0 || ^17.0.0
+    stylelint-order: ^7.0.1
+  checksum: 10c0/5baa78292b613c0f45b78a37a5847bf304cf03a3cdb53e597701329037d7176fcfbe419625a46af0bc0baaf9dd1a62ef6872ebbd481d6bf9034b68d61f5bb733
   languageName: node
   linkType: hard
 
@@ -22033,7 +22033,7 @@ __metadata:
     flat: "npm:6.0.1"
     postcss: "npm:8.5.6"
     stylelint: "npm:16.26.1"
-    stylelint-config-hudochenkov: "npm:12.0.0"
+    stylelint-config-hudochenkov: "npm:12.0.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:16.0.0"
     stylelint-order: "npm:7.0.1"
