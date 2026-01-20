@@ -32,7 +32,7 @@
     "react-dom": "19.2.3",
     "react-ui": "workspace:*",
     "styled-jsx": "5.1.7",
-    "turbo": "2.7.4",
+    "turbo": "2.7.5",
     "typescript": "5.9.3"
   },
   "packageManager": "yarn@4.12.0"
