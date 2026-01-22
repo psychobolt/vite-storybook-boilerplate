@@ -47,7 +47,7 @@
     "husky": "9.1.7",
     "jiti": "2.6.1",
     "playwright": "1.57.0",
-    "renovate": "42.85.2",
+    "renovate": "42.85.3",
     "semver": "7.7.3",
     "turbo": "2.7.5",
     "typescript": "5.9.3",
