@@ -22,7 +22,7 @@
 		"html-ui": "portal:../../packages/html-ui"
 	},
 	"devDependencies": {
-		"@dotenvx/dotenvx": "1.51.4",
+		"@dotenvx/dotenvx": "1.52.0",
 		"@eslint/js": "9.39.2",
 		"@fontsource/fira-mono": "5.2.7",
 		"@neoconfetti/svelte": "2.2.2",

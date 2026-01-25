@@ -30,7 +30,7 @@
     "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "1.51.4",
+    "@dotenvx/dotenvx": "1.52.0",
     "@playwright/mcp": "0.0.56",
     "@swc-node/register": "1.10.0",
     "@swc/core": "1.13.3",
