@@ -131,9 +131,7 @@ As of Node v20, [hooks](https://nodejs.org/docs/latest-v20.x/api/module.html#cus
 ESM_REGISTER="my-hook.js" node --import bin/esm-register.js
 ```
 
-By default, the [run-script](../DEVELOPMENT.md#main-project) command is setup with the [SWC register hook](../package.json#L13). Please see [API docs](https://nodejs.org/docs/latest-v20.x/api/module.html#customization-hooks) on defining your own hook.
-
-This script supplies a variable (`NODE_TRANSFORM='typescript'`) to override the [typescript feature flag](https://nodejs.org/docs/latest-v23.x/api/process.html#processfeaturestypescript). You may also modify this script to patch modules.
+By default, the [run-script](../DEVELOPMENT.md#main-project) command is setup with the [SWC register hook](../package.json#L13). Please see [API docs](https://nodejs.org/docs/latest-v22.x/api/module.html#customization-hooks) on defining your own hook.
 
 ## List Unmerged
 
