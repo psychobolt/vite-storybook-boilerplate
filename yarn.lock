@@ -20115,9 +20115,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:42.92.3":
-  version: 42.92.3
-  resolution: "renovate@npm:42.92.3"
+"renovate@npm:42.92.4":
+  version: 42.92.4
+  resolution: "renovate@npm:42.92.4"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.958.0"
     "@aws-sdk/client-ec2": "npm:3.958.0"
@@ -20185,7 +20185,7 @@ __metadata:
     fs-extra: "npm:11.3.3"
     git-url-parse: "npm:16.1.0"
     github-url-from-git: "npm:1.5.0"
-    glob: "npm:11.1.0"
+    glob: "npm:13.0.0"
     global-agent: "npm:3.0.0"
     good-enough-parser: "npm:1.1.23"
     google-auth-library: "npm:10.5.0"
@@ -20251,7 +20251,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/b0df93dea714dd6c4d8fbdd4b27df7b803714d858daae53643732496248ed753135b48647712bf34a30ce7428cff7516f55afb63e8ef5843d67b22ab6452eac5
+  checksum: 10c0/0018994cbafa52c2d2597e78f4017d794c8891680b8d0b5781c4bce11a76bd5d9cc90aca07b22124ef346b0db7c88a8a9f85d3d3128dc355de1100dd23b3676d
   languageName: node
   linkType: hard
 
@@ -24058,7 +24058,7 @@ __metadata:
     husky: "npm:9.1.7"
     jiti: "npm:2.6.1"
     playwright: "npm:1.58.0"
-    renovate: "npm:42.92.3"
+    renovate: "npm:42.92.4"
     semver: "npm:7.7.3"
     turbo: "npm:2.7.5"
     typescript: "npm:5.9.3"
