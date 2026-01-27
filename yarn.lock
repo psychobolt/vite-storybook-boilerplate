@@ -9084,14 +9084,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-sqlite3@npm:12.6.0":
-  version: 12.6.0
-  resolution: "better-sqlite3@npm:12.6.0"
+"better-sqlite3@npm:12.6.2":
+  version: 12.6.2
+  resolution: "better-sqlite3@npm:12.6.2"
   dependencies:
     bindings: "npm:^1.5.0"
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
-  checksum: 10c0/33d6ac2fbfa2cbf7e264a927097a8123c6c44c28e299c74783b844b4ad2417d3fa6508f4e10121bd2844fb3ee504752d33f3ba019c4472d4cbe1258a4186efc3
+  checksum: 10c0/a58fb3f7a7f5469ba0b8de0855aa67396ff34f951a6975746e4b21987f530be6a34427d1d4bd5958cf48c67ed7ba1df038ae163d2ee9d944237f6b8112f6640d
   languageName: node
   linkType: hard
 
@@ -19978,9 +19978,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:42.92.2":
-  version: 42.92.2
-  resolution: "renovate@npm:42.92.2"
+"renovate@npm:42.92.3":
+  version: 42.92.3
+  resolution: "renovate@npm:42.92.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.958.0"
     "@aws-sdk/client-ec2": "npm:3.958.0"
@@ -20023,7 +20023,7 @@ __metadata:
     auth-header: "npm:1.0.0"
     aws4: "npm:1.13.2"
     azure-devops-node-api: "npm:15.1.2"
-    better-sqlite3: "npm:12.6.0"
+    better-sqlite3: "npm:12.6.2"
     bunyan: "npm:1.8.15"
     cacache: "npm:20.0.3"
     changelog-filename-regex: "npm:2.0.1"
@@ -20114,7 +20114,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/34dd3f6363ff2e7cffc42f3944a3b0597b6dcf28f9f65a82f1d888f2f5aee76bb75ebc2204a22c002c5d3e346eaa07c3db6d472244cdee688c43fc927c089481
+  checksum: 10c0/b0df93dea714dd6c4d8fbdd4b27df7b803714d858daae53643732496248ed753135b48647712bf34a30ce7428cff7516f55afb63e8ef5843d67b22ab6452eac5
   languageName: node
   linkType: hard
 
@@ -23822,7 +23822,7 @@ __metadata:
     husky: "npm:9.1.7"
     jiti: "npm:2.6.1"
     playwright: "npm:1.58.0"
-    renovate: "npm:42.92.2"
+    renovate: "npm:42.92.3"
     semver: "npm:7.7.3"
     turbo: "npm:2.7.5"
     typescript: "npm:5.9.3"
