@@ -7934,6 +7934,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/browser-playwright@npm:4.0.18":
+  version: 4.0.18
+  resolution: "@vitest/browser-playwright@npm:4.0.18"
+  dependencies:
+    "@vitest/browser": "npm:4.0.18"
+    "@vitest/mocker": "npm:4.0.18"
+    tinyrainbow: "npm:^3.0.3"
+  peerDependencies:
+    playwright: "*"
+    vitest: 4.0.18
+  peerDependenciesMeta:
+    playwright:
+      optional: false
+  checksum: 10c0/505fafe6f957d020b74914ed328de57cba0be65ff82810da85297523776a0d7389669660e58734a416fc09ce262632b4d2cf257a9e8ab1115b695d133bba7bb5
+  languageName: node
+  linkType: hard
+
 "@vitest/browser@npm:4.0.18":
   version: 4.0.18
   resolution: "@vitest/browser@npm:4.0.18"
@@ -10089,6 +10106,7 @@ __metadata:
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4"
     "@types/react-syntax-highlighter": "npm:15.5.13"
+    "@vitest/browser-playwright": "npm:4.0.18"
     arg: "npm:5.0.2"
     autoprefixer: "npm:10.4.23"
     chromatic: "npm:13.3.5"
@@ -19645,7 +19663,6 @@ __metadata:
     "@types/react": "npm:19.2.9"
     "@types/react-dom": "npm:19.2.3"
     "@vitejs/plugin-react": "npm:5.1.2"
-    "@vitest/browser": "npm:4.0.18"
     "@vitest/coverage-v8": "npm:4.0.18"
     arg: "npm:5.0.2"
     classnames: "npm:2.5.1"
