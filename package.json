@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "1.52.0",
-    "@playwright/mcp": "0.0.56",
+    "@playwright/mcp": "0.0.58",
     "@swc-node/register": "1.10.0",
     "@swc/core": "1.13.3",
     "@types/glob-to-regexp": "0.4.4",
