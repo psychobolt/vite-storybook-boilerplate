@@ -34,6 +34,7 @@
     "@storybook/test-runner": "0.23.0",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4",
+    "@vitest/browser-playwright": "4.0.18",
     "autoprefixer": "10.4.23",
     "color": "5.0.3",
     "eslint-plugin-mdx": "3.6.2",
@@ -78,6 +79,6 @@
     "turbo": "2.7.5",
     "typescript": "5.9.3",
     "vite": "7.3.1",
-    "vitest": "3.2.4"
+    "vitest": "4.0.18"
   }
 }
