@@ -1,14 +1,8 @@
-import type { Config } from 'stylelint';
+import { flatten, unflatten } from 'flat';
+import config from 'stylelint-config-hudochenkov/order.js';
 
-import { require } from '../utils/functions.js';
-
-const { flatten, unflatten } = await import(
-  `file://${require.resolve('flat')}`
-);
-
-const { rules = {} }: Config = require('stylelint-config-hudochenkov/order');
-const { 'order/order': _, ...order } = rules;
-type Rules = NonNullable<typeof rules>;
+const { 'order/order': _, ...order } = config.rules ?? {};
+type Rules = NonNullable<typeof config.rules>;
 
 const rulesFlattened: Record<string, Rules[keyof Rules]> = flatten(order);
 
