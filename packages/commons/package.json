@@ -15,7 +15,7 @@
     "g:build-inventory": "cd $INIT_CWD && yarn g:run-script $PROJECT_CWD/packages/commons/esm/bin/inventory.js",
     "g:chromatic": "cd $INIT_CWD && yarn g:dotenv-run -- chromatic",
     "g:format": "cd $INIT_CWD && yarn g:prettier --write $(echo \"${@:-.}\")",
-    "g:lint": "cd $INIT_CWD && yarn tsc --noEmit && lint",
+    "g:lint": "cd $INIT_CWD && yarn tsc --noEmit && node --experimental-import-meta-resolve $PROJECT_CWD/packages/commons/esm/bin/lint.js",
     "g:lint-staged": "cd $INIT_CWD && lint-staged",
     "g:prettier": "cd $INIT_CWD && prettier --ignore-path $PROJECT_CWD/.gitignore --ignore-path $PROJECT_CWD/packages/commons/.prettierignore --ignore-path $INIT_CWD/.gitignore --ignore-path ./.prettierignore",
     "g:rimraf": "cd $INIT_CWD && rimraf",
