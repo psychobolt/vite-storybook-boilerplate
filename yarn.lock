@@ -4318,17 +4318,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/mcp@npm:0.0.60":
-  version: 0.0.60
-  resolution: "@playwright/mcp@npm:0.0.60"
+"@playwright/mcp@npm:0.0.61":
+  version: 0.0.61
+  resolution: "@playwright/mcp@npm:0.0.61"
   dependencies:
-    minimist: "npm:^1.2.5"
     playwright: "npm:1.59.0-alpha-1769452054000"
     playwright-core: "npm:1.59.0-alpha-1769452054000"
   bin:
-    mcp: cli.js
-    playwright-cli: playwright-cli.js
-  checksum: 10c0/1b40d66cae3f0248d7396a16eb7b97f46e0eb14a0629b81317cadb20fd2060efa97b929f9cea6723bccab44c500ee9fe08609e2acb48dc427c8c85addc83c6e8
+    playwright-mcp: cli.js
+  checksum: 10c0/7991f7d78912d491e6b3c24e836361eb6d96b77598448c7926ba4a664cf5b2ca7f562bbe7779a1fc717fe35370c43af4074ee1a180298ce8c252b00c14655efb
   languageName: node
   linkType: hard
 
@@ -23798,7 +23796,7 @@ __metadata:
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
     "@dotenvx/dotenvx": "npm:1.52.0"
-    "@playwright/mcp": "npm:0.0.60"
+    "@playwright/mcp": "npm:0.0.61"
     "@swc-node/register": "npm:1.10.0"
     "@swc/core": "npm:1.13.3"
     "@types/glob-to-regexp": "npm:0.4.4"
