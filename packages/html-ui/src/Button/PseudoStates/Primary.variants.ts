@@ -5,7 +5,7 @@ import {
   type StoryPseudoStateArgs,
   type VariantStoryObj,
   generatePseudoStateStories
-} from 'commons/esm/.storybook/utils/story-generators';
+} from 'commons/esm/.storybook/utils/story-generators.js';
 
 import { getPseudoStateArgTypes } from 'utils/functions';
 import type { Props } from 'Button';

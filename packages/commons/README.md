@@ -233,7 +233,7 @@ export default preview;
    /your/project/.storybook/test-runner-jest.config.ts
 
    ```ts
-   import commonConfig from 'commons/esm/.storybook/test-runner-jest.config';
+   import commonConfig from 'commons/esm/.storybook/test-runner-jest.config.js';
 
    export default {
      ...commonConfig
