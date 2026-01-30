@@ -5,7 +5,7 @@ import noEmit from 'rollup-plugin-no-emit';
 import commonConfig, {
   type ModulePattern,
   getInputMap
-} from 'commons/esm/vite.config';
+} from 'commons/esm/vite.config.js';
 
 const patterns: ModulePattern[] = [
   {

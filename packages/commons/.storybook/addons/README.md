@@ -18,7 +18,7 @@ import { mergeConfig, defineConfig } from 'vite';
 import {
   vitePluginStorybookVariants,
   storybookVariantsIndexer
-} from 'commons/esm/.storybook/addons/addon-variants';
+} from 'commons/esm/.storybook/addons/addon-variants.js';
 
 export default {
   // ...
