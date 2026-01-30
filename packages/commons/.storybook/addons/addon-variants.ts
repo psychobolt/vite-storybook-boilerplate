@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
-import { isAbsolute } from 'node:path';
+// import { pathToFileURL } from 'node:url';
 import type {
   ComponentAnnotations,
   StoryAnnotations,
@@ -73,8 +73,8 @@ function getSourceTemplate<TMeta>(framework: Framework) {
 
 let fileMatcher: RegExp = /\.variants?\.[jt]sx?$/;
 
-const getImportPath = (filePath: string) =>
-  `${isAbsolute(filePath) ? 'file://' : ''}${filePath}?${new Date().getTime()}`;
+const getImportPath = (filePath: string) => require.resolve(filePath);
+// `${pathToFileURL(require.resolve(filePath))}`;
 
 export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
   fileMatcher = test;

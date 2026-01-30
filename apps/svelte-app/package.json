@@ -11,9 +11,9 @@
 		"format": "yarn prettier --write $(echo \"${@:-.}\")",
 		"lint": "yarn prettier --check . && stylelint **/*.{sc,c}ss && yarn check && lint --runner eslint",
 		"prettier": "prettier --ignore-path ../../.gitignore --ignore-path ../../packages/commons/.prettierignore --ignore-path ./.gitignore --ignore-path ./.prettierignore",
-		"run-script": "cd $INIT_CWD && yarn dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" --env=\"ESM_REGISTER=file://$(yarn swc-register-path)\" -- node --enable-source-maps --import file://$(yarn node -p \"path.join(process.env.PROJECT_CWD, '../../bin/esm-register.js')\")",
+		"run-script": "cd $INIT_CWD && yarn dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" -- node --enable-source-maps --experimental-transform-types --disable-warning=ExperimentalWarning -r $(yarn swc-register-path)",
 		"start": "yarn vite preview",
-		"swc-register-path": "yarn node -p \"path.join(require.resolve('@swc-node/register'), '../esm/esm.mjs')\"",
+		"swc-register-path": "yarn node -p \"require.resolve('@swc-node/register')\"",
 		"vite": "yarn run-script $(yarn bin vite)"
 	},
 	"resolutions": {
