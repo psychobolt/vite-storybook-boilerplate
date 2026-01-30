@@ -8,9 +8,9 @@ import {
   getAbsolutePath,
   mainDir
 } from 'commons/esm/.storybook/vite-main.js';
-import { storybookVariantsIndexer } from 'commons/esm/.storybook/addons/addon-variants';
+import { storybookVariantsIndexer } from 'commons/esm/.storybook/addons/addon-variants.js';
 
-import viteConfig from './vite.config';
+import viteConfig from './vite.config.ts';
 
 const require = createRequire(import.meta.url);
 
