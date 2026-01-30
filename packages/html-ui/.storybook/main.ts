@@ -7,7 +7,7 @@ import {
   stories,
   getAbsolutePath,
   mainDir
-} from 'commons/esm/.storybook/vite-main';
+} from 'commons/esm/.storybook/vite-main.js';
 import { storybookVariantsIndexer } from 'commons/esm/.storybook/addons/addon-variants';
 
 import viteConfig from './vite.config';

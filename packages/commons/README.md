@@ -186,7 +186,7 @@ export default defineConfig(storybookConfig, {
    /your/project/.storybook/main.ts
 
    ```ts
-   import commonConfig from 'commons/esm/.storybook/vite-main';
+   import commonConfig from 'commons/esm/.storybook/vite-main.js';
 
    export default mergeConfig({
      ...commonConfig,
