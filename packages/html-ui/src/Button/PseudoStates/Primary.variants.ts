@@ -1,11 +1,11 @@
 import type { StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
+import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
 import {
   type StoryPseudoStateArgs,
   type VariantStoryObj,
   generatePseudoStateStories
-} from 'commons/esm/.storybook/utils/story-generators';
+} from 'commons/esm/.storybook/utils/story-generators.js';
 
 import { getPseudoStateArgTypes } from 'utils/functions';
 import type { Props } from 'Button';

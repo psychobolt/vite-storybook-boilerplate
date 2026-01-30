@@ -4,7 +4,7 @@ import {
   type StorybookViteCommonConfig,
   config as commonConfig,
   getAbsolutePath
-} from 'commons/esm/.storybook/vite-main';
+} from 'commons/esm/.storybook/vite-main.js';
 
 const require = createRequire(import.meta.url);
 
