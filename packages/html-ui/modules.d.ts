@@ -10,7 +10,7 @@ declare module 'commons/esm/.storybook/addons/addon-variants' {
   > {}
 }
 
-declare module 'commons/esm/.storybook/utils/story-generators' {
+declare module 'commons/esm/.storybook/utils/story-generators.js' {
   import type { StoryPseudoStateProps as DefaultStoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators.d.ts';
 
   export * from 'commons/esm/.storybook/utils/story-generators.d.ts';
