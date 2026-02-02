@@ -53,7 +53,7 @@
 		"stylelint": "16.26.1",
 		"stylelint-config-prettier-scss": "1.0.0",
 		"stylelint-config-standard-scss": "16.0.0",
-		"svelte": "5.49.0",
+		"svelte": "5.49.1",
 		"svelte-check": "4.3.5",
 		"svelte-eslint-parser": "1.4.1",
 		"svelte-language-server": "0.17.23",
