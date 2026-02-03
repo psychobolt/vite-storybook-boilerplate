@@ -1,8 +1,10 @@
 import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { join, dirname } from 'node:path';
-import { platform } from 'node:process';
-import type { StorybookConfig } from 'storybook/internal/types';
+import type {
+  StorybookConfig,
+  CoreCommon_ResolvedAddonVirtual
+} from 'storybook/internal/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
 import {
   type ResolveOptions,
@@ -61,6 +63,7 @@ const addonDocs = getAbsolutePath('@storybook/addon-docs');
 
 export type StorybookViteCommonConfig = StorybookConfig &
   Required<Pick<StorybookConfig, 'addons'>> &
+  Required<Pick<CoreCommon_ResolvedAddonVirtual, 'managerEntries'>> &
   Required<StorybookConfigVite>;
 
 export const config: StorybookViteCommonConfig = {
@@ -71,10 +74,12 @@ export const config: StorybookViteCommonConfig = {
     addonDocs,
     ...(new RegExp(`^origin/${gitBranch}$`).test(process.env.BASE_REF ?? '')
       ? []
-      : [getAbsolutePath('@chromatic-com/storybook')]),
-    ...(platform === 'win32'
-      ? []
-      : [join(getAbsolutePath('storybook-zeplin'), 'dist/register')])
+      : [getAbsolutePath('@chromatic-com/storybook')])
+  ],
+  managerEntries: [
+    ...//platform === 'win32'
+    //? [] :
+    [join(getAbsolutePath('storybook-zeplin'), 'register.js')]
   ],
   build: {
     test: {

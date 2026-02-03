@@ -4,7 +4,7 @@ import commonConfig, {
   type ModulePattern,
   srcPattern,
   getInputMap
-} from 'commons/esm/vite.config';
+} from 'commons/esm/vite.config.js';
 
 const extPattern = /\.tsx?$/;
 const patterns: ModulePattern[] = [

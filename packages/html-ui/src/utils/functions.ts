@@ -1,6 +1,6 @@
 import { spread } from '@open-wc/lit-helpers';
-import type { ArgStateAttrMapper } from 'commons/esm/.storybook/utils/functions';
-import * as functions from 'commons/esm/.storybook/utils/functions';
+import type { ArgStateAttrMapper } from 'commons/esm/.storybook/utils/functions.js';
+import * as functions from 'commons/esm/.storybook/utils/functions.js';
 
 export const pseudoStateAttrMapper: ArgStateAttrMapper = (attributes) =>
   spread(
