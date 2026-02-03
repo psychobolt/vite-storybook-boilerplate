@@ -49,7 +49,7 @@
     "react-dom": "19.2.4",
     "react-syntax-highlighter": "16.1.0",
     "sharp": "0.34.5",
-    "storybook-zeplin": "patch:storybook-zeplin@npm%3A3.0.0#~/.yarn/patches/storybook-zeplin-npm-3.0.0-1df848e72d.patch",
+    "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
     "tsconfck": "3.1.6",
     "vite-tsconfig-paths": "6.0.5"
@@ -66,8 +66,8 @@
     "chromatic": "13.3.5",
     "eslint": "9.39.2",
     "jest-junit": "16.0.0",
-    "playwright": "1.58.0",
-    "playwright-chromium": "1.58.0",
+    "playwright": "1.58.1",
+    "playwright-chromium": "1.58.1",
     "prettier": "3.8.1",
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-packagejson": "3.0.0",
@@ -76,7 +76,7 @@
     "storybook": "10.2.4",
     "stylelint": "16.26.1",
     "tsconfig-to-dual-package": "1.2.0",
-    "turbo": "2.7.6",
+    "turbo": "2.8.1",
     "typescript": "5.9.3",
     "vite": "7.3.1",
     "vitest": "4.0.18"
