@@ -20,7 +20,7 @@ export const $ = (
       if (e) {
         error.message = e.message;
         if (silent) {
-          e.message = (stderr || stdout).toString();
+          e.message = (stderr ?? stdout).toString();
           error.cause = e;
         }
         reject(error);
