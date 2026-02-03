@@ -31,7 +31,7 @@
     "@eslint/core": "1.0.1",
     "@jest/types": "29.6.3",
     "@storybook/builder-vite": "9.1.17",
-    "@storybook/test-runner": "0.23.0",
+    "@storybook/test-runner": "0.24.2",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4",
     "@vitest/browser-playwright": "4.0.18",
