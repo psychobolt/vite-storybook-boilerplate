@@ -1,5 +1,4 @@
 import { createRequire } from 'node:module';
-import type { Config } from '@jest/types';
 import { getJestConfig } from '@storybook/test-runner';
 
 const require = createRequire(import.meta.url);
@@ -7,7 +6,7 @@ const require = createRequire(import.meta.url);
 // The default Jest configuration comes from @storybook/test-runner
 const testRunnerConfig = getJestConfig();
 
-const config: Config.InitialOptions = {
+const config: typeof testRunnerConfig = {
   ...testRunnerConfig,
   /** Add your own overrides below, and make sure
    *  to merge testRunnerConfig properties with your own
