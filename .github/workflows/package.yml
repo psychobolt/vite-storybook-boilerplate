@@ -110,7 +110,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Install Playwright
-        run: yarn playwright install --with-deps
+        run: yarn playwright install --with-deps chromium
       - name: Run Coverage
         if: inputs.test-runner != 'vitest'
         env:
