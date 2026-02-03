@@ -18,7 +18,7 @@ See [source](vite.config.ts)
 
 ```js
 import { defineConfig, mergeConfig } fromn "vite";
-import commonConfig from 'commons/esm/vite.config';
+import commonConfig from 'commons/esm/vite.config.js';
 
 export default mergeConfig(
   commonConfig,
@@ -38,9 +38,9 @@ export default mergeConfig(
 
    ```ts
    import { mergeConfig } from 'vitest/config';
-   import commonConfig from 'commons/esm/vitest.config';
+   import commonConfig from 'commons/esm/vitest.config.js';
 
-   import viteConfig from './vite.config';
+   import viteConfig from './vite.config.ts';
 
    export default mergeConfig(commonConfig, viteConfig);
    ```
@@ -186,7 +186,7 @@ export default defineConfig(storybookConfig, {
    /your/project/.storybook/main.ts
 
    ```ts
-   import commonConfig from 'commons/esm/.storybook/vite-main';
+   import commonConfig from 'commons/esm/.storybook/vite-main.js';
 
    export default mergeConfig({
      ...commonConfig,
@@ -263,10 +263,10 @@ export default preview;
 
    ```ts
    import { mergeConfig } from 'vitest/config';
-   import commonConfig from 'commons/esm/.storybook/vitest.config';
+   import commonConfig from 'commons/esm/.storybook/vitest.config.js';
 
-   import viteConfig from './vite.config';
-   import vitestConfig from '../vitest.config';
+   import viteConfig from './vite.config.ts';
+   import vitestConfig from '../vitest.config.ts';
 
    export default mergeConfig(
      vitestConfig,
@@ -280,9 +280,9 @@ export default preview;
 
    ```ts
    import { mergeConfig } from 'vitest/config';
-   import commonConfig from 'commons/esm/vitest.config';
+   import commonConfig from 'commons/esm/vitest.config.js';
 
-   import viteConfig from './vite.config';
+   import viteConfig from './vite.config.ts';
 
    export default mergeConfig(mergeConfig(commonConfig, viteConfig), {
      test: {

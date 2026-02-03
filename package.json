@@ -25,9 +25,7 @@
     "run-script": "yarn g:run-script"
   },
   "resolutions": {
-    "@storybook/test-runner@npm:0.23.0": "patch:@storybook/test-runner@npm%3A0.23.0#~/.yarn/patches/@storybook-test-runner-npm-0.23.0-397644f312.patch",
-    "@swc-node/register@1.10.0": "patch:@swc-node/register@npm%3A1.10.0#~/.yarn/patches/@swc-node-register-npm-1.10.0-3e68312da5.patch",
-    "jest-config@npm:^29.7.0": "patch:jest-config@npm%3A29.7.0#~/.yarn/patches/jest-config-npm-29.7.0-97d8544d74.patch"
+    "storybook-zeplin@npm:3.0.0": "patch:storybook-zeplin@npm%3A3.0.0#~/.yarn/patches/storybook-zeplin-npm-3.0.0-1df848e72d.patch"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "1.52.0",
@@ -37,6 +35,7 @@
     "@types/glob-to-regexp": "0.4.4",
     "@types/node": "24.10.9",
     "@types/semver": "7.7.1",
+    "@typescript-eslint/utils": "8.54.0",
     "@yarnpkg/core": "4.5.0",
     "@yarnpkg/fslib": "3.1.4",
     "@yarnpkg/sdks": "3.2.3",

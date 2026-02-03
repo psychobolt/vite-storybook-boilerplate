@@ -41,7 +41,7 @@ export const MyComponent = ({
 
 ```ts
 // my-component.story.ts
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
+import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
 
 import type { Props } from './my-component';
 import type {

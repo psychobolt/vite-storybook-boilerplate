@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants';
+import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
 import {
   type StoryPseudoStateArgs,
   type VariantStoryObj,
