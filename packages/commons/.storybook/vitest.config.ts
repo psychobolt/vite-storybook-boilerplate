@@ -20,6 +20,7 @@ export default defineConfig({
   ],
   test: {
     name: 'storybook',
+    root: process.cwd(),
     browser: {
       enabled: true,
       provider: playwright(),

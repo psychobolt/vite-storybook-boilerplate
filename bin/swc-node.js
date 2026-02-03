@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync, spawn } from 'node:child_process';
-import { join, dirname } from 'node:path';
+import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export default function run(args) {
@@ -16,16 +16,15 @@ export default function run(args) {
     .slice(0, -1)
     .replace('--experimental-loader', '--loader');
 
-  const swcRegisterPath = `file://${execSync('yarn g:swc-register-path')
+  const swcRegisterPath = execSync('yarn g:swc-register-path')
     .toString()
-    .slice(0, -1)}`;
+    .slice(0, -1);
 
   // IPC is blocked for `yarn node`, see https://github.com/yarnpkg/berry/issues/1696
   const child = spawn('node', args, {
     env: {
       ...process.env,
-      ESM_REGISTER: swcRegisterPath,
-      NODE_OPTIONS: `${nodeOptions} --import file://${join(_dirname, 'esm-register.js')}`
+      NODE_OPTIONS: `${nodeOptions} -r ${swcRegisterPath}`
     },
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   }).on('message', (data) => {
