@@ -103,8 +103,8 @@ yarn [workspace workspace-name] add -[D]E library-or-workspace-name
 ### Using environment files
 
 ```sh
-yarn [workspace workspace-name] g:dotenv help                    # print usage
-yarn [workspace workspace-name] g:dotenv-get MY_VARIABLE         # Print a environment variable
+yarn [workspace workspace-name] g:dotenv help                    # Print usage
+yarn [workspace workspace-name] g:dotenv-get MY_VARIABLE         # Print a environment variable value
 yarn [workspace workspace-name] g:dotenv-run -- my-script-or-bin # Loads envronment variables with your script or bin
 ```
 
