@@ -4,7 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "vite build",
-		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "yarn check --watch",
 		"dev": "vite dev --open",
 		"format": "yarn g:format",
