@@ -54,7 +54,7 @@
     "react-dom": "19.2.4",
     "sass": "1.97.3",
     "storybook": "10.2.4",
-    "stylelint": "16.26.1",
+    "stylelint": "17.1.0",
     "stylelint-config": "workspace:*",
     "turbo": "2.8.1",
     "typescript": "5.9.3",
