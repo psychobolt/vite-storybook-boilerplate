@@ -25,7 +25,6 @@
     "@storybook/addon-docs": "10.2.4",
     "@storybook/web-components-vite": "10.2.4",
     "@types/react-syntax-highlighter": "15.5.13",
-    "arg": "5.0.2",
     "classnames": "2.5.1",
     "commons": "workspace:*",
     "eslint": "9.39.2",

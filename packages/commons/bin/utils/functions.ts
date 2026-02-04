@@ -1,6 +1,6 @@
 import { type ExecOptions, exec } from 'node:child_process';
-import crypto, { BinaryToTextEncoding } from 'node:crypto';
-import { pathToFileURL, URL } from 'node:url';
+import { type BinaryToTextEncoding, createHash } from 'node:crypto';
+import { URL } from 'node:url';
 
 export const EXIT_SUCCESS = 0;
 export const EXIT_INVALID_USAGE = 1;
@@ -46,21 +46,12 @@ export function hash(
         encoding?: BinaryToTextEncoding;
       }
 ) {
-  const hash = crypto.createHash(algorithm);
+  const hash = createHash(algorithm);
   hash.update(data);
   return hash.digest(
     (typeof options === 'object' ? options?.encoding : options) ?? 'hex'
   );
 }
-
-export const resolve = async (moduleId: string, cwd = process.cwd()) =>
-  pathToFileURL(
-    (
-      await $(`cd ${cwd} && yarn node -p "require.resolve('${moduleId}')"`, {
-        silent: true
-      })
-    ).trim()
-  ).toString();
 
 interface StorybookIndex {
   entries: Record<string, Story>;

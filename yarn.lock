@@ -9812,7 +9812,6 @@ __metadata:
     lodash: "npm:4.17.23"
     neostandard: "npm:0.12.2"
     playwright: "npm:1.58.1"
-    playwright-chromium: "npm:1.58.1"
     postcss: "npm:8.5.6"
     postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
@@ -9829,7 +9828,6 @@ __metadata:
     storybook-zeplin: "npm:3.0.0"
     stylelint: "npm:17.1.1"
     ts-enum-util: "npm:4.1.0"
-    tsconfck: "npm:3.1.6"
     tsconfig-to-dual-package: "npm:1.2.0"
     turbo: "npm:2.8.1"
     typescript: "npm:5.9.3"
@@ -13196,7 +13194,6 @@ __metadata:
     "@storybook/addon-docs": "npm:10.2.4"
     "@storybook/web-components-vite": "npm:10.2.4"
     "@types/react-syntax-highlighter": "npm:15.5.13"
-    arg: "npm:5.0.2"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     eslint: "npm:9.39.2"
@@ -17878,17 +17875,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-chromium@npm:1.58.1":
-  version: 1.58.1
-  resolution: "playwright-chromium@npm:1.58.1"
-  dependencies:
-    playwright-core: "npm:1.58.1"
-  bin:
-    playwright: cli.js
-  checksum: 10c0/ed994045452cb809d0f74bbda81b760b0efcc6d5d6a325d167286f473982a4bf6ff5ed618a926eea8dfaecff46a9d2ddeb513dccc155e1cce8746bb339c16c18
-  languageName: node
-  linkType: hard
-
 "playwright-core@npm:1.58.1, playwright-core@npm:>=1.2.0":
   version: 1.58.1
   resolution: "playwright-core@npm:1.58.1"
@@ -18651,7 +18637,6 @@ __metadata:
     "@types/react-dom": "npm:19.2.3"
     "@vitejs/plugin-react": "npm:5.1.2"
     "@vitest/coverage-v8": "npm:4.0.18"
-    arg: "npm:5.0.2"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     eslint: "npm:9.39.2"
@@ -21067,20 +21052,16 @@ __metadata:
     "@sveltejs/adapter-vercel": "npm:6.3.1"
     "@sveltejs/kit": "npm:2.50.1"
     "@sveltejs/vite-plugin-svelte": "npm:6.2.4"
-    "@swc-node/register": "npm:1.11.1"
-    "@swc/core": "npm:1.15.11"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
     "@types/node": "npm:24.10.9"
     "@typescript-eslint/utils": "npm:8.54.0"
-    arg: "npm:5.0.2"
     commons: "workspace:*"
     eslint: "npm:9.39.2"
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-svelte: "npm:3.14.0"
     globals: "npm:17.3.0"
     html-ui: "workspace:*"
-    jiti: "npm:2.6.1"
     postcss: "npm:8.5.6"
     postcss-scss: "npm:4.0.9"
     prettier: "npm:3.8.1"
@@ -21095,7 +21076,6 @@ __metadata:
     svelte-check: "npm:4.3.6"
     svelte-eslint-parser: "npm:1.4.1"
     svelte-language-server: "npm:0.17.24"
-    tslib: "npm:2.8.1"
     turbo: "npm:2.8.1"
     typescript: "npm:5.9.3"
     typescript-eslint: "npm:8.54.0"
@@ -21596,7 +21576,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:3.1.6, tsconfck@npm:^3.0.3":
+"tsconfck@npm:^3.0.3":
   version: 3.1.6
   resolution: "tsconfck@npm:3.1.6"
   peerDependencies:
@@ -22661,7 +22641,6 @@ __metadata:
     eslint: "npm:9.39.2"
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
-    jiti: "npm:2.6.1"
     playwright: "npm:1.58.1"
     renovate: "npm:43.0.9"
     semver: "npm:7.7.3"
