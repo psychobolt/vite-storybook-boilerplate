@@ -2,12 +2,5 @@
   "name": "unplugged",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.12.0",
-  "devDependencies": {
-    "stylelint": "16.26.1",
-    "stylelint-config": "workspace:*"
-  },
-  "resolutions": {
-    "stylelint-config": "portal:../../packages/stylelint-config"
-  }
+  "packageManager": "yarn@4.12.0"
 }

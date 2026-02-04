@@ -11,6 +11,9 @@ on:
       path:
         required: true
         type: string
+      pnp:
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -71,9 +74,10 @@ jobs:
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
-        run: |
-          yarn install
-          yarn bootstrap
+        run: yarn install
+      - name: Bootstrap
+        if: inputs.pnp == false
+        run: yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Run Build
