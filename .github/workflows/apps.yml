@@ -23,6 +23,7 @@ jobs:
       base_ref: ${{ inputs.base_ref }}
       workspace: next-app
       path: apps/next-app
+      pnp: false
     secrets: inherit
 
   svelte-app:
