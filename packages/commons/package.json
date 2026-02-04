@@ -33,6 +33,7 @@
     "@types/eslint": "9.6.1",
     "@types/lodash": "4",
     "@vitest/browser-playwright": "4.0.18",
+    "arg": "5.0.2",
     "autoprefixer": "10.4.24",
     "color": "5.0.3",
     "eslint-plugin-mdx": "3.6.2",
@@ -50,7 +51,6 @@
     "sharp": "0.34.5",
     "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
-    "tsconfck": "3.1.6",
     "vite-tsconfig-paths": "6.0.5"
   },
   "devDependencies": {
@@ -66,7 +66,6 @@
     "eslint": "9.39.2",
     "jest-junit": "16.0.0",
     "playwright": "1.58.1",
-    "playwright-chromium": "1.58.1",
     "prettier": "3.8.1",
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-packagejson": "3.0.0",

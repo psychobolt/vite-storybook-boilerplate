@@ -2,7 +2,6 @@ import path from 'node:path';
 import type { ESLint } from 'eslint';
 import type { LinterResult as StyleLintResult } from 'stylelint';
 
-import { resolve } from './functions.js';
 import type { Reporter } from './reporters.js';
 
 export interface Results {
@@ -21,7 +20,7 @@ export const eslint: Runner<ESLint.LintResult[]> = async (
   files,
   formatters = new Set('default')
 ) => {
-  const _ESLint: typeof ESLint = (await import(await resolve('eslint'))).ESLint;
+  const _ESLint: typeof ESLint = (await import('eslint')).ESLint;
   const eslint = new _ESLint({
     flags: ['v10_config_lookup_from_file']
   });
@@ -57,7 +56,7 @@ export const stylelint: Runner<StyleLintResult['results']> = async (
 ) => {
   console.log('\nRunning Stylelint...');
 
-  const _stylelint = (await import(await resolve('stylelint'))).default;
+  const _stylelint = (await import('stylelint')).default;
   const { report, results }: StyleLintResult = await _stylelint.lint({
     files,
     ignorePath: path.join(

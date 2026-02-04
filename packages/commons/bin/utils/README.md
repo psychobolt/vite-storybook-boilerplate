@@ -20,21 +20,13 @@ const { error, stdout, stderr } = await $(command, options);
 
 Analogous to running a sub process, denoted similarly as [shell substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html) e.g. `$(command)`. By default, command `stdio` will be piped to the main process.
 
-### `resolve`
-
-```ts
-const path = resolve(moduleId, cwd);
-```
-
-Resolves the module path, given a relative path.
-
 ### `hash`
 
 ```ts
 const string = hash(algorihtm, data, options);
 ```
 
-This function is a placeholder of the built-in crypto library available in Node v20.12.0+. Refer to [docs](https://nodejs.org/api/crypto.html#cryptohashalgorithm-data-options) for usage.
+Generate a hashed string using built-in crypto library available in Node v20.12.0+. Refer to [docs](https://nodejs.org/api/crypto.html#cryptohashalgorithm-data-options) for usage.
 
 ## Runners
 
