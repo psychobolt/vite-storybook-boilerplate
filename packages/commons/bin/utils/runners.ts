@@ -57,9 +57,7 @@ export const stylelint: Runner<StyleLintResult['results']> = async (
 ) => {
   console.log('\nRunning Stylelint...');
 
-  const _stylelint = (
-    await import((await resolve('stylelint')).replace(/\.cjs$/, '.mjs'))
-  ).default;
+  const _stylelint = (await import(await resolve('stylelint'))).default;
   const { report, results }: StyleLintResult = await _stylelint.lint({
     files,
     ignorePath: path.join(

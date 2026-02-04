@@ -7,5 +7,10 @@ export default defineConfig({
 		modules: {
 			localsConvention: 'camelCase'
 		}
+	},
+	server: {
+		fs: {
+			allow: ['../../.yarn']
+		}
 	}
 });
