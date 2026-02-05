@@ -68,8 +68,7 @@ jobs:
           RENOVATE_POST_UPGRADE_WORKSPACES: ${{ steps.list_workspaces.outputs.nm-workspaces }}
           RENOVATE_BASE_DIR: ${{ env.DOCKER_USER_HOME }}
           RENOVATE_IGNORE_PR_AUTHOR: ${{ vars.RENOVATE_IGNORE_PR_AUTHOR }}
-          RRENOVATE_MINIMUM_RELEASE_AGE: ${{ vars.RENOVATE_MINIMUM_RELEASE_AGE }}
-          RENOVATE_MINIMUM_RELEASE_AGE_BEHAVIOUR: ${{ vars.RENOVATE_MINIMUM_RELEASE_AGE_BEHAVIOUR }}
+          RENOVATE_INTERNAL_CHECKS_FILTER: ${{ vars.RENOVATE_INTERNAL_CHECKS_FILTER }}
           LOG_LEVEL: debug
         with:
           configurationFile: renovate.config.cjs
