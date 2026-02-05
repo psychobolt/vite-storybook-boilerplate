@@ -33,6 +33,7 @@ const postPackageTasks = [
 /** @type {import('renovate/dist/config/types').AllConfig} */
 module.exports = {
   extends: ['config:best-practices'],
+  prCreation: 'immediate',
   automerge: true,
   nvm: {
     enabled: false
@@ -42,17 +43,17 @@ module.exports = {
     bootstrapRule,
     ...postPackageTasks,
     ...postPackageTasks.map(({ postUpgradeTasks, ...rule }) => {
-      if (postPackageTasks) {
+      if (postUpgradeTasks) {
         return {
           ...rule,
           postUpgradeTasks: {
             commands: [
               ...bootstrapRule.postUpgradeTasks.commands,
-              ...postPackageTasks.commands
+              ...postUpgradeTasks.commands
             ],
             fileFilters: [
               ...bootstrapRule.postUpgradeTasks.fileFilters,
-              ...postPackageTasks.fileFilters
+              ...postUpgradeTasks.fileFilters
             ]
           }
         };

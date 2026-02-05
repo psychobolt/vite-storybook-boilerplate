@@ -4,11 +4,13 @@ declare module 'commons/esm/.storybook/addons/addon-variants' {
 
   export * from 'commons/esm/.storybook/addons/addon-variants.d.ts';
 
-  export interface VariantsMeta<TArgs>
-    extends DefaultVariantsMeta<TArgs, WebComponentsRenderer> {}
+  export interface VariantsMeta<TArgs> extends DefaultVariantsMeta<
+    TArgs,
+    WebComponentsRenderer
+  > {}
 }
 
-declare module 'commons/esm/.storybook/utils/story-generators' {
+declare module 'commons/esm/.storybook/utils/story-generators.js' {
   import type { StoryPseudoStateProps as DefaultStoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators.d.ts';
 
   export * from 'commons/esm/.storybook/utils/story-generators.d.ts';

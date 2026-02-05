@@ -1,16 +1,9 @@
-import { defineConfig, coverageConfigDefaults } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     coverage: {
-      exclude: [
-        ...coverageConfigDefaults.exclude,
-        '**/.storybook/**',
-        '**/storybook-static/**',
-        '**/*.@(story|stories).@(js|jsx|ts|tsx)',
-        '**/*.mdx',
-        '*.config.?(c|m)[jt]s?(x)'
-      ]
+      exclude: ['**/*.@(story|stories).@(js|jsx|ts|tsx)']
     },
     reporters: ['default', ['junit', { outputFile: 'test-reports/junit.xml' }]]
   }

@@ -12,15 +12,11 @@
 6. Check notifications (bottom right of VSCode status bar) and install all recommended extensions
 7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
 8. Copy `.vscode/settings.default.json` to `.vscode/settings.json` and replace `${workspaceFolder}` with the absolute path of your current directory.
-9. Restart VSCode and reopen the project.
+9. Restart VSCode and reopen the project as in step 5.
 
 #### Troubleshooting
 
 Overriding Yarn's default global folder (e.g. `YARN_GLOBAL_FOLDER=${HOME}/.yarn/berry` or `YARN_GLOBAL_FOLDER=${LOCALAPPDATA}/Yarn/berry`) in your local `.env` file may help resolve issues during bootstrapping.
-
-### ESLint Setup
-
-In order to support lint highlighting in VSCode editor, your workspace config must be flattened as `[workspace]/eslint.config.ts`. If you've scaffolded your workspace project, please refer [example](eslint.config.ts) and [docs](https://eslint.org/docs/latest/use/configure/configuration-files-new) for migration references.
 
 ### Setup Remote Cache (Optional)
 
@@ -107,8 +103,8 @@ yarn [workspace workspace-name] add -[D]E library-or-workspace-name
 ### Using environment files
 
 ```sh
-yarn [workspace workspace-name] g:dotenv help                    # print usage
-yarn [workspace workspace-name] g:dotenv-get MY_VARIABLE         # Print a environment variable
+yarn [workspace workspace-name] g:dotenv help                    # Print usage
+yarn [workspace workspace-name] g:dotenv-get MY_VARIABLE         # Print a environment variable value
 yarn [workspace workspace-name] g:dotenv-run -- my-script-or-bin # Loads envronment variables with your script or bin
 ```
 

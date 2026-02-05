@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
-import { isAbsolute } from 'node:path';
 import type {
   ComponentAnnotations,
   StoryAnnotations,
@@ -13,8 +12,10 @@ import type { VariantStoryObj } from '../utils/story-generators.js';
 
 const require = createRequire(import.meta.url);
 
-export interface VariantsMeta<TArgs, TRenderer extends Renderer = Renderer>
-  extends ComponentAnnotations<TRenderer, TArgs> {
+export interface VariantsMeta<
+  TArgs,
+  TRenderer extends Renderer = Renderer
+> extends ComponentAnnotations<TRenderer, TArgs> {
   fileName: string;
   importName: string;
 }
@@ -71,18 +72,16 @@ function getSourceTemplate<TMeta>(framework: Framework) {
 
 let fileMatcher: RegExp = /\.variants?\.[jt]sx?$/;
 
-const getImportPath = (filePath: string) =>
-  `${isAbsolute(filePath) ? 'file://' : ''}${filePath}?${new Date().getTime()}`;
-
 export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
   fileMatcher = test;
   return {
     test,
     async createIndex(fileName) {
       try {
-        const { meta, stories }: VariantModule<TArgs> = await import(
-          getImportPath(fileName)
-        );
+        const moduleId = require.resolve(fileName);
+
+        delete require.cache[moduleId];
+        const { meta, stories }: VariantModule<TArgs> = require(moduleId);
         const { title, tags: metaTags = [] } = meta;
 
         return (_.isFunction(stories) ? stories() : stories).map(
@@ -118,11 +117,13 @@ export function vitePluginStorybookVariants<TArgs>(
         return;
       }
 
-      const { meta, stories }: VariantModule<TArgs> = await import(
-        getImportPath(id)
-      );
+      const moduleId = require.resolve(id);
+
+      delete require.cache[moduleId];
+      const { meta, stories }: VariantModule<TArgs> = require(moduleId);
+
       return `
-        ${readFileSync(require.resolve(id), 'utf-8')}
+        ${readFileSync(moduleId, 'utf-8')}
 
         ${template({
           ...meta,

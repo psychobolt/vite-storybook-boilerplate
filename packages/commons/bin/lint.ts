@@ -1,10 +1,8 @@
 import type { Spec, Result } from 'arg';
+import arg from 'arg';
 
-import { resolve } from './utils/functions.js';
 import { Bitbucket, ErrorReporter } from './utils/reporters.js';
 import { eslint, stylelint } from './utils/runners.js';
-
-const arg = (await import(await resolve('arg'))).default;
 
 const spec: Spec = {
   '--runner': [String],

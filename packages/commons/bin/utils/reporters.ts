@@ -1,7 +1,7 @@
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import util from 'node:util';
-import { execSync } from 'node:child_process';
 
 import { $, hash } from './functions.js';
 import type { Results } from './runners.js';
