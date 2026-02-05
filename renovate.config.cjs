@@ -33,6 +33,7 @@ const postPackageTasks = [
 /** @type {import('renovate/dist/config/types').AllConfig} */
 module.exports = {
   extends: ['config:best-practices'],
+  prCreation: 'immediate',
   automerge: true,
   nvm: {
     enabled: false
