@@ -71,7 +71,7 @@ jobs:
           RENOVATE_INTERNAL_CHECKS_FILTER: ${{ vars.RENOVATE_INTERNAL_CHECKS_FILTER }}
           LOG_LEVEL: debug
         with:
-          configurationFile: renovate.config.cjs
+          configurationFile: renovate.config.js
           token: ${{ steps.get_token.outputs.token }}
           docker-user: ${{ env.DOCKER_USER }}
           docker-volumes: |

@@ -1,4 +1,4 @@
-const { join } = require('node:path');
+import { join } from 'node:path';
 
 const workspaces = process.env.RENOVATE_POST_UPGRADE_WORKSPACES
   ? JSON.parse(process.env.RENOVATE_POST_UPGRADE_WORKSPACES)
@@ -31,7 +31,7 @@ const postPackageTasks = [
 ];
 
 /** @type {import('renovate/dist/config/types').AllConfig} */
-module.exports = {
+export default {
   extends: ['config:best-practices'],
   automerge: true,
   nvm: {
