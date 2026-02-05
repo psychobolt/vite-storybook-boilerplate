@@ -40,6 +40,10 @@ module.exports = {
   },
   allowedCommands: ['^.+$'],
   packageRules: [
+    {
+      matchPackageNames: ['renovate', 'renovatebot/github-action'],
+      groupName: 'Renovate'
+    },
     bootstrapRule,
     ...postPackageTasks,
     ...postPackageTasks.map(({ postUpgradeTasks, ...rule }) => {
