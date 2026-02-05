@@ -42,7 +42,8 @@ export default {
   packageRules: [
     {
       matchPackageNames: ['renovate', 'renovatebot/github-action'],
-      groupName: 'Renovate'
+      groupName: 'Renovate',
+      minimumGroupSize: 2
     },
     bootstrapRule,
     ...postPackageTasks,
