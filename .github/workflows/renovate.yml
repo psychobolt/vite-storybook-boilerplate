@@ -68,6 +68,7 @@ jobs:
           RENOVATE_POST_UPGRADE_WORKSPACES: ${{ steps.list_workspaces.outputs.nm-workspaces }}
           RENOVATE_BASE_DIR: ${{ env.DOCKER_USER_HOME }}
           RENOVATE_IGNORE_PR_AUTHOR: ${{ vars.RENOVATE_IGNORE_PR_AUTHOR }}
+          RENOVATE_MINIMUM_RELEASE_AGE: ${{ vars.RENOVATE_MINIMUM_RELEASE_AGE }}
           RENOVATE_INTERNAL_CHECKS_FILTER: ${{ vars.RENOVATE_INTERNAL_CHECKS_FILTER }}
           LOG_LEVEL: debug
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
