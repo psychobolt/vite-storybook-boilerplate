@@ -14,7 +14,7 @@ const bootstrapRule = {
     ...workspaces.map(({ location }) => join(location, 'package.json'))
   ],
   postUpgradeTasks: {
-    commands: ['YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap'],
+    commands: ['yarn bootstrap'],
     fileFilters: ['**/yarn.lock']
   }
 };
