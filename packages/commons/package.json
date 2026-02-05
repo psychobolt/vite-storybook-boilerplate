@@ -62,7 +62,7 @@
     "@types/react-syntax-highlighter": "15.5.13",
     "@typescript-eslint/utils": "8.54.0",
     "arg": "5.0.2",
-    "chromatic": "13.3.5",
+    "chromatic": "15.0.0",
     "eslint": "9.39.2",
     "jest-junit": "16.0.0",
     "playwright": "1.58.1",
