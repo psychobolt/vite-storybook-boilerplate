@@ -9761,12 +9761,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cronstrue@npm:3.9.0":
-  version: 3.9.0
-  resolution: "cronstrue@npm:3.9.0"
+"cronstrue@npm:3.11.0":
+  version: 3.11.0
+  resolution: "cronstrue@npm:3.11.0"
   bin:
     cronstrue: bin/cli.js
-  checksum: 10c0/391ae21c28846ed5c17562f0a8b3ff696f7f34cb6222601281e58dd27e468b5a54a07cfe4f3d89f5d07453015057e6e02db1cb802276754a6de43eb4ba45b128
+  checksum: 10c0/16ecc85750b55df41f16e0f2f10bef81f8954bbcdfc31912e66e2f46cdb0e33c059a7645e9d01080a3f0739d9d88a2a93cb86811597adc07b44255bc94bf118c
   languageName: node
   linkType: hard
 
@@ -11886,14 +11886,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-up@npm:7.0.0":
-  version: 7.0.0
-  resolution: "find-up@npm:7.0.0"
+"find-up@npm:8.0.0":
+  version: 8.0.0
+  resolution: "find-up@npm:8.0.0"
   dependencies:
-    locate-path: "npm:^7.2.0"
-    path-exists: "npm:^5.0.0"
-    unicorn-magic: "npm:^0.1.0"
-  checksum: 10c0/e6ee3e6154560bc0ab3bc3b7d1348b31513f9bdf49a5dd2e952495427d559fa48cdf33953e85a309a323898b43fa1bfbc8b80c880dfc16068384783034030008
+    locate-path: "npm:^8.0.0"
+    unicorn-magic: "npm:^0.3.0"
+  checksum: 10c0/4c6d2cb92f74bd42ec7344c881a46f6455010d3993f8f55b09bb64298c0a13e11e10200147624db8938590890a15ade69c40f0172698388d0999899f0f2a70a5
   languageName: node
   linkType: hard
 
@@ -14977,12 +14976,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"locate-path@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "locate-path@npm:7.2.0"
+"locate-path@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "locate-path@npm:8.0.0"
   dependencies:
     p-locate: "npm:^6.0.0"
-  checksum: 10c0/139e8a7fe11cfbd7f20db03923cacfa5db9e14fa14887ea121345597472b4a63c1a42a8a5187defeeff6acf98fd568da7382aa39682d38f0af27433953a97751
+  checksum: 10c0/4c837878b6d1b8557c5d1c624d11d6721d77f4627c14bd84182c85cbb9ec8fc01b5b5f089e21fab17b30fc5ecc14216a3d31f754dfcc5299f1fe9f4c83482fee
   languageName: node
   linkType: hard
 
@@ -17501,13 +17500,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-exists@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "path-exists@npm:5.0.0"
-  checksum: 10c0/b170f3060b31604cde93eefdb7392b89d832dfbc1bed717c9718cbe0f230c1669b7e75f87e19901da2250b84d092989a0f9e44d2ef41deb09aa3ad28e691a40a
-  languageName: node
-  linkType: hard
-
 "path-is-absolute@npm:^1.0.0":
   version: 1.0.1
   resolution: "path-is-absolute@npm:1.0.1"
@@ -18107,26 +18099,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:7.5.4":
-  version: 7.5.4
-  resolution: "protobufjs@npm:7.5.4"
-  dependencies:
-    "@protobufjs/aspromise": "npm:^1.1.2"
-    "@protobufjs/base64": "npm:^1.1.2"
-    "@protobufjs/codegen": "npm:^2.0.4"
-    "@protobufjs/eventemitter": "npm:^1.1.0"
-    "@protobufjs/fetch": "npm:^1.1.0"
-    "@protobufjs/float": "npm:^1.0.2"
-    "@protobufjs/inquire": "npm:^1.1.0"
-    "@protobufjs/path": "npm:^1.1.2"
-    "@protobufjs/pool": "npm:^1.1.0"
-    "@protobufjs/utf8": "npm:^1.1.0"
-    "@types/node": "npm:>=13.7.0"
-    long: "npm:^5.0.0"
-  checksum: 10c0/913b676109ffb3c05d3d31e03a684e569be91f3bba8613da4a683d69d9dba948daa2afd7d2e7944d1aa6c417890c35d9d9a8883c1160affafb0f9670d59ef722
-  languageName: node
-  linkType: hard
-
 "protobufjs@npm:8.0.0":
   version: 8.0.0
   resolution: "protobufjs@npm:8.0.0"
@@ -18285,14 +18257,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2@npm:1.23.1":
-  version: 1.23.1
-  resolution: "re2@npm:1.23.1"
+"re2@npm:1.23.2":
+  version: 1.23.2
+  resolution: "re2@npm:1.23.2"
   dependencies:
     install-artifact-from-github: "npm:^1.4.0"
     nan: "npm:^2.24.0"
     node-gyp: "npm:^12.1.0"
-  checksum: 10c0/3bd89af13b68e40b84a7e62dd18e160ded046f4b4ff8bde9aa83a226d1ec2c81b81e15463d37499d391140e2c1627929e1cb7e4aa2ecc7fd961d65c3eac7ddef
+  checksum: 10c0/93caa337b9447751515f91550cf770f2b13de687db626197b8849396272bda90d2e76d080314a33986c492004beea417bcea3ab442febdbd0a14aa9b4a936509
   languageName: node
   linkType: hard
 
@@ -18741,9 +18713,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.2.1":
-  version: 43.2.1
-  resolution: "renovate@npm:43.2.1"
+"renovate@npm:43.3.6":
+  version: 43.3.6
+  resolution: "renovate@npm:43.3.6"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.980.0"
     "@aws-sdk/client-ec2": "npm:3.980.0"
@@ -18795,7 +18767,7 @@ __metadata:
     commander: "npm:14.0.2"
     conventional-commits-detector: "npm:1.0.3"
     croner: "npm:9.1.0"
-    cronstrue: "npm:3.9.0"
+    cronstrue: "npm:3.11.0"
     deepmerge: "npm:4.3.1"
     dequal: "npm:2.0.3"
     detect-indent: "npm:7.0.2"
@@ -18808,7 +18780,7 @@ __metadata:
     execa: "npm:8.0.1"
     extract-zip: "npm:2.0.1"
     find-packages: "npm:10.0.4"
-    find-up: "npm:7.0.0"
+    find-up: "npm:8.0.0"
     fs-extra: "npm:11.3.3"
     git-url-parse: "npm:16.1.0"
     github-url-from-git: "npm:1.5.0"
@@ -18841,9 +18813,9 @@ __metadata:
     p-throttle: "npm:8.1.0"
     parse-link-header: "npm:2.0.0"
     prettier: "npm:3.6.2"
-    protobufjs: "npm:7.5.4"
+    protobufjs: "npm:8.0.0"
     punycode: "npm:2.3.1"
-    re2: "npm:1.23.1"
+    re2: "npm:1.23.2"
     redis: "npm:5.10.0"
     remark: "npm:15.0.1"
     remark-gfm: "npm:4.0.1"
@@ -18876,7 +18848,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/6ee4bfdc738ea4df4488b4b3f968e8e7843f4448c0d6330b8ca4344f7d4222c710f5733a8f167fa8ffa4172395e603fd154a1e2b2d5ba4142bb160b4fd7eae1b
+  checksum: 10c0/655b88d1ffefe7c48db7de26c9bb9801a243d7edf5abb31e71fc200390e66419b623a3c312309e59a966f2b6f41fae6559aacd6e4fa0951f2a0827f4ecf95173
   languageName: node
   linkType: hard
 
@@ -21850,10 +21822,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unicorn-magic@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "unicorn-magic@npm:0.1.0"
-  checksum: 10c0/e4ed0de05b0a05e735c7d8a2930881e5efcfc3ec897204d5d33e7e6247f4c31eac92e383a15d9a6bccb7319b4271ee4bea946e211bf14951fec6ff2cbbb66a92
+"unicorn-magic@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "unicorn-magic@npm:0.3.0"
+  checksum: 10c0/0a32a997d6c15f1c2a077a15b1c4ca6f268d574cf5b8975e778bb98e6f8db4ef4e86dfcae4e158cd4c7e38fb4dd383b93b13eefddc7f178dea13d3ac8a603271
   languageName: node
   linkType: hard
 
@@ -22433,7 +22405,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.1"
-    renovate: "npm:43.2.1"
+    renovate: "npm:43.3.6"
     semver: "npm:7.7.3"
     turbo: "npm:2.8.1"
     typescript: "npm:5.9.3"
