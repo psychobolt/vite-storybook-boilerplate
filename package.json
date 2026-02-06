@@ -47,7 +47,7 @@
     "playwright": "1.58.1",
     "renovate": "43.3.6",
     "semver": "7.7.3",
-    "turbo": "2.8.1",
+    "turbo": "2.8.2",
     "typescript": "5.9.3",
     "yaml": "2.8.2"
   },
