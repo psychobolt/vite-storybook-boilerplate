@@ -3308,7 +3308,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"next@npm:16.1.6":
+"next@npm:*, next@npm:16.1.6":
   version: 16.1.6
   resolution: "next@npm:16.1.6"
   dependencies:

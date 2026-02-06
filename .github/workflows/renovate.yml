@@ -73,7 +73,7 @@ jobs:
           LOG_LEVEL: debug
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
         with:
-          configurationFile: renovate.config.js
+          configurationFile: renovate.config.ts
           token: ${{ steps.get_token.outputs.token }}
           docker-user: ${{ env.DOCKER_USER }}
           docker-volumes: |

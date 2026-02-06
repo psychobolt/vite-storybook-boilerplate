@@ -34,7 +34,7 @@ import { ComponentB } from 'react-ui/ComponentB';
 export const Component = ({ label = 'Default Text' }) => (
   <ComponentA>
     <ComponentB>{label}</ComponentB>
-  </ComponentB>
+  </ComponentA>
 );
 ```
 
