@@ -16,8 +16,8 @@ See [source](vite.config.ts)
 
 /your/project/vite.config.ts
 
-```js
-import { defineConfig, mergeConfig } fromn "vite";
+```ts
+import { defineConfig, mergeConfig } from 'vite';
 import commonConfig from 'commons/esm/vite.config.js';
 
 export default mergeConfig(
@@ -189,9 +189,9 @@ export default defineConfig(storybookConfig, {
    import commonConfig from 'commons/esm/.storybook/vite-main.js';
 
    export default mergeConfig({
-     ...commonConfig,
+     ...commonConfig
      // your overrides
-   };
+   });
    ```
 
 2. Add scripts to /your/project/package.json
