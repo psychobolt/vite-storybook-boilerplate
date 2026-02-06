@@ -45,7 +45,7 @@
     "classnames": "2.5.1",
     "commons": "workspace:*",
     "eslint": "9.39.2",
-    "glob": "13.0.0",
+    "glob": "13.0.1",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
     "prop-types": "15.8.1",
