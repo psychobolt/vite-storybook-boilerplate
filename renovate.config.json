@@ -1,0 +1,43 @@
+{
+  "extends": ["config:best-practices"],
+  "automerge": true,
+  "allowedCommands": ["^.+$"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["renovate*"],
+      "matchBaseBranches": ["main"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "Renovate",
+      "minimumGroupSize": 2
+    },
+    {
+      "matchFileNames": [
+        "packages/commons/package.json",
+        "packages/stylelint-config/package.json",
+        "packages/unplugged/package.json",
+        "apps/next-app/package.json"
+      ],
+      "postUpgradeTasks": {
+        "commands": ["yarn bootstrap"],
+        "fileFilters": ["**/yarn.lock"],
+        "executionMode": "branch"
+      }
+    },
+    {
+      "matchPackageNames": ["prettier**"],
+      "postUpgradeTasks": {
+        "commands": ["yarn turbo run format"],
+        "fileFilters": ["**/*"],
+        "executionMode": "branch"
+      }
+    },
+    {
+      "matchPackageNames": ["prettier**"],
+      "postUpgradeTasks": {
+        "commands": ["yarn bootstrap", "yarn turbo run format"],
+        "fileFilters": ["**/yarn.lock", "**/*"],
+        "executionMode": "branch"
+      }
+    }
+  ]
+}
