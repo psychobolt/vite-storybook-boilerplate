@@ -1,13 +1,15 @@
-/// <reference path="./bin/index.d.ts" />
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type {
   AllConfig,
   RenovateConfig
 } from 'renovate/dist/config/types.d.ts';
 
-const workspaces: Workspace[] = process.env.RENOVATE_POST_UPGRADE_WORKSPACES
-  ? JSON.parse(process.env.RENOVATE_POST_UPGRADE_WORKSPACES)
-  : [];
+import getWorkspaces from './bin/ls-workspaces.ts';
+
+const workspaces: Workspace[] = await getWorkspaces({
+  nodeLinker: ['node-modules', 'pnpm']
+});
 
 type RequiredKeys<T, K extends keyof T> = Required<Pick<T, K>> & Omit<T, K>;
 
@@ -85,5 +87,9 @@ const config: Omit<AllConfig, 'packageRules'> & {
     }))
   ]
 };
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  console.log(JSON.stringify(config));
+}
 
 export default config;
