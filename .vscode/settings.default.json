@@ -10,11 +10,9 @@
   "eslint.nodePath": ".yarn/sdks",
   "eslint.runtime": "node",
   "eslint.execArgv": ["${workspaceFolder}/bin/swc-node.js"],
-  "eslint.useFlatConfig": true,
   "eslint.options": {
-    "flags": ["v10_config_lookup_from_file", "unstable_native_nodejs_ts_config"]
+    "flags": ["unstable_native_nodejs_ts_config"]
   },
-  "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.validate": [
     "markdown",
     "mdx",
@@ -24,6 +22,5 @@
     "typescriptreact",
     "svelte"
   ],
-  "stylelint.stylelintPath": "packages/unplugged/node_modules/stylelint",
   "stylelint.validate": ["css", "scss"]
 }
