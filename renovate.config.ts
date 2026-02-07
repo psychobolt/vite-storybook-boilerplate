@@ -57,8 +57,12 @@ const postPackageTasks: PostPackageTasks = [
 
 const config: Omit<AllConfig, 'packageRules'> & {
   packageRules: PackageRule[];
+  nvm: {};
 } = {
   extends: ['config:best-practices'],
+  nvm: {
+    enabled: false
+  },
   automerge: true,
   allowedCommands: ['^.+$'],
   packageRules: [
