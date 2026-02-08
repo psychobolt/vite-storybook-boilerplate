@@ -164,13 +164,13 @@ See [source](tsconfig.js)
 
 1. Create your own config:
 
-See [source](.storybook/eslint.config.ts)
+See [source](.storybook/eslint-config.ts)
 
 /your/project/eslint.config.ts
 
 ```ts
 import { defineConfig } from 'eslint/config';
-import storybookConfig from 'commons/esm/.storybook/eslint.config.js';
+import storybookConfig from 'commons/esm/.storybook/eslint-config.js';
 
 export default defineConfig(storybookConfig, {
   /* ... */

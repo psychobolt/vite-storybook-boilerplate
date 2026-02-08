@@ -80,45 +80,49 @@ export default defineConfig(
 
 ```ts
 // MyComponent.variants.ts
-import type { StoryObj } from "@storybook/web-components";
-import type { VariantsMeta } from "commons/esm/.storybook/addons/vite-plugin-storybook-variants.js";
-import { type VariantStoryObj, generateStories } from "commons/esm/.storybook/utils/story-generators.js";
+import type { StoryObj } from '@storybook/web-components';
+import type { VariantsMeta } from 'commons/esm/.storybook/addons/vite-plugin-storybook-variants.js';
+import {
+  type VariantStoryObj,
+  generateStories
+} from 'commons/esm/.storybook/utils/story-generators.js';
 
-import type { Props } from "./MyComponent.ts";
+import type { Props } from './MyComponent.ts';
 
 export const meta = {
-  title: "Components/MyComponent", // required
-  fileName: "./MyComponent.ts", // required
-  importName: "MyComponent", // required
+  title: 'Components/MyComponent', // required
+  fileName: './MyComponent.ts', // required
+  importName: 'MyComponent' // required
   // ...
 } satisfies VariantMeta<Props>;
 
 type Story = StoryObj<typeof Props> & VariantStoryObj<Props>;
 
 export const MyComponent: Story = {
-  name: "My Component (Default)",
+  name: 'My Component (Default)'
   // ...
-}
+};
 
-export const MyComponentDisabled: Story {
-  name: "My Component (Disabled)"
+export const MyComponentDisabled: Story = {
+  name: 'My Component (Disabled)',
   args: {
     disabled: true
   }
-}
+};
 
-export const SizeEnum {
+export enum SizeEnum {
   small,
   medium,
   large
 }
 
 // required
-export const stories = () => generateStoriesByEnum<Props, typeof SizeEnum>(
-  [MyComponent, MyComponentDisabled],
-  "size", // prop name
-  SizeEnum
-);
+export const stories = () =>
+  generateStoriesByEnum<Props, typeof SizeEnum>(
+    [MyComponent, MyComponentDisabled],
+    'size', // prop name
+    SizeEnum
+  );
 
 /**
  * vite plugin will generate Component Story Format e.g.
@@ -135,7 +139,7 @@ export const stories = () => generateStoriesByEnum<Props, typeof SizeEnum>(
  *     size: "small"
  *   }
  * };
-**/
+ **/
 ```
 
 ### Motivation
@@ -167,7 +171,7 @@ type Story = StoryObj<Props>;
 
 const Active: Story = {
   args: {
-    state: 'active',
+    state: 'active'
   }
 };
 
@@ -179,13 +183,13 @@ const Disabled: Story = {
 
 const Open: Story = {
   args: {
-    open: true,
+    open: true
   }
 };
 
 const Closed: Story = {
   args: {
-    open: false,
+    open: false
   }
 };
 
@@ -193,8 +197,8 @@ const Closed: Story = {
 export const T1: Story = {
   name: 'Open (Active)',
   args: {
-    ...Open.args
-    ...Active.args,
+    ...Open.args,
+    ...Active.args
   }
 };
 
@@ -230,24 +234,25 @@ By using the addon and [generateStoriesByEnum](../utils/README.md#stories-by-enu
 ```ts
 // continued...
 
-enum States = {
+enum States {
   Active,
   Disabled,
   Visited,
   ReadOnly
-};
+}
 
 const OpenedTemplate: Story = {
   ...Open,
-  name: 'Open',
+  name: 'Open'
 };
 
 const ClosedTemplate: Story = {
   ...Closed,
-  name: 'Closed',
+  name: 'Closed'
 };
 
-export const stories = () => generateStoriesByEnum([OpenedTemplate, ClosedTemplate], 'state', States);
+export const stories = () =>
+  generateStoriesByEnum([OpenedTemplate, ClosedTemplate], 'state', States);
 ```
 
 As you can see, we only need to manage one export (`stories`) and the utility will generate a flat list of matrix stories for the Storybook addon renderer. This removes complexity in structuring Story using the default [Component Story Format](https://github.com/ComponentDriven/csf).

@@ -92,7 +92,7 @@ const meta = {
   /* ... */
   argTypes: {
     /* ... */
-    ...getPseudoStateArgTypes(/* options */);
+    ...getPseudoStateArgTypes(/* options */)
   }
 } satisfies Story<Props>;
 
