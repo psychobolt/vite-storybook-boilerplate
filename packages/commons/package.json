@@ -51,7 +51,7 @@
     "sharp": "0.34.5",
     "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
-    "vite-tsconfig-paths": "6.0.5"
+    "vite-tsconfig-paths": "6.1.0"
   },
   "devDependencies": {
     "@storybook/addon-docs": "10.2.6",

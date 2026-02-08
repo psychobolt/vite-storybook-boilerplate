@@ -9665,7 +9665,7 @@ __metadata:
     turbo: "npm:2.8.3"
     typescript: "npm:5.9.3"
     vite: "npm:7.3.1"
-    vite-tsconfig-paths: "npm:6.0.5"
+    vite-tsconfig-paths: "npm:6.1.0"
     vitest: "npm:4.0.18"
   bin:
     highlight: esm/bin/highlight.js
@@ -20897,7 +20897,7 @@ __metadata:
     stylelint: "npm:17.1.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
-    svelte: "npm:5.49.2"
+    svelte: "npm:5.50.0"
     svelte-check: "npm:4.3.6"
     svelte-eslint-parser: "npm:1.4.1"
     svelte-language-server: "npm:0.17.25"
@@ -21006,9 +21006,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.49.2":
-  version: 5.49.2
-  resolution: "svelte@npm:5.49.2"
+"svelte@npm:5.50.0":
+  version: 5.50.0
+  resolution: "svelte@npm:5.50.0"
   dependencies:
     "@jridgewell/remapping": "npm:^2.3.4"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -21025,7 +21025,7 @@ __metadata:
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/f0698452adca08809597cbefc42c5073933c210b3d77fb485de61401068d34da8fd9e20d754925e90b216336cb004510fc1ef132a537ff8f318975fe16060e9f
+  checksum: 10c0/58acd1e42da5065228d2c673aee56a4eaf655272a82541ba8fc97050a7ab3bd54dd66a40bc46aff8fdc65b66ce9c8b613a7f316d1d1e31b0b93e7eac6b8ae4c8
   languageName: node
   linkType: hard
 
@@ -22477,16 +22477,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"vite-tsconfig-paths@npm:6.0.5":
-  version: 6.0.5
-  resolution: "vite-tsconfig-paths@npm:6.0.5"
+"vite-tsconfig-paths@npm:6.1.0":
+  version: 6.1.0
+  resolution: "vite-tsconfig-paths@npm:6.1.0"
   dependencies:
     debug: "npm:^4.1.1"
     globrex: "npm:^0.1.2"
     tsconfck: "npm:^3.0.3"
   peerDependencies:
     vite: "*"
-  checksum: 10c0/c62dd84804b9d2d35460146bda0bb752d270043d805df0e806ade6a9bbf37c5ad5da8a29d822b89931821545c201bc7ca07c594f245aebabe92d51d0cd1b63df
+  checksum: 10c0/b2c9edb43592f4c4e4c4b9f1a613a196e78b727a8ffdd77a4bad1833dcf903fb9a8b23eabf5113f800585f87c2e8e9f93cba9a0e21cfe9a7e58edc7e9edcb3f5
   languageName: node
   linkType: hard
 
