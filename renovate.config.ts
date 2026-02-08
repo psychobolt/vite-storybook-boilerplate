@@ -59,13 +59,14 @@ const config: Omit<AllConfig, 'packageRules'> & {
   packageRules: PackageRule[];
   nvm: {};
 } = {
-  extends: ['config:best-practices'],
+  extends: ['config:best-practices', ':prHourlyLimitNone'],
   ignorePresets: ['security:minimumReleaseAgeNpm'],
   nvm: {
     enabled: false
   },
   automerge: true,
   allowedCommands: ['^.+$'],
+  baseBranchPatterns: ['main'],
   packageRules: [
     {
       matchPackageNames: ['renovate*'],
