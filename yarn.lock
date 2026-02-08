@@ -9554,10 +9554,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:14.0.2":
-  version: 14.0.2
-  resolution: "commander@npm:14.0.2"
-  checksum: 10c0/245abd1349dbad5414cb6517b7b5c584895c02c4f7836ff5395f301192b8566f9796c82d7bd6c92d07eba8775fe4df86602fca5d86d8d10bcc2aded1e21c2aeb
+"commander@npm:14.0.3, commander@npm:^14.0.0, commander@npm:^14.0.2":
+  version: 14.0.3
+  resolution: "commander@npm:14.0.3"
+  checksum: 10c0/755652564bbf56ff2ff083313912b326450d3f8d8c85f4b71416539c9a05c3c67dbd206821ca72635bf6b160e2afdefcb458e86b317827d5cb333b69ce7f1a24
   languageName: node
   linkType: hard
 
@@ -9572,13 +9572,6 @@ __metadata:
   version: 12.1.0
   resolution: "commander@npm:12.1.0"
   checksum: 10c0/6e1996680c083b3b897bfc1cfe1c58dfbcd9842fd43e1aaf8a795fbc237f65efcc860a3ef457b318e73f29a4f4a28f6403c3d653d021d960e4632dd45bde54a9
-  languageName: node
-  linkType: hard
-
-"commander@npm:^14.0.0, commander@npm:^14.0.2":
-  version: 14.0.3
-  resolution: "commander@npm:14.0.3"
-  checksum: 10c0/755652564bbf56ff2ff083313912b326450d3f8d8c85f4b71416539c9a05c3c67dbd206821ca72635bf6b160e2afdefcb458e86b317827d5cb333b69ce7f1a24
   languageName: node
   linkType: hard
 
@@ -18772,9 +18765,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.3.6":
-  version: 43.3.6
-  resolution: "renovate@npm:43.3.6"
+"renovate@npm:43.4.2":
+  version: 43.4.2
+  resolution: "renovate@npm:43.4.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.980.0"
     "@aws-sdk/client-ec2": "npm:3.980.0"
@@ -18823,7 +18816,7 @@ __metadata:
     cacache: "npm:20.0.3"
     changelog-filename-regex: "npm:2.0.1"
     clean-git-ref: "npm:2.0.1"
-    commander: "npm:14.0.2"
+    commander: "npm:14.0.3"
     conventional-commits-detector: "npm:1.0.3"
     croner: "npm:9.1.0"
     cronstrue: "npm:3.11.0"
@@ -18907,7 +18900,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/655b88d1ffefe7c48db7de26c9bb9801a243d7edf5abb31e71fc200390e66419b623a3c312309e59a966f2b6f41fae6559aacd6e4fa0951f2a0827f4ecf95173
+  checksum: 10c0/8e665f2e05a52b327a6c0d4e058e914897f114b7217053297f0edb0f8f33c9d44a29d743533f92045d7c40df81f24b001896e23c271b6c84c59e1e85097241fe
   languageName: node
   linkType: hard
 
@@ -22502,7 +22495,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.3.6"
+    renovate: "npm:43.4.2"
     semver: "npm:7.7.4"
     turbo: "npm:2.8.3"
     typescript: "npm:5.9.3"
