@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "1.52.0",
-    "@playwright/mcp": "0.0.63",
+    "@playwright/mcp": "0.0.64",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.11",
     "@types/bunyan": "1.8.11",
