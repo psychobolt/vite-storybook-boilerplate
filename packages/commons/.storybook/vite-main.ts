@@ -3,7 +3,7 @@ import { createRequire } from 'node:module';
 import { join, dirname } from 'node:path';
 import type {
   StorybookConfig,
-  CoreCommon_ResolvedAddonVirtual
+  CoreCommon_ResolvedAddonVirtual as StorybookAddonConfig
 } from 'storybook/internal/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
 import {
@@ -63,7 +63,7 @@ const addonDocs = getAbsolutePath('@storybook/addon-docs');
 
 export type StorybookViteCommonConfig = StorybookConfig &
   Required<Pick<StorybookConfig, 'addons'>> &
-  Required<Pick<CoreCommon_ResolvedAddonVirtual, 'managerEntries'>> &
+  Required<Pick<StorybookAddonConfig, 'managerEntries'>> &
   Required<StorybookConfigVite>;
 
 export const config: StorybookViteCommonConfig = {

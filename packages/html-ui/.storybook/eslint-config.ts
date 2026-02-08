@@ -1,6 +1,6 @@
 import { defineConfig } from 'eslint/config';
 import { mainDir } from 'commons/esm/.storybook/vite-main.js';
-import storybookConfig from 'commons/esm/.storybook/eslint.config.js';
+import storybookConfig from 'commons/esm/.storybook/eslint-config.js';
 
 const variantFiles = `${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`;
 
