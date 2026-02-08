@@ -60,6 +60,7 @@ const config: Omit<AllConfig, 'packageRules'> & {
   nvm: {};
 } = {
   extends: ['config:best-practices'],
+  ignorePresets: ['security:minimumReleaseAgeNpm'],
   nvm: {
     enabled: false
   },
