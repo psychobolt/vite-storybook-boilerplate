@@ -46,7 +46,7 @@
     "eslint": "9.39.2",
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
-    "playwright": "1.58.1",
+    "playwright": "1.58.2",
     "renovate": "43.3.6",
     "semver": "7.7.3",
     "turbo": "2.8.3",
