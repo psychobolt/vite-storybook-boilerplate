@@ -16,6 +16,7 @@ vite.config.*.timestamp-*
 telemetry.json
 bitbucket-report.json
 bitbucket-annotations.json
+inventory.json
 
 # environment
 .env*
