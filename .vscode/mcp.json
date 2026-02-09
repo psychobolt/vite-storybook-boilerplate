@@ -1,8 +1,0 @@
-{
-  "servers": {
-    "playwright": {
-      "command": "yarn",
-      "args": ["mcp:playwright"]
-    }
-  }
-}
