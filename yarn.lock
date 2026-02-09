@@ -6039,13 +6039,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:3.7.1":
-  version: 3.7.1
-  resolution: "@types/luxon@npm:3.7.1"
-  checksum: 10c0/2db30c13b58adcd86daa447faa3ba59515fe907ead8ee3e6bb716d662812af0619d712f6c1eb190cdd7f9d2c00444c3ecd80af0f36e8143eb0c5e7339d6b2aca
-  languageName: node
-  linkType: hard
-
 "@types/mdast@npm:^4.0.0":
   version: 4.0.4
   resolution: "@types/mdast@npm:4.0.4"
@@ -20697,9 +20690,7 @@ __metadata:
     "@playwright/mcp": "npm:0.0.64"
     "@swc-node/register": "npm:1.11.1"
     "@swc/core": "npm:1.15.11"
-    "@types/bunyan": "npm:1.8.11"
     "@types/glob-to-regexp": "npm:0.4.4"
-    "@types/luxon": "npm:3.7.1"
     "@types/node": "npm:24.10.12"
     "@types/semver": "npm:7.7.1"
     "@typescript-eslint/utils": "npm:8.54.0"
