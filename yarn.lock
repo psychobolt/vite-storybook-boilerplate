@@ -4191,10 +4191,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/pgp@npm:1.2.3":
-  version: 1.2.3
-  resolution: "@renovatebot/pgp@npm:1.2.3"
-  checksum: 10c0/e08e3b507b26bec1e2742c403a494441bbf99b094be7d9db5b28a39fcc493017a1962706cc8087ccb2d451ff3d6b53335e28c9d1fd4af4a6b0443ac82828e29d
+"@renovatebot/pgp@npm:1.2.4":
+  version: 1.2.4
+  resolution: "@renovatebot/pgp@npm:1.2.4"
+  checksum: 10c0/3cbf07b9e73d66a0fb49b4dbecad97db845090b0f22049898b691a765246e72a714c99eba33c37621f7ae9f1b2a296a1d926001e8d284b031f7d5e9d5323d9b5
   languageName: node
   linkType: hard
 
@@ -17289,9 +17289,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.4.4":
-  version: 43.4.4
-  resolution: "renovate@npm:43.4.4"
+"renovate@npm:43.4.5":
+  version: 43.4.5
+  resolution: "renovate@npm:43.4.5"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.980.0"
     "@aws-sdk/client-ec2": "npm:3.980.0"
@@ -17324,7 +17324,7 @@ __metadata:
     "@renovatebot/good-enough-parser": "npm:1.2.0"
     "@renovatebot/osv-offline": "npm:2.0.1"
     "@renovatebot/pep440": "npm:4.2.1"
-    "@renovatebot/pgp": "npm:1.2.3"
+    "@renovatebot/pgp": "npm:1.2.4"
     "@renovatebot/ruby-semver": "npm:4.1.2"
     "@sindresorhus/is": "npm:7.2.0"
     "@yarnpkg/core": "npm:4.5.0"
@@ -17424,7 +17424,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/38dec053391b3840bf9bac25c587625aa8caed860287290b69850f179bb8bf366e3800f5a82c10460136a2bdf2b910dc385ec28af849b433f8d7ccf4cca799be
+  checksum: 10c0/f94a465adde6c6a805894a32b847fdc0a186731c6ba09b03bc856d35bf4210d52f397fa08ff5f3a2866110ad56f3bcb922057eba31f3c9933c571d12a6bf7004
   languageName: node
   linkType: hard
 
@@ -20669,7 +20669,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.4.4"
+    renovate: "npm:43.4.5"
     semver: "npm:7.7.4"
     turbo: "npm:2.8.3"
     typescript: "npm:5.9.3"
