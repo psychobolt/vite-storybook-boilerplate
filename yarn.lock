@@ -6039,13 +6039,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:3.7.1":
-  version: 3.7.1
-  resolution: "@types/luxon@npm:3.7.1"
-  checksum: 10c0/2db30c13b58adcd86daa447faa3ba59515fe907ead8ee3e6bb716d662812af0619d712f6c1eb190cdd7f9d2c00444c3ecd80af0f36e8143eb0c5e7339d6b2aca
-  languageName: node
-  linkType: hard
-
 "@types/mdast@npm:^4.0.0":
   version: 4.0.4
   resolution: "@types/mdast@npm:4.0.4"
@@ -17385,9 +17378,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.5.0":
-  version: 43.5.0
-  resolution: "renovate@npm:43.5.0"
+"renovate@npm:43.5.1":
+  version: 43.5.1
+  resolution: "renovate@npm:43.5.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.980.0"
     "@aws-sdk/client-ec2": "npm:3.980.0"
@@ -17520,7 +17513,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/5b1d449337a7990e796e15da5d02f46d84d52a3bbf43bc4b2dc88023e577f2fedc9db0d9b72ce69664dbf0c7838d6c49d9f8d40a7bd71e89386e8afc32652500
+  checksum: 10c0/5bd07b06b2926533004e7f743f8bd0897d13addbba5b117914eb98b773b748f75ada4d80d8cef79bfc94a955a2f4ad8b12f8a7b1eeb5374ea4b84668aaeadfc7
   languageName: node
   linkType: hard
 
@@ -19567,6 +19560,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tagged-tag@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "tagged-tag@npm:1.0.0"
+  checksum: 10c0/91d25c9ffb86a91f20522cefb2cbec9b64caa1febe27ad0df52f08993ff60888022d771e868e6416cf2e72dab68449d2139e8709ba009b74c6c7ecd4000048d1
+  languageName: node
+  linkType: hard
+
 "tapable@npm:^2.3.0":
   version: 2.3.0
   resolution: "tapable@npm:2.3.0"
@@ -20029,6 +20029,15 @@ __metadata:
   version: 4.0.8
   resolution: "type-detect@npm:4.0.8"
   checksum: 10c0/8fb9a51d3f365a7de84ab7f73b653534b61b622aa6800aecdb0f1095a4a646d3f5eb295322127b6573db7982afcd40ab492d038cf825a42093a58b1e1353e0bd
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:5.4.4":
+  version: 5.4.4
+  resolution: "type-fest@npm:5.4.4"
+  dependencies:
+    tagged-tag: "npm:^1.0.0"
+  checksum: 10c0/bf9c6d7df5383fd720aac71da8ce8690ff1c554459d19cf3c72d61eac98255dba57abe20c628f91f4116f66211791462fdafa90b2be2d7405a5a4c295e4d849d
   languageName: node
   linkType: hard
 
@@ -20792,9 +20801,7 @@ __metadata:
     "@playwright/mcp": "npm:0.0.64"
     "@swc-node/register": "npm:1.11.1"
     "@swc/core": "npm:1.15.11"
-    "@types/bunyan": "npm:1.8.11"
     "@types/glob-to-regexp": "npm:0.4.4"
-    "@types/luxon": "npm:3.7.1"
     "@types/node": "npm:24.10.12"
     "@types/semver": "npm:7.7.1"
     "@typescript-eslint/utils": "npm:8.55.0"
@@ -20807,9 +20814,10 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.5.0"
+    renovate: "npm:43.5.1"
     semver: "npm:7.7.4"
     turbo: "npm:2.8.3"
+    type-fest: "npm:5.4.4"
     typescript: "npm:5.9.3"
     yaml: "npm:2.8.2"
   languageName: unknown
