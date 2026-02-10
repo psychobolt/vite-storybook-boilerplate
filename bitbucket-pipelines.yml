@@ -10,12 +10,12 @@ definitions:
         files:
           - yarn.lock
       path: .temp/.yarn/berry/cache
-    pnpm:
+    node-modules:
       key:
         files:
-          - apps/svelte-app/yarn.lock
+          - apps/next-app/yarn.lock
           - yarnrc.yml
-      path: .temp/.yarn/berry/cache
+      path: apps/next-app/node_modules
     unplugged:
       key:
         files:
@@ -40,8 +40,13 @@ definitions:
     - condition
   scripts:
     - script: &git-auth |
-        git remote set-url origin https://x-token-auth:${CI_BOT_USER_TOKEN}@bitbucket.org/${BITBUCKET_REPO_FULL_NAME}.git
-        git config user.email "${CI_BOT_USER_ID}@bots.bitbucket.org"
+        if [[ "$CI_BOT_USER_EMAIL" ]]; then
+          git remote set-url origin https://${CI_BOT_USER_ID}:${CI_BOT_USER_TOKEN}@bitbucket.org/${BITBUCKET_REPO_FULL_NAME}.git
+          git config user.email $CI_BOT_USER_EMAIL
+        else
+          git remote set-url origin https://x-token-auth:${CI_BOT_USER_TOKEN}@bitbucket.org/${BITBUCKET_REPO_FULL_NAME}.git
+          git config user.email ${CI_BOT_USER_ID}@bots.bitbucket.org
+        fi
     - script: &env |
         export YARN_GLOBAL_FOLDER=.temp/.yarn/berry
         echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
@@ -73,7 +78,7 @@ definitions:
         fi
     - script: &report |
         curl --request PUT "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/commit/${BITBUCKET_COMMIT}/reports/${PACKAGE_NAME}/" \
-          --header "Authorization: Bearer $CI_BOT_USER_TOKEN" \
+          --header "Authorization: Bearer $CI_REPO_TOKEN" \
           --header 'Accept: application/json' \
           --header 'Content-Type: application/json' \
           --data @${WORKSPACE:-.}/bitbucket-report.json \
@@ -82,7 +87,7 @@ definitions:
         if [[ $(cat ${ANNOTATIONS_FILE} | jq 'length') > 0 ]]; then
           curl --request POST \
             --url "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/commit/${BITBUCKET_COMMIT}/reports/${PACKAGE_NAME}/annotations/" \
-            --header "Authorization: Bearer $CI_BOT_USER_TOKEN" \
+            --header "Authorization: Bearer $CI_REPO_TOKEN" \
             --header 'Accept: application/json' \
             --header 'Content-Type: application/json' \
             --data @${ANNOTATIONS_FILE} \
@@ -103,7 +108,7 @@ definitions:
         BASE_REF="HEAD"
         if [[ "$STABLE" = true && "$BASE_REF_NAME" ]]; then
           BASE_REF="$BASE_REF_NAME"
-        elif [[ "$BITBUCKET_BRANCH" == cherry-pick-* ]]; then
+        elif [[ "$BITBUCKET_BRANCH" == issue/cherry-pick-* || "$BITBUCKET_BRANCH" == patch/cherry-pick-* || "$BITBUCKET_BRANCH" == feature/cherry-pick-* || "$BITBUCKET_BRANCH" == minor/cherry-pick-* || "$BITBUCKET_BRANCH" == prepare/cherry-pick-* ]]; then
           PARTS=(${BITBUCKET_BRANCH//-/ })
           COUNT=${#PARTS[@]}
           COUNT=$((COUNT - 2))
@@ -183,27 +188,30 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - pnpm
+            - yarn
+            - node-modules
             - unplugged
           clone:
             enabled: true
             depth: 75
           script:
+            - '[[ "$BITBUCKET_PR_DESTINATION_BRANCH" != release/* ]] && exit 0 || true'
             - *env
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
             - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
-            - nvm install
+            - nvm install 18
             - corepack enable
-            - set +e
-            - yarn version check
-            - export REPORT_STATUS=$?
-            - set -e
+            - |
+              set +e
+              yarn version check
+              export REPORT_STATUS=$?
+              set -e
             - '[ $REPORT_STATUS = 0 ] && exit 0 || true'
             - >-
-              [[ "$BITBUCKET_BRANCH" != issue/* && "$BITBUCKET_BRANCH" !=
-              feature/* ]] && exit 1 || true
+              [[ "$BITBUCKET_BRANCH" != issue/* && "$BITBUCKET_BRANCH" != patch/* && "$BITBUCKET_BRANCH" !=
+              feature/* && "$BITBUCKET_BRANCH" != minor/* ]] && exit 1 || true
             - >-
-              export APPLY_STRATEGY=$( [[ "$BITBUCKET_BRANCH" == issue/* ]] &&
+              export APPLY_STRATEGY=$( [[ "$BITBUCKET_BRANCH" == issue/* || "$BITBUCKET_BRANCH" == patch/* ]] &&
               echo "patch" || echo "minor" )
             - *git-auth
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
@@ -217,7 +225,7 @@ pipelines:
               if [[ "$SEMVER" && "$SEMVER" != "{}" ]]; then
                 yarn workspaces foreach -A --no-private exec 'test $(echo $SEMVER | jq .\"$npm_package_name\") = null || yarn version $APPLY_STRATEGY --deferred'
                 git add .
-                git commit -m "[skip ci] [DEV] Add Version Strategy"
+                git commit -m "[DEV] Add Version Strategy"
                 git push
               fi
       - parallel:
@@ -234,7 +242,7 @@ pipelines:
             - yarn
           script:
             - *env
-            - export PACKAGE_NAME=ui-kitchen-sink
+            - export PACKAGE_NAME=vite-storybook-boilerplate
             - *setup
             - *lint
             - *report
@@ -327,6 +335,7 @@ pipelines:
               size: 2x
               caches:
                 - yarn
+                - node-modules
               condition:
                 changesets:
                   includePaths:
@@ -340,15 +349,15 @@ pipelines:
                 - export WORKSPACE=apps/next-app
                 - export PACKAGE_NAME=next-app
                 - yarn install
+                - yarn bootstrap
                 - yarn $WORKSPACE turbo run lint
-                - *test
           - step:
               name: Lint and Test Svelte App
               image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
               max-time: 15
               size: 2x
               caches:
-                - pnpm
+                - yarn
                 - unplugged
               condition:
                 changesets:
@@ -363,7 +372,6 @@ pipelines:
                 - export WORKSPACE=apps/svelte-app
                 - export PACKAGE_NAME=svelte-app
                 - *setup
-                - yarn bootstrap
                 - *lint
                 - *test
                 - *report
@@ -403,7 +411,8 @@ pipelines:
           max-time: 25
           size: 2x
           caches:
-            - pnpm
+            - yarn
+            - node-modules
             - unplugged
           clone:
             enabled: true
@@ -442,7 +451,8 @@ pipelines:
           max-time: 15
           size: 2x
           caches:
-            - pnpm
+            - yarn
+            - node-modules
             - unplugged
           clone:
             enabled: true
@@ -465,6 +475,15 @@ pipelines:
             description:
               One or more commits that you wish to cherry-pick into the target
               branch
+          - name: REF_NAME
+            description: The branch name prefix you wish to create for the cherry-pick
+            default: prepare/
+            allowed-values:
+              - issue/
+              - patch/
+              - feature/
+              - minor/
+              - prepare/
       - step:
           name: Create a PR with cherry-picked commits
           image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
@@ -479,7 +498,7 @@ pipelines:
             - |
               source ./bin/git-ls-unmerged.sh
               export SHORT=$OUTPUT
-            - export BASE_REF=cherry-pick-$SHORT
+            - export BASE_REF=${REF_NAME}cherry-pick-${SHORT}
             - '[ ! $REF ] && exit 1 || true'
             - git fetch --depth=2 origin $REF
             - git cherry-pick -x $REF || true
@@ -488,9 +507,9 @@ pipelines:
             - git checkout -b $BASE_REF
             - git push -u origin $BASE_REF
             - >-
-              curl
-              https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/pullrequests
-                --header 'Authorization: Bearer $CI_BOT_USER_TOKEN' \
+              curl 
+              https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/pullrequests \
+                --header "Authorization: Bearer $CI_REPO_TOKEN" \
                 --request POST \
                 --header \
                   "Content-Type: application/json" --data "{
@@ -529,8 +548,10 @@ pipelines:
             - set -e
             - '[ $REPORT_STATUS != 0 ] && exit $REPORT_STATUS || true'
             - *setup
+            - yarn run-script renovate.config.ts > renovate.config.json
             - export LOG_LEVEL=debug
-            - export RENOVATE_CONFIG_FILE=renovate.config.cjs
-            - export RENOVATE_POST_UPGRADE_WORKSPACES=$(yarn ls-workspaces --node-linker=pnpm --node-linker=node-modules)
+            - export RENOVATE_PLATFORM=bitbucket
+            - export RENOVATE_CONFIG_FILE=renovate.config.json
             - export RENOVATE_REPOSITORIES=${BITBUCKET_REPO_FULL_NAME}
+            - export YARN_ENABLE_IMMUTABLE_INSTALLS=false
             - renovate
