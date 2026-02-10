@@ -11322,14 +11322,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:13.0.1, glob@npm:^13.0.0":
-  version: 13.0.1
-  resolution: "glob@npm:13.0.1"
+"glob@npm:13.0.2":
+  version: 13.0.2
+  resolution: "glob@npm:13.0.2"
   dependencies:
     minimatch: "npm:^10.1.2"
     minipass: "npm:^7.1.2"
     path-scurry: "npm:^2.0.0"
-  checksum: 10c0/af7b863dec8dff74f61d7d6e53104e1f6bbdd482157a196cade8ed857481e876ec35181b38a059b2a7b93ea3b08248f4ff0792fef6dc91814fd5097a716f48e4
+  checksum: 10c0/3d4b09efa922c4cba9be6d5b9efae14384e7422aeb886eb35fba8a94820b8281474b8d3f16927127fb1a0c8580e18fc00e3fda03c8dc31fa0af3ba918edeeb04
   languageName: node
   linkType: hard
 
@@ -11346,6 +11346,17 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10c0/100705eddbde6323e7b35e1d1ac28bcb58322095bd8e63a7d0bef1a2cdafe0d0f7922a981b2b48369a4f8c1b077be5c171804534c3509dfe950dde15fbe6d828
+  languageName: node
+  linkType: hard
+
+"glob@npm:^13.0.0":
+  version: 13.0.1
+  resolution: "glob@npm:13.0.1"
+  dependencies:
+    minimatch: "npm:^10.1.2"
+    minipass: "npm:^7.1.2"
+    path-scurry: "npm:^2.0.0"
+  checksum: 10c0/af7b863dec8dff74f61d7d6e53104e1f6bbdd482157a196cade8ed857481e876ec35181b38a059b2a7b93ea3b08248f4ff0792fef6dc91814fd5097a716f48e4
   languageName: node
   linkType: hard
 
@@ -11857,7 +11868,7 @@ __metadata:
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     eslint: "npm:9.39.2"
-    glob: "npm:13.0.1"
+    glob: "npm:13.0.2"
     http-server: "npm:14.1.1"
     lit: "npm:3.3.2"
     nyc: "npm:17.1.0"
@@ -17085,7 +17096,7 @@ __metadata:
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     eslint: "npm:9.39.2"
-    glob: "npm:13.0.1"
+    glob: "npm:13.0.2"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
     prop-types: "npm:15.8.1"
