@@ -63,7 +63,7 @@ for await (const annotation of getTagAnnotation()) {
 
   for (const pkg in versions) {
     const target = versions[pkg] ?? '0.0.0';
-    if (target.includes(`-${buildTag}.`)) continue;
+    if (target.includes(`-${buildTag}-`)) continue;
     const highest = latest[pkg] ?? '0.0.0';
     if (semver.gt(target, highest)) {
       latest[pkg] = target;
@@ -81,16 +81,25 @@ async function getVersions(options?: Options) {
 }
 
 let current = await getVersions({
-  since: !force && type !== Strategy[Strategy.launch]
+  since:
+    !force &&
+    [Strategy.launch, Strategy.patch, Strategy.minor].find(
+      (index) => Strategy[index] === type
+    )
 });
 const prev = { ...current };
 const changed: string[] = [];
 
-async function applyAll() {
-  const stdout = await $('yarn version apply --all --json', execOptions);
+async function applyAll(immediate = false) {
+  const stdout = (
+    await $('yarn version apply --all --json', execOptions)
+  ).trim();
   if (stdout === '') {
-    console.log('{}');
-    process.exit(EXIT_SUCCESS);
+    if (immediate) {
+      console.log('{}');
+      process.exit(EXIT_SUCCESS);
+    }
+    return;
   }
   for (const line of stdout.split('\n')) {
     try {
@@ -105,7 +114,7 @@ async function applyAll() {
   }
 }
 
-await applyAll();
+await applyAll(true);
 
 interface TaskInfo {
   task: string;
@@ -117,17 +126,38 @@ interface BuildInfo {
   tasks: TaskInfo[];
 }
 
+interface PackageInfo {
+  children: {
+    Dependents: string[];
+  };
+}
+
 const hashIds: Record<string, string> = {};
 switch (type) {
   case Strategy[Strategy.minor]:
   // falls through
   case Strategy[Strategy.patch]:
-    await $(
-      `yarn workspaces foreach --since --no-private --exclude ${changed.join(
-        ' --exclude '
-      )} version ${type} --deferred`,
-      execOptions
-    );
+    for (const packageName of [...changed]) {
+      const stdout = await $(
+        `yarn info ${packageName} -A --dependents --json`,
+        execOptions
+      );
+      if (stdout) {
+        const {
+          children: { Dependents = [] }
+        }: PackageInfo = JSON.parse(stdout);
+        for (const dependency of Dependents) {
+          const [, packageName] = dependency.match(/^(.+)@/) ?? [];
+          if (packageName in current) {
+            await $(
+              `yarn workspace ${packageName} version ${type} --deferred`,
+              execOptions
+            );
+            // TODO implement recusive versioning for updated packages
+          }
+        }
+      }
+    }
     await applyAll();
     break;
   case Strategy[Strategy.build]: {
