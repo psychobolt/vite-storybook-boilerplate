@@ -7,7 +7,7 @@
       "matchPackageNames": ["node"],
       "versionCompatibility": "^(?<version>[^-]+)(?<compatibility>-.*)?$",
       "versioning": "node",
-      "allowedVersions": "< 19"
+      "allowedVersions": "< 23"
     }
   ]
 }
