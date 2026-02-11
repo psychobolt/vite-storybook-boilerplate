@@ -46,7 +46,7 @@
     "react-syntax-highlighter": "16.1.0",
     "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
-    "vite-tsconfig-paths": "6.1.0"
+    "vite-tsconfig-paths": "6.1.1"
   },
   "devDependencies": {
     "@storybook/addon-docs": "10.2.8",
