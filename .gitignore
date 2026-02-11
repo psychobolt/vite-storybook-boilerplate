@@ -8,7 +8,6 @@ build
 dist
 cjs
 esm
-**/__snapshots__/*.png
 coverage
 test-reports
 *.tsbuildinfo

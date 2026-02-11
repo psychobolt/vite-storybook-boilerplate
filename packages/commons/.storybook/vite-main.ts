@@ -76,11 +76,7 @@ export const config: StorybookViteCommonConfig = {
       ? []
       : [getAbsolutePath('@chromatic-com/storybook')])
   ],
-  managerEntries: [
-    ...//platform === 'win32'
-    //? [] :
-    [join(getAbsolutePath('storybook-zeplin'), 'register.js')]
-  ],
+  managerEntries: [join(getAbsolutePath('storybook-zeplin'), 'register.js')],
   build: {
     test: {
       disabledAddons: [addonDocs]

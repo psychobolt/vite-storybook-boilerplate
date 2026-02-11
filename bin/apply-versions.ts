@@ -232,7 +232,13 @@ switch (type) {
           i < (prerelease == null ? 1 : 2);
           i += 1 // https://github.com/yarnpkg/berry/issues/3868
         ) {
-          await $(`yarn workspace ${name} version ${bump}`, execOptions);
+          await $(`yarn workspace ${name} version ${bump}`, {
+            ...execOptions,
+            env: {
+              ...process.env,
+              CHANGE_SET_IGNORE_PATTERNS: '.yarn/versions/**'
+            }
+          });
         }
       }
     }
