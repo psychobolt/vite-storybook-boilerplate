@@ -80,7 +80,7 @@ export default defineConfig(
 
 ```ts
 // MyComponent.variants.ts
-import type { StoryObj } from '@storybook/web-components';
+import type { StoryObj } from '@storybook/web-components-vite';
 import type { VariantsMeta } from 'commons/esm/.storybook/addons/vite-plugin-storybook-variants.js';
 import {
   type VariantStoryObj,
