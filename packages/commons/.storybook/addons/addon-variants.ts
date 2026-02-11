@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
+import { createRequire, registerHooks } from 'node:module';
+import path from 'node:path';
 import type {
   ComponentAnnotations,
   StoryAnnotations,
@@ -8,6 +9,7 @@ import type {
 } from 'storybook/internal/types';
 import type { PluginOption } from 'vite';
 import _ from 'lodash';
+
 import type { VariantStoryObj } from '../utils/story-generators.js';
 
 const require = createRequire(import.meta.url);
@@ -25,13 +27,13 @@ export type VariantStory<TArgs> = StoryAnnotations<Renderer, TArgs> & {
 };
 
 export interface VariantModule<TArgs> {
-  meta: VariantsMeta<TArgs>;
+  default: VariantsMeta<TArgs>;
   stories:
     | Array<VariantStory<TArgs>>
     | ((stories?: Array<VariantStoryObj<TArgs>>) => Array<VariantStory<TArgs>>);
 }
 
-type TemplateOptions<TArgs> = VariantsMeta<TArgs> & {
+type TemplateOptions<TArgs> = {
   stories: Array<VariantStory<TArgs>>;
 };
 
@@ -45,17 +47,7 @@ function getSourceTemplate<TMeta>(framework: Framework) {
   const frameworkVal = framework ? FrameworkEnum[framework] : null;
   switch (frameworkVal) {
     case FrameworkEnum.lit:
-      return ({ importName, fileName, stories }: TemplateOptions<TMeta>) => `
-        import { html } from "lit";
-        import { ${importName} } from "${fileName}";
-
-        const { importName: _meta0, fileName: _meta1, stories: _meta2, ..._meta3 } = meta;
-
-        export default {
-          render: ${importName},
-          ..._meta3,
-        };
-
+      return ({ stories }: TemplateOptions<TMeta>) => `
         ${stories.reduce(
           (prev, { name, args, exportName }) => `
           ${prev}
@@ -70,6 +62,36 @@ function getSourceTemplate<TMeta>(framework: Framework) {
   }
 }
 
+const ASSETS_REGEX = /\.scss$/;
+
+const importModule = (moduleId: string) => {
+  const hook = registerHooks({
+    resolve(specifier, context, nextResolve) {
+      if (ASSETS_REGEX.test(specifier)) {
+        return {
+          format: 'mockAsset',
+          shortCircuit: true,
+          url: path.join(context.parentURL ?? moduleId, '..', specifier)
+        };
+      }
+      return nextResolve(specifier);
+    },
+    load(url, context, nextLoad) {
+      if (context.format === 'mockAsset') {
+        return {
+          format: 'module',
+          shortCircuit: true,
+          source: 'export default "";'
+        };
+      }
+      return nextLoad(url, context);
+    }
+  });
+  const exports = require(moduleId);
+  hook.deregister();
+  return exports;
+};
+
 let fileMatcher: RegExp = /\.variants?\.[jt]sx?$/;
 
 export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
@@ -81,7 +103,8 @@ export function storybookVariantsIndexer<TArgs>(test = fileMatcher): Indexer {
         const moduleId = require.resolve(fileName);
 
         delete require.cache[moduleId];
-        const { meta, stories }: VariantModule<TArgs> = require(moduleId);
+        const { default: meta, stories }: VariantModule<TArgs> =
+          importModule(moduleId);
         const { title, tags: metaTags = [] } = meta;
 
         return (_.isFunction(stories) ? stories() : stories).map(
@@ -120,13 +143,12 @@ export function vitePluginStorybookVariants<TArgs>(
       const moduleId = require.resolve(id);
 
       delete require.cache[moduleId];
-      const { meta, stories }: VariantModule<TArgs> = require(moduleId);
+      const { stories }: VariantModule<TArgs> = importModule(moduleId);
 
       return `
         ${readFileSync(moduleId, 'utf-8')}
 
         ${template({
-          ...meta,
           stories: _.isFunction(stories) ? stories() : stories
         })};
       `;

@@ -20,7 +20,10 @@ const config: StorybookViteCommonConfig = {
     ...commonConfig.addons,
     getAbsolutePath('@storybook/addon-coverage', require)
   ],
-  stories: [...stories, `../${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`],
+  stories: [
+    ...stories,
+    `../${mainDir}/**/PseudoStates/*.variant{s,}.@(js|jsx|ts|tsx)`
+  ],
   framework: {
     name: getAbsolutePath('@storybook/web-components-vite', require),
     options: {}

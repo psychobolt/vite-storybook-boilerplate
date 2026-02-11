@@ -1,22 +1,39 @@
 import 'react-syntax-highlighter';
-import type { Preview } from '@storybook/web-components-vite';
-import commonConfig from 'commons/esm/.storybook/preview';
+import {
+  type WebComponentsRenderer,
+  definePreview as _definePreview
+} from '@storybook/web-components-vite';
+import { definePreview } from 'commons/esm/.storybook/preview';
 import { SyntaxHighlighter } from 'storybook/internal/components';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
 
 SyntaxHighlighter.registerLanguage('scss', scss);
 
-const preview: Preview = {
-  ...commonConfig,
+const addons: never[] = [];
+
+const preview = definePreview<WebComponentsRenderer, typeof addons>({
+  addons,
   parameters: {
-    ...commonConfig.parameters,
     options: {
-      ...commonConfig.parameters?.options,
       storySort: {
         order: ['Configure your project', 'Readme']
       }
     }
   }
-};
+});
+
+preview.meta({
+  parameters: {
+    layout: 'centered'
+  }
+});
+
+_definePreview({
+  addons: []
+}).meta({
+  parameters: {
+    layout: 'centered'
+  }
+});
 
 export default preview;
