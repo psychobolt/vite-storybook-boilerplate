@@ -60,7 +60,7 @@ jobs:
       - name: Build renovate config
         run: yarn run-script renovate.config.ts > renovate.config.json
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@e23f4d9675532445118c886434f5a34292b630b4 # v46.0.2
+        uses: renovatebot/github-action@44f24283a60f64273f1294932f16ba61193cccca # v46.1.0
         env:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           RENOVATE_BASE_DIR: ${{ env.DOCKER_USER_HOME }}
