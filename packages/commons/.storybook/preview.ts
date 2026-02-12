@@ -27,7 +27,7 @@ const input: ProjectAnnotations<DefaultRenderer> & { addons: Addons } = {
   }
 };
 
-export const withPreview = <
+export const withDefaults = <
   TRenderer extends Renderer,
   TAddons extends PreviewAddon[],
   TPreview extends Preview<TRenderer & DefaultRenderer & InferTypes<TAddons>>
