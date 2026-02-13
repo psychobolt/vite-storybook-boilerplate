@@ -14097,9 +14097,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it@npm:14.1.0":
-  version: 14.1.0
-  resolution: "markdown-it@npm:14.1.0"
+"markdown-it@npm:14.1.1":
+  version: 14.1.1
+  resolution: "markdown-it@npm:14.1.1"
   dependencies:
     argparse: "npm:^2.0.1"
     entities: "npm:^4.4.0"
@@ -14109,7 +14109,7 @@ __metadata:
     uc.micro: "npm:^2.1.0"
   bin:
     markdown-it: bin/markdown-it.mjs
-  checksum: 10c0/9a6bb444181d2db7016a4173ae56a95a62c84d4cbfb6916a399b11d3e6581bf1cc2e4e1d07a2f022ae72c25f56db90fbe1e529fca16fbf9541659dc53480d4b4
+  checksum: 10c0/c67f2a4c8069a307c78d8c15104bbcb15a2c6b17f4c904364ca218ec2eccf76a397eba1ea05f5ac5de72c4b67fcf115d422d22df0bfb86a09b663f55b9478d4f
   languageName: node
   linkType: hard
 
@@ -17446,9 +17446,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.12.0":
-  version: 43.12.0
-  resolution: "renovate@npm:43.12.0"
+"renovate@npm:43.12.1":
+  version: 43.12.1
+  resolution: "renovate@npm:43.12.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.980.0"
     "@aws-sdk/client-ec2": "npm:3.980.0"
@@ -17532,7 +17532,7 @@ __metadata:
     jsonc-parser: "npm:3.3.1"
     klona: "npm:2.0.6"
     luxon: "npm:3.7.2"
-    markdown-it: "npm:14.1.0"
+    markdown-it: "npm:14.1.1"
     markdown-table: "npm:3.0.4"
     minimatch: "npm:10.1.2"
     moo: "npm:0.5.2"
@@ -17581,7 +17581,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/8228eab023c07ce4a9d9f67e5efcaddd384872f078ad4d222fd738a2254fcd714211c021e62b48128f5d82c5c092b761229b69d2751efde5ccf583e8ea4dd406
+  checksum: 10c0/1b58f2c60362487ecbbba8c052b1008259f20995e56cd02f3858d7904f906988c939db6de22a36d05bca8ef620ce04799c3ed4d9d8d0f555e4887a32b9303424
   languageName: node
   linkType: hard
 
@@ -20859,7 +20859,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.12.0"
+    renovate: "npm:43.12.1"
     semver: "npm:7.7.4"
     turbo: "npm:2.8.7"
     typescript: "npm:5.9.3"
