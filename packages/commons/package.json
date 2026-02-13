@@ -67,7 +67,7 @@
     "prettier-plugin-sh": "0.18.0",
     "rimraf": "6.1.2",
     "storybook": "10.2.8",
-    "stylelint": "17.2.0",
+    "stylelint": "17.3.0",
     "tsconfig-to-dual-package": "1.2.0",
     "turbo": "2.8.7",
     "typescript": "5.9.3",
