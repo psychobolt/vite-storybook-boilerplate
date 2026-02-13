@@ -40,7 +40,7 @@
 		"stylelint": "17.2.0",
 		"stylelint-config-prettier-scss": "1.0.0",
 		"stylelint-config-standard-scss": "17.0.0",
-		"svelte": "5.50.3",
+		"svelte": "5.51.0",
 		"svelte-check": "4.3.6",
 		"svelte-eslint-parser": "1.4.1",
 		"svelte-language-server": "0.17.26",
