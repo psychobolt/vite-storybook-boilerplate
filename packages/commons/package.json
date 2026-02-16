@@ -55,7 +55,7 @@
     "@storybook/addon-vitest": "10.2.8",
     "@storybook/global": "5.0.0",
     "@types/react-syntax-highlighter": "15.5.13",
-    "@typescript-eslint/utils": "8.55.0",
+    "@typescript-eslint/utils": "8.56.0",
     "arg": "5.0.2",
     "chromatic": "15.1.0",
     "eslint": "9.39.2",
