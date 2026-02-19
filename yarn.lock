@@ -11479,14 +11479,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:13.0.2":
-  version: 13.0.2
-  resolution: "glob@npm:13.0.2"
+"glob@npm:13.0.3, glob@npm:^13.0.0, glob@npm:^13.0.1, glob@npm:^13.0.3":
+  version: 13.0.3
+  resolution: "glob@npm:13.0.3"
   dependencies:
-    minimatch: "npm:^10.1.2"
+    minimatch: "npm:^10.2.0"
     minipass: "npm:^7.1.2"
     path-scurry: "npm:^2.0.0"
-  checksum: 10c0/3d4b09efa922c4cba9be6d5b9efae14384e7422aeb886eb35fba8a94820b8281474b8d3f16927127fb1a0c8580e18fc00e3fda03c8dc31fa0af3ba918edeeb04
+  checksum: 10c0/333dc5c40ca0e50400465d8f5c45aa7cdd32580c4d1a4c502dfb4fb9c469a936b8e0c6bbd09cd6353fd05982e48d7f79e819159a36fb3e0a41ee722607bc11a9
   languageName: node
   linkType: hard
 
@@ -11514,17 +11514,6 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10c0/100705eddbde6323e7b35e1d1ac28bcb58322095bd8e63a7d0bef1a2cdafe0d0f7922a981b2b48369a4f8c1b077be5c171804534c3509dfe950dde15fbe6d828
-  languageName: node
-  linkType: hard
-
-"glob@npm:^13.0.0, glob@npm:^13.0.1, glob@npm:^13.0.3":
-  version: 13.0.3
-  resolution: "glob@npm:13.0.3"
-  dependencies:
-    minimatch: "npm:^10.2.0"
-    minipass: "npm:^7.1.2"
-    path-scurry: "npm:^2.0.0"
-  checksum: 10c0/333dc5c40ca0e50400465d8f5c45aa7cdd32580c4d1a4c502dfb4fb9c469a936b8e0c6bbd09cd6353fd05982e48d7f79e819159a36fb3e0a41ee722607bc11a9
   languageName: node
   linkType: hard
 
@@ -15197,7 +15186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^10.1.1, minimatch@npm:^10.1.2, minimatch@npm:^10.2.0, minimatch@npm:^9.0.3 || ^10.0.1":
+"minimatch@npm:^10.1.1, minimatch@npm:^10.2.0, minimatch@npm:^9.0.3 || ^10.0.1":
   version: 10.2.0
   resolution: "minimatch@npm:10.2.0"
   dependencies:
@@ -17665,9 +17654,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.26.0":
-  version: 43.26.0
-  resolution: "renovate@npm:43.26.0"
+"renovate@npm:43.26.1":
+  version: 43.26.1
+  resolution: "renovate@npm:43.26.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.992.0"
     "@aws-sdk/client-ec2": "npm:3.992.0"
@@ -17736,7 +17725,7 @@ __metadata:
     fs-extra: "npm:11.3.3"
     git-url-parse: "npm:16.1.0"
     github-url-from-git: "npm:1.5.0"
-    glob: "npm:13.0.2"
+    glob: "npm:13.0.3"
     global-agent: "npm:3.0.0"
     google-auth-library: "npm:10.5.0"
     got: "npm:14.6.6"
@@ -17800,7 +17789,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/fc4448d27661f765e8a23c1da4f3594fd8993423031ba440cbd1150688a6577d7ec3d3660c748ef44cf82f6e2f0d03841e47e6a004f3ce4e2314d5ede582745f
+  checksum: 10c0/8e5fba8338a4cc9d773f32972454c0e858ab2d9e014916717809022cdcab7a8e72a6b3d16aae53b182faafc933d665f83b216838ed70b4d9666fbc2ae0b41d2b
   languageName: node
   linkType: hard
 
@@ -21076,7 +21065,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.26.0"
+    renovate: "npm:43.26.1"
     semver: "npm:7.7.4"
     turbo: "npm:2.8.10"
     typescript: "npm:5.9.3"
