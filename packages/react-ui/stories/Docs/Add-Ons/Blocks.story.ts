@@ -1,20 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '.storybook/preview';
+import { Markdown } from './Markdown';
 
-import { type Props, Markdown } from './Markdown';
-
-const meta = {
+const meta = preview.meta({
   title: 'Add Ons/Blocks/Markdown',
   tags: ['autodocs'],
   component: Markdown
-} satisfies Meta<Props>;
+});
 
 export default meta;
 
-type Story = StoryObj<Props>;
-
-export const Badge: Story = {
+export const Badge = meta.story({
   args: {
     children:
-      '[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://img.shields.io/badge/license-MIT-blue)'
+      '[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@main/badge/badge-storybook.svg)](https://github.com/storybookjs/storybook?tab=readme-ov-file#badges--presentation-materials)'
   }
-};
+});

@@ -8,7 +8,7 @@ Powered by:
 
 - [html-ui](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/packages/html-ui)
 - [React](https://react.dev)
-- [Storybook React Docs](https://storybook.js.org/docs/react/writing-docs/introduction) with CSS Module support [typescript-plugin-css-modules](https://github.com/mrmckeb/typescript-plugin-css-modules)
+- [Storybook React Docs](https://storybook.js.org/docs/writing-docs/introduction) with CSS Module support [typescript-plugin-css-modules](https://github.com/mrmckeb/typescript-plugin-css-modules)
 
 ## Install
 

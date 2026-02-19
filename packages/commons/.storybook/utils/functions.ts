@@ -22,8 +22,8 @@ export interface PseudoStateArgTypeOptions<
 }
 
 export const getPseudoStateArgTypes = <
-  P extends EnumLike<P>,
-  A extends EnumLike<A>
+  P extends EnumLike<P> = typeof DefaultPseudoClsEnum,
+  A extends EnumLike<A> = typeof DefaultStateAttrEnum
 >({
   pseudoClasses,
   stateAttributes,

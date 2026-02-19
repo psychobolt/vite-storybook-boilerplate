@@ -3,7 +3,7 @@ import { html } from 'lit';
 import { Button } from 'Button';
 import styles from './Header.module.scss';
 
-interface User {
+export interface User {
   name: string;
 }
 

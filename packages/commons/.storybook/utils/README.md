@@ -32,12 +32,11 @@ import type { StoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-g
 
 interface Props extends StoryPseudoStateProps {}
 
-export const MyComponent = ({
-  storyPseudo,
-  storyAttr,
-  ...props
-}: Props) => html` <div class="${storyPseudo}" ${spread(storyAttr)}></div> `;
+export const MyComponent = ({ storyPseudo, storyAttr, ...props }: Props) =>
+  html`<div class=${storyPseudo} ${spread(storyAttr)}></div>`;
 ```
+
+##### CSF3
 
 ```ts
 // my-component.story.ts
@@ -67,6 +66,8 @@ export const stories = () =>
     stateAttributes: MyStateAttrEnum
   });
 ```
+
+#### CSF4 (Experimental)
 
 ## [Functions](functions.ts)
 

@@ -188,7 +188,9 @@ export default defineConfig(storybookConfig, {
    ```ts
    import commonConfig from 'commons/esm/.storybook/vite-main.js';
 
-   export default mergeConfig({
+   import { defineConfig } from '@storybook/your-framework/node';
+
+   export default defineConfig({
      ...commonConfig
      // your overrides
    });
@@ -212,14 +214,70 @@ See [source](.storybook/preview.ts)
 /your/project.storybook/preview.ts
 
 ```ts
-import type { Preview } from '@storybook/react-vite'; // preview-api type
-import commonConfig from 'commons/esm/.storybook/preview';
+import { definePreview } from '@storybook/react-vite';
+import { input } from 'commons/esm/.storybook/preview';
 
-const preview: Preview = {
-  ...commonConfig
-};
+const preview = definePreview({
+  ...input
+  // ...
+});
 
 export default preview;
+```
+
+###### With Defaults
+
+Resolves the preview to the base annotations so you can forward `meta` and `story` input(s) without `extend()`. In addition, enhances to the `meta` API with `.type<T>()`.
+
+/your/project.storybook/preview.ts
+
+```ts
+import { definePreview } from '@storybook/web-components';
+
+import { withDefaults } from '.storybook/preview';
+
+const preview = withDefaults((defaults) =>
+  definePreview({
+    ...defaults
+    // ...
+  })
+);
+
+export default preview;
+```
+
+/your/project.storybook/src/MyComponent/Primary.story.ts
+
+```ts
+import preview from '.storybook/preview';
+import { MyComponent } from './MyComponent';
+
+const meta = preview.meta({
+  title: 'Components/MyComponent/Primary',
+  component: MyComponent
+  // ...
+});
+
+export const Default = meta.story({
+  // ...
+});
+```
+
+/your/project.storybook/src/MyComponent/Secondary.story.ts
+
+```ts
+import preview from '.storybook/preview';
+import primaryMeta from './Primary.story';
+import * as stories from './Primary.story';
+
+const meta = preview.meta({
+  ...primaryMeta.input,
+  title: 'Component/MyComponent/Secondary'
+});
+
+export const Default = stories.Primary.extend({
+  // ...
+});
 ```
 
 ##### [Addons](.storybook/addons/README.md)
