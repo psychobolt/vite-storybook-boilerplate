@@ -19,8 +19,8 @@
     "arg": "5.0.2",
     "commons": "workspace:*",
     "eslint": "9.39.2",
-    "stylelint": "17.2.0",
-    "turbo": "2.8.5",
+    "stylelint": "17.3.0",
+    "turbo": "2.8.10",
     "typescript": "5.9.3"
   },
   "peerDependencies": {
