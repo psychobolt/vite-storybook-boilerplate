@@ -34,7 +34,7 @@ export interface Props extends StoryPseudoStateProps {
  * Primary UI component for user interaction
  */
 export const Button = ({
-  primary,
+  primary = true,
   backgroundColor,
   size = 'medium',
   label,

@@ -29,6 +29,7 @@
     "@storybook/test-runner": "0.24.2",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4",
+    "@types/react": "19.2.14",
     "@vitest/browser-playwright": "4.0.18",
     "arg": "5.0.2",
     "autoprefixer": "10.4.24",
@@ -43,7 +44,6 @@
     "postcss-scss": "4.0.9",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "react-syntax-highlighter": "16.1.0",
     "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
     "vite-tsconfig-paths": "6.1.0"
@@ -54,7 +54,6 @@
     "@storybook/addon-onboarding": "10.2.8",
     "@storybook/addon-vitest": "10.2.8",
     "@storybook/global": "5.0.0",
-    "@types/react-syntax-highlighter": "15.5.13",
     "@typescript-eslint/utils": "8.55.0",
     "arg": "5.0.2",
     "chromatic": "15.1.0",

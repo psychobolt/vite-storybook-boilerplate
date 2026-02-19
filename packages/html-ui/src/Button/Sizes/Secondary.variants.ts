@@ -1,23 +1,17 @@
-import type { Meta, Story } from './Primary.variants';
-import {
-  meta as primaryMeta,
-  Primary,
-  stories as getStories
-} from './Primary.variants';
+import preview from '.storybook/preview';
+import primaryMeta from './Primary.variants';
 
-// More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
-export const meta = {
-  ...primaryMeta,
-  title: 'Components/Button/Secondary/Sizes'
-} satisfies Meta;
-
-// More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
-export const Secondary: Story = {
-  ...Primary,
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction
+const meta = preview.meta({
+  ...primaryMeta.input,
+  title: 'Components/Button/Secondary/Sizes',
+  // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
   args: {
-    ...Primary.args,
+    ...primaryMeta.input.args,
     primary: false
   }
-};
+});
 
-export const stories = getStories(Secondary);
+export default meta;
+
+export * from './Primary.variants';

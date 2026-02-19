@@ -1,15 +1,20 @@
-import type { Args } from 'storybook/internal/types';
+import type {
+  Args,
+  Renderer,
+  StoryAnnotations
+} from 'storybook/internal/types';
 import type { StringKeyOf } from 'ts-enum-util/dist/types/types.js';
 import { $enum } from 'ts-enum-util';
 import _ from 'lodash';
 
 import type { VariantStory } from '../addons/addon-variants.js';
 
-export interface VariantStoryObj<TArgs> {
-  name?: string;
+export type VariantStoryObj<TArgs = Args> = StoryAnnotations<
+  Renderer,
+  TArgs
+> & {
   exportName?: string;
-  args?: Partial<TArgs>;
-}
+};
 
 export type EnumLike<E> = Record<StringKeyOf<E>, string | number>;
 
@@ -63,11 +68,11 @@ interface PseudoStateStoryOptions<
 }
 
 export const generatePseudoStateStories = <
-  TArgs,
-  P extends EnumLike<P>,
-  A extends EnumLike<A>
+  TArgs extends Partial<TArgs>,
+  P extends EnumLike<P> = {},
+  A extends EnumLike<A> = {}
 >(
-  Template: VariantStoryObj<TArgs> | VariantStory<TArgs>,
+  Template: VariantStoryObj<TArgs>,
   {
     showDefault,
     pseudoClasses,

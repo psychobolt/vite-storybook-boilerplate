@@ -3858,18 +3858,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/mcp@npm:0.0.64":
-  version: 0.0.64
-  resolution: "@playwright/mcp@npm:0.0.64"
-  dependencies:
-    playwright: "npm:1.59.0-alpha-1770338664000"
-    playwright-core: "npm:1.59.0-alpha-1770338664000"
-  bin:
-    playwright-mcp: cli.js
-  checksum: 10c0/85ea523aab2bf5975d136e2791e45409838a09c6dc16948187c8c3501b4430cabc017aa8e7b0fc0f608b36b4cda8ce91ad925ef76c3167ac69a2667664532fab
-  languageName: node
-  linkType: hard
-
 "@pnpm/catalogs.protocol-parser@npm:^1001.0.0":
   version: 1001.0.0
   resolution: "@pnpm/catalogs.protocol-parser@npm:1001.0.0"
@@ -5372,7 +5360,7 @@ __metadata:
   peerDependencies:
     lit: ^2.0.0 || ^3.0.0
     storybook: ^10.2.8
-  checksum: 10c0/59afbe011df07f47a040e1c4a5bd51c42d90fde4b9cd3c136537c85c374e9208c27d27b2fe73b0e04734b9ffa6546a814840dfecd40b5d576a279f57114b8dcf
+  checksum: 10c0/53efd839c3dc35175de9bbcbb324dccc71e4e1dec3dfd294238828b195e9b28786887f14294a7c13052fabf0eb776e8bc0ccf5a73faa5b0819e508940bf8ad8a
   languageName: node
   linkType: hard
 
@@ -6183,6 +6171,15 @@ __metadata:
   dependencies:
     csstype: "npm:^3.2.2"
   checksum: 10c0/e512dc53b805b9066f5c6ad42944372e1204290d618dbaec634d8bbd80d3aadcc1b8cdd7251329936bbdafae0425c02f531083213473bb370df903f20bb66e91
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:19.2.14":
+  version: 19.2.14
+  resolution: "@types/react@npm:19.2.14"
+  dependencies:
+    csstype: "npm:^3.2.2"
+  checksum: 10c0/7d25bf41b57719452d86d2ac0570b659210402707313a36ee612666bf11275a1c69824f8c3ee1fdca077ccfe15452f6da8f1224529b917050eb2d861e52b59b7
   languageName: node
   linkType: hard
 
@@ -8531,7 +8528,7 @@ __metadata:
     "@storybook/test-runner": "npm:0.24.2"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4"
-    "@types/react-syntax-highlighter": "npm:15.5.13"
+    "@types/react": "npm:19.2.14"
     "@typescript-eslint/utils": "npm:8.55.0"
     "@vitest/browser-playwright": "npm:4.0.18"
     arg: "npm:5.0.2"
@@ -8555,7 +8552,6 @@ __metadata:
     prettier-plugin-sh: "npm:0.18.0"
     react: "npm:19.2.4"
     react-dom: "npm:19.2.4"
-    react-syntax-highlighter: "npm:16.1.0"
     rimraf: "npm:6.1.2"
     storybook: "npm:10.2.8"
     storybook-zeplin: "npm:3.0.0"
@@ -16419,15 +16415,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.59.0-alpha-1770338664000":
-  version: 1.59.0-alpha-1770338664000
-  resolution: "playwright-core@npm:1.59.0-alpha-1770338664000"
-  bin:
-    playwright-core: cli.js
-  checksum: 10c0/b358442efcc962416e6336cb9ec42ea0d10e8796ba092f9a411dbb68d16d6781520ee83d3d072277e2d3ec7b1f7218e4480b5f88b8114a4bb211132d4a5fe0cd
-  languageName: node
-  linkType: hard
-
 "playwright@npm:1.58.2, playwright@npm:^1.14.0":
   version: 1.58.2
   resolution: "playwright@npm:1.58.2"
@@ -16440,21 +16427,6 @@ __metadata:
   bin:
     playwright: cli.js
   checksum: 10c0/d060d9b7cc124bd8b5dffebaab5e84f6b34654a553758fe7b19cc598dfbee93f6ecfbdc1832b40a6380ae04eade86ef3285ba03aa0b136799e83402246dc0727
-  languageName: node
-  linkType: hard
-
-"playwright@npm:1.59.0-alpha-1770338664000":
-  version: 1.59.0-alpha-1770338664000
-  resolution: "playwright@npm:1.59.0-alpha-1770338664000"
-  dependencies:
-    fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.59.0-alpha-1770338664000"
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    playwright: cli.js
-  checksum: 10c0/d49e747e159cb530f141c0fdea2854c122676186fd7442f36630afb2d6a16bf7c8205a71c0b3c4eb84f7c1b381c599c213b04eb69a28f0654348626c92ec969b
   languageName: node
   linkType: hard
 
@@ -18811,7 +18783,7 @@ __metadata:
       optional: true
   bin:
     storybook: ./dist/bin/dispatcher.js
-  checksum: 10c0/b3ed541f233470d80d3fbef48083e8dcda50fc789ae16853b7a33bc003fdb9dfc5aeaa6d61fac5e2e1f78a9ee3bd13d6ff777a6cf6657b3d6f91c2bd9ab2f0da
+  checksum: 10c0/fe7dc829e7330e43c7330839d5b6f86a306c9dd7672a3c683f3bf1b84cc3527446c353aa3beea56707b445331e833a8b856b6904c3eab5017d0d70350171610c
   languageName: node
   linkType: hard
 
@@ -20815,7 +20787,6 @@ __metadata:
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
     "@dotenvx/dotenvx": "npm:1.52.0"
-    "@playwright/mcp": "npm:0.0.64"
     "@swc-node/register": "npm:1.11.1"
     "@swc/core": "npm:1.15.11"
     "@types/glob-to-regexp": "npm:0.4.4"

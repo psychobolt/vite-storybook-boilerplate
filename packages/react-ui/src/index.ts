@@ -1,2 +1,2 @@
-export * from './Button';
-export * from './Header';
+export { Button } from './Button';
+export { Header } from './Header';
