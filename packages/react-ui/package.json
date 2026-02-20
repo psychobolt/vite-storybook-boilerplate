@@ -44,7 +44,7 @@
     "@vitest/coverage-v8": "4.0.18",
     "classnames": "2.5.1",
     "commons": "workspace:*",
-    "eslint": "9.39.2",
+    "eslint": "9.39.3",
     "glob": "13.0.6",
     "html-ui": "workspace:*",
     "http-server": "14.1.1",
