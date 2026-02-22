@@ -40,9 +40,10 @@ export const MyComponent = ({ storyPseudo, storyAttr, ...props }: Props) =>
 
 ```ts
 // my-component.story.ts
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
+import type { Meta } from '@storybook/web-components-vite';
+import type { VariantStoryObj } from 'commons/esm/.storybook/utils/story-generators.js';
 
-import type { Props } from './my-component';
+import { type Props, MyComponent } from './my-component';
 import type {
   MyPseudoClsEnum,
   MyStateAttrEnum
@@ -50,24 +51,46 @@ import type {
 
 const meta = {
   title: 'Components/My Component',
-  fileName: './my-component',
-  importName: 'MyComponent'
-} satisfies VariantsMeta<Props>;
+  component: MyComponent
+  // ...
+} satisfies Meta<Props>;
 
 export default meta;
 
-type Story = StoryObj<Props> & VariantStoryObj<Props>;
+type Story = VariantStoryObj<Props>;
 
 const Template: Story = {};
 
-export const stories = () =>
-  generatePseudoStateStories(Template, {
+export const stories = (template: Story = Template) =>
+  generatePseudoStateStories(template, {
     pseudoClasses: MyPseudoClsEnum,
     stateAttributes: MyStateAttrEnum
   });
 ```
 
 #### CSF4 (Experimental)
+
+```ts
+// my-component.story.ts
+import preview from '.storybook/preivew';
+
+import { MyComponent } from './my-component';
+
+const meta = preview.meta({
+  title: 'Components/My Component',
+  component: MyComponent
+});
+
+type Story = VariantStoryObj<Props>;
+
+const Template = meta.story();
+
+export const stories = (template: Story = Template) =>
+  generatePseudoStateStories(template, {
+    pseudoClasses: MyPseudoClsEnum,
+    stateAttributes: MyStateAttrEnum
+  });
+```
 
 ## [Functions](functions.ts)
 
@@ -87,15 +110,40 @@ Ideally used with [generatePseudoStateStories](#default-pseudo-state-stories).
 
 #### Usage
 
+##### CSF3
+
 ```ts
 // my-component.story.ts
+import type { Meta } from '@storybook/web-components-vite';
+
+import { getPseudoStateArgTypes } from 'commons/esm/.storybook/utils/functions.js';
+import type { Props } from './my-component';
+
 const meta = {
   /* ... */
   argTypes: {
     /* ... */
     ...getPseudoStateArgTypes(/* options */)
   }
-} satisfies Story<Props>;
+} satisfies Meta<Props>;
+
+export default meta;
+```
+
+##### CSF4 (Experimental)
+
+```ts
+// my-component.story.ts
+import preview from '.storybook/preview';
+import { getPseudoStateArgTypes } from 'commons/esm/.storybook/utils/functions.js';
+
+const meta = preview.meta({
+  /* ... */
+  argTypes: {
+    /* ... */
+    ...getPseudoStateArgTypes(/* options */)
+  }
+});
 
 export default meta;
 ```

@@ -12261,6 +12261,7 @@ __metadata:
     http-server: "npm:14.1.1"
     lit: "npm:3.3.2"
     nyc: "npm:17.1.0"
+    prettier: "npm:3.8.1"
     react: "npm:19.2.4"
     react-dom: "npm:19.2.4"
     react-syntax-highlighter: "npm:16.1.0"

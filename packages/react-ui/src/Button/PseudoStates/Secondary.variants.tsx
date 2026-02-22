@@ -6,7 +6,11 @@ import primaryMeta from './Primary.variants';
 const meta = preview.meta({
   ...primaryMeta.input,
   ...secondaryMeta.input,
-  title: 'Components/Button/Secondary/Pseudo States'
+  title: 'Components/Button/Secondary/Pseudo States',
+  argTypes: {
+    ...primaryMeta.input.argTypes,
+    ...secondaryMeta.input.argTypes
+  }
 });
 
 export default meta;

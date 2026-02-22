@@ -1,4 +1,5 @@
 import preview from '.storybook/preview';
+import secondaryMeta from 'Button/Secondary.story';
 import primaryMeta, {
   Primary,
   stories as getStories
@@ -7,16 +8,17 @@ import primaryMeta, {
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction
 const meta = preview.meta({
   ...primaryMeta.input,
+  ...secondaryMeta.input,
+  argTypes: {
+    ...primaryMeta.input.argTypes,
+    ...secondaryMeta.input.argTypes
+  },
   title: 'Components/Button/Secondary/Pseudo States'
 });
 
 export default meta;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-const Secondary = Primary.extend({
-  args: {
-    primary: false
-  }
-});
+export const Secondary = Primary.extend({});
 
-export const stories = getStories(Secondary.input);
+export const stories = getStories(Secondary);

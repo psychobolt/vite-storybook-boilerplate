@@ -16,6 +16,26 @@ export default {
       ...defaults,
       parameters: {
         ...defaults.parameters,
+        docs: {
+          source: {
+            async transform(code) {
+              const prettier = await import('prettier/standalone');
+              const prettierPluginBabel =
+                await import('prettier/plugins/babel');
+              const prettierPluginEstree =
+                await import('prettier/plugins/estree');
+              const prettierPluginHtml = await import('prettier/plugins/html');
+              return prettier.format(code, {
+                parser: 'babel',
+                plugins: [
+                  prettierPluginBabel,
+                  prettierPluginEstree,
+                  prettierPluginHtml
+                ]
+              });
+            }
+          }
+        },
         options: {
           storySort: {
             order: ['Configure your project', 'Readme']

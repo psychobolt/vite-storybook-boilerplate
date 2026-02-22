@@ -1,6 +1,7 @@
+import { html } from 'lit';
+import { queryByRole, expect } from 'storybook/test';
 import {
   type StoryPseudoStateArgs,
-  type VariantStoryObj,
   generatePseudoStateStories
 } from 'commons/esm/.storybook/utils/story-generators.js';
 
@@ -14,22 +15,29 @@ const meta = preview.meta({
   ...primaryMeta.input,
   title: 'Components/Button/Primary/Pseudo States',
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: getPseudoStateArgTypes()
+  argTypes: {
+    ...primaryMeta.input.argTypes,
+    ...getPseudoStateArgTypes()
+  },
+  decorators: [(Story) => html`<div style="padding: 3px">${Story()}</div>`]
 });
 
 export default meta;
 
-type Args = Omit<Props, 'storyPseudo' | 'storyAttr'> & StoryPseudoStateArgs;
+type Args = Partial<Omit<Props, 'storyPseudo' | 'storyAttr'>> &
+  StoryPseudoStateArgs;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary = meta.type<{ args: Args }>().story({
   args: {
-    label: 'Button',
-    primary: true,
     storyPseudo: 'none',
     storyAttr: 'none'
+  },
+  play({ canvasElement }) {
+    const button = queryByRole(canvasElement, 'button');
+    expect(button).toBeTruthy();
   }
 });
 
-export const stories = (template: VariantStoryObj = Primary.input) =>
+export const stories = (template: {} = Primary) =>
   generatePseudoStateStories(template, { showDefault: false });

@@ -10,10 +10,24 @@ import primaryMeta from 'Button/Primary.story';
 
 type Args = Props & StoryPseudoStateProps;
 
+const styles = { padding: '3px' };
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction
 const meta = preview.type<{ args: Args }>().meta({
   ...primaryMeta.input,
   title: 'Components/Button/Primary/Pseudo States',
-  argTypes: getPseudoStateArgTypes(),
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    ...primaryMeta.input.argTypes,
+    ...getPseudoStateArgTypes()
+  },
+  decorators: [
+    (Story) => (
+      <div style={styles}>
+        <Story />
+      </div>
+    )
+  ],
   render: ({ storyPseudo, storyAttr, ...props }) => (
     <Button {...props} {...storyAttr} className={storyPseudo} />
   )

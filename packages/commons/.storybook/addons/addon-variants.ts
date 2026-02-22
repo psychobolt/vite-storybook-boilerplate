@@ -7,71 +7,137 @@ import {
   type Renderer,
   type Meta,
   type Args,
-  isMeta
+  type IncludeExcludeOptions,
+  isMeta,
+  isStory
 } from 'storybook/internal/csf';
+import { CsfFile } from 'storybook/internal/csf-tools';
 import type { Indexer } from 'storybook/internal/types';
 import type { PluginOption } from 'vite';
 import _ from 'lodash';
 
-import type { VariantStoryObj } from '../utils/story-generators.js';
+import type {
+  TemplateStoryObj,
+  VariantStoryObj
+} from '../utils/story-generators.js';
 
 const require = createRequire(import.meta.url);
 
-export type VariantsMeta<TRenderer extends Renderer = Renderer> =
+type VariantsMeta<TRenderer extends Renderer = Renderer> =
   | ComponentAnnotations<TRenderer>
   | Meta<TRenderer>;
 
-export type VariantStory<TArgs = Args> = StoryAnnotations<Renderer, TArgs> & {
+export type VariantStory<
+  TRenderer extends Renderer = Renderer,
+  TArgs = Args
+> = StoryAnnotations<TRenderer, TArgs> & {
   exportName: string;
+  _template?: TemplateStoryObj<TArgs, TRenderer>;
 };
 
-export interface VariantModule {
+type StoryExports = typeof CsfFile.prototype._storyExports;
+
+type VariantModule = StoryExports & {
   default: VariantsMeta;
   stories:
     | Array<VariantStory>
-    | ((stories?: Array<VariantStoryObj>) => Array<VariantStory>);
-}
-
-type TemplateOptions = {
-  stories: Array<VariantStory>;
+    | ((
+        stories?: Array<VariantStoryObj<Args, Renderer>>
+      ) => Array<VariantStory>);
 };
+
+interface TemplateOptions extends IncludeExcludeOptions {
+  csfExports: StoryExports;
+  stories: Array<VariantStory>;
+}
 
 type Template = (options: TemplateOptions) => string;
 
 const getSourceTemplate = (meta: VariantsMeta): Template => {
   const csfVersion = isMeta(meta) ? 4 : 3;
-  return ({ stories }: TemplateOptions) => `
-    ${stories.reduce((prev, { name, args, exportName }) => {
-      let result = `${prev}\n`;
-      switch (csfVersion) {
-        case 4:
-          result += `
-              export const ${exportName} = meta.story({
-                name: '${name}',
-                args: ${JSON.stringify(args)}
-              });
-            `;
-          break;
-        default:
-          result += `
-              export const ${exportName} = {
-                name: '${name}',
-                args: ${JSON.stringify(args)}
-              };
-            `;
-          break;
-      }
-      return result;
-    }, '')}
-  `;
+  return ({ stories, csfExports, excludeStories }: TemplateOptions) => {
+    return `
+      ${stories.reduce((template, { name, exportName, args, _template }) => {
+        if (
+          excludeStories &&
+          (Array.isArray(excludeStories)
+            ? excludeStories.includes(exportName)
+            : excludeStories.test(exportName))
+        ) {
+          return template;
+        }
+
+        const [templateStory] =
+          (_template &&
+            Object.entries(csfExports).find(
+              ([, declaration]) => declaration === _template
+            )) ??
+          [];
+        const {
+          args: _args,
+          exportName: _exportName,
+          ...annotations
+        } = _template
+          ? isStory<Renderer & { args: Args }>(_template)
+            ? _template.input
+            : _template
+          : {};
+
+        const extras: string[] = [];
+        Object.entries(annotations).forEach(([key, value]) => {
+          if (
+            (Array.isArray(value) && value.length) ||
+            (typeof value === 'object' && Object.values(value).length) ||
+            typeof value === 'function'
+          ) {
+            extras.push(key);
+          }
+        });
+        if (!templateStory && extras.length) {
+          console.error(
+            `Variant "${exportName}" is missing extra annotations (${extras.join(', ')}). Expected story template to be exported from the variant file.`
+          );
+        }
+
+        let result = `${template}\n`;
+        switch (csfVersion) {
+          case 4: {
+            const storyFactoryFn = templateStory
+              ? `${templateStory}.extend`
+              : 'meta.story';
+            result += `
+                export const ${exportName} = ${storyFactoryFn}({
+                  name: '${name}',
+                  args: ${JSON.stringify(args)}
+                });
+              `;
+            break;
+          }
+          default: {
+            const spread = templateStory ? `...${templateStory}` : '';
+            result += `
+                export const ${exportName} = {
+                  ${spread}
+                  name: '${name}',
+                  args: ${JSON.stringify(args)}
+                };
+              `;
+            break;
+          }
+        }
+        return result;
+      }, '')}
+    `;
+  };
 };
 
-//https://github.com/vitejs/vite/blob/v7.3.1/packages/vite/src/node/constants.ts#L108
+// Reference: https://github.com/vitejs/vite/blob/v7.3.1/packages/vite/src/node/constants.ts#L108
 export const CSS_LANGS_RE: RegExp =
   /\.(css|less|sass|scss|styl|stylus|pcss|postcss|sss)(?:$|\?)/;
 
 // Reference: https://github.com/vitejs/vite/blob/v7.3.1/packages/vite/src/node/constants.ts#L145
-const KNOWN_ASSET_TYPES = [
+export const KNOWN_ASSET_TYPES: string[] = [
+  // images
   'apng',
   'bmp',
   'png',
@@ -86,6 +152,8 @@ const KNOWN_ASSET_TYPES = [
   'avif',
   'cur',
   'jxl',
+
+  // media
   'mp4',
   'webm',
   'ogg',
@@ -97,14 +165,21 @@ const KNOWN_ASSET_TYPES = [
   'mov',
   'm4a',
   'vtt',
+
+  // fonts
   'woff2?',
   'eot',
   'ttf',
   'otf',
+
+  // other
   'webmanifest',
   'pdf',
   'txt'
 ];
+
+// HTML Plugin: https://github.com/vitejs/vite/blob/v7.3.1/packages/vite/src/node/plugins/html.ts#L67
+const HTML_LANG_RE = /\.(?:html|htm)$/;
 
 const DEFAULT_ASSETS_RE = new RegExp(
   `\\.(` + KNOWN_ASSET_TYPES.join('|') + `)(\\?.*)?$`,
@@ -123,6 +198,7 @@ const importModule = (fileName: string) => {
           url: require.resolve('../mock-api.js')
         };
       } else if (
+        HTML_LANG_RE.test(specifier) ||
         CSS_LANGS_RE.test(specifier) ||
         DEFAULT_ASSETS_RE.test(specifier)
       ) {
@@ -187,14 +263,23 @@ export function vitePluginStorybookVariants(): PluginOption {
       if (!fileMatcher.test(id)) return;
 
       const fileName = require.resolve(id);
-      const { default: meta, stories }: VariantModule = importModule(fileName);
-
+      const {
+        default: meta,
+        stories,
+        ...csfExports
+      }: VariantModule = importModule(fileName);
       const template = getSourceTemplate(meta);
+      const { includeStories, excludeStories } = isMeta(meta)
+        ? meta.input
+        : meta;
 
       return `
         ${readFileSync(fileName, 'utf-8')}
 
         ${template({
+          csfExports,
+          includeStories,
+          excludeStories,
           stories: _.isFunction(stories) ? stories() : stories
         })};
       `;

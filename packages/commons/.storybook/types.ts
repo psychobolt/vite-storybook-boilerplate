@@ -23,7 +23,7 @@ export interface Meta<
   TInput extends Input<TRenderer, TArgs>
 > extends MetaBase<TArgs, TRenderer, TInput> {
   type<
-    T extends Partial<TRenderer>,
+    T extends Pick<TRenderer, 'args'>,
     UArgs extends Omit<TArgs, keyof T['args']> & T['args'] = Omit<
       TArgs,
       keyof T['args']

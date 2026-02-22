@@ -12,6 +12,12 @@ export interface Props extends StoryPseudoStateProps {
   /**
    * Is this the principal call to action on the page?
    */
+  variant?: string;
+  /**
+   * Please use `variant` property
+   *
+   * @deprecated
+   */
   primary?: boolean;
   /**
    * What background color to use
@@ -34,7 +40,8 @@ export interface Props extends StoryPseudoStateProps {
  * Primary UI component for user interaction
  */
 export const Button = ({
-  primary = true,
+  primary,
+  variant = styles.storybookButtonPrimary,
   backgroundColor,
   size = 'medium',
   label,
@@ -42,9 +49,7 @@ export const Button = ({
   storyAttr,
   onClick
 }: Props) => {
-  const mode = primary
-    ? styles.storybookButtonPrimary
-    : styles.storybookButtonSecondary;
+  const mode = primary ? styles.storybookButtonPrimary : variant;
 
   return html`
     <button

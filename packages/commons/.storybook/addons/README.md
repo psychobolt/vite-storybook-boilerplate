@@ -308,7 +308,6 @@ As you can see, we only need to manage one export (`stories`) and the utility wi
 
 > _Note: Also remember to add required metadata and exports as mentioned in [setup](../addons/README.md#setup)._
 
-### Limitations
+### Notes
 
-- `args` properties are serialized to JSON, so their respective values must be resolvable **JSON** types
-- For testing, you must run `test-runner` with [Index.json mode](https://storybook.js.org/docs/writing-tests/test-runner#indexjson-mode). See related [issue](https://github.com/storybookjs/test-runner/issues/262)
+- `args` properties are serialized to JSON, so their respective values must be resolvable **JSON** types. Consider arg [mapping](https://storybook.js.org/docs/essentials/controls#dealing-with-complex-values) for complex values.

@@ -19,7 +19,6 @@ const meta = preview.meta({
   // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args#component-args
   args: {
     label: 'Button',
-    primary: true,
     // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
     onClick: fn()
   },
