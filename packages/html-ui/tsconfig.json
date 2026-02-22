@@ -10,7 +10,10 @@
         }
       }
     ],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      ".storybook/*": ["../.storybook/*"]
+    }
   },
   "include": [".storybook/**/*", "**/*"],
   "references": [{ "path": "../commons/tsconfig.json" }]

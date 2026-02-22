@@ -1,36 +1,76 @@
-import type { Args } from 'storybook/internal/types';
+import { Story, isStory } from 'storybook/internal/csf';
+import type {
+  Args,
+  Renderer,
+  StoryAnnotations
+} from 'storybook/internal/types';
 import type { StringKeyOf } from 'ts-enum-util/dist/types/types.js';
 import { $enum } from 'ts-enum-util';
 import _ from 'lodash';
 
 import type { VariantStory } from '../addons/addon-variants.js';
 
-export interface VariantStoryObj<TArgs> {
-  name?: string;
+export type TemplateStoryObj<
+  TArgs,
+  TRenderer extends Renderer = Renderer & { args: TArgs }
+> =
+  | VariantStoryObj<TArgs, TRenderer>
+  | Story<
+      TRenderer & { args: TArgs },
+      VariantStoryObj<TRenderer['args'] & TArgs, TRenderer & { args: TArgs }>
+    >;
+
+export type VariantStoryObj<
+  TArgs,
+  TRenderer extends Renderer = Renderer & { args: TArgs }
+> = StoryAnnotations<TRenderer, TArgs> & {
   exportName?: string;
-  args?: Partial<TArgs>;
+};
+
+function generateStory<TRenderer extends Renderer, TArgs>(
+  Template: TemplateStoryObj<TArgs, TRenderer>,
+  input: StoryAnnotations<TRenderer & { args: TArgs }, TArgs>
+) {
+  return isStory<TRenderer & { args: TArgs }>(Template)
+    ? { ...Template.extend(input).input, _template: Template }
+    : {
+        ...Template,
+        ...input,
+        args: { ...Template.args, ...input.args },
+        _template: Template
+      };
 }
 
 export type EnumLike<E> = Record<StringKeyOf<E>, string | number>;
 
-export function generateStoriesByEnum<TArgs, E extends EnumLike<E>>(
-  templates: Array<VariantStoryObj<TArgs>>,
+export function generateStoriesByEnum<
+  E extends EnumLike<E> = {},
+  TArgs extends Args = Args,
+  TRenderer extends Renderer & { args: TArgs } = Renderer & { args: TArgs }
+>(
+  templates: Array<TemplateStoryObj<TArgs, TRenderer>>,
   arg: string,
   enumerator: E
 ) {
-  return templates.reduce<Array<VariantStory<TArgs>>>(
+  return templates.reduce<Array<VariantStory<TRenderer, TArgs>>>(
     (variants, story) => [
       ...variants,
-      ...Array.from($enum(enumerator).keys()).map<VariantStory<TArgs>>(
-        (key) => ({
-          name: `${story.name ? story.name + ' - ' : ''}${_.startCase(key)}`,
-          exportName: _.snakeCase(story.name ? `${story.name}_${key}` : key),
-          args: {
-            ...story.args,
-            [arg]: key
-          }
-        })
-      )
+      ...Array.from($enum(enumerator).getKeys()).map<
+        VariantStory<TRenderer, TArgs>
+      >((key) => {
+        const storyName = isStory<TRenderer>(story)
+          ? story.input.name
+          : story.name;
+        return {
+          ...generateStory(story, {
+            name: `${storyName ? storyName + ' - ' : ''}${_.startCase(key)}`,
+            args: {
+              [arg]: key
+            } as TArgs
+          }),
+          exportName: _.snakeCase(storyName ? `${storyName}_${key}` : key)
+        };
+      })
     ],
     []
   );
@@ -57,35 +97,47 @@ export interface PseudoStateOptions<
 interface PseudoStateStoryOptions<
   P extends EnumLike<P>,
   A extends EnumLike<A>,
-  TArgs
+  T
 > extends PseudoStateOptions<P, A> {
-  showDefault?: boolean | VariantStory<TArgs>;
+  showDefault?: boolean | T;
+}
+export interface StoryPseudoStateArgs<
+  P extends EnumLike<P> = typeof DefaultPseudoClsEnum,
+  A extends EnumLike<A> = typeof DefaultStateAttrEnum
+> extends Args {
+  storyPseudo: 'none' | StringKeyOf<P>;
+  storyAttr: 'none' | StringKeyOf<A>;
 }
 
+const pseudoStateArgs: StoryPseudoStateArgs = {
+  storyPseudo: 'none',
+  storyAttr: 'none'
+};
+
 export const generatePseudoStateStories = <
-  TArgs,
-  P extends EnumLike<P>,
-  A extends EnumLike<A>
+  P extends EnumLike<P> = typeof DefaultPseudoClsEnum,
+  A extends EnumLike<A> = typeof DefaultStateAttrEnum,
+  TArgs extends StoryPseudoStateArgs<P, A> = StoryPseudoStateArgs<P, A>,
+  TRenderer extends Renderer & { args: TArgs } = Renderer & { args: TArgs }
 >(
-  Template: VariantStoryObj<TArgs> | VariantStory<TArgs>,
+  Template: TemplateStoryObj<TArgs, TRenderer>,
   {
     showDefault,
     pseudoClasses,
     stateAttributes
-  }: PseudoStateStoryOptions<P, A, TArgs> = {}
+  }: PseudoStateStoryOptions<P, A, typeof Template> = {}
 ) => [
-  ...[
-    showDefault ?? {
-      name: 'Default',
-      exportName: 'Default',
-      ...Template,
-      args: {
-        ...Template.args,
-        storyPseudo: 'none',
-        storyAttr: 'none'
-      }
-    }
-  ].filter(<T>(story: T | boolean): story is T => story !== false),
+  ...(showDefault !== false
+    ? [
+        {
+          name: 'Default',
+          exportName: 'Default',
+          ...generateStory(typeof showDefault === 'object' ? showDefault : {}, {
+            args: pseudoStateArgs as unknown as TArgs
+          })
+        }
+      ]
+    : []),
   ...generateStoriesByEnum(
     [Template],
     'storyPseudo',
@@ -97,14 +149,6 @@ export const generatePseudoStateStories = <
     stateAttributes || DefaultStateAttrEnum
   )
 ];
-
-export interface StoryPseudoStateArgs<
-  P = typeof DefaultPseudoClsEnum,
-  A = typeof DefaultStateAttrEnum
-> extends Args {
-  storyPseudo: 'none' | keyof P;
-  storyAttr: 'none' | keyof A;
-}
 
 export interface StoryPseudoStateProps {
   storyPseudo?: string;

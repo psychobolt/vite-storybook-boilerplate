@@ -1,17 +1,19 @@
-import type { Preview } from '@storybook/react-vite';
-import commonConfig from 'commons/esm/.storybook/preview';
+import { type ReactTypes, definePreview } from '@storybook/react-vite';
+import { withDefaults } from 'commons/esm/.storybook/preview';
 
-const preview: Preview = {
-  ...commonConfig,
-  parameters: {
-    ...commonConfig.parameters,
-    options: {
-      ...commonConfig.parameters?.options,
-      storySort: {
-        order: ['Configure your project', 'Readme']
-      }
-    }
-  }
+export default {
+  ...withDefaults<ReactTypes>(
+    (defaults) =>
+      definePreview({
+        ...defaults,
+        parameters: {
+          ...defaults.parameters,
+          options: {
+            storySort: {
+              order: ['Configure your project', 'Readme']
+            }
+          }
+        }
+      }) as any
+  )
 };
-
-export default preview;

@@ -14,6 +14,10 @@ import {
 } from 'vite';
 
 import postcssConfig from './postcss.config.js';
+import {
+  storybookVariantsIndexer,
+  vitePluginStorybookVariants
+} from './addons/addon-variants.js';
 
 interface ResolveConfig {
   alias?: Alias[];
@@ -43,7 +47,7 @@ export const mainDir = '@(src|stories)';
 
 export const stories = [
   `../${mainDir}/**/*.@(story|stories).@(js|jsx|ts|tsx)`,
-  `../${mainDir}/**/*.mdx`
+  `../${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`
 ];
 
 const resolveConfig: ResolveOptions & ResolveConfig = {
@@ -61,13 +65,17 @@ const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
 
 const addonDocs = getAbsolutePath('@storybook/addon-docs');
 
-export type StorybookViteCommonConfig = StorybookConfig &
-  Required<Pick<StorybookConfig, 'addons'>> &
-  Required<Pick<StorybookAddonConfig, 'managerEntries'>> &
-  Required<StorybookConfigVite>;
+type Core = Pick<StorybookConfig, 'core'>['core'];
+type CoreConfig = Omit<NonNullable<Exclude<Core, Function>>, 'builder'>;
 
-export const config: StorybookViteCommonConfig = {
-  stories,
+export type StorybookViteCommonConfig = Omit<StorybookConfig, 'core'> &
+  Required<Pick<StorybookConfig, 'addons'>> &
+  Required<Pick<StorybookAddonConfig, 'managerEntries'>> & {
+    core?: CoreConfig | Exclude<Core, CoreConfig>;
+  } & Required<StorybookConfigVite>;
+
+export default {
+  stories: [...stories, `../${mainDir}/**/*.mdx`],
   addons: [
     getAbsolutePath('@storybook/addon-onboarding', resolveConfig),
     getAbsolutePath('@storybook/addon-links', resolveConfig),
@@ -77,15 +85,20 @@ export const config: StorybookViteCommonConfig = {
       : [getAbsolutePath('@chromatic-com/storybook')])
   ],
   managerEntries: [join(getAbsolutePath('storybook-zeplin'), 'register.js')],
+  experimental_indexers: (existingIndexers = []) => [
+    ...existingIndexers,
+    storybookVariantsIndexer()
+  ],
   build: {
     test: {
-      disabledAddons: [addonDocs]
+      disableAutoDocs: true
     }
   },
   viteFinal(config, { configType }) {
     let finalConfig = mergeConfig(
       config,
       defineConfig({
+        plugins: [vitePluginStorybookVariants()],
         resolve: {
           ...resolveConfig,
           conditions: [
@@ -125,4 +138,4 @@ export const config: StorybookViteCommonConfig = {
 
     return finalConfig;
   }
-};
+} satisfies StorybookViteCommonConfig;

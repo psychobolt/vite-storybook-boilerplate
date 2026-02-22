@@ -8,6 +8,7 @@
 		"check:watch": "yarn check --watch",
 		"dev": "vite dev --open",
 		"format": "yarn g:format",
+		"g:svelte-language-server-path": "yarn node -p \"require.resolve('svelte-language-server')\"",
 		"lint": "yarn g:prettier --check . && yarn check && lint --runner stylelint --runner eslint",
 		"start": "vite preview"
 	},

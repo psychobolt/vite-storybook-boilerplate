@@ -1,38 +1,43 @@
-import type { StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
+import { queryByRole, expect } from 'storybook/test';
 import {
   type StoryPseudoStateArgs,
-  type VariantStoryObj,
   generatePseudoStateStories
 } from 'commons/esm/.storybook/utils/story-generators.js';
 
+import preview from '.storybook/preview';
 import { getPseudoStateArgTypes } from 'utils/functions';
 import type { Props } from 'Button';
+import primaryMeta from 'Button/Primary.story';
 
-export type Meta = VariantsMeta<Props>;
-
-export const meta = {
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction
+const meta = preview.meta({
+  ...primaryMeta.input,
   title: 'Components/Button/Primary/Pseudo States',
-  fileName: 'Button',
-  importName: 'Button',
-  tags: ['autodocs'],
-  decorators: [(Story) => html`<div style="padding: 3px">${Story()}</div>`],
-  argTypes: getPseudoStateArgTypes()
-} satisfies Meta;
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    ...primaryMeta.input.argTypes,
+    ...getPseudoStateArgTypes()
+  },
+  decorators: [(Story) => html`<div style="padding: 3px">${Story()}</div>`]
+});
 
-type Args = Omit<Props, 'storyPseudo' | 'storyAttr'> & StoryPseudoStateArgs;
+export default meta;
 
-export type Story = StoryObj<Args> & VariantStoryObj<Args>;
+type Args = Partial<Omit<Props, 'storyPseudo' | 'storyAttr'>> &
+  StoryPseudoStateArgs;
 
-export const Primary: Story = {
+// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+export const Primary = meta.type<{ args: Args }>().story({
   args: {
-    label: 'Button',
-    primary: true,
     storyPseudo: 'none',
     storyAttr: 'none'
+  },
+  play({ canvasElement }) {
+    const button = queryByRole(canvasElement, 'button');
+    expect(button).toBeTruthy();
   }
-};
+});
 
-export const stories = (template = Primary) =>
+export const stories = (template: {} = Primary) =>
   generatePseudoStateStories(template, { showDefault: false });
