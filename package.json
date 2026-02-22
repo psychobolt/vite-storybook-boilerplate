@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "1.52.0",
-    "@playwright/mcp": "0.0.68",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.11",
     "@types/glob-to-regexp": "0.4.4",
@@ -47,6 +46,7 @@
     "playwright": "1.58.2",
     "renovate": "43.31.1",
     "semver": "7.7.4",
+    "svelte-language-server": "0.17.28",
     "turbo": "2.8.10",
     "typescript": "5.9.3",
     "yaml": "2.8.2"

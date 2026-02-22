@@ -28,13 +28,13 @@ export default {
   ],
   experimental_indexers: (existingIndexers) => [
     ...existingIndexers,
-    storybookVariantsIndexer<Meta>() // you can pass a custom regex e.g. /.variantstories.[jt]sx?$/
+    storybookVariantsIndexer()
   ],
   viteFinal: (config, options) =>
     mergeConfig(
       config,
       defineConfig({
-        plugins: [vitePluginStorybookVariants<Meta>('lit')] // frameworks: "lit"
+        plugins: [vitePluginStorybookVariants()]
       })
     )
 };
@@ -46,10 +46,8 @@ See main [docs](../../README.md#eslint-1) for more info.
 
 ```ts
 import { defineConfig } from 'eslint/config';
-import { mainDir } from 'commons/esm/.storybook/vite-main.js';
+import { stories } from 'commons/esm/.storybook/vite-main.js';
 import storybookConfig from 'commons/esm/.storybook/eslint.config.js';
-
-const variantFiles = `${mainDir}/**/*.variant{s,}.@(js|jsx|ts|tsx)`;
 
 export default defineConfig(
   storybookConfig.map((config) => {
@@ -57,19 +55,14 @@ export default defineConfig(
       case 'storybook:recommended:stories-rules':
         return {
           ...config,
-          files: [
-            `${mainDir}/**/*.@(story|stories).@(js|jsx|ts|tsx)`,
-            variantFiles
-          ]
+          files: stories
         };
       default:
         return config;
     }
   }),
   {
-    files: [variantFiles],
     rules: {
-      'storybook/default-exports': 0,
       'storybook/prefer-pascal-case': 0
     }
   }
@@ -78,25 +71,34 @@ export default defineConfig(
 
 ### Usage
 
+#### CSF3
+
 ```ts
 // MyComponent.variants.ts
-import type { StoryObj } from '@storybook/web-components-vite';
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/vite-plugin-storybook-variants.js';
+import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import {
   type VariantStoryObj,
   generateStories
 } from 'commons/esm/.storybook/utils/story-generators.js';
 
-import type { Props } from './MyComponent.ts';
+import { type Props, MyComponent as Component } from './MyComponent.ts';
 
-export const meta = {
-  title: 'Components/MyComponent', // required
-  fileName: './MyComponent.ts', // required
-  importName: 'MyComponent' // required
+const meta = {
+  title: 'Components/MyComponent',
+  component: Component
   // ...
-} satisfies VariantMeta<Props>;
+} satisfies Meta<Props>;
 
-type Story = StoryObj<typeof Props> & VariantStoryObj<Props>;
+export default meta;
+
+type Story = StoryObj<Props>; // & VariantStoryObj<Props>; - (optional) Should you need to use your own generated `exportName` that is different than `MyComponent` e.g.
+/* 
+export const MyComponent: Story = {
+  name: 'My Component (Default)'
+  exportName: 'MyComponent_Default'
+  // ...
+};
+*/
 
 export const MyComponent: Story = {
   name: 'My Component (Default)'
@@ -142,6 +144,53 @@ export const stories = () =>
  **/
 ```
 
+#### CSF4 (Experimental)
+
+```ts
+// MyComponent.variants.ts
+import {
+  type VariantStoryObj,
+  generateStories
+} from 'commons/esm/.storybook/utils/story-generators.js';
+
+import preview from '.storybook/preview';
+import { MyComponent as Component } from './MyComponent.ts';
+
+const meta = preview.meta({
+  title: 'Components/MyComponent',
+  component: Component
+  // ...
+});
+
+export default meta;
+
+export const MyComponent = meta.story({
+  name: 'My Component (Default)'
+  // ...
+});
+
+export const MyComponentDisabled = meta.story({
+  name: 'My Component (Disabled)',
+  args: {
+    disabled: true
+  }
+});
+
+export enum SizeEnum {
+  small,
+  medium,
+  large
+}
+
+// required
+export const stories = () =>
+  generateStoriesByEnum<Props, typeof SizeEnum>(
+    [MyComponent.input, MyComponentDisabled.input],
+    'size', // prop name
+    SizeEnum
+  );
+```
+
 ### Motivation
 
 For example, let's say you want to map a Story `arg` to your component prop `state` to support a matrix of UI states:
@@ -158,7 +207,7 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 import { type Props, MyComponent } from './my-component';
 
-/* CSF Declarations */
+/* CSF3 Declarations */
 const meta = {
   title: 'Components/MyComponent',
   tags: ['autodocs'],
@@ -193,7 +242,7 @@ const Closed: Story = {
   }
 };
 
-/* CSF Story exports begin */
+/* CSF3 Story exports begin */
 export const T1: Story = {
   name: 'Open (Active)',
   args: {
@@ -259,9 +308,6 @@ As you can see, we only need to manage one export (`stories`) and the utility wi
 
 > _Note: Also remember to add required metadata and exports as mentioned in [setup](../addons/README.md#setup)._
 
-### Limitations
+### Notes
 
-- `default` export and `exportName: 'default'` is not allowed for variant files or Story templates
-- Direct imports to component files should be avoided (except for type references)
-- `args` properties are serialized to JSON, so please be careful of **non-JSON** types
-- For testing, you must run `test-runner` with [Index.json mode](https://storybook.js.org/docs/writing-tests/test-runner#indexjson-mode). See related [issue](https://github.com/storybookjs/test-runner/issues/262)
+- `args` properties are serialized to JSON, so their respective values must be resolvable **JSON** types. Consider arg [mapping](https://storybook.js.org/docs/essentials/controls#dealing-with-complex-values) for complex values.

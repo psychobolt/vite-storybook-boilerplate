@@ -1,25 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
 import { within } from 'storybook/test';
 
+import preview from '.storybook/preview';
 import { userEventSession } from 'utils/test/functions';
 import { Page } from './Page';
 
-const meta = {
+const meta = preview.meta({
   title: 'Example/Page',
-  component: Page,
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
+    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: 'fullscreen'
-  }
-} satisfies Meta<typeof Page>;
+  },
+  component: Page
+});
 
 export default meta;
-type Story = StoryObj<typeof Page>;
 
-export const LoggedOut: Story = {};
+export const LoggedOut = meta.story();
 
-// More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
-export const LoggedIn: Story = {
+// More on interaction testing: https://storybook.js.org/docs/writing-tests/interaction-testing
+export const LoggedIn = meta.story({
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const loginButton = canvas.getByRole('button', {
@@ -28,4 +27,4 @@ export const LoggedIn: Story = {
     const user = userEventSession();
     await user.click(loginButton);
   }
-};
+});

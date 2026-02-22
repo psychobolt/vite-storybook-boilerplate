@@ -7,6 +7,7 @@
     "module": "Preserve",
     "moduleResolution": "Bundler",
     "useDefineForClassFields": true,
+    "erasableSyntaxOnly": false,
     "noEmit": true,
     "allowImportingTsExtensions": true
   },
