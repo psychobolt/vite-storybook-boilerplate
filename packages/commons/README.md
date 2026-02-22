@@ -227,7 +227,7 @@ export default preview;
 
 ###### With Defaults
 
-Resolves the preview to the base annotations so you can forward `meta` and `story` input(s) without `extend()`. In addition, enhances to the `meta` API with `.type<T>()`.
+Resolves the preview to the base annotations so you can forward `meta` and `story` input(s) without `extend()`. In addition, enhances the `meta` API with [.type<T>()](https://storybook.js.org/docs/api/csf/csf-next#previewtypemeta).
 
 /your/project.storybook/preview.ts
 
