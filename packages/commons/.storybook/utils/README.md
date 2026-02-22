@@ -163,13 +163,10 @@ export default meta;
 
 type Args = Omit<Props, 'storyPseudo' | 'storyAttr'> & StoryPseudoStateArgs;
 
-export const Default =
-  meta.type <
-  { args: Args } >
-  type().story({
-    args: {
-      storyAttr: 'none',
-      storyPseudo: 'none'
-    }
-  });
+export const Default = meta.type<{ args: Args }>().story({
+  args: {
+    storyAttr: 'none',
+    storyPseudo: 'none'
+  }
+});
 ```
