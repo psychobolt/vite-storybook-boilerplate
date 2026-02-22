@@ -51,7 +51,7 @@ import type {
 
 const meta = {
   title: 'Components/My Component',
-  component: MyComponent
+  render: MyComponent
   // ...
 } satisfies Meta<Props>;
 
@@ -78,7 +78,7 @@ import { MyComponent } from './my-component';
 
 const meta = preview.meta({
   title: 'Components/My Component',
-  component: MyComponent
+  render: MyComponent
 });
 
 type Story = VariantStoryObj<Props>;
@@ -106,28 +106,40 @@ Ideally used with [generatePseudoStateStories](#default-pseudo-state-stories).
 
 - `pseudoClasses` Similar to `generatePseudoStateStories`, if you decided to override the defaults, you will need to override them here as well.
 - `stateAttributes` Ditto
-- `argStateAttrMapper` (Default: `(attributes) => attributes`) By default, the Story input type for `stateAttributes` will be [mapped](https://storybook.js.org/docs/api/arg-types#mapping) and passed to the Story's `render` as a list of `props`. You can use this option to augment the respective key or value for each available attribute.
+- `argStateAttrMapper` (Default: `(attributes) => attributes`) By default, the Story input type for `stateAttributes` will be [mapped](https://storybook.js.org/docs/api/arg-types#mapping) and passed to the Story's `render` or `component` as a list of `props`. You can use this option to augment the respective key or value for each available attribute.
 
-#### Usage
+#### Basic Usage
 
 ##### CSF3
 
 ```ts
 // my-component.story.ts
-import type { Meta } from '@storybook/web-components-vite';
-
+import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { type StoryPseudoStateArgs } from 'commons/esm/.storybook/utils/story-generators.js';
 import { getPseudoStateArgTypes } from 'commons/esm/.storybook/utils/functions.js';
+
 import type { Props } from './my-component';
 
 const meta = {
-  /* ... */
+  // ...
   argTypes: {
-    /* ... */
+    // ...
     ...getPseudoStateArgTypes(/* options */)
   }
 } satisfies Meta<Props>;
 
 export default meta;
+
+type Story = StoryObj<
+  Omit<Props, 'storyPseudo' | 'storyAttr'> & StoryPseudoStateArgs
+>;
+
+export const Default: Story = {
+  args: {
+    storyAttr: 'none',
+    storyPseudo: 'none'
+  }
+};
 ```
 
 ##### CSF4 (Experimental)
@@ -137,13 +149,25 @@ export default meta;
 import preview from '.storybook/preview';
 import { getPseudoStateArgTypes } from 'commons/esm/.storybook/utils/functions.js';
 
+import type { Props } from './my-component';
+
 const meta = preview.meta({
-  /* ... */
+  // ...
   argTypes: {
-    /* ... */
+    // ...
     ...getPseudoStateArgTypes(/* options */)
   }
 });
 
 export default meta;
+
+type Args = Omit<Props, 'storyPseudo' | 'storyAttr'> & StoryPseudoStateArgs;
+
+export const Default = meta.type<{ args: Args }>;
+type().story({
+  args: {
+    storyAttr: 'none',
+    storyPseudo: 'none'
+  }
+});
 ```

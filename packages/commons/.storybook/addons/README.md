@@ -306,8 +306,6 @@ export const stories = () =>
 
 As you can see, we only need to manage one export (`stories`) and the utility will generate a flat list of matrix stories for the Storybook addon renderer. This removes complexity in structuring Story using the default [Component Story Format](https://github.com/ComponentDriven/csf).
 
-> _Note: Also remember to add required metadata and exports as mentioned in [setup](../addons/README.md#setup)._
-
 ### Notes
 
 - `args` properties are serialized to JSON, so their respective values must be resolvable **JSON** types. Consider arg [mapping](https://storybook.js.org/docs/essentials/controls#dealing-with-complex-values) for complex values.
