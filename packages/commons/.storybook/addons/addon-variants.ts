@@ -14,7 +14,6 @@ import {
 import { CsfFile } from 'storybook/internal/csf-tools';
 import type { Indexer } from 'storybook/internal/types';
 import type { PluginOption } from 'vite';
-import _ from 'lodash';
 
 import type {
   TemplateStoryObj,
@@ -47,17 +46,32 @@ type VariantModule = StoryExports & {
 };
 
 interface TemplateOptions extends IncludeExcludeOptions {
+  fileName: string;
   csfExports: StoryExports;
   stories: Array<VariantStory>;
 }
 
 type Template = (options: TemplateOptions) => string;
 
+const INVALID_ARG_VALUES = /\s*undefined\s*/;
+
 const getSourceTemplate = (meta: VariantsMeta): Template => {
   const csfVersion = isMeta(meta) ? 4 : 3;
-  return ({ stories, csfExports, excludeStories }: TemplateOptions) => {
+  return ({
+    fileName,
+    stories,
+    csfExports,
+    excludeStories
+  }: TemplateOptions) => {
+    const logError = (e: unknown) =>
+      console.error(
+        `Failed to generate variant story "${fileName}". See error bellow:\n\t%s\n`,
+        e
+      );
     return `
-      ${stories.reduce((template, { name, exportName, args, _template }) => {
+      ${stories.reduce((template, story) => {
+        const { name, exportName, args = {}, _template } = story;
+
         if (
           excludeStories &&
           (Array.isArray(excludeStories)
@@ -68,11 +82,9 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
         }
 
         const [templateStory] =
-          (_template &&
-            Object.entries(csfExports).find(
-              ([, declaration]) => declaration === _template
-            )) ??
-          [];
+          Object.entries(csfExports).find(
+            ([, declaration]) => declaration === (_template ?? story)
+          ) ?? [];
         const {
           args: _args,
           exportName: _exportName,
@@ -82,6 +94,22 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
             ? _template.input
             : _template
           : {};
+
+        let stringArgs = JSON.stringify(args, (key, value) => {
+          if (
+            (key in args && typeof value === 'undefined') ||
+            (typeof value === 'string' && INVALID_ARG_VALUES.test(value))
+          ) {
+            if (templateStory) {
+              return;
+            } else {
+              logError(
+                `Variant "${exportName}" is using a template arg ${key} with non-JSON parseable construct. Consider hoisting arg to "meta" or exporting the template.`
+              );
+            }
+          }
+          return value;
+        });
 
         const extras: string[] = [];
         Object.entries(annotations).forEach(([key, value]) => {
@@ -94,7 +122,7 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
           }
         });
         if (!templateStory && extras.length) {
-          console.error(
+          logError(
             `Variant "${exportName}" is missing extra annotations (${extras.join(', ')}). Expected story template to be exported from the variant file.`
           );
         }
@@ -108,18 +136,22 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
             result += `
                 export const ${exportName} = ${storyFactoryFn}({
                   name: '${name}',
-                  args: ${JSON.stringify(args)}
+                  args: ${stringArgs}
                 });
               `;
             break;
           }
           default: {
-            const spread = templateStory ? `...${templateStory}` : '';
+            let spread = '';
+            if (templateStory) {
+              spread = `...${templateStory},`;
+              stringArgs = `{ ...${templateStory}.args, ...${stringArgs} }`;
+            }
             result += `
                 export const ${exportName} = {
                   ${spread}
                   name: '${name}',
-                  args: ${JSON.stringify(args)}
+                  args: ${stringArgs}
                 };
               `;
             break;
@@ -178,13 +210,11 @@ export const KNOWN_ASSET_TYPES: string[] = [
   'txt'
 ];
 
-// HTML Plugin: https://github.com/vitejs/vite/blob/v7.3.1/packages/vite/src/node/plugins/html.ts#L67
-const HTML_LANG_RE = /\.(?:html|htm)$/;
-
 const DEFAULT_ASSETS_RE = new RegExp(
   `\\.(` + KNOWN_ASSET_TYPES.join('|') + `)(\\?.*)?$`,
   'i'
 );
+const RAW_ASSET_RE = /\?raw$/;
 const STORYBOOK_PREVIEW_RE = /\.storybook\/preview(\.[cm]?[tj]s|[tj]sx)?$/;
 
 const importModule = (fileName: string) => {
@@ -198,7 +228,7 @@ const importModule = (fileName: string) => {
           url: require.resolve('../mock-api.js')
         };
       } else if (
-        HTML_LANG_RE.test(specifier) ||
+        RAW_ASSET_RE.test(specifier) ||
         CSS_LANGS_RE.test(specifier) ||
         DEFAULT_ASSETS_RE.test(specifier)
       ) {
@@ -215,7 +245,7 @@ const importModule = (fileName: string) => {
         return {
           format: 'module',
           shortCircuit: true,
-          source: ''
+          source: `export default "";`
         };
       }
       return nextLoad(url, context);
@@ -229,7 +259,6 @@ const importModule = (fileName: string) => {
 };
 
 const fileMatcher: RegExp = /\.variants?\.[jt]sx?$/;
-
 export const storybookVariantsIndexer: () => Indexer = () => ({
   test: fileMatcher,
   async createIndex(fileName) {
@@ -238,7 +267,12 @@ export const storybookVariantsIndexer: () => Indexer = () => ({
       const { default: meta, stories }: VariantModule = importModule(fileName);
       const { title, tags: metaTags = [] } = isMeta(meta) ? meta.input : meta;
 
-      return (_.isFunction(stories) ? stories() : stories).map(
+      if (typeof stories === 'undefined') {
+        throw new Error('The "stories" export is undefined.');
+        return [];
+      }
+
+      return (typeof stories === 'function' ? stories() : stories).map(
         ({ name, exportName, tags = [] }) => ({
           type: 'story',
           title,
@@ -250,7 +284,10 @@ export const storybookVariantsIndexer: () => Indexer = () => ({
         })
       );
     } catch (e) {
-      console.error(e);
+      console.error(
+        `Failed to index variant story "${fileName}". See error bellow:\n\t%s\n`,
+        e
+      );
       return [];
     }
   }
@@ -277,10 +314,11 @@ export function vitePluginStorybookVariants(): PluginOption {
         ${readFileSync(fileName, 'utf-8')}
 
         ${template({
+          fileName,
           csfExports,
           includeStories,
           excludeStories,
-          stories: _.isFunction(stories) ? stories() : stories
+          stories: typeof stories === 'function' ? stories() : stories
         })};
       `;
     }

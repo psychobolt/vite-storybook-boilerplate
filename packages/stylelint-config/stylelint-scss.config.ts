@@ -10,6 +10,13 @@ const config: Config = {
   ],
   rules: {
     ...orderRules,
+    // See https://github.com/stylelint-scss/stylelint-config-recommended-scss/pull/373
+    'no-invalid-position-declaration': [
+      true,
+      {
+        ignoreAtRules: ['mixin']
+      }
+    ],
     'selector-pseudo-class-no-unknown': [
       true,
       {
