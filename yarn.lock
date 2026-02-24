@@ -19664,7 +19664,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:17.0.0"
     svelte: "npm:5.53.3"
     svelte-check: "npm:4.4.3"
-    svelte-eslint-parser: "npm:1.4.1"
+    svelte-eslint-parser: "npm:1.5.0"
     svelte-language-server: "npm:0.17.28"
     turbo: "npm:2.8.10"
     typescript: "npm:5.9.3"
@@ -19691,7 +19691,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-eslint-parser@npm:1.4.1, svelte-eslint-parser@npm:^1.4.0":
+"svelte-eslint-parser@npm:1.5.0":
+  version: 1.5.0
+  resolution: "svelte-eslint-parser@npm:1.5.0"
+  dependencies:
+    eslint-scope: "npm:^8.2.0"
+    eslint-visitor-keys: "npm:^4.0.0"
+    espree: "npm:^10.0.0"
+    postcss: "npm:^8.4.49"
+    postcss-scss: "npm:^4.0.9"
+    postcss-selector-parser: "npm:^7.0.0"
+  peerDependencies:
+    svelte: ^3.37.0 || ^4.0.0 || ^5.0.0
+  peerDependenciesMeta:
+    svelte:
+      optional: true
+  checksum: 10c0/74aa213410b5fbeaca5d1f7c57e3d6669f89a17cda9b2c3b58f7e4b3d47ad47ca72c844318ee85560d8af20615cff30fa83f83d2f7b2c2e996b2131b6a314a07
+  languageName: node
+  linkType: hard
+
+"svelte-eslint-parser@npm:^1.4.0":
   version: 1.4.1
   resolution: "svelte-eslint-parser@npm:1.4.1"
   dependencies:
