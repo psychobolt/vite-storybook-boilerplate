@@ -42,7 +42,7 @@
 		"stylelint-config-standard-scss": "17.0.0",
 		"svelte": "5.53.3",
 		"svelte-check": "4.4.3",
-		"svelte-eslint-parser": "1.5.0",
+		"svelte-eslint-parser": "1.5.1",
 		"svelte-language-server": "0.17.28",
 		"turbo": "2.8.10",
 		"typescript": "5.9.3",
