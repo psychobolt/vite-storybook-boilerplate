@@ -11519,14 +11519,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:13.0.4":
-  version: 13.0.4
-  resolution: "glob@npm:13.0.4"
+"glob@npm:13.0.5":
+  version: 13.0.5
+  resolution: "glob@npm:13.0.5"
   dependencies:
     minimatch: "npm:^10.2.1"
     minipass: "npm:^7.1.2"
     path-scurry: "npm:^2.0.0"
-  checksum: 10c0/cf380e68f5c64ab8c52f977c74b7e9affb3d589cfbf663f89baa681468abe97508043be549562f7c4b3f4088ac298902321af9d4ba8e42762bac041add0fed47
+  checksum: 10c0/1388527676127f337877eaf3403d6c54d3fa5e5599e10c1532d73108435b4da66d8fff4b00eb5b306388090a180c6a92d70694df1c19171cf820e285fb1dfee5
   languageName: node
   linkType: hard
 
@@ -17637,9 +17637,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.32.2":
-  version: 43.32.2
-  resolution: "renovate@npm:43.32.2"
+"renovate@npm:43.33.0":
+  version: 43.33.0
+  resolution: "renovate@npm:43.33.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.992.0"
     "@aws-sdk/client-ec2": "npm:3.992.0"
@@ -17709,7 +17709,7 @@ __metadata:
     fs-extra: "npm:11.3.3"
     git-url-parse: "npm:16.1.0"
     github-url-from-git: "npm:1.5.0"
-    glob: "npm:13.0.4"
+    glob: "npm:13.0.5"
     global-agent: "npm:3.0.0"
     google-auth-library: "npm:10.5.0"
     got: "npm:14.6.6"
@@ -17772,7 +17772,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/8fa88e4cc85f07349b95cbbab2f825dea8eb2ac730a59b8e3d5716fa802fdee6f9efdad8c18aac5886f4c341274095913f7689e9db7460af8c170ade7490f940
+  checksum: 10c0/28f8f09574b00b3ee69601d254430d0193598f34f2c6cf038d31ec669e3a2c82c4a54ca6c49d7e36e20b28f589219aa1365294ac0763562f94806ffaaf6c6dbc
   languageName: node
   linkType: hard
 
@@ -21098,7 +21098,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.32.2"
+    renovate: "npm:43.33.0"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.28"
     turbo: "npm:2.8.10"
