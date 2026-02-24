@@ -1,18 +1,16 @@
-import {
-  type Preview,
-  type ReactTypes,
-  definePreview
-} from '@storybook/react-vite';
+import { type ReactTypes, definePreview } from '@storybook/react-vite';
+import type { ProjectAnnotations } from 'storybook/internal/csf';
 import { withDefaults } from 'commons/esm/.storybook/preview';
 
 // See issue: https://github.com/storybookjs/storybook/issues/33798
-const parameters: Preview['parameters'] = {
+type Parameters = ProjectAnnotations<ReactTypes & { csf4: true }>['parameters'];
+const parameters: unknown = {
   options: {
     storySort: {
       order: ['Configure your project', 'Readme']
     }
   }
-};
+} as Parameters;
 
 export default {
   parameters,
@@ -22,7 +20,7 @@ export default {
         ...defaults,
         parameters: {
           ...defaults.parameters,
-          ...parameters
+          ...(parameters as Parameters)
         }
       }) as any
   )
