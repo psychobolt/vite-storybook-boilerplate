@@ -44,6 +44,7 @@
     "postcss-scss": "4.0.9",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "storybook-multilevel-sort": "2.1.0",
     "storybook-zeplin": "3.0.0",
     "ts-enum-util": "4.1.0",
     "vite-tsconfig-paths": "6.1.1"

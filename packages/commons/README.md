@@ -186,9 +186,17 @@ export default defineConfig(storybookConfig, {
    /your/project/.storybook/main.ts
 
    ```ts
-   import commonConfig from 'commons/esm/.storybook/vite-main.js';
+   import commonConfig, {
+     configureSort
+   } from 'commons/esm/.storybook/vite-main.js';
 
    import { defineConfig } from '@storybook/your-framework/node';
+
+   /* 
+      Opt in to sort all your story groupings in Alphabetical order.
+      See configuration details: https://www.npmjs.com/package/storybook-multilevel-sort
+   */
+   configureSort(/* ... */);
 
    export default defineConfig({
      ...commonConfig
@@ -218,7 +226,15 @@ import { definePreview } from '@storybook/react-vite';
 import { input } from 'commons/esm/.storybook/preview';
 
 const preview = definePreview({
-  ...input
+  ...input,
+  parameters: {
+    ...input.parameters,
+    options: {
+      // @ts-expect-error See issue: https://github.com/storybookjs/storybook/issues/30429
+      storySort: (a, b) =>
+        globalThis['storybook-multilevel-sort:storySort'](a, b)
+    }
+  }
   // ...
 });
 
@@ -238,7 +254,15 @@ import { withDefaults } from '.storybook/preview';
 
 const preview = withDefaults((defaults) =>
   definePreview({
-    ...defaults
+    ...defaults,
+    parameters: {
+      ...defaults.parameters,
+      options: {
+        // @ts-expect-error See issue: https://github.com/storybookjs/storybook/issues/30429
+        storySort: (a, b) =>
+          globalThis['storybook-multilevel-sort:storySort'](a, b)
+      }
+    }
     // ...
   })
 );

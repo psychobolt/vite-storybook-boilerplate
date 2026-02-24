@@ -17,9 +17,8 @@ type Parameters = ProjectAnnotations<
 >['parameters'];
 const parameters: unknown = {
   options: {
-    storySort: {
-      order: ['Configure your project', 'Readme']
-    }
+    // @ts-expect-error See issue: https://github.com/storybookjs/storybook/issues/30429
+    storySort: (a, b) => globalThis['storybook-multilevel-sort:storySort'](a, b)
   }
 } as Parameters;
 
