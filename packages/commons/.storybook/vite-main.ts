@@ -6,6 +6,7 @@ import type {
   CoreCommon_ResolvedAddonVirtual as StorybookAddonConfig
 } from 'storybook/internal/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
+import * as sortAddon from 'storybook-multilevel-sort';
 import {
   type ResolveOptions,
   type Alias,
@@ -42,6 +43,19 @@ export function getAbsolutePath(
   }
   return absolutePath;
 }
+
+export const configureSort: typeof sortAddon.configureSort = (config) =>
+  sortAddon.configureSort({
+    compareNames(name1, name2, context) {
+      if (context.path1.pop() === name1 && context.path2.pop() === name2) {
+        return 0;
+      }
+      return name1.localeCompare(name2, undefined, {
+        numeric: true
+      }) as sortAddon.CompareResult;
+    },
+    ...config
+  });
 
 export const mainDir = '@(src|stories)';
 

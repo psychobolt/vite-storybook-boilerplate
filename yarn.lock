@@ -8735,6 +8735,7 @@ __metadata:
     react-dom: "npm:19.2.4"
     rimraf: "npm:6.1.3"
     storybook: "npm:10.2.12"
+    storybook-multilevel-sort: "npm:2.1.0"
     storybook-zeplin: "npm:3.0.0"
     stylelint: "npm:17.3.0"
     ts-enum-util: "npm:4.1.0"
@@ -18963,6 +18964,13 @@ __metadata:
     es-errors: "npm:^1.3.0"
     internal-slot: "npm:^1.1.0"
   checksum: 10c0/de4e45706bb4c0354a4b1122a2b8cc45a639e86206807ce0baf390ee9218d3ef181923fa4d2b67443367c491aa255c5fbaa64bb74648e3c5b48299928af86c09
+  languageName: node
+  linkType: hard
+
+"storybook-multilevel-sort@npm:2.1.0":
+  version: 2.1.0
+  resolution: "storybook-multilevel-sort@npm:2.1.0"
+  checksum: 10c0/f2bd6eda35ea29b16f0731acf2cac19514e12ba8498f4439e59f0658378ecaf0cbf1ad60bce03017c6b903405c0126ef32d33ee8e831da53bf4e3fff15f2fff7
   languageName: node
   linkType: hard
 
