@@ -245,7 +245,7 @@ const importModule = (fileName: string) => {
         return {
           format: 'module',
           shortCircuit: true,
-          source: `export default "";`
+          source: 'export default "";'
         };
       }
       return nextLoad(url, context);
@@ -269,7 +269,6 @@ export const storybookVariantsIndexer: () => Indexer = () => ({
 
       if (typeof stories === 'undefined') {
         throw new Error('The "stories" export is undefined.');
-        return [];
       }
 
       return (typeof stories === 'function' ? stories() : stories).map(
