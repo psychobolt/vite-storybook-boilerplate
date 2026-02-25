@@ -7662,9 +7662,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.26":
-  version: 10.4.26
-  resolution: "autoprefixer@npm:10.4.26"
+"autoprefixer@npm:10.4.27":
+  version: 10.4.27
+  resolution: "autoprefixer@npm:10.4.27"
   dependencies:
     browserslist: "npm:^4.28.1"
     caniuse-lite: "npm:^1.0.30001774"
@@ -7675,7 +7675,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 10c0/057744fa0cdc65544ae32d613f330423b8a9243c978f1bc698fd60d3b92cb7a2d9506cf1ebf051747276acdd9baa2cc177301edab6ec8a27ee25abe8ffadb0ff
+  checksum: 10c0/698ad9e23436635af1806d4a8b80393020135174d1d4a97eb81887cdddac2f297f198d1d717932db8503b325f9f2dc3accb6e290b2d3ce1a7ddeb947100e5b25
   languageName: node
   linkType: hard
 
@@ -8691,7 +8691,7 @@ __metadata:
     "@typescript-eslint/utils": "npm:8.56.1"
     "@vitest/browser-playwright": "npm:4.0.18"
     arg: "npm:5.0.2"
-    autoprefixer: "npm:10.4.26"
+    autoprefixer: "npm:10.4.27"
     chromatic: "npm:15.2.0"
     eslint: "npm:9.39.3"
     eslint-plugin-mdx: "npm:3.6.2"
