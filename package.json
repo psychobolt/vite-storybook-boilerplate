@@ -44,10 +44,10 @@
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
     "playwright": "1.58.2",
-    "renovate": "43.36.1",
+    "renovate": "43.38.0",
     "semver": "7.7.4",
     "svelte-language-server": "0.17.28",
-    "turbo": "2.8.10",
+    "turbo": "2.8.11",
     "typescript": "5.9.3",
     "yaml": "2.8.2"
   },

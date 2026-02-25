@@ -8718,7 +8718,7 @@ __metadata:
     stylelint: "npm:17.3.0"
     ts-enum-util: "npm:4.1.0"
     tsconfig-to-dual-package: "npm:1.2.0"
-    turbo: "npm:2.8.10"
+    turbo: "npm:2.8.11"
     typescript: "npm:5.9.3"
     vite: "npm:7.3.1"
     vite-tsconfig-paths: "npm:6.1.1"
@@ -12070,7 +12070,7 @@ __metadata:
     storybook: "npm:10.2.12"
     stylelint: "npm:17.3.0"
     stylelint-config: "workspace:*"
-    turbo: "npm:2.8.10"
+    turbo: "npm:2.8.11"
     typescript: "npm:5.9.3"
     typescript-plugin-css-modules: "npm:5.2.0"
     vite: "npm:7.3.1"
@@ -15557,7 +15557,7 @@ __metadata:
     react-dom: "npm:19.2.4"
     react-ui: "workspace:*"
     styled-jsx: "npm:5.1.7"
-    turbo: "npm:2.8.10"
+    turbo: "npm:2.8.11"
     typescript: "npm:5.9.3"
   languageName: unknown
   linkType: soft
@@ -17350,7 +17350,7 @@ __metadata:
     storybook: "npm:10.2.12"
     stylelint: "npm:17.3.0"
     stylelint-config: "workspace:*"
-    turbo: "npm:2.8.10"
+    turbo: "npm:2.8.11"
     typescript: "npm:5.9.3"
     typescript-plugin-css-modules: "npm:5.2.0"
     vite: "npm:7.3.1"
@@ -17630,9 +17630,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.36.1":
-  version: 43.36.1
-  resolution: "renovate@npm:43.36.1"
+"renovate@npm:43.38.0":
+  version: 43.38.0
+  resolution: "renovate@npm:43.38.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.992.0"
     "@aws-sdk/client-ec2": "npm:3.992.0"
@@ -17765,7 +17765,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/28b22f8c9ab724559f68086e9e36810489dc4ae07ca38aa6db940a842ea52431c4b5cd92fa0b621bc69b2e6ff553a7db27ee70e789d38b192235dd2b25f650c6
+  checksum: 10c0/7b1f3792f0ae94c3588037ef5114ea731ef858d923b169ded707c1d3758a4c5ce25e8835a7f87e7a56dd55d44d6f2c1e6b9e6ff6cf274c46daecc99648cb74e1
   languageName: node
   linkType: hard
 
@@ -19486,7 +19486,7 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
     stylelint-order: "npm:7.0.1"
-    turbo: "npm:2.8.10"
+    turbo: "npm:2.8.11"
     typescript: "npm:5.9.3"
   peerDependencies:
     stylelint: "*"
@@ -19681,7 +19681,7 @@ __metadata:
     svelte-check: "npm:4.4.3"
     svelte-eslint-parser: "npm:1.5.1"
     svelte-language-server: "npm:0.17.28"
-    turbo: "npm:2.8.10"
+    turbo: "npm:2.8.11"
     typescript: "npm:5.9.3"
     typescript-eslint: "npm:8.56.1"
     vite: "npm:7.3.1"
@@ -20253,58 +20253,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:2.8.10":
-  version: 2.8.10
-  resolution: "turbo-darwin-64@npm:2.8.10"
+"turbo-darwin-64@npm:2.8.11":
+  version: 2.8.11
+  resolution: "turbo-darwin-64@npm:2.8.11"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:2.8.10":
-  version: 2.8.10
-  resolution: "turbo-darwin-arm64@npm:2.8.10"
+"turbo-darwin-arm64@npm:2.8.11":
+  version: 2.8.11
+  resolution: "turbo-darwin-arm64@npm:2.8.11"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:2.8.10":
-  version: 2.8.10
-  resolution: "turbo-linux-64@npm:2.8.10"
+"turbo-linux-64@npm:2.8.11":
+  version: 2.8.11
+  resolution: "turbo-linux-64@npm:2.8.11"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:2.8.10":
-  version: 2.8.10
-  resolution: "turbo-linux-arm64@npm:2.8.10"
+"turbo-linux-arm64@npm:2.8.11":
+  version: 2.8.11
+  resolution: "turbo-linux-arm64@npm:2.8.11"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:2.8.10":
-  version: 2.8.10
-  resolution: "turbo-windows-64@npm:2.8.10"
+"turbo-windows-64@npm:2.8.11":
+  version: 2.8.11
+  resolution: "turbo-windows-64@npm:2.8.11"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:2.8.10":
-  version: 2.8.10
-  resolution: "turbo-windows-arm64@npm:2.8.10"
+"turbo-windows-arm64@npm:2.8.11":
+  version: 2.8.11
+  resolution: "turbo-windows-arm64@npm:2.8.11"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:2.8.10":
-  version: 2.8.10
-  resolution: "turbo@npm:2.8.10"
+"turbo@npm:2.8.11":
+  version: 2.8.11
+  resolution: "turbo@npm:2.8.11"
   dependencies:
-    turbo-darwin-64: "npm:2.8.10"
-    turbo-darwin-arm64: "npm:2.8.10"
-    turbo-linux-64: "npm:2.8.10"
-    turbo-linux-arm64: "npm:2.8.10"
-    turbo-windows-64: "npm:2.8.10"
-    turbo-windows-arm64: "npm:2.8.10"
+    turbo-darwin-64: "npm:2.8.11"
+    turbo-darwin-arm64: "npm:2.8.11"
+    turbo-linux-64: "npm:2.8.11"
+    turbo-linux-arm64: "npm:2.8.11"
+    turbo-windows-64: "npm:2.8.11"
+    turbo-windows-arm64: "npm:2.8.11"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -20320,7 +20320,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10c0/f751213327d2d61bcadf33ee510467005310b868ffc92d7ecaca29cd66158358fbb74fec0079621c731c406b662bc4221a173aadd600487b4f59c0119fa3b9d6
+  checksum: 10c0/9c74e4c1494494ee3118c232d2136dfbfd15faf203d433ee73392c57acde43395f8095c8d05fd1d56b5ba58295fe7562ad6c6b9a767f2c86091833bcc53f726e
   languageName: node
   linkType: hard
 
@@ -21124,10 +21124,10 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.36.1"
+    renovate: "npm:43.38.0"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.28"
-    turbo: "npm:2.8.10"
+    turbo: "npm:2.8.11"
     typescript: "npm:5.9.3"
     yaml: "npm:2.8.2"
   languageName: unknown

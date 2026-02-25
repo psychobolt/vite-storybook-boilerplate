@@ -44,7 +44,7 @@
 		"svelte-check": "4.4.3",
 		"svelte-eslint-parser": "1.5.1",
 		"svelte-language-server": "0.17.28",
-		"turbo": "2.8.10",
+		"turbo": "2.8.11",
 		"typescript": "5.9.3",
 		"typescript-eslint": "8.56.1",
 		"vite": "7.3.1"
