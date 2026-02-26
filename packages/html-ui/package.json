@@ -24,7 +24,7 @@
     "@open-wc/lit-helpers": "0.7.0",
     "@storybook/addon-coverage": "3.0.0",
     "@storybook/addon-docs": "10.2.13",
-    "@storybook/web-components-vite": "10.2.12",
+    "@storybook/web-components-vite": "10.2.13",
     "@types/react-syntax-highlighter": "15.5.13",
     "classnames": "2.5.1",
     "commons": "workspace:*",
