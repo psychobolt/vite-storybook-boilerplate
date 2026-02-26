@@ -14,7 +14,7 @@
     "react-ui": "portal:../../packages/react-ui"
   },
   "devDependencies": {
-    "@types/node": "24.10.14",
+    "@types/node": "24.10.15",
     "@types/prop-types": "15.7.15",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
