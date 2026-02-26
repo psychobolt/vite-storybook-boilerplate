@@ -34,9 +34,9 @@
     "watch": "yarn build-src -w & yarn build-dts --watch"
   },
   "devDependencies": {
-    "@storybook/addon-docs": "10.2.12",
-    "@storybook/addon-vitest": "10.2.12",
-    "@storybook/react-vite": "10.2.12",
+    "@storybook/addon-docs": "10.2.13",
+    "@storybook/addon-vitest": "10.2.13",
+    "@storybook/react-vite": "10.2.13",
     "@tsconfig/vite-react": "7.0.2",
     "@types/prop-types": "15.7.15",
     "@types/react": "19.2.14",
@@ -53,7 +53,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "sass": "1.97.3",
-    "storybook": "10.2.12",
+    "storybook": "10.2.13",
     "stylelint": "17.4.0",
     "stylelint-config": "workspace:*",
     "turbo": "2.8.11",
