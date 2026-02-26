@@ -34,7 +34,7 @@
     "arg": "5.0.2",
     "autoprefixer": "10.4.27",
     "eslint-plugin-mdx": "3.6.2",
-    "eslint-plugin-storybook": "10.2.12",
+    "eslint-plugin-storybook": "10.2.13",
     "jiti": "2.6.1",
     "lint-staged": "16.2.7",
     "lodash": "4.17.23",
