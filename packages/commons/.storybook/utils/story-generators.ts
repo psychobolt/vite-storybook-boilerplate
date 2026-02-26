@@ -132,9 +132,12 @@ export const generatePseudoStateStories = <
         {
           name: 'Default',
           exportName: 'Default',
-          ...generateStory(typeof showDefault === 'object' ? showDefault : {}, {
-            args: pseudoStateArgs as unknown as TArgs
-          })
+          ...generateStory(
+            typeof showDefault === 'object' ? showDefault : Template,
+            {
+              args: pseudoStateArgs as unknown as TArgs
+            }
+          )
         }
       ]
     : []),

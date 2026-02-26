@@ -19,6 +19,7 @@ import type {
   TemplateStoryObj,
   VariantStoryObj
 } from '../utils/story-generators.js';
+import { UNKOWN_CSS_SELECTOR } from './css-proxy.js';
 
 const require = createRequire(import.meta.url);
 
@@ -53,8 +54,6 @@ interface TemplateOptions extends IncludeExcludeOptions {
 
 type Template = (options: TemplateOptions) => string;
 
-const INVALID_ARG_VALUES = /\s*undefined\s*/;
-
 const getSourceTemplate = (meta: VariantsMeta): Template => {
   const csfVersion = isMeta(meta) ? 4 : 3;
   return ({
@@ -63,103 +62,116 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
     csfExports,
     excludeStories
   }: TemplateOptions) => {
-    const logError = (e: unknown) =>
+    let hasErrors = false;
+    const logError = (e: unknown) => {
       console.error(
-        `Failed to generate variant story "${fileName}". See error bellow:\n\t%s\n`,
+        `\nThe variant story "${fileName}" cannot be processed. See error below:\n\t%s\n`,
         e
       );
-    return `
-      ${stories.reduce((template, story) => {
-        const { name, exportName, args = {}, _template } = story;
+      hasErrors = true;
+    };
+    try {
+      return `
+        ${stories.reduce((template, story) => {
+          const { name, exportName, args = {}, _template } = story;
 
-        if (
-          excludeStories &&
-          (Array.isArray(excludeStories)
-            ? excludeStories.includes(exportName)
-            : excludeStories.test(exportName))
-        ) {
-          return template;
-        }
-
-        const [templateStory] =
-          Object.entries(csfExports).find(
-            ([, declaration]) => declaration === (_template ?? story)
-          ) ?? [];
-        const {
-          args: _args,
-          exportName: _exportName,
-          ...annotations
-        } = _template
-          ? isStory<Renderer & { args: Args }>(_template)
-            ? _template.input
-            : _template
-          : {};
-
-        let stringArgs = JSON.stringify(args, (key, value) => {
           if (
-            (key in args && typeof value === 'undefined') ||
-            (typeof value === 'string' && INVALID_ARG_VALUES.test(value))
+            excludeStories &&
+            (Array.isArray(excludeStories)
+              ? excludeStories.includes(exportName)
+              : excludeStories.test(exportName))
           ) {
-            if (templateStory) {
-              return;
-            } else {
-              logError(
-                `Variant "${exportName}" is using a template arg ${key} with non-JSON parseable construct. Consider hoisting arg to "meta" or exporting the template.`
-              );
+            return template;
+          }
+
+          const [templateStory] =
+            Object.entries(csfExports).find(
+              ([, declaration]) => declaration === (_template ?? story)
+            ) ?? [];
+          const {
+            args: _args,
+            exportName: _exportName,
+            ...annotations
+          } = _template
+            ? isStory<Renderer & { args: Args }>(_template)
+              ? _template.input
+              : _template
+            : {};
+
+          let stringArgs = JSON.stringify(args, (key, value) => {
+            if (
+              typeof value === 'string' &&
+              value.indexOf(UNKOWN_CSS_SELECTOR) > -1
+            ) {
+              if (templateStory) {
+                return;
+              } else {
+                logError(
+                  `Story "${name}" is using a story template with a non-JSON parseable construct "${key}". Consider hoisting arg to "meta" or exporting the template.`
+                );
+              }
+            }
+            return value;
+          });
+
+          const extras: string[] = [];
+          Object.entries(annotations).forEach(([key, value]) => {
+            if (
+              (Array.isArray(value) && value.length) ||
+              (typeof value === 'object' && Object.values(value).length) ||
+              typeof value === 'function'
+            ) {
+              extras.push(key);
+            }
+          });
+          if (!templateStory && extras.length) {
+            logError(
+              `Variant "${name}" requires extra annotations (${extras.join(', ')}). Consider hoisting them to "meta" or exporting the template.`
+            );
+          }
+
+          let result = `${template}\n`;
+          switch (csfVersion) {
+            case 4: {
+              const storyFactoryFn = templateStory
+                ? `${templateStory}.extend`
+                : 'meta.story';
+              result += `
+                  export const ${exportName} = ${storyFactoryFn}({
+                    name: '${name}',
+                    args: ${stringArgs}
+                  });
+                `;
+              break;
+            }
+            default: {
+              let spread = '';
+              if (templateStory) {
+                spread = `...${templateStory},`;
+                stringArgs = `{ ...${templateStory}.args, ...${stringArgs} }`;
+              }
+              result += `
+                  export const ${exportName} = {
+                    ${spread}
+                    name: '${name}',
+                    args: ${stringArgs}
+                  };
+                `;
+              break;
             }
           }
-          return value;
-        });
-
-        const extras: string[] = [];
-        Object.entries(annotations).forEach(([key, value]) => {
-          if (
-            (Array.isArray(value) && value.length) ||
-            (typeof value === 'object' && Object.values(value).length) ||
-            typeof value === 'function'
-          ) {
-            extras.push(key);
-          }
-        });
-        if (!templateStory && extras.length) {
-          logError(
-            `Variant "${exportName}" is missing extra annotations (${extras.join(', ')}). Expected story template to be exported from the variant file.`
-          );
-        }
-
-        let result = `${template}\n`;
-        switch (csfVersion) {
-          case 4: {
-            const storyFactoryFn = templateStory
-              ? `${templateStory}.extend`
-              : 'meta.story';
-            result += `
-                export const ${exportName} = ${storyFactoryFn}({
-                  name: '${name}',
-                  args: ${stringArgs}
-                });
-              `;
-            break;
-          }
-          default: {
-            let spread = '';
-            if (templateStory) {
-              spread = `...${templateStory},`;
-              stringArgs = `{ ...${templateStory}.args, ...${stringArgs} }`;
-            }
-            result += `
-                export const ${exportName} = {
-                  ${spread}
-                  name: '${name}',
-                  args: ${stringArgs}
-                };
-              `;
-            break;
-          }
-        }
-        return result;
-      }, '')}
-    `;
+          return result;
+        }, '')}
+      `;
+    } catch (e) {
+      logError(e);
+      hasErrors = true;
+      return '';
+    } finally {
+      if (process.env.NODE_ENV === 'production' && hasErrors) {
+        process.exit(1);
+      }
+    }
   };
 };
 
@@ -227,9 +239,18 @@ const importModule = (fileName: string) => {
           shortCircuit: true,
           url: require.resolve('../mock-api.js')
         };
-      } else if (
+      }
+      const [cssExension] = CSS_LANGS_RE.exec(specifier) ?? [];
+      if (cssExension && specifier.indexOf(`.module${cssExension}`) > 0) {
+        return {
+          format: 'module',
+          shortCircuit: true,
+          url: require.resolve('./css-proxy.js')
+        };
+      }
+      if (
+        cssExension ||
         RAW_ASSET_RE.test(specifier) ||
-        CSS_LANGS_RE.test(specifier) ||
         DEFAULT_ASSETS_RE.test(specifier)
       ) {
         return {
@@ -284,9 +305,10 @@ export const storybookVariantsIndexer: () => Indexer = () => ({
       );
     } catch (e) {
       console.error(
-        `Failed to index variant story "${fileName}". See error bellow:\n\t%s\n`,
+        `Failed to index variant story "${fileName}". See error below:\n\t%s\n`,
         e
       );
+      if (process.env.NODE_ENV === 'production') process.exit(1);
       return [];
     }
   }

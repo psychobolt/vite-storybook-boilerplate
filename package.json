@@ -25,7 +25,8 @@
     "run-script": "yarn g:run-script"
   },
   "resolutions": {
-    "storybook-zeplin@npm:3.0.0": "patch:storybook-zeplin@npm%3A3.0.0#~/.yarn/patches/storybook-zeplin-npm-3.0.0-1df848e72d.patch"
+    "storybook-zeplin@npm:3.0.0": "patch:storybook-zeplin@npm%3A3.0.0#~/.yarn/patches/storybook-zeplin-npm-3.0.0-1df848e72d.patch",
+    "vite-plugin-sass-glob-import@npm:6.0.2": "patch:vite-plugin-sass-glob-import@npm%3A6.0.2#~/.yarn/patches/vite-plugin-sass-glob-import-npm-6.0.2-b079086a71.patch"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "1.52.0",

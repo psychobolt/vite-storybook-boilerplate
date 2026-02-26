@@ -16,7 +16,7 @@ Installs workspaces that do not support `pnp` linker
 yarn ls-workspaces [options]
 ```
 
-Returns a list of workspaces in the project. See options bellow.
+Returns a list of workspaces in the project. See options below.
 
 ### Filters
 
