@@ -78,7 +78,7 @@ export default defineConfig(
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import {
   type VariantStoryObj,
-  generateStories
+  generateStoriesByEnum
 } from 'commons/esm/.storybook/utils/story-generators.js';
 
 import { type Props, MyComponent as Component } from './MyComponent.ts';

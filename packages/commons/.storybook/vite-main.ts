@@ -54,6 +54,7 @@ export const configureSort: typeof sortAddon.configureSort = (config) =>
         numeric: true
       }) as sortAddon.CompareResult;
     },
+    typeOrder: [],
     ...config
   });
 

@@ -21102,6 +21102,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite-plugin-sass-glob-import@patch:vite-plugin-sass-glob-import@npm%3A6.0.2#~/.yarn/patches/vite-plugin-sass-glob-import-npm-6.0.2-b079086a71.patch":
+  version: 6.0.2
+  resolution: "vite-plugin-sass-glob-import@patch:vite-plugin-sass-glob-import@npm%3A6.0.2#~/.yarn/patches/vite-plugin-sass-glob-import-npm-6.0.2-b079086a71.patch::version=6.0.2&hash=4d472a"
+  dependencies:
+    ansi-colors: "npm:4.1.3"
+    glob: "npm:11.1.0"
+    minimatch: "npm:10.1.1"
+  peerDependencies:
+    vite: ^6.0.0 || ^7.0.0
+  checksum: 10c0/e9d0f2ea17ca25a6261fab4fdec429ccf7cc04ecb03375ffa086a163cbb869de633dc8fba600e492d50121a457b0f73df9d3096331809d02df1e63886a07a4dd
+  languageName: node
+  linkType: hard
+
 "vite-storybook-boilerplate@workspace:.":
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
