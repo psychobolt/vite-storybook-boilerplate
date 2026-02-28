@@ -17609,9 +17609,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.46.0":
-  version: 43.46.0
-  resolution: "renovate@npm:43.46.0"
+"renovate@npm:43.46.1":
+  version: 43.46.1
+  resolution: "renovate@npm:43.46.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.992.0"
     "@aws-sdk/client-ec2": "npm:3.992.0"
@@ -17722,7 +17722,7 @@ __metadata:
     semver-stable: "npm:3.0.0"
     semver-utils: "npm:1.1.4"
     shlex: "npm:3.0.0"
-    simple-git: "npm:3.31.1"
+    simple-git: "npm:3.32.0"
     slugify: "npm:1.6.6"
     source-map-support: "npm:0.5.21"
     strip-json-comments: "npm:5.0.3"
@@ -17744,7 +17744,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/36353a9caf8eaadfe2efa70b372fdd134cc75297cf09cfd276adcf3a36193e330308b7e4d107661829e094c5c919803d10394622e57915480db894fd14b413a3
+  checksum: 10c0/d1a47a30bde74a78c927302fd832f857bcbc52b182c2ebdcc8e130472b49b8543aeea5c36003af48fd5ebead5a783af92193cdbff614687299897d0988d989b0
   languageName: node
   linkType: hard
 
@@ -18612,14 +18612,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-git@npm:3.31.1":
-  version: 3.31.1
-  resolution: "simple-git@npm:3.31.1"
+"simple-git@npm:3.32.0":
+  version: 3.32.0
+  resolution: "simple-git@npm:3.32.0"
   dependencies:
     "@kwsites/file-exists": "npm:^1.1.1"
     "@kwsites/promise-deferred": "npm:^1.1.1"
     debug: "npm:^4.4.0"
-  checksum: 10c0/8082ef7b3356e0ab01726aa6f614d2e04b6bcf0edf0949e184c49eeb546cb2c903347614a054c7da77021ddd869d52d952d9dab008c6986f614a1d91f16d0041
+  checksum: 10c0/863e5a23900d4cfdc059fcd654bd79bd383cda01dab42e8fdb8806f689f1480f95193cae9c41330c55fc6c1962fd5ff873bfe631aeb8a3a09d1d8d3da14ab59c
   languageName: node
   linkType: hard
 
@@ -21100,7 +21100,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.46.0"
+    renovate: "npm:43.46.1"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.12"
