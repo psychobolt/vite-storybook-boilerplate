@@ -24,6 +24,12 @@ export const input = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    docs: {
+      codePanel: true,
+      source: {
+        excludeDecorators: true
+      }
     }
   }
 } satisfies ProjectAnnotations<DefaultRenderer & Renderer> & {
