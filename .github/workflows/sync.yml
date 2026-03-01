@@ -5,15 +5,15 @@ on:
     inputs:
       ref_name:
         type: string
-        required: true
+        default: main
   workflow_dispatch:
     inputs:
       ref_name:
         type: string
-        required: true
+        default: main
 
 concurrency:
-  group: sync-${{ github.ref }}
+  group: sync-${{ inputs.ref_name}}
   cancel-in-progress: true
 
 permissions:
@@ -66,7 +66,7 @@ jobs:
         run: |
           git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
           git fetch base main
-          git merge base/main --allow-unrelated-histories--no-commit --ff -X ours || true
+          git merge base/main --allow-unrelated-histories --no-commit --ff -X ours || true
       - name: Prune deleted files
         run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
       - name: Start Turbo Cache Server
@@ -79,5 +79,5 @@ jobs:
           yarn bootstrap
       - name: Amend Merge
         run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
-      - name: Update bitbucket branch
+      - name: Update ${{ inputs.ref_name }} branch
         run: git push origin
