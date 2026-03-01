@@ -31,7 +31,9 @@ export default {
         ...defaults.parameters,
         ...(parameters as Parameters),
         docs: {
+          ...defaults.parameters.docs,
           source: {
+            ...defaults.parameters.docs.source,
             async transform(code) {
               const prettier = await import('prettier/standalone');
               const prettierPluginHtml = await import('prettier/plugins/html');
