@@ -47,6 +47,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ steps.get_token.outputs.token }}
+          ref: ${{ inputs.ref_name }}
       - name: Set Yarn global folder
         env:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
@@ -57,11 +58,11 @@ jobs:
           node-version: 24.x
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
-      - name: Checkout ${{ inputs.ref_name }} branch
-        if: ${{ inputs.ref_name != '' }}
-        run: git checkout -b ${{ inputs.ref_name }} origin/${{ inputs.ref_name }}
-      - name: Merge with main branch
-        run: git merge origin/main --no-commit --ff || true
+      - name: Merge with base branch
+        run: |
+          git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
+          git fetch base main
+          git merge base/main --no-commit --ff || true
       - name: Prune deleted files
         run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
       - name: Start Turbo Cache Server
