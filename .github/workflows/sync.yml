@@ -7,6 +7,10 @@ on:
         type: string
         required: true
   workflow_dispatch:
+    inputs:
+      ref_name:
+        type: string
+        required: true
 
 concurrency:
   group: sync-${{ github.ref }}
