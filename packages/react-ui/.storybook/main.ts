@@ -1,14 +1,21 @@
 import { createRequire } from 'node:module';
-import type { StorybookConfig } from '@storybook/react-vite';
-import {
-  type StorybookViteCommonConfig,
-  config as commonConfig,
+import { defineMain } from '@storybook/react-vite/node';
+import commonConfig, {
+  configureSort,
   getAbsolutePath
 } from 'commons/esm/.storybook/vite-main.js';
 
 const require = createRequire(import.meta.url);
 
-export const config: StorybookConfig | StorybookViteCommonConfig = {
+configureSort({
+  storyOrder: {
+    // groups
+    'configure your project': null,
+    readme: null
+  }
+});
+
+export default defineMain({
   ...commonConfig,
   addons: [
     ...commonConfig.addons,
@@ -18,6 +25,4 @@ export const config: StorybookConfig | StorybookViteCommonConfig = {
     name: getAbsolutePath('@storybook/react-vite', require),
     options: {}
   }
-};
-
-export default config;
+});

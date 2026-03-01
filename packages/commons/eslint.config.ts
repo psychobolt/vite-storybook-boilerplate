@@ -4,11 +4,11 @@ import * as mdx from 'eslint-plugin-mdx';
 import neostandard from 'neostandard';
 
 const tsFiles = ['**/*.{ts,tsx}'];
+const tsCodeBlocks = ['**/*.md'].map((pattern) => `${pattern}/*.ts`);
 
 export default defineConfig(
   ...neostandard({
     files: ['**/*.{cj,j}s', '**/*.jsx'],
-    filesTs: tsFiles,
     noStyle: true,
     ts: true
   }),
@@ -16,9 +16,17 @@ export default defineConfig(
     files: tsFiles,
     languageOptions: {
       parserOptions: {
-        project: true,
-        tsconfigRootDir: process.env.PROJECT_CWD,
+        tsconfigRootDir: process.cwd(),
         warnOnUnsupportedTypeScriptVersion: false
+      }
+    }
+  },
+  {
+    files: tsFiles,
+    ignores: tsCodeBlocks,
+    languageOptions: {
+      parserOptions: {
+        projectService: true
       }
     },
     rules: {
@@ -34,6 +42,9 @@ export default defineConfig(
   },
   {
     ...mdx.flat,
+    processor: mdx.createRemarkProcessor({
+      lintCodeBlocks: true
+    }),
     plugins: {
       mdx
     }
@@ -41,6 +52,7 @@ export default defineConfig(
   mdx.flatCodeBlocks,
   {
     ignores: [
+      '.github/**/*.md',
       '.turbo/',
       '.yarn/**/*',
       '!.yarn/plugins/*',

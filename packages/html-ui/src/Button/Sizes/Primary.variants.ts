@@ -1,38 +1,27 @@
-import type { StoryObj } from '@storybook/web-components-vite';
-import type { VariantsMeta } from 'commons/esm/.storybook/addons/addon-variants.js';
 import {
   type VariantStoryObj,
   generateStoriesByEnum
 } from 'commons/esm/.storybook/utils/story-generators.js';
 
+import preview from '.storybook/preview';
 import type { Props } from 'Button';
+import primaryMeta from 'Button/Primary.story';
 
-export type Meta = VariantsMeta<Props>;
-
-// More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
-export const meta = {
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction
+const meta = preview.meta({
+  ...primaryMeta.input,
   title: 'Components/Button/Primary/Sizes',
-  fileName: 'Button',
-  importName: 'Button',
-  tags: ['autodocs'],
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
+    ...primaryMeta.input.argTypes,
     size: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large']
     }
-  },
-  decorators: [(Story) => Story()]
-} satisfies Meta;
-
-export type Story = StoryObj<Props> & VariantStoryObj<Props>;
-
-// More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
-export const Primary: Story = {
-  args: {
-    label: 'Button',
-    primary: true
   }
-};
+});
+
+export default meta;
 
 export enum SizeEnum {
   small,
@@ -40,5 +29,5 @@ export enum SizeEnum {
   large
 }
 
-export const stories = (template = Primary) =>
+export const stories = (template: VariantStoryObj<Props> = {}) =>
   generateStoriesByEnum([template], 'size', SizeEnum);

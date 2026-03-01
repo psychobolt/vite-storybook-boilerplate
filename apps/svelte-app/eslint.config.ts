@@ -62,6 +62,7 @@ export default tseslint.config(
 			'.env.*',
 			'!.env.example',
 			// Ignore files YARN
+			'.yarn',
 			'yarn.lock'
 		]
 	}

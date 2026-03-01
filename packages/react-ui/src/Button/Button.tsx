@@ -5,7 +5,8 @@ import styles from './Button.module.scss';
 
 const sizes = ['small', 'medium', 'large'] as const;
 
-interface Props {
+export interface Props {
+  className?: string;
   /**
    * Is this the principal call to action on the page?
    */
@@ -39,6 +40,7 @@ interface Props {
  */
 export function Button({
   primary,
+  className,
   variant = styles.storybookButtonPrimary,
   size = 'medium',
   backgroundColor,
@@ -53,7 +55,8 @@ export function Button({
         styles[`storybook-button--${size}`],
         typeof primary === 'boolean' && primary
           ? styles.storybookButtonPrimary
-          : variant
+          : variant,
+        className
       )}
       style={{ backgroundColor }}
       {...props}
@@ -64,6 +67,8 @@ export function Button({
 }
 
 Button.propTypes = {
+  classNames: PropTypes.string,
+  variant: PropTypes.string,
   primary: PropTypes.bool,
   backgroundColor: PropTypes.string,
   size: PropTypes.oneOf(sizes),

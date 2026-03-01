@@ -1,9 +1,10 @@
 import { html } from 'lit';
 
 import { Button } from 'Button';
+import buttonStyles from 'Button/Button.module.scss';
 import styles from './Header.module.scss';
 
-interface User {
+export interface User {
   name: string;
 }
 
@@ -52,9 +53,15 @@ export const Header = ({
               <span class="${styles.welcome}">
                 Welcome, <b>${user.name}</b>!
               </span>
-              ${Button({ size: 'small', onClick: onLogout, label: 'Log out' })}
+              ${Button({
+                variant: buttonStyles.storybookButtonSecondary,
+                size: 'small',
+                onClick: onLogout,
+                label: 'Log out'
+              })}
             `
           : html`${Button({
+              variant: buttonStyles.storybookButtonSecondary,
               size: 'small',
               onClick: onLogin,
               label: 'Log in'

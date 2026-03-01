@@ -16,7 +16,7 @@ Installs workspaces that do not support `pnp` linker
 yarn ls-workspaces [options]
 ```
 
-Returns a list of workspaces in the project. See options bellow.
+Returns a list of workspaces in the project. See options below.
 
 ### Filters
 
@@ -131,7 +131,7 @@ As of Node v20, [hooks](https://nodejs.org/docs/latest-v20.x/api/module.html#cus
 ESM_REGISTER="my-hook.js" node --import bin/esm-register.js
 ```
 
-By default, the [run-script](../DEVELOPMENT.md#main-project) command is setup with the [SWC register hook](../package.json#L13). Please see [API docs](https://nodejs.org/docs/latest-v22.x/api/module.html#customization-hooks) on defining your own hook.
+By default, the [run-script](../DEVELOPMENT.md#main-project) command is setup with the [SWC register hook](../package.json#L19). Please see [API docs](https://nodejs.org/docs/latest-v22.x/api/module.html#customization-hooks) on defining your own hook.
 
 ## List Unmerged
 

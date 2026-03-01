@@ -4,8 +4,17 @@
     "declaration": true,
     "noEmit": false,
     "emitDeclarationOnly": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "rootDir": "src"
   },
   "include": ["src"],
-  "exclude": ["**/*.stories.*", "**/decorators.*", "**/test/*", "**/*.test.*"]
+  "exclude": [
+    "**/*.story.*",
+    "**/*.stories.*",
+    "**/*.variant.*",
+    "**/*.variants.*",
+    "**/decorators.*",
+    "**/test/*",
+    "**/*.test.*"
+  ]
 }

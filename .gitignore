@@ -8,7 +8,6 @@ build
 dist
 cjs
 esm
-**/__snapshots__/*.png
 coverage
 test-reports
 *.tsbuildinfo
@@ -16,7 +15,6 @@ vite.config.*.timestamp-*
 telemetry.json
 bitbucket-report.json
 bitbucket-annotations.json
-inventory.json
 
 # environment
 .env*
@@ -31,7 +29,8 @@ inventory.json
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
-!.yarn/sdks
+!**/.yarn/sdks
+!**/.yarn/sdks/**/dist
 !.yarn/versions
 
 # Logs
