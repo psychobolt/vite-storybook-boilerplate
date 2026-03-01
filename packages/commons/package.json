@@ -58,7 +58,7 @@
     "@typescript-eslint/utils": "8.56.1",
     "arg": "5.0.2",
     "chromatic": "15.2.0",
-    "eslint": "9.39.3",
+    "eslint": "10.0.2",
     "jest-junit": "16.0.0",
     "playwright": "1.58.2",
     "prettier": "3.8.1",
