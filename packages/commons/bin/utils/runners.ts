@@ -21,9 +21,7 @@ export const eslint: Runner<ESLint.LintResult[]> = async (
   formatters = new Set('default')
 ) => {
   const _ESLint: typeof ESLint = (await import('eslint')).ESLint;
-  const eslint = new _ESLint({
-    flags: ['v10_config_lookup_from_file']
-  });
+  const eslint = new _ESLint();
 
   console.log('\nRunning ESLint...');
   const results = await eslint.lintFiles(files);
