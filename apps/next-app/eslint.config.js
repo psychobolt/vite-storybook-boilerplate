@@ -7,15 +7,10 @@ const eslintConfig = defineConfig([
   ...typescript,
   {
     settings: {
-      react: { version: "19" } // Avoids auto-detection crash
-    }
+      react: { version: "19" }, // Avoids auto-detection crash
+    },
   },
-  globalIgnores([
-    '.next/**',
-    'out/**',
-    'build/**',
-    'next-env.d.ts',
-  ])
+  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
 ]);
 
 export default eslintConfig;
