@@ -6844,10 +6844,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ae-cvss-calculator@npm:1.0.9":
-  version: 1.0.9
-  resolution: "ae-cvss-calculator@npm:1.0.9"
-  checksum: 10c0/b1c5cab432e92f3fa89c933cbe29412453047726f5ff5abf4f2e299d57220637260da9742d3b6103ba708f772ba2a4a3b9730e86a8263f4f2ae99e37d9aacae5
+"ae-cvss-calculator@npm:1.0.11":
+  version: 1.0.11
+  resolution: "ae-cvss-calculator@npm:1.0.11"
+  checksum: 10c0/a8cc5385ce84a67d1f7e137fbefb8e22b32de1f39fa83cbe30f38a33d46ab30ebffca33ce53d7dc68dee4e84493dab7bb9b56c901545f9b414d5b70150bc6d72
   languageName: node
   linkType: hard
 
@@ -17127,9 +17127,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.57.0":
-  version: 43.57.0
-  resolution: "renovate@npm:43.57.0"
+"renovate@npm:43.58.0":
+  version: 43.58.0
+  resolution: "renovate@npm:43.58.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17168,7 +17168,7 @@ __metadata:
     "@sindresorhus/is": "npm:7.2.0"
     "@yarnpkg/core": "npm:4.5.0"
     "@yarnpkg/parsers": "npm:3.0.3"
-    ae-cvss-calculator: "npm:1.0.9"
+    ae-cvss-calculator: "npm:1.0.11"
     agentkeepalive: "npm:4.6.0"
     async-mutex: "npm:0.5.0"
     auth-header: "npm:1.0.0"
@@ -17262,7 +17262,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/6b31a9a00c903caacfeb6d907e2c346e5d7dfb7314ce0090ada956664464aaf64054e57b7c64ebc5c59fb438550428b037fc740913416e9828bc4c6d57c002e6
+  checksum: 10c0/7e846815075379b95e5bc8791c0521d1b6d426aeffa35bd77156bc05051ed2eff981e3b62bfd1f4dd2e1bb7e7c46631ca654b127679b87ec21723dcdb8083d21
   languageName: node
   linkType: hard
 
@@ -20621,7 +20621,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.57.0"
+    renovate: "npm:43.58.0"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.13"
