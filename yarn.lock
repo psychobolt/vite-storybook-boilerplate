@@ -14904,6 +14904,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"moo@npm:0.5.3":
+  version: 0.5.3
+  resolution: "moo@npm:0.5.3"
+  checksum: 10c0/5c5e00d7c57a69ce1cc2f21a90655ff10556481cc10fa70528c01e91f00deff8a65fa8da6dc7b27d136d66085055aab238fd1b19a75070263e0028e8f07c8213
+  languageName: node
+  linkType: hard
+
 "mri@npm:^1.1.0":
   version: 1.2.0
   resolution: "mri@npm:1.2.0"
@@ -17136,9 +17143,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.59.1":
-  version: 43.59.1
-  resolution: "renovate@npm:43.59.1"
+"renovate@npm:43.59.2":
+  version: 43.59.2
+  resolution: "renovate@npm:43.59.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17226,7 +17233,7 @@ __metadata:
     markdown-it: "npm:14.1.1"
     markdown-table: "npm:3.0.4"
     minimatch: "npm:10.2.4"
-    moo: "npm:0.5.2"
+    moo: "npm:0.5.3"
     ms: "npm:2.1.3"
     neotraverse: "npm:0.6.18"
     node-html-parser: "npm:7.0.2"
@@ -17271,7 +17278,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/097fb263e1c3e753ccbbfe94cd75b683015ff788b803bbbc54c6b9461c6666f5c073342f7054877a62ab3d62133c00eb124b3f2fa00e981ac147d2d58baf7256
+  checksum: 10c0/35b52a104ca70b0ab81e60e714252709cec6470cc62161c02140a05963f4867bb0e9dc5ddb3a9a9630dca3a523ec9f0bf9d393aa6ba940bfb3f90bdd158179bc
   languageName: node
   linkType: hard
 
@@ -20630,7 +20637,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.59.1"
+    renovate: "npm:43.59.2"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.14"
