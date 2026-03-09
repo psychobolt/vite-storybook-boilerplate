@@ -81,11 +81,9 @@ const meta = preview.meta({
   render: MyComponent
 });
 
-type Story = VariantStoryObj<Props>;
-
 const Template = meta.story();
 
-export const stories = (template: Story = Template) =>
+export const stories = (template: {} = Template) =>
   generatePseudoStateStories(template, {
     pseudoClasses: MyPseudoClsEnum,
     stateAttributes: MyStateAttrEnum
