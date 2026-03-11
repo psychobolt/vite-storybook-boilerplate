@@ -37,7 +37,8 @@ export default defineConfig(
           allowNullableString: true,
           allowAny: true
         }
-      ]
+      ],
+      yoda: ['error', 'never', { exceptRange: true }]
     }
   },
   {
