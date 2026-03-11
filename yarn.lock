@@ -11711,7 +11711,7 @@ __metadata:
     react-dom: "npm:19.2.4"
     react-syntax-highlighter: "npm:16.1.1"
     rollup-plugin-no-emit: "npm:1.3.0"
-    sass: "npm:1.97.3"
+    sass: "npm:1.98.0"
     storybook: "npm:10.2.17"
     stylelint: "npm:17.4.0"
     stylelint-config: "workspace:*"
@@ -11918,6 +11918,13 @@ __metadata:
   version: 5.1.4
   resolution: "immutable@npm:5.1.4"
   checksum: 10c0/f1c98382e4cde14a0b218be3b9b2f8441888da8df3b8c064aa756071da55fbed6ad696e5959982508456332419be9fdeaf29b2e58d0eadc45483cc16963c0446
+  languageName: node
+  linkType: hard
+
+"immutable@npm:^5.1.5":
+  version: 5.1.5
+  resolution: "immutable@npm:5.1.5"
+  checksum: 10c0/8017ece1578e3c5939ba3305176aee059def1b8a90c7fa2a347ef583ebbd38cbe77ce1bbd786a5fab57e2da00bbcb0493b92e4332cdc4e1fe5cfb09a4688df31
   languageName: node
   linkType: hard
 
@@ -16963,7 +16970,7 @@ __metadata:
     prop-types: "npm:15.8.1"
     react: "npm:19.2.4"
     react-dom: "npm:19.2.4"
-    sass: "npm:1.97.3"
+    sass: "npm:1.98.0"
     storybook: "npm:10.2.17"
     stylelint: "npm:17.4.0"
     stylelint-config: "workspace:*"
@@ -17872,7 +17879,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.97.3, sass@npm:^1.70.0":
+"sass@npm:1.98.0":
+  version: 1.98.0
+  resolution: "sass@npm:1.98.0"
+  dependencies:
+    "@parcel/watcher": "npm:^2.4.1"
+    chokidar: "npm:^4.0.0"
+    immutable: "npm:^5.1.5"
+    source-map-js: "npm:>=0.6.2 <2.0.0"
+  dependenciesMeta:
+    "@parcel/watcher":
+      optional: true
+  bin:
+    sass: sass.js
+  checksum: 10c0/9e91daa20f970fefb364ac31289f070636da7aa7eaeb43e371ea98fa98085a6dbc2d3d058504226a02d07717faf0a4ce8d41b579ecb428c4a9d96b4dc1944a95
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.70.0":
   version: 1.97.3
   resolution: "sass@npm:1.97.3"
   dependencies:
@@ -19298,7 +19322,7 @@ __metadata:
     prettier-plugin-packagejson: "npm:3.0.2"
     prettier-plugin-sh: "npm:0.18.0"
     prettier-plugin-svelte: "npm:3.5.1"
-    sass: "npm:1.97.3"
+    sass: "npm:1.98.0"
     stylelint: "npm:17.4.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
