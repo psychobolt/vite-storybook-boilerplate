@@ -7391,13 +7391,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"auth-header@npm:1.0.0":
-  version: 1.0.0
-  resolution: "auth-header@npm:1.0.0"
-  checksum: 10c0/29d2a4e8175cd569dbea4f6d309ae9242d1737bd0973d570745ce6168a809b34698c6c9bb2a26eadee7f9b3938944402c85703b0c00c713dc02804ae965930de
-  languageName: node
-  linkType: hard
-
 "autoprefixer@npm:10.4.27":
   version: 10.4.27
   resolution: "autoprefixer@npm:10.4.27"
@@ -17261,9 +17254,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.64.0":
-  version: 43.64.0
-  resolution: "renovate@npm:43.64.0"
+"renovate@npm:43.64.1":
+  version: 43.64.1
+  resolution: "renovate@npm:43.64.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17305,7 +17298,6 @@ __metadata:
     ae-cvss-calculator: "npm:1.0.11"
     agentkeepalive: "npm:4.6.0"
     async-mutex: "npm:0.5.0"
-    auth-header: "npm:1.0.0"
     aws4: "npm:1.13.2"
     azure-devops-node-api: "npm:15.1.2"
     better-sqlite3: "npm:12.6.2"
@@ -17396,7 +17388,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/94470547b6e7956caed31be918156c4bdf287e4eb60d76e41d39bae15b67c7072a8d91d5b98f7d2cb7ff3a4039edbe2742ecbd0fbda2ba9ac01ba94ee2e919f9
+  checksum: 10c0/d51149a56355ac132b0f32ba081bb25d50954e577057310231dcc97f8fd3c2d9a4e4a9b0e0702d8bcdfd7ca804e223dded67946e2bf878f35666bee79eefc804
   languageName: node
   linkType: hard
 
@@ -20754,7 +20746,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.64.0"
+    renovate: "npm:43.64.1"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.16"
