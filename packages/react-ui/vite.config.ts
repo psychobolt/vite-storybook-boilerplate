@@ -1,5 +1,6 @@
 import { globSync } from 'glob';
 import { defineConfig, mergeConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import commonConfig, {
   type ModulePattern,
   srcPattern,
@@ -19,6 +20,7 @@ const patterns: ModulePattern[] = [
 export default mergeConfig(
   commonConfig,
   defineConfig({
+    plugins: [react()],
     css: {
       modules: {
         exportGlobals: true,
