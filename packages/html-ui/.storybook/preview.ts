@@ -7,7 +7,7 @@ import {
 import { SyntaxHighlighter } from 'storybook/internal/components';
 import type { ProjectAnnotations } from 'storybook/internal/csf';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
-import { withDefaults } from 'commons/esm/.storybook/preview';
+import { withDefaults } from 'commons/esm/.storybook/preview.js';
 
 SyntaxHighlighter.registerLanguage('scss', scss);
 

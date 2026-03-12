@@ -223,7 +223,7 @@ See [source](.storybook/preview.ts)
 
 ```ts
 import { definePreview } from '@storybook/react-vite';
-import { input } from 'commons/esm/.storybook/preview';
+import { input } from 'commons/esm/.storybook/preview.js';
 
 const preview = definePreview({
   ...input,
