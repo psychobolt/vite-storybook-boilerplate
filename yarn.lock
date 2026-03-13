@@ -8549,7 +8549,7 @@ __metadata:
     ts-enum-util: "npm:4.1.0"
     turbo: "npm:2.8.16"
     typescript: "npm:5.9.3"
-    vite: "npm:7.3.1"
+    vite: "npm:8.0.0"
     vite-tsconfig-paths: "npm:6.1.1"
     vitest: "npm:4.1.0"
   bin:
@@ -11832,7 +11832,7 @@ __metadata:
     turbo: "npm:2.8.16"
     typescript: "npm:5.9.3"
     typescript-plugin-css-modules: "npm:5.2.0"
-    vite: "npm:7.3.1"
+    vite: "npm:8.0.0"
     vite-plugin-sass-glob-import: "npm:6.0.3"
   languageName: unknown
   linkType: soft
@@ -17177,7 +17177,7 @@ __metadata:
     turbo: "npm:2.8.16"
     typescript: "npm:5.9.3"
     typescript-plugin-css-modules: "npm:5.2.0"
-    vite: "npm:7.3.1"
+    vite: "npm:8.0.0"
     vitest: "npm:4.1.0"
   peerDependencies:
     prop-types: ^15.8.1
@@ -19581,7 +19581,7 @@ __metadata:
     turbo: "npm:2.8.16"
     typescript: "npm:5.9.3"
     typescript-eslint: "npm:8.57.0"
-    vite: "npm:7.3.1"
+    vite: "npm:8.0.0"
   languageName: unknown
   linkType: soft
 
@@ -21004,7 +21004,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:*, vite@npm:7.3.1":
+"vite@npm:*":
   version: 7.3.1
   resolution: "vite@npm:7.3.1"
   dependencies:
@@ -21059,7 +21059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^6.0.0 || ^7.0.0 || ^8.0.0-0":
+"vite@npm:8.0.0, vite@npm:^6.0.0 || ^7.0.0 || ^8.0.0-0":
   version: 8.0.0
   resolution: "vite@npm:8.0.0"
   dependencies:
