@@ -13,6 +13,8 @@ on:
         type: string
       test-runner:
         type: string
+      release:
+        type: boolean
 
 env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -172,6 +174,7 @@ jobs:
           CHROMATIC_SLUG: ${{ github.repository }}
   cleanup:
     name: Cleanup pre-release versions
+    if: ${{ inputs.release }}
     runs-on: ubuntu-latest
     permissions:
       packages: write

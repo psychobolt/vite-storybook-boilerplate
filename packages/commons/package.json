@@ -18,7 +18,7 @@
     "g:rimraf": "cd $INIT_CWD && rimraf",
     "g:storybook": "cd $INIT_CWD && yarn g:run-script $(yarn g:storybook-path)",
     "g:storybook-path": "yarn bin storybook",
-    "g:test-storybook": "cd $INIT_CWD && yarn g:run-script $(yarn g:test-storybook-path)",
+    "g:test-storybook": "cd $INIT_CWD && yarn g:run-script $(yarn g:test-storybook-path) --url $(yarn g:dotenv-get SB_URL)",
     "g:test-storybook-path": "yarn bin test-storybook",
     "g:vitest": "cd $INIT_CWD && yarn g:run-script $(yarn bin vitest)",
     "lint": "yarn g:prettier --check --config esm/prettier.config.js . && yarn g:lint"

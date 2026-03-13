@@ -142,6 +142,7 @@ jobs:
       ref: ${{ inputs.ref }}
       ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
+      release: ${{ needs.diff.outputs.release }}
 
   release:
     needs: [diff, test, apps, packages]
