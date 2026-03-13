@@ -1,4 +1,4 @@
-declare module 'stylelint-config-hudochenkov/order.js' {
+declare module 'stylelint-config-hudochenkov/order' {
   import type { Config } from 'stylelint';
 
   const config: Config;
