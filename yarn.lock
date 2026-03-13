@@ -13095,10 +13095,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:3.3.1, jsonc-parser@npm:^3.2.0":
-  version: 3.3.1
-  resolution: "jsonc-parser@npm:3.3.1"
-  checksum: 10c0/269c3ae0a0e4f907a914bf334306c384aabb9929bd8c99f909275ebd5c2d3bc70b9bcd119ad794f339dec9f24b6a4ee9cd5a8ab2e6435e730ad4075388fc2ab6
+"jsonc-morph@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "jsonc-morph@npm:0.3.1"
+  checksum: 10c0/01f5111df7ef118dccf914b76d12ee27cb4e63f9317f7d5888f85ce753f2ca2475086f0b7892fb798bac91d01ba0498d1139c0e28679458a8a193c21c9caa04d
   languageName: node
   linkType: hard
 
@@ -13106,6 +13106,22 @@ __metadata:
   version: 2.3.1
   resolution: "jsonc-parser@npm:2.3.1"
   checksum: 10c0/b5e823612f6518a4d35e65d3c642e87b994c52a71b6d83d306d59f9b57003a1f6c64659808f0f1c3448991c28916d56faca45222f31ddb1a32effecdef0f0485
+  languageName: node
+  linkType: hard
+
+"jsonc-parser@npm:^3.2.0":
+  version: 3.3.1
+  resolution: "jsonc-parser@npm:3.3.1"
+  checksum: 10c0/269c3ae0a0e4f907a914bf334306c384aabb9929bd8c99f909275ebd5c2d3bc70b9bcd119ad794f339dec9f24b6a4ee9cd5a8ab2e6435e730ad4075388fc2ab6
+  languageName: node
+  linkType: hard
+
+"jsonc-weaver@npm:0.2.2":
+  version: 0.2.2
+  resolution: "jsonc-weaver@npm:0.2.2"
+  dependencies:
+    jsonc-morph: "npm:^0.3.1"
+  checksum: 10c0/88ec94c615441ef35e26c275b187782fdf4b319a2761d1691298b08f8564539573eb0508ab4ff10841899912701256b2829a3d179391fdf738ac4de9fc37607b
   languageName: node
   linkType: hard
 
@@ -17083,9 +17099,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.71.0":
-  version: 43.71.0
-  resolution: "renovate@npm:43.71.0"
+"renovate@npm:43.73.0":
+  version: 43.73.0
+  resolution: "renovate@npm:43.73.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17166,7 +17182,7 @@ __metadata:
     json-stringify-pretty-compact: "npm:4.0.0"
     json5: "npm:2.2.3"
     jsonata: "npm:2.1.0"
-    jsonc-parser: "npm:3.3.1"
+    jsonc-weaver: "npm:0.2.2"
     klona: "npm:2.0.6"
     luxon: "npm:3.7.2"
     markdown-it: "npm:14.1.1"
@@ -17217,7 +17233,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/7186b2ece2e29b62221607527df6663bfba3aaaba4ecbd8ac7ea20a4da6aebfa24c28fab19b869e8bc02f8fa8270447d0546c5974b910ef1486513db961dbd95
+  checksum: 10c0/b19d9241feb5e8c6676686b5232e171937cd63c11358dfdf7346b6acbaeab5a2d33662b20195ea9c1fa36b7173b2b667edf2fa2c5766fbdcbf81f8c17b9a7800
   languageName: node
   linkType: hard
 
@@ -20442,7 +20458,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.71.0"
+    renovate: "npm:43.73.0"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.17"
