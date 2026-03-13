@@ -21,7 +21,6 @@
     "postinstall": "husky",
     "lint": "yarn g:prettier --check . && yarn g:lint",
     "ls-workspaces": "yarn run-script bin/ls-workspaces.ts",
-    "mcp:playwright": "yarn mcp-server-playwright",
     "run-script": "yarn g:run-script"
   },
   "resolutions": {

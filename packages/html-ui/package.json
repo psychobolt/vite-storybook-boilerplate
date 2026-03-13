@@ -15,7 +15,7 @@
     "format": "yarn g:format",
     "lcov": "nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "lint": "yarn g:prettier --check . && yarn g:lint --runner stylelint --runner eslint",
-    "prepack": "yarn turbo run build",
+    "prepack": "turbo run build",
     "start": "yarn g:dotenv-run -- http-server storybook-static",
     "test": "yarn g:test-storybook --index-json",
     "watch": "yarn build -w"
