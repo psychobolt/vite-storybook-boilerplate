@@ -77,7 +77,7 @@ jobs:
           tag: ${{ vars.RELEASE_TAG }}
           dry_run_publish: ${{ vars.DRY_RUN_PUBLISH }}
       - name: Push
-        if: ${{ steps.base_ref.outputs.name != '' }}
+        if: steps.base_ref.outputs.name != ''
         run: git push
       - name: 'Create ${{ inputs.ref_name }}'
         run: |

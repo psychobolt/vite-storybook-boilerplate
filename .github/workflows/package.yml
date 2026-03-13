@@ -174,7 +174,7 @@ jobs:
           CHROMATIC_SLUG: ${{ github.repository }}
   cleanup:
     name: Cleanup pre-release versions
-    if: ${{ inputs.release == 'true' }}
+    if: inputs.release == 'true'
     runs-on: ubuntu-latest
     permissions:
       packages: write
