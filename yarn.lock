@@ -18895,7 +18895,7 @@ __metadata:
     stylelint-config-hudochenkov: "npm:13.0.1"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
-    stylelint-order: "npm:8.0.0"
+    stylelint-order: "npm:8.1.0"
     turbo: "npm:2.8.17"
     typescript: "npm:5.9.3"
   peerDependencies:
@@ -18903,15 +18903,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stylelint-order@npm:8.0.0":
-  version: 8.0.0
-  resolution: "stylelint-order@npm:8.0.0"
+"stylelint-order@npm:8.1.0":
+  version: 8.1.0
+  resolution: "stylelint-order@npm:8.1.0"
   dependencies:
     postcss: "npm:^8.5.8"
     postcss-sorting: "npm:^10.0.0"
   peerDependencies:
     stylelint: ^16.18.0 || ^17.0.0
-  checksum: 10c0/b46e9c1bcb47bb05399b2518007aa8a200a6b5ed1b024ac2a6200e207d85e9398ed758edd104db54b95d3408bfce5a5eec8d48111de16a4c1fe45f323e6886fa
+  checksum: 10c0/466536325a8213b1163908edd04e9610feed60534586c248a164e8f6d71cdae91a253e4d3c2a8ed5758cd66ff313ad87d23137cf6fe5b82ac772134eedb653b3
   languageName: node
   linkType: hard
 
