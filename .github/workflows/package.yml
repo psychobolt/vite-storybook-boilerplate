@@ -14,7 +14,7 @@ on:
       test-runner:
         type: string
       release:
-        type: boolean
+        type: string
 
 env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -174,10 +174,11 @@ jobs:
           CHROMATIC_SLUG: ${{ github.repository }}
   cleanup:
     name: Cleanup pre-release versions
-    if: ${{ inputs.release }}
+    if: ${{ inputs.release == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       packages: write
+    continue-on-error: true
     steps:
       - uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 # v5
         with:

@@ -11,7 +11,7 @@ on:
         type: string
         required: true
       release:
-        type: boolean
+        type: string
     outputs:
       release:
         value: 'true'
