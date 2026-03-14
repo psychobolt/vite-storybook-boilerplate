@@ -12,7 +12,7 @@
 		"start": "vite preview"
 	},
 	"devDependencies": {
-		"@dotenvx/dotenvx": "1.55.0",
+		"@dotenvx/dotenvx": "1.55.1",
 		"@eslint/js": "10.0.1",
 		"@fontsource/fira-mono": "5.2.7",
 		"@neoconfetti/svelte": "2.2.2",
