@@ -50,14 +50,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: |
             yarn.lock
@@ -95,14 +95,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: |
             yarn.lock
@@ -156,7 +156,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server
@@ -171,7 +171,7 @@ jobs:
         env:
           DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
           CHROMATIC_BRANCH: ${{ inputs.ref || github.ref_name }}
-          CHROMATIC_SHA: ${{ github.event.pull_request.head.sha || github.ref }}
+          CHROMATIC_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           CHROMATIC_SLUG: ${{ github.repository }}
   cleanup:
     name: Cleanup pre-release versions
