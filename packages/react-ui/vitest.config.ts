@@ -23,7 +23,8 @@ export default mergeConfig(
             setupFiles: [require.resolve('commons/esm/vitest.setup')]
           }
         }
-      ]
+      ],
+      passWithNoTests: true
     }
   })
 );
