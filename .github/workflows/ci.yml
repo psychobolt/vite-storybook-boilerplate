@@ -59,9 +59,9 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: yarn
-          cache-dependency-path: ./yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@a1c4079258ae08389be75b57d4d7a70f23c1c66d # v1.8
         with:
@@ -95,7 +95,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: npm
       - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4
         id: filter
