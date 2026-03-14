@@ -50,7 +50,7 @@ jobs:
         with:
           node-version: 22.x
           cache: yarn
-          cache-dependency-path: ./yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@a1c4079258ae08389be75b57d4d7a70f23c1c66d # v1.8
         with:
