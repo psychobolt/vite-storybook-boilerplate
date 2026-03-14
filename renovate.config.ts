@@ -64,11 +64,6 @@ const config: Omit<AllConfig, 'packageRules'> & {
   nvm: {
     enabled: false
   },
-  force: {
-    constraints: {
-      node: '^22'
-    }
-  },
   automerge: true,
   allowedCommands: ['^.+$'],
   baseBranchPatterns: ['main'],

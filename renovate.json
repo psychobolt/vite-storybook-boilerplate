@@ -1,5 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "baseBranchPatterns": ["$default", "bitbucket"],
-  "useBaseBranchConfig": "merge"
+  "useBaseBranchConfig": "merge",
+  "packageRules": [
+    {
+      "matchPackageNames": ["actions/node-versions"],
+      "allowedVersions": "< 23"
+    }
+  ]
 }
