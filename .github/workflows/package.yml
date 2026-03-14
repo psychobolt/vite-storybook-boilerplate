@@ -50,14 +50,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 22.x
+          node-version: 24.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 22.x
+          node-version: 24.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server
@@ -93,14 +93,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 22.x
+          node-version: 24.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Setup Node.js environment (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 22.x
+          node-version: 24.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server
@@ -152,7 +152,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 22.x
+          node-version: 24.x
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server
