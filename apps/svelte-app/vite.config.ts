@@ -1,5 +1,6 @@
+import path from 'node:path';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
@@ -10,7 +11,10 @@ export default defineConfig({
 	},
 	server: {
 		fs: {
-			allow: ['../../.yarn']
+			allow: [
+				searchForWorkspaceRoot(process.cwd()),
+				process.env.YARN_GLOBAL_FOLDER ?? path.resolve('../../.temp/.yarn')
+			]
 		}
 	}
 });
