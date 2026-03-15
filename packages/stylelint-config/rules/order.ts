@@ -1,5 +1,5 @@
 import { flatten, unflatten } from 'flat';
-import config from 'stylelint-config-hudochenkov/order.js';
+import config from 'stylelint-config-hudochenkov/order';
 
 const { 'order/order': _, ...order } = config.rules ?? {};
 type Rules = NonNullable<typeof config.rules>;

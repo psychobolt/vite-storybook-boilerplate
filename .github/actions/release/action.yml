@@ -29,7 +29,7 @@ runs:
       if: steps.versions.outputs.semver != '{}'
       run: |
         echo ${{ steps.versions.outputs.semver }}
-        yarn build
+        yarn turbo run build
       shell: bash
     - name: Prepare commit
       if: inputs.strategy != '' && inputs.strategy != 'build'

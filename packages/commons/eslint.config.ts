@@ -4,7 +4,7 @@ import * as mdx from 'eslint-plugin-mdx';
 import neostandard from 'neostandard';
 
 const tsFiles = ['**/*.{ts,tsx}'];
-const tsCodeBlocks = ['**/*.md'].map((pattern) => `${pattern}/*.ts`);
+const tsCodeBlocks = ['**/*.{md,mdx}'].map((pattern) => `${pattern}/*.ts`);
 
 export default defineConfig(
   ...neostandard({
@@ -37,7 +37,8 @@ export default defineConfig(
           allowNullableString: true,
           allowAny: true
         }
-      ]
+      ],
+      yoda: ['error', 'never', { exceptRange: true }]
     }
   },
   {

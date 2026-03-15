@@ -21,7 +21,6 @@
     "postinstall": "husky",
     "lint": "yarn g:prettier --check . && yarn g:lint",
     "ls-workspaces": "yarn run-script bin/ls-workspaces.ts",
-    "mcp:playwright": "yarn mcp-server-playwright",
     "run-script": "yarn g:run-script"
   },
   "resolutions": {
@@ -29,13 +28,13 @@
     "vite-plugin-sass-glob-import@npm:6.0.2": "patch:vite-plugin-sass-glob-import@npm%3A6.0.2#~/.yarn/patches/vite-plugin-sass-glob-import-npm-6.0.2-b079086a71.patch"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "1.54.1",
+    "@dotenvx/dotenvx": "1.55.1",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.18",
     "@types/glob-to-regexp": "0.4.4",
     "@types/node": "24.12.0",
     "@types/semver": "7.7.1",
-    "@typescript-eslint/utils": "8.56.1",
+    "@typescript-eslint/utils": "8.57.0",
     "@yarnpkg/core": "4.5.0",
     "@yarnpkg/fslib": "3.1.4",
     "@yarnpkg/sdks": "3.2.3",
@@ -45,10 +44,10 @@
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
     "playwright": "1.58.2",
-    "renovate": "43.59.3",
+    "renovate": "43.73.2",
     "semver": "7.7.4",
     "svelte-language-server": "0.17.29",
-    "turbo": "2.8.14",
+    "turbo": "2.8.17",
     "typescript": "5.9.3",
     "yaml": "2.8.2"
   },

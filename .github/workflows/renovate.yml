@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: Get token
         id: get_token
-        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         with:
           private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
           app-id: ${{ secrets.BOT_APP_ID }}
@@ -48,9 +48,9 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: yarn
-          cache-dependency-path: ./yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@a1c4079258ae08389be75b57d4d7a70f23c1c66d # v1.8
         with:
@@ -60,7 +60,7 @@ jobs:
       - name: Build renovate config
         run: yarn run-script renovate.config.ts > renovate.config.json
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@7b4b65bf31e07d4e3e51708d07700fb41bc03166 # v46.1.3
+        uses: renovatebot/github-action@0b17c4eb901eca44d018fb25744a50a74b2042df # v46.1.4
         env:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           RENOVATE_BASE_DIR: ${{ env.DOCKER_USER_HOME }}
