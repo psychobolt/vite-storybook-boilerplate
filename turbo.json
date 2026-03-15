@@ -34,7 +34,9 @@
     "test": {
       "dependsOn": ["^build"]
     },
-    "coverage": {},
+    "coverage": {
+      "dependsOn": ["^build"]
+    },
     "//#format": {
       "dependsOn": ["^build"]
     },
