@@ -48,5 +48,6 @@
     }
   },
   "include": [".storybook/**/*", "**/*"],
+  "exclude": ["dist"],
   "references": [{ "path": "../commons/tsconfig.json" }]
 }
