@@ -12,7 +12,7 @@
       "outputs": ["test-reports/junit.xml"]
     },
     "coverage": {
-      "outputs": ["coverage/**"]
+      "outputs": ["test-reports/junit.xml", "coverage/**"]
     }
   }
 }

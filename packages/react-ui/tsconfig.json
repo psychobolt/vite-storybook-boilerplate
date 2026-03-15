@@ -4,6 +4,7 @@
   //   "@tsconfig/vite-react/tsconfig.json",
   //   "commons/tsconfig.vite.json"
   // ],
+  // commons/tsconfig.json
   "ts-node": {
     "esm": true,
     "files": true,
