@@ -34,7 +34,7 @@ export default mergeConfig(
           ...globSync('src/**/*[!@(.story|.stories)].{ts,tsx}')
         ])
       },
-      rollupOptions: {
+      rolldownOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
         external: ['prop-types', 'react', 'react/jsx-runtime', 'react-dom'],
