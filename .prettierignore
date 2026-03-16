@@ -4,5 +4,4 @@
 !.yarnrc.yml
 apps
 packages
-LICENSE
 yarn.lock

@@ -3,9 +3,9 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.validate.enable": true,
+  "js/ts.tsdk.path": ".yarn/sdks/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+  "js/ts.validate.enabled": true,
   "editor.tabSize": 2,
   "eslint.nodePath": ".yarn/sdks",
   "eslint.runtime": "node",
@@ -14,6 +14,7 @@
     "flags": ["unstable_native_nodejs_ts_config"]
   },
   "eslint.validate": [
+    "json",
     "markdown",
     "mdx",
     "javascript",
