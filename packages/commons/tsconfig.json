@@ -1,9 +1,4 @@
 {
-  "ts-node": {
-    "esm": true,
-    "files": true,
-    "swc": true
-  },
   "compilerOptions": {
     "composite": true,
     "declaration": true,
