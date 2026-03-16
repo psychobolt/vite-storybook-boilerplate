@@ -1536,9 +1536,14 @@ __metadata:
   linkType: hard
 
 "@csstools/css-syntax-patches-for-csstree@npm:^1.0.27":
-  version: 1.1.0
-  resolution: "@csstools/css-syntax-patches-for-csstree@npm:1.1.0"
-  checksum: 10c0/ef84e09ead31d204e238eb674016b34a54083344348b4e4fd63cb03486dcaa5b53feeff74a6c246763973cca0eb3213a70f49ca8545ce26a3b3d9c97255f4dd1
+  version: 1.1.1
+  resolution: "@csstools/css-syntax-patches-for-csstree@npm:1.1.1"
+  peerDependencies:
+    css-tree: ^3.2.1
+  peerDependenciesMeta:
+    css-tree:
+      optional: true
+  checksum: 10c0/947f82e9e8af0512f1d6600f68da1bbe8d15112fa73435169608a68dcf20262ae517c799202c86a6c3bc889d0e9fab724ad5661a3aa98432390f8f9765b86ddc
   languageName: node
   linkType: hard
 
@@ -7325,11 +7330,11 @@ __metadata:
   linkType: hard
 
 "baseline-browser-mapping@npm:^2.8.3, baseline-browser-mapping@npm:^2.9.0":
-  version: 2.10.7
-  resolution: "baseline-browser-mapping@npm:2.10.7"
+  version: 2.10.8
+  resolution: "baseline-browser-mapping@npm:2.10.8"
   bin:
     baseline-browser-mapping: dist/cli.cjs
-  checksum: 10c0/fe2988088ede5a2dc7936f0a718d4b500b2a28a7ee3e11e2a3844a9444dd217a95a070c00508d8130da73c4fe576d677b21844bc078f6cd7867fb0e1be60caf0
+  checksum: 10c0/a77882e8ac37a900a9a0757b9bf4e50f407829ed17ee7630273ab5da0ae10d9c64ed4c5a1e03afb3490e39713440092417ded4bb856eeb9bd44856eacbd97497
   languageName: node
   linkType: hard
 
@@ -7711,9 +7716,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001579, caniuse-lite@npm:^1.0.30001759, caniuse-lite@npm:^1.0.30001774":
-  version: 1.0.30001778
-  resolution: "caniuse-lite@npm:1.0.30001778"
-  checksum: 10c0/830042e0a6af0796d3da4d9575f60966b92308c5504577993b618dd196c835d023dbd725fa8b47c33b74c487d75ce01ee3ebd6e7a078714989513110e8ff80e5
+  version: 1.0.30001779
+  resolution: "caniuse-lite@npm:1.0.30001779"
+  checksum: 10c0/6cae9492140722ebc6be76cf3057ff8d1b427c7d8c2588b92bba7979bb1ec7ece457c7d3578a099a757ec12cb01b893fe05f224ac8feb841072897f0c12de6cc
   languageName: node
   linkType: hard
 
@@ -13241,8 +13246,8 @@ __metadata:
   linkType: hard
 
 "less@npm:^4.2.0":
-  version: 4.6.3
-  resolution: "less@npm:4.6.3"
+  version: 4.6.4
+  resolution: "less@npm:4.6.4"
   dependencies:
     copy-anything: "npm:^3.0.5"
     errno: "npm:^0.1.1"
@@ -13270,7 +13275,7 @@ __metadata:
       optional: true
   bin:
     lessc: bin/lessc
-  checksum: 10c0/b38ff826234e0598ef78ded49dd92a647b0cbfee615b7383a86ebaa9d5a604205a567f5544c719de710fc9b3b3bcb1cf68d786aa8e2371e7e6a605dfc80c8d64
+  checksum: 10c0/34fc96e617f1c8b9bff019ffcab6304550d733fdb5daaa4a69dd404d83aa8566c21d8905bbb75f025334875188f38126edd4af10604e9ee634f43f6d41430837
   languageName: node
   linkType: hard
 
@@ -15092,11 +15097,11 @@ __metadata:
   linkType: hard
 
 "node-abi@npm:^3.3.0":
-  version: 3.88.0
-  resolution: "node-abi@npm:3.88.0"
+  version: 3.89.0
+  resolution: "node-abi@npm:3.89.0"
   dependencies:
     semver: "npm:^7.3.5"
-  checksum: 10c0/33798ba403272069ad15aa01a0bdf27e6853ab6d453522433a250d5ae529b208aa0844caf904823337232522b6143721880fb66273024b48cf3a5729ae988f32
+  checksum: 10c0/73abbee70833fbf91c7a0bb52bef9f1ccde190b1597f0bf8f15226b3aef8a4ade78605488fbd0aa47ec4fefe20e748672ba045c9075c58a56416bde8d9097586
   languageName: node
   linkType: hard
 
@@ -16702,8 +16707,8 @@ __metadata:
   linkType: hard
 
 "react-docgen@npm:^8.0.0, react-docgen@npm:^8.0.2":
-  version: 8.0.2
-  resolution: "react-docgen@npm:8.0.2"
+  version: 8.0.3
+  resolution: "react-docgen@npm:8.0.3"
   dependencies:
     "@babel/core": "npm:^7.28.0"
     "@babel/traverse": "npm:^7.28.0"
@@ -16715,7 +16720,7 @@ __metadata:
     doctrine: "npm:^3.0.0"
     resolve: "npm:^1.22.1"
     strip-indent: "npm:^4.0.0"
-  checksum: 10c0/25e2dd48957c52749cf44bdcf172f3b47d42d8bb8c51000bceb136ff018cbe0a78610d04f12d8bbb882df0d86884e8d05b1d7a1cc39586de356ef5bb9fceab71
+  checksum: 10c0/0231fb9177bc7c633f3d1f228eebb0ee90a2f0feac50b1869ef70b0a3683b400d7875547a2d5168f2619b63d4cc29d7c45ae33d3f621fc67a7fa6790ac2049f6
   languageName: node
   linkType: hard
 
