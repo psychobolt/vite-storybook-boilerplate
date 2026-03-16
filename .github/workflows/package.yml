@@ -175,7 +175,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-    continue-on-error: true
     steps:
       - uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 # v5
         with:
@@ -183,3 +182,4 @@ jobs:
           package-type: npm
           delete-only-pre-release-versions: true
           min-versions-to-keep: 1
+        continue-on-error: true
