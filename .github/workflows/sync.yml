@@ -6,11 +6,15 @@ on:
       ref_name:
         type: string
         default: main
+      squash:
+        type: boolean
   workflow_dispatch:
     inputs:
       ref_name:
         type: string
         default: main
+      squash:
+        type: boolean
 
 concurrency:
   group: sync-${{ inputs.ref_name}}
@@ -67,7 +71,11 @@ jobs:
         run: |
           git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
           git fetch base main
-          git merge base/main --allow-unrelated-histories --no-commit --ff -X ours || true
+          if [[ "${{ inputs.squash }}" == "true" ]]; then
+            git merge base/main --squash -X ours || true
+          else
+            git merge base/main --allow-unrelated-histories --no-commit --ff -X ours || true
+          fi
       - name: Prune deleted files
         run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
       - name: Start Turbo Cache Server
