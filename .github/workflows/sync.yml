@@ -72,7 +72,7 @@ jobs:
           git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
           git fetch base main
           if [[ "${{ inputs.squash }}" == "true" ]]; then
-            git merge base/main --squash -X ours || true
+            git merge base/main --allow-unrelated-histories --squash -X ours || true
           else
             git merge base/main --allow-unrelated-histories --no-commit --ff -X ours || true
           fi
