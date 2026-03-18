@@ -25,7 +25,6 @@
 
     // commons/tsconfig.esm.json
     "composite": false,
-    "outDir": "esm",
 
     // commons/tsconfig.vite.json
     "types": ["vite/client"],
@@ -48,6 +47,7 @@
       }
     ],
     "baseUrl": "src",
+    "outDir": "dist",
     "paths": {
       ".storybook/*": ["../.storybook/*"],
       "html-ui/*": [
