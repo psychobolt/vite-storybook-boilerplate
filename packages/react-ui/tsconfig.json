@@ -4,7 +4,6 @@
   //   "@tsconfig/vite-react/tsconfig.json",
   //   "commons/tsconfig.vite.json"
   // ],
-  // commons/tsconfig.json
   "compilerOptions": {
     // @tsconfig/vite-react/tsconfig.json
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
