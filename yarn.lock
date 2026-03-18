@@ -5154,9 +5154,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.24.2":
-  version: 0.24.2
-  resolution: "@storybook/test-runner@npm:0.24.2"
+"@storybook/test-runner@npm:0.24.3":
+  version: 0.24.3
+  resolution: "@storybook/test-runner@npm:0.24.3"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -5180,10 +5180,10 @@ __metadata:
     rimraf: "npm:^3.0.2"
     uuid: "npm:^8.3.2"
   peerDependencies:
-    storybook: ^0.0.0-0 || ^10.0.0 || ^10.0.0-0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0
+    storybook: ^0.0.0-0 || ^10.0.0 || ^10.0.0-0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/5154f09f0dc30f4b1dd8d810397df8d64a318328e0d74b3f7244ac9cabf985b82cb626a52e1febc4017b1669e71037bb9e87a546d053b0b3f6cbc06084b93ee2
+  checksum: 10c0/581cc520e1baa4ea86103a2ca2fba00330906a817733927059d08655cf2d85af3c5cca10ed7e159b7c37f19d7575da38d499a955c46d40654b9fc296969871b0
   languageName: node
   linkType: hard
 
@@ -8377,7 +8377,7 @@ __metadata:
     "@storybook/addon-vitest": "npm:10.2.19"
     "@storybook/builder-vite": "npm:10.2.19"
     "@storybook/global": "npm:5.0.0"
-    "@storybook/test-runner": "npm:0.24.2"
+    "@storybook/test-runner": "npm:0.24.3"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4"
     "@types/react": "npm:19.2.14"
