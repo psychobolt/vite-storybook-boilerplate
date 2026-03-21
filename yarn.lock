@@ -8500,7 +8500,7 @@ __metadata:
     "@storybook/addon-docs": "npm:10.3.1"
     "@storybook/addon-links": "npm:10.3.1"
     "@storybook/addon-onboarding": "npm:10.3.1"
-    "@storybook/addon-vitest": "patch:@storybook/addon-vitest@npm%3A10.3.1#~/.yarn/patches/@storybook-addon-vitest-npm-10.3.1-e0ed4c7524.patch"
+    "@storybook/addon-vitest": "npm:10.3.1"
     "@storybook/builder-vite": "npm:10.3.1"
     "@storybook/global": "npm:5.0.0"
     "@storybook/test-runner": "npm:0.24.3"
@@ -17307,7 +17307,7 @@ __metadata:
   resolution: "react-ui@workspace:packages/react-ui"
   dependencies:
     "@storybook/addon-docs": "npm:10.3.1"
-    "@storybook/addon-vitest": "patch:@storybook/addon-vitest@npm%3A10.3.1#~/.yarn/patches/@storybook-addon-vitest-npm-10.3.1-e0ed4c7524.patch"
+    "@storybook/addon-vitest": "npm:10.3.1"
     "@storybook/react-vite": "npm:10.3.1"
     "@tsconfig/vite-react": "npm:7.0.2"
     "@types/prop-types": "npm:15.7.15"
