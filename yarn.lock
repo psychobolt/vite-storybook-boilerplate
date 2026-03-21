@@ -7666,14 +7666,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-sqlite3@npm:12.6.2":
-  version: 12.6.2
-  resolution: "better-sqlite3@npm:12.6.2"
+"better-sqlite3@npm:12.8.0":
+  version: 12.8.0
+  resolution: "better-sqlite3@npm:12.8.0"
   dependencies:
     bindings: "npm:^1.5.0"
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
-  checksum: 10c0/a58fb3f7a7f5469ba0b8de0855aa67396ff34f951a6975746e4b21987f530be6a34427d1d4bd5958cf48c67ed7ba1df038ae163d2ee9d944237f6b8112f6640d
+  checksum: 10c0/b31da8a8a9bd0dd77d44c11fbfc72141a18b7267aed1ee5bedd481397415ace18eb54140706f82aca8149e4102fb2a543f833761e80f9668470ed53d03958515
   languageName: node
   linkType: hard
 
@@ -17589,9 +17589,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.84.1":
-  version: 43.84.1
-  resolution: "renovate@npm:43.84.1"
+"renovate@npm:43.84.2":
+  version: 43.84.2
+  resolution: "renovate@npm:43.84.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17635,7 +17635,7 @@ __metadata:
     async-mutex: "npm:0.5.0"
     aws4: "npm:1.13.2"
     azure-devops-node-api: "npm:15.1.2"
-    better-sqlite3: "npm:12.6.2"
+    better-sqlite3: "npm:12.8.0"
     bunyan: "npm:1.8.15"
     cacache: "npm:20.0.3"
     changelog-filename-regex: "npm:2.0.1"
@@ -17723,7 +17723,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/6eceae8a3892d31cb01f1b6e461d6eee26db7398ada2d02dc2b52af218970cccc4e5da6d6bf6f2a165965ccee1b499d2ea0370a7244517c8eff542b12c7bc5d5
+  checksum: 10c0/98a91b90b309e4dc0913a4d0363cec87a44a240eb9de378ff2a085a5fc854cec6a9a4b975f2783fa8240c03c1af1d26d22780f72d6622219d8a2a9bdf3c2e80c
   languageName: node
   linkType: hard
 
@@ -20921,7 +20921,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.84.1"
+    renovate: "npm:43.84.2"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.20"
