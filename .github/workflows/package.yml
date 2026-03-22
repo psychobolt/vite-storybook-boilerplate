@@ -124,7 +124,7 @@ jobs:
         if: inputs.test-runner == 'vitest'
         run: yarn ${{ inputs.path }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }}
       - name: Upload Coverage Reports
-        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5
+        uses: codecov/codecov-action@1af58845a975a7985b0beb0cbe6fbbb71a41dbad # v5
         with:
           files: ${{ inputs.path }}/coverage/${{ inputs.test-runner == 'vitest' &&  'coverage-final.json' || 'storybook/coverage-storybook.json'}}
           flags: ${{ inputs.workspace }}
@@ -175,7 +175,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-    continue-on-error: true
     steps:
       - uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 # v5
         with:
@@ -183,3 +182,4 @@ jobs:
           package-type: npm
           delete-only-pre-release-versions: true
           min-versions-to-keep: 1
+        continue-on-error: true

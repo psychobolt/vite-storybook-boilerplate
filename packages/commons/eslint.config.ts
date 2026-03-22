@@ -1,6 +1,8 @@
 /// <reference path="./modules.d.ts" preserve="true" />
 import { defineConfig } from 'eslint/config';
 import * as mdx from 'eslint-plugin-mdx';
+import json from 'eslint-plugin-jsonc';
+import packageJson from 'eslint-plugin-package-json';
 import neostandard from 'neostandard';
 
 const tsFiles = ['**/*.{ts,tsx}'];
@@ -51,6 +53,27 @@ export default defineConfig(
     }
   },
   mdx.flatCodeBlocks,
+  ...json.configs['recommended-with-json'],
+  ...json.configs['recommended-with-jsonc'],
+  ...json.configs['recommended-with-json5'],
+  {
+    files: ['**/tsconfig.json', '**/tsconfig.*.json'],
+    plugins: {
+      jsonc: json
+    },
+    rules: {
+      'jsonc/no-comments': 0
+    }
+  },
+  ...json.configs.prettier,
+  packageJson.configs.recommended,
+  {
+    settings: {
+      packageJson: {
+        enforceForPrivate: false
+      }
+    }
+  },
   {
     ignores: [
       '.github/**/*.md',

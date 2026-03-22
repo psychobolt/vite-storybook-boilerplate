@@ -13,7 +13,6 @@
       "interactive": true
     },
     "coverage": {
-      "dependsOn": ["^build"],
       "outputs": ["test-reports/junit.xml", "coverage/**"]
     }
   }

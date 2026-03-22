@@ -34,7 +34,7 @@ export default mergeConfig(
     },
     build: {
       lib: false,
-      rollupOptions: {
+      rolldownOptions: {
         input: getInputMap(patterns, [
           'src/style.scss',
           ...globSync('src/*/*.module.scss')

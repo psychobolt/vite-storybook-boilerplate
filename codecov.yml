@@ -7,7 +7,7 @@ component_management:
   individual_components:
     - component_id: html-ui
       paths:
-        - packages/html-ui/*
+        - packages/html-ui/**
     - component_id: react-ui
       paths:
-        - packages/react-ui/*
+        - packages/react-ui/**
