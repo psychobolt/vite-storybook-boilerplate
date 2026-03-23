@@ -55,7 +55,7 @@
     "@storybook/addon-onboarding": "10.3.1",
     "@storybook/addon-vitest": "10.3.1",
     "@storybook/global": "5.0.0",
-    "@typescript-eslint/utils": "8.57.1",
+    "@typescript-eslint/utils": "8.57.2",
     "chromatic": "16.0.0",
     "eslint": "10.1.0",
     "eslint-plugin-jsonc": "3.1.2",
