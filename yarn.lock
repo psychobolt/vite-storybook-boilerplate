@@ -8046,9 +8046,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:15.3.0":
-  version: 15.3.0
-  resolution: "chromatic@npm:15.3.0"
+"chromatic@npm:15.3.1":
+  version: 15.3.1
+  resolution: "chromatic@npm:15.3.1"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -8061,7 +8061,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 10c0/0145783d5a38c10e60a8d9d630dd971f5544353cd359b7b74b01904003a20720acabf0b370ff821dcf976ee5b077687430d810e2658b0fb01ae209edf50e9c29
+  checksum: 10c0/9987fd93a8b61b1f2f4ea9544ac9a2e280904c5731c49394a4b505ddcf4e50093691e5aa2b944a6182bd52745c782e275fd283d1e5778d75f8bb5e70fb66768e
   languageName: node
   linkType: hard
 
@@ -8356,7 +8356,7 @@ __metadata:
     "@vitest/browser-playwright": "npm:4.1.0"
     arg: "npm:5.0.2"
     autoprefixer: "npm:10.4.27"
-    chromatic: "npm:15.3.0"
+    chromatic: "npm:15.3.1"
     eslint: "npm:10.1.0"
     eslint-plugin-jsonc: "npm:3.1.2"
     eslint-plugin-mdx: "npm:3.7.0"
