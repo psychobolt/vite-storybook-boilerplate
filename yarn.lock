@@ -5005,6 +5005,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-vitest@patch:@storybook/addon-vitest@npm%3A10.3.3#~/.yarn/patches/@storybook-addon-vitest-npm-10.3.1-e0ed4c7524.patch":
+  version: 10.3.3
+  resolution: "@storybook/addon-vitest@patch:@storybook/addon-vitest@npm%3A10.3.3#~/.yarn/patches/@storybook-addon-vitest-npm-10.3.1-e0ed4c7524.patch::version=10.3.3&hash=652348"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    "@storybook/icons": "npm:^2.0.1"
+  peerDependencies:
+    "@vitest/browser": ^3.0.0 || ^4.0.0
+    "@vitest/browser-playwright": ^4.0.0
+    "@vitest/runner": ^3.0.0 || ^4.0.0
+    storybook: ^10.3.3
+    vitest: ^3.0.0 || ^4.0.0
+  peerDependenciesMeta:
+    "@vitest/browser":
+      optional: true
+    "@vitest/browser-playwright":
+      optional: true
+    "@vitest/runner":
+      optional: true
+    vitest:
+      optional: true
+  checksum: 10c0/25957bdfedecf84f441c9482f1cf238bb71f97d5735def6d96a5444001a7dc38812c172f7aeb1ae6ca5d3027ba5c16fc27e8aa3844dce68af5420cffc7239057
+  languageName: node
+  linkType: hard
+
 "@storybook/builder-vite@npm:10.3.3":
   version: 10.3.3
   resolution: "@storybook/builder-vite@npm:10.3.3"
