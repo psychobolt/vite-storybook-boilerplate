@@ -30,7 +30,7 @@
     "@types/eslint": "9.6.1",
     "@types/lodash": "4.17.24",
     "@types/react": "19.2.14",
-    "@vitest/browser-playwright": "4.1.0",
+    "@vitest/browser-playwright": "4.1.1",
     "arg": "5.0.2",
     "autoprefixer": "10.4.27",
     "eslint-plugin-mdx": "3.7.0",
@@ -72,6 +72,6 @@
     "turbo": "2.8.20",
     "typescript": "5.9.3",
     "vite": "8.0.1",
-    "vitest": "4.1.0"
+    "vitest": "4.1.1"
   }
 }
