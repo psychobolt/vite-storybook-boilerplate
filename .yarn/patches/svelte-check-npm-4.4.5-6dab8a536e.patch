@@ -1,0 +1,13 @@
+diff --git a/dist/src/index.js b/dist/src/index.js
+index ab5b28858e99a20633f442260532da0d79f90899..869ae0170073fb3dc3805eaf0f87fe567dd0fc07 100644
+--- a/dist/src/index.js
++++ b/dist/src/index.js
+@@ -108733,7 +108733,7 @@ function createProject(host, createLanguageService, options) {
+     if (major < 5) {
+         return undefined;
+     }
+-    const factory = minor < 3 ? project_1.createProject : minor < 5 ? project_2.createProject : project_3.createProject;
++    const factory = major === 5 && minor < 3 ? project_1.createProject : major === 5 && minor < 5 ? project_2.createProject : project_3.createProject;
+     const project = factory(typescript_1$8.default, host, createLanguageService, options);
+     const proxyMethods = [
+         'getCachedExportInfoMap',
