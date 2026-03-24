@@ -19526,6 +19526,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"svelte-check@patch:svelte-check@npm%3A4.4.5#~/.yarn/patches/svelte-check-npm-4.4.5-6dab8a536e.patch":
+  version: 4.4.5
+  resolution: "svelte-check@patch:svelte-check@npm%3A4.4.5#~/.yarn/patches/svelte-check-npm-4.4.5-6dab8a536e.patch::version=4.4.5&hash=fb64cd"
+  dependencies:
+    "@jridgewell/trace-mapping": "npm:^0.3.25"
+    chokidar: "npm:^4.0.1"
+    fdir: "npm:^6.2.0"
+    picocolors: "npm:^1.0.0"
+    sade: "npm:^1.7.4"
+  peerDependencies:
+    svelte: ^4.0.0 || ^5.0.0-next.0
+    typescript: ">=5.0.0"
+  bin:
+    svelte-check: bin/svelte-check
+  checksum: 10c0/8674fafa7f22c45ff0014fc51e3f0bc2740ac5623e3712a242f4d9f8ad20e37ee23eec49caa6c1fa8f0686fbbd74289b807c656323dcb4cde6abfe0cf20906b5
+  languageName: node
+  linkType: hard
+
 "svelte-eslint-parser@npm:1.6.0, svelte-eslint-parser@npm:^1.4.0":
   version: 1.6.0
   resolution: "svelte-eslint-parser@npm:1.6.0"
@@ -19572,6 +19590,35 @@ __metadata:
   bin:
     svelteserver: bin/server.js
   checksum: 10c0/abd4201710501e2a9d54bd619895584edc578ce3b7de62150f573c1c4802b40c500f08275a5190639a1c617e298501f6b5b5ff77798b6e41d0183ba0db92656b
+  languageName: node
+  linkType: hard
+
+"svelte-language-server@patch:svelte-language-server@npm%3A0.17.29#~/.yarn/patches/svelte-language-server-npm-0.17.29-58c2902055.patch":
+  version: 0.17.29
+  resolution: "svelte-language-server@patch:svelte-language-server@npm%3A0.17.29#~/.yarn/patches/svelte-language-server-npm-0.17.29-58c2902055.patch::version=0.17.29&hash=a02ecb"
+  dependencies:
+    "@jridgewell/trace-mapping": "npm:^0.3.25"
+    "@vscode/emmet-helper": "npm:2.8.4"
+    chokidar: "npm:^4.0.1"
+    estree-walker: "npm:^2.0.1"
+    fdir: "npm:^6.2.0"
+    globrex: "npm:^0.1.2"
+    lodash: "npm:^4.17.21"
+    prettier: "npm:~3.3.3"
+    prettier-plugin-svelte: "npm:^3.5.0"
+    svelte: "npm:^4.2.19"
+    svelte2tsx: "npm:~0.7.51"
+    typescript: "npm:^5.9.2"
+    typescript-auto-import-cache: "npm:^0.3.6"
+    vscode-css-languageservice: "npm:~6.3.5"
+    vscode-html-languageservice: "npm:~5.4.0"
+    vscode-languageserver: "npm:9.0.1"
+    vscode-languageserver-protocol: "npm:3.17.5"
+    vscode-languageserver-types: "npm:3.17.5"
+    vscode-uri: "npm:~3.1.0"
+  bin:
+    svelteserver: bin/server.js
+  checksum: 10c0/8aa37eaed1164b2afd54e144a76ca6ee2c546d659d70736e1869060e1a370bf3829891fd9b1151f29c87d3143d5ebe7df9d83d645086ed7fe07f9a884845ce81
   languageName: node
   linkType: hard
 
