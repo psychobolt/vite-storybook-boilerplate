@@ -17473,9 +17473,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.91.3":
-  version: 43.91.3
-  resolution: "renovate@npm:43.91.3"
+"renovate@npm:43.91.4":
+  version: 43.91.4
+  resolution: "renovate@npm:43.91.4"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17595,7 +17595,7 @@ __metadata:
     url-join: "npm:5.0.0"
     validate-npm-package-name: "npm:7.0.2"
     xmldoc: "npm:2.0.3"
-    yaml: "npm:2.8.2"
+    yaml: "npm:2.8.3"
     zod: "npm:4.3.6"
   dependenciesMeta:
     better-sqlite3:
@@ -17607,7 +17607,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/8b6e7109a4215bda5cd3643419768fa7e716b03f085e6619c59aadce16b8caa5a8fdcef6dd5110badc5d2b13da2141041c399d2c66e43584ee9e2e75275866c2
+  checksum: 10c0/86853c51abb71437eb9d977f34ec61f9d1e63e520d474b080fc888afc93a15b9d52282f27caae9332a4922b4ad7180f2659648bb6cda756339bcfd43d86e2f8f
   languageName: node
   linkType: hard
 
@@ -20870,7 +20870,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.91.3"
+    renovate: "npm:43.91.4"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.20"
@@ -21513,15 +21513,6 @@ __metadata:
   version: 5.0.0
   resolution: "yallist@npm:5.0.0"
   checksum: 10c0/a499c81ce6d4a1d260d4ea0f6d49ab4da09681e32c3f0472dee16667ed69d01dae63a3b81745a24bd78476ec4fcf856114cb4896ace738e01da34b2c42235416
-  languageName: node
-  linkType: hard
-
-"yaml@npm:2.8.2":
-  version: 2.8.2
-  resolution: "yaml@npm:2.8.2"
-  bin:
-    yaml: bin.mjs
-  checksum: 10c0/703e4dc1e34b324aa66876d63618dcacb9ed49f7e7fe9b70f1e703645be8d640f68ab84f12b86df8ac960bac37acf5513e115de7c970940617ce0343c8c9cd96
   languageName: node
   linkType: hard
 
