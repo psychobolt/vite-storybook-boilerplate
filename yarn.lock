@@ -8525,6 +8525,7 @@ __metadata:
     vitest: "npm:4.1.1"
   bin:
     lint: esm/bin/lint.js
+    tsc-paths: esm/bin/tsc-paths.js
   languageName: unknown
   linkType: soft
 
