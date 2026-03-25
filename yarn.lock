@@ -7863,26 +7863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cacache@npm:20.0.3":
-  version: 20.0.3
-  resolution: "cacache@npm:20.0.3"
-  dependencies:
-    "@npmcli/fs": "npm:^5.0.0"
-    fs-minipass: "npm:^3.0.0"
-    glob: "npm:^13.0.0"
-    lru-cache: "npm:^11.1.0"
-    minipass: "npm:^7.0.3"
-    minipass-collect: "npm:^2.0.1"
-    minipass-flush: "npm:^1.0.5"
-    minipass-pipeline: "npm:^1.2.4"
-    p-map: "npm:^7.0.2"
-    ssri: "npm:^13.0.0"
-    unique-filename: "npm:^5.0.0"
-  checksum: 10c0/c7da1ca694d20e8f8aedabd21dc11518f809a7d2b59aa76a1fc655db5a9e62379e465c157ddd2afe34b19230808882288effa6911b2de26a088a6d5645123462
-  languageName: node
-  linkType: hard
-
-"cacache@npm:^20.0.1":
+"cacache@npm:20.0.4, cacache@npm:^20.0.1":
   version: 20.0.4
   resolution: "cacache@npm:20.0.4"
   dependencies:
@@ -17530,9 +17511,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.91.0":
-  version: 43.91.0
-  resolution: "renovate@npm:43.91.0"
+"renovate@npm:43.91.2":
+  version: 43.91.2
+  resolution: "renovate@npm:43.91.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17578,7 +17559,7 @@ __metadata:
     azure-devops-node-api: "npm:15.1.2"
     better-sqlite3: "npm:12.8.0"
     bunyan: "npm:1.8.15"
-    cacache: "npm:20.0.3"
+    cacache: "npm:20.0.4"
     changelog-filename-regex: "npm:2.0.1"
     clean-git-ref: "npm:2.0.1"
     commander: "npm:14.0.3"
@@ -17664,7 +17645,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/5a4b34f8f0ecf24fbecdebaaac48e2afa252aaf89c098dd4e517f187d8c4ba1833b2eec1b7378648f285b2c10a68ec3392d89cef6cd9affcc0804b5ad3ece816
+  checksum: 10c0/244800dd6e28cd74201bc0f4f0bbb6eecede9523c94bf4f505fe47f55234f632fd5021471c6f5368fff369b258e811156585a6d306aed53421b7aab8c2ada32b
   languageName: node
   linkType: hard
 
@@ -20544,24 +20525,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unique-filename@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "unique-filename@npm:5.0.0"
-  dependencies:
-    unique-slug: "npm:^6.0.0"
-  checksum: 10c0/afb897e9cf4c2fb622ea716f7c2bb462001928fc5f437972213afdf1cc32101a230c0f1e9d96fc91ee5185eca0f2feb34127145874975f347be52eb91d6ccc2c
-  languageName: node
-  linkType: hard
-
-"unique-slug@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "unique-slug@npm:6.0.0"
-  dependencies:
-    imurmurhash: "npm:^0.1.4"
-  checksum: 10c0/da7ade4cb04eb33ad0499861f82fe95ce9c7c878b7139dc54d140ecfb6a6541c18a5c8dac16188b8b379fe62c0c1f1b710814baac910cde5f4fec06212126c6a
-  languageName: node
-  linkType: hard
-
 "unique-string@npm:^3.0.0":
   version: 3.0.0
   resolution: "unique-string@npm:3.0.0"
@@ -20938,7 +20901,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.91.0"
+    renovate: "npm:43.91.2"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.20"
