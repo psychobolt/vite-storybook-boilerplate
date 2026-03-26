@@ -86,8 +86,9 @@ function makeReplacement(
   if (specifier.startsWith('.') || specifier.startsWith('/')) return null;
 
   const cacheKey = `${fileDir}::${specifier}`;
-  if (replacementCache.has(cacheKey))
+  if (replacementCache.has(cacheKey)) {
     return replacementCache.get(cacheKey) || null;
+  }
 
   for (const entry of compiledPaths) {
     const m = specifier.match(entry.regex);
