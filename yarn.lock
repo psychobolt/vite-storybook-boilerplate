@@ -1515,9 +1515,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:5.1.0":
-  version: 5.1.0
-  resolution: "@chromatic-com/storybook@npm:5.1.0"
+"@chromatic-com/storybook@npm:5.1.1":
+  version: 5.1.1
+  resolution: "@chromatic-com/storybook@npm:5.1.1"
   dependencies:
     "@neoconfetti/react": "npm:^1.0.0"
     chromatic: "npm:^13.3.4"
@@ -1526,7 +1526,7 @@ __metadata:
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0
-  checksum: 10c0/17a1bba6e2e0918506f765fbed7ee2dc7e68e1fd5bd008af0baf6feabec28b3a7bfe663231b58e9bb919a574e67f8d2f4b1189ca3d2d63a83c19831a0c55ae55
+  checksum: 10c0/952757501277eaf1cb5e025e53edb08e58beeb97d0c34a680e400c77b45d1c743c6e074c87f6c113cd761157291de5095813f204972c961bc3af793baba5482a
   languageName: node
   linkType: hard
 
@@ -8471,7 +8471,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "commons@workspace:packages/commons"
   dependencies:
-    "@chromatic-com/storybook": "npm:5.1.0"
+    "@chromatic-com/storybook": "npm:5.1.1"
     "@storybook/addon-docs": "npm:10.3.3"
     "@storybook/addon-links": "npm:10.3.3"
     "@storybook/addon-onboarding": "npm:10.3.3"
