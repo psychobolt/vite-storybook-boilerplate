@@ -35,7 +35,7 @@ Pass one or more runner to be executed and return results.
 
 Pass one or more formatter or reporter flags.
 
-## TSC Paths
+## TSC Paths (Experimental)
 
 `tsc-paths.ts` ([Source](./tsc-paths.ts))
 

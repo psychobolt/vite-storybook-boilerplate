@@ -1,4 +1,6 @@
 /*
+ * (Experimental) Remove alias and restore relative path for project modules in `*.d.ts` emitted files.
+ *
  * Co-authored-by:
  * @author GitHub Copilot
  */
