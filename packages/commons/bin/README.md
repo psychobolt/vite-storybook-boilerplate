@@ -54,6 +54,16 @@ npm tsc --project ./tsconfig.dts.json && tsc-paths [options]
 
 #### Project (Required)
 
+Process files based on TypeScript [config](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+
 ```sh
 --project /path/to/tsconfig.json # shorthand (-p)
+```
+
+#### Watch
+
+Watch for emitted declaration files and process them.
+
+```sh
+--watch # shorthand (-w)
 ```
