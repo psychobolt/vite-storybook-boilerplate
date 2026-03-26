@@ -1,3 +1,16 @@
+diff --git a/dist/cjs/getValidatedUrl.js b/dist/cjs/getValidatedUrl.js
+index 6557d68a84382ad6af2dbfae4e1c13df96213330..a9f3ca8ff9606b9badb9ef33509049272c639d58 100644
+--- a/dist/cjs/getValidatedUrl.js
++++ b/dist/cjs/getValidatedUrl.js
+@@ -60,7 +60,7 @@ function getValidatedUrl(url) {
+     if (urlToUse.startsWith(".") ||
+         urlToUse.includes("\\") ||
+         urlToUse.includes("%") ||
+-        (urlToUse.startsWith("@") && !urlToUse.includes(path_1.default.sep))) {
++        (urlToUse.startsWith("@") && !urlToUse.includes('/'))) {
+         return null;
+     }
+     return urlToUse;
 diff --git a/dist/cjs/importer.js b/dist/cjs/importer.js
 index a538f248eae71d5bcb9b7180f2abc71b44c76264..0302371544a60d69625a9f469e7fd803b9607e68 100644
 --- a/dist/cjs/importer.js
