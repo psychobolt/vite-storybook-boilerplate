@@ -1549,7 +1549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/css-syntax-patches-for-csstree@npm:^1.0.29":
+"@csstools/css-syntax-patches-for-csstree@npm:^1.1.1":
   version: 1.1.1
   resolution: "@csstools/css-syntax-patches-for-csstree@npm:1.1.1"
   peerDependencies:
@@ -8515,7 +8515,7 @@ __metadata:
     storybook: "npm:10.3.3"
     storybook-multilevel-sort: "npm:2.1.0"
     storybook-zeplin: "npm:3.0.0"
-    stylelint: "npm:17.5.0"
+    stylelint: "npm:17.6.0"
     ts-enum-util: "npm:4.1.0"
     turbo: "npm:2.8.20"
     typescript: "npm:6.0.2"
@@ -11866,7 +11866,7 @@ __metadata:
     rollup-plugin-no-emit: "npm:1.3.0"
     sass: "npm:1.98.0"
     storybook: "npm:10.3.3"
-    stylelint: "npm:17.5.0"
+    stylelint: "npm:17.6.0"
     stylelint-config: "workspace:*"
     turbo: "npm:2.8.20"
     typescript: "npm:6.0.2"
@@ -17256,7 +17256,7 @@ __metadata:
     react-dom: "npm:19.2.4"
     sass: "npm:1.98.0"
     storybook: "npm:10.3.3"
-    stylelint: "npm:17.5.0"
+    stylelint: "npm:17.6.0"
     stylelint-config: "workspace:*"
     turbo: "npm:2.8.20"
     typescript: "npm:6.0.2"
@@ -19323,7 +19323,7 @@ __metadata:
     eslint: "npm:10.1.0"
     flat: "npm:6.0.1"
     postcss: "npm:8.5.8"
-    stylelint: "npm:17.5.0"
+    stylelint: "npm:17.6.0"
     stylelint-config-hudochenkov: "npm:13.0.2"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
@@ -19365,13 +19365,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:17.5.0":
-  version: 17.5.0
-  resolution: "stylelint@npm:17.5.0"
+"stylelint@npm:17.6.0":
+  version: 17.6.0
+  resolution: "stylelint@npm:17.6.0"
   dependencies:
     "@csstools/css-calc": "npm:^3.1.1"
     "@csstools/css-parser-algorithms": "npm:^4.0.0"
-    "@csstools/css-syntax-patches-for-csstree": "npm:^1.0.29"
+    "@csstools/css-syntax-patches-for-csstree": "npm:^1.1.1"
     "@csstools/css-tokenizer": "npm:^4.0.0"
     "@csstools/media-query-list-parser": "npm:^5.0.0"
     "@csstools/selector-resolve-nested": "npm:^4.0.0"
@@ -19390,7 +19390,6 @@ __metadata:
     html-tags: "npm:^5.1.0"
     ignore: "npm:^7.0.5"
     import-meta-resolve: "npm:^4.2.0"
-    imurmurhash: "npm:^0.1.4"
     is-plain-object: "npm:^5.0.0"
     mathml-tag-names: "npm:^4.0.0"
     meow: "npm:^14.1.0"
@@ -19405,10 +19404,10 @@ __metadata:
     supports-hyperlinks: "npm:^4.4.0"
     svg-tags: "npm:^1.0.0"
     table: "npm:^6.9.0"
-    write-file-atomic: "npm:^7.0.0"
+    write-file-atomic: "npm:^7.0.1"
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: 10c0/bc7bb57e04c82d4d6135e1905deb43f85e459951070c16a8858949b682ea9abbb901f50e8d7bd1b0155fba25ceee1b0238b1638f14304f193dfd7ea45adf4e88
+  checksum: 10c0/831aa281a4723f3fab3c653fae7bfc13e97458ea04d7eb3991ebd7fc3b1e4fefba24f920abb518390782ed9810b96f5652767f99a2ab537c4f6b14ea10846bc1
   languageName: node
   linkType: hard
 
@@ -19514,7 +19513,7 @@ __metadata:
     prettier-plugin-sh: "npm:0.18.0"
     prettier-plugin-svelte: "npm:3.5.1"
     sass: "npm:1.98.0"
-    stylelint: "npm:17.5.0"
+    stylelint: "npm:17.6.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
     svelte: "npm:5.55.0"
@@ -21484,7 +21483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"write-file-atomic@npm:^7.0.0":
+"write-file-atomic@npm:^7.0.1":
   version: 7.0.1
   resolution: "write-file-atomic@npm:7.0.1"
   dependencies:
