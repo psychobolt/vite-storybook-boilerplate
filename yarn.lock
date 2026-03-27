@@ -11575,9 +11575,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"handlebars@npm:4.7.8":
-  version: 4.7.8
-  resolution: "handlebars@npm:4.7.8"
+"handlebars@npm:4.7.9":
+  version: 4.7.9
+  resolution: "handlebars@npm:4.7.9"
   dependencies:
     minimist: "npm:^1.2.5"
     neo-async: "npm:^2.6.2"
@@ -11589,7 +11589,7 @@ __metadata:
       optional: true
   bin:
     handlebars: bin/handlebars
-  checksum: 10c0/7aff423ea38a14bb379316f3857fe0df3c5d66119270944247f155ba1f08e07a92b340c58edaa00cfe985c21508870ee5183e0634dcb53dd405f35c93ef7f10d
+  checksum: 10c0/22f8105a7e68e81aff2662bb434edf05f757d21d850731d71cec886d69c10cd33d3c43e34b2892968ec62de8241611851d3d0674c8ef324ea3e01dc66262faa9
   languageName: node
   linkType: hard
 
@@ -17507,9 +17507,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.91.6":
-  version: 43.91.6
-  resolution: "renovate@npm:43.91.6"
+"renovate@npm:43.92.0":
+  version: 43.92.0
+  resolution: "renovate@npm:43.92.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17583,7 +17583,7 @@ __metadata:
     google-auth-library: "npm:10.6.2"
     got: "npm:14.6.6"
     graph-data-structure: "npm:4.5.0"
-    handlebars: "npm:4.7.8"
+    handlebars: "npm:4.7.9"
     ignore: "npm:7.0.5"
     ini: "npm:6.0.0"
     json-dup-key-validator: "npm:1.0.3"
@@ -17641,7 +17641,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/d9f78dab52bbb883a5eed1c1778ea4145fe8a8edf8674e478a080b6aa950388e7bc4b4ab28705676731d47f7de6eeaadf19b60d25abf067c25da469b7d328f23
+  checksum: 10c0/5688c446a728d259e50caa807e78f26f6da3f89d217e0b98d9dd31a77b40f7fe0f89499d32ecb27f9738f221d59c20e2dd6696f509d4fd889c731960c0c99195
   languageName: node
   linkType: hard
 
@@ -20918,7 +20918,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.91.6"
+    renovate: "npm:43.92.0"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.20"
