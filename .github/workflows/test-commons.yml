@@ -33,14 +33,6 @@ jobs:
         run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
         shell: bash
       - name: Setup Node.js environment
-        if: matrix.os == 'ubuntu-latest'
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
-        with:
-          node-version: 22.x
-          cache: yarn
-          cache-dependency-path: yarn.lock
-      - name: Setup Node.js environment (Windows)
-        if: matrix.os == 'windows-latest'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
           node-version: 22.x
