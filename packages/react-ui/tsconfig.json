@@ -9,11 +9,15 @@
         "name": "typescript-plugin-css-modules",
         "options": {
           "classnameTransform": "camelCase",
-          "goToDefinition": true
+          "goToDefinition": true,
+          "rendererOptions": {
+            "sass": {
+              "customImporters": "commons/cjs/node-sass-importers.cjs"
+            }
+          }
         }
       }
     ],
-    "baseUrl": "src",
     "outDir": "dist",
     "paths": {
       "@psychobolt/html-ui/*": [
@@ -26,6 +30,5 @@
     }
   },
   "include": [".storybook/**/*", "**/*"],
-  "exclude": ["dist"],
-  "references": [{ "path": "../commons/tsconfig.json" }]
+  "exclude": ["dist"]
 }
