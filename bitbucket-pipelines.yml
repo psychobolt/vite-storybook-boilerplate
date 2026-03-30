@@ -103,7 +103,7 @@ definitions:
           RELEASE_TAG="$BITBUCKET_BRANCH"
         fi
 
-        RELEASE_TAG=$(echo "$RELEASE_TAG" | sed 's/\//_/g')
+        export RELEASE_TAG=$(echo "$RELEASE_TAG" | sed 's/\//_/g')
 
         BASE_REF="HEAD"
         if [[ "$STABLE" = true && "$BASE_REF_NAME" ]]; then
@@ -123,7 +123,7 @@ definitions:
           echo BASE_REF="$BASE_REF" >> .env
         fi
 
-        SEMVER=$(yarn apply-versions --strategy $STRATEGY)
+        export SEMVER=$(yarn apply-versions --strategy $STRATEGY)
         if [[ "$SEMVER" != "{}" ]]; then
           echo $SEMVER
           yarn build
@@ -466,7 +466,8 @@ pipelines:
             - *setup
             - yarn bootstrap
             - *release
-            - git push
+            - git tag "$RELEASE_TAG" -am "$SEMVER"
+            - git push --atomic origin $BITBUCKET_BRANCH "$RELEASE_TAG"
             - git checkout -b $REF_NAME
             - git push --set-upstream origin $REF_NAME
     prepare:
@@ -534,7 +535,7 @@ pipelines:
                 --fail-with-body
     renovate:
       - step:
-          image: renovate/renovate:latest@sha256:89a1fd5861ee1c95be19f7d18669c7dcc94c516f8399436f1465e3ef3af7f452
+          image: renovate/renovate:latest@sha256:06c9297754f7d487adca6446b9970fecade3202190138259e7888c30ec8d4277
           size: 2x
           caches:
             - yarn
