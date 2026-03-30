@@ -4056,15 +4056,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/good-enough-parser@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@renovatebot/good-enough-parser@npm:1.2.0"
+"@renovatebot/good-enough-parser@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@renovatebot/good-enough-parser@npm:2.0.0"
   dependencies:
     "@thi.ng/zipper": "npm:1.0.3"
     "@types/moo": "npm:0.5.10"
     klona: "npm:2.0.6"
-    moo: "npm:0.5.2"
-  checksum: 10c0/49cc5b953ca2db7219f93bb9833e0d477e226020a8006653945e6ce10814b02ee6f13be707633c7fa263b2c658d8f35a3fa2bddbe60a4f2e6615b9a5facabd6f
+    moo: "npm:0.5.3"
+  checksum: 10c0/5e79e2b7f485d89c3d54b13ee51f14d6ef0befd270d077f5a998d89a5c4a64f6944d8ab0da369046c740f588fc0341cf1a5a79fc4db65eb45aaa42eea1be32e9
   languageName: node
   linkType: hard
 
@@ -15223,13 +15223,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moo@npm:0.5.2":
-  version: 0.5.2
-  resolution: "moo@npm:0.5.2"
-  checksum: 10c0/a9d9ad8198a51fe35d297f6e9fdd718298ca0b39a412e868a0ebd92286379ab4533cfc1f1f34516177f5129988ab25fe598f78e77c84e3bfe0d4a877b56525a8
-  languageName: node
-  linkType: hard
-
 "moo@npm:0.5.3":
   version: 0.5.3
   resolution: "moo@npm:0.5.3"
@@ -17497,9 +17490,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.101.0":
-  version: 43.101.0
-  resolution: "renovate@npm:43.101.0"
+"renovate@npm:43.101.1":
+  version: 43.101.1
+  resolution: "renovate@npm:43.101.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17530,7 +17523,7 @@ __metadata:
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:5.11.0"
     "@renovatebot/detect-tools": "npm:2.0.0"
-    "@renovatebot/good-enough-parser": "npm:1.2.0"
+    "@renovatebot/good-enough-parser": "npm:2.0.0"
     "@renovatebot/osv-offline": "npm:2.4.0"
     "@renovatebot/pep440": "npm:4.2.2"
     "@renovatebot/pgp": "npm:1.3.4"
@@ -17631,7 +17624,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/57a2f68be7643cdb94bbecacad59eb1d7f2c495d7b3b48c0264f22a8dad21156a8301fc1ac651f913a9707baa9bd0e4590c450a899ce2399ceddbd926d3a3d8b
+  checksum: 10c0/4917269590034dc9c94904bd77d81ac6586caffc98e755bd66bac61db40e5f65438b5f08cd7ce5f473995342102ccc1a364c182c688ad570bce2a7afbf095f5e
   languageName: node
   linkType: hard
 
@@ -20881,7 +20874,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.101.0"
+    renovate: "npm:43.101.1"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.9.0"
