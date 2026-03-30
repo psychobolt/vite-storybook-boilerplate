@@ -8940,10 +8940,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff@npm:8.0.3":
-  version: 8.0.3
-  resolution: "diff@npm:8.0.3"
-  checksum: 10c0/d29321c70d3545fdcb56c5fdd76028c3f04c012462779e062303d4c3c531af80d2c360c26b871e6e2b9a971d2422d47e1779a859106c4cac4b5d2d143df70e20
+"diff@npm:8.0.4":
+  version: 8.0.4
+  resolution: "diff@npm:8.0.4"
+  checksum: 10c0/7ee5d03926db4039be7252ac3b0abaae1bd122a2ca971e5ca7270e444e36ff83dd906fad1a719740ca347e97ed5dc8f458a76a8391dbcd7aff363bdafb348a00
   languageName: node
   linkType: hard
 
@@ -17362,9 +17362,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.100.0":
-  version: 43.100.0
-  resolution: "renovate@npm:43.100.0"
+"renovate@npm:43.100.1":
+  version: 43.100.1
+  resolution: "renovate@npm:43.100.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17420,7 +17420,7 @@ __metadata:
     deepmerge: "npm:4.3.1"
     dequal: "npm:2.0.3"
     detect-indent: "npm:7.0.2"
-    diff: "npm:8.0.3"
+    diff: "npm:8.0.4"
     editorconfig: "npm:3.0.2"
     email-addresses: "npm:5.0.0"
     emoji-regex: "npm:10.6.0"
@@ -17496,7 +17496,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/5df7743793117f1b30a49a39cdf6f0721312a2bd56afa49575b840b80e666c8b587d97f1b06a3dcc44475a02d02e22a0c703e77ffed7945a6588d69fcfad89ea
+  checksum: 10c0/0d8bd7c043a9267d7cfbb6c2ad183ba6be25891cb06fd672dcbd0a20618150c083b15fba457d026f1eb3573d63dd2f95ee5de9900fae33d76a94064f872d5d2f
   languageName: node
   linkType: hard
 
@@ -20731,7 +20731,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.100.0"
+    renovate: "npm:43.100.1"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.8.21"
