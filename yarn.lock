@@ -19457,7 +19457,7 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
     svelte: "npm:5.55.1"
-    svelte-check: "npm:4.4.5"
+    svelte-check: "npm:4.4.6"
     svelte-eslint-parser: "npm:1.6.0"
     svelte-language-server: "npm:0.17.29"
     turbo: "npm:2.9.1"
@@ -19467,9 +19467,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"svelte-check@npm:4.4.5":
-  version: 4.4.5
-  resolution: "svelte-check@npm:4.4.5"
+"svelte-check@npm:4.4.6":
+  version: 4.4.6
+  resolution: "svelte-check@npm:4.4.6"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     chokidar: "npm:^4.0.1"
@@ -19481,25 +19481,7 @@ __metadata:
     typescript: ">=5.0.0"
   bin:
     svelte-check: bin/svelte-check
-  checksum: 10c0/03f985de3d0e445b19d72c21db2b94f642bbfb725c4bc825cc0ed7ed7ac0b5bf5aa24720ec2237baad0554e6924b3f4ca321f0b2e8d544a9900381c40f8c2597
-  languageName: node
-  linkType: hard
-
-"svelte-check@patch:svelte-check@npm%3A4.4.5#~/.yarn/patches/svelte-check-npm-4.4.5-6dab8a536e.patch":
-  version: 4.4.5
-  resolution: "svelte-check@patch:svelte-check@npm%3A4.4.5#~/.yarn/patches/svelte-check-npm-4.4.5-6dab8a536e.patch::version=4.4.5&hash=fb64cd"
-  dependencies:
-    "@jridgewell/trace-mapping": "npm:^0.3.25"
-    chokidar: "npm:^4.0.1"
-    fdir: "npm:^6.2.0"
-    picocolors: "npm:^1.0.0"
-    sade: "npm:^1.7.4"
-  peerDependencies:
-    svelte: ^4.0.0 || ^5.0.0-next.0
-    typescript: ">=5.0.0"
-  bin:
-    svelte-check: bin/svelte-check
-  checksum: 10c0/8674fafa7f22c45ff0014fc51e3f0bc2740ac5623e3712a242f4d9f8ad20e37ee23eec49caa6c1fa8f0686fbbd74289b807c656323dcb4cde6abfe0cf20906b5
+  checksum: 10c0/583603c5c4e88db613312c21fe60e948bf626a5b53126914f99ef8cca91143a95dafedfa4c4c03322a29bc54d89d304ee3253166665ec819657b1f5320b59862
   languageName: node
   linkType: hard
 
