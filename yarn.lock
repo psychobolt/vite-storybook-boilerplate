@@ -16553,12 +16553,12 @@ __metadata:
 
 "pnp-sass-importer@patch:pnp-sass-importer@npm%3A2.0.0#~/.yarn/patches/pnp-sass-importer-npm-2.0.0-ab79efb9df.patch":
   version: 2.0.0
-  resolution: "pnp-sass-importer@patch:pnp-sass-importer@npm%3A2.0.0#~/.yarn/patches/pnp-sass-importer-npm-2.0.0-ab79efb9df.patch::version=2.0.0&hash=54277c"
+  resolution: "pnp-sass-importer@patch:pnp-sass-importer@npm%3A2.0.0#~/.yarn/patches/pnp-sass-importer-npm-2.0.0-ab79efb9df.patch::version=2.0.0&hash=336278"
   dependencies:
     "@yarnpkg/fslib": "npm:^3.1.2"
     "@yarnpkg/libzip": "npm:^3.2.1"
     sass: "npm:^1.77.8"
-  checksum: 10c0/258cb3fdefbc2859118aa29709a8b78901e2bc58856a1368dceb7626f922334a18f033cd8a6979cc6ddb868ef1b7e276f494f5ee536ab2cdd54edb426cbd6325
+  checksum: 10c0/450c0e92cc4be632510eb1c2f58e89ab112722ac199f668062563f1060521629443b7d41855adaf1f3658e5d42d5abca38fa48e66a98dd5af2c13c7ce32b73fe
   languageName: node
   linkType: hard
 
