@@ -1,1 +1,8 @@
-@use '**/*.module.scss'; /* stylelint-disable scss/load-partial-extension */
+@use 'sass:meta';
+
+@layer base, elements, components, utilities;
+
+@layer element {
+  /* stylelint-disable-next-line scss/load-partial-extension */
+  @include meta.load-css('**/*.module.scss');
+}
