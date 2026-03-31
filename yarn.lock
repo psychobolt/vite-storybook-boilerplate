@@ -3827,12 +3827,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pnpm/error@npm:1000.0.5":
-  version: 1000.0.5
-  resolution: "@pnpm/error@npm:1000.0.5"
+"@pnpm/error@npm:1000.1.0, @pnpm/error@npm:^1000.0.4":
+  version: 1000.1.0
+  resolution: "@pnpm/error@npm:1000.1.0"
   dependencies:
     "@pnpm/constants": "npm:1001.3.1"
-  checksum: 10c0/baabd1e870416f37ea0eae5fd0067a1e9f2e0911e9438a7a2b5b01ad092cd71bba683e800f0cecfbe8b966bdc8e9e2df4240c84271a494564294e5dfb983ec8b
+  checksum: 10c0/e23e53ca6a4747bdaa3aee397a0ccf4cb0a38073c111e0a1fe45ca27900f08c40ba1dc6aff4c9ed6bdd3e89d1cedeeb050ae918cb18dd96f09a0bb51edec7657
   languageName: node
   linkType: hard
 
@@ -3845,15 +3845,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pnpm/error@npm:^1000.0.4":
-  version: 1000.1.0
-  resolution: "@pnpm/error@npm:1000.1.0"
-  dependencies:
-    "@pnpm/constants": "npm:1001.3.1"
-  checksum: 10c0/e23e53ca6a4747bdaa3aee397a0ccf4cb0a38073c111e0a1fe45ca27900f08c40ba1dc6aff4c9ed6bdd3e89d1cedeeb050ae918cb18dd96f09a0bb51edec7657
-  languageName: node
-  linkType: hard
-
 "@pnpm/graceful-fs@npm:2.0.0":
   version: 2.0.0
   resolution: "@pnpm/graceful-fs@npm:2.0.0"
@@ -3863,15 +3854,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pnpm/parse-overrides@npm:1001.0.3":
-  version: 1001.0.3
-  resolution: "@pnpm/parse-overrides@npm:1001.0.3"
+"@pnpm/parse-overrides@npm:1001.0.4":
+  version: 1001.0.4
+  resolution: "@pnpm/parse-overrides@npm:1001.0.4"
   dependencies:
     "@pnpm/catalogs.resolver": "npm:1000.0.5"
     "@pnpm/catalogs.types": "npm:1000.0.0"
-    "@pnpm/error": "npm:1000.0.5"
+    "@pnpm/error": "npm:1000.1.0"
     "@pnpm/parse-wanted-dependency": "npm:1001.0.0"
-  checksum: 10c0/2fbec03675288a89ea080902d2268e7ffc5a0cca689010babd8ea06e16f01ff6404c76d1c30803e90b3f48689c380e86ba38a06d66087cfb59afee987cf40c1a
+  checksum: 10c0/e9032fcbf6366a1c1bf02f279d30a330bda5c4c63727ff8d65c43d25e2ff73f3ca2e2c5af0d48ec3b87ad2ff5c7ee67751d693e375b6709b7e8b5c6b20de966a
   languageName: node
   linkType: hard
 
@@ -17490,9 +17481,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.101.5":
-  version: 43.101.5
-  resolution: "renovate@npm:43.101.5"
+"renovate@npm:43.101.6":
+  version: 43.101.6
+  resolution: "renovate@npm:43.101.6"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1000.0"
     "@aws-sdk/client-ec2": "npm:3.1000.0"
@@ -17519,7 +17510,7 @@ __metadata:
     "@opentelemetry/sdk-trace-base": "npm:2.6.0"
     "@opentelemetry/sdk-trace-node": "npm:2.6.0"
     "@opentelemetry/semantic-conventions": "npm:1.40.0"
-    "@pnpm/parse-overrides": "npm:1001.0.3"
+    "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:5.11.0"
     "@renovatebot/detect-tools": "npm:2.0.0"
@@ -17624,7 +17615,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/ab1e19edcb47f8a9162234646e3d36b17a6207a67a67dc4a1e3bd8d9743152cdb59d8cc5dec3be01ab1581adcf3afbec72a67f5bec34f95c4c601cf740bac3ef
+  checksum: 10c0/64ab8ed2318cfa3073a1f5cef2c51daaf2a84520292a4ef98960932a24b3261fd4d8074f38da4fc31a65c992ac3297708493bddfbce33fdd3a4f473ac9d82e40
   languageName: node
   linkType: hard
 
@@ -20840,7 +20831,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.58.2"
-    renovate: "npm:43.101.5"
+    renovate: "npm:43.101.6"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.30"
     turbo: "npm:2.9.1"
