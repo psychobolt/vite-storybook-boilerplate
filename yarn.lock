@@ -10284,7 +10284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^7.0.0":
+"eslint-plugin-react-hooks@npm:7.0.1, eslint-plugin-react-hooks@npm:^7.0.0":
   version: 7.0.1
   resolution: "eslint-plugin-react-hooks@npm:7.0.1"
   dependencies:
@@ -17446,6 +17446,7 @@ __metadata:
     classnames: "npm:2.5.1"
     commons: "workspace:*"
     eslint: "npm:10.1.0"
+    eslint-plugin-react-hooks: "npm:7.0.1"
     glob: "npm:13.0.6"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
