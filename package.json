@@ -46,7 +46,7 @@
     "eslint": "10.1.0",
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
-    "playwright": "1.59.0",
+    "playwright": "1.59.1",
     "renovate": "43.102.8",
     "semver": "7.7.4",
     "svelte-language-server": "0.17.30",
