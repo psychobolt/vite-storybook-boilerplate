@@ -33,7 +33,7 @@
   "devDependencies": {
     "@dotenvx/dotenvx": "1.59.1",
     "@swc-node/register": "1.11.1",
-    "@swc/core": "1.15.21",
+    "@swc/core": "1.15.24",
     "@types/glob-to-regexp": "0.4.4",
     "@types/node": "24.12.2",
     "@types/semver": "7.7.1",
