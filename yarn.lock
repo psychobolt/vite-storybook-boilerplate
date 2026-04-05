@@ -8732,7 +8732,7 @@ __metadata:
     eslint: "npm:10.2.0"
     eslint-plugin-jsonc: "npm:3.1.2"
     eslint-plugin-mdx: "npm:3.7.0"
-    eslint-plugin-package-json: "npm:1.0.0-beta.2"
+    eslint-plugin-package-json: "npm:1.0.0-beta.3"
     eslint-plugin-storybook: "npm:10.3.4"
     jest-junit: "npm:16.0.0"
     jiti: "npm:2.6.1"
@@ -10297,9 +10297,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-package-json@npm:1.0.0-beta.2":
-  version: 1.0.0-beta.2
-  resolution: "eslint-plugin-package-json@npm:1.0.0-beta.2"
+"eslint-plugin-package-json@npm:1.0.0-beta.3":
+  version: 1.0.0-beta.3
+  resolution: "eslint-plugin-package-json@npm:1.0.0-beta.3"
   dependencies:
     "@altano/repository-tools": "npm:^2.0.1"
     change-case: "npm:^5.4.4"
@@ -10314,7 +10314,7 @@ __metadata:
     validate-npm-package-name: "npm:^7.0.0"
   peerDependencies:
     eslint: ">=9.0.0"
-  checksum: 10c0/adf0c77d43e1acf103b55af9042623619c82aab4d163a4d57ac4b0efedea4aede616753c09dae679e8333e7f4cb3ee71e25595b3d53edc2cfee66754034129c9
+  checksum: 10c0/5878fec4778174f088bb8a3d5d84832f1e2080d5df130eede08c9c65c003c200f1f608ccab05404bf5708e3d1a95dbcb066737def0d46cfaee13d8dc595d6ca8
   languageName: node
   linkType: hard
 
