@@ -20,7 +20,7 @@
     "commons": "workspace:*",
     "eslint": "10.2.0",
     "stylelint": "17.6.0",
-    "turbo": "2.9.3",
+    "turbo": "2.9.4",
     "typescript": "6.0.2"
   },
   "peerDependencies": {
