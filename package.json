@@ -47,7 +47,7 @@
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
     "playwright": "1.59.1",
-    "renovate": "43.104.6",
+    "renovate": "43.104.7",
     "semver": "7.7.4",
     "svelte-language-server": "0.17.30",
     "turbo": "2.9.4",
