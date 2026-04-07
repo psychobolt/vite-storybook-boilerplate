@@ -15042,7 +15042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.14.0, nan@npm:^2.25.0":
+"nan@npm:^2.14.0, nan@npm:^2.26.2":
   version: 2.26.2
   resolution: "nan@npm:2.26.2"
   dependencies:
@@ -16824,14 +16824,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2@npm:1.23.3":
-  version: 1.23.3
-  resolution: "re2@npm:1.23.3"
+"re2@npm:1.24.0":
+  version: 1.24.0
+  resolution: "re2@npm:1.24.0"
   dependencies:
     install-artifact-from-github: "npm:^1.4.0"
-    nan: "npm:^2.25.0"
+    nan: "npm:^2.26.2"
     node-gyp: "npm:^12.2.0"
-  checksum: 10c0/32da4744878fff18e9e8589baf8aae33375b17573e75e2b3a8f4173edeb22483991182b7a2cc7b1cce242fbfd3d3336de79047c6c6b5ab4689dcf5e41ea7a549
+  checksum: 10c0/236b103d210169d784dcd501a81f25e4d1db82ebdcac8c06a2699f0c9be542bef6a41a4cbaa1194c4b157397a04f43382a792c21dd479e541b02172cd029fd40
   languageName: node
   linkType: hard
 
@@ -17195,9 +17195,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.104.8":
-  version: 43.104.8
-  resolution: "renovate@npm:43.104.8"
+"renovate@npm:43.104.9":
+  version: 43.104.9
+  resolution: "renovate@npm:43.104.9"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1021.0"
     "@aws-sdk/client-ec2": "npm:3.1021.0"
@@ -17296,7 +17296,7 @@ __metadata:
     prettier: "npm:3.8.1"
     protobufjs: "npm:8.0.0"
     punycode: "npm:2.3.1"
-    re2: "npm:1.23.3"
+    re2: "npm:1.24.0"
     remark: "npm:15.0.1"
     remark-gfm: "npm:4.0.1"
     remark-github: "npm:12.0.0"
@@ -17328,7 +17328,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/43cec01448a52df30c940481b50893d90fb81e57897f3335f2628dc51694676c6dc42e1be9bee4ea35800d18287dc418d6a7aa1fa110ebe351853f4e7b487a8d
+  checksum: 10c0/704db21b7b226fd09b00ac0b318117a62f2d2a4a426dffe2a8776ef195dd21db6cfc4993fd2799070a8bf65a2a8b8c53cccaaf9eb56d0257b205895714567f32
   languageName: node
   linkType: hard
 
@@ -20521,7 +20521,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.59.1"
-    renovate: "npm:43.104.8"
+    renovate: "npm:43.104.9"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.30"
     turbo: "npm:2.9.4"
