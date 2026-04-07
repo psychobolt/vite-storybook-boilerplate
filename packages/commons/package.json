@@ -74,7 +74,7 @@
     "sass": "1.99.0",
     "storybook": "10.3.4",
     "stylelint": "17.6.0",
-    "turbo": "2.9.4",
+    "turbo": "2.9.5",
     "typescript": "6.0.2",
     "vite": "8.0.3",
     "vitest": "4.1.3"
