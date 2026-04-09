@@ -17376,9 +17376,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.110.4":
-  version: 43.110.4
-  resolution: "renovate@npm:43.110.4"
+"renovate@npm:43.110.6":
+  version: 43.110.6
+  resolution: "renovate@npm:43.110.6"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1021.0"
     "@aws-sdk/client-ec2": "npm:3.1021.0"
@@ -17488,7 +17488,7 @@ __metadata:
     semver-utils: "npm:1.1.4"
     shlex: "npm:3.0.0"
     simple-git: "npm:3.33.0"
-    slugify: "npm:1.6.8"
+    slugify: "npm:1.6.9"
     source-map-support: "npm:0.5.21"
     strip-json-comments: "npm:5.0.3"
     toml-eslint-parser: "npm:1.0.3"
@@ -17509,7 +17509,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/1eea9d63f1995fe949103fb5b74488b6c78e0a1747bcac268adcd4a1aaa2cc9b6c33d9a310ad3d4c0c9dae7d1dc9cc0368f51ed164160ddceacb71d468b34711
+  checksum: 10c0/d73dfec87ccb05ffac0242ba900a629fdb16f093eec40834dbecd930faa70012909c2b4d8fe6ca3ea86ea84417c82f8da3310c48385ef6c0792ca9be6670ce69
   languageName: node
   linkType: hard
 
@@ -18457,10 +18457,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slugify@npm:1.6.8":
-  version: 1.6.8
-  resolution: "slugify@npm:1.6.8"
-  checksum: 10c0/1052797a5e7bc6263c6e8dc64ad41d6f5ae2fd2e3a17c2aead09ded002f10de75283ff0b4da2b04dd2fbd7fa2f38a83abeaa3ab8d29709ca68e7592edd6e90dc
+"slugify@npm:1.6.9":
+  version: 1.6.9
+  resolution: "slugify@npm:1.6.9"
+  checksum: 10c0/8473c566ae00c5db26bfbf6182a4a9478ab3c912a9c926e1fdb410736a77228bfca4fdc5c755b46fafa7d2d9900de482fd7a9bd5e5c91128c4743c2c072d88da
   languageName: node
   linkType: hard
 
@@ -20717,7 +20717,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.59.1"
-    renovate: "npm:43.110.4"
+    renovate: "npm:43.110.6"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.30"
     turbo: "npm:2.9.5"
