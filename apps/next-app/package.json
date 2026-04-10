@@ -24,7 +24,7 @@
     "html-ui": "workspace:*",
     "next": "16.2.3",
     "open-cli": "9.0.0",
-    "prettier": "3.8.1",
+    "prettier": "3.8.2",
     "prettier-plugin-packagejson": "3.0.2",
     "prettier-plugin-sh": "0.18.1",
     "prop-types": "15.8.1",

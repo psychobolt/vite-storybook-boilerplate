@@ -8655,7 +8655,7 @@ __metadata:
     postcss: "npm:8.5.8"
     postcss-pseudo-classes: "npm:0.4.0"
     postcss-scss: "npm:4.0.9"
-    prettier: "npm:3.8.1"
+    prettier: "npm:3.8.2"
     prettier-config-standard: "npm:7.0.0"
     prettier-plugin-packagejson: "npm:3.0.2"
     prettier-plugin-sh: "npm:0.18.1"
@@ -11932,7 +11932,7 @@ __metadata:
     http-server: "npm:14.1.1"
     lit: "npm:3.3.2"
     nyc: "npm:18.0.0"
-    prettier: "npm:3.8.1"
+    prettier: "npm:3.8.2"
     react: "npm:19.2.5"
     react-dom: "npm:19.2.5"
     react-syntax-highlighter: "npm:16.1.1"
@@ -15386,7 +15386,7 @@ __metadata:
     html-ui: "workspace:*"
     next: "npm:16.2.3"
     open-cli: "npm:9.0.0"
-    prettier: "npm:3.8.1"
+    prettier: "npm:3.8.2"
     prettier-plugin-packagejson: "npm:3.0.2"
     prettier-plugin-sh: "npm:0.18.1"
     prop-types: "npm:15.8.1"
@@ -16850,6 +16850,15 @@ __metadata:
   bin:
     prettier: bin/prettier.cjs
   checksum: 10c0/33169b594009e48f570471271be7eac7cdcf88a209eed39ac3b8d6d78984039bfa9132f82b7e6ba3b06711f3bfe0222a62a1bfb87c43f50c25a83df1b78a2c42
+  languageName: node
+  linkType: hard
+
+"prettier@npm:3.8.2":
+  version: 3.8.2
+  resolution: "prettier@npm:3.8.2"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10c0/2d64bd01d269c8dd6d8c423a2a2e1fb88230a53aac523204b327de40059ccf8bd8e6fe70b8ce6154b97ed4442e9fd878504ff8a5330f3a4f64bd13d1576f7652
   languageName: node
   linkType: hard
 
@@ -19525,7 +19534,7 @@ __metadata:
     html-ui: "workspace:*"
     postcss: "npm:8.5.8"
     postcss-scss: "npm:4.0.9"
-    prettier: "npm:3.8.1"
+    prettier: "npm:3.8.2"
     prettier-plugin-packagejson: "npm:3.0.2"
     prettier-plugin-sh: "npm:0.18.1"
     prettier-plugin-svelte: "npm:3.5.1"
