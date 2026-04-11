@@ -16957,9 +16957,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:8.0.0":
-  version: 8.0.0
-  resolution: "protobufjs@npm:8.0.0"
+"protobufjs@npm:8.0.1":
+  version: 8.0.1
+  resolution: "protobufjs@npm:8.0.1"
   dependencies:
     "@protobufjs/aspromise": "npm:^1.1.2"
     "@protobufjs/base64": "npm:^1.1.2"
@@ -16973,7 +16973,7 @@ __metadata:
     "@protobufjs/utf8": "npm:^1.1.0"
     "@types/node": "npm:>=13.7.0"
     long: "npm:^5.0.0"
-  checksum: 10c0/6fb29ca3c6abc2095a777407750f6094448b7b68bbf04147ec49ee442f85f151592338449f56d19883ea67c39ce915e3d47ec6c5c92f0bcac1eaba1841ab84ff
+  checksum: 10c0/04c8c1b5b1b6355230534aaf01915f1d46cbf1ca14799628097997163d0c6611931fd9971c3eef9b2428703dc81464ef27c7f1f41f3cbb885a567ea942401454
   languageName: node
   linkType: hard
 
@@ -17508,9 +17508,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.110.14":
-  version: 43.110.14
-  resolution: "renovate@npm:43.110.14"
+"renovate@npm:43.110.15":
+  version: 43.110.15
+  resolution: "renovate@npm:43.110.15"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1021.0"
     "@aws-sdk/client-ec2": "npm:3.1021.0"
@@ -17607,7 +17607,7 @@ __metadata:
     p-throttle: "npm:8.1.0"
     parse-link-header: "npm:2.0.0"
     prettier: "npm:3.8.1"
-    protobufjs: "npm:8.0.0"
+    protobufjs: "npm:8.0.1"
     punycode: "npm:2.3.1"
     re2: "npm:1.24.0"
     remark: "npm:15.0.1"
@@ -17641,7 +17641,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/19c28612f2084a7f4fc7dede4369d83cbeedfa310d1e406cb7bdfae47c2639cde7030bb1bf53d623184dacf36f1b7370d8a3ffcd0497bc3838a8ac843dd1677d
+  checksum: 10c0/94c1a601ea105a0a87193354d0de9a2b08b5828efa0220528cb9205336c2aa2985c55a732a5bcba87e15f3d867a4e7569fde1c0c19876489cda7374b793c003e
   languageName: node
   linkType: hard
 
@@ -20877,7 +20877,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.59.1"
-    renovate: "npm:43.110.14"
+    renovate: "npm:43.110.15"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.30"
     turbo: "npm:2.9.6"
