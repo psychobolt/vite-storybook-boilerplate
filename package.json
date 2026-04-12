@@ -31,13 +31,13 @@
     "vite-plugin-sass-glob-import@npm:6.0.2": "patch:vite-plugin-sass-glob-import@npm%3A6.0.2#~/.yarn/patches/vite-plugin-sass-glob-import-npm-6.0.2-b079086a71.patch"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "1.59.1",
+    "@dotenvx/dotenvx": "1.61.0",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.24",
     "@types/glob-to-regexp": "0.4.4",
     "@types/node": "24.12.2",
     "@types/semver": "7.7.1",
-    "@typescript-eslint/utils": "8.58.0",
+    "@typescript-eslint/utils": "8.58.1",
     "@yarnpkg/core": "4.6.0",
     "@yarnpkg/fslib": "3.1.5",
     "@yarnpkg/sdks": "3.2.3",
@@ -47,10 +47,10 @@
     "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
     "playwright": "1.59.1",
-    "renovate": "43.104.3",
+    "renovate": "43.110.16",
     "semver": "7.7.4",
     "svelte-language-server": "0.17.30",
-    "turbo": "2.9.3",
+    "turbo": "2.9.6",
     "typescript": "6.0.2",
     "yaml": "2.8.3"
   },
