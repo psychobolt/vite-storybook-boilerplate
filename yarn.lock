@@ -8670,7 +8670,7 @@ __metadata:
     ts-enum-util: "npm:4.1.0"
     turbo: "npm:2.9.6"
     typescript: "npm:6.0.2"
-    vite: "npm:8.0.3"
+    vite: "npm:8.0.8"
     vite-tsconfig-paths: "npm:6.1.1"
     vitest: "npm:4.1.4"
   bin:
@@ -11951,7 +11951,7 @@ __metadata:
     turbo: "npm:2.9.6"
     typescript: "npm:6.0.2"
     typescript-plugin-css-modules: "npm:5.2.0"
-    vite: "npm:8.0.3"
+    vite: "npm:8.0.8"
     vite-plugin-sass-glob-import: "patch:vite-plugin-sass-glob-import@npm%3A6.0.3#~/.yarn/patches/vite-plugin-sass-glob-import-npm-6.0.3-718e64ce42.patch"
   languageName: unknown
   linkType: soft
@@ -17284,7 +17284,7 @@ __metadata:
     turbo: "npm:2.9.6"
     typescript: "npm:6.0.2"
     typescript-plugin-css-modules: "npm:5.2.0"
-    vite: "npm:8.0.3"
+    vite: "npm:8.0.8"
     vitest: "npm:4.1.4"
   peerDependencies:
     prop-types: ^15.8.1
@@ -19556,7 +19556,7 @@ __metadata:
     turbo: "npm:2.9.6"
     typescript: "npm:6.0.2"
     typescript-eslint: "npm:8.58.1"
-    vite: "npm:8.0.3"
+    vite: "npm:8.0.8"
   languageName: unknown
   linkType: soft
 
@@ -20906,7 +20906,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:*, vite@npm:8.0.3, vite@npm:^6.0.0 || ^7.0.0 || ^8.0.0":
+"vite@npm:*, vite@npm:^6.0.0 || ^7.0.0 || ^8.0.0":
   version: 8.0.3
   resolution: "vite@npm:8.0.3"
   dependencies:
@@ -20960,6 +20960,63 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10c0/bed9520358080393a02fe22565b3309b4b3b8f916afe4c97577528f3efb05c1bf4b29f7b552179bc5b3938629e50fbd316231727457411dbc96648fa5c9d14bf
+  languageName: node
+  linkType: hard
+
+"vite@npm:8.0.8":
+  version: 8.0.8
+  resolution: "vite@npm:8.0.8"
+  dependencies:
+    fsevents: "npm:~2.3.3"
+    lightningcss: "npm:^1.32.0"
+    picomatch: "npm:^4.0.4"
+    postcss: "npm:^8.5.8"
+    rolldown: "npm:1.0.0-rc.15"
+    tinyglobby: "npm:^0.2.15"
+  peerDependencies:
+    "@types/node": ^20.19.0 || >=22.12.0
+    "@vitejs/devtools": ^0.1.0
+    esbuild: ^0.27.0 || ^0.28.0
+    jiti: ">=1.21.0"
+    less: ^4.0.0
+    sass: ^1.70.0
+    sass-embedded: ^1.70.0
+    stylus: ">=0.54.8"
+    sugarss: ^5.0.0
+    terser: ^5.16.0
+    tsx: ^4.8.1
+    yaml: ^2.4.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    "@vitejs/devtools":
+      optional: true
+    esbuild:
+      optional: true
+    jiti:
+      optional: true
+    less:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+    tsx:
+      optional: true
+    yaml:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10c0/63474b399612ccf087d0aa025d7eb5c0d675012b6257b7f64332ff39579d4af4d5d7f0ac330906fc99b101abbf592c756adf143bb5748a02aec08f7d3639054d
   languageName: node
   linkType: hard
 
