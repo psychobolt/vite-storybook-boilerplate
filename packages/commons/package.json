@@ -33,7 +33,7 @@
     "@types/react": "19.2.14",
     "@vitest/browser-playwright": "4.1.4",
     "arg": "5.0.2",
-    "autoprefixer": "10.4.27",
+    "autoprefixer": "10.5.0",
     "chokidar": "5.0.0",
     "eslint-plugin-mdx": "3.7.0",
     "eslint-plugin-storybook": "10.3.5",
