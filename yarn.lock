@@ -14161,6 +14161,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:11.3.5":
+  version: 11.3.5
+  resolution: "lru-cache@npm:11.3.5"
+  checksum: 10c0/5b54ef7b88afb4bd25b7a778f1b2b1cde32d9770913e530da34ab203cf0442413bcaa6e372800cbab9562557a4480e4d8bf32e3a368bb5a91b12218eca085c66
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
@@ -17538,9 +17545,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.116.1":
-  version: 43.116.1
-  resolution: "renovate@npm:43.116.1"
+"renovate@npm:43.117.0":
+  version: 43.117.0
+  resolution: "renovate@npm:43.117.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1021.0"
     "@aws-sdk/client-ec2": "npm:3.1021.0"
@@ -17622,6 +17629,7 @@ __metadata:
     jsonata: "npm:2.1.0"
     jsonc-weaver: "npm:0.2.4"
     klona: "npm:2.0.6"
+    lru-cache: "npm:11.3.5"
     luxon: "npm:3.7.2"
     markdown-it: "npm:14.1.1"
     markdown-table: "npm:3.0.4"
@@ -17671,7 +17679,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/95a5afd11e9ef4077b39d34e5c98981fe1f9684728104b4d800786797f18c212f4a871efa23e063423c8f3fe03b803e7434d5959057ce31bb785153bd488d891
+  checksum: 10c0/134293785b8f7f147815f95673d3632a94e3278d03fdbc59015d89f4cdbe960bd6ce507155d9e24daf94f17e7d32e9dc65b956ed843fe6b683eeed74d7757b99
   languageName: node
   linkType: hard
 
@@ -20909,7 +20917,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.59.1"
-    renovate: "npm:43.116.1"
+    renovate: "npm:43.117.0"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.30"
     turbo: "npm:2.9.6"
