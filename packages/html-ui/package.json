@@ -48,7 +48,7 @@
     "http-server": "14.1.1",
     "lit": "3.3.2",
     "nyc": "18.0.0",
-    "prettier": "3.8.2",
+    "prettier": "3.8.3",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "react-syntax-highlighter": "16.1.1",
