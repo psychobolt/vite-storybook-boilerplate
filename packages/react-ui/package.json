@@ -74,7 +74,7 @@
     "rolldown": "1.0.0-rc.15",
     "sass": "1.99.0",
     "storybook": "10.3.5",
-    "stylelint": "17.7.0",
+    "stylelint": "17.8.0",
     "stylelint-config": "workspace:*",
     "turbo": "2.9.6",
     "typescript": "6.0.2",
