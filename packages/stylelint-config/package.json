@@ -26,5 +26,5 @@
   "peerDependencies": {
     "stylelint": "*"
   },
-  "packageManager": "yarn@4.13.0"
+  "packageManager": "yarn@4.14.0"
 }
