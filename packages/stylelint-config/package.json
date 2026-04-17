@@ -21,7 +21,7 @@
     "eslint": "10.2.0",
     "stylelint": "17.8.0",
     "turbo": "2.9.6",
-    "typescript": "6.0.2"
+    "typescript": "6.0.3"
   },
   "peerDependencies": {
     "stylelint": "*"
