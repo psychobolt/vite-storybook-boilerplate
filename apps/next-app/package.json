@@ -33,7 +33,7 @@
     "react-ui": "workspace:*",
     "styled-jsx": "5.1.7",
     "turbo": "2.9.6",
-    "typescript": "6.0.2"
+    "typescript": "6.0.3"
   },
   "packageManager": "yarn@4.13.0"
 }
