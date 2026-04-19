@@ -15,7 +15,7 @@
 		"@psychobolt/html-ui": "0.0.0"
 	},
 	"devDependencies": {
-		"@dotenvx/dotenvx": "1.61.0",
+		"@dotenvx/dotenvx": "1.61.1",
 		"@eslint/js": "10.0.1",
 		"@fontsource/fira-mono": "5.2.7",
 		"@neoconfetti/svelte": "2.2.2",
@@ -27,7 +27,7 @@
 		"@types/eslint": "9.6.1",
 		"@types/eslint-config-prettier": "6.11.3",
 		"@types/node": "24.12.2",
-		"@typescript-eslint/utils": "8.58.1",
+		"@typescript-eslint/utils": "8.58.2",
 		"commons": "workspace:*",
 		"eslint": "10.2.0",
 		"eslint-config-prettier": "10.1.8",
@@ -35,22 +35,22 @@
 		"globals": "17.3.0",
 		"postcss": "8.5.6",
 		"postcss-scss": "4.0.9",
-		"prettier": "3.8.2",
+		"prettier": "3.8.3",
 		"prettier-plugin-packagejson": "3.0.2",
 		"prettier-plugin-sh": "0.18.1",
 		"prettier-plugin-svelte": "3.5.1",
 		"sass": "1.99.0",
-		"stylelint": "17.6.0",
+		"stylelint": "17.8.0",
 		"stylelint-config-prettier-scss": "1.0.0",
 		"stylelint-config-standard-scss": "17.0.0",
-		"svelte": "5.55.3",
+		"svelte": "5.55.4",
 		"svelte-check": "4.4.6",
 		"svelte-eslint-parser": "1.6.0",
 		"svelte-language-server": "0.17.30",
 		"turbo": "2.9.6",
-		"typescript": "6.0.2",
-		"typescript-eslint": "8.58.1",
+		"typescript": "6.0.3",
+		"typescript-eslint": "8.58.2",
 		"vite": "8.0.3"
 	},
-	"packageManager": "yarn@4.13.0"
+	"packageManager": "yarn@4.14.1"
 }
