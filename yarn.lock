@@ -8026,14 +8026,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-sqlite3@npm:12.8.0":
-  version: 12.8.0
-  resolution: "better-sqlite3@npm:12.8.0"
+"better-sqlite3@npm:12.9.0":
+  version: 12.9.0
+  resolution: "better-sqlite3@npm:12.9.0"
   dependencies:
     bindings: "npm:^1.5.0"
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
-  checksum: 10c0/b31da8a8a9bd0dd77d44c11fbfc72141a18b7267aed1ee5bedd481397415ace18eb54140706f82aca8149e4102fb2a543f833761e80f9668470ed53d03958515
+  checksum: 10c0/69ee0d908fa6a5c8643872aa664686ed02476e88cb654fe37f0fef5845081430d4280c82f5d370e169c2abe7a14a85d9bc718ea720058abf4f7cd9a8dbe227f0
   languageName: node
   linkType: hard
 
@@ -17753,9 +17753,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.132.0":
-  version: 43.132.0
-  resolution: "renovate@npm:43.132.0"
+"renovate@npm:43.132.1":
+  version: 43.132.1
+  resolution: "renovate@npm:43.132.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1021.0"
     "@aws-sdk/client-ec2": "npm:3.1021.0"
@@ -17799,7 +17799,7 @@ __metadata:
     async-mutex: "npm:0.5.0"
     aws4: "npm:1.13.2"
     azure-devops-node-api: "npm:15.1.2"
-    better-sqlite3: "npm:12.8.0"
+    better-sqlite3: "npm:12.9.0"
     bunyan: "npm:1.8.15"
     cacache: "npm:20.0.4"
     changelog-filename-regex: "npm:2.0.1"
@@ -17887,7 +17887,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/bda5c77c6f2465abd42b9966f82e293d80c55ae6a95c19e1652d3a0af7d112c58785e35a0f0826419ed610dc6e54e617f3c08b62c8f6a6433741986d762bdcfc
+  checksum: 10c0/267f930884c31f52e37d23e77e2625bc43351e53e8889209b6fe1bdfa635140c4141dd4b905dc9dc5f529149955097d9809d9bc7bf894c4d72f6a03a4dcb8ea6
   languageName: node
   linkType: hard
 
@@ -21125,7 +21125,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.59.1"
-    renovate: "npm:43.132.0"
+    renovate: "npm:43.132.1"
     semver: "npm:7.7.4"
     svelte-language-server: "npm:0.17.30"
     turbo: "npm:2.9.6"
