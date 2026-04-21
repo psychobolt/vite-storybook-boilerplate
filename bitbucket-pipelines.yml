@@ -37,7 +37,6 @@ definitions:
             - packages/stylelint-config/**
             - packages/html-ui/**
             - packages/react-ui/**
-    - condition
   scripts:
     - script: &git-auth |
         if [[ "$CI_BOT_USER_EMAIL" ]]; then
@@ -199,7 +198,7 @@ pipelines:
             - *env
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
             - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
-            - nvm install 18
+            - nvm install
             - corepack enable
             - |
               set +e
