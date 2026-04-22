@@ -1596,9 +1596,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:1.61.3":
-  version: 1.61.3
-  resolution: "@dotenvx/dotenvx@npm:1.61.3"
+"@dotenvx/dotenvx@npm:1.61.4":
+  version: 1.61.4
+  resolution: "@dotenvx/dotenvx@npm:1.61.4"
   dependencies:
     commander: "npm:^11.1.0"
     dotenv: "npm:^17.2.1"
@@ -1612,7 +1612,7 @@ __metadata:
     yocto-spinner: "npm:^1.1.0"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/0cb34e3eec7d36a2967ff1978448f12bdeec42987256883ebb34aecead13452a5af6b64de8c6e4703351b7d89cd69347702ed680808e66f2875324c662b5deb8
+  checksum: 10c0/e1c00977bf417f693022a753201c3c1c63ec537c090c8535340dd55922810f5e7990f675c42132e3dca1d7133acc3b76a739fcdc9175938da03e7590b32ad2d6
   languageName: node
   linkType: hard
 
@@ -19767,7 +19767,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.61.3"
+    "@dotenvx/dotenvx": "npm:1.61.4"
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.2.7"
     "@neoconfetti/svelte": "npm:2.2.2"
@@ -21114,7 +21114,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.61.3"
+    "@dotenvx/dotenvx": "npm:1.61.4"
     "@swc-node/register": "npm:1.11.1"
     "@swc/core": "npm:1.15.30"
     "@types/glob-to-regexp": "npm:0.4.4"
