@@ -8874,7 +8874,7 @@ __metadata:
     eslint-plugin-mdx: "npm:3.7.0"
     eslint-plugin-package-json: "npm:1.0.0-beta.4"
     eslint-plugin-storybook: "npm:10.3.5"
-    jest-junit: "npm:16.0.0"
+    jest-junit: "npm:17.0.0"
     jiti: "npm:2.6.1"
     lint-staged: "npm:16.4.0"
     lodash: "npm:4.18.1"
@@ -13304,7 +13304,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-junit@npm:16.0.0, jest-junit@npm:^16.0.0":
+"jest-junit@npm:17.0.0":
+  version: 17.0.0
+  resolution: "jest-junit@npm:17.0.0"
+  dependencies:
+    mkdirp: "npm:^1.0.4"
+    strip-ansi: "npm:^6.0.1"
+    uuid: "npm:^14.0.0"
+    xml: "npm:^1.0.1"
+  checksum: 10c0/24206792c48064a474cb13deba5edac6212667065f79dc024677cb6f34615b96991ed231cb61846fd32eca2d5f97011e5dfb714d8a30b583f5e584b41b0878da
+  languageName: node
+  linkType: hard
+
+"jest-junit@npm:^16.0.0":
   version: 16.0.0
   resolution: "jest-junit@npm:16.0.0"
   dependencies:
@@ -20975,6 +20987,15 @@ __metadata:
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
   checksum: 10c0/41a5bdd214df2f6c3ecf8622745e4a366c4adced864bc3c833739791aeeeb1838119af7daed4ba36428114b5c67dcda034a79c882e97e43c03e66a4dd7389942
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "uuid@npm:14.0.0"
+  bin:
+    uuid: dist-node/bin/uuid
+  checksum: 10c0/a57ae7794c45005c1a9208989196c5baf79a7679c30f43c1bee9033a2c4d113a2cea216fa6fcc9663b08b0d55635df1a7c6eb7e7f3d21c3e50688c698fa39a50
   languageName: node
   linkType: hard
 
