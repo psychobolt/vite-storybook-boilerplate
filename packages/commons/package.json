@@ -31,7 +31,7 @@
     "@types/eslint": "9.6.1",
     "@types/lodash": "4.17.24",
     "@types/react": "19.2.14",
-    "@vitest/browser-playwright": "4.1.4",
+    "@vitest/browser-playwright": "4.1.5",
     "arg": "5.0.2",
     "autoprefixer": "10.5.0",
     "chokidar": "5.0.0",
@@ -59,12 +59,12 @@
     "@storybook/addon-vitest": "10.3.5",
     "@storybook/global": "5.0.0",
     "@types/node": "24.12.2",
-    "@typescript-eslint/utils": "8.58.2",
-    "chromatic": "16.3.0",
-    "eslint": "10.2.0",
+    "@typescript-eslint/utils": "8.59.0",
+    "chromatic": "16.6.0",
+    "eslint": "10.2.1",
     "eslint-plugin-jsonc": "3.1.2",
     "eslint-plugin-package-json": "1.0.0-beta.4",
-    "jest-junit": "16.0.0",
+    "jest-junit": "17.0.0",
     "playwright": "1.59.1",
     "prettier": "3.8.3",
     "prettier-config-standard": "7.0.0",
@@ -73,10 +73,10 @@
     "rimraf": "6.1.3",
     "sass": "1.99.0",
     "storybook": "10.3.5",
-    "stylelint": "17.8.0",
+    "stylelint": "17.9.0",
     "turbo": "2.9.6",
     "typescript": "6.0.3",
     "vite": "8.0.3",
-    "vitest": "4.1.4"
+    "vitest": "4.1.5"
   }
 }

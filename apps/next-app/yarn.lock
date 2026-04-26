@@ -243,7 +243,7 @@ __metadata:
   version: 0.23.4
   resolution: "@eslint/config-array@npm:0.23.4"
   dependencies:
-    "@eslint/object-schema": "npm:^3.0.4"
+    "@eslint/object-schema": "npm:^3.0.5"
     debug: "npm:^4.3.1"
     minimatch: "npm:^10.2.4"
   checksum: 10c0/813ce3588e67d615218219e77526ca4c742405c293f209f5c0ff945fec50a9a8007c7d82c5af8fa82c1a506b57f4dc37cef0e96b2366c41c257dd267862ece95
@@ -268,10 +268,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/object-schema@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "@eslint/object-schema@npm:3.0.4"
-  checksum: 10c0/fedfc0acf5d899c9f58106c9d718fae4f4d5e6e21f0aa33b2333c746873d979ff9e295a09668bd7bf2a41f82dd886ebd3a73d023ce3c8722a1f24bd143842162
+"@eslint/object-schema@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "@eslint/object-schema@npm:3.0.5"
+  checksum: 10c0/1db337431f520b99e9edda64ef5fafd7ec6a029843eeb608753025125b6649d861d843cffafafd3c4e37926d7d5f9ec0c6a8e3665c13c3da2144e8132892e92e
   languageName: node
   linkType: hard
 
