@@ -8895,7 +8895,7 @@ __metadata:
     eslint: "npm:10.2.1"
     eslint-plugin-jsonc: "npm:3.1.2"
     eslint-plugin-mdx: "npm:3.7.0"
-    eslint-plugin-package-json: "npm:1.0.0-beta.4"
+    eslint-plugin-package-json: "npm:1.0.0-beta.5"
     eslint-plugin-storybook: "npm:10.3.5"
     jest-junit: "npm:17.0.0"
     jiti: "npm:2.6.1"
@@ -10460,9 +10460,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-package-json@npm:1.0.0-beta.4":
-  version: 1.0.0-beta.4
-  resolution: "eslint-plugin-package-json@npm:1.0.0-beta.4"
+"eslint-plugin-package-json@npm:1.0.0-beta.5":
+  version: 1.0.0-beta.5
+  resolution: "eslint-plugin-package-json@npm:1.0.0-beta.5"
   dependencies:
     "@altano/repository-tools": "npm:^2.0.1"
     change-case: "npm:^5.4.4"
@@ -10470,14 +10470,14 @@ __metadata:
     detect-newline: "npm:^4.0.1"
     eslint-fix-utils: "npm:~0.4.1"
     jsonc-eslint-parser: "npm:^3.1.0"
-    package-json-validator: "npm:^1.3.1"
+    package-json-validator: "npm:^1.4.1"
     semver: "npm:^7.7.3"
     sort-object-keys: "npm:^2.0.0"
     sort-package-json: "npm:^3.4.0"
     validate-npm-package-name: "npm:^7.0.0"
   peerDependencies:
     eslint: ">=9.0.0"
-  checksum: 10c0/f3eb47f159bf0887eecd109dd27a169e89fa614ad9542ff19211c61db20ee393af590d96f976f527c39caaf0f7030c9897eb25f0f1841e4039ea464654d1f334
+  checksum: 10c0/15a75abe997a2fa9c3c71a9a02b30df37ae272c958bef847d068263d0a2a40b1d01bdb2b4d3bb204668f108884412a39c29d38ea325f45abb98d67217c4a890c
   languageName: node
   linkType: hard
 
@@ -12156,6 +12156,15 @@ __metadata:
   dependencies:
     lru-cache: "npm:^10.0.1"
   checksum: 10c0/b19dbd92d3c0b4b0f1513cf79b0fc189f54d6af2129eeb201de2e9baaa711f1936929c848b866d9c8667a0f956f34bf4f07418c12be1ee9ca74fd9246335ca1f
+  languageName: node
+  linkType: hard
+
+"hosted-git-info@npm:^9.0.0":
+  version: 9.0.2
+  resolution: "hosted-git-info@npm:9.0.2"
+  dependencies:
+    lru-cache: "npm:^11.1.0"
+  checksum: 10c0/6c616339b61a103e3de4fef2776bc2b797767c3ed58fc2e3bb2e3b49294740c8c5ec3dde2d6440b09729e5a1d661dab6bacf54fdec46d1c466407a8df045d7a1
   languageName: node
   linkType: hard
 
@@ -16031,6 +16040,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"npm-package-arg@npm:^13.0.2":
+  version: 13.0.2
+  resolution: "npm-package-arg@npm:13.0.2"
+  dependencies:
+    hosted-git-info: "npm:^9.0.0"
+    proc-log: "npm:^6.0.0"
+    semver: "npm:^7.3.5"
+    validate-npm-package-name: "npm:^7.0.0"
+  checksum: 10c0/bf4ecdbfac876250f17710c6d0fac014bb345555acc80ce3b9e685d828107f3682378a9c413278c2fe4e958f4aad261677769be9a2b7c3965ab219b5bb852197
+  languageName: node
+  linkType: hard
+
 "npm-pick-manifest@npm:^9.0.0":
   version: 9.1.0
   resolution: "npm-pick-manifest@npm:9.1.0"
@@ -16599,14 +16620,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"package-json-validator@npm:^1.3.1":
-  version: 1.3.1
-  resolution: "package-json-validator@npm:1.3.1"
+"package-json-validator@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "package-json-validator@npm:1.4.1"
   dependencies:
+    npm-package-arg: "npm:^13.0.2"
     semver: "npm:^7.7.2"
     validate-npm-package-license: "npm:^3.0.4"
     validate-npm-package-name: "npm:^7.0.0"
-  checksum: 10c0/ef471423fa31d58093988392878b37ce950be239320ac938f8dc94197fefae46cca7fcdd3e0d248cd7cf39ac1734f6b3a9bbcd32347a9f44843353f59756d657
+  checksum: 10c0/5dbc5e12c7698689c88c161d3fe2a094aa2a212e5e784703878f2883f0dd3cce3f1cbd8103e947fcf16eb3fcad61fc1c08346be5ad9798c98b7bcc79d51e74d7
   languageName: node
   linkType: hard
 
