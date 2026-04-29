@@ -71,7 +71,7 @@
     "prop-types": "15.8.1",
     "react": "19.2.5",
     "react-dom": "19.2.5",
-    "rolldown": "1.0.0-rc.17",
+    "rolldown": "1.0.0-rc.18",
     "sass": "1.99.0",
     "storybook": "10.3.5",
     "stylelint": "17.9.1",
