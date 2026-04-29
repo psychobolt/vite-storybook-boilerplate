@@ -16788,7 +16788,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:*, react-dom@npm:19.2.5, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+"react-dom@npm:19.2.5":
   version: 19.2.5
   resolution: "react-dom@npm:19.2.5"
   dependencies:
@@ -16796,6 +16796,17 @@ __metadata:
   peerDependencies:
     react: ^19.2.5
   checksum: 10c0/8067606e9f58e4c2e8cb5f09570217dbc71c4843ebcaa20ae2085912d3e3a351f17d8f7c1713313cdda7f272840c8c34ff6c860fcb840862071bceea218e0c63
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+  version: 19.2.4
+  resolution: "react-dom@npm:19.2.4"
+  dependencies:
+    scheduler: "npm:^0.27.0"
+  peerDependencies:
+    react: ^19.2.4
+  checksum: 10c0/f0c63f1794dedb154136d4d0f59af00b41907f4859571c155940296808f4b94bf9c0c20633db75b5b2112ec13d8d7dd4f9bf57362ed48782f317b11d05a44f35
   languageName: node
   linkType: hard
 
@@ -16873,7 +16884,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react@npm:*, react@npm:19.2.5, react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+"react@npm:19.2.5, react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
   version: 19.2.5
   resolution: "react@npm:19.2.5"
   checksum: 10c0/4b5f231dbef92886f602533c9ce3bde04d99f0e71dfb5d794c43e02726efaad0421c08688f75fc98a6d6e1dc017372e1af7abbfecdc86a79968f461675931a7a
@@ -18411,7 +18422,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:*, storybook@npm:10.3.6":
+"storybook-zeplin@patch:storybook-zeplin@npm%3A4.0.0#~/.yarn/patches/storybook-zeplin-npm-4.0.0-1fc5045eee.patch":
+  version: 4.0.0
+  resolution: "storybook-zeplin@patch:storybook-zeplin@npm%3A4.0.0#~/.yarn/patches/storybook-zeplin-npm-4.0.0-1fc5045eee.patch::version=4.0.0&hash=c7191b"
+  dependencies:
+    "@storybook/icons": "npm:^1.2.9"
+    "@zeplin/sdk": "npm:^1.9.0"
+    query-string: "npm:^6.12.1"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+    storybook: ^10.0.0
+  checksum: 10c0/cbdff35444b2deae9974367476dc480c652dec6411a52035522e6676c83108512ee78531b3a110b97995bba46173f8feafc233f4b78dd9bc585ff5b720c8be71
+  languageName: node
+  linkType: hard
+
+"storybook@npm:10.3.6":
   version: 10.3.6
   resolution: "storybook@npm:10.3.6"
   dependencies:
