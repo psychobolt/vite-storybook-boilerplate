@@ -48,7 +48,7 @@
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "storybook-multilevel-sort": "2.1.0",
-    "storybook-zeplin": "3.0.0",
+    "storybook-zeplin": "4.0.0",
     "ts-enum-util": "4.1.0",
     "vite-tsconfig-paths": "6.1.1"
   },
