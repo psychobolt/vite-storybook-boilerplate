@@ -18411,6 +18411,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"storybook-zeplin@patch:storybook-zeplin@npm%3A4.0.0#~/.yarn/patches/storybook-zeplin-npm-4.0.0-1fc5045eee.patch":
+  version: 4.0.0
+  resolution: "storybook-zeplin@patch:storybook-zeplin@npm%3A4.0.0#~/.yarn/patches/storybook-zeplin-npm-4.0.0-1fc5045eee.patch::version=4.0.0&hash=c7191b"
+  dependencies:
+    "@storybook/icons": "npm:^1.2.9"
+    "@zeplin/sdk": "npm:^1.9.0"
+    query-string: "npm:^6.12.1"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+    storybook: ^10.0.0
+  checksum: 10c0/cbdff35444b2deae9974367476dc480c652dec6411a52035522e6676c83108512ee78531b3a110b97995bba46173f8feafc233f4b78dd9bc585ff5b720c8be71
+  languageName: node
+  linkType: hard
+
 "storybook@npm:10.3.6":
   version: 10.3.6
   resolution: "storybook@npm:10.3.6"
