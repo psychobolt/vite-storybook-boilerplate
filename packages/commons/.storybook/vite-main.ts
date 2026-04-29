@@ -112,7 +112,6 @@ export default {
         plugins: [vitePluginStorybookVariants()],
         resolve: {
           ...resolveConfig,
-          dedupe: ['react', 'react-dom'],
           conditions: [
             configType === 'DEVELOPMENT' ? 'development' : 'production',
             'browser',
