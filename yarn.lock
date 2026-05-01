@@ -8394,7 +8394,7 @@ __metadata:
     autoprefixer: "npm:10.5.0"
     chokidar: "npm:5.0.0"
     chromatic: "npm:16.6.3"
-    eslint: "npm:10.2.1"
+    eslint: "npm:10.3.0"
     eslint-plugin-jsonc: "npm:3.1.2"
     eslint-plugin-mdx: "npm:3.7.0"
     eslint-plugin-package-json: "npm:1.0.0-beta.5"
@@ -10115,9 +10115,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:10.2.1":
-  version: 10.2.1
-  resolution: "eslint@npm:10.2.1"
+"eslint@npm:10.3.0":
+  version: 10.3.0
+  resolution: "eslint@npm:10.3.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.8.0"
     "@eslint-community/regexpp": "npm:^4.12.2"
@@ -10156,7 +10156,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10c0/176795a3794a785502fa5cd14a9609264c2be5405552d20fed3e499bd465c29639c91ac44619ae66787b0fb7494e72d112550a2136a735d92a26bc6a7af4915c
+  checksum: 10c0/81e3ceba949f62d1b530660279db86cf814f5dc43d7cc3759a8008fe4fc679d46568279fe1cceb7ddbbc98ab57a96ae524f6e811ffc6897b49b90ea08aa785e5
   languageName: node
   linkType: hard
 
@@ -11694,7 +11694,7 @@ __metadata:
     "@types/react-syntax-highlighter": "npm:15.5.13"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
-    eslint: "npm:10.2.1"
+    eslint: "npm:10.3.0"
     glob: "npm:13.0.6"
     http-server: "npm:14.1.1"
     lit: "npm:3.3.2"
@@ -15081,7 +15081,7 @@ __metadata:
     "@types/react": "npm:19.2.14"
     "@types/react-dom": "npm:19.2.3"
     "@vercel/nft": "npm:1.5.0"
-    eslint: "npm:10.2.1"
+    eslint: "npm:10.3.0"
     eslint-config-next: "npm:16.2.4"
     html-ui: "workspace:*"
     next: "npm:16.2.4"
@@ -16848,7 +16848,7 @@ __metadata:
     babel-plugin-react-compiler: "npm:1.0.0"
     classnames: "npm:2.5.1"
     commons: "workspace:*"
-    eslint: "npm:10.2.1"
+    eslint: "npm:10.3.0"
     eslint-plugin-react-hooks: "npm:7.1.1"
     glob: "npm:13.0.6"
     html-ui: "workspace:*"
@@ -18862,7 +18862,7 @@ __metadata:
   dependencies:
     arg: "npm:5.0.2"
     commons: "workspace:*"
-    eslint: "npm:10.2.1"
+    eslint: "npm:10.3.0"
     flat: "npm:6.0.1"
     postcss: "npm:8.5.12"
     stylelint: "npm:17.9.1"
@@ -19043,7 +19043,7 @@ __metadata:
     "@types/node": "npm:24.12.2"
     "@typescript-eslint/utils": "npm:8.59.1"
     commons: "workspace:*"
-    eslint: "npm:10.2.1"
+    eslint: "npm:10.3.0"
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-svelte: "npm:3.17.1"
     globals: "npm:17.5.0"
@@ -20390,7 +20390,7 @@ __metadata:
     "@yarnpkg/sdks": "npm:3.2.3"
     arg: "npm:5.0.2"
     commons: "workspace:*"
-    eslint: "npm:10.2.1"
+    eslint: "npm:10.3.0"
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.59.1"
