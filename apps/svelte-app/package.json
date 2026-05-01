@@ -43,7 +43,7 @@
 		"svelte": "5.55.5",
 		"svelte-check": "4.4.7",
 		"svelte-eslint-parser": "1.6.0",
-		"svelte-language-server": "0.17.30",
+		"svelte-language-server": "0.17.31",
 		"turbo": "2.9.7",
 		"typescript": "6.0.3",
 		"typescript-eslint": "8.59.1",
