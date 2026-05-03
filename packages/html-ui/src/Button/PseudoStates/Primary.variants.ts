@@ -39,5 +39,5 @@ export const Primary = meta.type<{ args: Args }>().story({
   }
 });
 
-export const stories = (template: {} = Primary) =>
+export const stories = (template = Primary.extend({})) =>
   generatePseudoStateStories(template, { showDefault: false });

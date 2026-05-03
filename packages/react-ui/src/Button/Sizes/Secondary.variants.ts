@@ -13,4 +13,4 @@ export default meta;
 
 const Secondary = meta.story();
 
-export const stories = getStories(Secondary.input);
+export const stories = getStories(Secondary);
