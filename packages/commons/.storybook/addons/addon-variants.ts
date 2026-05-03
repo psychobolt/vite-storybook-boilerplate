@@ -7,6 +7,7 @@ import {
   type Renderer,
   type Meta,
   type Args,
+  type Story,
   type IncludeExcludeOptions,
   isMeta,
   isStory
@@ -37,22 +38,27 @@ export type VariantStory<
 
 type StoryExports = typeof CsfFile.prototype._storyExports;
 
-type VariantModule = StoryExports & {
-  default: VariantsMeta;
-  stories:
-    | Array<VariantStory>
-    | ((
-        stories?: Array<VariantStoryObj<Args, Renderer>>
-      ) => Array<VariantStory>);
-};
-
-interface TemplateOptions extends IncludeExcludeOptions {
+interface TemplateOptions<
+  TRenderer extends Renderer
+> extends IncludeExcludeOptions {
   fileName: string;
   csfExports: StoryExports;
-  stories: Array<VariantStory>;
+  stories: Array<
+    | VariantStory
+    | Story<TRenderer, VariantStoryObj<TRenderer['args'], TRenderer>>
+  >;
 }
 
-type Template = (options: TemplateOptions) => string;
+type VariantModule<TRenderer extends Renderer> = StoryExports & {
+  default: VariantsMeta;
+  stories:
+    | TemplateOptions<TRenderer>['stories']
+    | ((
+        stories?: Array<VariantStoryObj<TRenderer['args'], TRenderer>>
+      ) => Array<VariantStory<TRenderer, TRenderer['args']>>);
+};
+
+type Template = (options: TemplateOptions<Renderer>) => string;
 
 const getSourceTemplate = (meta: VariantsMeta): Template => {
   const csfVersion = isMeta(meta) ? 4 : 3;
@@ -61,7 +67,7 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
     stories,
     csfExports,
     excludeStories
-  }: TemplateOptions) => {
+  }: TemplateOptions<Renderer>) => {
     let hasErrors = false;
     const logError = (e: unknown) => {
       console.error(
@@ -73,7 +79,15 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
     try {
       return `
         ${stories.reduce((template, story) => {
-          const { name, exportName, args = {}, _template } = story;
+          const {
+            exportName,
+            args = {},
+            _template,
+            ...rest
+          } = isStory<Renderer>(story)
+            ? { ...story.input, _template: story }
+            : story;
+          const { name, ...annotations } = rest;
 
           if (
             excludeStories &&
@@ -86,17 +100,9 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
 
           const [templateStory] =
             Object.entries(csfExports).find(
-              ([, declaration]) => declaration === (_template ?? story)
+              ([, declaration]) =>
+                'exportName' in declaration && declaration === _template
             ) ?? [];
-          const {
-            args: _args,
-            exportName: _exportName,
-            ...annotations
-          } = _template
-            ? isStory<Renderer & { args: Args }>(_template)
-              ? _template.input
-              : _template
-            : {};
 
           let stringArgs = JSON.stringify(args, (key, value) => {
             if (
@@ -285,7 +291,8 @@ export const storybookVariantsIndexer: () => Indexer = () => ({
   async createIndex(fileName) {
     try {
       delete require.cache[fileName];
-      const { default: meta, stories }: VariantModule = importModule(fileName);
+      const { default: meta, stories }: VariantModule<Renderer> =
+        importModule(fileName);
       const { title, tags: metaTags = [] } = isMeta(meta) ? meta.input : meta;
 
       if (typeof stories === 'undefined') {
@@ -293,15 +300,22 @@ export const storybookVariantsIndexer: () => Indexer = () => ({
       }
 
       return (typeof stories === 'function' ? stories() : stories).map(
-        ({ name, exportName, tags = [] }) => ({
-          type: 'story',
-          title,
-          tags: Array.from(new Set([...metaTags, ...tags])),
-          metaTags,
-          name,
-          exportName,
-          importPath: fileName
-        })
+        (story) => {
+          const {
+            name,
+            exportName,
+            tags = []
+          } = isStory<Renderer>(story) ? story.input : story;
+          return {
+            type: 'story',
+            title,
+            tags: Array.from(new Set([...metaTags, ...tags])),
+            metaTags,
+            name,
+            exportName,
+            importPath: fileName
+          };
+        }
       );
     } catch (e) {
       console.error(
@@ -325,7 +339,7 @@ export function vitePluginStorybookVariants(): PluginOption {
         default: meta,
         stories,
         ...csfExports
-      }: VariantModule = importModule(fileName);
+      }: VariantModule<any> = importModule(fileName);
       const template = getSourceTemplate(meta);
       const { includeStories, excludeStories } = isMeta(meta)
         ? meta.input
