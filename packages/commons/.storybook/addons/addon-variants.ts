@@ -39,13 +39,17 @@ export type VariantStory<
 type StoryExports = typeof CsfFile.prototype._storyExports;
 
 interface TemplateOptions<
-  TRenderer extends Renderer
+  TRenderer extends Renderer = Renderer,
+  TArgs = Args
 > extends IncludeExcludeOptions {
   fileName: string;
   csfExports: StoryExports;
   stories: Array<
-    | VariantStory
-    | Story<TRenderer, VariantStoryObj<TRenderer['args'], TRenderer>>
+    | VariantStory<TRenderer, TArgs>
+    | Story<
+        TRenderer & { args: TArgs },
+        VariantStoryObj<TArgs, TRenderer & { args: TArgs }>
+      >
   >;
 }
 
@@ -58,7 +62,9 @@ type VariantModule<TRenderer extends Renderer> = StoryExports & {
       ) => Array<VariantStory<TRenderer, TRenderer['args']>>);
 };
 
-type Template = (options: TemplateOptions<Renderer>) => string;
+type Template = (options: TemplateOptions) => string;
+
+type DefaultRenderer = Renderer & { args: Args };
 
 const getSourceTemplate = (meta: VariantsMeta): Template => {
   const csfVersion = isMeta(meta) ? 4 : 3;
@@ -67,7 +73,7 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
     stories,
     csfExports,
     excludeStories
-  }: TemplateOptions<Renderer>) => {
+  }: TemplateOptions) => {
     let hasErrors = false;
     const logError = (e: unknown) => {
       console.error(
@@ -80,14 +86,13 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
       return `
         ${stories.reduce((template, story) => {
           const {
+            name,
             exportName,
             args = {},
-            _template,
-            ...rest
-          } = isStory<Renderer>(story)
+            _template
+          } = isStory<DefaultRenderer>(story)
             ? { ...story.input, _template: story }
             : story;
-          const { name, ...annotations } = rest;
 
           if (
             excludeStories &&
@@ -103,6 +108,15 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
               ([, declaration]) =>
                 'exportName' in declaration && declaration === _template
             ) ?? [];
+          const {
+            args: _args,
+            exportName: _exportName,
+            ...annotations
+          } = _template
+            ? isStory<DefaultRenderer>(_template)
+              ? _template.input
+              : _template
+            : {};
 
           let stringArgs = JSON.stringify(args, (key, value) => {
             if (
@@ -120,20 +134,22 @@ const getSourceTemplate = (meta: VariantsMeta): Template => {
             return value;
           });
 
-          const extras: string[] = [];
-          Object.entries(annotations).forEach(([key, value]) => {
-            if (
-              (Array.isArray(value) && value.length) ||
-              (typeof value === 'object' && Object.values(value).length) ||
-              typeof value === 'function'
-            ) {
-              extras.push(key);
+          if (csfVersion < 4) {
+            const extras: string[] = [];
+            Object.entries(annotations).forEach(([key, value]) => {
+              if (
+                (Array.isArray(value) && value.length) ||
+                (typeof value === 'object' && Object.values(value).length) ||
+                typeof value === 'function'
+              ) {
+                extras.push(key);
+              }
+            });
+            if (!templateStory && extras.length) {
+              logError(
+                `Variant "${name}" requires extra annotations (${extras.join(', ')}). Consider hoisting them to "meta" or exporting the template.`
+              );
             }
-          });
-          if (!templateStory && extras.length) {
-            logError(
-              `Variant "${name}" requires extra annotations (${extras.join(', ')}). Consider hoisting them to "meta" or exporting the template.`
-            );
           }
 
           let result = `${template}\n`;
@@ -305,7 +321,7 @@ export const storybookVariantsIndexer: () => Indexer = () => ({
             name,
             exportName,
             tags = []
-          } = isStory<Renderer>(story) ? story.input : story;
+          } = isStory<DefaultRenderer>(story) ? story.input : story;
           return {
             type: 'story',
             title,
