@@ -19350,7 +19350,7 @@ __metadata:
     svelte: "npm:5.55.5"
     svelte-check: "npm:4.4.8"
     svelte-eslint-parser: "npm:1.6.1"
-    svelte-language-server: "npm:0.17.31"
+    svelte-language-server: "npm:0.18.0"
     turbo: "npm:2.9.9"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.59.2"
@@ -19416,9 +19416,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.17.31":
-  version: 0.17.31
-  resolution: "svelte-language-server@npm:0.17.31"
+"svelte-language-server@npm:0.18.0":
+  version: 0.18.0
+  resolution: "svelte-language-server@npm:0.18.0"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     "@vscode/emmet-helper": "npm:2.8.4"
@@ -19430,8 +19430,7 @@ __metadata:
     prettier: "npm:~3.3.3"
     prettier-plugin-svelte: "npm:^3.5.0"
     svelte: "npm:^4.2.19"
-    svelte2tsx: "npm:~0.7.54"
-    typescript: "npm:^5.9.2"
+    svelte2tsx: "npm:~0.7.55"
     typescript-auto-import-cache: "npm:^0.3.6"
     vscode-css-languageservice: "npm:~6.3.5"
     vscode-html-languageservice: "npm:~5.4.0"
@@ -19439,22 +19438,24 @@ __metadata:
     vscode-languageserver-protocol: "npm:3.17.5"
     vscode-languageserver-types: "npm:3.17.5"
     vscode-uri: "npm:~3.1.0"
+  peerDependencies:
+    typescript: ^5.9.2 || ^6.0.2
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/00d8a8c223187c3a063e81e492d276ba5ae15ba96a982a33d9adc0dde25b28752dc48e510a6b36df7d86c0dcef429085bfd33cace6fe3674cdee827566960976
+  checksum: 10c0/211251684cc9b8d53cae7997cea3518993a18a00d33f93605953ecf7bd747904783137c3b6abad790e23ab0ceaf91be2ac85f8c1dc92b707fc2ba3b2b92e6674
   languageName: node
   linkType: hard
 
-"svelte2tsx@npm:~0.7.54":
-  version: 0.7.54
-  resolution: "svelte2tsx@npm:0.7.54"
+"svelte2tsx@npm:~0.7.55":
+  version: 0.7.55
+  resolution: "svelte2tsx@npm:0.7.55"
   dependencies:
     dedent-js: "npm:^1.0.1"
     scule: "npm:^1.3.0"
   peerDependencies:
     svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
-    typescript: ^4.9.4 || ^5.0.0
-  checksum: 10c0/d4102e9cc29bf864a476d8c59c6cafc8375fda1ff07f076e8da889b961b0212b227d7f97036ca57d73b56383cb1351b265ac26a78864d15f4360d83a2d6686f6
+    typescript: ^4.9.4 || ^5.0.0 || ^6.0.0
+  checksum: 10c0/781964da7a1b8fd9338242bfc164233aaeec63671365a5af303b6e0ec9d1262cf0485be9eb6b7b9cd75bb03e63324236b404372d6a52659e4b2d2779656356c6
   languageName: node
   linkType: hard
 
@@ -20153,16 +20154,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.9.2":
-  version: 5.9.3
-  resolution: "typescript@npm:5.9.3"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/6bd7552ce39f97e711db5aa048f6f9995b53f1c52f7d8667c1abdc1700c68a76a308f579cd309ce6b53646deb4e9a1be7c813a93baaf0a28ccd536a30270e1c5
-  languageName: node
-  linkType: hard
-
 "typescript@patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>":
   version: 6.0.3
   resolution: "typescript@patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"
@@ -20170,16 +20161,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10c0/2f25c74e65663c248fa1ade2b8459d9ce5372ff9dad07067310f132966ebec1d93f6c42f0baf77a6b6a7a91460463f708e6887013aaade22111037457c6b25df
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^5.9.2#optional!builtin<compat/typescript>":
-  version: 5.9.3
-  resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/ad09fdf7a756814dce65bc60c1657b40d44451346858eea230e10f2e95a289d9183b6e32e5c11e95acc0ccc214b4f36289dcad4bf1886b0adb84d711d336a430
   languageName: node
   linkType: hard
 
@@ -20720,7 +20701,7 @@ __metadata:
     playwright: "npm:1.59.1"
     renovate: "npm:43.150.0"
     semver: "npm:7.7.4"
-    svelte-language-server: "npm:0.17.31"
+    svelte-language-server: "npm:0.18.0"
     turbo: "npm:2.9.9"
     typescript: "npm:6.0.3"
     yaml: "npm:2.8.4"
