@@ -5257,16 +5257,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/icons@npm:^1.2.9":
-  version: 1.6.0
-  resolution: "@storybook/icons@npm:1.6.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-  checksum: 10c0/bbec9201a78a730195f9cf377b15856dc414a54d04e30d16c379d062425cc617bfd0d6586ba1716012cfbdab461f0c9693a6a52920f9bd09c7b4291fb116f59c
-  languageName: node
-  linkType: hard
-
 "@storybook/icons@npm:^2.0.1":
   version: 2.0.1
   resolution: "@storybook/icons@npm:2.0.1"
@@ -8753,7 +8743,7 @@ __metadata:
     sass: "npm:1.99.0"
     storybook: "npm:10.3.6"
     storybook-multilevel-sort: "npm:2.1.0"
-    storybook-zeplin: "npm:4.0.0"
+    storybook-zeplin: "npm:4.0.1"
     stylelint: "npm:17.11.0"
     ts-enum-util: "npm:4.1.0"
     turbo: "npm:2.9.9"
@@ -18827,33 +18817,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-zeplin@npm:4.0.0":
-  version: 4.0.0
-  resolution: "storybook-zeplin@npm:4.0.0"
+"storybook-zeplin@npm:4.0.1":
+  version: 4.0.1
+  resolution: "storybook-zeplin@npm:4.0.1"
   dependencies:
-    "@storybook/icons": "npm:^1.2.9"
+    "@storybook/icons": "npm:^2.0.1"
     "@zeplin/sdk": "npm:^1.9.0"
     query-string: "npm:^6.12.1"
   peerDependencies:
     react: ">=18"
     react-dom: ">=18"
     storybook: ^10.0.0
-  checksum: 10c0/2f3545d3279b4f13adc5097accc5a23afc23bbf6f33e3c4f849e93b5cae1eb7588c8ef4f66a979f9570046b69160de102a47c34d7efa348e22dca7da293a0d69
-  languageName: node
-  linkType: hard
-
-"storybook-zeplin@patch:storybook-zeplin@npm%3A4.0.0#~/.yarn/patches/storybook-zeplin-npm-4.0.0-1fc5045eee.patch":
-  version: 4.0.0
-  resolution: "storybook-zeplin@patch:storybook-zeplin@npm%3A4.0.0#~/.yarn/patches/storybook-zeplin-npm-4.0.0-1fc5045eee.patch::version=4.0.0&hash=c7191b"
-  dependencies:
-    "@storybook/icons": "npm:^1.2.9"
-    "@zeplin/sdk": "npm:^1.9.0"
-    query-string: "npm:^6.12.1"
-  peerDependencies:
-    react: ">=18"
-    react-dom: ">=18"
-    storybook: ^10.0.0
-  checksum: 10c0/cbdff35444b2deae9974367476dc480c652dec6411a52035522e6676c83108512ee78531b3a110b97995bba46173f8feafc233f4b78dd9bc585ff5b720c8be71
+  checksum: 10c0/f43b9cac03b8084454720d4b0e48deb860188a37bfb48b67fc06e7663bcb506881dc2d3fe73dae99bf6910fe707b433daf37f64aacde0f3401173a4a4378133e
   languageName: node
   linkType: hard
 
