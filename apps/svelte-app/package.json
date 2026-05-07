@@ -22,7 +22,7 @@
 		"@sveltejs/vite-plugin-svelte": "7.1.2",
 		"@types/eslint": "9.6.1",
 		"@types/eslint-config-prettier": "6.11.3",
-		"@types/node": "24.12.2",
+		"@types/node": "24.12.3",
 		"@typescript-eslint/utils": "8.59.2",
 		"commons": "workspace:*",
 		"eslint": "10.3.0",
