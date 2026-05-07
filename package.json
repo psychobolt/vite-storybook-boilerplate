@@ -50,7 +50,7 @@
     "renovate": "43.150.0",
     "semver": "7.7.4",
     "svelte-language-server": "0.18.0",
-    "turbo": "2.9.9",
+    "turbo": "2.9.10",
     "typescript": "6.0.3",
     "yaml": "2.8.4"
   },
