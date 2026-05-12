@@ -62,7 +62,7 @@ jobs:
         run: yarn ${{ inputs.path }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }}
   test:
     name: Run Tests
-    timeout-minutes: 7
+    timeout-minutes: 15
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
