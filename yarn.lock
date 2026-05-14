@@ -5220,16 +5220,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.59.1":
-  version: 2.59.1
-  resolution: "@sveltejs/kit@npm:2.59.1"
+"@sveltejs/kit@npm:2.60.1":
+  version: 2.60.1
+  resolution: "@sveltejs/kit@npm:2.60.1"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     "@sveltejs/acorn-typescript": "npm:^1.0.5"
     "@types/cookie": "npm:^0.6.0"
     acorn: "npm:^8.14.1"
     cookie: "npm:^0.6.0"
-    devalue: "npm:^5.6.4"
+    devalue: "npm:^5.8.1"
     esm-env: "npm:^1.2.2"
     kleur: "npm:^4.1.5"
     magic-string: "npm:^0.30.5"
@@ -5249,7 +5249,7 @@ __metadata:
       optional: true
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/c6280b0c0c853a1fcaf268161047454c24f9a0d03eb2e37b04fb9798081ef2313eafab41144cda9534aba4b1998ed962b7d9f41cfffcd0978bfc70f7faf745bd
+  checksum: 10c0/6aef97d92ac28f2697870f3458781eacb107e553b519d4f30b72fea7102109e6c41e3f292a8485b3f96e2648417f05158d5b6ab7835a6d12c14bfac1f939956f
   languageName: node
   linkType: hard
 
@@ -8754,13 +8754,6 @@ __metadata:
   version: 2.1.0
   resolution: "detect-node@npm:2.1.0"
   checksum: 10c0/f039f601790f2e9d4654e499913259a798b1f5246ae24f86ab5e8bd4aaf3bce50484234c494f11fb00aecb0c6e2733aa7b1cf3f530865640b65fbbd65b2c4e09
-  languageName: node
-  linkType: hard
-
-"devalue@npm:^5.6.4":
-  version: 5.8.0
-  resolution: "devalue@npm:5.8.0"
-  checksum: 10c0/85512cca4524537e018f0e72486382acaf082f58c1d80f1c8245ea2f3a833988b3a35c274c40a9cae3e7bd652680570c532335e8044f9d03ec324dce843b26f0
   languageName: node
   linkType: hard
 
@@ -18895,7 +18888,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.2"
     "@sveltejs/adapter-auto": "npm:7.0.1"
     "@sveltejs/adapter-vercel": "npm:6.3.3"
-    "@sveltejs/kit": "npm:2.59.1"
+    "@sveltejs/kit": "npm:2.60.1"
     "@sveltejs/vite-plugin-svelte": "npm:7.1.2"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
