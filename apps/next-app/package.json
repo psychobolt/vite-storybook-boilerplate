@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/node": "24.12.4",
     "@types/prop-types": "15.7.15",
-    "@types/react": "19.2.14",
+    "@types/react": "19.2.15",
     "@types/react-dom": "19.2.3",
     "@vercel/nft": "1.5.0",
     "eslint": "10.4.0",
