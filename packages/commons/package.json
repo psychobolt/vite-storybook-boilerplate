@@ -30,7 +30,7 @@
     "@storybook/test-runner": "0.24.4",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4.17.24",
-    "@types/react": "19.2.14",
+    "@types/react": "19.2.15",
     "@vitest/browser-playwright": "4.1.6",
     "arg": "5.0.2",
     "autoprefixer": "10.5.0",
