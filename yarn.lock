@@ -1591,13 +1591,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:1.66.0":
-  version: 1.66.0
-  resolution: "@dotenvx/dotenvx@npm:1.66.0"
+"@dotenvx/dotenvx@npm:1.68.1":
+  version: 1.68.1
+  resolution: "@dotenvx/dotenvx@npm:1.68.1"
   dependencies:
     commander: "npm:^11.1.0"
     dotenv: "npm:^17.2.1"
     eciesjs: "npm:^0.4.10"
+    enquirer: "npm:^2.4.1"
     execa: "npm:^5.1.1"
     fdir: "npm:^6.2.0"
     ignore: "npm:^5.3.0"
@@ -1607,7 +1608,7 @@ __metadata:
     yocto-spinner: "npm:^1.1.0"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/1e525ffe2ba2313542052976b33cb4e834579017b17ccce7f65c7379b5793a0f5dc93b929115f35a3b2f8fe6010cea325f7b88535cda186c8e2659ab59f72996
+  checksum: 10c0/c8bf08c771269b2187897d8adfa4b86b879750433a9f9073f80c5e85397a51be33eaf19db41656303abcebd2b7a16c400548a9731c25683814dad028772eb1ef
   languageName: node
   linkType: hard
 
@@ -7211,7 +7212,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-colors@npm:4.1.3":
+"ansi-colors@npm:4.1.3, ansi-colors@npm:^4.1.1":
   version: 4.1.3
   resolution: "ansi-colors@npm:4.1.3"
   checksum: 10c0/ec87a2f59902f74e61eada7f6e6fe20094a628dab765cfdbd03c3477599368768cffccdb5d3bb19a1b6c99126783a143b1fee31aab729b31ffe5836c7e5e28b9
@@ -9413,6 +9414,16 @@ __metadata:
     graceful-fs: "npm:^4.2.4"
     tapable: "npm:^2.3.3"
   checksum: 10c0/4d6ea9a93cc2ba385bdc5393a10c4fbaf7ae9fb04d49f94d6c8e3a73eb9599cfb5baab3ff8bb5395f3ef292db75c83bc8aca820825754cca203303d558e809bc
+  languageName: node
+  linkType: hard
+
+"enquirer@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "enquirer@npm:2.4.1"
+  dependencies:
+    ansi-colors: "npm:^4.1.1"
+    strip-ansi: "npm:^6.0.1"
+  checksum: 10c0/43850479d7a51d36a9c924b518dcdc6373b5a8ae3401097d336b7b7e258324749d0ad37a1fcaa5706f04799baa05585cd7af19ebdf7667673e7694435fcea918
   languageName: node
   linkType: hard
 
@@ -19219,7 +19230,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.66.0"
+    "@dotenvx/dotenvx": "npm:1.68.1"
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.2.7"
     "@neoconfetti/svelte": "npm:2.2.2"
@@ -20563,7 +20574,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:1.66.0"
+    "@dotenvx/dotenvx": "npm:1.68.1"
     "@swc-node/register": "npm:1.11.1"
     "@swc/core": "npm:1.15.40"
     "@types/glob-to-regexp": "npm:0.4.4"
