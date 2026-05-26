@@ -1,9 +1,6 @@
 image: node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920
 
 definitions:
-  services:
-    docker:
-      memory: 7128
   caches:
     yarn:
       key:
@@ -94,12 +91,16 @@ definitions:
         fi
         [ ${REPORT_STATUS:-0} = 0 ] && true || exit $REPORT_STATUS
     - script: &release |
+        if [[ -z "REF_NAME" ]]; then
+          REF_NAME="$BITBUCKET_BRANCH"
+        fi
+
         if [ "$RELEASE_TAGS" ]; then
-          RELEASE_TAG=$( echo "$RELEASE_TAGS" | jq -r --arg keyvar "$BITBUCKET_BRANCH" --arg tag "$RELEASE_TAG" '.[$keyvar] // $tag' )
+          RELEASE_TAG=$( echo "$RELEASE_TAGS" | jq -r --arg keyvar "$REF_NAME" --arg tag "$RELEASE_TAG" '.[$keyvar] // $tag' )
         fi
 
         if [ "$RELEASE_TAG" == "{branch}" ]; then
-          RELEASE_TAG="$BITBUCKET_BRANCH"
+          RELEASE_TAG="$REF_NAME"
         fi
 
         export RELEASE_TAG=$(echo "$RELEASE_TAG" | sed 's/\//_/g')
@@ -107,8 +108,8 @@ definitions:
         BASE_REF="HEAD"
         if [[ "$STABLE" = true && "$BASE_REF_NAME" ]]; then
           BASE_REF="$BASE_REF_NAME"
-        elif [[ "$BITBUCKET_BRANCH" == issue/cherry-pick-* || "$BITBUCKET_BRANCH" == patch/cherry-pick-* || "$BITBUCKET_BRANCH" == feature/cherry-pick-* || "$BITBUCKET_BRANCH" == minor/cherry-pick-* || "$BITBUCKET_BRANCH" == prepare/cherry-pick-* ]]; then
-          PARTS=(${BITBUCKET_BRANCH//-/ })
+        elif [[ "$REF_NAME" == issue/cherry-pick-* || "$REF_NAME" == patch/cherry-pick-* || "$REF_NAME" == feature/cherry-pick-* || "$REF_NAME" == minor/cherry-pick-* || "$REF_NAME" == prepare/cherry-pick-* ]]; then
+          PARTS=(${REF_NAME//-/ })
           COUNT=${#PARTS[@]}
           COUNT=$((COUNT - 2))
           BASE_REF+="~$COUNT"
@@ -139,7 +140,7 @@ definitions:
 
         if [[ "$SEMVER" != "{}" ]]; then
           if [ "$RELEASE_TAG" ]; then
-            if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release/* ]]; then
+            if [[ "$REF_NAME" == main || "$REF_NAME" == release/* ]]; then
               git tag -d "$RELEASE_TAG" || true
               git push origin --delete "$RELEASE_TAG" || true
               git tag "$RELEASE_TAG" -am "$SEMVER"
@@ -465,7 +466,7 @@ pipelines:
             - *setup
             - yarn bootstrap
             - *release
-            - git tag "$RELEASE_TAG" -am "$SEMVER"
+            - git tag "$RELEASE_TAG" -am "$SEMVER" || true
             - git push --atomic origin $BITBUCKET_BRANCH "$RELEASE_TAG"
             - git checkout -b $REF_NAME
             - git push --set-upstream origin $REF_NAME
