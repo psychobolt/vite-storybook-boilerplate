@@ -21,7 +21,7 @@ export const Markdown = (props: Props) => {
         hasProperty(themes, themeName) ? themes[themeName] : themes.normal
       )}
     >
-      {_Markdown(props)}
+      <_Markdown {...props} />
     </ThemeProvider>
   );
 };
