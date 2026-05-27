@@ -1,6 +1,6 @@
 {
 	"name": "svelte-language-server",
-	"version": "0.17.28-sdk",
+	"version": "0.18.0-sdk",
 	"type": "commonjs",
 	"exports": {
 		"./package.json": "./package.json",
