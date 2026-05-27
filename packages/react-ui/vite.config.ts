@@ -53,7 +53,7 @@ export default mergeConfig(
           /^html-ui\/?/
         ],
         output: {
-          // chunkFileNames: '[name]', // name is handled in manualChunks
+          keepNames: true,
           manualChunks(id) {
             if (!srcPattern.test(id)) return 'vendor';
             return null;
