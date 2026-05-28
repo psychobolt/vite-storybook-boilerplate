@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "dev": "open-cli http://localhost:3000/ --background && next dev -p 3000",
+    "dev": "next dev -p 3000 & open-cli http://localhost:3000/ --background",
     "format": "prettier --ignore-path ../../.gitignore --ignore-path ./.gitignore --write .",
     "lint": "eslint --flag unstable_native_nodejs_ts_config .",
     "start": "next start"
