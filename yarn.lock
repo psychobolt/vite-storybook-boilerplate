@@ -7585,7 +7585,7 @@ __metadata:
     ts-enum-util: "npm:4.1.0"
     turbo: "npm:2.9.16"
     typescript: "npm:6.0.3"
-    vite: "npm:8.0.14"
+    vite: "npm:8.0.15"
     vite-tsconfig-paths: "npm:6.1.1"
     vitest: "npm:4.1.7"
   bin:
@@ -10874,7 +10874,7 @@ __metadata:
     turbo: "npm:2.9.16"
     typescript: "npm:6.0.3"
     typescript-plugin-css-modules: "npm:5.2.0"
-    vite: "npm:8.0.14"
+    vite: "npm:8.0.15"
     vite-plugin-sass-glob-import: "npm:6.0.3"
   languageName: unknown
   linkType: soft
@@ -16051,7 +16051,7 @@ __metadata:
     turbo: "npm:2.9.16"
     typescript: "npm:6.0.3"
     typescript-plugin-css-modules: "npm:5.2.0"
-    vite: "npm:8.0.14"
+    vite: "npm:8.0.15"
     vitest: "npm:4.1.7"
   peerDependencies:
     prop-types: ^15.8.1
@@ -18216,7 +18216,7 @@ __metadata:
     turbo: "npm:2.9.16"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.60.0"
-    vite: "npm:8.0.14"
+    vite: "npm:8.0.15"
   languageName: unknown
   linkType: soft
 
@@ -18465,7 +18465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.13, tinyglobby@npm:^0.2.15, tinyglobby@npm:^0.2.16":
+"tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.13, tinyglobby@npm:^0.2.15, tinyglobby@npm:^0.2.16, tinyglobby@npm:^0.2.17":
   version: 0.2.17
   resolution: "tinyglobby@npm:0.2.17"
   dependencies:
@@ -19530,7 +19530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:*, vite@npm:8.0.14, vite@npm:^6.0.0 || ^7.0.0 || ^8.0.0":
+"vite@npm:*, vite@npm:^6.0.0 || ^7.0.0 || ^8.0.0":
   version: 8.0.14
   resolution: "vite@npm:8.0.14"
   dependencies:
@@ -19584,6 +19584,63 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10c0/1ff99b4daadc64aed5f9e40387ecf39fd3bca45c1a5c4fa4aa82197de901930f0507af8d75c54715e2744c99575913947efb625653a78ef6df3997c5613970bd
+  languageName: node
+  linkType: hard
+
+"vite@npm:8.0.15":
+  version: 8.0.15
+  resolution: "vite@npm:8.0.15"
+  dependencies:
+    fsevents: "npm:~2.3.3"
+    lightningcss: "npm:^1.32.0"
+    picomatch: "npm:^4.0.4"
+    postcss: "npm:^8.5.15"
+    rolldown: "npm:1.0.3"
+    tinyglobby: "npm:^0.2.17"
+  peerDependencies:
+    "@types/node": ^20.19.0 || >=22.12.0
+    "@vitejs/devtools": ^0.1.18
+    esbuild: ^0.27.0 || ^0.28.0
+    jiti: ">=1.21.0"
+    less: ^4.0.0
+    sass: ^1.70.0
+    sass-embedded: ^1.70.0
+    stylus: ">=0.54.8"
+    sugarss: ^5.0.0
+    terser: ^5.16.0
+    tsx: ^4.8.1
+    yaml: ^2.4.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    "@vitejs/devtools":
+      optional: true
+    esbuild:
+      optional: true
+    jiti:
+      optional: true
+    less:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+    tsx:
+      optional: true
+    yaml:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10c0/e6092f761e1ce77ae5508cf2f9be15b801e5626236d6cc213ca4c6f977205bd6719b8b9f784b594d317ee8a68e059a105146f7af86a23416059ba103b18b3c90
   languageName: node
   linkType: hard
 
