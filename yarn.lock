@@ -18664,7 +18664,7 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
     svelte: "npm:5.56.1"
-    svelte-check: "npm:4.5.0"
+    svelte-check: "npm:4.6.0"
     svelte-eslint-parser: "npm:1.8.0"
     svelte-language-server: "npm:0.18.2"
     turbo: "npm:2.9.16"
@@ -18674,11 +18674,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"svelte-check@npm:4.5.0":
-  version: 4.5.0
-  resolution: "svelte-check@npm:4.5.0"
+"svelte-check@npm:4.6.0":
+  version: 4.6.0
+  resolution: "svelte-check@npm:4.6.0"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
+    "@sveltejs/load-config": "npm:0.1.1"
     chokidar: "npm:^4.0.1"
     fdir: "npm:^6.2.0"
     picocolors: "npm:^1.0.0"
@@ -18688,7 +18689,7 @@ __metadata:
     typescript: ">=5.0.0"
   bin:
     svelte-check: bin/svelte-check
-  checksum: 10c0/a099676eee1400e26e0a67409f8422cb99bac07d3cb108b1cc50c48c113efb50dffa0320943bffdf77a19a0ac46eccfcc5047783404b91374002002aba28c0b8
+  checksum: 10c0/ecfcad25c6bb450c1d9c1fd0eb4c244156d0477db73048637addbf8c3159ce53e125e5411d9009f124196c6b7e359a5a5a3af5b304adebb51d85e2a9dac9ae9c
   languageName: node
   linkType: hard
 
