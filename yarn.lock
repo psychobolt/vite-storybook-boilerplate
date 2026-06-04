@@ -4738,6 +4738,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sveltejs/load-config@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@sveltejs/load-config@npm:0.1.1"
+  checksum: 10c0/9de8a176e164ddd256899921adf871c1fbc504179d209faa4d9617d7ecd41eb7df240f3375ae421802bf973c97585470210b45b7bff5a870d20f9f560ebdadf2
+  languageName: node
+  linkType: hard
+
 "@sveltejs/vite-plugin-svelte@npm:7.1.2":
   version: 7.1.2
   resolution: "@sveltejs/vite-plugin-svelte@npm:7.1.2"
@@ -18659,7 +18666,7 @@ __metadata:
     svelte: "npm:5.56.1"
     svelte-check: "npm:4.5.0"
     svelte-eslint-parser: "npm:1.7.1"
-    svelte-language-server: "npm:0.18.1"
+    svelte-language-server: "npm:0.18.2"
     turbo: "npm:2.9.16"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.60.1"
@@ -18725,11 +18732,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.18.1":
-  version: 0.18.1
-  resolution: "svelte-language-server@npm:0.18.1"
+"svelte-language-server@npm:0.18.2":
+  version: 0.18.2
+  resolution: "svelte-language-server@npm:0.18.2"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
+    "@sveltejs/load-config": "npm:0.1.1"
     "@vscode/emmet-helper": "npm:2.8.4"
     chokidar: "npm:^4.0.1"
     estree-walker: "npm:^2.0.1"
@@ -18751,7 +18759,7 @@ __metadata:
     typescript: ^5.9.2 || ^6.0.2
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/6dce78b331e6eaa0e9547496e638a99cf158589f3ae4ff26ed062b46aff90748bd77060abfef1e50c660047b22e71d56c2bbd134d77ab67f1082db4c4f370caa
+  checksum: 10c0/72ba9af2044cb5340019e8111821d413ab5230f084a6e51f246d226756610b9ede7963b0f22ac95ee64d7373cf862a1a3ffae304a35ca98afca735385d7bac9c
   languageName: node
   linkType: hard
 
@@ -19992,7 +20000,7 @@ __metadata:
     playwright: "npm:1.60.0"
     renovate: "npm:43.211.0"
     semver: "npm:7.8.1"
-    svelte-language-server: "npm:0.18.1"
+    svelte-language-server: "npm:0.18.2"
     turbo: "npm:2.9.16"
     typescript: "npm:6.0.3"
     yaml: "npm:2.9.0"
