@@ -5443,12 +5443,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.13.0":
-  version: 24.13.0
-  resolution: "@types/node@npm:24.13.0"
+"@types/node@npm:24.13.1":
+  version: 24.13.1
+  resolution: "@types/node@npm:24.13.1"
   dependencies:
     undici-types: "npm:~7.18.0"
-  checksum: 10c0/93a3f834f61cf3eae90703982c03cef16698acf0f265780b90ecd2afc0f6d83bcecf892745c4f7e5451c296f5bd58c9884e34a89df98d64985772961494ce633
+  checksum: 10c0/ef58425ed71c7fefa95f30d370eeb0390f24c9337d66fa6617b5a14b53e2e831aa6a13e95d978d9057237bf257062b8fa60f773380abed1607183fe7065bc26b
   languageName: node
   linkType: hard
 
@@ -7905,7 +7905,7 @@ __metadata:
     "@storybook/test-runner": "npm:0.24.4"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4.17.24"
-    "@types/node": "npm:24.13.0"
+    "@types/node": "npm:24.13.1"
     "@types/react": "npm:19.2.17"
     "@typescript-eslint/utils": "npm:8.60.1"
     "@vitest/browser-playwright": "npm:4.1.8"
@@ -14569,7 +14569,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@types/node": "npm:24.13.0"
+    "@types/node": "npm:24.13.1"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.2.17"
     "@types/react-dom": "npm:19.2.3"
@@ -18654,7 +18654,7 @@ __metadata:
     "@sveltejs/vite-plugin-svelte": "npm:7.1.2"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
-    "@types/node": "npm:24.13.0"
+    "@types/node": "npm:24.13.1"
     "@typescript-eslint/utils": "npm:8.60.1"
     commons: "workspace:*"
     eslint: "npm:10.4.1"
@@ -19996,7 +19996,7 @@ __metadata:
     "@swc-node/register": "npm:1.11.1"
     "@swc/core": "npm:1.15.40"
     "@types/glob-to-regexp": "npm:0.4.4"
-    "@types/node": "npm:24.13.0"
+    "@types/node": "npm:24.13.1"
     "@types/semver": "npm:7.7.1"
     "@typescript-eslint/utils": "npm:8.60.1"
     "@yarnpkg/core": "npm:4.8.0"
