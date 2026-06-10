@@ -48,7 +48,7 @@
     "husky": "9.1.7",
     "playwright": "1.60.0",
     "renovate": "43.217.0",
-    "semver": "7.8.3",
+    "semver": "7.8.4",
     "svelte-language-server": "0.18.2",
     "turbo": "2.9.17",
     "typescript": "6.0.3",
