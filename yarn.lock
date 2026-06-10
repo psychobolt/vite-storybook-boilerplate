@@ -16642,9 +16642,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.217.1":
-  version: 43.217.1
-  resolution: "renovate@npm:43.217.1"
+"renovate@npm:43.220.0":
+  version: 43.220.0
+  resolution: "renovate@npm:43.220.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1053.0"
     "@aws-sdk/client-ec2": "npm:3.1053.0"
@@ -16773,7 +16773,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/85deb99fb9f8537e274047c218cce28c2567bd224bd7e1e60c593ba87908ebc3a46b0d70db6fb083c32e5223e690de389a6604490667daff160f3c65f4de593f
+  checksum: 10c0/184b3d3801bec66913769ee087596a701785f24a91662226b69b061716f90f6d1bb3f718751d9ad72e7000b9d6eae0a7e9180a0bc3e50b4dbdf5fcedbee18193
   languageName: node
   linkType: hard
 
@@ -19931,7 +19931,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.60.0"
-    renovate: "npm:43.217.1"
+    renovate: "npm:43.220.0"
     semver: "npm:7.8.4"
     svelte-language-server: "npm:0.18.2"
     turbo: "npm:2.9.17"
