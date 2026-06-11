@@ -4590,9 +4590,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.64.0":
-  version: 2.64.0
-  resolution: "@sveltejs/kit@npm:2.64.0"
+"@sveltejs/kit@npm:2.65.0":
+  version: 2.65.0
+  resolution: "@sveltejs/kit@npm:2.65.0"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     "@sveltejs/acorn-typescript": "npm:^1.0.9"
@@ -4619,7 +4619,7 @@ __metadata:
       optional: true
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/2043ebfc9f78e5778ee372039430e6c9ec70dccfa054547d696e1d870c9f6a40803ae51967e660caddbb68655ea2583a0ec0c9a275c9048782ea8d2316594b24
+  checksum: 10c0/4c4a0ec800a9dd00f8b471450ae3ef99c909707987fddeb5c1eb1ed2f4ce00d1a675a1b588136d6450f6845c1004531f6da000a198208d9cf080e3bdfcf30e01
   languageName: node
   linkType: hard
 
@@ -18593,7 +18593,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.2"
     "@sveltejs/adapter-auto": "npm:7.0.1"
     "@sveltejs/adapter-vercel": "npm:6.3.3"
-    "@sveltejs/kit": "npm:2.64.0"
+    "@sveltejs/kit": "npm:2.65.0"
     "@sveltejs/vite-plugin-svelte": "npm:7.1.2"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
