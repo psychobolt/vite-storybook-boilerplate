@@ -35,7 +35,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "styled-jsx": "5.1.7",
-    "turbo": "2.9.16",
+    "turbo": "2.9.18",
     "typescript": "6.0.3"
   },
   "packageManager": "yarn@4.15.0"
