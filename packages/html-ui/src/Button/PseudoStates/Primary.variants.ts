@@ -10,22 +10,20 @@ import { getPseudoStateArgTypes } from 'utils/functions';
 import type { Props } from 'Button';
 import primaryMeta from 'Button/Primary.story';
 
+export type Args = Omit<Props, 'storyPseudo' | 'storyAttr'> &
+  StoryPseudoStateArgs;
+
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction
 const meta = preview.meta({
-  ...primaryMeta.input,
-  title: 'Components/Button/Primary/Pseudo States',
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    ...primaryMeta.input.argTypes,
-    ...getPseudoStateArgTypes()
-  },
-  decorators: [(Story) => html`<div style="padding: 3px">${Story()}</div>`]
+  ...primaryMeta.extend({
+    // More on argTypes: https://storybook.js.org/docs/api/argtypes
+    argTypes: getPseudoStateArgTypes(),
+    decorators: [(Story) => html`<div style="padding: 3px">${Story()}</div>`]
+  }),
+  title: 'Components/Button/Primary/Pseudo States'
 });
 
 export default meta;
-
-type Args = Partial<Omit<Props, 'storyPseudo' | 'storyAttr'>> &
-  StoryPseudoStateArgs;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary = meta
