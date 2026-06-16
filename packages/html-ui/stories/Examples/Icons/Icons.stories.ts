@@ -11,10 +11,10 @@ interface Args {
 const meta = preview.type<{ args: Args }>().meta({
   title: 'Examples/Icons',
   tags: ['autodocs'],
-  render: ({ icons }) => html`${icons.map((icon) => Icon({ icon }))}`,
   args: {
     icons: []
-  }
+  },
+  render: ({ icons }) => html`${icons.map((icon) => Icon({ icon }))}`
 });
 
 export default meta;

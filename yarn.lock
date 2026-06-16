@@ -8013,6 +8013,7 @@ __metadata:
     stylelint: "npm:17.13.0"
     ts-enum-util: "npm:4.1.0"
     turbo: "npm:2.9.18"
+    type-fest: "npm:5.7.0"
     typescript: "npm:6.0.3"
     vite: "npm:8.0.16"
     vite-tsconfig-paths: "npm:6.1.1"
@@ -11360,6 +11361,7 @@ __metadata:
     stylelint: "npm:17.13.0"
     stylelint-config: "workspace:*"
     turbo: "npm:2.9.18"
+    type-fest: "npm:5.7.0"
     typescript: "npm:6.0.3"
     typescript-plugin-css-modules: "npm:5.2.0"
     vite: "npm:8.0.16"
@@ -16541,7 +16543,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-docgen-typescript@npm:^2.2.2":
+"react-docgen-typescript@npm:2.4.0, react-docgen-typescript@npm:^2.2.2":
   version: 2.4.0
   resolution: "react-docgen-typescript@npm:2.4.0"
   peerDependencies:
@@ -16624,9 +16626,11 @@ __metadata:
     "@rolldown/plugin-babel": "npm:0.2.3"
     "@storybook/addon-docs": "npm:10.4.1"
     "@storybook/addon-vitest": "npm:10.4.1"
+    "@storybook/react": "npm:10.4.1"
     "@storybook/react-vite": "npm:10.4.1"
     "@tsconfig/vite-react": "npm:8.0.6"
     "@types/babel__core": "npm:7.20.5"
+    "@types/lodash": "npm:4.17.24"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.2.17"
     "@types/react-dom": "npm:19.2.3"
@@ -16640,8 +16644,10 @@ __metadata:
     glob: "npm:13.0.6"
     html-ui: "workspace:*"
     http-server: "npm:14.1.1"
+    lodash: "npm:4.18.1"
     prop-types: "npm:15.8.1"
     react: "npm:19.2.7"
+    react-docgen-typescript: "npm:2.4.0"
     react-dom: "npm:19.2.7"
     rolldown: "npm:1.1.1"
     sass: "npm:1.101.0"
@@ -16649,6 +16655,7 @@ __metadata:
     stylelint: "npm:17.13.0"
     stylelint-config: "workspace:*"
     turbo: "npm:2.9.18"
+    type-fest: "npm:5.7.0"
     typescript: "npm:6.0.3"
     typescript-plugin-css-modules: "npm:5.2.0"
     vite: "npm:8.0.16"
@@ -19348,6 +19355,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"type-fest@npm:5.7.0, type-fest@npm:^5.6.0":
+  version: 5.7.0
+  resolution: "type-fest@npm:5.7.0"
+  dependencies:
+    tagged-tag: "npm:^1.0.0"
+  checksum: 10c0/f71ed17b753649421e419db8cc2e140f930333a1467b1d9cca2e0e4052900fd442f2360bae73f3a6bf9340d949ac46d9a1598c709b4c8089272e7624df9c8716
+  languageName: node
+  linkType: hard
+
 "type-fest@npm:^0.13.1":
   version: 0.13.1
   resolution: "type-fest@npm:0.13.1"
@@ -19394,15 +19410,6 @@ __metadata:
   version: 4.41.0
   resolution: "type-fest@npm:4.41.0"
   checksum: 10c0/f5ca697797ed5e88d33ac8f1fec21921839871f808dc59345c9cf67345bfb958ce41bd821165dbf3ae591cedec2bf6fe8882098dfdd8dc54320b859711a2c1e4
-  languageName: node
-  linkType: hard
-
-"type-fest@npm:^5.6.0":
-  version: 5.7.0
-  resolution: "type-fest@npm:5.7.0"
-  dependencies:
-    tagged-tag: "npm:^1.0.0"
-  checksum: 10c0/f71ed17b753649421e419db8cc2e140f930333a1467b1d9cca2e0e4052900fd442f2360bae73f3a6bf9340d949ac46d9a1598c709b4c8089272e7624df9c8716
   languageName: node
   linkType: hard
 

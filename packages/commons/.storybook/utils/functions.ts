@@ -1,5 +1,7 @@
+import mergeWith from 'lodash/mergeWith.js';
 import type { ArgTypes } from 'storybook/internal/types';
 import { $enum } from 'ts-enum-util';
+import type { MergeDeep } from 'type-fest';
 
 import {
   type EnumLike,
@@ -83,3 +85,17 @@ export const getPseudoStateArgTypes = <
     }
   };
 };
+
+export const mergeConfig = <D extends object, O extends object>(
+  defaults: D,
+  overrides: O
+) =>
+  mergeWith({}, defaults, overrides, (a, b) =>
+    Array.isArray(a) && Array.isArray(b) ? [...a, ...b] : undefined
+  ) as MergeDeep<
+    D,
+    O,
+    {
+      arrayMergeMode: 'spread';
+    }
+  >;
