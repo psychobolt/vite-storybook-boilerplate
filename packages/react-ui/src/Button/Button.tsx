@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -5,34 +6,17 @@ import styles from './Button.module.scss';
 
 const sizes = ['small', 'medium', 'large'] as const;
 
-export interface Props {
-  className?: string;
+export interface Props extends ComponentProps<'button'> {
   /**
-   * Is this the principal call to action on the page?
-   */
-  variant?: string;
-  /**
-   * Please use `variant` property
+   * Please use `className` property
    *
    * @deprecated
    */
   primary?: boolean;
   /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
    * How large should the button be?
    */
   size?: (typeof sizes)[number];
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
 }
 
 /**
@@ -40,38 +24,27 @@ export interface Props {
  */
 export function Button({
   primary,
-  className,
-  variant = styles.storybookButtonPrimary,
+  className = styles.storybookButtonPrimary,
   size = 'medium',
-  backgroundColor,
-  label,
   ...props
 }: Props) {
   return (
     <button
+      {...props}
       type='button'
       className={classNames(
         styles.storybookButton,
         styles[`storybook-button--${size}`],
-        typeof primary === 'boolean' && primary
-          ? styles.storybookButtonPrimary
-          : variant,
+        typeof primary === 'boolean' &&
+          primary &&
+          styles.storybookButtonPrimary,
         className
       )}
-      style={{ backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
+    />
   );
 }
 
 Button.propTypes = {
-  classNames: PropTypes.string,
-  variant: PropTypes.string,
   primary: PropTypes.bool,
-  backgroundColor: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func
+  size: PropTypes.oneOf(sizes)
 };
