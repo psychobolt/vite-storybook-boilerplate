@@ -126,7 +126,9 @@ export default {
       defineConfig({
         plugins: [
           // See issue: https://github.com/vitest-dev/vitest/issues/8572
-          config.resolve?.tsconfigPaths ? null : tsconfigPaths(),
+          config.resolve?.tsconfigPaths
+            ? null
+            : tsconfigPaths({ root: process.cwd() }),
           vitePluginStorybookVariants()
         ],
         resolve: {
