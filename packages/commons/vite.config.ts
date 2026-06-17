@@ -1,9 +1,7 @@
 import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 import postcssConfig from './postcss.config.js';
 
-const root = process.cwd();
 const packageName = process.env.npm_package_name ?? '';
 const isWatch = process.argv.includes('--watch') || process.argv.includes('-w');
 
@@ -37,7 +35,9 @@ export const getInputMap = (
 
 export default defineConfig({
   base: '',
-  plugins: [tsconfigPaths({ root })],
+  resolve: {
+    tsconfigPaths: true
+  },
   build: {
     emptyOutDir: !isWatch,
     sourcemap: true,
