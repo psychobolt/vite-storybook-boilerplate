@@ -7,7 +7,7 @@ import viteConfig from './vite.config.ts';
 const require = createRequire(import.meta.url);
 
 export default mergeConfig(
-  mergeConfig(viteConfig, commonConfig),
+  mergeConfig(commonConfig, viteConfig),
   defineConfig({
     test: {
       coverage: {

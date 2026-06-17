@@ -1,8 +1,6 @@
 import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import type { StorybookConfig } from 'storybook/internal/types';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
 import {
@@ -80,6 +78,8 @@ const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
   encoding: 'utf8'
 }).trim();
 
+const addonDocs = getAbsolutePath('@storybook/addon-docs');
+
 type Core = Pick<StorybookConfig, 'core'>['core'];
 type CoreConfig = Omit<NonNullable<Exclude<Core, Function>>, 'builder'>;
 
@@ -91,9 +91,9 @@ export type StorybookViteCommonConfig = Omit<StorybookConfig, 'core'> &
 export default {
   stories: [...stories, `../${mainDir}/**/*.mdx`],
   addons: [
-    getAbsolutePath('@storybook/addon-onboarding'),
+    getAbsolutePath('@storybook/addon-onboarding', resolveConfig),
     getAbsolutePath('@storybook/addon-links', resolveConfig),
-    getAbsolutePath('@storybook/addon-docs'),
+    addonDocs,
     ...(new RegExp(`^origin/${gitBranch}$`).test(process.env.BASE_REF ?? '')
       ? []
       : [getAbsolutePath('@chromatic-com/storybook')]),
@@ -113,22 +113,10 @@ export default {
       process.env.VITE_COVERAGE = 'false';
     }
 
-    if (config.resolve?.tsconfigPaths) {
-      // Workaround since Vite's resolver doesn't know about '.' paths
-      resolveConfig.alias?.push({
-        find: '.storybook/',
-        replacement: fileURLToPath(new URL('./', import.meta.url))
-      });
-    }
-
     let finalConfig = mergeConfig(
       config,
       defineConfig({
-        plugins: [
-          // See issue: https://github.com/vitest-dev/vitest/issues/8572
-          config.resolve?.tsconfigPaths ? null : tsconfigPaths(),
-          vitePluginStorybookVariants()
-        ],
+        plugins: [vitePluginStorybookVariants()],
         resolve: {
           ...resolveConfig,
           conditions: [
