@@ -16873,9 +16873,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.229.3":
-  version: 43.229.3
-  resolution: "renovate@npm:43.229.3"
+"renovate@npm:43.230.1":
+  version: 43.230.1
+  resolution: "renovate@npm:43.230.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1053.0"
     "@aws-sdk/client-ec2": "npm:3.1053.0"
@@ -16980,7 +16980,7 @@ __metadata:
     remark-github: "npm:12.0.0"
     safe-stable-stringify: "npm:2.5.0"
     sax: "npm:1.6.0"
-    semver: "npm:7.8.3"
+    semver: "npm:7.8.4"
     semver-stable: "npm:3.0.0"
     semver-utils: "npm:1.1.4"
     shlex: "npm:3.0.0"
@@ -17004,7 +17004,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/2a437a4ce340c5d5b29ba11b9a2d28fac221ace46bad7a99d2645ecc115155f3389959cf9fc2cc6b03c204bfa76885916059e15905401810b4451cda890d640a
+  checksum: 10c0/79d670c657451507362c489292e52997581f24e836bbcea341f225f0fabf9fec26c19a6f7c4360640954ad953ba4fb220bb8acd7994c39abf1d445ae2cdc4e5f
   languageName: node
   linkType: hard
 
@@ -17589,15 +17589,6 @@ __metadata:
   version: 1.1.4
   resolution: "semver-utils@npm:1.1.4"
   checksum: 10c0/8ad42a93b8640f0e3fdec67187b84ec396c180d37caaa40291a413f5cc82ebd7ffdf055c38824f1749506027f9fed78e230a262e7cc8bcb84ddbcd6f16c918c0
-  languageName: node
-  linkType: hard
-
-"semver@npm:7.8.3":
-  version: 7.8.3
-  resolution: "semver@npm:7.8.3"
-  bin:
-    semver: bin/semver.js
-  checksum: 10c0/06d96d5b5c03acd8b0dceeae458e5d4b4ea2b6c16a2b0dfa88a0f19b91d19be1a4a192c7abfa825218c4c36c087d831b928c27d5b79a622e370bd12e95578a99
   languageName: node
   linkType: hard
 
@@ -20180,7 +20171,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.61.0"
-    renovate: "npm:43.229.3"
+    renovate: "npm:43.230.1"
     semver: "npm:7.8.4"
     svelte-language-server: "npm:0.18.2"
     turbo: "npm:2.9.18"
