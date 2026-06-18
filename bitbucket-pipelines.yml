@@ -1,4 +1,4 @@
-image: node:22-alpine@sha256:e58326d0d441090181ac150dc2078d3e2cf6a0d42e809aebba3ef5880935ffdd
+image: node:22-alpine@sha256:b0f9289e763b2cefba5faf46cb05f1a3b640b0441ae697f5a4f319fa3d68781d
 
 definitions:
   caches:
