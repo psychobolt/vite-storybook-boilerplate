@@ -1,4 +1,4 @@
-import type { ComponentClass, ComponentType } from 'react';
+import type { ComponentType } from 'react';
 import type { InputType } from 'storybook/internal/csf';
 import {
   type ArgTypesExtractor,
@@ -13,7 +13,7 @@ import type {
 } from 'storybook/internal/types';
 import { mergeConfig as _mergeConfig } from 'commons/esm/.storybook/utils/functions.js';
 
-type MergeConfig<D extends object, O extends object> = Omit<D, keyof O> & O;
+import { isClassComponent } from 'utils/functions';
 
 type ExtractedProp = _ExtractedProp & {
   docgenInfo?: _ExtractedProp['docgenInfo'] & {
@@ -42,12 +42,6 @@ const isDomProp = (prop: ExtractedProp) => {
     parent?.name?.includes('SVGAttributes')
   );
 };
-
-export const isClassComponent = <P>(
-  component: ComponentType<P>
-): component is ComponentClass<P> =>
-  typeof component === 'function' &&
-  Boolean(component.prototype?.isReactComponent);
 
 const extractProps = (component: any) => {
   let componentType = component;
@@ -148,5 +142,7 @@ export const withoutPropTypes = <P>(
 export const mergeConfig = <D extends object, const O extends object>(
   defaults: D,
   overrides: O
-): MergeConfig<D, O> =>
-  _mergeConfig(defaults, overrides) as unknown as MergeConfig<D, O>;
+) =>
+  _mergeConfig(defaults, overrides, {
+    typings: 'intersection'
+  });

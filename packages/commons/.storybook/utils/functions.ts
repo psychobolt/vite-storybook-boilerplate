@@ -86,16 +86,35 @@ export const getPseudoStateArgTypes = <
   };
 };
 
-export const mergeConfig = <D extends object, O extends object>(
+type MergeConfig<D, O> = MergeDeep<
+  D,
+  O,
+  {
+    arrayMergeMode: 'spread';
+  }
+>;
+
+export function mergeConfig<D extends object, const O extends object>(
   defaults: D,
   overrides: O
-) =>
-  mergeWith({}, defaults, overrides, (a, b) =>
+): MergeConfig<D, O>;
+
+export function mergeConfig<D extends object, const O extends object>(
+  defaults: D,
+  overrides: O,
+  opts: {
+    typings: 'intersection';
+  }
+): D & O;
+
+export function mergeConfig<D extends object, const O extends object>(
+  defaults: D,
+  overrides: O,
+  _opts?: {
+    typings: 'intersection';
+  }
+) {
+  return mergeWith({}, defaults, overrides, (a, b) =>
     Array.isArray(a) && Array.isArray(b) ? [...a, ...b] : undefined
-  ) as MergeDeep<
-    D,
-    O,
-    {
-      arrayMergeMode: 'spread';
-    }
-  >;
+  );
+}

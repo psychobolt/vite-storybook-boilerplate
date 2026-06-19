@@ -172,10 +172,12 @@ export const Default = meta.type<{ args: Args }>().story({
 ### Merge Config
 
 ```ts
-mergeConfig(config1, config2);
+mergeConfig(config1, config2 /*, options */);
 ```
 
 Performs a deep merge of two config objects. For merging array types, both arrays are concatenated.
+
+> Note: Some types can be too complicated for TypeScript to compute. In that case, provide a simplier type intersection of `config1 & config2` e.g. `options = { typings: 'intersection' }`. The runtime deep merge is not affected.
 
 ## [Proxy](proxy.ts)
 
