@@ -40,9 +40,9 @@
     "@types/node": "24.13.2",
     "@types/semver": "7.7.1",
     "@typescript-eslint/utils": "8.61.1",
-    "@yarnpkg/core": "4.8.0",
+    "@yarnpkg/core": "4.9.0",
     "@yarnpkg/fslib": "3.1.5",
-    "@yarnpkg/sdks": "3.2.3",
+    "@yarnpkg/sdks": "3.3.0",
     "arg": "5.0.2",
     "commons": "workspace:*",
     "eslint": "10.5.0",
@@ -56,7 +56,7 @@
     "typescript": "6.0.3",
     "yaml": "2.9.0"
   },
-  "packageManager": "yarn@4.15.0",
+  "packageManager": "yarn@4.17.0",
   "engines": {
     "node": ">= 22"
   }
