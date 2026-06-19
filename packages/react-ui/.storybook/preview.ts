@@ -8,12 +8,12 @@ import {
   type PreviewApi,
   withDefaults
 } from 'commons/esm/.storybook/preview.js';
+import { mergeConfig } from 'commons/esm/.storybook/utils/functions.js';
 
 import type { DefineMeta } from './meta';
 import {
   enhanceArgTypes,
   extractArgTypes,
-  mergeConfig,
   withoutPropTypes
 } from './utils/functions';
 
