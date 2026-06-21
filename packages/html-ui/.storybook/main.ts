@@ -6,7 +6,7 @@ import commonConfig, {
   getAbsolutePath
 } from 'commons/esm/.storybook/vite-main.js';
 
-import viteConfig from './vite.config';
+import viteConfig from './vite.config.ts';
 
 const require = createRequire(import.meta.url);
 
