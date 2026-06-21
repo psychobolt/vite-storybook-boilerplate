@@ -26,6 +26,12 @@ export default defineMain({
     options: {}
   },
   typescript: {
-    reactDocgen: 'react-docgen-typescript'
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+      skipChildrenPropWithoutDoc: false,
+      propFilter: () => true
+    }
   }
 });

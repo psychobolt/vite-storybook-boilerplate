@@ -4,15 +4,15 @@ import primaryMeta from './Primary.story';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction#default-export
 const meta = preview.meta({
-  ...primaryMeta.input,
+  ...primaryMeta.extend({
+    // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args#component-args
+    args: {
+      className: styles.storybookButtonSecondary
+    }
+  }),
   title: 'Components/Button/Secondary',
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
-  // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args#component-args
-  args: {
-    ...primaryMeta.input.args,
-    variant: styles.storybookButtonSecondary
-  }
+  tags: ['autodocs']
 });
 
 export default meta;

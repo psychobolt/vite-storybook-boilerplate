@@ -4,7 +4,7 @@ import styles from './Header.module.scss';
 
 export { Button } from 'Button';
 
-interface User {
+export interface User {
   name: string;
 }
 
@@ -49,21 +49,25 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: Props) => (
               Welcome, <b>{user.name}</b>!
             </span>
             <Button
-              variant={buttonStyles.storybookButtonSecondary}
+              className={buttonStyles.storybookButtonSecondary}
               size='small'
               onClick={onLogout}
-              label='Log out'
-            />
+            >
+              Log out
+            </Button>
           </>
         ) : (
           <>
             <Button
-              variant={buttonStyles.storybookButtonSecondary}
+              className={buttonStyles.storybookButtonSecondary}
               size='small'
               onClick={onLogin}
-              label='Log in'
-            />
-            <Button size='small' onClick={onCreateAccount} label='Sign up' />
+            >
+              Log in
+            </Button>
+            <Button size='small' onClick={onCreateAccount}>
+              Sign up
+            </Button>
           </>
         )}
       </div>
