@@ -7881,7 +7881,7 @@ __metadata:
     lint-staged: "npm:17.0.8"
     lodash: "npm:4.18.1"
     neostandard: "npm:0.13.0"
-    playwright: "npm:1.61.0"
+    playwright: "npm:1.61.1"
     pnp-sass-importer: "npm:2.0.0"
     postcss: "npm:8.5.15"
     postcss-pseudo-classes: "npm:0.4.0"
@@ -15857,7 +15857,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright@npm:*, playwright@npm:1.61.0":
+"playwright-core@npm:1.61.1":
+  version: 1.61.1
+  resolution: "playwright-core@npm:1.61.1"
+  bin:
+    playwright-core: cli.js
+  checksum: 10c0/c28896ba82a602182e240ed4f9c467fb0dd9cb57d510f8aba9f25183fe1cde3a0105725a29baffa4157fe885bbb11e228032a2aad0424111584fde45303f07bd
+  languageName: node
+  linkType: hard
+
+"playwright@npm:*":
   version: 1.61.0
   resolution: "playwright@npm:1.61.0"
   dependencies:
@@ -15869,6 +15878,21 @@ __metadata:
   bin:
     playwright: cli.js
   checksum: 10c0/079dceebe8b745fa6062a3af928024d0c508177fbf15d61dba09ba173f277465ad3746fdc1b31788ade65428f4d3f92fc8083b44c07381b088721eaa2ea06513
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.61.1":
+  version: 1.61.1
+  resolution: "playwright@npm:1.61.1"
+  dependencies:
+    fsevents: "npm:2.3.2"
+    playwright-core: "npm:1.61.1"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 10c0/cea1bc4d2a64ec3ef683891606774029da7b8a8036ed98332565cec2f8e89549ca1fab9a89fbfba4e08e27e0d7e7d148031e965af66d5ff97bb3c34058cfcad0
   languageName: node
   linkType: hard
 
@@ -20001,7 +20025,7 @@ __metadata:
     eslint: "npm:10.5.0"
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
-    playwright: "npm:1.61.0"
+    playwright: "npm:1.61.1"
     renovate: "npm:43.239.0"
     semver: "npm:7.8.5"
     svelte-language-server: "npm:0.18.3"
