@@ -4556,6 +4556,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sveltejs/load-config@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@sveltejs/load-config@npm:0.2.0"
+  checksum: 10c0/abb9f8533493661a31d0c0aa9ebd143afeff3a81e7ca5b9e41f1d61cebe31cbeb8ea717a66b3ff146d940bb5d32e8caf94e2ac5f282ae8f268e28dbaa19421ab
+  languageName: node
+  linkType: hard
+
 "@sveltejs/vite-plugin-svelte@npm:7.1.2":
   version: 7.1.2
   resolution: "@sveltejs/vite-plugin-svelte@npm:7.1.2"
@@ -8355,6 +8362,13 @@ __metadata:
     has-property-descriptors: "npm:^1.0.0"
     object-keys: "npm:^1.1.1"
   checksum: 10c0/88a152319ffe1396ccc6ded510a3896e77efac7a1bfbaa174a7b00414a1747377e0bb525d303794a47cf30e805c2ec84e575758512c6e44a993076d29fd4e6c3
+  languageName: node
+  linkType: hard
+
+"defu@npm:^6.1.7":
+  version: 6.1.7
+  resolution: "defu@npm:6.1.7"
+  checksum: 10c0/e6635388103c8be3c574ac31302f6930e5e6eeedba32cb1b30cf993c7d9fb571aec2485446dfa23bfa63e55e66156fe109027a9695db82a50f931e91e8d4bedb
   languageName: node
   linkType: hard
 
@@ -18643,7 +18657,7 @@ __metadata:
     svelte: "npm:5.56.3"
     svelte-check: "npm:4.6.0"
     svelte-eslint-parser: "npm:1.8.0"
-    svelte-language-server: "npm:0.18.2"
+    svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.9.18"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.62.0"
@@ -18690,22 +18704,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.18.2":
-  version: 0.18.2
-  resolution: "svelte-language-server@npm:0.18.2"
+"svelte-language-server@npm:0.18.3":
+  version: 0.18.3
+  resolution: "svelte-language-server@npm:0.18.3"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
-    "@sveltejs/load-config": "npm:0.1.1"
+    "@sveltejs/load-config": "npm:^0.2.0"
     "@vscode/emmet-helper": "npm:2.8.4"
     chokidar: "npm:^4.0.1"
+    defu: "npm:^6.1.7"
     estree-walker: "npm:^2.0.1"
     fdir: "npm:^6.2.0"
     globrex: "npm:^0.1.2"
-    lodash: "npm:^4.17.21"
     prettier: "npm:~3.3.3"
     prettier-plugin-svelte: "npm:^3.5.0"
     svelte: "npm:^4.2.19"
-    svelte2tsx: "npm:~0.7.56"
+    svelte2tsx: "npm:~0.7.57"
     typescript-auto-import-cache: "npm:^0.3.6"
     vscode-css-languageservice: "npm:~6.3.5"
     vscode-html-languageservice: "npm:~5.4.0"
@@ -18717,20 +18731,20 @@ __metadata:
     typescript: ^5.9.2 || ^6.0.2
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/72ba9af2044cb5340019e8111821d413ab5230f084a6e51f246d226756610b9ede7963b0f22ac95ee64d7373cf862a1a3ffae304a35ca98afca735385d7bac9c
+  checksum: 10c0/696887b288c6695b1bb1e68be0dc189be6231a9e247ee6fb21bc923acb3260e4bc4fd94633b032b8bcc23a11d4d9f77f74dc0cf3ebcf141052713c225b6a0d87
   languageName: node
   linkType: hard
 
-"svelte2tsx@npm:~0.7.56":
-  version: 0.7.56
-  resolution: "svelte2tsx@npm:0.7.56"
+"svelte2tsx@npm:~0.7.57":
+  version: 0.7.57
+  resolution: "svelte2tsx@npm:0.7.57"
   dependencies:
     dedent-js: "npm:^1.0.1"
     scule: "npm:^1.3.0"
   peerDependencies:
     svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
     typescript: ^4.9.4 || ^5.0.0 || ^6.0.0
-  checksum: 10c0/e3788e16441f3ca23f815650bc949972f5053c592998431a97a49980a3b7f1d06b25d7b4b5ef95344b95c6f2107776d13bfdb4eb4b92e74c98133d13af1ccefe
+  checksum: 10c0/240cd89d5bbb3f0ea0089ed142f1c091c4e5934d008e463ee8424732d149581c39e92475522864dcad1c8984bf1b42ab55cef678f79242e2af1514eba5d05257
   languageName: node
   linkType: hard
 
@@ -19975,7 +19989,7 @@ __metadata:
     playwright: "npm:1.61.0"
     renovate: "npm:43.237.1"
     semver: "npm:7.8.5"
-    svelte-language-server: "npm:0.18.2"
+    svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.9.18"
     typescript: "npm:6.0.3"
     yaml: "npm:2.9.0"
