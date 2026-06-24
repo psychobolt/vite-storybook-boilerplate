@@ -11,7 +11,7 @@ const meta = preview.meta({
 
 export default meta;
 
-const Primary = meta.story().extend({});
+const Primary = meta.story();
 
 export enum SizeEnum {
   small,
