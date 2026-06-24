@@ -6392,13 +6392,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"abbrev@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "abbrev@npm:4.0.0"
-  checksum: 10c0/b4cc16935235e80702fc90192e349e32f8ef0ed151ef506aa78c81a7c455ec18375c4125414b99f84b2e055199d66383e787675f0bcd87da7a4dbd59f9eac1d5
-  languageName: node
-  linkType: hard
-
 "abbrev@npm:^5.0.0":
   version: 5.0.0
   resolution: "abbrev@npm:5.0.0"
@@ -14749,27 +14742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp@npm:^12.3.0":
-  version: 12.4.0
-  resolution: "node-gyp@npm:12.4.0"
-  dependencies:
-    env-paths: "npm:^2.2.0"
-    exponential-backoff: "npm:^3.1.1"
-    graceful-fs: "npm:^4.2.6"
-    nopt: "npm:^9.0.0"
-    proc-log: "npm:^6.0.0"
-    semver: "npm:^7.3.5"
-    tar: "npm:^7.5.4"
-    tinyglobby: "npm:^0.2.12"
-    undici: "npm:^6.25.0"
-    which: "npm:^6.0.0"
-  bin:
-    node-gyp: bin/node-gyp.js
-  checksum: 10c0/9acb7c798e124275a6f9c1f7eb64b5abd6196bb885a3945fb44ee0dccf435514e88cdfb0f228ee7ff76ef25107c1f39ff37a067bf92fd00b9aff9234db29ff9e
-  languageName: node
-  linkType: hard
-
-"node-gyp@npm:latest":
+"node-gyp@npm:^13.0.0, node-gyp@npm:latest":
   version: 13.0.0
   resolution: "node-gyp@npm:13.0.0"
   dependencies:
@@ -14852,17 +14825,6 @@ __metadata:
   bin:
     nopt: bin/nopt.js
   checksum: 10c0/62e9ea70c7a3eb91d162d2c706b6606c041e4e7b547cbbb48f8b3695af457dd6479904d7ace600856bf923dd8d1ed0696f06195c8c20f02ac87c1da0e1d315ef
-  languageName: node
-  linkType: hard
-
-"nopt@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "nopt@npm:9.0.0"
-  dependencies:
-    abbrev: "npm:^4.0.0"
-  bin:
-    nopt: bin/nopt.js
-  checksum: 10c0/1822eb6f9b020ef6f7a7516d7b64a8036e09666ea55ac40416c36e4b2b343122c3cff0e2f085675f53de1d2db99a2a89a60ccea1d120bcd6a5347bf6ceb4a7fd
   languageName: node
   linkType: hard
 
@@ -16377,14 +16339,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2@npm:1.24.1":
-  version: 1.24.1
-  resolution: "re2@npm:1.24.1"
+"re2@npm:1.25.0":
+  version: 1.25.0
+  resolution: "re2@npm:1.25.0"
   dependencies:
     install-artifact-from-github: "npm:^1.6.0"
     nan: "npm:^2.27.0"
-    node-gyp: "npm:^12.3.0"
-  checksum: 10c0/15adbb1c83fb29e5aff7a268ec9d4526fdc1baac6ff574216185e8105a4baeee13ce0804ac696b3677ebd5ec978060b3cd459c00ee42c039234c491ba2c9077b
+    node-gyp: "npm:^13.0.0"
+  checksum: 10c0/a1b89e4d6c594d3fe675fc18f5ee3ce06ea83d66ebc5b3b2d66abf8c93c57757478969d1c934db4379ffba0575154c149d4168a567d192a936fced369d7c3ecf
   languageName: node
   linkType: hard
 
@@ -16719,9 +16681,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.241.1":
-  version: 43.241.1
-  resolution: "renovate@npm:43.241.1"
+"renovate@npm:43.241.3":
+  version: 43.241.3
+  resolution: "renovate@npm:43.241.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1053.0"
     "@aws-sdk/client-ec2": "npm:3.1053.0"
@@ -16820,7 +16782,7 @@ __metadata:
     prettier: "npm:3.8.1"
     protobufjs: "npm:8.6.4"
     punycode: "npm:2.3.1"
-    re2: "npm:1.24.1"
+    re2: "npm:1.25.0"
     remark: "npm:15.0.1"
     remark-gfm: "npm:4.0.1"
     remark-github: "npm:12.0.0"
@@ -16850,7 +16812,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/36861d991ddbba592d1edc1ae3dd4266689257b55c923fd3bada8bc111de7e1fd95743cfa619951cf562bbc97b2eabbe98c7016d0816dbf0a549ddf420d6f6ff
+  checksum: 10c0/2605689b22ae37f5325fb112b5da2a2748e502f90646c3d421ea03a0b88162827265ffeff3e321fc50b8d259bb6ed93e82898c13761c0e96db5cb0a8c22cd83b
   languageName: node
   linkType: hard
 
@@ -20026,7 +19988,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.61.1"
-    renovate: "npm:43.241.1"
+    renovate: "npm:43.241.3"
     semver: "npm:7.8.5"
     svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.9.18"
@@ -20518,17 +20480,6 @@ __metadata:
   bin:
     node-which: bin/which.js
   checksum: 10c0/449fa5c44ed120ccecfe18c433296a4978a7583bf2391c50abce13f76878d2476defde04d0f79db8165bdf432853c1f8389d0485ca6e8ebce3bbcded513d5e6a
-  languageName: node
-  linkType: hard
-
-"which@npm:^6.0.0":
-  version: 6.0.1
-  resolution: "which@npm:6.0.1"
-  dependencies:
-    isexe: "npm:^4.0.0"
-  bin:
-    node-which: bin/which.js
-  checksum: 10c0/7e710e54ea36d2d6183bee2f9caa27a3b47b9baf8dee55a199b736fcf85eab3b9df7556fca3d02b50af7f3dfba5ea3a45644189836df06267df457e354da66d5
   languageName: node
   linkType: hard
 
