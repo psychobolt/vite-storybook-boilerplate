@@ -11,10 +11,10 @@ import commonConfig, {
 
 const patterns: ModulePattern[] = [
   {
-    pattern: /^src[/\\](.+[/\\](index|functions))\.ts?/
+    pattern: /^src[/\\](index)\.ts?/
   },
   {
-    pattern: /^src[/\\](.+[/\\]index)\.tsx?/
+    pattern: /^src[/\\](.+[/\\]index|functions)\.ts/
   }
 ];
 

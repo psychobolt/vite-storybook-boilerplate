@@ -1,10 +1,7 @@
 import type { ComponentType } from 'react';
-import {
-  type ReactTypes,
-  definePreview as _definePreview
-} from '@storybook/react-vite';
+import { type ReactTypes, definePreview } from '@storybook/react-vite';
 import type { ProjectAnnotations as _ProjectAnnotations } from 'storybook/internal/csf';
-import type { Merge as _Merge } from 'type-fest';
+import type { Merge } from 'type-fest';
 import {
   ProxyProvider as _ProxyProvider,
   type Preview as _Preview,
@@ -12,13 +9,13 @@ import {
   withDefaults
 } from 'commons/esm/.storybook/preview.js';
 
-import type { DefineMeta } from './meta';
+import type { DefineMeta } from './meta.d.ts';
 import {
   enhanceArgTypes,
   extractArgTypes,
   mergeConfig,
   withoutPropTypes
-} from './utils/functions';
+} from './utils/functions.js';
 
 type ComponentAnnotations = object & {
   component?: ComponentType<any>;
@@ -38,7 +35,7 @@ type ReactPreview<TPreview extends PreviewApi, T extends object = {}> = Omit<
 > & {
   meta: DefineMeta<_Preview<TPreview, T>>;
 
-  type<U extends object>(): ReactPreview<TPreview, _Merge<T, U>>;
+  type<U extends object>(): ReactPreview<TPreview, Merge<T, U>>;
 };
 
 class ProxyProvider<TPreview extends PreviewApi> extends _ProxyProvider<
@@ -79,7 +76,7 @@ const preview: Preview = {
   parameters,
 
   ...withDefaults((defaults) => {
-    const preview = _definePreview(
+    const preview = definePreview(
       mergeConfig(defaults, {
         argTypesEnhancers: [
           ...(defaults.argTypesEnhancers ?? []),
