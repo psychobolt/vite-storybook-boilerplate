@@ -27,7 +27,15 @@
       "types": "./esm/*.d.ts",
       "default": "./esm/*.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./utils/*.cjs": {
+      "types": "./dist/utils/*.d.ts",
+      "import": "./dist/utils/*.cjs"
+    },
+    "./utils/*.js": {
+      "types": "./dist/utils/*.d.ts",
+      "import": "./dist/utils/*.js"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

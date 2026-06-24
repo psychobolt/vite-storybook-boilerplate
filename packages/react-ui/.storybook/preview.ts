@@ -1,5 +1,8 @@
 import type { ComponentType } from 'react';
-import { type ReactTypes, definePreview } from '@storybook/react-vite';
+import {
+  type ReactTypes,
+  definePreview as _definePreview
+} from '@storybook/react-vite';
 import type { ProjectAnnotations as _ProjectAnnotations } from 'storybook/internal/csf';
 import type { Merge as _Merge } from 'type-fest';
 import {
@@ -8,14 +11,14 @@ import {
   type PreviewApi,
   withDefaults
 } from 'commons/esm/.storybook/preview.js';
-import { mergeConfig } from 'commons/esm/.storybook/utils/functions.js';
 
-import type { DefineMeta } from './meta.d.ts';
+import type { DefineMeta } from './meta';
 import {
   enhanceArgTypes,
   extractArgTypes,
+  mergeConfig,
   withoutPropTypes
-} from './utils/functions.js';
+} from './utils/functions';
 
 type ComponentAnnotations = object & {
   component?: ComponentType<any>;
@@ -61,7 +64,7 @@ type Parameters = NonNullable<
 
 const defineParameters = (parameters: Parameters) => parameters;
 
-const parameters: Parameters = defineParameters({
+const parameters = defineParameters({
   options: {
     // @ts-expect-error See issue: https://github.com/storybookjs/storybook/issues/30429
     storySort: (a, b) => globalThis['storybook-multilevel-sort:storySort'](a, b)
@@ -70,15 +73,13 @@ const parameters: Parameters = defineParameters({
 
 export type Preview = {
   parameters: Parameters;
-  meta: ReactPreview<PreviewApi>['meta'];
-  type: ReactPreview<PreviewApi>['type'];
-};
+} & ReactPreview<PreviewApi>;
 
 const preview: Preview = {
   parameters,
 
   ...withDefaults((defaults) => {
-    const preview = definePreview(
+    const preview = _definePreview(
       mergeConfig(defaults, {
         argTypesEnhancers: [
           ...(defaults.argTypesEnhancers ?? []),

@@ -25,7 +25,7 @@ export enum SizeEnum {
   large
 }
 
-const Template = meta.story().extend({});
+const Template = meta.story();
 
 export const stories = (template = Template) =>
   generateStoriesByEnum([template], 'size', SizeEnum);

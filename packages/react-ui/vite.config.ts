@@ -11,7 +11,7 @@ import commonConfig, {
 
 const patterns: ModulePattern[] = [
   {
-    pattern: /^src[/\\](index)\.ts/
+    pattern: /^src[/\\](.+[/\\](index|functions))\.ts?/
   },
   {
     pattern: /^src[/\\](.+[/\\]index)\.tsx?/
@@ -53,6 +53,7 @@ export default mergeConfig(
       lib: {
         entry: getInputMap(patterns, [
           'src/index.ts',
+          ...globSync('src/utils/**/*.ts'),
           ...globSync('src/*/index.{ts,tsx}')
         ]),
         cssFileName: 'style'
