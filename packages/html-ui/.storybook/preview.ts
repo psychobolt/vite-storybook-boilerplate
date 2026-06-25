@@ -5,7 +5,7 @@ import {
   definePreview
 } from '@storybook/web-components-vite';
 import { SyntaxHighlighter } from 'storybook/internal/components';
-import type { ProjectAnnotations } from 'storybook/internal/csf';
+import type { ProjectAnnotations as _ProjectAnnotations } from 'storybook/internal/csf';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
 import {
   ProxyProvider,
@@ -19,16 +19,15 @@ import { mergeConfig } from 'commons/esm/.storybook/utils/functions.js';
 
 import type { DefineMeta } from './meta.d.ts';
 
-type ProjectAnnotationsWithDocsSource<TDefaults extends object> =
-  Partial<TDefaults> & {
-    parameters?: {
-      docs?: {
-        source?: {
-          transform?: (code: string) => string | Promise<string>;
-        };
+type ProjectAnnotations<TDefaults extends object> = Partial<TDefaults> & {
+  parameters?: {
+    docs?: {
+      source?: {
+        transform?: (code: string) => string | Promise<string>;
       };
     };
   };
+};
 
 type WebComponentsPreview<
   TPreview extends PreviewApi,
@@ -42,7 +41,7 @@ type WebComponentsPreview<
 SyntaxHighlighter.registerLanguage('scss', scss);
 
 export type Parameters = NonNullable<
-  ProjectAnnotations<WebComponentsTypes & { csf4: true }>['parameters']
+  _ProjectAnnotations<WebComponentsTypes & { csf4: true }>['parameters']
 >;
 
 const parameters = {
@@ -79,7 +78,7 @@ export const withDefaults = (
             }
           }
         }
-      } satisfies ProjectAnnotationsWithDocsSource<typeof defaults>)
+      } satisfies ProjectAnnotations<typeof defaults>)
     );
 
     return new ProxyProvider<typeof preview, Preview>(preview).instance;
