@@ -16586,7 +16586,6 @@ __metadata:
     react: "npm:19.2.7"
     react-docgen-typescript: "npm:2.4.0"
     react-dom: "npm:19.2.7"
-    rimraf: "npm:6.1.3"
     rolldown: "npm:1.1.3"
     sass: "npm:1.101.0"
     storybook: "npm:10.4.6"
