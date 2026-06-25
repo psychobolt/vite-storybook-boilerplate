@@ -21,7 +21,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "yarn build-src && yarn build-esm",
+    "build-esm": "yarn g:rimraf esm/ && tsc -p tsconfig.esm.json",
+    "build-src": "vite build",
     "build-storybook": "yarn g:storybook build --stats-json",
     "chromatic": "yarn g:chromatic",
     "coverage": "yarn g:rimraf coverage/ && yarn test --coverage",
@@ -32,7 +34,7 @@
     "prepack": "turbo run build",
     "start": "yarn g:dotenv-run -- http-server storybook-static",
     "test": "yarn g:test-storybook --index-json",
-    "watch": "yarn build -w"
+    "watch": "yarn build-src -w"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "7.2.0",
