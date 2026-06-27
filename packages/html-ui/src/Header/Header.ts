@@ -55,11 +55,11 @@ export const Header = ({
                   Welcome, <b>${user.name}</b>!
                 </span>
                 ${Button({
-                variant: buttonStyles.storybookButtonSecondary,
-                size: 'small',
-                onClick: onLogout,
-                label: 'Log out'
-              })}
+                  variant: buttonStyles.storybookButtonSecondary,
+                  size: 'small',
+                  onClick: onLogout,
+                  label: 'Log out'
+                })}
               `
             : html`${Button({
                 variant: buttonStyles.storybookButtonSecondary,
@@ -68,11 +68,11 @@ export const Header = ({
                 label: 'Log in'
               })}
               ${Button({
-              primary: true,
-              size: 'small',
-              onClick: onCreateAccount,
-              label: 'Sign up'
-            })}`
+                primary: true,
+                size: 'small',
+                onClick: onCreateAccount,
+                label: 'Sign up'
+              })}`
         }
       </div>
     </div>
