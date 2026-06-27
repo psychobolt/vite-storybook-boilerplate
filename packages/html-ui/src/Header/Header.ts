@@ -48,30 +48,32 @@ export const Header = ({
         <h1>Acme</h1>
       </div>
       <div>
-        ${user
-          ? html`
-              <span class="${styles.welcome}">
-                Welcome, <b>${user.name}</b>!
-              </span>
-              ${Button({
+        ${
+          user
+            ? html`
+                <span class="${styles.welcome}">
+                  Welcome, <b>${user.name}</b>!
+                </span>
+                ${Button({
+                  variant: buttonStyles.storybookButtonSecondary,
+                  size: 'small',
+                  onClick: onLogout,
+                  label: 'Log out'
+                })}
+              `
+            : html`${Button({
                 variant: buttonStyles.storybookButtonSecondary,
                 size: 'small',
-                onClick: onLogout,
-                label: 'Log out'
+                onClick: onLogin,
+                label: 'Log in'
               })}
-            `
-          : html`${Button({
-              variant: buttonStyles.storybookButtonSecondary,
-              size: 'small',
-              onClick: onLogin,
-              label: 'Log in'
-            })}
-            ${Button({
-              primary: true,
-              size: 'small',
-              onClick: onCreateAccount,
-              label: 'Sign up'
-            })}`}
+              ${Button({
+                primary: true,
+                size: 'small',
+                onClick: onCreateAccount,
+                label: 'Sign up'
+              })}`
+        }
       </div>
     </div>
   </header>
