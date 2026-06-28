@@ -34,7 +34,7 @@
     "prepack": "turbo run build",
     "start": "yarn g:dotenv-run -- http-server storybook-static",
     "test": "yarn g:test-storybook --index-json",
-    "watch": "yarn build-src -w"
+    "watch": "yarn build-src -w --mode development"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "7.3.0",
