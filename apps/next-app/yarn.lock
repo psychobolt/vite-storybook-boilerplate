@@ -3269,7 +3269,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"next@npm:*, next@npm:16.2.9":
+"next@npm:16.2.9":
   version: 16.2.9
   resolution: "next@npm:16.2.9"
   dependencies:
