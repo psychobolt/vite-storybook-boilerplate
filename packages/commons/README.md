@@ -45,6 +45,9 @@ export default defineConfig((env) =>
    import viteConfig from './vite.config.ts';
 
    export default mergeConfig(commonConfig, viteConfig);
+   // or
+   // export default defineConfig((env) =>
+   //   mergeConfig(commonConfig, viteConfig(env)));
    ```
 
    > To organize different test environment configurations, it is recommended to set up within [workspaces](https://vitest.dev/guide/workspace.html#defining-a-workspace).
@@ -413,6 +416,12 @@ story({
      vitestConfig,
      mergeConfig(commonConfig, viteConfig)
    );
+   // or
+   // export default defineConfig((env) =>
+   //  mergeConfig(
+   //    vitestConfig,
+   //    mergeConfig(commonConfig, viteConfig(env)))
+   //  );
    ```
 
 3. Setup workspaces inside your root config:
