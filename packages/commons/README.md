@@ -434,22 +434,27 @@ story({
 
    import viteConfig from './vite.config.ts';
 
-   export default mergeConfig(mergeConfig(commonConfig, viteConfig), {
-     test: {
-       workspaces: [
-         '.storybook/vitest.config.ts'
-         /* 
-        {
-          extends: true,
-          test: {
-            // ...
+   export default defineConfig((env) =>
+    mergeConfig(mergeConfig(commonConfig, viteConfig(env)), {
+      test: {
+        workspaces: [
+          '.storybook/vitest.config.ts'
+          /*
+          {
+            extends: true,
+            test: {
+              // ...
+            }
           }
-        }
-        */
-       ]
-     }
-   });
+          */
+        ]
+      }
+    })
    ```
+
+);
+
+```
 
 ### Plugins
 
@@ -458,3 +463,4 @@ story({
 ##### Node Importers
 
 Add your importers to [node-sass-importers.cts](node-sass-importers.cts) and import the script (e.g. `const sassOptions = { importers: require('common/cjs/node-sass-importers.cjs') };`) as part of your tool config. You also create your own importers. See API [docs](https://sass-lang.com/documentation/js-api/).
+```
