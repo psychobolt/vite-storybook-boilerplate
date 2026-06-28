@@ -9,7 +9,7 @@ import primaryMeta, {
 } from './Primary.variants';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction
-const meta = preview.meta({
+const meta = preview.type<{ args: Args }>().meta({
   ...mergeConfig(primaryMeta.input, secondaryMeta.input),
   title: 'Components/Button/Secondary/Pseudo States'
 });
@@ -17,6 +17,6 @@ const meta = preview.meta({
 export default meta;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Secondary = meta.type<{ args: Args }>().story(Primary.input);
+export const Secondary = meta.story(Primary.input);
 
 export const stories = getStories(Secondary);

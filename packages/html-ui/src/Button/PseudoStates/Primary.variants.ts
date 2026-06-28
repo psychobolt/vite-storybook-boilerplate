@@ -26,19 +26,16 @@ const meta = preview.meta({
 export default meta;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = meta
-  .type<{ args: Args }>()
-  .story({
-    args: {
-      storyPseudo: 'none',
-      storyAttr: 'none'
-    },
-    play({ canvasElement }) {
-      const button = queryByRole(canvasElement, 'button');
-      expect(button).toBeTruthy();
-    }
-  })
-  .extend({});
+export const Primary = meta.type<{ args: Args }>().story({
+  args: {
+    storyPseudo: 'none',
+    storyAttr: 'none'
+  },
+  play({ canvasElement }) {
+    const button = queryByRole(canvasElement, 'button');
+    expect(button).toBeTruthy();
+  }
+});
 
 export const stories = (template = Primary) =>
   generatePseudoStateStories(template, { showDefault: false });

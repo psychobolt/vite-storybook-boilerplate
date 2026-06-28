@@ -3,19 +3,14 @@ import {
   type Renderer as _Renderer,
   type InferTypes,
   type ProjectAnnotations as _ProjectAnnotations,
-  definePreview as _definePreview
+  definePreview
 } from 'storybook/internal/csf';
 import addonDocs from '@storybook/addon-docs';
-import type { Except, Merge as _Merge } from 'type-fest';
+import type { Except } from 'type-fest';
 
 import { MetaProxy, type Meta } from './meta.js';
 import Proxy from './utils/proxy.js';
-import type {
-  ConfigFn,
-  InferArgs as _InferArgs,
-  Use,
-  SetProperty
-} from './types.d.ts';
+import type { ConfigFn, InferArgs, Use, SetProperty } from './types.d.ts';
 
 const addons = [addonDocs()];
 
@@ -45,19 +40,19 @@ const input = {
   }
 } satisfies ProjectAnnotations;
 
-declare const genericKey: unique symbol;
-
 type Subtype<T extends object> = {
-  readonly [genericKey]?: T;
+  readonly __previewType__?: T;
 };
 
 type Type<TPreview> = TPreview extends {
   input: _ProjectAnnotations<infer TRenderer>;
 }
   ? TPreview extends Subtype<infer T>
-    ? _Merge<TRenderer, T>
+    ? TRenderer & T
     : TRenderer
-  : never;
+  : TPreview extends Subtype<infer T>
+    ? T
+    : never;
 
 export type PreviewApi = {
   meta: ConfigFn;
@@ -90,15 +85,15 @@ export class ProxyProvider<
   }
 }
 
-export type InferArgs<TPreview> = _InferArgs<Type<TPreview>>;
-
 export type Renderer<
   TPreview,
-  TArgs extends Args = _InferArgs<Type<TPreview>>
-> =
-  Type<TPreview> extends _Renderer
-    ? SetProperty<Type<TPreview>, 'args', 'required', TArgs>
-    : _Renderer;
+  TArgs extends Args = InferArgs<Type<TPreview>>
+> = SetProperty<
+  Type<TPreview> extends _Renderer ? Type<TPreview> : _Renderer,
+  'args',
+  'required',
+  TArgs
+>;
 
 export type Preview<
   TPreview extends PreviewApi,
@@ -111,7 +106,7 @@ export type Preview<
       ? Meta<TMeta, TInput>
       : never;
 
-    type<U extends object>(): Preview<TPreview, _Merge<T, U>>;
+    type<U extends object>(): Preview<TPreview, T & U>;
   };
 
 export const withDefaults = <TPreview extends object>(
@@ -119,5 +114,5 @@ export const withDefaults = <TPreview extends object>(
 ) => definePreview(input);
 
 export default withDefaults(
-  (defaults) => new ProxyProvider(_definePreview(defaults)).instance
+  (defaults) => new ProxyProvider(definePreview(defaults)).instance
 );

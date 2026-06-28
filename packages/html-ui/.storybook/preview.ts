@@ -5,45 +5,58 @@ import {
   definePreview
 } from '@storybook/web-components-vite';
 import { SyntaxHighlighter } from 'storybook/internal/components';
-import type { ProjectAnnotations } from 'storybook/internal/csf';
+import type { ProjectAnnotations as _ProjectAnnotations } from 'storybook/internal/csf';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
-import type { Merge as _Merge } from 'type-fest';
 import {
-  ProxyProvider,
-  type Preview,
+  type Preview as _Preview,
   type PreviewApi,
-  withDefaults
+  ProxyProvider,
+  withDefaults as _withDefaults
 } from 'commons/esm/.storybook/preview.js';
 import { mergeConfig } from 'commons/esm/.storybook/utils/functions.js';
 
-import type { DefineMeta } from './meta';
+import type { DefineMeta } from './meta.d.ts';
+
+type ProjectAnnotations<TDefaults extends object> = Partial<TDefaults> & {
+  parameters?: {
+    docs?: {
+      source?: {
+        transform?: (code: string) => string | Promise<string>;
+      };
+    };
+  };
+};
 
 type WebComponentsPreview<
   TPreview extends PreviewApi,
   T extends object = {}
-> = Omit<Preview<TPreview, T>, 'meta' | 'type'> & {
-  meta: DefineMeta<Preview<TPreview, T>>;
-  type<U extends object>(): WebComponentsPreview<TPreview, _Merge<T, U>>;
+> = Omit<_Preview<TPreview, T>, 'meta' | 'type'> & {
+  meta: DefineMeta<_Preview<TPreview, T>>;
+
+  type<U extends object>(): WebComponentsPreview<TPreview, T & U>;
 };
 
 SyntaxHighlighter.registerLanguage('scss', scss);
 
-const defineParameters = (
-  parameters: NonNullable<
-    ProjectAnnotations<WebComponentsTypes & { csf4: true }>['parameters']
-  >
-) => parameters;
+export type Parameters = NonNullable<
+  _ProjectAnnotations<WebComponentsTypes & { csf4: true }>['parameters']
+>;
 
-const parameters = defineParameters({
+const parameters = {
   options: {
     // @ts-expect-error See issue: https://github.com/storybookjs/storybook/issues/30429
     storySort: (a, b) => globalThis['storybook-multilevel-sort:storySort'](a, b)
   }
-});
+} satisfies Parameters;
 
-export default {
-  parameters,
-  ...withDefaults((defaults) => {
+export type Preview = {
+  parameters: Parameters;
+} & WebComponentsPreview<PreviewApi>;
+
+export const withDefaults = (
+  definePreview: typeof import('@storybook/web-components-vite').definePreview
+): WebComponentsPreview<PreviewApi> =>
+  _withDefaults((defaults) => {
     const preview = definePreview(
       mergeConfig(defaults, {
         parameters: {
@@ -54,6 +67,7 @@ export default {
                 const prettier = await import('prettier/standalone');
                 const prettierPluginHtml =
                   await import('prettier/plugins/html');
+
                 return prettier.format(code, {
                   parser: 'html',
                   plugins: [prettierPluginHtml]
@@ -62,11 +76,15 @@ export default {
             }
           }
         }
-      } satisfies Partial<typeof defaults>)
+      } satisfies ProjectAnnotations<typeof defaults>)
     );
-    return new ProxyProvider<
-      typeof preview,
-      WebComponentsPreview<typeof preview>
-    >(preview).instance;
-  })
+
+    return new ProxyProvider<typeof preview, Preview>(preview).instance;
+  });
+
+const preview: Preview = {
+  parameters,
+  ...withDefaults(definePreview)
 };
+
+export default preview;

@@ -1,23 +1,27 @@
 import type { ComponentType } from 'react';
-import { type ReactTypes, definePreview } from '@storybook/react-vite';
+import {
+  type ReactTypes,
+  definePreview as _definePreview
+} from '@storybook/react-vite';
 import type { ProjectAnnotations as _ProjectAnnotations } from 'storybook/internal/csf';
-import type { Merge as _Merge } from 'type-fest';
 import {
   ProxyProvider as _ProxyProvider,
-  type Preview,
-  type PreviewApi,
-  withDefaults
+  withDefaults as _withDefaults
 } from 'commons/esm/.storybook/preview.js';
-import { mergeConfig } from 'commons/esm/.storybook/utils/functions.js';
+import type {
+  Preview as _Preview,
+  PreviewApi
+} from 'commons/esm/.storybook/preview.d.ts';
 
-import type { DefineMeta } from './meta';
+import type { DefineMeta } from './meta.d.ts';
 import {
   enhanceArgTypes,
   extractArgTypes,
+  mergeConfig,
   withoutPropTypes
-} from './utils/functions';
+} from './utils/functions.js';
 
-type ComponentAnnotations = object & {
+type ComponentAnnotations = {
   component?: ComponentType<any>;
 };
 
@@ -30,12 +34,12 @@ type ProjectAnnotations<TDefaults extends object> = Partial<TDefaults> & {
 };
 
 type ReactPreview<TPreview extends PreviewApi, T extends object = {}> = Omit<
-  Preview<TPreview, T>,
+  _Preview<TPreview, T>,
   'meta' | 'type'
 > & {
-  meta: DefineMeta<Preview<TPreview, T>>;
+  meta: DefineMeta<_Preview<TPreview, T>>;
 
-  type<U extends object>(): ReactPreview<TPreview, _Merge<T, U>>;
+  type<U extends object>(): ReactPreview<TPreview, T & U>;
 };
 
 class ProxyProvider<TPreview extends PreviewApi> extends _ProxyProvider<
@@ -55,23 +59,25 @@ class ProxyProvider<TPreview extends PreviewApi> extends _ProxyProvider<
   }
 }
 
-const defineParameters = (
-  parameters: NonNullable<
-    _ProjectAnnotations<ReactTypes & { csf4: true }>['parameters']
-  >
-) => parameters;
+export type Parameters = NonNullable<
+  _ProjectAnnotations<ReactTypes & { csf4: true }>['parameters']
+>;
 
-const parameters = defineParameters({
+const parameters = {
   options: {
     // @ts-expect-error See issue: https://github.com/storybookjs/storybook/issues/30429
     storySort: (a, b) => globalThis['storybook-multilevel-sort:storySort'](a, b)
   }
-});
+} satisfies Parameters;
 
-export default {
-  parameters,
+export type Preview = {
+  parameters: Parameters;
+} & ReactPreview<PreviewApi>;
 
-  ...withDefaults((defaults) => {
+export const withDefaults = (
+  definePreview: typeof _definePreview
+): ReactPreview<PreviewApi> =>
+  _withDefaults((defaults) => {
     const preview = definePreview(
       mergeConfig(defaults, {
         argTypesEnhancers: [
@@ -89,5 +95,11 @@ export default {
     );
 
     return new ProxyProvider(preview).instance;
-  })
+  });
+
+const preview: Preview = {
+  parameters,
+  ...withDefaults(_definePreview)
 };
+
+export default preview;
