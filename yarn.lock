@@ -15927,12 +15927,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:8.6.4":
-  version: 8.6.4
-  resolution: "protobufjs@npm:8.6.4"
+"protobufjs@npm:8.6.5":
+  version: 8.6.5
+  resolution: "protobufjs@npm:8.6.5"
   dependencies:
     long: "npm:^5.3.2"
-  checksum: 10c0/fafe74f62961d0cd17106002b183989079731baf0db2dd622ec43f600d36a1864849ef88c62d9c7a385a7b7cf2ed3a6e6d7d35652473e8255a3df11acd2c3d3d
+  checksum: 10c0/ccf3d07c567c1b1be9114165093bba658dac252bd9c99c5705d4a0e2e207c772f9996bb3826c27a6cc1c67943767ecdfbf5525bb4f83fecfd186d6dbd300147e
   languageName: node
   linkType: hard
 
@@ -16374,9 +16374,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.249.1":
-  version: 43.249.1
-  resolution: "renovate@npm:43.249.1"
+"renovate@npm:43.249.2":
+  version: 43.249.2
+  resolution: "renovate@npm:43.249.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1053.0"
     "@aws-sdk/client-ec2": "npm:3.1053.0"
@@ -16473,7 +16473,7 @@ __metadata:
     p-throttle: "npm:8.1.0"
     parse-link-header: "npm:2.0.0"
     prettier: "npm:3.8.1"
-    protobufjs: "npm:8.6.4"
+    protobufjs: "npm:8.6.5"
     punycode: "npm:2.3.1"
     re2: "npm:1.25.0"
     remark: "npm:15.0.1"
@@ -16505,7 +16505,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/db189744a62b092eb7da6a9c3820e697794dccea3cd0d2ff36b2f74b684b798648627e946f2757bd5fc09c0fd89e76c4342a0bcd1c640740839b6d0759149678
+  checksum: 10c0/280fbf26980c94d4861a32cbc6d097f52d58a7f837911db7029cc2d6a8197405a0cc94dc0121f6f745508d5ce2fc1118a217a58017a250d6784c85db6eb9bb56
   languageName: node
   linkType: hard
 
@@ -19605,7 +19605,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.61.1"
-    renovate: "npm:43.249.1"
+    renovate: "npm:43.249.2"
     semver: "npm:7.8.5"
     svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.10.0"
