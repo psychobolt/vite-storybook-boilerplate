@@ -20,11 +20,13 @@ See [source](vite.config.ts)
 import { defineConfig, mergeConfig } from 'vite';
 import commonConfig from 'commons/esm/vite.config.js';
 
-export default mergeConfig(
-  commonConfig,
-  defineConfig({
-    // your overrides
-  })
+export default defineConfig((env) =>
+  mergeConfig(
+    commonConfig(env),
+    defineConfig({
+      // your overrides
+    })
+  )
 );
 ```
 
@@ -43,6 +45,9 @@ export default mergeConfig(
    import viteConfig from './vite.config.ts';
 
    export default mergeConfig(commonConfig, viteConfig);
+   // or
+   // export default defineConfig((env) =>
+   //   mergeConfig(commonConfig, viteConfig(env)));
    ```
 
    > To organize different test environment configurations, it is recommended to set up within [workspaces](https://vitest.dev/guide/workspace.html#defining-a-workspace).
@@ -411,6 +416,12 @@ story({
      vitestConfig,
      mergeConfig(commonConfig, viteConfig)
    );
+   // or
+   // export default defineConfig((env) =>
+   //  mergeConfig(
+   //    vitestConfig,
+   //    mergeConfig(commonConfig, viteConfig(env)))
+   //  );
    ```
 
 3. Setup workspaces inside your root config:
@@ -423,21 +434,23 @@ story({
 
    import viteConfig from './vite.config.ts';
 
-   export default mergeConfig(mergeConfig(commonConfig, viteConfig), {
-     test: {
-       workspaces: [
-         '.storybook/vitest.config.ts'
-         /* 
-        {
-          extends: true,
-          test: {
-            // ...
+   export default defineConfig((env) =>
+     mergeConfig(mergeConfig(commonConfig, viteConfig(env)), {
+       test: {
+         workspaces: [
+           '.storybook/vitest.config.ts'
+           /*
+          {
+            extends: true,
+            test: {
+              // ...
+            }
           }
-        }
-        */
-       ]
-     }
-   });
+          */
+         ]
+       }
+     })
+   );
    ```
 
 ### Plugins

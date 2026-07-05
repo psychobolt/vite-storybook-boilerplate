@@ -54,7 +54,7 @@
     "prepack": "turbo run build",
     "start": "yarn g:dotenv-run -- http-server storybook-static",
     "test": "yarn g:vitest",
-    "watch": "yarn build-src -w & yarn watch-dts",
+    "watch": "yarn build-src -w --mode development & yarn watch-dts",
     "watch-dts": "tsc -p tsconfig.dts.json -w & tsc-paths -p tsconfig.dts.json -w"
   },
   "dependencies": {
@@ -84,16 +84,16 @@
     "react": "19.2.7",
     "react-docgen-typescript": "2.4.0",
     "react-dom": "19.2.7",
-    "rolldown": "1.1.3",
+    "rolldown": "1.1.4",
     "sass": "1.101.0",
     "storybook": "10.4.6",
     "stylelint": "17.14.0",
     "stylelint-config": "workspace:*",
-    "turbo": "2.10.0",
-    "type-fest": "5.7.0",
+    "turbo": "2.10.3",
+    "type-fest": "5.8.0",
     "typescript": "6.0.3",
     "typescript-plugin-css-modules": "5.2.0",
-    "vite": "8.1.0",
+    "vite": "8.1.3",
     "vitest": "4.1.9"
   },
   "peerDependencies": {

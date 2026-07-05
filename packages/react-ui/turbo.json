@@ -6,7 +6,7 @@
       "dependsOn": ["build-storybook"]
     },
     "build": {
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "esm/**"]
     },
     "test": {
       "cache": false,
