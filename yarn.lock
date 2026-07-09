@@ -1249,11 +1249,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.2.2":
-  version: 2.2.2
-  resolution: "@dotenvx/dotenvx@npm:2.2.2"
+"@dotenvx/dotenvx@npm:2.3.1":
+  version: 2.3.1
+  resolution: "@dotenvx/dotenvx@npm:2.3.1"
   dependencies:
-    "@dotenvx/primitives": "npm:^1.7.1"
+    "@dotenvx/primitives": "npm:^1.7.2"
     commander: "npm:^11.1.0"
     conf: "npm:^10.2.0"
     dotenv: "npm:^17.4.2"
@@ -1272,14 +1272,14 @@ __metadata:
     yocto-spinner: "npm:^1.2.0"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/c68f93fb2875a6228fe36e5e709e524c26fb7c718246ff610c27f255ae00bbd331fb47f68abeb55352d81a37489508f045a21d276913227fde613e27e62069f1
+  checksum: 10c0/4e9c71bc6e8b3754f842c403c77886ed4f7593ddd7f230473eea100f2d933d1d35c52a17f1ae558bdb50350436d1cabf5e7830aac975d5b5468b0a6b4686129c
   languageName: node
   linkType: hard
 
-"@dotenvx/primitives@npm:^1.7.1":
-  version: 1.7.1
-  resolution: "@dotenvx/primitives@npm:1.7.1"
-  checksum: 10c0/d801911f92076c448296230510112f5e06a4931d1d8cc85643af5c419718ef58b3e095b96cbe6c71bd5b729b8af2464e64ac4f5d770f8d58e0d2a39c1dea7a7b
+"@dotenvx/primitives@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "@dotenvx/primitives@npm:1.7.2"
+  checksum: 10c0/40fffa190bef61ad0cee9e28e5dbc5dea5e89f876e645e9983e71f2c6c1228183441095a88352d1f5e6751b905961f60734c14cdeaeea30d279f28b1da11066b
   languageName: node
   linkType: hard
 
@@ -18414,7 +18414,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.2.2"
+    "@dotenvx/dotenvx": "npm:2.3.1"
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.2.7"
     "@neoconfetti/svelte": "npm:2.2.2"
@@ -19766,7 +19766,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.2.2"
+    "@dotenvx/dotenvx": "npm:2.3.1"
     "@swc-node/register": "npm:1.11.1"
     "@swc/core": "npm:1.15.43"
     "@types/glob-to-regexp": "npm:0.4.4"
