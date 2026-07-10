@@ -15218,13 +15218,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-queue@npm:9.3.0":
-  version: 9.3.0
-  resolution: "p-queue@npm:9.3.0"
+"p-queue@npm:9.3.1":
+  version: 9.3.1
+  resolution: "p-queue@npm:9.3.1"
   dependencies:
     eventemitter3: "npm:^5.0.4"
     p-timeout: "npm:^7.0.0"
-  checksum: 10c0/4bc5461a022903127043eab72f3aa544ba740f74ad24cbc7207e1146b1c3d6b816f59e9eccd543dacd57e9534576b36a1904294c7502633291887ccd285ea945
+  checksum: 10c0/b35cff9b4b61596e02502682517973eda2786114f13630a24e16a38e63e51bf8d23db31a98b72825eb50470d3d706c5dee30b7d433547d1d0dfb706f72e316b8
   languageName: node
   linkType: hard
 
@@ -16360,9 +16360,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.257.6":
-  version: 43.257.6
-  resolution: "renovate@npm:43.257.6"
+"renovate@npm:43.257.7":
+  version: 43.257.7
+  resolution: "renovate@npm:43.257.7"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1075.0"
     "@aws-sdk/client-ec2": "npm:3.1075.0"
@@ -16455,7 +16455,7 @@ __metadata:
     openpgp: "npm:6.3.1"
     p-all: "npm:5.0.1"
     p-map: "npm:7.0.5"
-    p-queue: "npm:9.3.0"
+    p-queue: "npm:9.3.1"
     p-throttle: "npm:8.1.0"
     parse-link-header: "npm:2.0.0"
     prettier: "npm:3.8.1"
@@ -16491,7 +16491,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/9f6a7b8cc2d84ed8e581e14122197a5a970f42e99d8ebca7cfda7cc76fc911a5f91dc974c4b7f3867b9973ab99c3dbc4aa1aef1325b76340441bb139c91f368a
+  checksum: 10c0/43d98b5addc2693203758e53df020f184982d6697cd07dcc15d704f12ea6d98beecc68c02d1a3c5616567d06baa7c44e499a765707bb1d4e83d19f4b0431f09a
   languageName: node
   linkType: hard
 
@@ -19639,7 +19639,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.61.1"
-    renovate: "npm:43.257.6"
+    renovate: "npm:43.257.7"
     semver: "npm:7.8.5"
     svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.10.4"
