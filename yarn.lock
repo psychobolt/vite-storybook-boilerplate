@@ -4903,10 +4903,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/vite-react@npm:8.0.6":
-  version: 8.0.6
-  resolution: "@tsconfig/vite-react@npm:8.0.6"
-  checksum: 10c0/4341551344725cc444a8bcf3c8ff8a85390b4c692f1d8ba073a6c1edd7ee1bb8bbcb223bd9dff81711d8c766adfa3e51a3eef9ef55ba20d5978edb689b375e2b
+"@tsconfig/vite-react@npm:8.1.1":
+  version: 8.1.1
+  resolution: "@tsconfig/vite-react@npm:8.1.1"
+  checksum: 10c0/2b5680c49cb2f0fe96bd91e799a8416855fae24aac24ae5c796928b3d13263e600e629d8e895531a5d6b618ad0e7e91362d07ce1be8b57737071a4c7ec359df5
   languageName: node
   linkType: hard
 
@@ -16115,7 +16115,7 @@ __metadata:
     "@storybook/addon-vitest": "npm:10.5.0"
     "@storybook/react": "npm:10.5.0"
     "@storybook/react-vite": "npm:10.5.0"
-    "@tsconfig/vite-react": "npm:8.0.6"
+    "@tsconfig/vite-react": "npm:8.1.1"
     "@types/babel__core": "npm:7.20.5"
     "@types/lodash": "npm:4.17.24"
     "@types/prop-types": "npm:15.7.15"
