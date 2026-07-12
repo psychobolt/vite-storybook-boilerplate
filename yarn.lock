@@ -16349,9 +16349,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.260.0":
-  version: 43.260.0
-  resolution: "renovate@npm:43.260.0"
+"renovate@npm:43.260.1":
+  version: 43.260.1
+  resolution: "renovate@npm:43.260.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1075.0"
     "@aws-sdk/client-ec2": "npm:3.1075.0"
@@ -16466,7 +16466,7 @@ __metadata:
     strip-json-comments: "npm:5.0.3"
     toml-eslint-parser: "npm:1.0.3"
     tslib: "npm:2.8.1"
-    upath: "npm:3.0.7"
+    upath: "npm:3.0.8"
     url-join: "npm:5.0.0"
     validate-npm-package-name: "npm:7.0.2"
     xmldoc: "npm:2.0.3"
@@ -16480,7 +16480,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/a2181d837ada14d2f7121020fec34b29398b2c51f7da400a9ae3b867704be560dc0e3abb7efd7cdea168963c07f1c41a6b5f9ed9ccca3484d4696b744f9f9492
+  checksum: 10c0/9d57d195e345178ceb83d51fa1a1bb4d3ce99585f3511d9ce07a29a59c8286fefe0ed3d43148d54cc9213d05ee08ad4881a4da1eab991bc0e27990ea1316c3bb
   languageName: node
   linkType: hard
 
@@ -19381,14 +19381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"upath@npm:3.0.7":
-  version: 3.0.7
-  resolution: "upath@npm:3.0.7"
-  checksum: 10c0/3b0464cc761a898fa7d8eb3f034af5eeb31acc31c33a4c2523adbdd7d520db715317bb6f821dfb9db2acaa587f0f632e78bb133ac67c7d98d365844a0122fd61
-  languageName: node
-  linkType: hard
-
-"upath@npm:^3.0.7":
+"upath@npm:3.0.8, upath@npm:^3.0.7":
   version: 3.0.8
   resolution: "upath@npm:3.0.8"
   checksum: 10c0/5d956961e88265332c7a672fb01524f66d6c1a19dfbf36c69222fd5762985df277b36af53679fe5f3e884c666fe91a3da831f59b20c4ecd1ed5540c54e5e89e2
@@ -19628,7 +19621,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.61.1"
-    renovate: "npm:43.260.0"
+    renovate: "npm:43.260.1"
     semver: "npm:7.8.5"
     svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.10.4"
