@@ -16015,14 +16015,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2@npm:1.25.0":
-  version: 1.25.0
-  resolution: "re2@npm:1.25.0"
+"re2@npm:1.25.1":
+  version: 1.25.1
+  resolution: "re2@npm:1.25.1"
   dependencies:
     install-artifact-from-github: "npm:^1.6.0"
     nan: "npm:^2.27.0"
     node-gyp: "npm:^13.0.0"
-  checksum: 10c0/a1b89e4d6c594d3fe675fc18f5ee3ce06ea83d66ebc5b3b2d66abf8c93c57757478969d1c934db4379ffba0575154c149d4168a567d192a936fced369d7c3ecf
+  checksum: 10c0/30a225cade710e08ded2adf05f2569c3060a2dc11b9ebd7ff6b2036488d65f6e9746f483bcace576e1954b849e138085204cfe24a09b100346d10c9e5b16320b
   languageName: node
   linkType: hard
 
@@ -16363,9 +16363,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.262.3":
-  version: 43.262.3
-  resolution: "renovate@npm:43.262.3"
+"renovate@npm:43.263.0":
+  version: 43.263.0
+  resolution: "renovate@npm:43.263.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1075.0"
     "@aws-sdk/client-ec2": "npm:3.1075.0"
@@ -16464,7 +16464,7 @@ __metadata:
     prettier: "npm:3.8.1"
     protobufjs: "npm:8.7.0"
     punycode: "npm:2.3.1"
-    re2: "npm:1.25.0"
+    re2: "npm:1.25.1"
     remark: "npm:15.0.1"
     remark-gfm: "npm:4.0.1"
     remark-github: "npm:12.0.0"
@@ -16494,7 +16494,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/25efbd2031cd1d9028443510aa5c7d172fa1e591b041d684268566a01244c2e9792caae14d38ae5b7c343c712a380faef87ecf475233c6df2d537eef76536270
+  checksum: 10c0/c5aff56d0554e412acd947f8aebf112639424eea703d0c699e22bd3913ce175fbab27ac20e1ed77b64a2dfc76488d91c3d77eccb71ce7c1dc5a005c11c72a1fa
   languageName: node
   linkType: hard
 
@@ -19635,7 +19635,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.61.1"
-    renovate: "npm:43.262.3"
+    renovate: "npm:43.263.0"
     semver: "npm:7.8.5"
     svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.10.5"
