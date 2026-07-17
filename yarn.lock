@@ -11442,10 +11442,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:7.0.5, ignore@npm:^7.0.5":
-  version: 7.0.5
-  resolution: "ignore@npm:7.0.5"
-  checksum: 10c0/ae00db89fe873064a093b8999fe4cc284b13ef2a178636211842cceb650b9c3e390d3339191acb145d81ed5379d2074840cf0c33a20bdbd6f32821f79eb4ad5d
+"ignore@npm:7.0.6":
+  version: 7.0.6
+  resolution: "ignore@npm:7.0.6"
+  checksum: 10c0/fc01ef1d14efbe003439b60538726351e81483d1b6f55bdbb3a4465c6346d9481afad5b350dfbd604ddd7049618ef9093ff26dc147984aabc303c56ba53ea3b5
   languageName: node
   linkType: hard
 
@@ -11460,6 +11460,13 @@ __metadata:
   version: 6.0.2
   resolution: "ignore@npm:6.0.2"
   checksum: 10c0/9a38feac1861906a78ba0f03e8ef3cd6b0526dce2a1a84e1009324b557763afeb9c3ebcc04666b21f7bbf71adda45e76781bb9e2eaa0903d45dcaded634454f5
+  languageName: node
+  linkType: hard
+
+"ignore@npm:^7.0.5":
+  version: 7.0.5
+  resolution: "ignore@npm:7.0.5"
+  checksum: 10c0/ae00db89fe873064a093b8999fe4cc284b13ef2a178636211842cceb650b9c3e390d3339191acb145d81ed5379d2074840cf0c33a20bdbd6f32821f79eb4ad5d
   languageName: node
   linkType: hard
 
@@ -16726,9 +16733,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.267.0":
-  version: 43.267.0
-  resolution: "renovate@npm:43.267.0"
+"renovate@npm:43.268.2":
+  version: 43.268.2
+  resolution: "renovate@npm:43.268.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1075.0"
     "@aws-sdk/client-ec2": "npm:3.1075.0"
@@ -16801,7 +16808,7 @@ __metadata:
     got: "npm:14.6.6"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.9"
-    ignore: "npm:7.0.5"
+    ignore: "npm:7.0.6"
     ini: "npm:6.0.0"
     json-dup-key-validator: "npm:1.0.3"
     json-stringify-pretty-compact: "npm:4.0.0"
@@ -16857,7 +16864,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/2e09ea115c551f0358ec576095e1afee25f10238efeeb5d063bec5eda26c7ec68b249f4e98cf2b23e2c5fd511bbbb9e2a1f3c7fbfcdba9963ec30ed1531137a0
+  checksum: 10c0/a1efc931cb972f699406b0e7c358b5e375d6f36599619b30ffc4249332816299bb1bf43b5e441cac4a4b5f8bdc671e1e3ba867516bcab5a1c7c38262b27f2ffd
   languageName: node
   linkType: hard
 
@@ -20056,7 +20063,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.61.1"
-    renovate: "npm:43.267.0"
+    renovate: "npm:43.268.2"
     semver: "npm:7.8.5"
     svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.10.5"
