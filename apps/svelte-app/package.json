@@ -14,7 +14,7 @@
 	"devDependencies": {
 		"@dotenvx/dotenvx": "2.14.0",
 		"@eslint/js": "10.0.1",
-		"@fontsource/fira-mono": "5.2.7",
+		"@fontsource/fira-mono": "5.3.0",
 		"@neoconfetti/svelte": "2.2.2",
 		"@sveltejs/adapter-auto": "7.0.1",
 		"@sveltejs/adapter-vercel": "6.3.4",
