@@ -1249,16 +1249,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.15.1":
-  version: 2.15.1
-  resolution: "@dotenvx/dotenvx@npm:2.15.1"
+"@dotenvx/dotenvx@npm:2.17.1":
+  version: 2.17.1
+  resolution: "@dotenvx/dotenvx@npm:2.17.1"
   dependencies:
     "@dotenvx/primitives": "npm:^2.1.0"
-    "@dotenvx/tooling": "npm:^1.0.2"
+    "@dotenvx/tooling": "npm:^1.0.3"
     yocto-spinner: "npm:^1.2.1"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/76474548afd073cab0852c55ed11e2aed8bd67ba2a59b556521c6be519fcdffce1accd1441250296e03897a3614ee35868a95bbea1500ed467db0ff5208fb0ba
+  checksum: 10c0/7db81d422458b909fd3ad7bc2395e480f2f997e3900948468e87382cfa1c3a3d62edf0271d9431e69b71e2a3f0e9251afadac6e2413cfb2b9fcfb825b6999c31
   languageName: node
   linkType: hard
 
@@ -1269,10 +1269,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/tooling@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@dotenvx/tooling@npm:1.0.2"
-  checksum: 10c0/1ed874b544434e707c9940ed1f3c0f200d81cb743f20528228f876cbdb53a09801c082ae1072f6068fcb282bf1eacfb293377bd7b6abe93f99bfef525d1076d6
+"@dotenvx/tooling@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@dotenvx/tooling@npm:1.0.3"
+  checksum: 10c0/30ef129090715b69184f6489f2affba7e08c700913407edd6ccd27e989c5335b4434bf7ec8a955773ced37ec1e5d1ef4ca9cdc711cad091d00655b652bfc45ff
   languageName: node
   linkType: hard
 
@@ -18726,7 +18726,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.15.1"
+    "@dotenvx/dotenvx": "npm:2.17.1"
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"
@@ -20054,7 +20054,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.15.1"
+    "@dotenvx/dotenvx": "npm:2.17.1"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.15.46"
     "@types/glob-to-regexp": "npm:0.4.4"
