@@ -86,7 +86,7 @@
     "http-server": "14.1.1",
     "lodash": "4.18.1",
     "prop-types": "15.8.1",
-    "react": "19.2.7",
+    "react": "19.2.8",
     "react-docgen-typescript": "2.4.0",
     "react-dom": "19.2.7",
     "rolldown": "1.2.0",

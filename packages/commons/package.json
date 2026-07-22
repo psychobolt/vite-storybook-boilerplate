@@ -45,7 +45,7 @@
     "postcss": "8.5.16",
     "postcss-pseudo-classes": "0.4.0",
     "postcss-scss": "4.0.9",
-    "react": "19.2.7",
+    "react": "19.2.8",
     "react-dom": "19.2.7",
     "storybook-multilevel-sort": "2.1.0",
     "storybook-zeplin": "4.0.1",
