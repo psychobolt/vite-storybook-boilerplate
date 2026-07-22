@@ -90,7 +90,7 @@
     "react-docgen-typescript": "2.4.0",
     "react-dom": "19.2.8",
     "rolldown": "1.2.0",
-    "sass": "1.101.3",
+    "sass": "1.101.4",
     "storybook": "10.5.3",
     "stylelint": "17.14.1",
     "stylelint-config": "workspace:*",
