@@ -15614,10 +15614,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-map@npm:7.0.5, p-map@npm:^7.0.2":
-  version: 7.0.5
-  resolution: "p-map@npm:7.0.5"
-  checksum: 10c0/4ccbb67d36a8d6e2125ab64ccabee424d1c89b03c10afb43830523c7b9aacc1005e5d21ca7aea70bdc556bd548b7bde65df23c7a18091bbf2b5daf9b86fbc8c5
+"p-map@npm:7.0.6":
+  version: 7.0.6
+  resolution: "p-map@npm:7.0.6"
+  checksum: 10c0/46e3b3c79b6179613161aa1a28c72cfe7155f27f1928afee1b2406858728f9dd4c29637bba25cef9b50517caacdcb71549f5ff228292524b0069b2310922b22e
   languageName: node
   linkType: hard
 
@@ -15641,6 +15641,13 @@ __metadata:
   version: 6.0.0
   resolution: "p-map@npm:6.0.0"
   checksum: 10c0/3fcfccf464d0f4a9a8c8a2d48f3f0933bdbdb0628158c1fb3c240dc0bbf20c0cf8115dea57300aa82baefff7b9bd1b9daf13a11a6578f15a629fc5bda78d780d
+  languageName: node
+  linkType: hard
+
+"p-map@npm:^7.0.2":
+  version: 7.0.5
+  resolution: "p-map@npm:7.0.5"
+  checksum: 10c0/4ccbb67d36a8d6e2125ab64ccabee424d1c89b03c10afb43830523c7b9aacc1005e5d21ca7aea70bdc556bd548b7bde65df23c7a18091bbf2b5daf9b86fbc8c5
   languageName: node
   linkType: hard
 
@@ -16804,9 +16811,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:43.285.2":
-  version: 43.285.2
-  resolution: "renovate@npm:43.285.2"
+"renovate@npm:43.285.3":
+  version: 43.285.3
+  resolution: "renovate@npm:43.285.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1075.0"
     "@aws-sdk/client-ec2": "npm:3.1075.0"
@@ -16899,7 +16906,7 @@ __metadata:
     node-html-parser: "npm:7.1.0"
     openpgp: "npm:6.3.1"
     p-all: "npm:5.0.1"
-    p-map: "npm:7.0.5"
+    p-map: "npm:7.0.6"
     p-queue: "npm:9.3.1"
     p-throttle: "npm:8.1.0"
     parse-link-header: "npm:2.0.0"
@@ -16936,7 +16943,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/d72e815ba431a3ad3de453259fa3d4f65b0dcd7dc6ad02a031b2fdc9c00b749162d84a10229b28ebc71b87a02b7d3ca8ccd4b4b1280911fc4555ecc0ab55aa02
+  checksum: 10c0/63606dfdb950896bfe2d35d8230c027c5dfbe7a7be3d5c039daa841c8492918716312025f5c16756004a820d01790ab14e3b030022c0b9db1c4766e8cbc35e8a
   languageName: node
   linkType: hard
 
@@ -20104,7 +20111,7 @@ __metadata:
     glob-to-regexp: "npm:0.4.1"
     husky: "npm:9.1.7"
     playwright: "npm:1.61.1"
-    renovate: "npm:43.285.2"
+    renovate: "npm:43.285.3"
     semver: "npm:7.8.5"
     svelte-language-server: "npm:0.18.3"
     turbo: "npm:2.10.7"
