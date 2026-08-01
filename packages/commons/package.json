@@ -29,7 +29,7 @@
     "@storybook/builder-vite": "10.5.5",
     "@storybook/test-runner": "0.24.4",
     "@types/eslint": "9.6.1",
-    "@types/lodash": "4.17.24",
+    "@types/lodash": "4.17.25",
     "@types/react": "19.2.18",
     "@vitest/browser-playwright": "4.1.10",
     "arg": "5.0.2",
