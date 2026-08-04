@@ -63,7 +63,7 @@
     "@typescript-eslint/utils": "8.66.0",
     "chromatic": "18.1.0",
     "eslint": "10.8.0",
-    "eslint-plugin-jsonc": "3.3.0",
+    "eslint-plugin-jsonc": "3.4.0",
     "eslint-plugin-package-json": "1.6.2",
     "jest-junit": "17.0.0",
     "playwright": "1.61.1",
