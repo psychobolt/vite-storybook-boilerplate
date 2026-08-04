@@ -8383,7 +8383,7 @@ __metadata:
     chokidar: "npm:5.0.0"
     chromatic: "npm:18.1.0"
     eslint: "npm:10.8.0"
-    eslint-plugin-jsonc: "npm:3.4.0"
+    eslint-plugin-jsonc: "npm:3.4.1"
     eslint-plugin-mdx: "npm:3.8.1"
     eslint-plugin-package-json: "npm:1.6.2"
     eslint-plugin-storybook: "npm:10.5.6"
@@ -9790,9 +9790,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsonc@npm:3.4.0":
-  version: 3.4.0
-  resolution: "eslint-plugin-jsonc@npm:3.4.0"
+"eslint-plugin-jsonc@npm:3.4.1":
+  version: 3.4.1
+  resolution: "eslint-plugin-jsonc@npm:3.4.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.5.1"
     "@eslint/core": "npm:^1.0.1"
@@ -9805,7 +9805,7 @@ __metadata:
     synckit: "npm:^0.11.12"
   peerDependencies:
     eslint: ">=9.38.0"
-  checksum: 10c0/c67a19d8ea7abb59111cb009bc0fac70ebe2e1c98bc602491c7c38f8bf6141f0fe341a02691bce491c437b15965e31e29df457507695824597d6da013fff2260
+  checksum: 10c0/ff92261c21d15e7dda2c467c86bc16b53026b0b1e08a126c4ac2cafa14c36c3326ad93842d7cb4f941e40b27d42db90c3e24cd0d4b5e3aa2fb4ea843ed5d9932
   languageName: node
   linkType: hard
 
