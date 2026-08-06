@@ -1169,17 +1169,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:5.2.1":
-  version: 5.2.1
-  resolution: "@chromatic-com/storybook@npm:5.2.1"
+"@chromatic-com/storybook@npm:5.3.0":
+  version: 5.3.0
+  resolution: "@chromatic-com/storybook@npm:5.3.0"
   dependencies:
     "@neoconfetti/react": "npm:^1.0.0"
-    chromatic: "npm:16.10.0"
+    chromatic: "npm:^18.0.1"
     jsonfile: "npm:^6.1.0"
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0
-  checksum: 10c0/066b0a75906936916cbafbcb26375509240025bbacda02d9ae4929aaec07ae3ec7792dddf0b03095b8792d7891a55c1d70af6496eda1d3932fa2e2b9caa2407e
+  checksum: 10c0/2fd2034f04469d8e8cd37dbea379a854e265c4ff0b6d6512785f54ec16837b3fea66bc06eea3952a5fd612684c0a1e458ada670a7bf47b1177e5bd85ceed2f5c
   languageName: node
   linkType: hard
 
@@ -8078,31 +8078,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:16.10.0":
-  version: 16.10.0
-  resolution: "chromatic@npm:16.10.0"
-  dependencies:
-    semver: "npm:^7.3.5"
-  peerDependencies:
-    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
-    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
-    "@chromatic-com/vitest": ^0.*.* || ^1.0.0
-  peerDependenciesMeta:
-    "@chromatic-com/cypress":
-      optional: true
-    "@chromatic-com/playwright":
-      optional: true
-    "@chromatic-com/vitest":
-      optional: true
-  bin:
-    chroma: dist/bin.cjs
-    chromatic: dist/bin.cjs
-    chromatic-cli: dist/bin.cjs
-  checksum: 10c0/4867da7b0512c6c86b00b7e633908e90594b893801202577d76849d9b0ba61c716dfa7479dcb5c0786665b7fe6560ede262ad6a16696fc74c2240cc6d5bf485c
-  languageName: node
-  linkType: hard
-
-"chromatic@npm:18.1.0":
+"chromatic@npm:18.1.0, chromatic@npm:^18.0.1":
   version: 18.1.0
   resolution: "chromatic@npm:18.1.0"
   dependencies:
@@ -8364,7 +8340,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "commons@workspace:packages/commons"
   dependencies:
-    "@chromatic-com/storybook": "npm:5.2.1"
+    "@chromatic-com/storybook": "npm:5.3.0"
     "@storybook/addon-docs": "npm:10.5.6"
     "@storybook/addon-links": "npm:10.5.6"
     "@storybook/addon-onboarding": "npm:10.5.6"
