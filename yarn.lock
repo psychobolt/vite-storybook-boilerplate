@@ -1249,23 +1249,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.19.2":
-  version: 2.19.2
-  resolution: "@dotenvx/dotenvx@npm:2.19.2"
+"@dotenvx/dotenvx@npm:2.20.0":
+  version: 2.20.0
+  resolution: "@dotenvx/dotenvx@npm:2.20.0"
   dependencies:
-    "@dotenvx/primitives": "npm:^2.1.1"
+    "@dotenvx/primitives": "npm:^2.2.0"
     "@dotenvx/tooling": "npm:^1.0.3"
     yocto-spinner: "npm:^1.2.1"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/80460be7cdc47c73d4eee32cefb7df23b55354e7af17a9b553f7e19eddfb5f4d6accaa6afaa241ef2b1c731766901334636d9c9f7bfcc3c4e2de9c18929d00d2
+  checksum: 10c0/c7f6f55a42ddfc2c95ae1e6798d87e80b389159736505777812978cd4ab2a70a01a951813dd6197cdbbd363a4f146211041f562004be65178f09665c635f6e8b
   languageName: node
   linkType: hard
 
-"@dotenvx/primitives@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@dotenvx/primitives@npm:2.1.1"
-  checksum: 10c0/90cd692992315f23d8b3736641462bdb725ed38c36b0f9b9fb5ce9966be2bedd05d0f44bff2838a955c8a39c995089bacf082b447d366476a75cf7301ebf271d
+"@dotenvx/primitives@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@dotenvx/primitives@npm:2.2.0"
+  checksum: 10c0/44d65dcddcdc3df66fd6fba4259de795dd9db113fe623f9ad1cf348c5657140842ef7551dff40132192e71a10f925c5a0f2f219d8d97470a3b743cc237bb4cbb
   languageName: node
   linkType: hard
 
@@ -18958,7 +18958,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.19.2"
+    "@dotenvx/dotenvx": "npm:2.20.0"
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"
@@ -20286,7 +20286,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.19.2"
+    "@dotenvx/dotenvx": "npm:2.20.0"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.15.47"
     "@types/glob-to-regexp": "npm:0.4.4"
