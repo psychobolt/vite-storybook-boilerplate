@@ -42,3 +42,21 @@ that is its stated purpose.
 For CI failures, blocked pull requests, or dependency-update checks, use the
 appropriate provider-specific guidance under `.agents/` when the agent supports
 skills. Treat the checked-out branch's CI configuration as authoritative.
+
+### Skill structure
+
+New skills live at `.agents/<name>/SKILL.md` and follow the layout at
+https://agentskills.io/home so they stay consistent across whichever
+agent/tool consumes them:
+
+```
+.agents/<name>/
+├── SKILL.md          # Required: metadata + instructions
+├── scripts/          # Optional: executable code
+├── references/       # Optional: documentation
+├── assets/           # Optional: templates, resources
+└── ...               # Any additional files or directories
+```
+
+Only add `scripts/`, `references/`, or `assets/` when a skill actually needs
+them; a single `SKILL.md` is sufficient otherwise.
