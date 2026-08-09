@@ -1,6 +1,6 @@
 # Agent Guidance
 
-This file is agent-facing guidance for this boilerplate. It complements the
+This file is agent-facing guidance for this project. It complements the
 human-facing [README](README.md), [development guide](DEVELOPMENT.md), and
 [workflows](WORKFLOWS.md); consult those documents for shared commands and
 operational details.
@@ -28,6 +28,9 @@ that is its stated purpose.
 
 - Read the nearest guidance and relevant source context before changing files.
 - Keep changes focused and preserve unrelated worktree changes.
+- Treat root and nested README, development, workflow, and usage documents as
+  human-facing documentation. Read them for context, but do not modify them
+  unless the user explicitly requests documentation changes.
 - Prefer generic, reusable UI over application-specific behavior in UI packages.
 - Follow the repository and workspace configuration rather than introducing new
   conventions.
