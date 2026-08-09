@@ -96,7 +96,9 @@ This project supports continious upgrades with [Renovate Bot](https://docs.renov
 yarn [workspace workspace-name] add -[D]E library-or-workspace-name
 ```
 
-> Note: All packages are installed using the [PnP strategy](https://yarnpkg.com/features/pnp) by default. To see advantages, visit the [official Yarn docs](https://yarnpkg.com/features/pnp). Some tools or library APIs, however, are not compatible with the PnP resolution strategy. In order to circumvent you can opt out by setting up a non PnP workspace. For example, see the ["unplugged" Workspace](packages/unplugged/).
+> Note: Packages use Yarn's `node_modules` linker by default because TypeScript 7's native compiler does not support Plug'n'Play resolution. A workspace can select another supported linker in its local `.yarnrc.yml`; see the ["unplugged" workspace](packages/unplugged/) for the configuration pattern.
+
+Workspaces that run the native TypeScript 7 compiler install it through the `@typescript/native` alias. The `typescript` dependency points to the TypeScript 6 compatibility package for tools that still use the legacy programmatic API. Framework integrations that do not yet support TypeScript 7 continue to depend on TypeScript 6 directly.
 
 ## Envrionment Variables
 

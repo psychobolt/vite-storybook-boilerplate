@@ -7,9 +7,9 @@ A modern starter plate for building front-end components
 ## Features
 
 - [Monorepo](https://monorepo.tools/) support ready
-  - Utilizes Yarn's [default PnP strategy](https://yarnpkg.com/features/pnp) to hoist and map workspace dependencies
+  - Uses Yarn's `node_modules` linker for compatibility with the native TypeScript compiler
   - Speed up tasks and script runs with [SWC](https://swc.rs/), [Turborepo](https://turbo.build/repo) and [remote caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-  - [Workspace scripts](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/bin) for handling various workflows such as [release versioning](WORKFLOWS.md), [hybrid PnP and node_modules](https://yarnpkg.com/getting-started/recipes#hybrid-pnp--node_modules-mono-repo) support
+  - [Workspace scripts](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/bin) for handling workflows such as [release versioning](WORKFLOWS.md) and workspace-specific Yarn linkers
   - [Common configs and plugins](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/packages/commons) for your project needs: [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/), [Storybook](https://storybook.js.org), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://prettier.io/) and more...
 - [ES Module enabled](https://nodejs.org/api/esm.html#enabling)
 - Pre-commit formatting hook configured with [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/lint-staged/lint-staged)

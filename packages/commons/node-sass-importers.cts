@@ -1,3 +1,6 @@
 import pnpImporter from 'pnp-sass-importer';
+import type { Importer } from 'sass';
 
-export default [pnpImporter(process.cwd())];
+const importers: Importer[] = [pnpImporter(process.cwd())];
+
+export default importers;
