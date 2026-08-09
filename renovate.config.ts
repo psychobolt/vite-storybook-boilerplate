@@ -32,13 +32,17 @@ type PostPackageTasks = Array<
 >;
 
 const bootstrapRule: PostUpgradeTaskRule = {
+  matchManagers: ['npm'],
   matchFileNames: [
     'packages/commons/package.json',
     'packages/stylelint-config/package.json',
     ...workspaces.map(({ location }) => join(location, 'package.json'))
   ],
   postUpgradeTasks: {
-    commands: ['yarn bootstrap'],
+    commands: [
+      'yarn dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}',
+      'yarn bootstrap'
+    ],
     fileFilters: ['**/yarn.lock'],
     executionMode: 'branch'
   }
