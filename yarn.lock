@@ -16134,15 +16134,15 @@ __metadata:
   linkType: hard
 
 "recast@npm:^0.23.5":
-  version: 0.23.19
-  resolution: "recast@npm:0.23.19"
+  version: 0.23.20
+  resolution: "recast@npm:0.23.20"
   dependencies:
     ast-types: "npm:^0.16.1"
     esprima: "npm:~4.0.0"
     source-map: "npm:~0.6.1"
     tiny-invariant: "npm:^1.3.3"
     tslib: "npm:^2.0.1"
-  checksum: 10c0/0814f6ca7963e372076b6a98365184893993f5bb8d1939b03f369b5d311640b48a59ce96fc046b9e94494bee67f37cd4179580032c0099da0db5f9b8b2aa6a0e
+  checksum: 10c0/8a4f7d6469380d3977a6ee4963d39ae3cd5e32126bf30db3f77d1c711640968eb74125e44b7c83581974f7c1358aa5f864e4bd2d96cb821f7f552e857c32392c
   languageName: node
   linkType: hard
 
