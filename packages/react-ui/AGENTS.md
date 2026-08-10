@@ -9,3 +9,11 @@ This workspace provides reusable presentation and building-block elements for ap
   validation details. Consult the README when changing public API or consumer
   examples.
 - Format changed files, then run the relevant workspace linter.
+
+## Testing
+
+- Put component behavior and interaction coverage in the nearest Storybook
+  story.
+- Put framework/API and pure-logic tests in `*.test.*` files.
+- Prefer colocating those tests with the source they exercise unless the
+  workspace configuration establishes another location.
