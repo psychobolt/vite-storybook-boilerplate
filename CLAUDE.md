@@ -6,10 +6,8 @@ it first for repository shape, architecture, and working principles.
 
 ## Claude Code specifics
 
-- This session, and future Claude Code sessions in this repo, act as the
-  orchestrator and point of contact for agent guidance. Route task inquiries
-  by consulting root [AGENTS.md](AGENTS.md) first, then the nearest
-  workspace-local `AGENTS.md` for directory-specific rules.
+- Route task inquiries by consulting root [AGENTS.md](AGENTS.md) first, then
+  the nearest workspace-local `AGENTS.md` for directory-specific rules.
 - Claude Code loads skills from `.agents/*/SKILL.md` (see
   [AGENTS.md](AGENTS.md)'s "Workflow skills" section) the same way other
   supporting agents do.
