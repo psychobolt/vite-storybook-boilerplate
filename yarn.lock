@@ -10437,10 +10437,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:17.9.0, globals@npm:^17.3.0":
-  version: 17.9.0
-  resolution: "globals@npm:17.9.0"
-  checksum: 10c0/776116bffb916e462d548c26a44c9a5d8f4e551935a883991e9f5d68cbcb21b63e4c688e36bbc564f97d3025e304d8b2bb0a611ecf944825aeee164898dcfbdd
+"globals@npm:17.10.0":
+  version: 17.10.0
+  resolution: "globals@npm:17.10.0"
+  checksum: 10c0/b1035f63a1070ebb4361096bb8d0037d0d6bb5a023618ab6307ac1a635fd8daeafbd161f6ebbcc5e2f25b364919beed66788f374c46b07135a9abf3c7ac9a245
   languageName: node
   linkType: hard
 
@@ -10455,6 +10455,13 @@ __metadata:
   version: 16.5.0
   resolution: "globals@npm:16.5.0"
   checksum: 10c0/615241dae7851c8012f5aa0223005b1ed6607713d6813de0741768bd4ddc39353117648f1a7086b4b0fa45eae733f1c0a0fe369aa4e543bb63f8de8990178ea9
+  languageName: node
+  linkType: hard
+
+"globals@npm:^17.3.0":
+  version: 17.9.0
+  resolution: "globals@npm:17.9.0"
+  checksum: 10c0/776116bffb916e462d548c26a44c9a5d8f4e551935a883991e9f5d68cbcb21b63e4c688e36bbc564f97d3025e304d8b2bb0a611ecf944825aeee164898dcfbdd
   languageName: node
   linkType: hard
 
@@ -18158,7 +18165,7 @@ __metadata:
     eslint: "npm:10.8.1"
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-svelte: "npm:3.22.0"
-    globals: "npm:17.9.0"
+    globals: "npm:17.10.0"
     html-ui: "workspace:*"
     postcss: "npm:8.5.26"
     postcss-scss: "npm:4.0.9"
