@@ -18,6 +18,10 @@ Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up en
 
 Follow [Vercel's guide](https://vercel.com/docs/getting-started-with-vercel) on setting up your deployments to Vercel's dashboard.
 
+## Agent Skills
+
+Repository-specific agent workflows live in the [.agents/](.agents/) directory and is referenced in the root [AGENTS](AGENTS.md#workflow-skills) markdown file.
+
 ## Syncing With Original Fork
 
 Occasionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
