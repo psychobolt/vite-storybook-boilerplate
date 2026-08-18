@@ -17205,6 +17205,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"skills@npm:1.5.19":
+  version: 1.5.19
+  resolution: "skills@npm:1.5.19"
+  dependencies:
+    yaml: "npm:^2.8.3"
+  bin:
+    add-skill: bin/cli.mjs
+    skills: bin/cli.mjs
+  checksum: 10c0/3cd453ca4381bf4259c548e7c7d0324f641dba768dc500338ebd8abb439d359189a6ee865de1974b43f1e3747821dda5accc1303e137815772078d7bd7a1094f
+  languageName: node
+  linkType: hard
+
 "slash@npm:^3.0.0":
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
@@ -19438,6 +19450,7 @@ __metadata:
     playwright: "npm:1.62.1"
     renovate: "npm:43.288.0"
     semver: "npm:7.8.5"
+    skills: "npm:1.5.19"
     svelte-language-server: "npm:0.18.4"
     turbo: "npm:2.10.11"
     typescript: "npm:6.0.3"
@@ -20084,7 +20097,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:2.9.0, yaml@npm:^2.0.0, yaml@npm:^2.9.0":
+"yaml@npm:2.9.0, yaml@npm:^2.0.0, yaml@npm:^2.8.3, yaml@npm:^2.9.0":
   version: 2.9.0
   resolution: "yaml@npm:2.9.0"
   bin:

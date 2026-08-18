@@ -16,6 +16,10 @@ telemetry.json
 bitbucket-report.json
 bitbucket-annotations.json
 
+# generated agent skill links and copies
+.claude/skills/
+.codex/skills/
+
 # environment
 .env*
 .flaskenv*

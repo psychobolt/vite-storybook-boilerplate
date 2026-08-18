@@ -60,13 +60,16 @@ later project setup.
    themselves; update them to omit removed folders and files instead of
    deleting them because their original examples are gone. Preserve the
    workflow synchronization documentation in `WORKFLOWS.md`, including its
-   `Syncing With Original Fork` section and commands. Keep the fork
-   workflow-sync CI unchanged. If CI jobs for removed packages or workspaces
-   become inapplicable, consolidate them
-   into one commented job example so they cannot execute; do not retain
-   separate commented or disabled copies for each removed workspace. Remove an
-   `apps/` or `packages/` container only after the approved cleanup leaves it
-   empty; never delete a non-empty container as a cleanup shortcut.
+   `Syncing With Original Fork` section and commands. Preserve the fork
+   workflow-sync CI itself. If coverage or CI entries for removed packages,
+   workspaces, or components become inapplicable, consolidate them into one
+   commented example so they cannot execute; do not retain separate commented
+   or disabled copies for each removed unit. If a preserved pipeline still
+   references a removed cache configuration, update the pipeline and comment
+   out only that stale cache setting rather than leaving it active or deleting
+   the pipeline. Remove an `apps/` or `packages/` container only after the
+   approved cleanup leaves it empty; never delete a non-empty container as a
+   cleanup shortcut.
 5. **Normalize repository identity.** Update the confirmed non-secret identity
    values across eligible manifests, README and workflow documentation, CI
    configuration, package metadata, badges, URLs, and scripts. Remove optional
@@ -76,7 +79,11 @@ later project setup.
    section in `WORKFLOWS.md` as intentional synchronization guidance; do not
    remove or normalize its original-repository reference as stale identity.
    Preserve existing coverage configuration files; only update references to
-   removed paths when necessary.
+   removed paths when necessary. For original-repository absolute URLs in
+   README or other non-Storybook documentation, prefer a relative link when a
+   local target exists; otherwise remove the URL when it is not required by a
+   rendered Storybook link. Preserve intentional external documentation URLs
+   and the original URL required by the synchronization guidance.
    Do not modify secret-bearing environment files; leave encrypted
    configuration for the keys workflow.
 6. **Check original repository references.** During cleanup, identify and
@@ -93,11 +100,12 @@ later project setup.
    formatter and run `git diff --check`. Verify that protected paths remain,
    removed workspaces are absent from workspace and task configuration, edited
    manifests are valid, and no original identity references remain in eligible
-   files except the preserved `Syncing With Original Fork` guidance. Recheck
-   `.env.defaults` only for non-secret defaults; do not inspect any other
-   environment file. Run the remaining repository checks that are available
-   after cleanup and report checks that cannot run until project identity or
-   bootstrap setup is complete.
+   files except the preserved `Syncing With Original Fork` guidance and one
+   intentional commented integration example. Recheck `.env.defaults` only
+   for non-secret defaults; do not inspect any other environment file. Run the
+   remaining repository checks that are available after cleanup and report
+   checks that cannot run until project identity or bootstrap setup is
+   complete.
 8. **Hand off without bootstrap.** Report removed paths, preserved protected
    infrastructure, updated or removed manifest properties, unresolved identity
    values, remaining non-secret references, and validation results. Do not run
