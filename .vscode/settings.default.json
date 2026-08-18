@@ -3,6 +3,9 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
+  "files.associations": {
+    "*.md": "markdown"
+  },
   "js/ts.tsdk.path": ".yarn/sdks/typescript/lib",
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "js/ts.validate.enabled": true,

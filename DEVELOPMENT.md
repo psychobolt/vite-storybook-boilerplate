@@ -112,9 +112,9 @@ See [documentation](https://dotenvx.com/docs) for usage.
 
 ### Best Practices
 
-- Keep personal secrets or local overrides in a `.env` file.
+- Keep personal secrets in a vault and local overrides in a `.env` file.
 - Keep shared secrets in a `.env.*` file.
-- Before committing shared secrets, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to provide private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) with your team or CI workflow after committing respective environment files.
+- Before committing shared secrets, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to store private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) in your team vault or CI environment after committing respective environment files.
 
 ## [Workflows](WORKFLOWS.md)
 
