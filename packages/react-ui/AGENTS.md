@@ -1,19 +1,13 @@
 # Agent Guidance
 
-This workspace provides reusable presentation and building-block elements for applications.
+This is a React-specific UI package that provides framework integration for
+reusable UI elements.
 
-- Keep elements generic and avoid application-specific business rules.
-- Treat framework-specific behavior as an integration concern rather than coupling the base element to an app.
-- Use the root [agent guidance](../../AGENTS.md) for repository-wide principles and common scripts.
-- Use this workspace's configuration and source layout for implementation and
-  validation details. Consult the README when changing public API or consumer
-  examples.
-- Format changed files, then run the relevant workspace linter.
-
-## Testing
-
-- Put component behavior and interaction coverage in the nearest Storybook
-  story.
-- Put framework/API and pure-logic tests in `*.test.*` files.
-- Prefer colocating those tests with the source they exercise unless the
-  workspace configuration establishes another location.
+- Keep reusable presentation concerns here; keep application-specific behavior
+  in app packages.
+- Reuse the base UI package where applicable instead of coupling base elements
+  to React.
+- Use the root [agent guidance](../../AGENTS.md) for repository-wide principles.
+- Use the README for installation, public API, and consumer usage. Read
+  `DEVELOPMENT.md` when it exists for maintenance guidance; otherwise inspect
+  the workspace structure and scripts.

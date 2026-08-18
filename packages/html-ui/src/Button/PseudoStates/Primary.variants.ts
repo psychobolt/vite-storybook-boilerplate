@@ -6,7 +6,7 @@ import {
 } from 'commons/esm/.storybook/utils/story-generators.js';
 
 import preview from '.storybook/preview';
-import { getPseudoStateArgTypes } from 'utils/functions';
+import { getPseudoStateArgTypes } from '.storybook/utils/functions';
 import type { Props } from 'Button';
 import primaryMeta from 'Button/Primary.story';
 

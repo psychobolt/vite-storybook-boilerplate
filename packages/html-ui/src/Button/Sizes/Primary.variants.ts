@@ -1,6 +1,7 @@
 import { generateStoriesByEnum } from 'commons/esm/.storybook/utils/story-generators.js';
 
 import preview from '.storybook/preview';
+import { SizeEnum } from 'Button';
 import primaryMeta from 'Button/Primary.story';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories/introduction
@@ -18,12 +19,6 @@ const meta = preview.meta({
 });
 
 export default meta;
-
-export enum SizeEnum {
-  small,
-  medium,
-  large
-}
 
 const Template = meta.story();
 

@@ -1,9 +1,10 @@
 # Agent Guidance
 
-This workspace is an application layer that consumes reusable UI building blocks.
+This is a Svelte application package. Keep application composition, routes,
+integration, and application-specific business logic here. Consume reusable
+presentation from the appropriate UI package and reusable domain or API logic
+from an API package.
 
-- Keep application composition, routes, integration, and business logic here.
-- Keep reusable presentation concerns in the appropriate UI package.
-- Use the root [agent guidance](../../AGENTS.md) for repository-wide principles and common scripts.
-- Use this workspace's README and configuration for framework, deployment, and command details.
-- Format changed files, then run the relevant workspace linter.
+Use the root [agent guidance](../../AGENTS.md) for repository-wide principles
+and the workspace README and configuration for Svelte, deployment, and command
+details.

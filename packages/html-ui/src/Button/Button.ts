@@ -3,8 +3,13 @@ import { styleMap } from 'lit/directives/style-map.js';
 import type { StoryPseudoStateProps } from 'commons/esm/.storybook/utils/story-generators.js';
 import classNames from 'classnames';
 
-import type { SizeEnum } from './Sizes/Primary.variants';
 import styles from './Button.module.scss';
+
+export enum SizeEnum {
+  small,
+  medium,
+  large
+}
 
 type Size = keyof typeof SizeEnum;
 
