@@ -12,22 +12,24 @@ its full documentation here.
 
 ## Procedure
 
-1. Read the nearest `AGENTS.md`, inspect the current branch and worktree, and
-   preserve unrelated changes.
-2. Identify the active CI provider, exact failing check, job, environment, and
-   run.
-3. Read the configuration that defines the job and follow any reusable workflow,
-   pipeline, script, or local action it calls.
-4. Classify the failure as an environment/setup issue, dependency-resolution
-   issue, flaky or external failure, or a genuine code/configuration regression.
-5. Reproduce the smallest relevant command locally. Use the repository's
-   documented setup and workspace commands when installation or generated
-   workspace artifacts are required.
-6. Format changed files before running the relevant linters and tests.
-7. Make the smallest fix that addresses the identified cause. Keep dependency
-   updates narrowly scoped and do not weaken, skip, or conceal CI checks.
-8. Re-run the relevant validation, then report the cause, changes, checks, and
-   any remaining CI-only limitation.
+1. **Inspect the worktree.** Read the nearest `AGENTS.md`, inspect the current
+   branch and worktree, and preserve unrelated changes.
+2. **Identify the failure.** Identify the active CI provider, exact failing
+   check, job, environment, and run.
+3. **Trace the configuration.** Read the configuration that defines the job and
+   follow any reusable workflow, pipeline, script, or local action it calls.
+4. **Classify the cause.** Classify the failure as an environment/setup issue,
+   dependency-resolution issue, flaky or external failure, or a genuine
+   code/configuration regression.
+5. **Reproduce locally.** Reproduce the smallest relevant command locally. Use
+   the repository's documented setup and workspace commands when installation
+   or generated workspace artifacts are required.
+6. **Format before checks.** Format changed files before running the relevant
+   linters and tests.
+7. **Make the smallest fix.** Keep dependency updates narrowly scoped and do
+   not weaken, skip, or conceal CI checks.
+8. **Re-run and report.** Re-run the relevant validation, then report the cause,
+   changes, checks, and any remaining CI-only limitation.
 
 ## Dependency updates, including Renovate
 
@@ -46,7 +48,7 @@ its full documentation here.
 
 ## Stop conditions
 
-Stop and report the blocker when the failure depends on unavailable secrets,
-external services, protected CI settings, or a provider-side problem. Do not
-guess credentials, disable checks, or modify release and merge policy to force
-a change through.
+- Stop and report the blocker when the failure depends on unavailable secrets,
+  external services, protected CI settings, or a provider-side problem.
+- Do not guess credentials, disable checks, or modify release and merge policy
+  to force a change through.
