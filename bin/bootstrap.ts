@@ -4,7 +4,10 @@ import { type ExecOptions, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { $ } from 'commons/esm/bin/utils/functions.js';
 
-import getWorkspaces from './ls-workspaces.ts';
+import getWorkspaces, {
+  type NodeLinker,
+  type Workspace
+} from 'commons/esm/bin/ls-workspaces.js';
 
 const EXIT_UNKNOWN_ERROR = 3;
 
