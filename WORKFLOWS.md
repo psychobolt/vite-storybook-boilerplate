@@ -14,6 +14,14 @@ Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up en
 2. Create a `.env` file if not exist in `packages/your-package`
 3. Add `CHROMATIC_PROJECT_TOKEN=your-project-token` to `packages/your-package/.env`
 
+### Vercel
+
+Follow [Vercel's guide](https://vercel.com/docs/getting-started-with-vercel) on setting up your deployments to Vercel's dashboard.
+
+## Agent Skills
+
+Repository-specific agent workflows are authored in the [.apm/skills/](.apm/skills/) directory and referenced in the root [AGENTS](AGENTS.md#workflow-skills) markdown file. In most cases, the skills can be found automatically by the LLM agent after APM installation. They can also be installed manually with [APM](DEVELOPMENT.md#setup-agent-package-manager-optional).
+
 ## Syncing With Original Fork
 
 Occasionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
