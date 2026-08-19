@@ -20,7 +20,7 @@ Follow [Vercel's guide](https://vercel.com/docs/getting-started-with-vercel) on 
 
 ## Agent Skills
 
-Repository-specific agent workflows live in the [.agents/skills/](.agents/skills/) directory and are referenced in the root [AGENTS](AGENTS.md#workflow-skills) markdown file. In most cases, the skills can be found automatically by the LLM agent tool. However, they also be installed manually with `yarn skills`.
+Repository-specific agent workflows are authored in the [.apm/skills/](.apm/skills/) directory and referenced in the root [AGENTS](AGENTS.md#workflow-skills) markdown file. In most cases, the skills can be found automatically by the LLM agent after APM installation. They can also be installed manually with [APM](DEVELOPMENT.md#setup-agent-package-manager-optional).
 
 ## Syncing With Original Fork
 

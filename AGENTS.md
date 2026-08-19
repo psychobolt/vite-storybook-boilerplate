@@ -30,7 +30,7 @@ operational details.
   the change and the content is non-secret, whether supplied directly for
   writing or generated without reading existing environment values. Do not
   overwrite or rotate existing secret-bearing files from agent tools.
-- Use the [keys skill](.agents/skills/keys/SKILL.md) for any operation that requires
+- Use the [keys skill](.apm/skills/keys/SKILL.md) for any operation that requires
   dotenv encryption, decryption, key validation, rotation, or existing secret
   values. If a secure user-controlled process is unavailable, stop and explain
   the boundary.
@@ -71,17 +71,17 @@ and selected reference package or `BASE_REF`. Proceed when the choices are
 clear. Ask the user when an architecture, framework, runtime, or dependency
 choice would materially affect the result.
 
-Use the [ui-package skill](.agents/skills/ui-package/SKILL.md) for UI-package
-scaffolding. Use the [ui-element skill](.agents/skills/ui-element/SKILL.md) for
+Use the [ui-package skill](.apm/skills/ui-package/SKILL.md) for UI-package
+scaffolding. Use the [ui-element skill](.apm/skills/ui-element/SKILL.md) for
 framework-neutral elements within a UI package, the [ui-composite
-skill](.agents/skills/ui-composite/SKILL.md) for framework-neutral composites
-within a UI package, and the [ui-component skill](.agents/skills/ui-component/SKILL.md) for
+skill](.apm/skills/ui-composite/SKILL.md) for framework-neutral composites
+within a UI package, and the [ui-component skill](.apm/skills/ui-component/SKILL.md) for
 framework-specific UI components within a UI package. The UI-package skill
 selects the appropriate implementation-unit procedure when scaffolding a UI
 package. Use the
-[app-package skill](.agents/skills/app-package/SKILL.md) for app-package
-scaffolding, the [api-package skill](.agents/skills/api-package/SKILL.md) for
-API-package scaffolding. Use the [todo skill](.agents/skills/todo/SKILL.md) to track skills and
+[app-package skill](.apm/skills/app-package/SKILL.md) for app-package
+scaffolding, the [api-package skill](.apm/skills/api-package/SKILL.md) for
+API-package scaffolding. Use the [todo skill](.apm/skills/todo/SKILL.md) to track skills and
 other work that are still in progress or awaiting an established workflow.
 
 ### Package dependency contract
@@ -124,7 +124,7 @@ Apply this procedure when scaffolding an app, API, or UI package:
 5. **Normalize metadata and environment.** Normalize copied names and paths in
    manifests, source entrypoints, READMEs, CI, and supported service
    configuration. When a package requires an encrypted `.env.ci`, use the
-   [keys skill](.agents/skills/keys/SKILL.md) to hand the operation to an approved
+   [keys skill](.apm/skills/keys/SKILL.md) to hand the operation to an approved
    user-controlled secure process. Agents must not read, write, or invoke
    commands that load `.env` or `.env.ci` files, private keys, or secret-bearing
    environment variables. Keep the project private key outside the
@@ -162,30 +162,30 @@ Apply this procedure when scaffolding an app, API, or UI package:
 
 For CI failures, blocked pull requests, dependency-update checks, package
 scaffolding, or component creation, use the appropriate guidance under
-`.agents/skills/`.
-Run the [keys skill](.agents/skills/keys/SKILL.md)
+`.apm/skills/`.
+Run the [keys skill](.apm/skills/keys/SKILL.md)
 before workflows that create or rotate repository dotenv encryption keys. The
-[app-component skill](.agents/skills/app-component/SKILL.md) is for creating or
+[app-component skill](.apm/skills/app-component/SKILL.md) is for creating or
 extending application-owned elements, composites, or components within an app
 package. The
-[bootstrap skill](.agents/skills/bootstrap/SKILL.md) is reserved for future project
+[bootstrap skill](.apm/skills/bootstrap/SKILL.md) is reserved for future project
 setup orchestration and should use the keys skill when implemented. The
-[fork skill](.agents/skills/fork/SKILL.md) handles clean-project fork cleanup and
+[fork skill](.apm/skills/fork/SKILL.md) handles clean-project fork cleanup and
 identity normalization without invoking the unfinished bootstrap workflow.
-Use the [todo skill](.agents/skills/todo/SKILL.md) to track placeholder or otherwise
+Use the [todo skill](.apm/skills/todo/SKILL.md) to track placeholder or otherwise
 unestablished skills and setup work. Treat the checked-out branch's
 CI configuration as authoritative.
 
-For UI work, use the [ui-package skill](.agents/skills/ui-package/SKILL.md) for package
+For UI work, use the [ui-package skill](.apm/skills/ui-package/SKILL.md) for package
 scaffolding. That skill delegates implementation units to the matching
-[ui-element](.agents/skills/ui-element/SKILL.md),
-[ui-composite](.agents/skills/ui-composite/SKILL.md), or
-[ui-component](.agents/skills/ui-component/SKILL.md) procedure. Use the
-[app-component skill](.agents/skills/app-component/SKILL.md) only for application-owned units inside
+[ui-element](.apm/skills/ui-element/SKILL.md),
+[ui-composite](.apm/skills/ui-composite/SKILL.md), or
+[ui-component](.apm/skills/ui-component/SKILL.md) procedure. Use the
+[app-component skill](.apm/skills/app-component/SKILL.md) only for application-owned units inside
 an app package.
 
 When a skill, bundled reference, or relevant workflow dependency changes, use
-the [todo skill](.agents/skills/todo/SKILL.md) to update its testing register and reset
+the [todo skill](.apm/skills/todo/SKILL.md) to update its testing register and reset
 the affected tally to `0`.
 
 ### Agent-facing formatting
@@ -212,12 +212,12 @@ the affected tally to `0`.
 
 ### Skill structure
 
-New skills live at `.agents/skills/<name>/SKILL.md` and follow the layout at
+Authored skills live at `.apm/skills/<name>/SKILL.md` and follow the layout at
 https://agentskills.io/home so they stay consistent across whichever
 agent/tool consumes them:
 
 ```
-.agents/skills/<name>/
+.apm/skills/<name>/
 ├── SKILL.md          # Required: metadata + instructions
 ├── scripts/          # Optional: executable code
 ├── references/       # Optional: documentation
