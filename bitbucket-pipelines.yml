@@ -549,6 +549,7 @@ pipelines:
             - set -e
             - '[ $REPORT_STATUS != 0 ] && exit $REPORT_STATUS || true'
             - *setup
+            - yarn bootstrap
             - yarn run-script renovate.config.ts > renovate.config.json
             - export LOG_LEVEL=debug
             - export RENOVATE_PLATFORM=bitbucket
