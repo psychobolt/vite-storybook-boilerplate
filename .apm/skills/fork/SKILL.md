@@ -45,10 +45,14 @@ later project setup.
    original identity fields that need replacement. Ask the user for values that
    are required by the package manager or project configuration, including the
    new root package name and repository identity when those fields are retained.
-   For optional manifest properties such as `repository`, `homepage`, `bugs`,
-   `funding`, `author`, or an original project description, remove the property
-   when the user does not provide a replacement. Do not request secret tokens
-   or private keys in chat; route those through the approved secure workflow.
+   For each metadata field found during the inventory, explicitly ask whether it
+   should be retained with a replacement value or removed; do not ask about
+   fields that are absent. This includes `description`, `license`, `author`,
+   `repository`, `homepage`, `bugs`, and `funding` when those properties exist
+   in a manifest or other eligible metadata file. Do not silently remove an
+   existing optional property merely because the user did not provide a
+   replacement. Do not request secret tokens or private keys in chat; route
+   those through the approved secure workflow.
    Stop before deletion or identity changes when a required value or deletion
    decision is unresolved.
 4. **Remove demo content.** After confirmation, remove only the approved demo
@@ -72,10 +76,11 @@ later project setup.
    cleanup shortcut.
 5. **Normalize repository identity.** Update the confirmed non-secret identity
    values across eligible manifests, README and workflow documentation, CI
-   configuration, package metadata, badges, URLs, and scripts. Remove optional
-   original properties when no replacement was supplied. Use exact, reviewed
-   replacements rather than broad text substitution, and do not alter generic
-   dependency or tool references. Preserve the `Syncing With Original Fork`
+   configuration, package metadata, badges, URLs, and scripts. Apply the user's
+   explicit replacement or removal decision for each original identity
+   property. Use exact, reviewed replacements rather than broad text
+   substitution, and do not alter generic dependency or tool references.
+   Preserve the `Syncing With Original Fork`
    section in `WORKFLOWS.md` as intentional synchronization guidance; do not
    remove or normalize its original-repository reference as stale identity.
    Preserve existing coverage configuration files; only update references to
