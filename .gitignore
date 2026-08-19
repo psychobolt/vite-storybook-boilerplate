@@ -1,5 +1,6 @@
-# packages
+# workspace
 node_modules
+apm_modules/
 .turbo
 .vercel
 .vscode/settings.json
@@ -16,9 +17,18 @@ telemetry.json
 bitbucket-report.json
 bitbucket-annotations.json
 
-# generated agent skill links and copies
+# Generated shared agent config
+.agents/skills/
 .claude/skills/
-.codex/skills/
+.cursor/rules/
+.cursor/agents/
+.cursor/commands/
+.cursor/hooks.json
+.github/copilot-instructions.md
+.github/instructions/
+.github/agents/
+.github/prompts/
+.github/hooks/
 
 # environment
 .env*

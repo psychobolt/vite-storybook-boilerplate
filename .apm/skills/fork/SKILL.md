@@ -13,7 +13,7 @@ later project setup.
 ## Protected scope
 
 - Preserve every path protected by the root [repository shape
-  guidance](../../AGENTS.md#repository-shape); do not duplicate or override
+  guidance](../../../AGENTS.md#repository-shape); do not duplicate or override
   that protected-path list here.
 - Preserve root package-manager, workspace, shared configuration, agent
   guidance, and skill infrastructure unless the user explicitly includes it in

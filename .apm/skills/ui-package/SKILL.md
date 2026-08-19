@@ -11,7 +11,7 @@ architecture. Keep application business logic out of the package.
 ## Procedure
 
 1. **Apply shared package procedure.** Follow the root [shared package
-   procedure](../../AGENTS.md#shared-package-procedure) before the
+   procedure](../../../AGENTS.md#shared-package-procedure) before the
    UI-package-specific steps below.
 2. **Confirm UI package intent.** Confirm the intended package name, framework
    or rendering model, public entrypoint, and target location under `packages/`

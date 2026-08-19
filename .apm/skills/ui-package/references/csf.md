@@ -14,11 +14,11 @@ available from the skill that owns the work:
 ## Canonical references
 
 - Regular CSF Next usage and shared preview defaults:
-  [`packages/commons/README.md`](../../../packages/commons/README.md)
+  [`packages/commons/README.md`](../../../../packages/commons/README.md)
 - Variant addon setup and regular/variant examples:
-  [`packages/commons/.storybook/addons/README.md`](../../../packages/commons/.storybook/addons/README.md)
+  [`packages/commons/.storybook/addons/README.md`](../../../../packages/commons/.storybook/addons/README.md)
 - Story generators and pseudo-state helpers:
-  [`packages/commons/.storybook/utils/README.md`](../../../packages/commons/.storybook/utils/README.md)
+  [`packages/commons/.storybook/utils/README.md`](../../../../packages/commons/.storybook/utils/README.md)
 
 ## Official Storybook documentation
 

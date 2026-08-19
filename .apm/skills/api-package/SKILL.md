@@ -10,7 +10,7 @@ Placeholder for the future API-package scaffolding workflow.
 ## Procedure
 
 1. **Apply shared package procedure.** Follow the root [shared package
-   procedure](../../AGENTS.md#shared-package-procedure) before creating files.
+   procedure](../../../AGENTS.md#shared-package-procedure) before creating files.
 2. **Define API-package scope.** API packages will contain reusable
    business-logic utilities, domain services, and API or integration contracts
    when reuse is intentional. Before implementing this skill, define the

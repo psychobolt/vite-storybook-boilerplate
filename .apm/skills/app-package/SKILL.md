@@ -10,7 +10,7 @@ Placeholder for the future application-package scaffolding workflow.
 ## Procedure
 
 1. **Apply shared package procedure.** Follow the root [shared package
-   procedure](../../AGENTS.md#shared-package-procedure) before creating files.
+   procedure](../../../AGENTS.md#shared-package-procedure) before creating files.
 2. **Define app-package scope.** Read the [app-package routing
    guidance](references/routing.md). Application packages will contain
    application composition, screens, workflows, and application-specific
