@@ -1,6 +1,5 @@
 import { type ExecOptions, exec } from 'node:child_process';
 import { type BinaryToTextEncoding, createHash } from 'node:crypto';
-import { URL } from 'node:url';
 
 export const EXIT_SUCCESS = 0;
 export const EXIT_INVALID_USAGE = 1;
@@ -53,28 +52,24 @@ export function hash(
   );
 }
 
-interface StorybookIndex {
-  entries: Record<string, Story>;
+export interface TurboTask {
+  taskId: string;
+  task: string;
+  package: string;
+  hash: string;
+  dependencies: string[];
+  dependents: string[];
 }
 
-export interface Story {
-  id: string;
-  importPath: string;
-  name: string;
-  type?: string;
-  [key: string]: unknown;
-}
-
-export async function getStories(
-  storybookUrl: string
-): Promise<Record<string, Story>> {
-  const indexUrl = new URL('/index.json', storybookUrl).toString();
-  const res = await fetch(indexUrl);
-  if (!res.ok) {
-    throw new Error(
-      `Failed to fetch index.json: ${res.status} ${res.statusText}`
-    );
+export async function getDependentTasks(name: string) {
+  let result: { tasks: TurboTask[] };
+  try {
+    const stdout = await $(`yarn turbo run ${name} --dry-run=json`, {
+      silent: true
+    });
+    result = JSON.parse(stdout);
+    return result.tasks.filter(({ task }) => task === name);
+  } catch {
+    return [];
   }
-  const json: StorybookIndex = await res.json();
-  return json.entries;
 }
