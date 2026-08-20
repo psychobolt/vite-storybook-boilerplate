@@ -188,22 +188,13 @@ When a skill, bundled reference, or relevant workflow dependency changes, use
 the [todo skill](.apm/skills/todo/SKILL.md) to update its testing register and reset
 the affected tally to `0`.
 
-### Agent-facing formatting
+### Workflow and documentation guidance
 
-- Use numbered steps for ordered actions. Begin each step with a short bold
-  intent, then keep its instructions together.
-- Use bullets for independent rules, constraints, alternatives, or examples.
-- Use short paragraphs for definitions and context. Do not place several
-  unrelated actions in one paragraph.
-- Keep shared rules in references and have the skill procedure point to them;
-  avoid repeating the same rule in both places.
-- When a skill has local references, use those references as the task-specific
-  entrypoint and follow their links to shared guidance. Keep common rules in
-  shared references and unit-specific rules in local references.
-- Keep validation in the procedure when the skill has an execution workflow;
-  do not add a duplicate checklist. Make additional validation conditional on
-  the artifact that exists—for example, require an additional variant or
-  composition render only when that variant or composition is defined.
+- Before editing a file, apply any matching file-scoped instructions authored
+  under `.apm/instructions/` and deployed by APM. These instructions supplement
+  the active skill and nearest `AGENTS.md`; they do not replace them. If the
+  target instructions have not been deployed, read the matching authored
+  source before changing the file.
 - Format changed files before running relevant linters. Prefer `yarn g:format`
   or the documented workspace formatter. If the file type has no configured
   formatter, find and add the appropriate Prettier plugin in the workspace or
@@ -230,3 +221,7 @@ them; a single `SKILL.md` is sufficient otherwise. Do not add product-specific
 metadata directories for repository-local skills. If a skill creation tool
 generates product-specific metadata files or directories, remove them before
 completing the skill.
+
+Authored file-scoped instructions live at `.apm/instructions/` and are deployed
+to supported agent targets by APM. Do not author or maintain duplicate
+instruction files in generated target directories.

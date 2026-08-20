@@ -70,6 +70,9 @@ jobs:
         run: yarn install
       - name: Lint
         run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+      - name: Install APM
+        uses: microsoft/apm-action@v1
+      - run: apm audit --ci --no-cache
 
   diff:
     name: List Updated Packages
