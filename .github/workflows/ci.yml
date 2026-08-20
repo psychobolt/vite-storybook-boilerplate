@@ -71,13 +71,25 @@ jobs:
       - name: Lint
         run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Install APM
+        if: matrix.os == 'ubuntu-latest'
         uses: microsoft/apm-action@v1
         with:
           apm-version: latest
           setup-only: true
-      - name: Deploy all agents
+      # microsoft/apm-action does not support win32; use APM's official installer. See: https://github.com/microsoft/apm-action/blame/d723bb64ed70c135bbaf87d126b721dd2dae0439/src/installer.ts#L12-L26
+      - name: Install APM (Windows)
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          $env:APM_INSTALL_DIR = Join-Path $env:RUNNER_TEMP 'apm\bin'
+          irm https://aka.ms/apm-windows | iex
+          $apmRoot = Split-Path $env:APM_INSTALL_DIR -Parent
+          Add-Content -Path $env:GITHUB_PATH -Value $env:APM_INSTALL_DIR
+          Add-Content -Path $env:GITHUB_PATH -Value (Join-Path $apmRoot 'current')
+          & (Join-Path $env:APM_INSTALL_DIR 'apm.cmd') --version
+      - name: Deploy agent setup
         run: apm install --frozen
-      - name: Audit agent files
+      - name: Audit agent setup
         run: apm audit --ci --no-cache
 
   diff:
