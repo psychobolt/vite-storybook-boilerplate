@@ -72,6 +72,9 @@ jobs:
         run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Install APM
         uses: microsoft/apm-action@v1
+        with:
+          apm-version: latest
+          setup-only: true
       - name: Deploy all agents
         run: apm install --frozen
       - name: Audit agent files
