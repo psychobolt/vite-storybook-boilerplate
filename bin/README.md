@@ -8,6 +8,70 @@ Collection of scripts, executables, and any runtimes for workspace or infrastruc
 
 Installs workspaces that do not support `pnp` linker
 
+## List Workspaces
+
+`ls-workspaces.ts` ([Source](ls-workspaces.ts))
+
+```sh
+yarn ls-workspaces [options]
+```
+
+Returns a list of workspaces in the project. See options below.
+
+### Filters
+
+#### Name
+
+`--name/-n [regExp]`
+
+Returns only workspaces that fullfills the match.
+
+#### Include/Exclude
+
+`--include [globExp]` and/or `--exclude [globExp]`
+
+List workspaces that matches a glob pattern. You may use a combination of filters (e.g. `--include "packages/*" --exclude "packages/*-{ui,config}"`).
+
+#### Node Linker
+
+`--node-linker [type]`
+
+Returns only workspaces that matches the linker type (e.g. `pnpm`). You can specify more than one filters e.g. `--node-linker=pnpm --node-linker=node-modules`
+
+#### Turbo Only
+
+`--turbo-only`
+
+Returns only workspaces that support `turbo`.
+
+#### No Private
+
+`--no-private`
+
+Returns only workspaces that are not set to `private: true`.
+
+#### Since
+
+`--since`
+
+Only include workspaces that have been changed since [changesetBaseRefs](https://yarnpkg.com/configuration/yarnrc#changesetBaseRefs).
+
+### Formatters
+
+```sh
+--format [formatter]
+```
+
+#### `semver`
+
+Returns the name and semantic version mapping of each workspace.
+
+E.g.
+
+```json
+{ "[workspaceName1]": "[semVer1]", "[workspaceName2]": "[semVer2]" }
+```
+
 ## Apply Versions
 
 `apply-versions.ts` [Source](apply-versions.ts)

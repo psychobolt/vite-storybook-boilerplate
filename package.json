@@ -20,6 +20,7 @@
     "g:swc-register-path": "yarn node -p \"require.resolve('@swc-node/register')\"",
     "postinstall": "husky",
     "lint": "yarn g:prettier --check . && yarn g:lint",
+    "ls-workspaces": "yarn run-script bin/ls-workspaces.ts",
     "run-script": "yarn g:run-script"
   },
   "resolutions": {
@@ -33,20 +34,25 @@
     "@dotenvx/dotenvx": "2.21.0",
     "@swc-node/register": "1.12.1",
     "@swc/core": "1.16.1",
+    "@types/glob-to-regexp": "0.4.4",
     "@types/node": "24.13.3",
     "@types/semver": "7.8.0",
     "@typescript-eslint/utils": "8.67.0",
+    "@yarnpkg/core": "4.9.1",
+    "@yarnpkg/fslib": "3.1.5",
     "@yarnpkg/sdks": "3.3.1",
     "arg": "5.0.2",
     "commons": "workspace:*",
     "eslint": "10.8.1",
+    "glob-to-regexp": "0.4.1",
     "husky": "9.1.7",
     "playwright": "1.62.1",
     "renovate": "43.288.0",
     "semver": "7.8.5",
     "svelte-language-server": "0.18.4",
     "turbo": "2.10.11",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "yaml": "2.9.0"
   },
   "packageManager": "yarn@4.18.0",
   "engines": {

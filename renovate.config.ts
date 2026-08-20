@@ -5,9 +5,7 @@ import type {
   RenovateConfig
 } from 'renovate/dist/config/types.d.ts';
 
-import getWorkspaces, {
-  type Workspace
-} from 'commons/esm/bin/ls-workspaces.js';
+import getWorkspaces from './bin/ls-workspaces.ts';
 
 const workspaces: Workspace[] = await getWorkspaces({
   nodeLinker: ['node-modules', 'pnpm']
