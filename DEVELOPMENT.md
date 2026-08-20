@@ -18,9 +18,9 @@
 
 Overriding Yarn's default global folder (e.g. `YARN_GLOBAL_FOLDER=${HOME}/.yarn/berry` or `YARN_GLOBAL_FOLDER=${LOCALAPPDATA}/Yarn/berry`) in your local `.env` file may help resolve issues during bootstrapping.
 
-### Setup Agent Package Manager (Optional)
+### Setup Agent Package Manager (Recommended)
 
-Certain harnesses may not detect agent plugins, context, and procedures out of the box after cloning the repo. By default this project supports: [Claude](https://claude.ai/), [Codex](https://chatgpt.com/codex/), [GitHub Copilot](https://github.com/features/copilot), and [Cursor](https://cursor.com/). Follow the recommended setup:
+Certain harnesses and agent tools may not detect agent plugins, context, and procedures out of the box after cloning the repo. By default this project supports: [Claude](https://claude.ai/), [Codex](https://chatgpt.com/codex/), [GitHub Copilot](https://github.com/features/copilot), and [Cursor](https://cursor.com/). Follow the recommended setup:
 
 1. Install [APM](https://microsoft.github.io/apm). See the _**quickstart**_ guide to install onto your local environment
 2. Run `apm install`
@@ -108,6 +108,8 @@ apm install [owner/repo] [--dev] package-or-repo [--skill skill] [--mcp mcp]
 ```
 
 > Note: All libaries are installed using the [PnP strategy](https://yarnpkg.com/features/pnp) by default. To see advantages, visit the [official Yarn docs](https://yarnpkg.com/features/pnp). Some tools or library APIs, however, are not compatible with the PnP resolution strategy. In order to circumvent you can opt out by setting up a non PnP workspace. For example, see the ["unplugged" Workspace](packages/unplugged/).
+
+> You can search for agent packages and [skills](https://www.skills.sh/) (e.g. `yarn skills find [query] [--owner <owner>]`). You can also set up your own local [apm marketplace](https://microsoft.github.io/apm/reference/cli/marketplace/) (e.g. `apm marketplace add [source]` and `apm search query@<marketplace>`)
 
 ## Envrionment Variables
 

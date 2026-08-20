@@ -163,6 +163,12 @@ Apply this procedure when scaffolding an app, API, or UI package:
 For CI failures, blocked pull requests, dependency-update checks, package
 scaffolding, or component creation, use the appropriate guidance under
 `.apm/skills/`.
+
+- Prefer workspace-managed CLI binaries. When a command is provided by a
+  workspace dependency, invoke it through Yarn (`yarn <command>`) instead of
+  an ad hoc package runner. Use `npx` only when no local binary exists or the
+  user explicitly requests it; do not install dependencies implicitly.
+
 Run the [keys skill](.apm/skills/keys/SKILL.md)
 before workflows that create or rotate repository dotenv encryption keys. The
 [app-component skill](.apm/skills/app-component/SKILL.md) is for creating or

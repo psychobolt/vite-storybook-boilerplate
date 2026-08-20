@@ -9,3 +9,9 @@ targets:
   - copilot
   - cursor
 includes: auto
+dependencies:
+  require_pinned_constraint: true
+  apm:
+    - git: vercel-labs/skills#v1.5.23
+      skills:
+        - find-skills

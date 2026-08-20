@@ -1,4 +1,5 @@
 ---
+description: Repository JavaScript and TypeScript source conventions.
 applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
 ---
 

@@ -1,5 +1,6 @@
 ---
-applyTo: 'AGENTS.md,**/AGENTS.md,.apm/skills/**/*.md'
+description: Repository-local agent authoring conventions and cross-tool guidance.
+applyTo: '**/AGENTS.md,.apm/skills/**/*.md'
 ---
 
 # Agent guidance structure
@@ -14,6 +15,14 @@ applyTo: 'AGENTS.md,**/AGENTS.md,.apm/skills/**/*.md'
 - When a skill has local references, use those references as the task-specific
   entrypoint and follow their links to shared guidance. Keep common rules in
   shared references and unit-specific rules in local references.
+- Use relative Markdown links for repository-local agent guidance. Keep links
+  to files bundled with the same skill relative and within that bundle.
+  Repository-local skills may intentionally link to sibling skills, the root
+  `AGENTS.md`, or repository documentation; verify those paths from the
+  authored and configured deployed layouts. Treat such cross-bundle links as
+  repository-local, not portable standalone-skill links, and do not link to
+  generated deployment directories. Follow APM's [package-relative link
+  rules](https://microsoft.github.io/apm/producer/package-relative-links/).
 - Keep validation in the procedure when the skill has an execution workflow;
   do not add a duplicate checklist. Make additional validation conditional on
   the artifact that exists—for example, require an additional variant or
