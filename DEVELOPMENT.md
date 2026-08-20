@@ -55,7 +55,10 @@ yarn node ./path/to/script.js       # Run a js script file
 yarn run-script ./path/to/script.ts # Run a ts script file
 yarn up package-name [--exact]      # Upgrade all instances of package to latest release
 yarn lint
-yarn format # This is automatically called on git commit
+yarn format            # This is automatically called on git commit
+yarn dev               # This runs build and dev tasks (e.g. watch, Storybook) for all workspaces
+yarn agentrc readiness # Run this to eval AI codebase eadiness
+apm audit              # If you are making changes to agents, run this to ensure there is no harness drift
 
 # Global tasks that can be hoisted to any workspace scope
 yarn g:run-script ./path/to/script.ts # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:run-script ./path/to/script.ts"

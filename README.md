@@ -12,9 +12,10 @@ A modern starter plate for building front-end components
   - Speed up tasks and script runs with [SWC](https://swc.rs/), [Turborepo](https://turbo.build/repo) and [remote caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
   - [Workspace scripts](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/bin) for handling various workflows such as [release versioning](WORKFLOWS.md), [hybrid PnP and node_modules](https://yarnpkg.com/getting-started/recipes#hybrid-pnp--node_modules-mono-repo) support
   - [Common configs and plugins](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/packages/commons) for your project needs: [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/), [Storybook](https://storybook.js.org), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://prettier.io/) and more...
-- Extend existing AI agent harnesses
+- Extend and eval AI agent harnesses
   - Manage, share, and install agent packages and tools with [APM](https://microsoft.github.io/apm/) (Microsoft's Agent Package Manager)
   - Declare local knowledge and workflows using [AGENTS.md](https://agents.md/) and [skills](https://agentskills.io/)
+  - Measure codebase AI readiness with [agentrc](https://github.com/microsoft/agentrc)
 - Pre-commit formatting hook configured with [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/lint-staged/lint-staged)
 - Load and store environment variables using [dotenvx](https://dotenvx.com/)
 - Continous upgrades with [Renovate Bot](https://docs.renovatebot.com/)
