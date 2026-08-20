@@ -57,8 +57,6 @@ jobs:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
         run: yarn install
-      - name: Bootstrap
-        run: yarn bootstrap
       - name: Build renovate config
         run: yarn run-script renovate.config.ts > renovate.config.json
       - name: Self-hosted Renovate
