@@ -6,13 +6,17 @@ description: Track repository skills, setup work, and other tasks that have been
 # Todo
 
 Maintain the references for deferred repository guidance, setup work, and other
-in-progress or not-yet-established tasks. Keep each register concise and do not
-duplicate the contents of the referenced skill or documentation.
+in-progress or not-yet-established tasks. The canonical registers are
+`.apm/skills/todo/references/skills.md` and
+`.apm/skills/todo/references/work.md`. Deployed skill copies are generated
+artifacts; never update their registers directly.
 
 ## Procedure
 
-1. **Read the register.** Read the relevant register under `references/` before
-   adding or changing an item.
+1. **Read the canonical register.** Read the relevant register under
+   `.apm/skills/todo/references/` before adding or changing an item. If the
+   Todo skill was loaded from a deployed target, resolve the repository's
+   `.apm/skills/todo/` source instead of reading or writing the deployed copy.
 2. **Record the work.** Add only work that is explicitly requested, discovered
    as a concrete gap, or already represented by a placeholder file. Record the
    scope, current state, and evidence required to consider it stable.
@@ -32,12 +36,18 @@ duplicate the contents of the referenced skill or documentation.
    delete the record.
 7. **Keep the scope narrow.** Do not implement deferred work while maintaining
    the register unless the user separately requests implementation.
-8. **Verify the register.** Confirm that the appropriate register was read and
+8. **Redeploy the source.** After changing the Todo skill or either canonical
+   register, run `apm install` from the repository root to synchronize the
+   deployed skills for the configured targets. Do not manually edit generated
+   target directories. If APM is unavailable, report that deployment could not
+   be synchronized.
+9. **Verify the register.** Confirm that the canonical register was read and
    updated, the item has a clear scope and establishment criteria, existing
-   placeholder files and unrelated work were preserved, and stable items have
-   an explicit status and reference.
+   placeholder files and unrelated work were preserved, stable items have an
+   explicit status and reference, and the deployed copies were synchronized.
 
 ## Registers
 
-- [Skills](references/skills.md) — placeholder, testing, and stable skills.
-- [Work](references/work.md) — other deferred or in-progress work.
+- `.apm/skills/todo/references/skills.md` — placeholder, testing, and stable
+  skills.
+- `.apm/skills/todo/references/work.md` — other deferred or in-progress work.

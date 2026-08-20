@@ -18502,6 +18502,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"skills@npm:1.5.23":
+  version: 1.5.23
+  resolution: "skills@npm:1.5.23"
+  dependencies:
+    tar: "npm:^7.5.20"
+    yaml: "npm:^2.8.3"
+  bin:
+    add-skill: bin/cli.mjs
+    skills: bin/cli.mjs
+  checksum: 10c0/59cc1b326da8bc395ad0a557c548d222ef3971d985d863900912e3548b57b24532426e19ac97dd63b74464dae3eda48425f98d65956ac01020af34f9e2c5a90d
+  languageName: node
+  linkType: hard
+
 "slash@npm:^3.0.0":
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
@@ -19617,7 +19630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar@npm:^7.4.0, tar@npm:^7.5.3, tar@npm:^7.5.4":
+"tar@npm:^7.4.0, tar@npm:^7.5.20, tar@npm:^7.5.3, tar@npm:^7.5.4":
   version: 7.5.22
   resolution: "tar@npm:7.5.22"
   dependencies:
@@ -20759,6 +20772,7 @@ __metadata:
     playwright: "npm:1.62.1"
     renovate: "npm:43.288.0"
     semver: "npm:7.8.5"
+    skills: "npm:1.5.23"
     svelte-language-server: "npm:0.18.4"
     turbo: "npm:2.10.11"
     typescript: "npm:6.0.3"
@@ -21431,7 +21445,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:2.9.0, yaml@npm:^2.0.0, yaml@npm:^2.9.0":
+"yaml@npm:2.9.0, yaml@npm:^2.0.0, yaml@npm:^2.8.3, yaml@npm:^2.9.0":
   version: 2.9.0
   resolution: "yaml@npm:2.9.0"
   bin:
