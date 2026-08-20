@@ -72,7 +72,7 @@ jobs:
         run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Install APM
         if: matrix.os == 'ubuntu-latest'
-        uses: microsoft/apm-action@v1
+        uses: microsoft/apm-action@d723bb64ed70c135bbaf87d126b721dd2dae0439 # v1
         with:
           apm-version: latest
           setup-only: true
