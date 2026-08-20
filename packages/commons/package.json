@@ -50,6 +50,7 @@
     "storybook-multilevel-sort": "2.1.0",
     "storybook-zeplin": "4.0.1",
     "ts-enum-util": "4.1.0",
+    "turbo": "2.10.11",
     "type-fest": "5.8.0",
     "vite-tsconfig-paths": "6.1.1"
   },
@@ -75,7 +76,6 @@
     "sass": "1.103.0",
     "storybook": "10.5.9",
     "stylelint": "17.14.1",
-    "turbo": "2.10.11",
     "typescript": "6.0.3",
     "vite": "8.2.1",
     "vitest": "4.1.11"
