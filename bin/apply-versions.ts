@@ -6,7 +6,7 @@ import {
   EXIT_SUCCESS,
   EXIT_INVALID_USAGE
 } from 'commons/esm/bin/utils/functions.js';
-import getWorkspaces, { type Options } from 'commons/esm/bin/ls-workspaces.js';
+import getWorkspaces from './ls-workspaces.ts';
 
 enum Strategy {
   build,

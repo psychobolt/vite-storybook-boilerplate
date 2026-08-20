@@ -4,7 +4,6 @@
   "type": "module",
   "bin": {
     "lint": "esm/bin/lint.js",
-    "ls-workspaces": "esm/bin/ls-workspaces.js",
     "tsc-paths": "esm/bin/tsc-paths.js"
   },
   "scripts": {
@@ -33,14 +32,11 @@
     "@types/lodash": "4.17.25",
     "@types/react": "19.2.18",
     "@vitest/browser-playwright": "4.1.11",
-    "@yarnpkg/core": "4.9.1",
-    "@yarnpkg/fslib": "3.1.5",
     "arg": "5.0.2",
     "autoprefixer": "10.5.4",
     "chokidar": "5.0.0",
     "eslint-plugin-mdx": "3.8.1",
     "eslint-plugin-storybook": "10.5.9",
-    "glob-to-regexp": "0.4.1",
     "jiti": "2.7.0",
     "lint-staged": "17.3.0",
     "lodash": "4.18.1",
@@ -55,8 +51,7 @@
     "storybook-zeplin": "4.0.1",
     "ts-enum-util": "4.1.0",
     "type-fest": "5.8.0",
-    "vite-tsconfig-paths": "6.1.1",
-    "yaml": "2.9.0"
+    "vite-tsconfig-paths": "6.1.1"
   },
   "devDependencies": {
     "@storybook/addon-docs": "10.5.9",
@@ -64,7 +59,6 @@
     "@storybook/addon-onboarding": "10.5.9",
     "@storybook/addon-vitest": "10.5.9",
     "@storybook/global": "5.0.0",
-    "@types/glob-to-regexp": "0.4.4",
     "@types/node": "24.13.3",
     "@typescript-eslint/utils": "8.67.0",
     "chromatic": "18.5.0",
