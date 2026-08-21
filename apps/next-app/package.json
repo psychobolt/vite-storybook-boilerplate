@@ -22,7 +22,7 @@
     "eslint": "10.8.1",
     "eslint-config-next": "16.3.2",
     "html-ui": "workspace:*",
-    "next": "16.3.1",
+    "next": "16.3.2",
     "open-cli": "9.0.0",
     "prettier": "3.9.6",
     "prettier-plugin-packagejson": "3.0.2",
