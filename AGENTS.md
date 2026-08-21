@@ -149,6 +149,10 @@ Apply this procedure when scaffolding an app, API, or UI package:
 
 - Read the nearest guidance and relevant source context before changing files.
 - Keep changes focused and preserve unrelated worktree changes.
+- Before and after running any command that may modify files, inspect `git
+status` and the relevant diff. Preserve changes that existed before the
+  command, including ambiguous or tool-generated changes; never restore a
+  file to `HEAD` without explicit user approval.
 - Treat root and nested README, development, workflow, and usage documents as
   human-facing documentation. Read them for context and update them when the
   requested package or workflow requires synchronized public install, API, or
