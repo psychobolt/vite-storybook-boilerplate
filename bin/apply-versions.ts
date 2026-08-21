@@ -1,14 +1,12 @@
 import arg from 'arg';
 import semver from 'semver';
-
+import getWorkspaces, { type Options } from 'commons/esm/bin/ls-workspaces.js';
 import {
   $,
   EXIT_SUCCESS,
   EXIT_INVALID_USAGE,
   getDependentTasks
 } from 'commons/esm/bin/utils/functions.js';
-
-import getWorkspaces from './ls-workspaces.ts';
 
 enum Strategy {
   build,

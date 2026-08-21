@@ -4,8 +4,9 @@ import type {
   AllConfig,
   RenovateConfig
 } from 'renovate/dist/config/types.d.ts';
-
-import getWorkspaces from './bin/ls-workspaces.ts';
+import getWorkspaces, {
+  type Workspace
+} from 'commons/esm/bin/ls-workspaces.js';
 
 const workspaces: Workspace[] = await getWorkspaces({
   nodeLinker: ['node-modules', 'pnpm']
@@ -31,6 +32,8 @@ type PostPackageTasks = Array<
   RequiredKeys<PostUpgradeTaskRule, 'postUpgradeTasks'>
 >;
 
+const lockfiles = ['**/yarn.lock'];
+
 const dedupeCommand =
   'yarn dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}';
 
@@ -38,7 +41,7 @@ const dedupeRule: PostUpgradeTaskRule = {
   matchManagers: ['npm'],
   postUpgradeTasks: {
     commands: [dedupeCommand],
-    fileFilters: ['**/yarn.lock'],
+    fileFilters: lockfiles,
     executionMode: 'branch'
   }
 };
@@ -53,7 +56,7 @@ const bootstrapRule: PostUpgradeTaskRule = {
   ],
   postUpgradeTasks: {
     commands: [dedupeCommand, bootstrapCommand],
-    fileFilters: ['**/yarn.lock'],
+    fileFilters: lockfiles,
     executionMode: 'branch'
   }
 };
@@ -63,7 +66,7 @@ const postPackageTasks: PostPackageTasks = [
     matchPackageNames: ['prettier**'],
     postUpgradeTasks: {
       commands: [dedupeCommand, bootstrapCommand, 'yarn turbo run format'],
-      fileFilters: ['**/yarn.lock', '**/*'],
+      fileFilters: [...lockfiles, '**/*'],
       executionMode: 'branch'
     }
   }

@@ -3,7 +3,7 @@ description: Repository JavaScript and TypeScript source conventions.
 applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
 ---
 
-# JavaScript and TypeScript import organization
+## Import organization
 
 - Organize imports by ownership and runtime role; this is an import
   organization convention, not a replacement for Prettier.
@@ -36,7 +36,7 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   convention across framework-specific configuration without checking the
   target framework and package setup.
 
-# JavaScript and TypeScript expressions
+## Expressions
 
 - Inline a local variable's initializer when that variable is read only once
   and has no type-specific purpose when writing new code. Keep a named
@@ -46,3 +46,13 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   them solely to inline their expressions. For new code, prefer
   `return format(value)` over `const formatted = format(value); return formatted`,
   but retain a single-use variable when its cast is needed for type correctness.
+
+## Typing
+
+- Avoid `as` type assertions when the type can be expressed through inference,
+  an explicit annotation, `satisfies`, a generic, control-flow narrowing, a
+  type guard, or runtime validation. Use `as` only when the assertion is
+  verified and necessary because the compiler cannot represent known type
+  information or an external API requires it. Do not remove an existing
+  assertion during an unrelated change unless the replacement preserves its
+  type behavior.

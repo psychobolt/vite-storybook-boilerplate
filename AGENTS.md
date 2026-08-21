@@ -172,6 +172,12 @@ scaffolding, or component creation, use the appropriate guidance under
   workspace dependency, invoke it through Yarn (`yarn <command>`) instead of
   an ad hoc package runner. Use `npx` only when no local binary exists or the
   user explicitly requests it; do not install dependencies implicitly.
+- Use the skills CLI for discovery or explicitly requested personal or ad hoc
+  installs. When a skill should belong to this repository, install it through
+  APM (`apm install ... [--skill ...]`) so `apm.yml`, `apm.lock.yaml`, and the
+  configured deployments remain synchronized. Do not use the Skills CLI's
+  project installation, update, or removal commands to manage repository-owned
+  skills.
 
 Run the [keys skill](.apm/skills/keys/SKILL.md)
 before workflows that create or rotate repository dotenv encryption keys. The
@@ -235,3 +241,11 @@ completing the skill.
 Authored file-scoped instructions live at `.apm/instructions/` and are deployed
 to supported agent targets by APM. Do not author or maintain duplicate
 instruction files in generated target directories.
+
+### APM source and deployment
+
+- Treat every file under `.apm/` as repository-authored source. After changing
+  any `.apm/` file, run `apm install` from the repository root to synchronize
+  the configured agent targets. Do not manually edit generated target
+  directories. If APM is unavailable, report that deployment could not be
+  synchronized.

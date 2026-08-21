@@ -31,7 +31,9 @@ Generate a hashed string using built-in crypto library available in Node v20.12.
 ### `getDependentTasks`
 
 ```ts
-const tasks = getDependentTasks('build');
+const tasks = getDependentTasks('build', {
+  cwd: process.cwd() // Optionally override workspace scope
+});
 ```
 
 Returns a list of turbo tasks for the current workspace.

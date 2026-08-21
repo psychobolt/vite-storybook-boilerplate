@@ -173,7 +173,7 @@ deployments:
     owners:
       - .
     active_owner: .
-    content_hash: sha256:828aa1d21f2ba230a8e13b870bc33c13f29325814fdb30caec4c0197f9c04b12
+    content_hash: sha256:149e8e15f210e5971c7f291b03a2daad5ace092aa6e704cc4627845c5e8605bf
   - kind: project-relative
     target: agents
     value: .agents/skills/todo/references/skills.md
@@ -371,7 +371,7 @@ deployments:
     owners:
       - .
     active_owner: .
-    content_hash: sha256:5b696dcc8df47e5df57a8839197ae2c994241a83bfd8cbac8f9c39cb69658e53
+    content_hash: sha256:51583fec7fef7953b484900ea41b30dc7abe3dfad6f55c8249183cd8aa9d3e15
   - kind: project-relative
     target: claude
     value: .claude/skills/api-package
@@ -542,7 +542,7 @@ deployments:
     owners:
       - .
     active_owner: .
-    content_hash: sha256:828aa1d21f2ba230a8e13b870bc33c13f29325814fdb30caec4c0197f9c04b12
+    content_hash: sha256:149e8e15f210e5971c7f291b03a2daad5ace092aa6e704cc4627845c5e8605bf
   - kind: project-relative
     target: claude
     value: .claude/skills/todo/references/skills.md
@@ -758,7 +758,7 @@ deployments:
     owners:
       - .
     active_owner: .
-    content_hash: sha256:4b470a0133a27166522924425fa4ced156426806bd5f6509317522a46a970244
+    content_hash: sha256:1cae3c12a3e1a79edda275d55f35fe61a5439aebfbb7d46f49de4a3bdeb93849
   - kind: project-relative
     target: cursor
     value: .cursor/rules/agent-guidance.mdc
@@ -776,7 +776,7 @@ deployments:
     owners:
       - .
     active_owner: .
-    content_hash: sha256:984c3afb655b37f42383ade3588d6bc79425b9fb0807e94a63939c72c52d9f78
+    content_hash: sha256:28a378d5547ab20ff937b7f89738f79408fa40e5fbed45ded3504a52ea0acebb
 local_deployed_files:
   - .agents/skills/api-package
   - .agents/skills/api-package/SKILL.md
@@ -867,7 +867,7 @@ local_deployed_file_hashes:
   .agents/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
   .agents/skills/fork/SKILL.md: sha256:c78ac8acdc1ec76f9fae31221f3c37e585d2f88b4c28d185013a01186bd820b1
   .agents/skills/keys/SKILL.md: sha256:36082edc2f46f8e1e75c7addc0021d789c4a0cd69c8da1861b8698b39b0287b0
-  .agents/skills/todo/SKILL.md: sha256:828aa1d21f2ba230a8e13b870bc33c13f29325814fdb30caec4c0197f9c04b12
+  .agents/skills/todo/SKILL.md: sha256:149e8e15f210e5971c7f291b03a2daad5ace092aa6e704cc4627845c5e8605bf
   .agents/skills/todo/references/skills.md: sha256:6e8a587dab8cbe19901c94717e98e59eceaee2ab669faeb85dc73a29d3c0c0ee
   .agents/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
   .agents/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
@@ -885,7 +885,7 @@ local_deployed_file_hashes:
   .agents/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
   .agents/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
   .claude/rules/agent-guidance.md: sha256:9b10800a22fb742379af820bef25f14529e0f566c396dd5de026afa23b49f05d
-  .claude/rules/javascript-typescript.md: sha256:5b696dcc8df47e5df57a8839197ae2c994241a83bfd8cbac8f9c39cb69658e53
+  .claude/rules/javascript-typescript.md: sha256:51583fec7fef7953b484900ea41b30dc7abe3dfad6f55c8249183cd8aa9d3e15
   .claude/skills/api-package/SKILL.md: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
   .claude/skills/app-component/SKILL.md: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
   .claude/skills/app-package/SKILL.md: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
@@ -894,7 +894,7 @@ local_deployed_file_hashes:
   .claude/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
   .claude/skills/fork/SKILL.md: sha256:c78ac8acdc1ec76f9fae31221f3c37e585d2f88b4c28d185013a01186bd820b1
   .claude/skills/keys/SKILL.md: sha256:36082edc2f46f8e1e75c7addc0021d789c4a0cd69c8da1861b8698b39b0287b0
-  .claude/skills/todo/SKILL.md: sha256:828aa1d21f2ba230a8e13b870bc33c13f29325814fdb30caec4c0197f9c04b12
+  .claude/skills/todo/SKILL.md: sha256:149e8e15f210e5971c7f291b03a2daad5ace092aa6e704cc4627845c5e8605bf
   .claude/skills/todo/references/skills.md: sha256:6e8a587dab8cbe19901c94717e98e59eceaee2ab669faeb85dc73a29d3c0c0ee
   .claude/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
   .claude/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
@@ -912,6 +912,6 @@ local_deployed_file_hashes:
   .claude/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
   .claude/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
   .cursor/rules/agent-guidance.mdc: sha256:ff9394313703380a0b2a5c3897ac7b628b32a38b15c4fd6ef71c0fa57619ea8e
-  .cursor/rules/javascript-typescript.mdc: sha256:984c3afb655b37f42383ade3588d6bc79425b9fb0807e94a63939c72c52d9f78
+  .cursor/rules/javascript-typescript.mdc: sha256:28a378d5547ab20ff937b7f89738f79408fa40e5fbed45ded3504a52ea0acebb
   .github/instructions/agent-guidance.instructions.md: sha256:fa8125f1f7027b836cac87baf59eb307fc3350f36fd60f1b303cf3ae08d2cc40
-  .github/instructions/javascript-typescript.instructions.md: sha256:4b470a0133a27166522924425fa4ced156426806bd5f6509317522a46a970244
+  .github/instructions/javascript-typescript.instructions.md: sha256:1cae3c12a3e1a79edda275d55f35fe61a5439aebfbb7d46f49de4a3bdeb93849
