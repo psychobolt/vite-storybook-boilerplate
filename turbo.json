@@ -21,8 +21,7 @@
     },
     "build-storybook": {
       "outputs": ["storybook-static/**"],
-      "dependsOn": ["^build"],
-      "env": ["DOTENV_PRIVATE_KEY_CI"]
+      "dependsOn": ["^build"]
     },
     "//#lint": {
       "dependsOn": ["^build"],
