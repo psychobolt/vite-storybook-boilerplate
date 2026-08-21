@@ -131,8 +131,7 @@ export default {
       const [, appId] = config.projectId?.split(':') ?? [];
       const localhost = execSync('yarn g:dotenv-get SB_URL', {
         ...execOptions,
-        cwd: path,
-        env: process.env
+        cwd: path
       }).trim();
       const url =
         gitHash && appId && configType === 'PRODUCTION'
