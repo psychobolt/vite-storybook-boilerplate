@@ -5,7 +5,8 @@
     "target": "ESNext",
     "moduleResolution": "NodeNext",
     "noEmit": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["node"]
   },
   "include": ["**/*"],
   "exclude": ["apps", "packages"]

@@ -55,18 +55,26 @@ export function hash(
 export interface TurboTask {
   taskId: string;
   task: string;
-  package: string;
   hash: string;
+  package: string;
+  directory: string;
   dependencies: string[];
   dependents: string[];
 }
 
-export async function getDependentTasks(name: string) {
+export async function getDependentTasks(
+  name: string,
+  execOptions: ExecOptions = {}
+) {
   let result: { tasks: TurboTask[] };
   try {
-    const stdout = await $(`yarn turbo run ${name} --dry-run=json`, {
-      silent: true
-    });
+    const stdout = await $(
+      `yarn turbo run ${name}${typeof execOptions.cwd === 'string' ? ' --filter=^...' : ''} --dry-run=json`,
+      {
+        ...execOptions,
+        silent: true
+      }
+    );
     result = JSON.parse(stdout);
     return result.tasks.filter(({ task }) => task === name);
   } catch {

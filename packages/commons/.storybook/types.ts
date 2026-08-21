@@ -30,6 +30,14 @@ export type InferArgs<
       : TDefault
     : TDefault;
 
+export type ExtractPlainObject<T> = T extends object
+  ? T extends (...args: any[]) => unknown
+    ? never
+    : T extends readonly unknown[]
+      ? never
+      : T
+  : never;
+
 declare const intrinsicKey: unique symbol;
 
 export type IntrinsicShape<T = never> = {

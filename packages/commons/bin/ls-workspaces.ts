@@ -1,13 +1,53 @@
 import fs from 'node:fs';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import process from 'node:process';
 import childProcess from 'node:child_process';
 import util from 'node:util';
-import arg, { type Spec } from 'arg';
+import arg, { type Spec as ArgSpec } from 'arg';
 import globToRegExp from 'glob-to-regexp';
 import YAML from 'yaml';
 import { type PortablePath, npath } from '@yarnpkg/fslib';
 import { Configuration, Project } from '@yarnpkg/core';
+
+interface Tester {
+  test: (value: string) => boolean;
+}
+
+type Matcher =
+  ((value: any, options?: any) => Tester) | ((value?: any[]) => Tester);
+
+interface Spec {
+  alias?: string;
+  key?: string;
+  type: any;
+}
+
+interface Filter extends Spec {
+  value?: string | boolean | string[];
+  matcher?: Matcher | RegExp | Tester;
+}
+
+type Filters = Record<string, Filter>;
+
+export type Options = Record<string, any>;
+
+export type NodeLinker = 'node-modules' | 'pnpm';
+
+export interface Workspace {
+  name: string;
+  location: string;
+  path: string;
+}
+
+type Mapper<T> = (workspaces: Workspace[], result?: unknown) => T;
+
+interface Formatter extends Spec {
+  value: string[];
+  mapper: <T extends Workspace>(type: string[]) => Mapper<T[]>;
+}
+
+type Formatters = Record<string, Formatter>;
 
 const { execSync } = childProcess;
 const exec = util.promisify(childProcess.exec);
@@ -22,20 +62,13 @@ const globMatcher = (negate?: boolean) => (expressions: string[]) => {
   );
   return {
     test: (value: string) => {
-      let result = true;
-      for (const matcher of matchers) {
-        result &&= matcher.test(value);
-        if (negate) {
-          result = !result;
-        }
-        if (result) {
-          return result;
-        }
-      }
-      return result;
+      const matches = matchers.some((matcher) => matcher.test(value));
+      return negate ? !matches : matches;
     }
   };
 };
+
+const storybookMainMatcher = globToRegExp('main.*', { extended: true });
 
 function getFormatter(type: string): Mapper<any> {
   switch (type) {
@@ -75,7 +108,7 @@ async function setupProject() {
   return project;
 }
 
-async function getWorkspaces<T>(options?: Options) {
+async function getWorkspaces<T = Workspace[]>(options?: Options) {
   const filters: Filters = {
     '--name': {
       key: 'name',
@@ -106,6 +139,11 @@ async function getWorkspaces<T>(options?: Options) {
       type: Boolean,
       value: false
     },
+    '--storybook': {
+      key: 'storybook',
+      type: Boolean,
+      value: false
+    },
     '--no-private': {
       key: 'noPrivate',
       type: Boolean
@@ -132,11 +170,11 @@ async function getWorkspaces<T>(options?: Options) {
 
   const specEntries = Object.entries({ ...filters, ...formatters });
 
-  const { _ = [], ...args } = arg<Spec>(
+  const { _ = [], ...args } = arg<ArgSpec>(
     specEntries.reduce(
       (config, [key, { alias, type }]) => ({
         [key]: type,
-        ...(alias ? { [alias]: key } : undefined),
+        ...(alias ? { [alias]: key } : {}),
         ...config
       }),
       {}
@@ -145,9 +183,9 @@ async function getWorkspaces<T>(options?: Options) {
   );
 
   if (options) {
-    function updateArg(key: keyof Spec, value: any) {
+    function updateArg(key: string, value: any) {
       if (!(key in args)) {
-        args[key] = value;
+        (args as Record<string, any>)[key] = value;
       }
     }
 
@@ -188,7 +226,8 @@ async function getWorkspaces<T>(options?: Options) {
 
   const noPrivate = filters['--no-private'].value;
   const since = filters['--since'].value;
-  const PROJECT = await setupProject();
+  const project = await setupProject();
+  const projectCwd = npath.fromPortablePath(project.cwd);
 
   function passthrough(
     workspace: Workspace,
@@ -196,8 +235,9 @@ async function getWorkspaces<T>(options?: Options) {
     propName?: keyof Workspace
   ) {
     const filter = filters[`--${filterKey}`];
-    const { manifest } = PROJECT.getWorkspaceByCwd(
-      workspace.location as PortablePath
+    const workspacePath = workspace.path;
+    const { manifest } = project.getWorkspaceByCwd(
+      npath.toPortablePath(workspacePath) as PortablePath
     );
 
     if (typeof filter === 'undefined') {
@@ -208,11 +248,9 @@ async function getWorkspaces<T>(options?: Options) {
       const filterValue = filter.value as string[];
       if (!filterValue.length) return true;
       const isPnp = filterValue.includes('pnp');
-      const rcLocation = `${workspace.location}/.yarnrc.yml`;
+      const rcLocation = path.join(workspacePath, '.yarnrc.yml');
       if (fs.existsSync(rcLocation)) {
-        const doc = YAML.parseDocument(
-          fs.readFileSync(`${workspace.location}/.yarnrc.yml`, 'utf-8')
-        );
+        const doc = YAML.parseDocument(fs.readFileSync(rcLocation, 'utf-8'));
         const value = doc.get('nodeLinker') as string;
         return (
           filterValue.includes(value) || (typeof value === 'undefined' && isPnp)
@@ -231,6 +269,17 @@ async function getWorkspaces<T>(options?: Options) {
         }
       }
       return false;
+    }
+
+    if (filterKey === 'storybook') {
+      if (filter.value === false) return true;
+      const storybookPath = path.join(workspacePath, '.storybook');
+      if (!fs.existsSync(storybookPath)) return false;
+      return fs
+        .readdirSync(storybookPath, { withFileTypes: true })
+        .some(
+          (entry) => entry.isFile() && storybookMainMatcher.test(entry.name)
+        );
     }
 
     if (
@@ -274,14 +323,21 @@ async function getWorkspaces<T>(options?: Options) {
           .trim()
           .split('\n')
           .reduce((list: Workspace[], line) => {
-            const workspace: Workspace = JSON.parse(line);
+            const { location, ...rest }: Pick<Workspace, 'location' | 'name'> =
+              JSON.parse(line);
+            const workspace: Workspace = {
+              ...rest,
+              location,
+              path: path.resolve(projectCwd, location)
+            };
             const keep =
               true &&
               passthrough(workspace, 'include', 'location') &&
               passthrough(workspace, 'exclude', 'location') &&
               passthrough(workspace, 'name', 'name') &&
               passthrough(workspace, 'node-linker') &&
-              passthrough(workspace, 'turbo-only');
+              passthrough(workspace, 'turbo-only') &&
+              passthrough(workspace, 'storybook');
             return keep ? [workspace, ...list] : list;
           }, []);
 

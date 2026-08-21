@@ -23,7 +23,7 @@ Overriding Yarn's default global folder (e.g. `YARN_GLOBAL_FOLDER=${HOME}/.yarn/
 Certain harnesses and agent tools may not detect agent plugins, context, and procedures out of the box after cloning the repo. By default this project supports: [Claude](https://claude.ai/), [Codex](https://chatgpt.com/codex/), [GitHub Copilot](https://github.com/features/copilot), and [Cursor](https://cursor.com/). Follow the recommended setup:
 
 1. Install [APM](https://microsoft.github.io/apm). See the _**quickstart**_ guide to install onto your local environment
-2. Run `apm install`
+2. Run `apm install` to install and deploy all agent packages
 
 ### Setup Remote Cache (Optional)
 

@@ -36,12 +36,7 @@ artifacts; never update their registers directly.
    delete the record.
 7. **Keep the scope narrow.** Do not implement deferred work while maintaining
    the register unless the user separately requests implementation.
-8. **Redeploy the source.** After changing the Todo skill or either canonical
-   register, run `apm install` from the repository root to synchronize the
-   deployed skills for the configured targets. Do not manually edit generated
-   target directories. If APM is unavailable, report that deployment could not
-   be synchronized.
-9. **Verify the register.** Confirm that the canonical register was read and
+8. **Verify the register.** Confirm that the canonical register was read and
    updated, the item has a clear scope and establishment criteria, existing
    placeholder files and unrelated work were preserved, stable items have an
    explicit status and reference, and the deployed copies were synchronized.
