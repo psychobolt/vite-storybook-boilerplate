@@ -129,9 +129,10 @@ export default {
     storybookPackages.reduce<Refs>((refs, { name, path }) => {
       const config = require(join(path, 'chromatic.config.json'));
       const [, appId] = config.projectId?.split(':') ?? [];
-      const localhost = execSync(`yarn g:dotenv-get SB_URL`, {
+      const localhost = execSync('yarn g:dotenv-get SB_URL', {
         ...execOptions,
-        cwd: path
+        cwd: path,
+        env: process.env
       }).trim();
       const url =
         gitHash && appId && configType === 'PRODUCTION'
