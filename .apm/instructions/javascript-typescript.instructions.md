@@ -35,3 +35,14 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
 - Do not apply generic import sorting to generated files or copy a sorting
   convention across framework-specific configuration without checking the
   target framework and package setup.
+
+# JavaScript and TypeScript expressions
+
+- Inline a local variable's initializer when that variable is read only once
+  and has no type-specific purpose when writing new code. Keep a named
+  variable when its value is reused or when its explicit type annotation,
+  assertion, narrowing, or other tool-compatibility purpose is required.
+  Existing variables may be intentional readability aids; do not refactor
+  them solely to inline their expressions. For new code, prefer
+  `return format(value)` over `const formatted = format(value); return formatted`,
+  but retain a single-use variable when its cast is needed for type correctness.

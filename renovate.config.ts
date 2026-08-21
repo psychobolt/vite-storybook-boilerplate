@@ -31,18 +31,28 @@ type PostPackageTasks = Array<
   RequiredKeys<PostUpgradeTaskRule, 'postUpgradeTasks'>
 >;
 
-const bootstrapRule: PostUpgradeTaskRule = {
+const dedupeCommand =
+  'yarn dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}';
+
+const dedupeRule: PostUpgradeTaskRule = {
   matchManagers: ['npm'],
+  postUpgradeTasks: {
+    commands: [dedupeCommand],
+    fileFilters: ['**/yarn.lock'],
+    executionMode: 'branch'
+  }
+};
+
+const bootstrapCommand = 'yarn bootstrap';
+
+const bootstrapRule: PostUpgradeTaskRule = {
   matchFileNames: [
     'packages/commons/package.json',
     'packages/stylelint-config/package.json',
     ...workspaces.map(({ location }) => join(location, 'package.json'))
   ],
   postUpgradeTasks: {
-    commands: [
-      'yarn dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}',
-      'yarn bootstrap'
-    ],
+    commands: [dedupeCommand, bootstrapCommand],
     fileFilters: ['**/yarn.lock'],
     executionMode: 'branch'
   }
@@ -52,8 +62,8 @@ const postPackageTasks: PostPackageTasks = [
   {
     matchPackageNames: ['prettier**'],
     postUpgradeTasks: {
-      commands: ['yarn turbo run format'],
-      fileFilters: ['**/*'],
+      commands: [dedupeCommand, bootstrapCommand, 'yarn turbo run format'],
+      fileFilters: ['**/yarn.lock', '**/*'],
       executionMode: 'branch'
     }
   }
@@ -79,22 +89,9 @@ const config: Omit<AllConfig, 'packageRules'> & {
       groupName: 'Renovate',
       minimumGroupSize: 2
     },
+    dedupeRule,
     bootstrapRule,
-    ...postPackageTasks,
-    ...postPackageTasks.map(({ postUpgradeTasks, ...rule }) => ({
-      ...rule,
-      postUpgradeTasks: {
-        ...postUpgradeTasks,
-        commands: [
-          ...bootstrapRule.postUpgradeTasks.commands,
-          ...postUpgradeTasks.commands
-        ],
-        fileFilters: [
-          ...bootstrapRule.postUpgradeTasks.fileFilters,
-          ...postUpgradeTasks.fileFilters
-        ]
-      }
-    }))
+    ...postPackageTasks
   ]
 };
 
