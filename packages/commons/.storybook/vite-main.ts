@@ -1,4 +1,7 @@
-import { execSync } from 'node:child_process';
+import {
+  type ExecSyncOptionsWithStringEncoding,
+  execSync
+} from 'node:child_process';
 import { createRequire } from 'node:module';
 import { join, dirname } from 'node:path';
 import type { StorybookConfig } from 'storybook/internal/types';
@@ -14,11 +17,14 @@ import {
   mergeConfig
 } from 'vite';
 
-import postcssConfig from './postcss.config.js';
+import getWorkspaces from '../bin/ls-workspaces.ts';
+import { getDependentTasks } from '../bin/utils/functions.ts';
+import postcssConfig from './postcss.config.ts';
 import {
   storybookVariantsIndexer,
   vitePluginStorybookVariants
-} from './addons/addon-variants.js';
+} from './addons/addon-variants.ts';
+import type { ExtractPlainObject } from './types.ts';
 
 interface ResolveConfig {
   alias?: Alias[];
@@ -74,14 +80,25 @@ const resolveConfig: ResolveOptions & ResolveConfig = {
   ]
 };
 
-const gitBranch = execSync('git rev-parse --abbrev-ref HEAD', {
-  encoding: 'utf8'
-}).trim();
+const includes = (await getDependentTasks('build', { cwd: process.cwd() })).map(
+  (task) => task.directory
+);
+const storybookPackages = await getWorkspaces({
+  storybook: true,
+  include: includes
+});
+
+const execOptions: ExecSyncOptionsWithStringEncoding = { encoding: 'utf8' };
+const getGitRevision = (args: string[] = []) =>
+  execSync(`git rev-parse ${[...args, 'HEAD'].join(' ')}`, execOptions).trim();
+const gitBranch = getGitRevision(['--abbrev-ref']);
+const gitHash = getGitRevision(['--short']);
 
 const addonDocs = getAbsolutePath('@storybook/addon-docs');
 
 type Core = Pick<StorybookConfig, 'core'>['core'];
 type CoreConfig = Omit<NonNullable<Exclude<Core, Function>>, 'builder'>;
+type Refs = ExtractPlainObject<StorybookConfig['refs']>;
 
 export type StorybookViteCommonConfig = Omit<StorybookConfig, 'core'> &
   Required<Pick<StorybookConfig, 'addons'>> & {
@@ -108,6 +125,28 @@ export default {
       disableAutoDocs: true
     }
   },
+  refs: (_, { configType }) =>
+    storybookPackages.reduce<Refs>((refs, { name, path }) => {
+      const config = require(join(path, 'chromatic.config.json'));
+      const [, appId] = config.projectId?.split(':') ?? [];
+      const localhost = execSync('yarn g:dotenv-get SB_URL', {
+        ...execOptions,
+        cwd: path
+      }).trim();
+      const url =
+        gitHash && appId && configType === 'PRODUCTION'
+          ? `https://${gitHash}--${appId}.chromatic.com`
+          : localhost;
+      if (!url) return refs;
+      return {
+        ...refs,
+        [name]: {
+          title: name,
+          url,
+          expanded: false
+        }
+      };
+    }, {}),
   viteFinal(config, { configType }) {
     if (configType === 'DEVELOPMENT') {
       process.env.VITE_COVERAGE = 'false';

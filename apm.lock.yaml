@@ -1,0 +1,917 @@
+lockfile_version: '1'
+generated_at: '2026-08-20T21:54:08.299752+00:00'
+apm_version: 0.28.0
+dependencies:
+  - repo_url: vercel-labs/skills
+    name: skills
+    host: github.com
+    resolved_commit: 435076e78988e1e6ec40d00b0b1d76bdbbc5419a
+    resolved_ref: v1.5.23
+    version: unknown
+    package_type: skill_bundle
+    deployed_files:
+      - .agents/skills/find-skills
+      - .agents/skills/find-skills/SKILL.md
+      - .claude/skills/find-skills
+      - .claude/skills/find-skills/SKILL.md
+    deployed_file_hashes:
+      .agents/skills/find-skills/SKILL.md: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
+      .claude/skills/find-skills/SKILL.md: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
+    content_hash: sha256:7530862c97988f22ac8b8117e104a829bce5692c5869e467c027471243ccb201
+    skill_subset:
+      - find-skills
+deployments:
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/api-package
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/api-package/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/app-component
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/app-component/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/app-package
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/app-package/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/app-package/references/routing.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/bootstrap
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/bootstrap/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ci
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ci/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/fork
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/fork/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:c78ac8acdc1ec76f9fae31221f3c37e585d2f88b4c28d185013a01186bd820b1
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/keys
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/keys/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:36082edc2f46f8e1e75c7addc0021d789c4a0cd69c8da1861b8698b39b0287b0
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/todo
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/todo/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:149e8e15f210e5971c7f291b03a2daad5ace092aa6e704cc4627845c5e8605bf
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/todo/references/skills.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:6e8a587dab8cbe19901c94717e98e59eceaee2ab669faeb85dc73a29d3c0c0ee
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/todo/references/work.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-component
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-component/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-component/references/csf.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-component/references/styles.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:20cfa33471e6b098ce753b05df70149bc30baa389aa79413b10c6b1a6704ec80
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-composite
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-composite/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:32eac80119fd8380f1f091b591e399d7b3f4ac7eb1514dad277d109e85342782
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-composite/references/csf.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:54bf891868b2115cdeef7c464ee850f2c8c213b7a5c75c8aeba8f466e6409c65
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-composite/references/styles.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:19c8623a36887825a487f26ff8a63a3515588a3b4c66580f171f205d2c029ed4
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-element
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-element/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-element/references/csf.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-element/references/styles.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-package
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-package/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:20fc52ea29fdf37b273fea457a5835121e2eb8c1488ae58db61dc5a32e3905af
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-package/references/csf.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-package/references/routing.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-package/references/storybook.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
+  - kind: project-relative
+    target: agents
+    value: .agents/skills/ui-package/references/styles.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
+  - kind: project-relative
+    target: claude
+    value: .claude/rules/agent-guidance.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:9b10800a22fb742379af820bef25f14529e0f566c396dd5de026afa23b49f05d
+  - kind: project-relative
+    target: claude
+    value: .claude/rules/javascript-typescript.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:51583fec7fef7953b484900ea41b30dc7abe3dfad6f55c8249183cd8aa9d3e15
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/api-package
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/api-package/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/app-component
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/app-component/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/app-package
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/app-package/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/app-package/references/routing.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/bootstrap
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/bootstrap/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ci
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ci/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/find-skills
+    runtime: null
+    scope: project
+    owners:
+      - vercel-labs/skills
+    active_owner: vercel-labs/skills
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/find-skills/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - vercel-labs/skills
+    active_owner: vercel-labs/skills
+    content_hash: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/fork
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/fork/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:c78ac8acdc1ec76f9fae31221f3c37e585d2f88b4c28d185013a01186bd820b1
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/keys
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/keys/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:36082edc2f46f8e1e75c7addc0021d789c4a0cd69c8da1861b8698b39b0287b0
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/todo
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/todo/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:149e8e15f210e5971c7f291b03a2daad5ace092aa6e704cc4627845c5e8605bf
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/todo/references/skills.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:6e8a587dab8cbe19901c94717e98e59eceaee2ab669faeb85dc73a29d3c0c0ee
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/todo/references/work.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-component
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-component/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-component/references/csf.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-component/references/styles.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:20cfa33471e6b098ce753b05df70149bc30baa389aa79413b10c6b1a6704ec80
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-composite
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-composite/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:32eac80119fd8380f1f091b591e399d7b3f4ac7eb1514dad277d109e85342782
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-composite/references/csf.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:54bf891868b2115cdeef7c464ee850f2c8c213b7a5c75c8aeba8f466e6409c65
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-composite/references/styles.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:19c8623a36887825a487f26ff8a63a3515588a3b4c66580f171f205d2c029ed4
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-element
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-element/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-element/references/csf.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-element/references/styles.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-package
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-package/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:20fc52ea29fdf37b273fea457a5835121e2eb8c1488ae58db61dc5a32e3905af
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-package/references/csf.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-package/references/routing.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-package/references/storybook.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
+  - kind: project-relative
+    target: claude
+    value: .claude/skills/ui-package/references/styles.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
+  - kind: project-relative
+    target: codex
+    value: .agents/skills/find-skills
+    runtime: null
+    scope: project
+    owners:
+      - vercel-labs/skills
+    active_owner: vercel-labs/skills
+    content_hash: null
+  - kind: project-relative
+    target: codex
+    value: .agents/skills/find-skills/SKILL.md
+    runtime: null
+    scope: project
+    owners:
+      - vercel-labs/skills
+    active_owner: vercel-labs/skills
+    content_hash: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
+  - kind: project-relative
+    target: copilot
+    value: .github/instructions/agent-guidance.instructions.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:fa8125f1f7027b836cac87baf59eb307fc3350f36fd60f1b303cf3ae08d2cc40
+  - kind: project-relative
+    target: copilot
+    value: .github/instructions/javascript-typescript.instructions.md
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:1cae3c12a3e1a79edda275d55f35fe61a5439aebfbb7d46f49de4a3bdeb93849
+  - kind: project-relative
+    target: cursor
+    value: .cursor/rules/agent-guidance.mdc
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:ff9394313703380a0b2a5c3897ac7b628b32a38b15c4fd6ef71c0fa57619ea8e
+  - kind: project-relative
+    target: cursor
+    value: .cursor/rules/javascript-typescript.mdc
+    runtime: null
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: sha256:28a378d5547ab20ff937b7f89738f79408fa40e5fbed45ded3504a52ea0acebb
+local_deployed_files:
+  - .agents/skills/api-package
+  - .agents/skills/api-package/SKILL.md
+  - .agents/skills/app-component
+  - .agents/skills/app-component/SKILL.md
+  - .agents/skills/app-package
+  - .agents/skills/app-package/SKILL.md
+  - .agents/skills/app-package/references/routing.md
+  - .agents/skills/bootstrap
+  - .agents/skills/bootstrap/SKILL.md
+  - .agents/skills/ci
+  - .agents/skills/ci/SKILL.md
+  - .agents/skills/fork
+  - .agents/skills/fork/SKILL.md
+  - .agents/skills/keys
+  - .agents/skills/keys/SKILL.md
+  - .agents/skills/todo
+  - .agents/skills/todo/SKILL.md
+  - .agents/skills/todo/references/skills.md
+  - .agents/skills/todo/references/work.md
+  - .agents/skills/ui-component
+  - .agents/skills/ui-component/SKILL.md
+  - .agents/skills/ui-component/references/csf.md
+  - .agents/skills/ui-component/references/styles.md
+  - .agents/skills/ui-composite
+  - .agents/skills/ui-composite/SKILL.md
+  - .agents/skills/ui-composite/references/csf.md
+  - .agents/skills/ui-composite/references/styles.md
+  - .agents/skills/ui-element
+  - .agents/skills/ui-element/SKILL.md
+  - .agents/skills/ui-element/references/csf.md
+  - .agents/skills/ui-element/references/styles.md
+  - .agents/skills/ui-package
+  - .agents/skills/ui-package/SKILL.md
+  - .agents/skills/ui-package/references/csf.md
+  - .agents/skills/ui-package/references/routing.md
+  - .agents/skills/ui-package/references/storybook.md
+  - .agents/skills/ui-package/references/styles.md
+  - .claude/rules/agent-guidance.md
+  - .claude/rules/javascript-typescript.md
+  - .claude/skills/api-package
+  - .claude/skills/api-package/SKILL.md
+  - .claude/skills/app-component
+  - .claude/skills/app-component/SKILL.md
+  - .claude/skills/app-package
+  - .claude/skills/app-package/SKILL.md
+  - .claude/skills/app-package/references/routing.md
+  - .claude/skills/bootstrap
+  - .claude/skills/bootstrap/SKILL.md
+  - .claude/skills/ci
+  - .claude/skills/ci/SKILL.md
+  - .claude/skills/fork
+  - .claude/skills/fork/SKILL.md
+  - .claude/skills/keys
+  - .claude/skills/keys/SKILL.md
+  - .claude/skills/todo
+  - .claude/skills/todo/SKILL.md
+  - .claude/skills/todo/references/skills.md
+  - .claude/skills/todo/references/work.md
+  - .claude/skills/ui-component
+  - .claude/skills/ui-component/SKILL.md
+  - .claude/skills/ui-component/references/csf.md
+  - .claude/skills/ui-component/references/styles.md
+  - .claude/skills/ui-composite
+  - .claude/skills/ui-composite/SKILL.md
+  - .claude/skills/ui-composite/references/csf.md
+  - .claude/skills/ui-composite/references/styles.md
+  - .claude/skills/ui-element
+  - .claude/skills/ui-element/SKILL.md
+  - .claude/skills/ui-element/references/csf.md
+  - .claude/skills/ui-element/references/styles.md
+  - .claude/skills/ui-package
+  - .claude/skills/ui-package/SKILL.md
+  - .claude/skills/ui-package/references/csf.md
+  - .claude/skills/ui-package/references/routing.md
+  - .claude/skills/ui-package/references/storybook.md
+  - .claude/skills/ui-package/references/styles.md
+  - .cursor/rules/agent-guidance.mdc
+  - .cursor/rules/javascript-typescript.mdc
+  - .github/instructions/agent-guidance.instructions.md
+  - .github/instructions/javascript-typescript.instructions.md
+local_deployed_file_hashes:
+  .agents/skills/api-package/SKILL.md: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
+  .agents/skills/app-component/SKILL.md: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
+  .agents/skills/app-package/SKILL.md: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
+  .agents/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
+  .agents/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
+  .agents/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
+  .agents/skills/fork/SKILL.md: sha256:c78ac8acdc1ec76f9fae31221f3c37e585d2f88b4c28d185013a01186bd820b1
+  .agents/skills/keys/SKILL.md: sha256:36082edc2f46f8e1e75c7addc0021d789c4a0cd69c8da1861b8698b39b0287b0
+  .agents/skills/todo/SKILL.md: sha256:149e8e15f210e5971c7f291b03a2daad5ace092aa6e704cc4627845c5e8605bf
+  .agents/skills/todo/references/skills.md: sha256:6e8a587dab8cbe19901c94717e98e59eceaee2ab669faeb85dc73a29d3c0c0ee
+  .agents/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
+  .agents/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
+  .agents/skills/ui-component/references/csf.md: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
+  .agents/skills/ui-component/references/styles.md: sha256:20cfa33471e6b098ce753b05df70149bc30baa389aa79413b10c6b1a6704ec80
+  .agents/skills/ui-composite/SKILL.md: sha256:32eac80119fd8380f1f091b591e399d7b3f4ac7eb1514dad277d109e85342782
+  .agents/skills/ui-composite/references/csf.md: sha256:54bf891868b2115cdeef7c464ee850f2c8c213b7a5c75c8aeba8f466e6409c65
+  .agents/skills/ui-composite/references/styles.md: sha256:19c8623a36887825a487f26ff8a63a3515588a3b4c66580f171f205d2c029ed4
+  .agents/skills/ui-element/SKILL.md: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
+  .agents/skills/ui-element/references/csf.md: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
+  .agents/skills/ui-element/references/styles.md: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
+  .agents/skills/ui-package/SKILL.md: sha256:20fc52ea29fdf37b273fea457a5835121e2eb8c1488ae58db61dc5a32e3905af
+  .agents/skills/ui-package/references/csf.md: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
+  .agents/skills/ui-package/references/routing.md: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
+  .agents/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
+  .agents/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
+  .claude/rules/agent-guidance.md: sha256:9b10800a22fb742379af820bef25f14529e0f566c396dd5de026afa23b49f05d
+  .claude/rules/javascript-typescript.md: sha256:51583fec7fef7953b484900ea41b30dc7abe3dfad6f55c8249183cd8aa9d3e15
+  .claude/skills/api-package/SKILL.md: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
+  .claude/skills/app-component/SKILL.md: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
+  .claude/skills/app-package/SKILL.md: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
+  .claude/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
+  .claude/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
+  .claude/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
+  .claude/skills/fork/SKILL.md: sha256:c78ac8acdc1ec76f9fae31221f3c37e585d2f88b4c28d185013a01186bd820b1
+  .claude/skills/keys/SKILL.md: sha256:36082edc2f46f8e1e75c7addc0021d789c4a0cd69c8da1861b8698b39b0287b0
+  .claude/skills/todo/SKILL.md: sha256:149e8e15f210e5971c7f291b03a2daad5ace092aa6e704cc4627845c5e8605bf
+  .claude/skills/todo/references/skills.md: sha256:6e8a587dab8cbe19901c94717e98e59eceaee2ab669faeb85dc73a29d3c0c0ee
+  .claude/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
+  .claude/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
+  .claude/skills/ui-component/references/csf.md: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
+  .claude/skills/ui-component/references/styles.md: sha256:20cfa33471e6b098ce753b05df70149bc30baa389aa79413b10c6b1a6704ec80
+  .claude/skills/ui-composite/SKILL.md: sha256:32eac80119fd8380f1f091b591e399d7b3f4ac7eb1514dad277d109e85342782
+  .claude/skills/ui-composite/references/csf.md: sha256:54bf891868b2115cdeef7c464ee850f2c8c213b7a5c75c8aeba8f466e6409c65
+  .claude/skills/ui-composite/references/styles.md: sha256:19c8623a36887825a487f26ff8a63a3515588a3b4c66580f171f205d2c029ed4
+  .claude/skills/ui-element/SKILL.md: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
+  .claude/skills/ui-element/references/csf.md: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
+  .claude/skills/ui-element/references/styles.md: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
+  .claude/skills/ui-package/SKILL.md: sha256:20fc52ea29fdf37b273fea457a5835121e2eb8c1488ae58db61dc5a32e3905af
+  .claude/skills/ui-package/references/csf.md: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
+  .claude/skills/ui-package/references/routing.md: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
+  .claude/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
+  .claude/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
+  .cursor/rules/agent-guidance.mdc: sha256:ff9394313703380a0b2a5c3897ac7b628b32a38b15c4fd6ef71c0fa57619ea8e
+  .cursor/rules/javascript-typescript.mdc: sha256:28a378d5547ab20ff937b7f89738f79408fa40e5fbed45ded3504a52ea0acebb
+  .github/instructions/agent-guidance.instructions.md: sha256:fa8125f1f7027b836cac87baf59eb307fc3350f36fd60f1b303cf3ae08d2cc40
+  .github/instructions/javascript-typescript.instructions.md: sha256:1cae3c12a3e1a79edda275d55f35fe61a5439aebfbb7d46f49de4a3bdeb93849

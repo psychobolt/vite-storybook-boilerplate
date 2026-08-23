@@ -1,0 +1,17 @@
+name: vite-storybook-boilerplate
+version: 0.0.0
+# Which agent platforms to deploy to.
+# Resolution order: --target flag > this field > auto-detect from filesystem.
+# Accepted values: agent-skills, antigravity, claude, codex, copilot, cursor, gemini, grok-build, kiro, opencode, windsurf
+targets:
+  - claude
+  - codex
+  - copilot
+  - cursor
+includes: auto
+dependencies:
+  require_pinned_constraint: true
+  apm:
+    - git: vercel-labs/skills#v1.5.23
+      skills:
+        - find-skills

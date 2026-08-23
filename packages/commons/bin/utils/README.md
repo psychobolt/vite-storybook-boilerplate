@@ -28,6 +28,16 @@ const string = hash(algorihtm, data, options);
 
 Generate a hashed string using built-in crypto library available in Node v20.12.0+. Refer to [docs](https://nodejs.org/api/crypto.html#cryptohashalgorithm-data-options) for usage.
 
+### `getDependentTasks`
+
+```ts
+const tasks = getDependentTasks('build', {
+  cwd: process.cwd() // Optionally override workspace scope
+});
+```
+
+Returns a list of turbo tasks for the current workspace.
+
 ## Runners
 
 runners.ts ([Source](runners.ts))

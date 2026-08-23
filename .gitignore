@@ -1,5 +1,6 @@
-# packages
+# workspace
 node_modules
+apm_modules/
 .turbo
 .vercel
 .vscode/settings.json
@@ -15,6 +16,19 @@ vite.config.*.timestamp-*
 telemetry.json
 bitbucket-report.json
 bitbucket-annotations.json
+
+# Generated shared agent config
+.agents/skills/
+.claude/skills/
+.claude/rules/
+.cursor/rules/
+.cursor/agents/
+.cursor/commands/
+.cursor/hooks.json
+.github/instructions/
+.github/agents/
+.github/prompts/
+.github/hooks/
 
 # environment
 .env*

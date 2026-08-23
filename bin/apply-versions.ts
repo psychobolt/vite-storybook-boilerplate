@@ -1,12 +1,12 @@
 import arg from 'arg';
 import semver from 'semver';
-
+import getWorkspaces, { type Options } from 'commons/esm/bin/ls-workspaces.js';
 import {
   $,
   EXIT_SUCCESS,
-  EXIT_INVALID_USAGE
+  EXIT_INVALID_USAGE,
+  getDependentTasks
 } from 'commons/esm/bin/utils/functions.js';
-import getWorkspaces from './ls-workspaces.ts';
 
 enum Strategy {
   build,
@@ -116,16 +116,6 @@ async function applyAll(immediate = false) {
 
 await applyAll(true);
 
-interface TaskInfo {
-  task: string;
-  package: string;
-  hash: string;
-}
-
-interface BuildInfo {
-  tasks: TaskInfo[];
-}
-
 interface PackageInfo {
   children: {
     Dependents: string[];
@@ -161,12 +151,9 @@ switch (type) {
     await applyAll();
     break;
   case Strategy[Strategy.build]: {
-    const stdout = await $('yarn turbo run build --dry-run=json', execOptions);
-    const { tasks = [] }: BuildInfo = JSON.parse(stdout);
-    for (const { task, package: name, hash } of tasks) {
-      if (task === 'build') {
-        hashIds[name] = hash;
-      }
+    const tasks = await getDependentTasks('build');
+    for (const { package: name, hash } of tasks) {
+      hashIds[name] = hash;
     }
     // fall through
   }
@@ -224,22 +211,14 @@ switch (type) {
         }
       }
 
-      const prerelease = bump == null ? null : semver.prerelease(bump);
-
       if (bump) {
-        for (
-          let i = 0;
-          i < (prerelease == null ? 1 : 2);
-          i += 1 // https://github.com/yarnpkg/berry/issues/3868
-        ) {
-          await $(`yarn workspace ${name} version ${bump}`, {
-            ...execOptions,
-            env: {
-              ...process.env,
-              CHANGE_SET_IGNORE_PATTERNS: '.yarn/versions/**'
-            }
-          });
-        }
+        await $(`yarn workspace ${name} version ${bump} --force`, {
+          ...execOptions,
+          env: {
+            ...process.env,
+            CHANGE_SET_IGNORE_PATTERNS: '.yarn/versions/**'
+          }
+        });
       }
     }
 }

@@ -698,14 +698,14 @@ __metadata:
   linkType: hard
 
 "@napi-rs/wasm-runtime@npm:^1.1.4":
-  version: 1.2.2
-  resolution: "@napi-rs/wasm-runtime@npm:1.2.2"
+  version: 1.2.3
+  resolution: "@napi-rs/wasm-runtime@npm:1.2.3"
   dependencies:
     "@tybys/wasm-util": "npm:^0.10.3"
   peerDependencies:
-    "@emnapi/core": ^1.7.1 || ^2.0.0-alpha.3
-    "@emnapi/runtime": ^1.7.1 || ^2.0.0-alpha.3
-  checksum: 10c0/670ff8359761660f58d95a29fe22ac959d2c295675144fe9bc35118b0e723d1e0ac192df9896ba428eb13930cf0893b632606b70ccaea259fd6eca1836c2eb09
+    "@emnapi/core": ^1.7.1 || ^2.0.0-alpha.4
+    "@emnapi/runtime": ^1.7.1 || ^2.0.0-alpha.4
+  checksum: 10c0/6da0a4bf9df79e9abfb3e3d462f6a5d42889be39426040038c9dd5925865585d7dbd06dd439c2ffc20f49ef2751412da5bd748cfb3c5b049142d72c0550f6f79
   languageName: node
   linkType: hard
 
@@ -924,44 +924,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turbo/darwin-64@npm:2.10.10":
-  version: 2.10.10
-  resolution: "@turbo/darwin-64@npm:2.10.10"
+"@turbo/darwin-64@npm:2.10.11":
+  version: 2.10.11
+  resolution: "@turbo/darwin-64@npm:2.10.11"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/darwin-arm64@npm:2.10.10":
-  version: 2.10.10
-  resolution: "@turbo/darwin-arm64@npm:2.10.10"
+"@turbo/darwin-arm64@npm:2.10.11":
+  version: 2.10.11
+  resolution: "@turbo/darwin-arm64@npm:2.10.11"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@turbo/linux-64@npm:2.10.10":
-  version: 2.10.10
-  resolution: "@turbo/linux-64@npm:2.10.10"
+"@turbo/linux-64@npm:2.10.11":
+  version: 2.10.11
+  resolution: "@turbo/linux-64@npm:2.10.11"
   conditions: (os=android | os=linux) & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/linux-arm64@npm:2.10.10":
-  version: 2.10.10
-  resolution: "@turbo/linux-arm64@npm:2.10.10"
+"@turbo/linux-arm64@npm:2.10.11":
+  version: 2.10.11
+  resolution: "@turbo/linux-arm64@npm:2.10.11"
   conditions: (os=android | os=linux) & cpu=arm64
   languageName: node
   linkType: hard
 
-"@turbo/windows-64@npm:2.10.10":
-  version: 2.10.10
-  resolution: "@turbo/windows-64@npm:2.10.10"
+"@turbo/windows-64@npm:2.10.11":
+  version: 2.10.11
+  resolution: "@turbo/windows-64@npm:2.10.11"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/windows-arm64@npm:2.10.10":
-  version: 2.10.10
-  resolution: "@turbo/windows-arm64@npm:2.10.10"
+"@turbo/windows-arm64@npm:2.10.11":
+  version: 2.10.11
+  resolution: "@turbo/windows-arm64@npm:2.10.11"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -1344,7 +1344,7 @@ __metadata:
     glob: "npm:^13.0.0"
     graceful-fs: "npm:^4.2.9"
     node-gyp-build: "npm:^4.2.2"
-    picomatch: "npm:^4.0.2"
+    picomatch: "npm:^4.0.4"
     resolve-from: "npm:^5.0.0"
   bin:
     nft: out/cli.js
@@ -1953,9 +1953,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.402":
-  version: 1.5.403
-  resolution: "electron-to-chromium@npm:1.5.403"
-  checksum: 10c0/42a49260a162bb08f29b6c4dcf3e5970327efeeece14248450d66175b5197dc92145a20e2e239840bcbc848cbbeddae04248d9525abb3466e6fdfd889a48d06d
+  version: 1.5.408
+  resolution: "electron-to-chromium@npm:1.5.408"
+  checksum: 10c0/1ab46a94451253634a52aefd82cf8e8e743879bf7cd7ea77f675d1122cfcb100d94fa9604fac9085172ddbf241b04361c734bec13aab4353e433ae11fc63d686
   languageName: node
   linkType: hard
 
@@ -3445,7 +3445,7 @@ __metadata:
     react: "npm:19.2.4"
     react-dom: "npm:19.2.4"
     styled-jsx: "npm:5.1.7"
-    turbo: "npm:2.10.10"
+    turbo: "npm:2.10.11"
     typescript: "npm:6.0.3"
   languageName: unknown
   linkType: soft
@@ -4569,16 +4569,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:2.10.10":
-  version: 2.10.10
-  resolution: "turbo@npm:2.10.10"
+"turbo@npm:2.10.11":
+  version: 2.10.11
+  resolution: "turbo@npm:2.10.11"
   dependencies:
-    "@turbo/darwin-64": "npm:2.10.10"
-    "@turbo/darwin-arm64": "npm:2.10.10"
-    "@turbo/linux-64": "npm:2.10.10"
-    "@turbo/linux-arm64": "npm:2.10.10"
-    "@turbo/windows-64": "npm:2.10.10"
-    "@turbo/windows-arm64": "npm:2.10.10"
+    "@turbo/darwin-64": "npm:2.10.11"
+    "@turbo/darwin-arm64": "npm:2.10.11"
+    "@turbo/linux-64": "npm:2.10.11"
+    "@turbo/linux-arm64": "npm:2.10.11"
+    "@turbo/windows-64": "npm:2.10.11"
+    "@turbo/windows-arm64": "npm:2.10.11"
   dependenciesMeta:
     "@turbo/darwin-64":
       optional: true
@@ -4594,7 +4594,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10c0/766b6f776b952d106567eaddd5948cf774b12ca5bbd8cd5fccde09a53ff30fd54403e8a28b5c51fff22af4bd80f3436c0ba821aa21dcd7f8cf2a9b07710e6010
+  checksum: 10c0/685e8241c72ae8e1dffa33a6625ffbb4d6b2a2fb6ae8cc288c0203bbe6ac045fd27709880df28da16ccf01821e98332c007f3311436c48ebbd1b649f25f1d2a2
   languageName: node
   linkType: hard
 
@@ -4814,8 +4814,8 @@ __metadata:
   linkType: hard
 
 "update-browserslist-db@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "update-browserslist-db@npm:1.3.0"
+  version: 1.3.1
+  resolution: "update-browserslist-db@npm:1.3.1"
   dependencies:
     escalade: "npm:^3.2.0"
     picocolors: "npm:^1.1.1"
@@ -4823,7 +4823,7 @@ __metadata:
     browserslist: ">= 4.21.0"
   bin:
     update-browserslist-db: cli.js
-  checksum: 10c0/9d9725f24961fa89f28c89112990562f009f699f05f165a9aeca0f9c35fe0e649ec5f7cd54d64b9d6e58b52309bfa689e331f09d3d7cd9754b37d9b140a24f85
+  checksum: 10c0/2a924f5aa283af2d918e5cd941c7e8d77b05adf2ffbe5ca461506b1ff05fee6e8bca74c0f1ba37eb28f00ec93b15e80de24c7222825835aec2dd7bf0a0f6a417
   languageName: node
   linkType: hard
 

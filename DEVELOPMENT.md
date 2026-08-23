@@ -18,6 +18,13 @@
 
 Overriding Yarn's default global folder (e.g. `YARN_GLOBAL_FOLDER=${HOME}/.yarn/berry` or `YARN_GLOBAL_FOLDER=${LOCALAPPDATA}/Yarn/berry`) in your local `.env` file may help resolve issues during bootstrapping.
 
+### Setup Agent Package Manager (Recommended)
+
+Certain harnesses and agent tools may not detect agent plugins, context, and procedures out of the box after cloning the repo. By default this project supports: [Claude](https://claude.ai/), [Codex](https://chatgpt.com/codex/), [GitHub Copilot](https://github.com/features/copilot), and [Cursor](https://cursor.com/). Follow the recommended setup:
+
+1. Install [APM](https://microsoft.github.io/apm). See the _**quickstart**_ guide to install onto your local environment
+2. Run `apm install` to install and deploy all agent packages
+
 ### Setup Remote Cache (Optional)
 
 #### Local Development
@@ -48,7 +55,10 @@ yarn node ./path/to/script.js       # Run a js script file
 yarn run-script ./path/to/script.ts # Run a ts script file
 yarn up package-name [--exact]      # Upgrade all instances of package to latest release
 yarn lint
-yarn format # This is automatically called on git commit
+yarn format            # This is automatically called on git commit
+yarn dev               # This runs build and dev tasks (e.g. watch, Storybook) for all workspaces
+yarn agentrc readiness # Run this to eval AI codebase eadiness
+apm audit              # If you are making changes to agents, run this to ensure there is no harness drift
 
 # Global tasks that can be hoisted to any workspace scope
 yarn g:run-script ./path/to/script.ts # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:run-script ./path/to/script.ts"
@@ -94,9 +104,12 @@ This project supports continious upgrades with [Renovate Bot](https://docs.renov
 
 ```sh
 yarn [workspace workspace-name] add -[D]E library-or-workspace-name
+apm install [owner/repo] [--dev] package-or-repo [--skill skill] [--mcp mcp]
 ```
 
-> Note: All packages are installed using the [PnP strategy](https://yarnpkg.com/features/pnp) by default. To see advantages, visit the [official Yarn docs](https://yarnpkg.com/features/pnp). Some tools or library APIs, however, are not compatible with the PnP resolution strategy. In order to circumvent you can opt out by setting up a non PnP workspace. For example, see the ["unplugged" Workspace](packages/unplugged/).
+> Note: All libaries are installed using the [PnP strategy](https://yarnpkg.com/features/pnp) by default. To see advantages, visit the [official Yarn docs](https://yarnpkg.com/features/pnp). Some tools or library APIs, however, are not compatible with the PnP resolution strategy. In order to circumvent you can opt out by setting up a non PnP workspace. For example, see the ["unplugged" Workspace](packages/unplugged/).
+
+> You can search for agent packages and [skills](https://www.skills.sh/) (e.g. `yarn skills find [query] [--owner <owner>]`). You can also set up your own local [apm marketplace](https://microsoft.github.io/apm/reference/cli/marketplace/) (e.g. `apm marketplace add [source]` and `apm search query@<marketplace>`)
 
 ## Envrionment Variables
 
@@ -112,9 +125,9 @@ See [documentation](https://dotenvx.com/docs) for usage.
 
 ### Best Practices
 
-- Keep personal secrets or local overrides in a `.env` file.
+- Keep personal secrets in a vault and local overrides in a `.env` file.
 - Keep shared secrets in a `.env.*` file.
-- Before committing shared secrets, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to provide private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) with your team or CI workflow after committing respective environment files.
+- Before committing shared secrets, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to store private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) in your team vault or CI environment after committing respective environment files.
 
 ## [Workflows](WORKFLOWS.md)
 

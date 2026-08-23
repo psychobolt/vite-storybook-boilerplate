@@ -8,13 +8,12 @@ it first for repository shape, architecture, and working principles.
 
 - Route task inquiries by consulting root [AGENTS.md](AGENTS.md) first, then
   the nearest workspace-local `AGENTS.md` for directory-specific rules.
-- Claude Code loads skills from `.agents/*/SKILL.md` (see
-  [AGENTS.md](AGENTS.md)'s "Workflow skills" section) the same way other
-  supporting agents do.
+- Repository skills are authored under `.apm/skills/` and deployed to Claude
+  Code by APM (see [AGENTS.md](AGENTS.md)'s "Workflow skills" section).
 
 ## Maintaining this file
 
 Keep this file thin. Guidance that isn't specific to Claude Code — repo
 structure, architecture, working principles, skill content — belongs in
-`AGENTS.md` or the relevant `.agents/*/SKILL.md`, not here. Update those
+`AGENTS.md` or the relevant `.apm/skills/*/SKILL.md`, not here. Update those
 files directly instead of duplicating their content into this one.

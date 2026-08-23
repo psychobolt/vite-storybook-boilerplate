@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 
 import styles from './Button.module.scss';
 
-const sizes = ['small', 'medium', 'large'] as const;
+export enum SizeEnum {
+  small,
+  medium,
+  large
+}
+
+const sizes = Object.keys(SizeEnum);
 
 export interface Props extends ComponentProps<'button'> {
   /**
@@ -16,7 +22,7 @@ export interface Props extends ComponentProps<'button'> {
   /**
    * How large should the button be?
    */
-  size?: (typeof sizes)[number];
+  size?: keyof typeof SizeEnum;
 }
 
 /**
