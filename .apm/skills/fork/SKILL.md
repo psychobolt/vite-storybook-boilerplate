@@ -31,7 +31,8 @@ later project setup.
    workspace configuration, and the repository workflow documentation. Inspect
    the worktree and preserve unrelated changes. Record the current branch,
    remotes, workspace list, protected paths, and candidate demo paths without
-   changing files.
+   changing files. If no Git remotes are configured, continue with the
+   documentation and local repository metadata as the identity sources.
 2. **Inventory original identity.** Search eligible tracked and source files
    for the original repository name, owner, repository URL, package names,
    author or organization, documentation links, CI references, service
@@ -39,8 +40,12 @@ later project setup.
    generated output, dependencies, and Git internals from content scans. Keep
    generic tooling names such as Storybook, Vite, Yarn, and shared package names
    unless they are specifically part of the original project identity. Inspect
-   Git remotes with `git remote -v` or `git remote get-url --all <remote>` and
-   record their URLs as Git metadata, not repository content.
+   Git remotes with `git remote -v` or `git remote get-url --all <remote>` when
+   available and record their URLs as Git metadata, not repository content. If
+   no remotes are available, use repository documentation, including any
+   remote-setup or synchronization guidance, and eligible repository metadata
+   to identify the original project instead of treating the missing remotes as
+   a failure.
 3. **Confirm cleanup and identity.** Present the proposed deletion set and the
    original identity fields that need replacement. Ask the user for values that
    are required by the package manager or project configuration, including the
@@ -95,12 +100,15 @@ later project setup.
    confirm the original repository URL from repository metadata, documentation,
    workflow or automation configuration, or Git remotes before comparing remote
    URLs. Normalize SSH and HTTPS forms, host aliases, case, and a trailing
-   `.git` before comparing. Report remotes that still point to the original
-   repository, but do not rewrite `origin` as part of fork cleanup. If the
-   references disagree and the original URL cannot be confirmed, report the
-   comparison as indeterminate rather than guessing. Remove an obsolete `base`
-   remote only with explicit user approval; remote cleanup is optional and not
-   required for working-tree cleanup. Do not rewrite commit history.
+   `.git` before comparing. If remotes are unavailable, treat the documentation
+   and repository metadata as the canonical identity sources and report that
+   the comparison was documentation-only. Report remotes that still point to
+   the original repository when they exist, but do not rewrite `origin` as part
+   of fork cleanup. If the references disagree and the original URL cannot be
+   confirmed, report the comparison as indeterminate rather than guessing.
+   Remove an obsolete `base` remote only with explicit user approval; remote
+   cleanup is optional and not required for working-tree cleanup. Do not rewrite
+   commit history.
 7. **Validate the clean fork.** Format changed files with the repository's
    formatter and run `git diff --check`. Verify that protected paths remain,
    removed workspaces are absent from workspace and task configuration, edited

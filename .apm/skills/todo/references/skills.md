@@ -35,6 +35,7 @@ validation and partial runs do not count.
 | `ci`           | 0    | Diagnose representative provider workflows, including Bitbucket Pipelines when present, and a dependency-update validation failure.                                                            |
 | `keys`         | 0    | Test secure-handoff and fail-closed behavior for missing access, validation, approval, rotation, recovery, and cleanup without exposing environment files or key values.                       |
 | `fork`         | 0    | Run a confirmed fork cleanup that removes approved demo workspaces, preserves protected infrastructure, normalizes identity, and validates stale-reference removal without invoking bootstrap. |
+| `sync`         | 0    | Run both related-history and unrelated-history synchronization workflows, including conflict review, local `base-main` integration, validation, and guarded `dev/upgrade` publication.         |
 
 ## Stable skills
 
