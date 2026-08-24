@@ -1,6 +1,9 @@
 name: Auto approve
 on: pull_request_target
 
+permissions:
+  pull-requests: read
+
 jobs:
   auto-approve:
     if: endsWith(github.actor, 'psychobolt[bot]')

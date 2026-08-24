@@ -1,0 +1,126 @@
+name: Renew development certificate
+
+on:
+  schedule:
+    # Check monthly and renew only when the certificate is near expiry.
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Generate and publish a new certificate immediately.
+        required: false
+        type: boolean
+        default: false
+      cert_path:
+        description: Certificate output path.
+        required: false
+        type: string
+        default: cert/dev-cert.pem
+      key_path:
+        description: Private key output path.
+        required: false
+        type: string
+        default: cert/dev-key.pem
+      cert_days:
+        description: Certificate validity in days.
+        required: false
+        type: string
+        default: '3653'
+      cert_subject:
+        description: Certificate subject.
+        required: false
+        type: string
+        default: /CN=localhost
+      cert_san:
+        description: Subject alternative names.
+        required: false
+        type: string
+        default: DNS:localhost,IP:127.0.0.1,IP:::1
+      cert_key_type:
+        description: OpenSSL key type and size.
+        required: false
+        type: string
+        default: rsa:2048
+
+permissions:
+  contents: read
+
+concurrency:
+  group: development-certificate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  renew:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CERT_PATH: ${{ inputs.cert_path || 'cert/dev-cert.pem' }}
+      KEY_PATH: ${{ inputs.key_path || 'cert/dev-key.pem' }}
+      CERT_DAYS: ${{ inputs.cert_days }}
+      CERT_SUBJECT: ${{ inputs.cert_subject }}
+      CERT_SAN: ${{ inputs.cert_san }}
+      CERT_KEY_TYPE: ${{ inputs.cert_key_type }}
+    steps:
+      - name: Get token
+        id: get_token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+
+      - name: Get GitHub App User ID
+        id: get_user_id
+        env:
+          GH_TOKEN: ${{ steps.get_token.outputs.token }}
+        run: echo "user-id=$(gh api \"/users/${{ steps.get_token.outputs.app-slug }}[bot]\" --jq .id)" >> "$GITHUB_OUTPUT"
+
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 1
+          token: ${{ steps.get_token.outputs.token }}
+
+      - name: Check certificate expiry
+        id: certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cert_path="$CERT_PATH"
+          key_path="$KEY_PATH"
+          renewal_window=$((30 * 24 * 60 * 60))
+          force_renewal='${{ inputs.force || false }}'
+          renew=true
+
+          if [[ "$force_renewal" != 'true' && -s "$cert_path" && -s "$key_path" ]]; then
+            cert_hash=$(openssl x509 -noout -modulus -in "$cert_path" 2>/dev/null | openssl sha256 | awk '{print $2}')
+            key_hash=$(openssl rsa -noout -modulus -in "$key_path" 2>/dev/null | openssl sha256 | awk '{print $2}')
+            expiry_text=$(openssl x509 -enddate -noout -in "$cert_path" 2>/dev/null || true)
+
+            if [[ -n "$cert_hash" && "$cert_hash" == "$key_hash" && -n "$expiry_text" ]]; then
+              if expiry=$(date -d "${expiry_text#*=}" +%s 2>/dev/null); then
+                if (( expiry - $(date +%s) > renewal_window )); then
+                  renew=false
+                fi
+              fi
+            fi
+          fi
+
+          echo "renew=$renew" >> "$GITHUB_OUTPUT"
+
+          if [[ "$renew" == true ]]; then
+            ./bin/generate-cert.sh
+          fi
+
+      - name: Configure git
+        if: steps.certificate.outputs.renew == 'true'
+        run: |
+          git config --global user.name ${{ steps.get_token.outputs.app-slug }}[bot]
+          git config --global user.email ${{ steps.get_user_id.outputs.user-id }}+${{ steps.get_token.outputs.app-slug }}[bot]@users.noreply.github.com
+
+      - name: Publish renewed certificate
+        if: steps.certificate.outputs.renew == 'true'
+        run: |
+          git add "$CERT_PATH" "$KEY_PATH"
+          git commit -m 'chore(cert): renew development certificate'
+          git push

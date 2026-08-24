@@ -4,9 +4,14 @@ on:
     # string has to be quoted.
     - cron: '0 0 * * 0' # Every Sunday at midnight UTC
 
+permissions:
+  contents: read
+
 jobs:
   next:
     uses: ./.github/workflows/sync.yml
+    permissions:
+      contents: read
     with:
       ref_name: next
     secrets: inherit

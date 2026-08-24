@@ -20,7 +20,8 @@
     "g:swc-register-path": "yarn node -p \"require.resolve('@swc-node/register')\"",
     "postinstall": "husky",
     "lint": "yarn g:prettier --check . && yarn g:lint",
-    "run-script": "yarn g:run-script"
+    "run-script": "yarn g:run-script",
+    "trust-cert": "yarn run-script bin/trust-cert.ts"
   },
   "resolutions": {
     "@storybook/test-runner/playwright": "*",

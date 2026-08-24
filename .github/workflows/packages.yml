@@ -16,9 +16,14 @@ on:
       release:
         value: 'true'
 
+permissions:
+  contents: read
+
 jobs:
   commons:
     uses: ./.github/workflows/test-commons.yml
+    permissions:
+      contents: read
     if: contains(fromJSON(inputs.package_names), 'commons')
     with:
       ref_name: ${{ inputs.ref_name }}
@@ -27,6 +32,8 @@ jobs:
 
   stylelint-config:
     uses: './.github/workflows/test-commons.yml'
+    permissions:
+      contents: read
     if: contains(fromJSON(inputs.package_names), 'stylelint-config')
     with:
       ref_name: ${{ inputs.ref_name }}
@@ -35,6 +42,12 @@ jobs:
 
   html-ui:
     uses: ./.github/workflows/package.yml
+    permissions:
+      contents: read
+      deployments: write
+      issues: write
+      packages: write
+      pull-requests: write
     if: contains(fromJSON(inputs.package_names), 'html-ui')
     with:
       ref: ${{ inputs.ref }}
@@ -46,6 +59,12 @@ jobs:
   react-ui:
     if: contains(fromJSON(inputs.package_names), 'react-ui')
     uses: ./.github/workflows/package.yml
+    permissions:
+      contents: read
+      deployments: write
+      issues: write
+      packages: write
+      pull-requests: write
     with:
       ref: ${{ inputs.ref }}
       workspace: react-ui

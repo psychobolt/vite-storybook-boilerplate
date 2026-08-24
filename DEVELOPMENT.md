@@ -12,7 +12,8 @@
 6. Check notifications (bottom right of VSCode status bar) and install all recommended extensions
 7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
 8. Copy `.vscode/settings.default.json` to `.vscode/settings.json`
-9. Restart VSCode and reopen the project as in step 5.
+9. Reopen the project as in step 5.
+10. Run command `yarn trust-cert` in your project directory to trust the development certificate.
 
 #### Troubleshooting
 
@@ -40,8 +41,8 @@ Certain harnesses and agent tools may not detect agent plugins, context, and pro
 # Some examples
 yarn my-bin-script # Execute a binary script
 yarn my-task-name  # Run a task
-yarn run [-B] my-bin-or-task-name
-yarn exec my-bin-or-script
+yarn run [-B] <my-bin-or-task-name>
+yarn exec <my-bin-or-script>
 ```
 
 See [information](https://yarnpkg.com/cli) on commands for Yarn.
@@ -74,20 +75,20 @@ See [bin/](bin/)
 #### Workspace Scope
 
 ```sh
-#cd (packages|apps)/workspace-name # optional if not using yarn workspace command, otherwise you'll run task on all workspaces
-yarn [workspace workspace-name] turbo task-name [--force] [-- --some-option] # Run a turbo enabled task
+#cd (packages|apps)/<workspace-name> # optional if not using yarn workspace command, otherwise you'll run task on all workspaces
+yarn [workspace <workspace-name>] turbo <task-name> [--force] [-- --<some-option>] # Run a turbo enabled task
 # or by using path directly. By default the `workspace` sub-command will search all workspace paths
 yarn [(packages|apps)/workspace-name] turbo run task-name
-yarn [workspace workspace-name] turbo run start # Serve production build
-yarn [workspace workspace-name] turbo run dev # Start up dev server, Storybook, watch, etc...
-yann [workspace workspace-name] turbo run build # Build for production
-yarn [workspace workspace-name] turbo run watch # Recompile sources when a file changes (package workspaces)
-yarn [workspace workspace-name] turbo run build-storybook # Build for production
-yarn [workspace workspace-name] turbo run lint
-yarn [workspace workspace-name] turbo run format # This is automatically called on git commit.
-yarn [workspace workspace-name] turbo run chromatic # Requires Chromatic Setup
-yarn [workspace workspace-name] turbo run test
-yarn [workspace workspace-name] turbo run coverage # Collect code coverage (also may run tests)
+yarn [workspace <workspace-name>] turbo run start # Serve production build
+yarn [workspace <workspace-name>] turbo run dev # Start up dev server, Storybook, watch, etc...
+yann [workspace <workspace-name>] turbo run build # Build for production
+yarn [workspace <workspace-name>] turbo run watch # Recompile sources when a file changes (package workspaces)
+yarn [workspace <workspace-name>] turbo run build-storybook # Build for production
+yarn [workspace <workspace-name>] turbo run lint
+yarn [workspace <workspace-name>] turbo run format # This is automatically called on git commit.
+yarn [workspace <workspace-name>] turbo run chromatic # Requires Chromatic Setup
+yarn [workspace <workspace-name>] turbo run test
+yarn [workspace <workspace-name>] turbo run coverage # Collect code coverage (also may run tests)
 ```
 
 You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turbo run format --filter=react-ui --filter=html-ui --filter=apps/**`.
@@ -103,8 +104,9 @@ This project supports continious upgrades with [Renovate Bot](https://docs.renov
 ### Adding Dependencies
 
 ```sh
-yarn [workspace workspace-name] add -[D]E library-or-workspace-name
-apm install [owner/repo] [--dev] package-or-repo [--skill skill] [--mcp mcp]
+yarn [workspace <workspace-name>] add -[D]E <library-or-workspace-name>
+apm install owner/repo [--dev] <package-or-repo> [--skill <skill>]
+apm install --mcp <workspace-mcp> --transport http --url <url>
 ```
 
 > Note: All libaries are installed using the [PnP strategy](https://yarnpkg.com/features/pnp) by default. To see advantages, visit the [official Yarn docs](https://yarnpkg.com/features/pnp). Some tools or library APIs, however, are not compatible with the PnP resolution strategy. In order to circumvent you can opt out by setting up a non PnP workspace. For example, see the ["unplugged" Workspace](packages/unplugged/).
@@ -116,9 +118,9 @@ apm install [owner/repo] [--dev] package-or-repo [--skill skill] [--mcp mcp]
 ### Using environment files
 
 ```sh
-yarn [workspace workspace-name] g:dotenv help                    # Print usage
-yarn [workspace workspace-name] g:dotenv-get MY_VARIABLE         # Print a environment variable value
-yarn [workspace workspace-name] g:dotenv-run -- my-script-or-bin # Loads envronment variables with your script or bin
+yarn [workspace <workspace-name>] g:dotenv help                    # Print usage
+yarn [workspace <workspace-name>] g:dotenv-get MY_VARIABLE         # Print a environment variable value
+yarn [workspace <workspace-name>] g:dotenv-run -- <my-script-or-bin> # Loads envronment variables with your script or bin
 ```
 
 See [documentation](https://dotenvx.com/docs) for usage.
