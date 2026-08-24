@@ -192,6 +192,8 @@ package. The
 setup orchestration and should use the keys skill when implemented. The
 [fork skill](.apm/skills/fork/SKILL.md) handles clean-project fork cleanup and
 identity normalization without invoking the unfinished bootstrap workflow.
+The [sync skill](.apm/skills/sync/SKILL.md) synchronizes `origin/main` with
+`base/main`, including unrelated-history integration when required.
 Use the [todo skill](.apm/skills/todo/SKILL.md) to track placeholder or otherwise
 unestablished skills and setup work. Treat the checked-out branch's
 CI configuration as authoritative.
