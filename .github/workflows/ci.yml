@@ -40,8 +40,6 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
-    permissions:
-      contents: read
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
@@ -99,8 +97,6 @@ jobs:
     name: List Updated Packages
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     env:
       BASE_REF: ${{ inputs.base_ref || github.base_ref }}
       TURBO_GLOBAL_WARNING_DISABLED: 1

@@ -15,8 +15,6 @@ permissions:
 jobs:
   setup:
     uses: ./.github/workflows/sync.yml
-    permissions:
-      contents: read
     with:
       ref_name: bitbucket
     secrets: inherit

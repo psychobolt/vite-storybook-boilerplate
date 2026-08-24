@@ -22,8 +22,6 @@ permissions:
 jobs:
   commons:
     uses: ./.github/workflows/test-commons.yml
-    permissions:
-      contents: read
     if: contains(fromJSON(inputs.package_names), 'commons')
     with:
       ref_name: ${{ inputs.ref_name }}
@@ -32,8 +30,6 @@ jobs:
 
   stylelint-config:
     uses: './.github/workflows/test-commons.yml'
-    permissions:
-      contents: read
     if: contains(fromJSON(inputs.package_names), 'stylelint-config')
     with:
       ref_name: ${{ inputs.ref_name }}
