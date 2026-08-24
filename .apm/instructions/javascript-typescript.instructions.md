@@ -3,7 +3,7 @@ description: Repository JavaScript and TypeScript source conventions.
 applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
 ---
 
-## Import organization
+## Imports
 
 - Organize imports by ownership and runtime role; this is an import
   organization convention, not a replacement for Prettier.
@@ -36,7 +36,25 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   convention across framework-specific configuration without checking the
   target framework and package setup.
 
-## Expressions
+## Type safety
+
+- Avoid `as` type assertions when the type can be expressed through inference,
+  an explicit annotation, `satisfies`, a generic, control-flow narrowing, a
+  type guard, or runtime validation. Use `as` only when the assertion is
+  verified and necessary because the compiler cannot represent known type
+  information or an external API requires it. Do not remove an existing
+  assertion during an unrelated change unless the replacement preserves its
+  type behavior.
+- Prefer a library's public type for typed overrides. For configuration
+  overrides, `satisfies Partial<LibraryConfig>` can provide validation and
+  autocomplete without an assertion. When a composed value is exported from
+  a typed module or compiled to declarations, explicitly type the exported
+  value with its public type so consumers retain useful autocomplete.
+- Do not cast generic `unknown` configuration values merely to satisfy the
+  compiler. Prefer a public library type, `satisfies`, narrowing, or runtime
+  validation when the value is genuinely untrusted.
+
+## Local expressions and scope
 
 - Inline a local variable's initializer when that variable is read only once
   and has no type-specific purpose when writing new code. Keep a named
@@ -46,13 +64,19 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   them solely to inline their expressions. For new code, prefer
   `return format(value)` over `const formatted = format(value); return formatted`,
   but retain a single-use variable when its cast is needed for type correctness.
+- Avoid immediately invoked function expressions and closure-based initializers
+  when direct control flow or a named helper expresses the logic clearly. Use a
+  named function for reusable or testable logic, or a block-scoped assignment
+  for one-off logic. Retain a closure when it provides necessary encapsulation,
+  deferred execution, or deliberate scope isolation, and do not refactor an
+  existing closure solely to apply this preference.
 
-## Typing
+## Configuration composition
 
-- Avoid `as` type assertions when the type can be expressed through inference,
-  an explicit annotation, `satisfies`, a generic, control-flow narrowing, a
-  type guard, or runtime validation. Use `as` only when the assertion is
-  verified and necessary because the compiler cannot represent known type
-  information or an external API requires it. Do not remove an existing
-  assertion during an unrelated change unless the replacement preserves its
-  type behavior.
+- When extending a third-party configuration factory, preserve its defaults.
+  Merge nested overrides with the library's documented merge utility or with
+  explicit object composition; do not replace nested configuration accidentally.
+  Follow the library's semantics for arrays and other special configuration
+  values rather than assuming every value supports a generic deep merge.
+- Keep configuration-specific helpers and types local unless multiple
+  configurations reuse them.

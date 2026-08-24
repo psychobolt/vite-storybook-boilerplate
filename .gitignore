@@ -16,9 +16,12 @@ vite.config.*.timestamp-*
 telemetry.json
 bitbucket-report.json
 bitbucket-annotations.json
+mcp.json
+.mcp.json
 
 # Generated shared agent config
 .agents/skills/
+.codex/config.toml
 .claude/skills/
 .claude/rules/
 .cursor/rules/

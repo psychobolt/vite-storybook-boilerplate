@@ -91,6 +91,10 @@ only by build tools, Storybook, tests, linting, formatting, or declaration
 generation in `devDependencies`. If a local workspace package is required at
 runtime, treat it as a consumer dependency; when the package is public, list it
 in `peerDependencies` and document its installation in the package README.
+Treat a type-only import as a consumer dependency when it appears in emitted
+declarations. Classify it as a regular dependency or peer dependency according
+to the package's public contract; keep it in `devDependencies` only when the
+type is erased or remains internal to the package.
 Use the repository's documented package-manager workflow to update manifests
 and lockfiles.
 
