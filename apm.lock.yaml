@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-20T21:54:08.299752+00:00'
+generated_at: '2026-08-21T23:07:37.779327+00:00'
 apm_version: 0.28.0
 dependencies:
   - repo_url: vercel-labs/skills
@@ -371,7 +371,7 @@ deployments:
     owners:
       - .
     active_owner: .
-    content_hash: sha256:51583fec7fef7953b484900ea41b30dc7abe3dfad6f55c8249183cd8aa9d3e15
+    content_hash: sha256:51d527ab8147ffb2feb34dddd9593534c9a1dceffaf963a551c4077911302b14
   - kind: project-relative
     target: claude
     value: .claude/skills/api-package
@@ -758,7 +758,7 @@ deployments:
     owners:
       - .
     active_owner: .
-    content_hash: sha256:1cae3c12a3e1a79edda275d55f35fe61a5439aebfbb7d46f49de4a3bdeb93849
+    content_hash: sha256:2aebfc5586b45f4591641eb3cead95836958150453a795105e1b7e480d3a5c9e
   - kind: project-relative
     target: cursor
     value: .cursor/rules/agent-guidance.mdc
@@ -776,7 +776,60 @@ deployments:
     owners:
       - .
     active_owner: .
-    content_hash: sha256:28a378d5547ab20ff937b7f89738f79408fa40e5fbed45ded3504a52ea0acebb
+    content_hash: sha256:a252164664d318b6075e2d3c1a1b0166c55cf25a2922137e9bff94607911bf5b
+  - kind: uri
+    target: mcp
+    value: react-ui:local
+    runtime: claude
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: uri
+    target: mcp
+    value: react-ui:local
+    runtime: codex
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: uri
+    target: mcp
+    value: react-ui:local
+    runtime: cursor
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+  - kind: uri
+    target: mcp
+    value: react-ui:local
+    runtime: vscode
+    scope: project
+    owners:
+      - .
+    active_owner: .
+    content_hash: null
+mcp_servers:
+  - react-ui:local
+mcp_configs:
+  react-ui:local:
+    name: react-ui:local
+    transport: http
+    registry: false
+    url: https://localhost:6007/mcp
+mcp_target_servers:
+  claude:
+    - react-ui:local
+  codex:
+    - react-ui:local
+  cursor:
+    - react-ui:local
+  vscode:
+    - react-ui:local
 local_deployed_files:
   - .agents/skills/api-package
   - .agents/skills/api-package/SKILL.md
@@ -885,7 +938,7 @@ local_deployed_file_hashes:
   .agents/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
   .agents/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
   .claude/rules/agent-guidance.md: sha256:9b10800a22fb742379af820bef25f14529e0f566c396dd5de026afa23b49f05d
-  .claude/rules/javascript-typescript.md: sha256:51583fec7fef7953b484900ea41b30dc7abe3dfad6f55c8249183cd8aa9d3e15
+  .claude/rules/javascript-typescript.md: sha256:51d527ab8147ffb2feb34dddd9593534c9a1dceffaf963a551c4077911302b14
   .claude/skills/api-package/SKILL.md: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
   .claude/skills/app-component/SKILL.md: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
   .claude/skills/app-package/SKILL.md: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
@@ -912,6 +965,6 @@ local_deployed_file_hashes:
   .claude/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
   .claude/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
   .cursor/rules/agent-guidance.mdc: sha256:ff9394313703380a0b2a5c3897ac7b628b32a38b15c4fd6ef71c0fa57619ea8e
-  .cursor/rules/javascript-typescript.mdc: sha256:28a378d5547ab20ff937b7f89738f79408fa40e5fbed45ded3504a52ea0acebb
+  .cursor/rules/javascript-typescript.mdc: sha256:a252164664d318b6075e2d3c1a1b0166c55cf25a2922137e9bff94607911bf5b
   .github/instructions/agent-guidance.instructions.md: sha256:fa8125f1f7027b836cac87baf59eb307fc3350f36fd60f1b303cf3ae08d2cc40
-  .github/instructions/javascript-typescript.instructions.md: sha256:1cae3c12a3e1a79edda275d55f35fe61a5439aebfbb7d46f49de4a3bdeb93849
+  .github/instructions/javascript-typescript.instructions.md: sha256:2aebfc5586b45f4591641eb3cead95836958150453a795105e1b7e480d3a5c9e

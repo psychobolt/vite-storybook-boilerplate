@@ -18,6 +18,11 @@ jobs:
   next-app:
     if: contains(fromJSON(inputs.package_names), 'next-app')
     uses: ./.github/workflows/test-app.yml
+    permissions: &app_permissions
+      contents: read
+      deployments: write
+      issues: write
+      pull-requests: write
     with:
       ref_name: ${{ inputs.ref_name }}
       base_ref: ${{ inputs.base_ref }}
@@ -29,6 +34,7 @@ jobs:
   svelte-app:
     if: contains(fromJSON(inputs.package_names), 'svelte-app')
     uses: ./.github/workflows/test-app.yml
+    permissions: *app_permissions
     with:
       ref_name: ${{ inputs.ref_name }}
       base_ref: ${{ inputs.base_ref }}

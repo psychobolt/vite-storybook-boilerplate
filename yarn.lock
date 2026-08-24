@@ -8370,7 +8370,9 @@ __metadata:
     eslint-plugin-package-json: "npm:1.7.1"
     eslint-plugin-storybook: "npm:10.5.10"
     glob-to-regexp: "npm:0.4.1"
+    http-server: "npm:14.1.1"
     jest-junit: "npm:17.0.0"
+    jest-playwright-preset: "npm:4.0.0"
     jiti: "npm:2.7.0"
     lint-staged: "npm:17.3.0"
     lodash: "npm:4.18.1"
@@ -11627,7 +11629,6 @@ __metadata:
     commons: "workspace:*"
     eslint: "npm:10.9.0"
     glob: "npm:13.0.6"
-    http-server: "npm:14.1.1"
     lit: "npm:3.3.3"
     nyc: "npm:18.0.0"
     prettier: "npm:3.9.6"
@@ -12883,6 +12884,25 @@ __metadata:
     "@types/node": "npm:*"
     jest-util: "npm:30.4.1"
   checksum: 10c0/5185a41255285c1634c5d85dda037afaaadfc12793b3293c9e253a30bb67449f8df968447f830abb9cf7a52e63694e6734680130e8085ce119056280890bf6fc
+  languageName: node
+  linkType: hard
+
+"jest-playwright-preset@npm:4.0.0":
+  version: 4.0.0
+  resolution: "jest-playwright-preset@npm:4.0.0"
+  dependencies:
+    expect-playwright: "npm:^0.8.0"
+    jest-process-manager: "npm:^0.4.0"
+    nyc: "npm:^15.1.0"
+    playwright-core: "npm:>=1.2.0"
+    rimraf: "npm:^3.0.2"
+    uuid: "npm:^8.3.2"
+  peerDependencies:
+    jest: ^29.3.1
+    jest-circus: ^29.3.1
+    jest-environment-node: ^29.3.1
+    jest-runner: ^29.3.1
+  checksum: 10c0/c51b00dde02ab6a102589f97ca6c9679886c806da82f73ff0d4822cc06e988333eb8c62c2b2f8381d5e7fa2edfa5cc33e624a36107903d6b98ddd26dd0035a05
   languageName: node
   linkType: hard
 
@@ -16342,7 +16362,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:*, playwright-core@npm:1.62.1":
+"playwright-core@npm:*, playwright-core@npm:1.62.1, playwright-core@npm:>=1.2.0":
   version: 1.62.1
   resolution: "playwright-core@npm:1.62.1"
   bin:
@@ -17006,7 +17026,6 @@ __metadata:
     eslint-plugin-react-hooks: "npm:7.1.1"
     glob: "npm:13.0.6"
     html-ui: "workspace:*"
-    http-server: "npm:14.1.1"
     lodash: "npm:4.18.1"
     prop-types: "npm:15.8.1"
     react: "npm:19.2.8"

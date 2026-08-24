@@ -8,6 +8,10 @@ Collection of scripts, executables, and any runtimes for workspace or infrastruc
 
 Installs workspaces that do not support `pnp` linker
 
+```
+yarn bootstrap
+```
+
 ## Apply Versions
 
 `apply-versions.ts` [Source](apply-versions.ts)
@@ -55,6 +59,41 @@ Returns a hash string based on available algorithms supported by OpenSSL. For mo
 # Examples
 yarn run-script bin/hash.ts sha256 "hello world"
 yarn run-script bin/hash.ts hello_world # use default algorithm - 'sha1'
+```
+
+## Trust Certificate
+
+`trust-cert.ts` ([Source](trust-cert.ts))
+
+Adds `cert/dev-cert.pem` to the platform certificate trust store. On macOS,
+the certificate is added to the System keychain so Chrome can use the trust.
+
+```sh
+yarn trust-cert
+```
+
+## Generate Certificate
+
+`generate-cert.sh` ([Source](generate-cert.sh))
+
+Generates a self-signed server certificate and key. By default it creates the
+shared 10-year `cert/dev-cert.pem` and `cert/dev-key.pem` pair with localhost
+hostnames.
+
+```sh
+yarn exec ./bin/generate-cert.sh
+```
+
+The defaults can be overridden with `CERT_PATH`, `KEY_PATH`, `CERT_DAYS`,
+`CERT_SUBJECT`, `CERT_SAN`, and `CERT_KEY_TYPE`. Additional arguments are
+forwarded to `openssl req`:
+
+```sh
+CERT_PATH=cert/server.pem \
+  KEY_PATH=cert/server-key.pem \
+  CERT_SUBJECT='/CN=example.test' \
+  CERT_SAN='DNS:example.test' \
+  yarn exec ./bin/generate-cert.sh --config ./cert/openssl.cnf
 ```
 
 ## ESM Register

@@ -24,6 +24,9 @@ env:
   TURBO_TELEMETRY_DISABLED: 1
   YARN_ENABLE_HARDENED_MODE: 0
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: Run Linter
@@ -33,8 +36,6 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     environment: '${{ inputs.workspace }}/${{ matrix.os }}'
-    permissions:
-      contents: read
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -68,8 +69,6 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     environment: '${{ inputs.workspace }}/${{ matrix.os }}'
-    permissions:
-      contents: read
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -120,8 +119,6 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     environment: '${{ inputs.workspace }}/ubuntu-latest'
-    permissions:
-      contents: read
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
