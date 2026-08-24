@@ -16,9 +16,6 @@ on:
       release:
         value: 'true'
 
-permissions:
-  contents: read
-
 jobs:
   commons:
     uses: ./.github/workflows/test-commons.yml
@@ -38,7 +35,7 @@ jobs:
 
   html-ui:
     uses: ./.github/workflows/package.yml
-    permissions:
+    permissions: &package_permissions
       contents: read
       deployments: write
       issues: write
@@ -55,12 +52,7 @@ jobs:
   react-ui:
     if: contains(fromJSON(inputs.package_names), 'react-ui')
     uses: ./.github/workflows/package.yml
-    permissions:
-      contents: read
-      deployments: write
-      issues: write
-      packages: write
-      pull-requests: write
+    permissions: *package_permissions
     with:
       ref: ${{ inputs.ref }}
       workspace: react-ui
