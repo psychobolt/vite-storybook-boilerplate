@@ -244,6 +244,9 @@ pipelines:
             - *env
             - export PACKAGE_NAME=vite-storybook-boilerplate
             - *setup
+            - curl -sSL https://aka.ms/apm-unix | sh
+            - apm install --frozen
+            - apm audit --ci --no-cache
             - *lint
             - *report
       - parallel:
@@ -556,3 +559,74 @@ pipelines:
             - export RENOVATE_REPOSITORIES=${BITBUCKET_REPO_FULL_NAME}
             - export YARN_ENABLE_IMMUTABLE_INSTALLS=false
             - renovate
+    cert:
+      - variables:
+          - name: FORCE
+            description: Generate and publish a new certificate immediately.
+            default: 'false'
+            allowed-values:
+              - 'true'
+              - 'false'
+          - name: CERT_PATH
+            description: Certificate output path.
+            default: cert/dev-cert.pem
+          - name: KEY_PATH
+            description: Private key output path.
+            default: cert/dev-key.pem
+          - name: CERT_DAYS
+            description: Certificate validity in days.
+            default: '3653'
+          - name: CERT_SUBJECT
+            description: Certificate subject.
+            default: /CN=localhost
+          - name: CERT_SAN
+            description: Subject alternative names.
+            default: DNS:localhost,IP:127.0.0.1,IP:::1
+          - name: CERT_KEY_TYPE
+            description: OpenSSL key type and size.
+            default: rsa:2048
+      - step:
+          name: Renew Certificate
+          image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
+          max-time: 5
+          script:
+            - *git-auth
+            - |
+              set -euo pipefail
+
+              cert_path="${CERT_PATH:-cert/dev-cert.pem}"
+              key_path="${KEY_PATH:-cert/dev-key.pem}"
+              renewal_window=$((30 * 24 * 60 * 60))
+              force_renewal="${FORCE:-false}"
+              renew=true
+
+              if [[ "$force_renewal" != 'true' && -s "$cert_path" && -s "$key_path" ]]; then
+                cert_hash=$(openssl x509 -noout -modulus -in "$cert_path" 2>/dev/null | openssl sha256 | awk '{print $2}')
+                key_hash=$(openssl rsa -noout -modulus -in "$key_path" 2>/dev/null | openssl sha256 | awk '{print $2}')
+                expiry_text=$(openssl x509 -enddate -noout -in "$cert_path" 2>/dev/null || true)
+
+                if [[ -n "$cert_hash" && "$cert_hash" == "$key_hash" && -n "$expiry_text" ]]; then
+                  if expiry=$(date -d "${expiry_text#*=}" +%s 2>/dev/null); then
+                    if (( expiry - $(date +%s) > renewal_window )); then
+                      renew=false
+                    fi
+                  fi
+                fi
+              fi
+
+              if [[ "$renew" != true ]]; then
+                echo "Certificate is not due for renewal."
+                exit 0
+              fi
+
+              CERT_PATH="$cert_path" \
+              KEY_PATH="$key_path" \
+              CERT_DAYS="${CERT_DAYS:-3653}" \
+              CERT_SUBJECT="${CERT_SUBJECT:-/CN=localhost}" \
+              CERT_SAN="${CERT_SAN:-DNS:localhost,IP:127.0.0.1,IP:::1}" \
+              CERT_KEY_TYPE="${CERT_KEY_TYPE:-rsa:2048}" \
+                ./bin/generate-cert.sh
+
+              git add "$cert_path" "$key_path"
+              git commit -m 'chore(cert): renew development certificate'
+              git push
