@@ -40,6 +40,10 @@ const playwrightEnvironmentOptions = {
   }
 } satisfies Partial<JestPlaywrightConfig>;
 
+/** Add your own overrides below, and make sure
+ *  to merge testRunnerConfig properties with your own
+ * @see https://jestjs.io/docs/configuration
+ */
 const config: TestRunnerConfig = {
   ...testRunnerConfig,
   testEnvironmentOptions: mergeConfig(
@@ -48,10 +52,6 @@ const config: TestRunnerConfig = {
       'jest-playwright': playwrightEnvironmentOptions
     }
   ),
-  /** Add your own overrides below, and make sure
-   *  to merge testRunnerConfig properties with your own
-   * @see https://jestjs.io/docs/configuration
-   */
   passWithNoTests: true,
   reporters: [
     'default',
