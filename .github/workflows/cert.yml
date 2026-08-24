@@ -1,4 +1,4 @@
-name: Renew development certificate
+name: Renew Certificate
 
 on:
   schedule:
@@ -72,7 +72,7 @@ jobs:
         id: get_user_id
         env:
           GH_TOKEN: ${{ steps.get_token.outputs.token }}
-        run: echo "user-id=$(gh api \"/users/${{ steps.get_token.outputs.app-slug }}[bot]\" --jq .id)" >> "$GITHUB_OUTPUT"
+        run: echo "user-id=$(gh api '/users/${{ steps.get_token.outputs.app-slug }}[bot]' --jq .id)" >> "$GITHUB_OUTPUT"
 
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
