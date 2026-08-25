@@ -84,6 +84,33 @@ scaffolding, the [api-package skill](.apm/skills/api-package/SKILL.md) for
 API-package scaffolding. Use the [todo skill](.apm/skills/todo/SKILL.md) to track skills and
 other work that are still in progress or awaiting an established workflow.
 
+### Base reference resolution
+
+When a skill needs a base reference—including the upstream repository and
+branch used for synchronization, or a base package or implementation—resolve
+it in this order:
+
+1. **Prefer authoritative references.** Use an explicit user-provided
+   reference, repository documentation, and configured Git remotes first.
+   Validate the resolved branch or path before using it. Do not read
+   environment files or process environment variables; an explicitly supplied
+   `BASE_REF` may be used as a non-secret reference.
+2. **Use local sibling checkouts only as a last resort.** If those sources do
+   not yield a usable reference because, for example, the documented upstream
+   is inaccessible, inspect sibling directories adjacent to the workspace root
+   for a likely local checkout, such as `../base-project`. This is not an
+   equivalent source of truth. Verify its repository identity, remotes, branch,
+   and requested path, and report that the local fallback was used.
+3. **Refresh a usable fallback when possible.** Before using a sibling
+   checkout, inspect its worktree and refs. When its `origin` is accessible,
+   refresh its refs and synchronize its relevant branch without discarding local
+   changes or pushing. A current fetched remote ref may be used without
+   changing the sibling worktree.
+4. **Fail closed when the fallback is untrusted.** If the sibling checkout
+   cannot be verified or synchronized, stop and ask the user for a new base
+   reference. Do not silently use stale local files after all other reference
+   sources have failed.
+
 ### Package dependency contract
 
 Classify dependencies by how the built package uses them. Keep packages used
@@ -112,10 +139,9 @@ Apply this procedure when scaffolding an app, API, or UI package:
    public entrypoint, required libraries, and validation approach before
    creating files. Ask when a material choice is unspecified.
 3. **Select a reference.** Select the closest local reference. If none exists,
-   resolve and validate `BASE_REF` using an approved user-controlled
-   environment-loading workflow; do not read environment files or private
-   keys. Inspect only paths that exist in that Git tree and stop if the
-   reference is unavailable because its secure access prerequisite is missing.
+   resolve and validate an explicit `BASE_REF` or documented base reference
+   using [base reference resolution](#base-reference-resolution). Inspect only
+   paths that exist in that Git tree and stop if no usable reference remains.
 4. **Preserve package integration.** Preserve or intentionally adapt package
    metadata, workspace registration, and
    every script required by the reference. Audit `build`, `build-dts` or other
@@ -190,8 +216,10 @@ extending application-owned elements, composites, or components within an app
 package. The
 [bootstrap skill](.apm/skills/bootstrap/SKILL.md) is reserved for future project
 setup orchestration and should use the keys skill when implemented. The
-[fork skill](.apm/skills/fork/SKILL.md) handles clean-project fork cleanup and
-identity normalization without invoking the unfinished bootstrap workflow.
+[fork skill](.apm/skills/fork/SKILL.md) prepares independent forks through
+identity migration or explicitly confirmed content cleanup, with optional
+history and remote migration, without invoking the unfinished bootstrap
+workflow.
 The [sync skill](.apm/skills/sync/SKILL.md) synchronizes `origin/main` with
 `base/main`, including unrelated-history integration when required.
 Use the [todo skill](.apm/skills/todo/SKILL.md) to track placeholder or otherwise
