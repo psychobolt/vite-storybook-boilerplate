@@ -27,7 +27,14 @@ steps and never follow from invoking this skill alone.
 
 ## Procedure
 
-1. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
+1. **Verify Git author identity.** Before beginning fork inventory or changing
+   files, determine the effective Git `user.name` and `user.email` from Git
+   configuration. If either value is missing, stop and ask the user to
+   configure the Git author identity. Do not infer it from package metadata,
+   remote ownership, or repository documentation, and do not change Git
+   configuration unless the user explicitly requests that change.
+
+2. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
    workspace configuration, and repository workflow documentation. Inspect the
    worktree and preserve unrelated changes. Record the current branch, remotes,
    workspace list, protected paths, and candidate demo paths without changing
@@ -43,7 +50,7 @@ steps and never follow from invoking this skill alone.
    it yields no usable source. Never use an upstream/base reference as the
    project's `origin`.
 
-2. **Select the operation mode.** Classify the repository as fresh or
+3. **Select the operation mode.** Classify the repository as fresh or
    otherwise unmigrated, or as already having its project identity and required
    remote setup established. Use identity migration for a fresh or unmigrated
    repository and preserve all files during that pass. For an established
@@ -55,7 +62,7 @@ steps and never follow from invoking this skill alone.
    repository state is ambiguous, preserve files and ask before proposing
    cleanup.
 
-3. **Inventory the original identity.** Search eligible tracked and source
+4. **Inventory the original identity.** Search eligible tracked and source
    files, including manifests, lockfiles, licenses, READMEs, development and
    workflow documentation, CI and automation configuration, scripts, badges,
    and agent guidance, for:
@@ -76,7 +83,7 @@ steps and never follow from invoking this skill alone.
    or `git remote get-url --all <remote>` when available and record their URLs
    as Git metadata, not repository content.
 
-4. **Confirm identity and scope.** Apply replacement values explicitly given
+5. **Confirm identity and scope.** Apply replacement values explicitly given
    by the user. Ask only for values or decisions that remain material and
    unresolved. When an identity property exists, explicitly decide whether to
    retain it with a replacement value or remove it; do not silently remove an
@@ -109,7 +116,7 @@ steps and never follow from invoking this skill alone.
    the initial fork invocation or from the fact that the repository is no
    longer on the original history.
 
-5. **Apply the selected changes.**
+6. **Apply the selected changes.**
 
    - In identity-migration mode, preserve all applications, packages, demos,
      shared infrastructure, workflows, and automation files. Update manifests,
@@ -145,7 +152,7 @@ steps and never follow from invoking this skill alone.
    - Remove an `apps/` or `packages/` container only after the approved cleanup
      leaves it empty; never delete a non-empty container as a shortcut.
 
-6. **Normalize documentation and workflow references.** Replace stale project
+7. **Normalize documentation and workflow references.** Replace stale project
    identity in ordinary documentation, badges, manifests, licenses, scripts,
    CI, and automation with the confirmed new values. Prefer a relative link
    when a local target exists; otherwise use the new project URL when it is a
@@ -164,9 +171,9 @@ steps and never follow from invoking this skill alone.
    whether it is new-project identity, upstream synchronization guidance,
    generic tooling documentation, or an external reference that should remain.
 
-7. **Migrate history when explicitly requested or approved.** When the user
+8. **Migrate history when explicitly requested or approved.** When the user
    asks to clear Git history, or approves a fresh-history proposal for an
-   unpublished project, first verify the publication state from step 1. If a
+   unpublished project, first verify the publication state from Step 2. If a
    remote exists but its current state cannot be checked, stop before replacing
    history. Do not silently discard local commits that are ahead of a remote;
    continue only when the user's current instruction or explicit approval
@@ -187,28 +194,28 @@ steps and never follow from invoking this skill alone.
    report that state when the user did not request another history change. Do
    not rewrite unrelated branches or push the result.
 
-8. **Check remotes and original references.** Normalize SSH and HTTPS forms,
+9. **Check remotes and original references.** Normalize SSH and HTTPS forms,
    host aliases, case, and a trailing `.git` before comparing URLs. Verify that
    an explicitly requested project URL is configured as `origin` and an
    explicitly requested upstream URL is configured as `base`. Report remotes
    that still point to the old project when they were not intentionally
    retained. Do not remove or rewrite a remote that the user did not authorize.
    If remotes are unavailable, report that the comparison was documentation
-   only; the first step handles fallback resolution.
+   only; Step 2 handles fallback resolution.
 
-9. **Validate the prepared repository.** Format changed files with the
-   repository's formatter and run `git diff --check`. Verify that protected
-   paths remain, approved removed workspaces are absent from workspace and task
-   configuration, manifests and lockfiles are valid, requested remotes point to
-   the confirmed URLs, and no stale old-project identity remains in eligible
-   files. Allow only intentional upstream synchronization references and
-   explicitly retained attribution. Check that ordinary workflow examples no
-   longer present the old project as the current repository. Recheck
-   `.env.defaults` only for non-secret defaults; do not inspect any other
-   environment file. Run remaining repository checks that are available and
-   report checks that cannot run until project setup is complete.
+10. **Validate the prepared repository.** Format changed files with the
+    repository's formatter and run `git diff --check`. Verify that protected
+    paths remain, approved removed workspaces are absent from workspace and task
+    configuration, manifests and lockfiles are valid, requested remotes point to
+    the confirmed URLs, and no stale old-project identity remains in eligible
+    files. Allow only intentional upstream synchronization references and
+    explicitly retained attribution. Check that ordinary workflow examples no
+    longer present the old project as the current repository. Recheck
+    `.env.defaults` only for non-secret defaults; do not inspect any other
+    environment file. Run remaining repository checks that are available and
+    report checks that cannot run until project setup is complete.
 
-10. **Hand off without bootstrap.** Report the selected mode, preserved or
+11. **Hand off without bootstrap.** Report the selected mode, preserved or
     removed paths, identity fields updated or removed, `origin` or `base`
     additions or updates, history-reset result, intentional upstream
     references, remaining unresolved decisions, and validation results. Do not

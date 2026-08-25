@@ -18,8 +18,10 @@ artifacts; never update their registers directly.
    Todo skill was loaded from a deployed target, resolve the repository's
    `.apm/skills/todo/` source instead of reading or writing the deployed copy.
 2. **Record the work.** Add only work that is explicitly requested, discovered
-   as a concrete gap, or already represented by a placeholder file. Record the
-   scope, current state, and evidence required to consider it stable.
+   as a concrete gap, or already represented by a placeholder file. Keep each
+   register description concise: record the scope, current state, and
+   representative evidence required to consider it stable, but do not copy the
+   skill's procedure or references into the register.
 3. **Track incomplete workflows.** Keep placeholder skills and incomplete
    workflows listed until their procedure, boundaries, references, and
    validation expectations are defined.
