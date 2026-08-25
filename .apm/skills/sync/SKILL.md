@@ -16,8 +16,11 @@ and one squashed commit when the histories are unrelated.
 Read the root [agent guidance](../../../AGENTS.md), the repository's
 [workflow documentation](../../../WORKFLOWS.md), and the
 [original-fork synchronization guidance](../../../WORKFLOWS.md#syncing-with-original-fork)
-before changing Git state. Follow the root guidance for preserving unrelated
-work and for checking repository state before and after mutating commands.
+before changing Git state. Follow the root [base reference
+resolution](../../../AGENTS.md#base-reference-resolution) when the documented
+base remote or branch cannot be used. Follow the root guidance for preserving
+unrelated work and for checking repository state before and after mutating
+commands.
 
 ## Boundaries
 
@@ -51,10 +54,12 @@ work and for checking repository state before and after mutating commands.
    locally. If `origin` does not exist, use repository documentation and package
    metadata to identify the project URL and default branch, then add `origin`
    locally when unambiguous.
-   If documentation does not provide a required URL or branch, ask the user
-   and stop. If a configured URL conflicts with documented identity, report the
-   discrepancy and ask before changing it. Use the resolved branch names in
-   place of the `origin/main` and `base/main` examples used below.
+   If documentation does not provide a required URL or branch, apply the root
+   base-reference resolution before asking the user for a new base reference.
+   If it yields no usable source, stop. If a configured URL conflicts with
+   documented identity, report the discrepancy and ask before changing it. Use
+   the resolved branch names in place of the `origin/main` and `base/main`
+   examples used below.
 3. **Refresh remote refs.** Fetch the resolved project remote with pruning and
    fetch the resolved base remote. Do not use a pull that can create an
    unreviewed merge on the project branch. Stop if either remote or either

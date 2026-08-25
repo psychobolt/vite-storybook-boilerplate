@@ -7,11 +7,21 @@ applyTo: '**/AGENTS.md,.apm/skills/**/*.md'
 
 - Use numbered steps for ordered actions. Begin each step with a short bold
   intent, then keep its instructions together.
+- Apply this format to skill procedures and any other numbered or ordered
+  action sequence in `AGENTS.md` or references.
 - Use bullets for independent rules, constraints, alternatives, or examples.
 - Use short paragraphs for definitions and context. Do not place several
   unrelated actions in one paragraph.
+- Before modifying agent guidance, read and analyze the complete applicable
+  guidance hierarchy: the root and nearest `AGENTS.md`, the target skill,
+  bundled references, linked shared references, and matching file-scoped
+  instructions. Do not make a guidance change from an isolated excerpt.
 - Keep shared rules in references and have the skill procedure point to them;
   avoid repeating the same rule in both places.
+- After modifying guidance, check the affected files and cross-links for
+  redundant or conflicting information. Migrate a rule to its proper canonical
+  section or reference when needed, remove redundant copies, and add or update
+  cross-links so each rule has a clear owner.
 - When a skill has local references, use those references as the task-specific
   entrypoint and follow their links to shared guidance. Keep common rules in
   shared references and unit-specific rules in local references.
