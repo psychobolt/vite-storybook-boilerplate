@@ -27,12 +27,24 @@ steps and never follow from invoking this skill alone.
 
 ## Procedure
 
-1. **Verify Git author identity.** Before beginning fork inventory or changing
-   files, determine the effective Git `user.name` and `user.email` from Git
-   configuration. If either value is missing, stop and ask the user to
+1. **Verify Git identity and hosted access.** Before beginning fork inventory
+   or changing files, determine the effective Git `user.name` and `user.email`
+   from Git configuration. If either value is missing, stop and ask the user to
    configure the Git author identity. Do not infer it from package metadata,
    remote ownership, or repository documentation, and do not change Git
    configuration unless the user explicitly requests that change.
+
+   When the requested operation creates a hosted fork or adds or updates a
+   hosted remote, also verify provider authentication and the authenticated
+   account's access and ownership using the provider's supported status or
+   repository query tooling. Git author configuration and successful access to
+   an existing remote do not prove that the user is authenticated for the
+   intended hosted operation. If the authenticated account owns the source
+   repository and the provider does not allow a fork into that same account,
+   stop and ask for a destination organization or repository, or an alternate
+   workflow. If authentication, access, or destination ownership cannot be
+   verified, stop before the hosted operation. This check is not required for
+   a local-only fork preparation.
 
 2. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
    workspace configuration, and repository workflow documentation. Inspect the
