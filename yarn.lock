@@ -1259,9 +1259,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.21.0":
-  version: 2.21.0
-  resolution: "@dotenvx/dotenvx@npm:2.21.0"
+"@dotenvx/dotenvx@npm:2.22.0":
+  version: 2.22.0
+  resolution: "@dotenvx/dotenvx@npm:2.22.0"
   dependencies:
     "@dotenvx/primitives": "npm:^2.2.0"
     "@dotenvx/tooling": "npm:^1.0.3"
@@ -1269,7 +1269,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/b2372034c16aafeaaf129ca229aa698a8f514662bc2870333571de66c746c85d03720a68a2bf84aa7e9d36f7bbe322fe898ce2bead1e6b2e2046674ed6a9e94f
+  checksum: 10c0/419c17da8bc2f535aed21d192a8f4a9d162081036b73b3ba1b7138497bdb28f34532eb538001354801cbd65e515a721066aa804a741477f7514f279c2d014231
   languageName: node
   linkType: hard
 
@@ -20473,7 +20473,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.21.0"
+    "@dotenvx/dotenvx": "npm:2.22.0"
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.1"
