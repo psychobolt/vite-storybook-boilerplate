@@ -74,7 +74,7 @@
     "chromatic": "18.7.1",
     "eslint": "10.9.1",
     "eslint-plugin-jsonc": "3.4.2",
-    "eslint-plugin-package-json": "1.7.1",
+    "eslint-plugin-package-json": "1.8.0",
     "http-server": "14.1.1",
     "jest-junit": "17.0.0",
     "playwright": "1.62.1",
