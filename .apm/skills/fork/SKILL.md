@@ -27,24 +27,17 @@ steps and never follow from invoking this skill alone.
 
 ## Procedure
 
-1. **Verify Git identity and hosted access.** Before beginning fork inventory
-   or changing files, determine the effective Git `user.name` and `user.email`
-   from Git configuration. If either value is missing, stop and ask the user to
-   configure the Git author identity. Do not infer it from package metadata,
-   remote ownership, or repository documentation, and do not change Git
-   configuration unless the user explicitly requests that change.
+1. **Verify Git identity and keep the workflow local.** Before beginning fork
+   inventory or changing files, determine the effective Git `user.name` and
+   `user.email` from Git configuration. If either value is missing, stop and ask
+   the user to configure the Git author identity. Do not infer it from package
+   metadata, remote ownership, or repository documentation, and do not change
+   Git configuration unless the user explicitly requests that change.
 
-   When the requested operation creates a hosted fork or adds or updates a
-   hosted remote, also verify provider authentication and the authenticated
-   account's access and ownership using the provider's supported status or
-   repository query tooling. Git author configuration and successful access to
-   an existing remote do not prove that the user is authenticated for the
-   intended hosted operation. If the authenticated account owns the source
-   repository and the provider does not allow a fork into that same account,
-   stop and ask for a destination organization or repository, or an alternate
-   workflow. If authentication, access, or destination ownership cannot be
-   verified, stop before the hosted operation. This check is not required for
-   a local-only fork preparation.
+   This skill does not create hosted forks, verify provider authentication, or
+   publish remotes. A user-provided project URL is sufficient to configure
+   `origin` locally. If that URL is unreachable or the hosted repository does
+   not exist yet, record it as unverified and continue the local work.
 
 2. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
    workspace configuration, and repository workflow documentation. Inspect the
@@ -62,17 +55,31 @@ steps and never follow from invoking this skill alone.
    it yields no usable source. Never use an upstream/base reference as the
    project's `origin`.
 
-3. **Select the operation mode.** Classify the repository as fresh or
-   otherwise unmigrated, or as already having its project identity and required
-   remote setup established. Use identity migration for a fresh or unmigrated
-   repository and preserve all files during that pass. For an established
-   repository, a later invocation may enter cleanup review: inventory likely
-   demo content and present the exact deletion set, but do not remove it in the
-   review pass. Changing the repository history alone does not establish this
-   state. Determine from the user's current instruction whether it asks to
-   clear or reset Git history, or to add or update `origin` or `base`. If the
-   repository state is ambiguous, preserve files and ask before proposing
-   cleanup.
+3. **Select the operation mode and upstream relationship.** Classify the
+   repository as fresh or otherwise unmigrated, or as already having its
+   project identity and required remote setup established. Use identity
+   migration for a fresh or unmigrated repository and preserve all files during
+   that pass. For an established repository, a later invocation may enter
+   cleanup review: inventory likely demo content and present the exact
+   deletion set, but do not remove it in the review pass. Changing the
+   repository history alone does not establish this state.
+
+   Determine whether the new project is independent or an extension of an
+   existing project. Use the user's instruction first; the destination project
+   name, URL, existing synchronization documentation, and configured remotes
+   are supporting signals, not proof by themselves. In either case, the
+   resulting project is the canonical `origin` and may become the base for
+   future extensions. When creating a new project, update its documentation
+   and synchronization guidance so future extensions use that `origin` as
+   their base reference. Preserve and normalize the intended upstream
+   relationship in both cases; retain the original source as the upstream
+   `base` remote for synchronization when that relationship is intended. If
+   the relationship is ambiguous, preserve files and ask whether the new
+   project should become the base for future extensions and whether the
+   original source should remain available as `base`.
+
+   Determine separately from the user's current instruction whether it asks to
+   clear or reset Git history, or to add or update `origin` or `base`.
 
 4. **Inventory the original identity.** Search eligible tracked and source
    files, including manifests, lockfiles, licenses, READMEs, development and
@@ -104,12 +111,14 @@ steps and never follow from invoking this skill alone.
    `funding`. A repository owner in a new URL does not automatically establish
    the package author or copyright holder.
 
-   Confirm the requested project URL for `origin` and upstream URL for `base`
-   separately. If the user explicitly supplies a new project URL, updating or
-   adding `origin` is part of identity migration. If the user explicitly asks
-   for a base remote, add or retain only `base` at the confirmed upstream URL;
-   do not use that URL to create `origin`. If no remotes exist, add `base` only
-   unless the user separately provides or authorizes a project URL for `origin`.
+   Confirm the requested project URL for `origin` and the chosen upstream URL
+   for `base` separately. If the user explicitly supplies a new project URL,
+   always update or add `origin` locally, even when the hosted destination
+   cannot be reached. When the original source is retained for upstream
+   synchronization, configure it as `base` at the confirmed upstream URL for
+   both independent projects and extensions; do not use the upstream URL to
+   create `origin`. If no project URL is available, ask for it before adding
+   or changing `origin`.
    If normalized `origin` and `base` URLs are identical, treat that as a
    remote-role collision. Do not infer a fork, history reset, or cleanup from
    the collision; report it and ask which project and upstream roles are
@@ -172,12 +181,13 @@ steps and never follow from invoking this skill alone.
 
    For generic workflow or automation examples, remove hard-coded references to
    the original project and use the repository's project context, resolved
-   remote names, branch inputs, or other repository-neutral expressions. A
-   concrete URL may remain when it is intentionally the upstream `base`
-   synchronization source. Keep the documented synchronization procedure and
-   its upstream commands, but make the distinction clear: project references
-   point to the new repository, while base references point to the upstream
-   repository.
+   remote names, branch inputs, or other repository-neutral expressions. For
+   either an independent project or an extension, identify the resulting
+   `origin` as the canonical project. When creating a new project, also update
+   its documentation and synchronization guidance so future extensions use
+   that `origin` as their base reference. Retain the original source only
+   where it is intentionally the upstream `base` synchronization source, and
+   make the distinction clear between project and base references.
 
    Do not use broad text substitution. Update each occurrence according to
    whether it is new-project identity, upstream synchronization guidance,
@@ -191,29 +201,28 @@ steps and never follow from invoking this skill alone.
    continue only when the user's current instruction or explicit approval
    authorizes replacing that unpublished history. Preserve the validated
    working tree and create the new history from it with an orphan-history
-   workflow. Keep a
-   temporary local recovery reference until the new branch has been validated,
-   unless the user explicitly rejects retaining one. Replace the requested
-   branch only after
-   confirming the new commit contains the retained files and no unresolved
-   changes. If the user requested complete local history removal, delete the
-   temporary recovery reference only after that validation; otherwise report
-   that it remains. Do not infer history replacement from ordinary fork
-   cleanup. The absence of a merge base only indicates unrelated histories; it
-   does not authorize history replacement. Resolve shallow or incomplete
-   history and use the `sync` workflow for history integration. If the current
-   history is already unrelated or appears previously reset, preserve it and
-   report that state when the user did not request another history change. Do
-   not rewrite unrelated branches or push the result.
+   workflow. Do not create a recovery branch or temporary recovery reference;
+   an explicit history-reset request determines that the existing history is
+   disposable. Replace the requested branch only after confirming the new
+   commit contains the retained files and no unresolved changes. Do not infer
+   history replacement from ordinary fork cleanup. The absence of a merge base
+   only indicates unrelated histories; it does not authorize history
+   replacement. Resolve shallow or incomplete history and use the `sync`
+   workflow for history integration. If the current history is already
+   unrelated or appears previously reset, preserve it and report that state
+   when the user did not request another history change. Do not rewrite
+   unrelated branches or push the result.
 
 9. **Check remotes and original references.** Normalize SSH and HTTPS forms,
    host aliases, case, and a trailing `.git` before comparing URLs. Verify that
-   an explicitly requested project URL is configured as `origin` and an
-   explicitly requested upstream URL is configured as `base`. Report remotes
-   that still point to the old project when they were not intentionally
-   retained. Do not remove or rewrite a remote that the user did not authorize.
+   the confirmed project URL is configured as `origin` and, when the upstream
+   relationship is retained, the selected upstream URL is configured as
+   `base`. Report remotes that still point to the old project when they were
+   not intentionally retained. Do not remove or rewrite a remote that the
+   user did not authorize.
    If remotes are unavailable, report that the comparison was documentation
-   only; Step 2 handles fallback resolution.
+   only; Step 2 handles fallback resolution. Do not test hosted authentication
+   or publish a remote as part of this skill.
 
 10. **Validate the prepared repository.** Format changed files with the
     repository's formatter and run `git diff --check`. Verify that protected
