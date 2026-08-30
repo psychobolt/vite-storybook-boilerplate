@@ -20,10 +20,9 @@ steps and never follow from invoking this skill alone.
   the cleanup scope.
 - Do not delete a workspace from `apps/` or `packages/` based on its name alone.
   Inventory candidates and obtain confirmation of the exact deletion scope.
-- Do not read secret-bearing environment files or process environment
-  variables. The workspace's `.env.defaults` is the only environment-file read
-  exception for non-secret metadata. Use the [keys skill](../keys/SKILL.md) for
-  any encrypted environment operation.
+- Follow the root [environment-file boundary](../../../AGENTS.md#environment-file-boundary)
+  for all environment-file and process-environment handling. Use the [keys
+  skill](../keys/SKILL.md) for any encrypted environment operation.
 
 ## Procedure
 
@@ -152,7 +151,6 @@ steps and never follow from invoking this skill alone.
      upstream `base`, and synchronization relationship;
    - review candidate demo content and approve an exact cleanup set, without
      deleting anything during the review; or
-   - explicitly reset history, with no recovery branch or temporary reference;
    - exit without changes.
 
    Do not change files, remotes, branches, or history until the selected
@@ -214,24 +212,23 @@ steps and never follow from invoking this skill alone.
    whether it is new-project identity, upstream synchronization guidance,
    generic tooling documentation, or an external reference that should remain.
 
-8. **Migrate history when explicitly requested or approved.** When the user
-   asks to clear Git history, or approves a fresh-history proposal for an
-   unpublished project, first verify the publication state from Step 2. If a
-   remote exists but its current state cannot be checked, stop before replacing
-   history. Do not silently discard local commits that are ahead of a remote;
-   continue only when the user's current instruction or explicit approval
-   authorizes replacing that unpublished history. Preserve the validated
-   working tree and create the new history from it with an orphan-history
-   workflow. Do not create a recovery branch or temporary recovery reference;
-   an explicit history-reset request determines that the existing history is
-   disposable. Replace the requested branch only after confirming the new
-   commit contains the retained files and no unresolved changes. Do not infer
-   history replacement from ordinary fork cleanup. The absence of a merge base
-   only indicates unrelated histories; it does not authorize history
-   replacement. Resolve shallow or incomplete history and use the `sync`
-   workflow for history integration. If the current history is already
-   unrelated or appears previously reset, preserve it and report that state
-   when the user did not request another history change. Do not rewrite
+8. **Migrate history only after the required preflight.** Process this step
+   only when the user's current instruction explicitly requests a history
+   reset. Complete Procedure 1 and the remaining identity, remote, and
+   publication checks before replacing history. If a remote exists but its
+   current state cannot be checked, stop before replacing history. Do not
+   silently discard local commits that are ahead of a remote. Preserve the
+   validated working tree and create the new history from it with an
+   orphan-history workflow. Do not create a recovery branch or temporary
+   recovery reference; the explicit history-reset request determines that the
+   existing history is disposable. Replace the requested branch only after
+   confirming the new commit contains the retained files and no unresolved
+   changes. Do not infer history replacement from ordinary fork cleanup. The
+   absence of a merge base only indicates unrelated histories; it does not
+   authorize history replacement. Resolve shallow or incomplete history and
+   use the `sync` workflow for history integration. If the current history is
+   already unrelated or appears previously reset, preserve it and report that
+   state when the user did not request another history change. Do not rewrite
    unrelated branches or push the result.
 
 9. **Check remotes and original references.** Normalize SSH and HTTPS forms,
