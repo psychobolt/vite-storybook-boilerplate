@@ -53,7 +53,11 @@ steps and never follow from invoking this skill alone.
    original or upstream reference remains unresolved, apply the root [base
    reference resolution](../../../AGENTS.md#base-reference-resolution); stop if
    it yields no usable source. Never use an upstream/base reference as the
-   project's `origin`.
+   project's `origin`. Compare the workspace root directory name with the
+   resolved source repository name. A different directory name is evidence
+   that the clone may be intended for a new project, but local directory names
+   are not authoritative project identity and do not by themselves authorize
+   identity changes, remote changes, cleanup, or history replacement.
 
 3. **Select the operation mode and upstream relationship.** Classify the
    repository as fresh or otherwise unmigrated, or as already having its
@@ -66,12 +70,12 @@ steps and never follow from invoking this skill alone.
 
    Determine whether the new project is independent or an extension of an
    existing project. Use the user's instruction first; the destination project
-   name, URL, existing synchronization documentation, and configured remotes
-   are supporting signals, not proof by themselves. In either case, the
-   resulting project is the canonical `origin` and may become the base for
-   future extensions. When creating a new project, update its documentation
-   and synchronization guidance so future extensions use that `origin` as
-   their base reference. Preserve and normalize the intended upstream
+   name, URL, workspace directory name, existing synchronization documentation,
+   and configured remotes are supporting signals, not proof by themselves. In
+   either case, the resulting project is the canonical `origin` and may become
+   the base for future extensions. When creating a new project, update its
+   documentation and synchronization guidance so future extensions use that
+   `origin` as their base reference. Preserve and normalize the intended upstream
    relationship in both cases; retain the original source as the upstream
    `base` remote for synchronization when that relationship is intended. If
    the relationship is ambiguous, preserve files and ask whether the new
