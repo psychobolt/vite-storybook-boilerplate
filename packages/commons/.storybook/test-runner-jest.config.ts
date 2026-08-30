@@ -1,17 +1,57 @@
 import { createRequire } from 'node:module';
 import { getJestConfig } from '@storybook/test-runner';
+import type { JestPlaywrightConfig } from 'jest-playwright-preset';
+
+import { mergeConfig } from './utils/functions.ts';
 
 const require = createRequire(import.meta.url);
+
+const isLocalHttps = (targetUrl: string | undefined): boolean => {
+  if (!targetUrl) return false;
+
+  try {
+    const { hostname, protocol } = new URL(targetUrl);
+    return (
+      protocol === 'https:' &&
+      ['localhost', '127.0.0.1', '[::1]', '::1'].includes(hostname)
+    );
+  } catch {
+    return false;
+  }
+};
+
+export type TestRunnerConfig = Omit<
+  ReturnType<typeof getJestConfig>,
+  'testEnvironmentOptions'
+> & {
+  testEnvironmentOptions: NonNullable<
+    ReturnType<typeof getJestConfig>['testEnvironmentOptions']
+  > & {
+    'jest-playwright': Partial<JestPlaywrightConfig>;
+  };
+};
 
 // The default Jest configuration comes from @storybook/test-runner
 const testRunnerConfig = getJestConfig();
 
-const config: typeof testRunnerConfig = {
+const playwrightEnvironmentOptions = {
+  contextOptions: {
+    ignoreHTTPSErrors: isLocalHttps(process.env.TARGET_URL)
+  }
+} satisfies Partial<JestPlaywrightConfig>;
+
+/** Add your own overrides below, and make sure
+ *  to merge testRunnerConfig properties with your own
+ * @see https://jestjs.io/docs/configuration
+ */
+const config: TestRunnerConfig = {
   ...testRunnerConfig,
-  /** Add your own overrides below, and make sure
-   *  to merge testRunnerConfig properties with your own
-   * @see https://jestjs.io/docs/configuration
-   */
+  testEnvironmentOptions: mergeConfig(
+    testRunnerConfig.testEnvironmentOptions ?? {},
+    {
+      'jest-playwright': playwrightEnvironmentOptions
+    }
+  ),
   passWithNoTests: true,
   reporters: [
     'default',

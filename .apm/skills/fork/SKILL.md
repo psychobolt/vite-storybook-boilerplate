@@ -1,14 +1,14 @@
 ---
 name: fork
-description: Clean a repository fork by removing original demo content and base-repository identity references while preserving protected infrastructure. Use before project-specific setup; do not invoke bootstrap.
+description: Migrate a cloned repository to a new project identity, optionally remove explicitly approved demo content, and reset Git history only when requested. Use when preparing a repository for independent fork development.
 ---
 
 # Fork
 
-Prepare a clean project fork without running the unfinished bootstrap workflow.
-The fork procedure removes the original repository's demo scope and identity
-references, preserves shared infrastructure, and stops with a handoff for
-later project setup.
+Prepare a repository for independent development without invoking the
+unfinished bootstrap workflow. For a fresh clone or fork, identity migration
+is the default. Content cleanup and history replacement are separate procedure
+steps and never follow from invoking this skill alone.
 
 ## Protected scope
 
@@ -27,92 +27,210 @@ later project setup.
 
 ## Procedure
 
-1. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
-   workspace configuration, and the repository workflow documentation. Inspect
-   the worktree and preserve unrelated changes. Record the current branch,
-   remotes, workspace list, protected paths, and candidate demo paths without
-   changing files.
-2. **Inventory original identity.** Search eligible tracked and source files
-   for the original repository name, owner, repository URL, package names,
-   author or organization, documentation links, CI references, service
-   identifiers, and remote names. Exclude secret-bearing environment files,
-   generated output, dependencies, and Git internals from content scans. Keep
-   generic tooling names such as Storybook, Vite, Yarn, and shared package names
-   unless they are specifically part of the original project identity. Inspect
-   Git remotes with `git remote -v` or `git remote get-url --all <remote>` and
-   record their URLs as Git metadata, not repository content.
-3. **Confirm cleanup and identity.** Present the proposed deletion set and the
-   original identity fields that need replacement. Ask the user for values that
-   are required by the package manager or project configuration, including the
-   new root package name and repository identity when those fields are retained.
-   For each metadata field found during the inventory, explicitly ask whether it
-   should be retained with a replacement value or removed; do not ask about
-   fields that are absent. This includes `description`, `license`, `author`,
-   `repository`, `homepage`, `bugs`, and `funding` when those properties exist
-   in a manifest or other eligible metadata file. Do not silently remove an
-   existing optional property merely because the user did not provide a
-   replacement. Do not request secret tokens or private keys in chat; route
-   those through the approved secure workflow.
-   Stop before deletion or identity changes when a required value or deletion
-   decision is unresolved.
-4. **Remove demo content.** After confirmation, remove only the approved demo
-   applications and packages. Preserve the protected paths and any shared
-   tooling required by the remaining workspace. Update workspace manifests,
-   lockfiles, task configuration, documentation, and references within
-   existing workflow and automation files as required by the deletion.
-   Preserve the workflow, automation, and coverage configuration files
-   themselves; update them to omit removed folders and files instead of
-   deleting them because their original examples are gone. Preserve the
-   workflow synchronization documentation in `WORKFLOWS.md`, including its
-   `Syncing With Original Fork` section and commands. Preserve the fork
-   workflow-sync CI itself. If coverage or CI entries for removed packages,
-   workspaces, or components become inapplicable, consolidate them into one
-   commented example so they cannot execute; do not retain separate commented
-   or disabled copies for each removed unit. If a preserved pipeline still
-   references a removed cache configuration, update the pipeline and comment
-   out only that stale cache setting rather than leaving it active or deleting
-   the pipeline. Remove an `apps/` or `packages/` container only after the
-   approved cleanup leaves it empty; never delete a non-empty container as a
-   cleanup shortcut.
-5. **Normalize repository identity.** Update the confirmed non-secret identity
-   values across eligible manifests, README and workflow documentation, CI
-   configuration, package metadata, badges, URLs, and scripts. Apply the user's
-   explicit replacement or removal decision for each original identity
-   property. Use exact, reviewed replacements rather than broad text
-   substitution, and do not alter generic dependency or tool references.
-   Preserve the `Syncing With Original Fork`
-   section in `WORKFLOWS.md` as intentional synchronization guidance; do not
-   remove or normalize its original-repository reference as stale identity.
-   Preserve existing coverage configuration files; only update references to
-   removed paths when necessary. For original-repository absolute URLs in
-   README or other non-Storybook documentation, prefer a relative link when a
-   local target exists; otherwise remove the URL when it is not required by a
-   rendered Storybook link. Preserve intentional external documentation URLs
-   and the original URL required by the synchronization guidance.
-   Do not modify secret-bearing environment files; leave encrypted
-   configuration for the keys workflow.
-6. **Check original repository references.** During cleanup, identify and
-   confirm the original repository URL from repository metadata, documentation,
-   workflow or automation configuration, or Git remotes before comparing remote
-   URLs. Normalize SSH and HTTPS forms, host aliases, case, and a trailing
-   `.git` before comparing. Report remotes that still point to the original
-   repository, but do not rewrite `origin` as part of fork cleanup. If the
-   references disagree and the original URL cannot be confirmed, report the
-   comparison as indeterminate rather than guessing. Remove an obsolete `base`
-   remote only with explicit user approval; remote cleanup is optional and not
-   required for working-tree cleanup. Do not rewrite commit history.
-7. **Validate the clean fork.** Format changed files with the repository's
-   formatter and run `git diff --check`. Verify that protected paths remain,
-   removed workspaces are absent from workspace and task configuration, edited
-   manifests are valid, and no original identity references remain in eligible
-   files except the preserved `Syncing With Original Fork` guidance and one
-   intentional commented integration example. Recheck `.env.defaults` only
-   for non-secret defaults; do not inspect any other environment file. Run the
-   remaining repository checks that are available after cleanup and report
-   checks that cannot run until project identity or bootstrap setup is
-   complete.
-8. **Hand off without bootstrap.** Report removed paths, preserved protected
-   infrastructure, updated or removed manifest properties, unresolved identity
-   values, remaining non-secret references, and validation results. Do not run
-   the [bootstrap skill](../bootstrap/SKILL.md); the cleaned repository is ready
-   for a future, separately defined setup workflow.
+1. **Verify Git identity and hosted access.** Before beginning fork inventory
+   or changing files, determine the effective Git `user.name` and `user.email`
+   from Git configuration. If either value is missing, stop and ask the user to
+   configure the Git author identity. Do not infer it from package metadata,
+   remote ownership, or repository documentation, and do not change Git
+   configuration unless the user explicitly requests that change.
+
+   When the requested operation creates a hosted fork or adds or updates a
+   hosted remote, also verify provider authentication and the authenticated
+   account's access and ownership using the provider's supported status or
+   repository query tooling. Git author configuration and successful access to
+   an existing remote do not prove that the user is authenticated for the
+   intended hosted operation. If the authenticated account owns the source
+   repository and the provider does not allow a fork into that same account,
+   stop and ask for a destination organization or repository, or an alternate
+   workflow. If authentication, access, or destination ownership cannot be
+   verified, stop before the hosted operation. This check is not required for
+   a local-only fork preparation.
+
+2. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
+   workspace configuration, and repository workflow documentation. Inspect the
+   worktree and preserve unrelated changes. Record the current branch, remotes,
+   workspace list, protected paths, and candidate demo paths without changing
+   working files. If the current branch tracks a remote, refresh its relevant
+   ref and determine whether the local history is ahead, behind, or current.
+   If no remote is configured or the repository has no commit, classify it as
+   an unpublished fresh repository; there is no history to synchronize. Do not
+   merge the upstream repository during fork preparation. If no Git remotes are
+   configured, use repository documentation and local repository metadata to
+   distinguish the project repository from the upstream repository. When the
+   original or upstream reference remains unresolved, apply the root [base
+   reference resolution](../../../AGENTS.md#base-reference-resolution); stop if
+   it yields no usable source. Never use an upstream/base reference as the
+   project's `origin`.
+
+3. **Select the operation mode.** Classify the repository as fresh or
+   otherwise unmigrated, or as already having its project identity and required
+   remote setup established. Use identity migration for a fresh or unmigrated
+   repository and preserve all files during that pass. For an established
+   repository, a later invocation may enter cleanup review: inventory likely
+   demo content and present the exact deletion set, but do not remove it in the
+   review pass. Changing the repository history alone does not establish this
+   state. Determine from the user's current instruction whether it asks to
+   clear or reset Git history, or to add or update `origin` or `base`. If the
+   repository state is ambiguous, preserve files and ask before proposing
+   cleanup.
+
+4. **Inventory the original identity.** Search eligible tracked and source
+   files, including manifests, lockfiles, licenses, READMEs, development and
+   workflow documentation, CI and automation configuration, scripts, badges,
+   and agent guidance, for:
+
+   - the original repository name, owner, URL, package names, author and
+     copyright holder;
+   - `repository`, `homepage`, `bugs`, `funding`, `description`, `license`,
+     and other identity properties that actually exist;
+   - hard-coded project URLs or owner names in ordinary workflow examples,
+     service configuration, badges, and automation;
+   - intentional upstream references used to synchronize from the base
+     repository.
+
+   Exclude secret-bearing environment files, generated output, dependencies,
+   and Git internals from content scans. Keep generic tooling names such as
+   Storybook, Vite, Yarn, and shared package names unless they are specifically
+   part of the old project identity. Inspect Git remotes with `git remote -v`
+   or `git remote get-url --all <remote>` when available and record their URLs
+   as Git metadata, not repository content.
+
+5. **Confirm identity and scope.** Apply replacement values explicitly given
+   by the user. Ask only for values or decisions that remain material and
+   unresolved. When an identity property exists, explicitly decide whether to
+   retain it with a replacement value or remove it; do not silently remove an
+   existing property. This includes `name`, `description`, `license`,
+   `author`, copyright ownership, `repository`, `homepage`, `bugs`, and
+   `funding`. A repository owner in a new URL does not automatically establish
+   the package author or copyright holder.
+
+   Confirm the requested project URL for `origin` and upstream URL for `base`
+   separately. If the user explicitly supplies a new project URL, updating or
+   adding `origin` is part of identity migration. If the user explicitly asks
+   for a base remote, add or retain only `base` at the confirmed upstream URL;
+   do not use that URL to create `origin`. If no remotes exist, add `base` only
+   unless the user separately provides or authorizes a project URL for `origin`.
+   If normalized `origin` and `base` URLs are identical, treat that as a
+   remote-role collision. Do not infer a fork, history reset, or cleanup from
+   the collision; report it and ask which project and upstream roles are
+   intended.
+   If the project `origin` is absent, empty, or has no published project ref,
+   infer an unpublished-fork candidate and propose a fresh-history migration.
+   This is a workflow inference, not permission to discard local commits; do
+   not replace history without the user's approval unless the current
+   instruction already authorizes it.
+   If a required URL or branch cannot be discovered from repository
+   documentation or Git metadata, ask before changing remotes.
+
+   Stop before deletion, history replacement, or unresolved identity changes
+   when the required decision is missing. A user response approving the
+   proposed deletion set is the required cleanup decision; do not infer it from
+   the initial fork invocation or from the fact that the repository is no
+   longer on the original history.
+
+6. **Apply the selected changes.**
+
+   - In identity-migration mode, preserve all applications, packages, demos,
+     shared infrastructure, workflows, and automation files. Update manifests,
+     lockfiles, documentation, scripts, badges, and configuration to the new
+     project identity.
+   - Comment out active scheduled cron timing by default, except for a
+     workflow whose purpose is certificate renewal. Preserve the certificate
+     renewal schedule so certificates are not allowed to expire. For other
+     scheduled workflows, preserve the workflow or automation file, its jobs,
+     manual triggers, and other triggers; comment only the schedule timing
+     configuration. If leaving a `schedule` or equivalent parent with no
+     active entries would make the configuration invalid, comment out that
+     scheduling block as a unit rather than deleting the workflow or disabling
+     its other triggers.
+   - Reset an old CI dotenv file only when the fork request includes that
+     reset. Do not open, copy, inspect, or rewrite the existing `.env.ci`.
+     Hand the reset to the [keys skill](../keys/SKILL.md) or an approved
+     user-controlled secure process so it can remove the old file and create a
+     new `.env.ci` containing only the documented key names with blank values.
+     Do not invent key names or include private keys, encrypted values, or
+     copied ciphertext in the replacement. If the secure process is
+     unavailable, leave the existing file untouched and report that the reset
+     could not be completed.
+   - In content-cleanup mode, remove only the approved demo paths. Preserve
+     protected paths and shared tooling. Update workspace manifests, lockfiles,
+     task configuration, documentation, and references in existing workflow or
+     automation files as required by the deletion.
+   - Preserve workflow, automation, and coverage configuration files. Update
+     them instead of deleting them because an example was removed. Consolidate
+     inapplicable package or workspace jobs into one commented example so they
+     cannot execute. Preserve the fork workflow-sync CI itself and update only
+     its stale project references or removed paths.
+   - Remove an `apps/` or `packages/` container only after the approved cleanup
+     leaves it empty; never delete a non-empty container as a shortcut.
+
+7. **Normalize documentation and workflow references.** Replace stale project
+   identity in ordinary documentation, badges, manifests, licenses, scripts,
+   CI, and automation with the confirmed new values. Prefer a relative link
+   when a local target exists; otherwise use the new project URL when it is a
+   consumer-facing project link.
+
+   For generic workflow or automation examples, remove hard-coded references to
+   the original project and use the repository's project context, resolved
+   remote names, branch inputs, or other repository-neutral expressions. A
+   concrete URL may remain when it is intentionally the upstream `base`
+   synchronization source. Keep the documented synchronization procedure and
+   its upstream commands, but make the distinction clear: project references
+   point to the new repository, while base references point to the upstream
+   repository.
+
+   Do not use broad text substitution. Update each occurrence according to
+   whether it is new-project identity, upstream synchronization guidance,
+   generic tooling documentation, or an external reference that should remain.
+
+8. **Migrate history when explicitly requested or approved.** When the user
+   asks to clear Git history, or approves a fresh-history proposal for an
+   unpublished project, first verify the publication state from Step 2. If a
+   remote exists but its current state cannot be checked, stop before replacing
+   history. Do not silently discard local commits that are ahead of a remote;
+   continue only when the user's current instruction or explicit approval
+   authorizes replacing that unpublished history. Preserve the validated
+   working tree and create the new history from it with an orphan-history
+   workflow. Keep a
+   temporary local recovery reference until the new branch has been validated,
+   unless the user explicitly rejects retaining one. Replace the requested
+   branch only after
+   confirming the new commit contains the retained files and no unresolved
+   changes. If the user requested complete local history removal, delete the
+   temporary recovery reference only after that validation; otherwise report
+   that it remains. Do not infer history replacement from ordinary fork
+   cleanup. The absence of a merge base only indicates unrelated histories; it
+   does not authorize history replacement. Resolve shallow or incomplete
+   history and use the `sync` workflow for history integration. If the current
+   history is already unrelated or appears previously reset, preserve it and
+   report that state when the user did not request another history change. Do
+   not rewrite unrelated branches or push the result.
+
+9. **Check remotes and original references.** Normalize SSH and HTTPS forms,
+   host aliases, case, and a trailing `.git` before comparing URLs. Verify that
+   an explicitly requested project URL is configured as `origin` and an
+   explicitly requested upstream URL is configured as `base`. Report remotes
+   that still point to the old project when they were not intentionally
+   retained. Do not remove or rewrite a remote that the user did not authorize.
+   If remotes are unavailable, report that the comparison was documentation
+   only; Step 2 handles fallback resolution.
+
+10. **Validate the prepared repository.** Format changed files with the
+    repository's formatter and run `git diff --check`. Verify that protected
+    paths remain, approved removed workspaces are absent from workspace and task
+    configuration, manifests and lockfiles are valid, requested remotes point to
+    the confirmed URLs, and no stale old-project identity remains in eligible
+    files. Allow only intentional upstream synchronization references and
+    explicitly retained attribution. Check that ordinary workflow examples no
+    longer present the old project as the current repository. Recheck
+    `.env.defaults` only for non-secret defaults; do not inspect any other
+    environment file. Run remaining repository checks that are available and
+    report checks that cannot run until project setup is complete.
+
+11. **Hand off without bootstrap.** Report the selected mode, preserved or
+    removed paths, identity fields updated or removed, `origin` or `base`
+    additions or updates, history-reset result, intentional upstream
+    references, remaining unresolved decisions, and validation results. Do not
+    run the [bootstrap
+    skill](../bootstrap/SKILL.md); the repository is ready for a future,
+    separately defined setup workflow.

@@ -46,6 +46,7 @@ jobs:
   react-ui:
     if: contains(fromJSON(inputs.package_names), '@psychobolt/react-ui')
     uses: ./.github/workflows/package.yml
+    permissions: *package_permissions
     with:
       ref: ${{ inputs.ref }}
       workspace: react-ui

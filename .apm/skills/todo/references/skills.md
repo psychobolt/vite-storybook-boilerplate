@@ -25,16 +25,17 @@ This register tracks repository-local skills through three states:
 The tally increments only after an end-to-end representative workflow. Static
 validation and partial runs do not count.
 
-| Skill          | Runs | Test with                                                                                                                                                                                      |
-| -------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ui-package`   | 0    | Scaffold a framework-neutral base UI package and a framework-specific package derived from a compatible base reference.                                                                        |
-| `ui-element`   | 0    | Create a framework-neutral HTML/template element and verify its styling, Storybook, exports, and validation contract.                                                                          |
-| `ui-composite` | 0    | Create a framework-neutral composite that coordinates multiple elements or composites, including a private sub-element story, without application-specific behavior.                           |
-| `ui-component` | 0    | Create a framework-specific component derived from a base element or composite and verify framework styling and Storybook use.                                                                 |
-| `todo`         | 0    | Record a skill modification, reset its tally, complete a representative workflow, and move it to the appropriate stable state.                                                                 |
-| `ci`           | 0    | Diagnose representative provider workflows, including Bitbucket Pipelines when present, and a dependency-update validation failure.                                                            |
-| `keys`         | 0    | Test secure-handoff and fail-closed behavior for missing access, validation, approval, rotation, recovery, and cleanup without exposing environment files or key values.                       |
-| `fork`         | 0    | Run a confirmed fork cleanup that removes approved demo workspaces, preserves protected infrastructure, normalizes identity, and validates stale-reference removal without invoking bootstrap. |
+| Skill          | Runs | Test with                                                                                                                                                |
+| -------------- | ---: | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ui-package`   |    0 | Scaffold base and framework-specific UI packages from compatible references.                                                                             |
+| `ui-element`   |    0 | Create a framework-neutral element and verify its styling, Storybook, exports, and validation.                                                           |
+| `ui-composite` |    0 | Create a composite from elements or composites, including private sub-elements, and verify its contract.                                                 |
+| `ui-component` |    0 | Create a framework-specific component from a base unit and verify its styling and Storybook integration.                                                 |
+| `todo`         |    0 | Record a skill change, complete a representative workflow, and update its stability state.                                                               |
+| `ci`           |    0 | Diagnose representative CI-provider and dependency-update failures.                                                                                      |
+| `keys`         |    0 | Test secure handoff, fail-closed access, approval, rotation, and recovery without exposing secrets.                                                      |
+| `fork`         |    0 | Run identity migration and approved cleanup, including Git and hosted-access preflight when applicable, remotes, optional history reset, and validation. |
+| `sync`         |    0 | Synchronize related and unrelated histories with local `base-main` integration and validation.                                                           |
 
 ## Stable skills
 

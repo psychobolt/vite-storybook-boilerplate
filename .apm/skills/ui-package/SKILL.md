@@ -19,10 +19,11 @@ architecture. Keep application business logic out of the package.
    framework-neutral HTML/template rendering
    when that matches the root architecture. For a framework-specific package,
    stop and ask if the framework or rendering model is unspecified.
-3. **Discover and select compatible UI references.** Search the repository and,
-   when requested, `BASE_REF` for the closest existing UI package that matches
-   the requested framework or rendering model. For a framework-specific UI
-   package, also locate the corresponding framework-neutral base element or
+3. **Discover and select compatible UI references.** Search the repository for
+   the closest existing UI package that matches the requested framework or
+   rendering model. Use a resolved `BASE_REF` only when the shared package
+   procedure selects it. For a framework-specific UI package, also locate the
+   corresponding framework-neutral base element or
    composite when one exists. Determine whether the base package publishes its
    template or JavaScript implementation or uses it only for Storybook and
    internal build work. Use the base contract's semantics and styles,

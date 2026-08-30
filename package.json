@@ -20,7 +20,8 @@
     "g:swc-register-path": "yarn node -p \"require.resolve('@swc-node/register')\"",
     "postinstall": "husky",
     "lint": "yarn g:prettier --check . && yarn g:lint",
-    "run-script": "yarn g:run-script"
+    "run-script": "yarn g:run-script",
+    "trust-cert": "yarn run-script bin/trust-cert.ts"
   },
   "resolutions": {
     "@storybook/test-runner/playwright": "*",
@@ -30,24 +31,24 @@
     "vite-plugin-sass-glob-import@npm:6.0.3": "patch:vite-plugin-sass-glob-import@npm%3A6.0.3#~/.yarn/patches/vite-plugin-sass-glob-import-npm-6.0.3-718e64ce42.patch"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "2.21.0",
+    "@dotenvx/dotenvx": "2.22.0",
     "@microsoft/agentrc": "2.0.1-91",
     "@swc-node/register": "1.12.1",
     "@swc/core": "1.16.1",
     "@types/node": "24.13.3",
     "@types/semver": "7.8.0",
-    "@typescript-eslint/utils": "8.67.0",
+    "@typescript-eslint/utils": "8.68.0",
     "@yarnpkg/sdks": "3.3.1",
     "arg": "5.0.2",
     "commons": "workspace:*",
-    "eslint": "10.9.0",
+    "eslint": "10.9.1",
     "husky": "9.1.7",
     "playwright": "1.62.1",
     "renovate": "43.288.0",
     "semver": "7.8.5",
     "skills": "1.5.23",
     "svelte-language-server": "0.18.4",
-    "turbo": "2.10.11",
+    "turbo": "2.10.12",
     "typescript": "6.0.3"
   },
   "packageManager": "yarn@4.18.0",

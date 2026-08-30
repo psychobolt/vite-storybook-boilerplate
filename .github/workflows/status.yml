@@ -11,15 +11,25 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   ci:
     uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: write
+      deployments: write
+      issues: write
+      packages: write
+      pull-requests: write
     secrets: inherit
 
   finish:
     needs: ci
     if: always()
     runs-on: ubuntu-latest
+    permissions: {}
     steps:
       - name: 'Check status of all required jobs'
         if: github.ref_name != 'main' && !contains(github.ref_name, 'release-')
