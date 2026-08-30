@@ -141,6 +141,23 @@ steps and never follow from invoking this skill alone.
    the initial fork invocation or from the fact that the repository is no
    longer on the original history.
 
+   If the invocation supplies no fork parameters or leaves the next operation
+   unresolved, do not finish with an inventory report that merely says no
+   changes were made. Present the discovered context and ask the user to
+   choose a next step:
+
+   - establish a new project identity, including the destination project URL
+     and identity-field decisions;
+   - prepare the repository as an extension, including its intended `origin`,
+     upstream `base`, and synchronization relationship;
+   - review candidate demo content and approve an exact cleanup set, without
+     deleting anything during the review; or
+   - explicitly reset history, with no recovery branch or temporary reference;
+   - exit without changes.
+
+   Do not change files, remotes, branches, or history until the selected
+   operation and any required values are clear.
+
 6. **Apply the selected changes.**
 
    - In identity-migration mode, preserve all applications, packages, demos,
