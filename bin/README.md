@@ -72,6 +72,12 @@ the certificate is added to the System keychain so Chrome can use the trust.
 yarn trust-cert
 ```
 
+## Dotenv Arguments
+
+`dotenv-args.js` ([Source](dotenv-args.js))
+
+Prints the runtime arguments to be used for the `g:dotenv-*` commands.
+
 ## Generate Certificate
 
 `generate-cert.sh` ([Source](generate-cert.sh))

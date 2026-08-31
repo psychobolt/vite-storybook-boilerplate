@@ -31,12 +31,15 @@ operational details.
   inaccessible to the agent under this policy.
 - Only create or update an environment file when the user explicitly requests
   the change and the content is non-secret, whether supplied directly for
-  writing or generated without reading existing environment values. Do not
-  overwrite or rotate existing secret-bearing files from agent tools.
+  writing or generated without reading existing environment values. During an
+  independent fork identity migration, the agent may replace an inherited
+  `.env.ci` with the blank authored template at
+  `.apm/skills/keys/references/.env.ci`; do not read the replaced file or
+  overwrite any other secret-bearing environment file from agent tools.
 - Use the [keys skill](.apm/skills/keys/SKILL.md) for any operation that requires
-  dotenv encryption, decryption, key validation, rotation, or existing secret
-  values. If a secure user-controlled process is unavailable, stop and explain
-  the boundary.
+  dotenv encryption, decryption, key validation, full reset, or data-retaining
+  key migration. If a secure user-controlled process is unavailable, stop and
+  explain the boundary.
 
 ## Architecture
 
@@ -213,7 +216,7 @@ scaffolding, or component creation, use the appropriate guidance under
   skills.
 
 Run the [keys skill](.apm/skills/keys/SKILL.md)
-before workflows that create or rotate repository dotenv encryption keys. The
+before workflows that create, reset, or re-encrypt repository dotenv files. The
 [app-component skill](.apm/skills/app-component/SKILL.md) is for creating or
 extending application-owned elements, composites, or components within an app
 package. The
