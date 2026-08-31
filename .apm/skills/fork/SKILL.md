@@ -72,14 +72,14 @@ steps and never follow from invoking this skill alone.
    name, URL, workspace directory name, existing synchronization documentation,
    and configured remotes are supporting signals, not proof by themselves. In
    either case, the resulting project is the canonical `origin` and may become
-   the base for future extensions. When creating a new project, update its
-   documentation and synchronization guidance so future extensions use that
-   `origin` as their base reference. Preserve and normalize the intended upstream
-   relationship in both cases; retain the original source as the upstream
-   `base` remote for synchronization when that relationship is intended. If
-   the relationship is ambiguous, preserve files and ask whether the new
-   project should become the base for future extensions and whether the
-   original source should remain available as `base`.
+   the base for future extensions. For an independent new project, retain the
+   original source only as local Git state when needed (for example, a local
+   `base` remote or fetched ref); do not preserve it as a tracked documentation
+   or workflow reference. For an extension, retain and normalize the intended
+   upstream relationship, including a documented `base` reference, when that
+   relationship is part of the project's workflow. If the relationship is
+   ambiguous, preserve files and ask whether the project is independent or an
+   extension and which local or documented upstream relationship is intended.
 
    Determine separately from the user's current instruction whether it asks to
    clear or reset Git history, or to add or update `origin` or `base`.
@@ -114,14 +114,16 @@ steps and never follow from invoking this skill alone.
    `funding`. A repository owner in a new URL does not automatically establish
    the package author or copyright holder.
 
-   Confirm the requested project URL for `origin` and the chosen upstream URL
-   for `base` separately. If the user explicitly supplies a new project URL,
-   always update or add `origin` locally, even when the hosted destination
-   cannot be reached. When the original source is retained for upstream
-   synchronization, configure it as `base` at the confirmed upstream URL for
-   both independent projects and extensions; do not use the upstream URL to
-   create `origin`. If no project URL is available, ask for it before adding
-   or changing `origin`.
+   Confirm the requested project URL for `origin`. For an extension, also
+   confirm the chosen upstream URL for `base`. If the user explicitly supplies
+   a new project URL, always update or add `origin` locally, even when the
+   hosted destination cannot be reached. For an independent new project, the
+   original source may remain as a local `base` remote when needed for local
+   reference only, but do not add or retain that source in tracked
+   documentation or workflows. For an extension, configure the confirmed
+   upstream URL as `base` when the project workflow requires it; do not use the
+   upstream URL to create `origin`. If no project URL is available, ask for it
+   before adding or changing `origin`.
    If normalized `origin` and `base` URLs are identical, treat that as a
    remote-role collision. Do not infer a fork, history reset, or cleanup from
    the collision; report it and ask which project and upstream roles are
@@ -171,6 +173,11 @@ steps and never follow from invoking this skill alone.
      active entries would make the configuration invalid, comment out that
      scheduling block as a unit rather than deleting the workflow or disabling
      its other triggers.
+   - Disable the automatic Bitbucket synchronization trigger by commenting out
+     its push trigger or equivalent automatic trigger. Preserve the Bitbucket
+     workflow and its manual dispatch entry point unless the user explicitly
+     requests that manual execution also be disabled. Do not delete the
+     Bitbucket mirror jobs or their configuration.
    - Reset an old CI dotenv file only when the fork request includes that
      reset. Do not open, copy, inspect, or rewrite the existing `.env.ci`.
      Hand the reset to the [keys skill](../keys/SKILL.md) or an approved
@@ -187,8 +194,8 @@ steps and never follow from invoking this skill alone.
    - Preserve workflow, automation, and coverage configuration files. Update
      them instead of deleting them because an example was removed. Consolidate
      inapplicable package or workspace jobs into one commented example so they
-     cannot execute. Preserve the fork workflow-sync CI itself and update only
-     its stale project references or removed paths.
+     cannot execute. Preserve the fork workflow-sync CI itself; update its
+     references according to Step 7 and update removed paths as required.
    - Remove an `apps/` or `packages/` container only after the approved cleanup
      leaves it empty; never delete a non-empty container as a shortcut.
 
@@ -202,11 +209,19 @@ steps and never follow from invoking this skill alone.
    the original project and use the repository's project context, resolved
    remote names, branch inputs, or other repository-neutral expressions. For
    either an independent project or an extension, identify the resulting
-   `origin` as the canonical project. When creating a new project, also update
-   its documentation and synchronization guidance so future extensions use
-   that `origin` as their base reference. Retain the original source only
-   where it is intentionally the upstream `base` synchronization source, and
-   make the distinction clear between project and base references.
+   `origin` as the canonical project. When a new project URL is supplied,
+   inspect every synchronization workflow and document and classify each as
+   either current-project upstream synchronization or future extension
+   guidance. For an independent new project, remove the original source and
+   `base` reference from tracked documentation, workflows, and automation; the
+   original source is retained only through local Git state. Update
+   future-extension workflows and documentation so they use the new `origin`
+   as their base reference. For an extension, retain the original source as
+   `base` for current-project upstream synchronization when that relationship
+   is intended, while future-extension guidance uses the new `origin` as its
+   base. If one file serves both purposes, parameterize or document the two
+   references rather than leaving the roles ambiguous. Make the distinction
+   clear between project and base references.
 
    Do not use broad text substitution. Update each occurrence according to
    whether it is new-project identity, upstream synchronization guidance,
@@ -233,11 +248,13 @@ steps and never follow from invoking this skill alone.
 
 9. **Check remotes and original references.** Normalize SSH and HTTPS forms,
    host aliases, case, and a trailing `.git` before comparing URLs. Verify that
-   the confirmed project URL is configured as `origin` and, when the upstream
-   relationship is retained, the selected upstream URL is configured as
-   `base`. Report remotes that still point to the old project when they were
-   not intentionally retained. Do not remove or rewrite a remote that the
-   user did not authorize.
+   the confirmed project URL is configured as `origin`. For an extension,
+   verify the selected upstream URL is configured as `base` when the workflow
+   requires it. For an independent new project, a retained original `base`
+   remote is local-only and must not be treated as a tracked documentation or
+   workflow reference. Report remotes that still point to the old project when
+   they were not intentionally retained. Do not remove or rewrite a remote
+   that the user did not authorize.
    If remotes are unavailable, report that the comparison was documentation
    only; Step 2 handles fallback resolution. Do not test hosted authentication
    or publish a remote as part of this skill.
@@ -249,7 +266,14 @@ steps and never follow from invoking this skill alone.
     the confirmed URLs, and no stale old-project identity remains in eligible
     files. Allow only intentional upstream synchronization references and
     explicitly retained attribution. Check that ordinary workflow examples no
-    longer present the old project as the current repository. Recheck
+    longer present the old project as the current repository. When an
+    independent new project was selected, verify that no tracked documentation,
+    workflow, or automation retains the original source or `base` reference;
+    any retained original source must exist only in local Git state. When an
+    extension was selected, verify that current-project upstream references
+    use the selected `base` and future-extension synchronization references use
+    the new `origin`. Verify that the Bitbucket synchronization workflow has no
+    active automatic trigger. Recheck
     `.env.defaults` only for non-secret defaults; do not inspect any other
     environment file. Run remaining repository checks that are available and
     report checks that cannot run until project setup is complete.
