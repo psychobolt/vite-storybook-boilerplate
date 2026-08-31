@@ -9,17 +9,17 @@ Gate repository dotenvx key workflows before encrypted environment files are
 created, reset, or re-encrypted. The agent may read a workspace's non-secret
 `.env.defaults` and authored static environment templates under
 `.apm/skills/keys/references/.env.*` as documentation. During an explicitly
-selected independent fork identity migration, it may write an empty root
-`.env.<environment>` target or a matching template to a newly required
-workspace target, without reading the previous files. During scaffolding, it
-may write a matching template to a newly created package when that target is
-established by the package documentation and encrypt it with the repository-
-root key. It may then run the narrow template-encryption paths described
-below. It must not open or read any live `.env.*` file or execute commands that
-load one or any secret-bearing environment variable. Secret-dependent work
-must be performed by a user-controlled secure process outside the agent's
-filesystem and tool context. Do not expose key values in output, commits, or
-status reports.
+selected fork identity migration or extension setup that uses full-reset mode,
+it may write an empty root `.env.<environment>` target or a matching template
+to a newly required workspace target, without reading the previous files.
+During scaffolding, it may write a matching template to a newly created
+package when that target is established by the package documentation and
+encrypt it with the repository-root key. It may then run the narrow
+template-encryption paths described below. It must not open or read any live
+`.env.*` file or execute commands that load one or any secret-bearing
+environment variable. Secret-dependent work must be performed by a
+user-controlled secure process outside the agent's filesystem and tool
+context. Do not expose key values in output, commits, or status reports.
 
 ## Procedure
 
@@ -30,30 +30,35 @@ status reports.
    may be read as documentation. Do not open or read live `.env.<environment>`
    files outside that authored template directory, except the permitted
    `.env.defaults` metadata, and never read `.env.keys` or any other live or
-   secret-bearing environment file. During an explicitly selected independent
-   migration, replacing a root `.env.<environment>` target with an empty file
-   and replacing a newly required workspace `.env.<environment>` target with
-   its matching authored template are non-secret; do not replace any other
+   secret-bearing environment file. During an explicitly selected fork
+   migration or extension setup that uses full-reset mode, replacing a root
+   `.env.<environment>` target with an empty file and replacing a newly
+   required workspace `.env.<environment>` target with its matching authored
+   template are non-secret; do not replace any other
    environment file. Do not inspect process environment variables.
    Encryption of retained or existing values remains a separate secure-process
    operation; full-reset encryption follows Step 5. Record the exact
    root and workspace target paths from the request or repository
    documentation; do not discover targets by reading environment files or by
-   applying a broad environment-file glob. For each target, resolve the
-   matching `.env.*` template under this skill's `references/` directory. If
-   the required template does not exist, stop and ask rather than inventing
-   values or copying another environment template.
+   applying a broad environment-file glob. For each workspace or package
+   target that requires a template, resolve the matching `.env.*` template
+   under this skill's `references/` directory. A full-reset root target is
+   intentionally empty and does not require a template. If a required
+   workspace or package template does not exist, stop and ask rather than
+   inventing values or copying another environment template.
 2. **Select the migration mode.** Use a full reset for a new independent
-   project when inherited encrypted values must not be retained. Replace each
-   explicitly selected root `.env.<environment>` target with an empty file,
-   and replace each explicitly selected workspace `.env.<environment>` target
-   with its matching authored template, without reading the previous files. Do
-   not create a workspace target from a template unless the workflow
-   establishes that target. Then encrypt the targets as described in Step 5.
-   For a newly created package whose workflow requires an environment target,
-   write its matching template and encrypt it with the repository-root key; do
-   not create a package-local key source. Use a data-retaining migration
-   only when the user wants existing values preserved. In that mode, a secure
+   project or an extension when the selected workflow establishes new targets
+   or explicitly resets existing targets and inherited encrypted values must
+   not be retained. Replace each explicitly selected root
+   `.env.<environment>` target with an empty file, and replace each explicitly
+   selected workspace `.env.<environment>` target with its matching authored
+   template, without reading the previous files. Do not create a workspace
+   target from a template unless the workflow establishes that target. Then
+   encrypt the targets as described in Step 5. For a newly created package
+   whose workflow requires an environment target, write its matching template
+   and encrypt it with the repository-root key; do not create a package-local
+   key source. Use a data-retaining migration when an extension or other
+   workflow must preserve existing values. In that mode, a secure
    process decrypts each target with the currently valid private-key source
    from the repository root (`.env.keys` or the project's established secure
    root `.env` source), retires the old `.env.keys` only after successful
@@ -87,7 +92,13 @@ status reports.
    Omit `-fk` for the root command when a fresh root key must be generated;
    use the repository-root `.env.keys` as the `-fk` source for workspace
    commands. Do not create or encrypt a workspace target unless the package
-   documentation explicitly requires that environment target. When a new
+   documentation explicitly requires that environment target. For a new
+   project, run the root encryption command without checking for or
+   speculatively asking the user to retire a key. A missing root `.env.keys` is
+   expected in this path: the root command without `-fk` is the creation path.
+   After it succeeds, use the resulting root key through `-fk` for applicable
+   workspace targets. Hand off only if the command reports that an existing
+   root key must be replaced. When a new
    environment file is required, resolve its matching template from this
    skill; do not duplicate template paths or command rules in the calling
    workflow.
@@ -115,8 +126,9 @@ status reports.
 
    Run these commands only for empty or templated targets written during the
    current full-reset or package-scaffolding operation, without overload files
-   or additional `.env` inputs. Do not read `.env.keys` or command output that
-   contains private key values.
+   or additional `.env` inputs. Use the command exit status and non-secret
+   output to determine whether the operation succeeded; do not read `.env.keys`
+   or command output that contains private key values.
 
    For data-retaining migration, the corresponding secure decrypt operation
    uses the same root key source and target-file selection, for example:
