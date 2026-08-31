@@ -138,6 +138,18 @@ type is erased or remains internal to the package.
 Use the repository's documented package-manager workflow to update manifests
 and lockfiles.
 
+### Workspace refresh
+
+After changing workspace manifests, package names, workspace registration,
+lockfiles, or package paths, inspect `git status` and the relevant diff. Use the
+repository and workspace linker configuration to determine the affected scope:
+run `yarn install` from the repository root only when a PnP workspace or its
+dependency graph changed, and run `yarn bootstrap` for affected non-PnP
+workspaces. If both scopes are affected, run `yarn install` before
+`yarn bootstrap`. Inspect `git status` and the relevant diff again after each
+command; bootstrap may update generated files. If a required command fails,
+stop before dependent commands and report the failure.
+
 ### Shared package procedure
 
 Apply this procedure when scaffolding an app, API, or UI package:
@@ -163,7 +175,8 @@ Apply this procedure when scaffolding an app, API, or UI package:
    integration scripts;
    do not omit an existing script without a reason. Apply the root [package
    dependency contract](#package-dependency-contract) when adding or changing
-   dependencies.
+   dependencies. Apply the [workspace refresh](#workspace-refresh) after these
+   changes and before any workspace-dependent command.
 5. **Normalize metadata and environment.** Normalize copied names and paths in
    manifests, source entrypoints, READMEs, CI, and supported service
    configuration. When a package requires an encrypted `.env.*`, use the
