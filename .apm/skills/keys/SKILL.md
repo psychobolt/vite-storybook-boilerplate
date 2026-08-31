@@ -7,8 +7,10 @@ description: Gate repository dotenvx workflows that create or rotate encrypted e
 
 Gate repository dotenvx key workflows before encrypted environment files are
 created or rotated. The agent may read a workspace's non-secret `.env.defaults`
-for development metadata, but must not open, read, write, or execute commands
-that load `.env`, `.env.ci`, or any secret-bearing environment variable.
+for development metadata and the authored static template at
+`.apm/skills/**/references/.env.ci`. It must not open, read, write, or execute
+commands that load `.env`, any workspace-local `.env.ci`, or any secret-bearing
+environment variable.
 Secret-dependent work must be performed by a user-controlled secure process
 outside the agent's filesystem and tool context. Do not expose key values in
 output, commits, or status reports.
@@ -17,8 +19,10 @@ output, commits, or status reports.
 
 1. **Identify the non-secret scope.** Determine from package documentation,
    scripts, and file names whether the requested workflow needs encrypted
-   environment handling. `.env.defaults` may be read for non-secret metadata,
-   but do not open, read, or modify `.env`, `.env.ci`, or any other environment
+   environment handling. `.env.defaults` may be read for non-secret metadata.
+   The authored static template at `.apm/skills/**/references/.env.ci` may be
+   read as documentation. Do not open, read, or modify `.env`, any
+   workspace-local `.env.ci`, or any other live or secret-bearing environment
    file. Do not inspect process environment variables.
 2. **Require a secure handoff.** Explain that the agent cannot validate,
    decrypt, encrypt, rotate, or generate project keys because any tool with
@@ -37,7 +41,10 @@ output, commits, or status reports.
    comma-separated transition keys when the dotenv workflow supports them. It
    must ask the user before rotation. The agent may provide non-secret command
    guidance, but must not invoke `yarn g:dotenv`, `dotenvx`, `keypair`, or
-   `rotate` itself when those commands can load secret-bearing files.
+   `rotate` itself when those commands can load secret-bearing files. When a
+   new CI dotenv file is required, use the [CI dotenv
+   template](references/.env.ci); include the Chromatic line only
+   when the project or workspace supports Chromatic.
 5. **Handle rotation or recovery externally.** If validation fails, the secure
    process must warn that existing encrypted values cannot be recovered with a
    replacement key unless another valid private key or plaintext recovery source
@@ -56,6 +63,7 @@ output, commits, or status reports.
 
 ## References
 
+- [CI dotenv template](references/.env.ci)
 - [dotenvx CLI introduction](https://dotenvx.com/docs/cli/introduction)
 - [dotenvx keypair reference](https://dotenvx.com/docs/cli/keypair)
 - [dotenvx rotation reference](https://dotenvx.com/docs/advanced/rotate-f)

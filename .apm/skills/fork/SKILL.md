@@ -178,15 +178,17 @@ steps and never follow from invoking this skill alone.
      workflow and its manual dispatch entry point unless the user explicitly
      requests that manual execution also be disabled. Do not delete the
      Bitbucket mirror jobs or their configuration.
-   - Reset an old CI dotenv file only when the fork request includes that
-     reset. Do not open, copy, inspect, or rewrite the existing `.env.ci`.
-     Hand the reset to the [keys skill](../keys/SKILL.md) or an approved
-     user-controlled secure process so it can remove the old file and create a
-     new `.env.ci` containing only the documented key names with blank values.
-     Do not invent key names or include private keys, encrypted values, or
-     copied ciphertext in the replacement. If the secure process is
-     unavailable, leave the existing file untouched and report that the reset
-     could not be completed.
+   - For an independent new project, reset inherited CI dotenv state as part
+     of identity migration; the new project must not retain the original
+     project's encrypted CI tokens. Do not open, copy, inspect, or rewrite the
+     existing `.env.ci`. Hand the reset to the [keys skill](../keys/SKILL.md)
+     or an approved user-controlled secure process so it can remove the old
+     file and create a new `.env.ci` containing only the documented key names
+     with blank values. Do not invent key names or include private keys,
+     encrypted values, or copied ciphertext in the replacement. If the secure
+     process is unavailable, leave the existing file untouched and report the
+     fork's security reset as incomplete. An extension follows its established
+     project secret policy and is not reset by this rule alone.
    - In content-cleanup mode, remove only the approved demo paths. Preserve
      protected paths and shared tooling. Update workspace manifests, lockfiles,
      task configuration, documentation, and references in existing workflow or

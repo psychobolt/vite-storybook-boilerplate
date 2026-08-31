@@ -19,10 +19,13 @@ operational details.
 ## Environment-file boundary
 
 - Treat every environment file as write-only for agent workflows except the
-  workspace's `.env.defaults`, which is the only environment file agents may
-  read for non-secret development defaults such as ports. Never read, search,
-  parse, diff, or otherwise inspect `.env`, `.env.ci`, or any other environment
-  file.
+  workspace's `.env.defaults`, which agents may read for non-secret
+  development defaults such as ports. An explicitly authored, tracked static
+  template at `.apm/skills/**/references/.env.ci` may also be read as
+  documentation. This path-specific exception applies only to that authored
+  static template; do not treat it as access to a live environment file. Never
+  read, search, parse, diff, or otherwise inspect `.env`, any workspace-local
+  `.env.ci`, or any other live or secret-bearing environment file.
 - Never inspect process environment variables or pass secret-bearing
   environment values to a tool. An ignored file or encrypted file is still
   inaccessible to the agent under this policy.
