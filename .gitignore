@@ -1,16 +1,16 @@
 # workspace
-node_modules
-apm_modules
-.turbo
-.vercel
+node_modules/
+apm_modules/
+.turbo/
+.vercel/
 .vscode/settings.json
-storybook-static
-build
-dist
-cjs
-esm
-coverage
-test-reports
+storybook-static/
+build/
+dist/
+cjs/
+esm/
+coverage/
+test-reports/
 *.tsbuildinfo
 vite.config.*.timestamp-*
 telemetry.json
@@ -43,21 +43,21 @@ mcp.json
 # yarn
 .pnp.*
 **/.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!**/.yarn/sdks
-!**/.yarn/sdks/**/dist
-!.yarn/versions
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!**/.yarn/sdks/
+!**/.yarn/sdks/**/dist/
+!.yarn/versions/
 
 # Logs
-logs
+logs/
 *.log
 yarn-debug.log*
 yarn-error.log*
 
 # Temp
-.temp
-.tmp
-temp
-tmp
+.temp/
+.tmp/
+temp/
+tmp/
