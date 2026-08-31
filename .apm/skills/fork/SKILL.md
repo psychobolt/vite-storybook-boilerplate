@@ -35,8 +35,9 @@ steps and never follow from invoking this skill alone.
 
    This skill does not create hosted forks, verify provider authentication, or
    publish remotes. A user-provided project URL is sufficient to configure
-   `origin` locally. If that URL is unreachable or the hosted repository does
-   not exist yet, record it as unverified and continue the local work.
+   `origin` locally. Do not test hosted reachability or authentication; fork
+   does not publish remotes, and hosted destination availability is not a
+   local fork issue.
 
 2. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
    workspace configuration, and repository workflow documentation. Inspect the
@@ -82,7 +83,11 @@ steps and never follow from invoking this skill alone.
    extension and which local or documented upstream relationship is intended.
 
    Determine separately from the user's current instruction whether it asks to
-   clear or reset Git history, or to add or update `origin` or `base`.
+   clear or reset Git history, or to add or update `origin` or `base`. If the
+   user has not stated whether existing history should be preserved or reset,
+   stop and ask for that history disposition before applying the identity
+   migration. Do not infer preservation or reset from an unpublished `origin`,
+   an unrelated history, or the absence of a merge base.
 
 4. **Inventory the original identity.** Search eligible tracked and source
    files, including manifests, lockfiles, licenses, READMEs, development and
@@ -112,14 +117,19 @@ steps and never follow from invoking this skill alone.
    existing property. This includes `name`, `description`, `license`,
    `author`, copyright ownership, `repository`, `homepage`, `bugs`, and
    `funding`. A repository owner in a new URL does not automatically establish
-   the package author or copyright holder.
+   the package author or copyright holder. Preserve a user-supplied license
+   value exactly; do not normalize `Proprietary` to `UNLICENSED` unless the
+   user explicitly requests that SPDX value. For an independent new project,
+   retain only the selected active license. Do not append the original
+   project's license as a second active license; preserve upstream attribution
+   separately only when it is legally required or explicitly requested.
 
    Confirm the requested project URL for `origin`. For an independent new
    project, when no project name is supplied, use the current repository root
    directory's basename as the project name. For an extension, also
    confirm the chosen upstream URL for `base`. If the user explicitly supplies
-   a new project URL, always update or add `origin` locally, even when the
-   hosted destination cannot be reached. For an independent new project, the
+   a new project URL, always update or add `origin` locally, regardless of
+   hosted destination availability. For an independent new project, the
    original source may remain as a local `base` remote when needed for local
    reference only, but do not add or retain that source in tracked
    documentation or workflows. For an extension, configure the confirmed
@@ -131,10 +141,9 @@ steps and never follow from invoking this skill alone.
    the collision; report it and ask which project and upstream roles are
    intended.
    If the project `origin` is absent, empty, or has no published project ref,
-   infer an unpublished-fork candidate and propose a fresh-history migration.
-   This is a workflow inference, not permission to discard local commits; do
-   not replace history without the user's approval unless the current
-   instruction already authorizes it.
+   record that local remote setup is incomplete. Do not infer a history
+   operation or hosted-publication requirement from that state; use the
+   explicit history disposition above.
    If a required URL or branch cannot be discovered from repository
    documentation or Git metadata, ask before changing remotes.
 
@@ -149,7 +158,8 @@ steps and never follow from invoking this skill alone.
    changes were made. Present the discovered context and ask the user to
    choose a next step:
 
-   - establish a new project identity, including the destination project URL
+   - choose whether to preserve or reset the existing Git history, then
+     establish a new project identity, including the destination project URL
      and identity-field decisions;
    - prepare the repository as an extension, including its intended `origin`,
      upstream `base`, and synchronization relationship;
@@ -180,21 +190,24 @@ steps and never follow from invoking this skill alone.
      workflow and its manual dispatch entry point unless the user explicitly
      requests that manual execution also be disabled. Do not delete the
      Bitbucket mirror jobs or their configuration.
-   - For an independent new project, use the [keys skill](../keys/SKILL.md)
-     full-reset mode by default: the new project must not retain the original
-     project's encrypted values. Without opening, copying, or inspecting
-     existing environment files, replace each selected root `.env.*` target
-     with an empty file and each selected workspace target with its matching
-     template from the keys skill. Do not create a workspace target unless the
-     keys skill and the workspace documentation establish that it is required.
-     Then run the keys skill's full-reset encryption commands. Encrypt root
-     targets first so they can establish replacement root keys, then encrypt
-     workspace targets with those root keys through `-fk`. If the user
-     explicitly wants existing environment values preserved, select the keys skill's
-     data-retaining migration instead; do not replace those targets with
-     templates, and hand that migration to the approved secure process. An
-     extension follows its established project secret policy and is not reset
-     by this rule alone.
+   - For a new independent project or an extension whose selected workflow
+     establishes new or reset environment targets, use the [keys
+     skill](../keys/SKILL.md) full-reset mode. Without opening, copying, or
+     inspecting existing environment files, replace each selected root
+     `.env.*` target with an empty file and each selected workspace target with
+     its matching template from the keys skill. Do not create a workspace
+     target unless the keys skill and the workspace documentation establish
+     that it is required. Then immediately follow the keys skill's full-reset
+     encryption path: encrypt root targets first so they can establish
+     replacement root keys, then encrypt workspace targets with those root
+     keys through `-fk`. Do not defer this blank-target encryption to a secure
+     terminal. If the root command reports that an existing root key must be
+     replaced, stop and hand only that key-retirement decision to the approved
+     secure process.
+   - If the extension or other selected workflow must preserve existing
+     environment values, use the keys skill's data-retaining migration instead;
+     do not replace those targets with templates, and hand that migration to
+     the approved secure process.
    - In content-cleanup mode, remove only the approved demo paths. Preserve
      protected paths and shared tooling. Update workspace manifests, lockfiles,
      task configuration, documentation, and references in existing workflow or
@@ -237,8 +250,8 @@ steps and never follow from invoking this skill alone.
 
 8. **Migrate history only after the required preflight.** Process this step
    only when the user's current instruction explicitly requests a history
-   reset. Complete Procedure 1 and the remaining identity, remote, and
-   publication checks before replacing history. If a remote exists but its
+   reset. Complete Procedure 1 and the remaining identity and local remote
+   configuration checks before replacing history. If a remote exists but its
    current state cannot be checked, stop before replacing history. Do not
    silently discard local commits that are ahead of a remote. Preserve the
    validated working tree and create the new history from it with an
@@ -262,7 +275,9 @@ steps and never follow from invoking this skill alone.
    remote is local-only and must not be treated as a tracked documentation or
    workflow reference. Report remotes that still point to the old project when
    they were not intentionally retained. Do not remove or rewrite a remote
-   that the user did not authorize.
+   that the user did not authorize. Hosted reachability is not part of this
+   check; configuring the local remote is sufficient because this skill never
+   publishes it.
    If remotes are unavailable, report that the comparison was documentation
    only; Step 2 handles fallback resolution. Do not test hosted authentication
    or publish a remote as part of this skill.
@@ -281,11 +296,13 @@ steps and never follow from invoking this skill alone.
     extension was selected, verify that current-project upstream references
     use the selected `base` and future-extension synchronization references use
     the new `origin`. Verify that the Bitbucket synchronization workflow has no
-    active automatic trigger. Record whether the secure process reported
-    successful or pending encryption for the selected root and workspace
-    environment targets; do not inspect those files to perform this check. If
-    encryption is pending, report the fork's CI setup as incomplete
-    rather than claiming it is ready. Recheck
+    active automatic trigger. Record the command result for a full-reset
+    encryption path, or the secure process result for a data-retaining path,
+    for the selected root and workspace environment targets; do not inspect
+    those files to perform this check. For a full reset, report encryption as
+    pending only when the approved command failed or could not run. Do not
+    claim the fork's CI setup is ready while required encryption remains
+    incomplete. Recheck
     `.env.defaults` only for non-secret defaults; do not inspect any other
     environment file. Run remaining repository checks that are available and
     report checks that cannot run until project setup is complete.
