@@ -21,25 +21,32 @@ operational details.
 - Treat every environment file as write-only for agent workflows except the
   workspace's `.env.defaults`, which agents may read for non-secret
   development defaults such as ports. An explicitly authored, tracked static
-  template at `.apm/skills/**/references/.env.ci` may also be read as
-  documentation. This path-specific exception applies only to that authored
-  static template; do not treat it as access to a live environment file. Never
+  environment template at `.apm/skills/keys/references/.env.*` may also be
+  read as documentation. This path-specific exception applies only to those
+  authored static templates; do not treat them as access to live environment
+  files. Never
   read, search, parse, diff, or otherwise inspect `.env`, any workspace-local
-  `.env.ci`, or any other live or secret-bearing environment file.
+  `.env.<environment>`, `.env.keys`, or any other live or secret-bearing
+  environment file. The `.env.defaults` exception above remains limited to
+  non-secret development defaults.
 - Never inspect process environment variables or pass secret-bearing
   environment values to a tool. An ignored file or encrypted file is still
   inaccessible to the agent under this policy.
 - Only create or update an environment file when the user explicitly requests
   the change and the content is non-secret, whether supplied directly for
   writing or generated without reading existing environment values. During an
-  independent fork identity migration, the agent may replace an inherited
-  `.env.ci` with the blank authored template at
-  `.apm/skills/keys/references/.env.ci`; do not read the replaced file or
-  overwrite any other secret-bearing environment file from agent tools.
+  independent fork identity migration or a package-scaffolding workflow
+  governed by the keys skill, the agent may replace an inherited root `.env.*`
+  target with an empty file or create a newly required workspace `.env.*`
+  target from its matching authored template. It may run the keys skill's
+  approved template-encryption commands only against those newly written
+  targets. Do not read the replaced files, generated `.env.keys`, or command
+  output that contains private key values. Do not create or overwrite any
+  other secret-bearing environment file from agent tools.
 - Use the [keys skill](.apm/skills/keys/SKILL.md) for any operation that requires
   dotenv encryption, decryption, key validation, full reset, or data-retaining
-  key migration. If a secure user-controlled process is unavailable, stop and
-  explain the boundary.
+  key migration. If a secure user-controlled process is unavailable for a
+  data-retaining migration, stop and explain the boundary.
 
 ## Architecture
 
@@ -159,11 +166,15 @@ Apply this procedure when scaffolding an app, API, or UI package:
    dependencies.
 5. **Normalize metadata and environment.** Normalize copied names and paths in
    manifests, source entrypoints, READMEs, CI, and supported service
-   configuration. When a package requires an encrypted `.env.ci`, use the
-   [keys skill](.apm/skills/keys/SKILL.md) to hand the operation to an approved
-   user-controlled secure process. Agents must not read, write, or invoke
-   commands that load `.env` or `.env.ci` files, private keys, or secret-bearing
-   environment variables. Keep the project private key outside the
+   configuration. When a package requires an encrypted `.env.*`, use the
+   [keys skill](.apm/skills/keys/SKILL.md) to resolve its matching template,
+   target scope, and encryption path. For a newly created package, use the
+   keys skill's package-enrollment path only when the package documentation
+   establishes that target. Existing environment files and data-retaining
+   migrations must use an approved user-controlled secure process. Agents must
+   not read live environment files, private keys, or secret-bearing environment
+   variables, or invoke commands that load them outside the keys skill's
+   documented new-target exception. Keep the project private key outside the
    agent-accessible workspace and never copy secret values between workspaces.
 6. **Assign ports and derive outputs.** Assign a distinct development port by
    inspecting each workspace's `.env.defaults` and choosing the next available

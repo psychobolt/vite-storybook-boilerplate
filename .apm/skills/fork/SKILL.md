@@ -182,14 +182,17 @@ steps and never follow from invoking this skill alone.
      Bitbucket mirror jobs or their configuration.
    - For an independent new project, use the [keys skill](../keys/SKILL.md)
      full-reset mode by default: the new project must not retain the original
-     project's encrypted CI tokens. Without opening, copying, or inspecting
-     the existing `.env.ci`, replace each explicitly selected target with the
-     blank [CI dotenv template](../keys/references/.env.ci). This non-secret
-     template replacement is part of fork identity migration. Hand encryption
-     to the secure process described by the keys skill and report it as
-     pending when that process is unavailable. If the user explicitly wants
-     existing CI values preserved, select the keys skill's data-retaining
-     migration instead; do not replace those targets with templates. An
+     project's encrypted values. Without opening, copying, or inspecting
+     existing environment files, replace each selected root `.env.*` target
+     with an empty file and each selected workspace target with its matching
+     template from the keys skill. Do not create a workspace target unless the
+     keys skill and the workspace documentation establish that it is required.
+     Then run the keys skill's full-reset encryption commands. Encrypt root
+     targets first so they can establish replacement root keys, then encrypt
+     workspace targets with those root keys through `-fk`. If the user
+     explicitly wants existing environment values preserved, select the keys skill's
+     data-retaining migration instead; do not replace those targets with
+     templates, and hand that migration to the approved secure process. An
      extension follows its established project secret policy and is not reset
      by this rule alone.
    - In content-cleanup mode, remove only the approved demo paths. Preserve
@@ -279,9 +282,9 @@ steps and never follow from invoking this skill alone.
     use the selected `base` and future-extension synchronization references use
     the new `origin`. Verify that the Bitbucket synchronization workflow has no
     active automatic trigger. Record whether the secure process reported
-    successful or pending encryption for the repository-root and applicable
-    workspace `.env.ci` files; do not inspect those files to perform this
-    check. If encryption is pending, report the fork's CI setup as incomplete
+    successful or pending encryption for the selected root and workspace
+    environment targets; do not inspect those files to perform this check. If
+    encryption is pending, report the fork's CI setup as incomplete
     rather than claiming it is ready. Recheck
     `.env.defaults` only for non-secret defaults; do not inspect any other
     environment file. Run remaining repository checks that are available and
