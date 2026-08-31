@@ -8049,9 +8049,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:18.7.1, chromatic@npm:^18.0.1":
-  version: 18.7.1
-  resolution: "chromatic@npm:18.7.1"
+"chromatic@npm:18.7.2, chromatic@npm:^18.0.1":
+  version: 18.7.2
+  resolution: "chromatic@npm:18.7.2"
   dependencies:
     semver: "npm:^7.3.5"
   peerDependencies:
@@ -8074,7 +8074,7 @@ __metadata:
     chroma: dist/bin.cjs
     chromatic: dist/bin.cjs
     chromatic-cli: dist/bin.cjs
-  checksum: 10c0/36b024635ce12e73ab40f2524f70aedb48d647613ecba11ab55d43625b0e453cbcbc4efc8e70e31cc149c068e05dd8cae23b30903d9891630da2825624d0694e
+  checksum: 10c0/163fe997ebd30b72fe47740274c964070b25d20c0a8fbab3ca403c0d82b3b205848d4d49b5d76cc1c09d9ec18c6e372bfcff9650175fe7bc480e452daeadc645
   languageName: node
   linkType: hard
 
@@ -8378,7 +8378,7 @@ __metadata:
     arg: "npm:5.0.2"
     autoprefixer: "npm:10.5.4"
     chokidar: "npm:5.0.0"
-    chromatic: "npm:18.7.1"
+    chromatic: "npm:18.7.2"
     eslint: "npm:10.9.1"
     eslint-plugin-jsonc: "npm:3.4.2"
     eslint-plugin-mdx: "npm:3.8.1"
