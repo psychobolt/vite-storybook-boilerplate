@@ -73,9 +73,12 @@ architecture. Keep application business logic out of the package.
    Review the `commons` README and current shared Storybook implementation to
    determine the supported preview-extension API. Extend the common Storybook
    preview using that documented API and preserve framework renderer defaults,
-   docs configuration, and required addon registrations. UI packages must
-   preserve Chromatic integration; when setup is unavailable, use an empty
-   `CHROMATIC_PROJECT_TOKEN=` placeholder and never invent project identifiers.
+   docs configuration, and required addon registrations.
+   For a new UI package that requires an environment target, follow the [keys
+   skill](../keys/SKILL.md) package-enrollment path to resolve its matching
+   `.env.*` template and encrypt it with the repository-root `.env.keys`. Do
+   not create an environment file unless the package documentation explicitly
+   requires that target.
 6. **Delegate implementation-unit work.** Read the [UI implementation
    routing](references/routing.md), select the matching procedure, and invoke
    it after choosing the compatible reference. Pass that reference as context to

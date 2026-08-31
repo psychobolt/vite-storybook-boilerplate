@@ -137,7 +137,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4766ca857af274a7ad452a7e35e57883b100b46c10590c57c1f319cf9f12d07f
+  content_hash: sha256:32f52c93050dbbd742a937aa91986579d6f4a65e906a0abcb6ee9d836eb9ed17
 - kind: project-relative
   target: agents
   value: .agents/skills/keys
@@ -155,7 +155,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:0178544c106cc11d41ea420a5527617392981c438aa77bc53a63212fc56f1b17
+  content_hash: sha256:87386b8bd0b17d04df23b32c15e37aa383f20dfbcdcd22ff7b088b808e084ed8
 - kind: project-relative
   target: agents
   value: .agents/skills/keys/references/.env.ci
@@ -344,7 +344,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:0e7eb59432a0c1b6e682aafe36d5ce0ecf2d0949176a6a3dd513b97807de4bce
+  content_hash: sha256:9bfc5626bfe36b4d571e8449caf806a74f4972948b537bb504da32348e10c37b
 - kind: project-relative
   target: agents
   value: .agents/skills/ui-package/references/csf.md
@@ -533,7 +533,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4766ca857af274a7ad452a7e35e57883b100b46c10590c57c1f319cf9f12d07f
+  content_hash: sha256:32f52c93050dbbd742a937aa91986579d6f4a65e906a0abcb6ee9d836eb9ed17
 - kind: project-relative
   target: claude
   value: .claude/skills/keys
@@ -551,7 +551,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:0178544c106cc11d41ea420a5527617392981c438aa77bc53a63212fc56f1b17
+  content_hash: sha256:87386b8bd0b17d04df23b32c15e37aa383f20dfbcdcd22ff7b088b808e084ed8
 - kind: project-relative
   target: claude
   value: .claude/skills/keys/references/.env.ci
@@ -740,7 +740,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:0e7eb59432a0c1b6e682aafe36d5ce0ecf2d0949176a6a3dd513b97807de4bce
+  content_hash: sha256:9bfc5626bfe36b4d571e8449caf806a74f4972948b537bb504da32348e10c37b
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-package/references/csf.md
@@ -978,8 +978,8 @@ local_deployed_file_hashes:
   .agents/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .agents/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .agents/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .agents/skills/fork/SKILL.md: sha256:4766ca857af274a7ad452a7e35e57883b100b46c10590c57c1f319cf9f12d07f
-  .agents/skills/keys/SKILL.md: sha256:0178544c106cc11d41ea420a5527617392981c438aa77bc53a63212fc56f1b17
+  .agents/skills/fork/SKILL.md: sha256:32f52c93050dbbd742a937aa91986579d6f4a65e906a0abcb6ee9d836eb9ed17
+  .agents/skills/keys/SKILL.md: sha256:87386b8bd0b17d04df23b32c15e37aa383f20dfbcdcd22ff7b088b808e084ed8
   .agents/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .agents/skills/sync/SKILL.md: sha256:895906819ef93119b8290460b53bc33a52364ef7172a5f8a4fac9d9490a112e5
   .agents/skills/todo/SKILL.md: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
@@ -994,7 +994,7 @@ local_deployed_file_hashes:
   .agents/skills/ui-element/SKILL.md: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
   .agents/skills/ui-element/references/csf.md: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
   .agents/skills/ui-element/references/styles.md: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
-  .agents/skills/ui-package/SKILL.md: sha256:0e7eb59432a0c1b6e682aafe36d5ce0ecf2d0949176a6a3dd513b97807de4bce
+  .agents/skills/ui-package/SKILL.md: sha256:9bfc5626bfe36b4d571e8449caf806a74f4972948b537bb504da32348e10c37b
   .agents/skills/ui-package/references/csf.md: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
   .agents/skills/ui-package/references/routing.md: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
   .agents/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
@@ -1007,8 +1007,8 @@ local_deployed_file_hashes:
   .claude/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .claude/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .claude/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .claude/skills/fork/SKILL.md: sha256:4766ca857af274a7ad452a7e35e57883b100b46c10590c57c1f319cf9f12d07f
-  .claude/skills/keys/SKILL.md: sha256:0178544c106cc11d41ea420a5527617392981c438aa77bc53a63212fc56f1b17
+  .claude/skills/fork/SKILL.md: sha256:32f52c93050dbbd742a937aa91986579d6f4a65e906a0abcb6ee9d836eb9ed17
+  .claude/skills/keys/SKILL.md: sha256:87386b8bd0b17d04df23b32c15e37aa383f20dfbcdcd22ff7b088b808e084ed8
   .claude/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .claude/skills/sync/SKILL.md: sha256:895906819ef93119b8290460b53bc33a52364ef7172a5f8a4fac9d9490a112e5
   .claude/skills/todo/SKILL.md: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
@@ -1023,7 +1023,7 @@ local_deployed_file_hashes:
   .claude/skills/ui-element/SKILL.md: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
   .claude/skills/ui-element/references/csf.md: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
   .claude/skills/ui-element/references/styles.md: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
-  .claude/skills/ui-package/SKILL.md: sha256:0e7eb59432a0c1b6e682aafe36d5ce0ecf2d0949176a6a3dd513b97807de4bce
+  .claude/skills/ui-package/SKILL.md: sha256:9bfc5626bfe36b4d571e8449caf806a74f4972948b537bb504da32348e10c37b
   .claude/skills/ui-package/references/csf.md: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
   .claude/skills/ui-package/references/routing.md: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
   .claude/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
