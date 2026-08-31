@@ -283,3 +283,12 @@ instruction files in generated target directories.
   the configured agent targets. Do not manually edit generated target
   directories. If APM is unavailable, report that deployment could not be
   synchronized.
+- At the start of every agent workflow, verify that the configured harness
+  deployments contain the current authored skills and file-scoped instructions
+  from `.apm/` by running `apm audit --ci`. If the audit reports any missing or
+  stale deployment, run `apm install --frozen` from the repository root and
+  rerun `apm audit --ci` before relying on repository-local guidance. If frozen
+  installation reports that `apm.yml` and `apm.lock.yaml` are out of sync,
+  reconcile the authored APM changes with plain `apm install`, then rerun the
+  audit. Treat a passing `apm audit --ci` as deployment verification; file
+  presence alone is insufficient.
