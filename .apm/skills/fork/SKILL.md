@@ -172,8 +172,7 @@ is the default.
    Do not change files, remotes, branches, or history until the selected
    operation and any required values are clear.
 
-6. **Apply the selected changes.**
-
+6. **Apply the non-secret changes.**
    - In identity-migration mode, preserve all applications, packages, demos,
      shared infrastructure, workflows, and automation files. Update manifests,
      lockfiles, documentation, scripts, badges, and configuration to the new
@@ -192,18 +191,6 @@ is the default.
      workflow and its manual dispatch entry point unless the user explicitly
      requests that manual execution also be disabled. Do not delete the
      Bitbucket mirror jobs or their configuration.
-   - For a new independent project or an extension whose selected workflow
-     establishes new or reset environment targets, follow the [keys
-     skill](../keys/SKILL.md) full-reset procedure. It selects the targets,
-     writes empty root targets or matching workspace templates, encrypts root
-     targets first, and encrypts workspace targets with `-fk` pointing to the
-     repository-root key. If an extension leaves the root target unchanged,
-     encrypt each new workspace or package target with `-fk`. If no target is
-     created or reset, run no encryption.
-   - If the extension or other selected workflow must preserve existing
-     environment values, use the keys skill's data-retaining migration instead;
-     do not replace those targets with templates, and hand that migration to
-     the approved secure process.
    - In content-cleanup mode, remove only the approved demo paths. Preserve
      protected paths and shared tooling. Update workspace manifests, lockfiles,
      task configuration, documentation, and references in existing workflow or
@@ -212,11 +199,27 @@ is the default.
      them instead of deleting them because an example was removed. Consolidate
      inapplicable package or workspace jobs into one commented example so they
      cannot execute. Preserve the fork workflow-sync CI itself; update its
-     references according to Step 7 and update removed paths as required.
+     references according to Step 9 and update removed paths as required.
    - Remove an `apps/` or `packages/` container only after the approved cleanup
      leaves it empty; never delete a non-empty container as a shortcut.
 
-7. **Normalize documentation and workflow references.** Replace stale project
+7. **Refresh workspace tooling.** After Step 6 changes workspace manifests,
+   package names, workspace registration, lockfiles, or package paths, follow
+   the root [workspace refresh](../../../AGENTS.md#workspace-refresh) before
+   invoking the [keys skill](../keys/SKILL.md) or any other workspace-dependent
+   command.
+
+8. **Apply environment changes.** For new or reset targets, follow the [keys
+   skill](../keys/SKILL.md) full-reset procedure. It selects the targets,
+   writes empty root targets or matching workspace templates, encrypts root
+   targets first, and encrypts workspace targets with `-fk` pointing to the
+   repository-root key. If an extension leaves the root target unchanged,
+   encrypt each new workspace or package target with `-fk`. If no target is
+   created or reset, run no encryption. If existing values must be retained,
+   use the keys skill's data-retaining migration and hand it to the approved
+   secure process; do not replace those targets with templates.
+
+9. **Normalize documentation and workflow references.** Replace stale project
    identity in ordinary documentation, badges, manifests, project-owned
    license metadata, scripts, CI, and automation with the confirmed new
    values. Do not rewrite license notices, copyright lines, or attribution
@@ -245,41 +248,41 @@ is the default.
    whether it is new-project identity, upstream synchronization guidance,
    generic tooling documentation, or an external reference that should remain.
 
-8. **Migrate history only after the required preflight.** Process this step
-   only when the user's current instruction explicitly requests a history
-   reset. Complete Procedure 1 and the remaining identity and local remote
-   configuration checks before replacing history. If a remote exists but its
-   current state cannot be checked, stop before replacing history. Do not
-   silently discard local commits that are ahead of a remote. Preserve the
-   validated working tree and create the new history from it with an
-   orphan-history workflow. Do not create a recovery branch or temporary
-   recovery reference; the explicit history-reset request determines that the
-   existing history is disposable. Replace the requested branch only after
-   confirming the new commit contains the retained files and no unresolved
-   changes. Do not infer history replacement from ordinary fork cleanup. The
-   absence of a merge base only indicates unrelated histories; it does not
-   authorize history replacement. Resolve shallow or incomplete history and
-   use the `sync` workflow for history integration. If the current history is
-   already unrelated or appears previously reset, preserve it and report that
-   state when the user did not request another history change. Do not rewrite
-   unrelated branches or push the result.
+10. **Migrate history only after the required preflight.** Process this step
+    only when the user's current instruction explicitly requests a history
+    reset. Complete Procedure 1 and the remaining identity and local remote
+    configuration checks before replacing history. If a remote exists but its
+    current state cannot be checked, stop before replacing history. Do not
+    silently discard local commits that are ahead of a remote. Preserve the
+    validated working tree and create the new history from it with an
+    orphan-history workflow. Do not create a recovery branch or temporary
+    recovery reference; the explicit history-reset request determines that the
+    existing history is disposable. Replace the requested branch only after
+    confirming the new commit contains the retained files and no unresolved
+    changes. Do not infer history replacement from ordinary fork cleanup. The
+    absence of a merge base only indicates unrelated histories; it does not
+    authorize history replacement. Resolve shallow or incomplete history and
+    use the `sync` workflow for history integration. If the current history is
+    already unrelated or appears previously reset, preserve it and report that
+    state when the user did not request another history change. Do not rewrite
+    unrelated branches or push the result.
 
-9. **Check remotes and original references.** Normalize SSH and HTTPS forms,
-   host aliases, case, and a trailing `.git` before comparing URLs. Verify that
-   the confirmed project URL is configured as `origin`. For an extension,
-   verify the selected upstream URL is configured as `base` when the workflow
-   requires it. For an independent new project, a retained original `base`
-   remote is local-only and must not be treated as a tracked documentation or
-   workflow reference. Report remotes that still point to the old project when
-   they were not intentionally retained. Do not remove or rewrite a remote
-   that the user did not authorize. Hosted reachability is not part of this
-   check; configuring the local remote is sufficient because this skill never
-   publishes it.
-   If remotes are unavailable, report that the comparison was documentation
-   only; Step 2 handles fallback resolution. Do not test hosted authentication
-   or publish a remote as part of this skill.
+11. **Check remotes and original references.** Normalize SSH and HTTPS forms,
+    host aliases, case, and a trailing `.git` before comparing URLs. Verify that
+    the confirmed project URL is configured as `origin`. For an extension,
+    verify the selected upstream URL is configured as `base` when the workflow
+    requires it. For an independent new project, a retained original `base`
+    remote is local-only and must not be treated as a tracked documentation or
+    workflow reference. Report remotes that still point to the old project when
+    they were not intentionally retained. Do not remove or rewrite a remote
+    that the user did not authorize. Hosted reachability is not part of this
+    check; configuring the local remote is sufficient because this skill never
+    publishes it.
+    If remotes are unavailable, report that the comparison was documentation
+    only; Step 2 handles fallback resolution. Do not test hosted authentication
+    or publish a remote as part of this skill.
 
-10. **Validate the prepared repository.** Format changed files with the
+12. **Validate the prepared repository.** Format changed files with the
     repository's formatter and run `git diff --check`. Verify that protected
     paths remain, approved removed workspaces are absent from workspace and task
     configuration, manifests and lockfiles are valid, requested remotes point to
@@ -305,7 +308,7 @@ is the default.
     environment file. Run remaining repository checks that are available and
     report checks that cannot run until project setup is complete.
 
-11. **Hand off without bootstrap.** Report the selected mode, preserved or
+13. **Hand off without bootstrap.** Report the selected mode, preserved or
     removed paths, identity fields updated or removed, `origin` or `base`
     additions or updates, CI template replacement and encryption status,
     history-reset result, intentional upstream references, remaining

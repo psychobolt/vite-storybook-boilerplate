@@ -74,6 +74,9 @@ architecture. Keep application business logic out of the package.
    determine the supported preview-extension API. Extend the common Storybook
    preview using that documented API and preserve framework renderer defaults,
    docs configuration, and required addon registrations.
+   After creating or changing the workspace manifest, apply the root
+   [workspace refresh](../../../AGENTS.md#workspace-refresh) before invoking
+   the keys skill or another workspace-dependent command.
    For a new UI package that requires an environment target, follow the [keys
    skill](../keys/SKILL.md) package-enrollment path to resolve its matching
    `.env.*` template and encrypt it with the repository-root `.env.keys`. Do

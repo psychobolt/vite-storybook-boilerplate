@@ -9,6 +9,11 @@ applyTo: '**/AGENTS.md,.apm/skills/**/*.md,.apm/instructions/**/*.md'
   bold intent. Apply this format to skill procedures and other ordered
   sequences in `AGENTS.md` or references.
 - Use bullets for independent rules, constraints, alternatives, or examples.
+  Do not use a bold bullet as a substitute for a numbered step when the action
+  has an order or prerequisite.
+- Keep formatting consistent within each ordered sequence: use the same list
+  structure, intent style, indentation, and sentence pattern for equivalent
+  steps. Do not mix ordered prerequisites into an unordered list.
 - Use short paragraphs for definitions and context. Do not place several
   unrelated actions in one paragraph.
 
