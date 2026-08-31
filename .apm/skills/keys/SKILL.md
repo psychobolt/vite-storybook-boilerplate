@@ -5,47 +5,28 @@ description: Gate repository dotenvx workflows that create, reset, or re-encrypt
 
 # Keys
 
-Gate repository dotenvx key workflows before encrypted environment files are
-created, reset, or re-encrypted. The agent may read a workspace's non-secret
-`.env.defaults` and authored static environment templates under
-`.apm/skills/keys/references/.env.*` as documentation. During an explicitly
-selected fork identity migration or extension setup that uses full-reset mode,
-it may write an empty root `.env.<environment>` target or a matching template
-to a newly required workspace target, without reading the previous files.
-During scaffolding, it may write a matching template to a newly created
-package when that target is established by the package documentation and
-encrypt it with the repository-root key. It may then run the narrow
-template-encryption paths described below. It must not open or read any live
-`.env.*` file or execute commands that load one or any secret-bearing
-environment variable. Secret-dependent work must be performed by a
-user-controlled secure process outside the agent's filesystem and tool
-context. Do not expose key values in output, commits, or status reports.
+Gate dotenvx workflows that create, reset, or re-encrypt environment files.
+Follow the root [environment-file boundary](../../../AGENTS.md#environment-file-boundary);
+this skill owns only its narrow exception for writing and encrypting newly
+created empty or templated targets. It may read `.env.defaults` and authored
+templates under `references/.env.*` as documentation, but never live
+environment files, private keys, or secret-bearing process values. Secret-
+dependent work requires a user-controlled secure process. Preserve blank
+template placeholders and never add example variables or values before
+encryption.
 
 ## Procedure
 
-1. **Identify the non-secret scope.** Determine from package documentation,
-   scripts, and file names whether the requested workflow needs encrypted
-   environment handling. `.env.defaults` may be read for non-secret metadata.
-   Authored static environment templates under `.apm/skills/keys/references/`
-   may be read as documentation. Do not open or read live `.env.<environment>`
-   files outside that authored template directory, except the permitted
-   `.env.defaults` metadata, and never read `.env.keys` or any other live or
-   secret-bearing environment file. During an explicitly selected fork
-   migration or extension setup that uses full-reset mode, replacing a root
-   `.env.<environment>` target with an empty file and replacing a newly
-   required workspace `.env.<environment>` target with its matching authored
-   template are non-secret; do not replace any other
-   environment file. Do not inspect process environment variables.
-   Encryption of retained or existing values remains a separate secure-process
-   operation; full-reset encryption follows Step 5. Record the exact
-   root and workspace target paths from the request or repository
-   documentation; do not discover targets by reading environment files or by
-   applying a broad environment-file glob. For each workspace or package
-   target that requires a template, resolve the matching `.env.*` template
+1. **Identify the non-secret scope.** Determine from the request, package
+   documentation, scripts, and `.env.defaults` whether encrypted environment
+   handling is required. Record exact root and workspace target paths; do not
+   discover them by reading environment files or applying a broad glob. For a
+   newly required workspace or package target, resolve its matching template
    under this skill's `references/` directory. A full-reset root target is
-   intentionally empty and does not require a template. If a required
-   workspace or package template does not exist, stop and ask rather than
-   inventing values or copying another environment template.
+   intentionally empty. If a required template is missing, stop and ask
+   rather than inventing values or copying another template. Retained or
+   existing values always use the secure-process path; full-reset encryption
+   follows Step 5.
 2. **Select the migration mode.** Use a full reset for a new independent
    project or an extension when the selected workflow establishes new targets
    or explicitly resets existing targets and inherited encrypted values must
@@ -76,8 +57,8 @@ context. Do not expose key values in output, commits, or status reports.
    process access could read the secret. Those operations require a
    user-controlled secret manager, privileged helper, CI operation, or
    manually run trusted terminal process. The full-reset exception is limited
-   to encrypting empty or templated targets written during the current fork or
-   package-scaffolding operation;
+   to encrypting empty or templated targets written during the current fork,
+   extension, or package-scaffolding operation;
    never request a private key in chat or ordinary tool input.
 4. **Stop when no secure process exists.** If an approved secure process is not
    available for a data-retaining migration or any target that is not a newly
@@ -89,16 +70,21 @@ context. Do not expose key values in output, commits, or status reports.
    writes the empty root target and any matching workspace templates, it may
    encrypt the repository-root `.env.<environment>` target first, then each
    applicable workspace `.env.<environment>` target.
-   Omit `-fk` for the root command when a fresh root key must be generated;
-   use the repository-root `.env.keys` as the `-fk` source for workspace
-   commands. Do not create or encrypt a workspace target unless the package
-   documentation explicitly requires that environment target. For a new
-   project, run the root encryption command without checking for or
-   speculatively asking the user to retire a key. A missing root `.env.keys` is
-   expected in this path: the root command without `-fk` is the creation path.
-   After it succeeds, use the resulting root key through `-fk` for applicable
-   workspace targets. Hand off only if the command reports that an existing
-   root key must be replaced. When a new
+   Use the repository's `g:dotenv` wrapper. Encrypt each root target first so
+   the root command can create or establish the repository key. After root
+   encryption succeeds, encrypt every applicable workspace or package target
+   with the repository-root `.env.keys` through `-fk`. Never encrypt a
+   workspace or package target without `-fk`. Do not create or encrypt a
+   workspace target unless the package documentation explicitly requires that
+   environment target. If an extension leaves the root target unchanged and
+   only adds a new workspace or package target, do not run root encryption;
+   encrypt only the new target with the established root key through `-fk`.
+   Run encryption only for environment files created or reset by the current
+   workflow. If all existing environment files are left unchanged, skip
+   encryption. If the secure process reports multiple private-key
+   entries, do not merge them, convert them to comma-separated values, or edit
+   the key file through the agent; resolve the key set in that secure process.
+   When a new
    environment file is required, resolve its matching template from this
    skill; do not duplicate template paths or command rules in the calling
    workflow.
@@ -117,8 +103,8 @@ context. Do not expose key values in output, commits, or status reports.
    yarn g:dotenv encrypt -fk /path/to/repository/.env.keys -f /path/to/workspace/.env.environment
    ```
 
-   For a newly created UI package whose workflow requires an environment
-   target, use the repository-root key directly:
+   For a newly created package whose workflow requires an environment target,
+   use the repository-root key directly:
 
    ```sh
    yarn g:dotenv encrypt -fk /path/to/repository/.env.keys -f /path/to/package/.env.environment
@@ -147,10 +133,12 @@ context. Do not expose key values in output, commits, or status reports.
    plaintext recovery source exists. A full reset may proceed only after the
    user accepts that existing encrypted values will be lost. Do not ask the
    agent to copy, inspect, or verify the resulting environment files.
-7. **Accept only a non-secret result.** Continue only after the user-controlled
-   process reports a non-secret result, such as success or failure, the affected
-   workspace names, and any required public configuration changes. Do not ask
-   for key values, decrypted values, ciphertext, or environment-file contents.
+7. **Accept only a non-secret result.** For agent-run full-reset encryption,
+   continue after the approved command reports success without secret output.
+   For secure-process operations, continue only after that process reports a
+   non-secret result, such as success or failure, the affected workspace names,
+   and any required public configuration changes. Do not ask for key values,
+   decrypted values, ciphertext, or environment-file contents.
 8. **Clean up agent-visible state.** Do not retain secret values because the
    agent must never receive them. Do not retain secure-process output that
    contains secrets in task notes, logs, generated artifacts, commits, or the
@@ -165,7 +153,3 @@ context. Do not expose key values in output, commits, or status reports.
 - [dotenvx `encrypt -fk` reference](https://dotenvx.com/docs/cli/encrypt-fk)
 - [dotenvx `decrypt -fk` reference](https://dotenvx.com/docs/advanced/decrypt-fk)
 - [dotenvx keypair reference](https://dotenvx.com/docs/cli/keypair)
-
-Use the repository's `g:dotenv` wrapper in the user-controlled secure process
-rather than assuming a globally installed binary. The agent must not invoke it
-when it can access secret-bearing environment files.
