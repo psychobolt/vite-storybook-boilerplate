@@ -7,8 +7,7 @@ description: Migrate a cloned repository to a new project identity, optionally r
 
 Prepare a repository for independent development without invoking the
 unfinished bootstrap workflow. For a fresh clone or fork, identity migration
-is the default. Content cleanup and history replacement are separate procedure
-steps and never follow from invoking this skill alone.
+is the default.
 
 ## Protected scope
 
@@ -49,10 +48,10 @@ steps and never follow from invoking this skill alone.
    an unpublished fresh repository; there is no history to synchronize. Do not
    merge the upstream repository during fork preparation. If no Git remotes are
    configured, use repository documentation and local repository metadata to
-   distinguish the project repository from the upstream repository. When the
-   original or upstream reference remains unresolved, apply the root [base
-   reference resolution](../../../AGENTS.md#base-reference-resolution); stop if
-   it yields no usable source. Never use an upstream/base reference as the
+   distinguish the project repository from the upstream repository. For any
+   unresolved original or upstream reference, use the root [base reference
+   resolution](../../../AGENTS.md#base-reference-resolution); its order and
+   fallback rules are authoritative. Never use a base reference as the
    project's `origin`. Compare the workspace root directory name with the
    resolved source repository name. A different directory name is evidence
    that the clone may be intended for a new project, but local directory names
@@ -119,10 +118,13 @@ steps and never follow from invoking this skill alone.
    `funding`. A repository owner in a new URL does not automatically establish
    the package author or copyright holder. Preserve a user-supplied license
    value exactly; do not normalize `Proprietary` to `UNLICENSED` unless the
-   user explicitly requests that SPDX value. For an independent new project,
-   retain only the selected active license. Do not append the original
-   project's license as a second active license; preserve upstream attribution
-   separately only when it is legally required or explicitly requested.
+   user explicitly requests that value. For an independent new project,
+   retain only the selected active license; do not append the original
+   project's license as a second active license. Preserve existing upstream
+   copyright notices and attribution text in place and unchanged by default.
+   Do not create, move, rewrite, or relink a `NOTICE` file or other
+   attribution material unless the user explicitly requests it or a clearly
+   established legal requirement requires it.
 
    Confirm the requested project URL for `origin`. For an independent new
    project, when no project name is supplied, use the current repository root
@@ -191,19 +193,13 @@ steps and never follow from invoking this skill alone.
      requests that manual execution also be disabled. Do not delete the
      Bitbucket mirror jobs or their configuration.
    - For a new independent project or an extension whose selected workflow
-     establishes new or reset environment targets, use the [keys
-     skill](../keys/SKILL.md) full-reset mode. Without opening, copying, or
-     inspecting existing environment files, replace each selected root
-     `.env.*` target with an empty file and each selected workspace target with
-     its matching template from the keys skill. Do not create a workspace
-     target unless the keys skill and the workspace documentation establish
-     that it is required. Then immediately follow the keys skill's full-reset
-     encryption path: encrypt root targets first so they can establish
-     replacement root keys, then encrypt workspace targets with those root
-     keys through `-fk`. Do not defer this blank-target encryption to a secure
-     terminal. If the root command reports that an existing root key must be
-     replaced, stop and hand only that key-retirement decision to the approved
-     secure process.
+     establishes new or reset environment targets, follow the [keys
+     skill](../keys/SKILL.md) full-reset procedure. It selects the targets,
+     writes empty root targets or matching workspace templates, encrypts root
+     targets first, and encrypts workspace targets with `-fk` pointing to the
+     repository-root key. If an extension leaves the root target unchanged,
+     encrypt each new workspace or package target with `-fk`. If no target is
+     created or reset, run no encryption.
    - If the extension or other selected workflow must preserve existing
      environment values, use the keys skill's data-retaining migration instead;
      do not replace those targets with templates, and hand that migration to
@@ -221,10 +217,11 @@ steps and never follow from invoking this skill alone.
      leaves it empty; never delete a non-empty container as a shortcut.
 
 7. **Normalize documentation and workflow references.** Replace stale project
-   identity in ordinary documentation, badges, manifests, licenses, scripts,
-   CI, and automation with the confirmed new values. Prefer a relative link
-   when a local target exists; otherwise use the new project URL when it is a
-   consumer-facing project link.
+   identity in ordinary documentation, badges, manifests, project-owned
+   license metadata, scripts, CI, and automation with the confirmed new
+   values. Do not rewrite license notices, copyright lines, or attribution
+   text merely to update project identity. Use the confirmed project URL for
+   consumer-facing project links.
 
    For generic workflow or automation examples, remove hard-coded references to
    the original project and use the repository's project context, resolved
@@ -287,9 +284,10 @@ steps and never follow from invoking this skill alone.
     paths remain, approved removed workspaces are absent from workspace and task
     configuration, manifests and lockfiles are valid, requested remotes point to
     the confirmed URLs, and no stale old-project identity remains in eligible
-    files. Allow only intentional upstream synchronization references and
-    explicitly retained attribution. Check that ordinary workflow examples no
-    longer present the old project as the current repository. When an
+    files outside preserved upstream attribution. Check that existing upstream
+    attribution was not changed or relocated unless explicitly authorized or
+    legally required. Check that ordinary workflow examples no longer present
+    the old project as the current repository. When an
     independent new project was selected, verify that no tracked documentation,
     workflow, or automation retains the original source or `base` reference;
     any retained original source must exist only in local Git state. When an
