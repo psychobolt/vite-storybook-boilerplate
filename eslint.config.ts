@@ -4,6 +4,6 @@ import commonConfig from 'commons/esm/eslint.config.js';
 export default defineConfig([
   ...commonConfig,
   {
-    ignores: ['apps/', 'packages/']
+    ignores: ['apps/', 'packages/', 'apm_modules/']
   }
 ]);
