@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-21T23:07:37.779327+00:00'
+generated_at: '2026-08-31T16:20:43.589511+00:00'
 apm_version: 0.28.0
 dependencies:
 - repo_url: vercel-labs/skills
@@ -137,7 +137,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:63558e7b2bb91328d0df35ee7fe3d995773b6bdfd6e5bc166d1dad698ef652fd
+  content_hash: sha256:4766ca857af274a7ad452a7e35e57883b100b46c10590c57c1f319cf9f12d07f
 - kind: project-relative
   target: agents
   value: .agents/skills/keys
@@ -155,7 +155,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:25716f0306d667eb8afb7da2f6ce9a50d465ec059e3a30eb370b967dc497dc99
+  content_hash: sha256:0178544c106cc11d41ea420a5527617392981c438aa77bc53a63212fc56f1b17
 - kind: project-relative
   target: agents
   value: .agents/skills/keys/references/.env.ci
@@ -164,7 +164,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a4812dda504e9130d23719e18a098c4a19c7df4c278c4a909c5ab70f7a008982
+  content_hash: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
 - kind: project-relative
   target: agents
   value: .agents/skills/sync
@@ -209,7 +209,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e3144dd51d28d04e287c49e728b0c0a9a7bfdcbb940d78cf3aa8f94b4a9b1fc7
+  content_hash: sha256:5adb2bce2bf8adb5a926cda666a08829d4189110a7e6b8b7a44b3fc51ce644ec
 - kind: project-relative
   target: agents
   value: .agents/skills/todo/references/work.md
@@ -533,7 +533,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:63558e7b2bb91328d0df35ee7fe3d995773b6bdfd6e5bc166d1dad698ef652fd
+  content_hash: sha256:4766ca857af274a7ad452a7e35e57883b100b46c10590c57c1f319cf9f12d07f
 - kind: project-relative
   target: claude
   value: .claude/skills/keys
@@ -551,7 +551,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:25716f0306d667eb8afb7da2f6ce9a50d465ec059e3a30eb370b967dc497dc99
+  content_hash: sha256:0178544c106cc11d41ea420a5527617392981c438aa77bc53a63212fc56f1b17
 - kind: project-relative
   target: claude
   value: .claude/skills/keys/references/.env.ci
@@ -560,7 +560,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a4812dda504e9130d23719e18a098c4a19c7df4c278c4a909c5ab70f7a008982
+  content_hash: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
 - kind: project-relative
   target: claude
   value: .claude/skills/sync
@@ -605,7 +605,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e3144dd51d28d04e287c49e728b0c0a9a7bfdcbb940d78cf3aa8f94b4a9b1fc7
+  content_hash: sha256:5adb2bce2bf8adb5a926cda666a08829d4189110a7e6b8b7a44b3fc51ce644ec
 - kind: project-relative
   target: claude
   value: .claude/skills/todo/references/work.md
@@ -852,7 +852,7 @@ deployments:
 - kind: uri
   target: mcp
   value: react-ui:local
-  runtime: cursor
+  runtime: copilot
   scope: project
   owners:
   - .
@@ -861,7 +861,7 @@ deployments:
 - kind: uri
   target: mcp
   value: react-ui:local
-  runtime: vscode
+  runtime: cursor
   scope: project
   owners:
   - .
@@ -880,9 +880,9 @@ mcp_target_servers:
   - react-ui:local
   codex:
   - react-ui:local
-  cursor:
+  copilot:
   - react-ui:local
-  vscode:
+  cursor:
   - react-ui:local
 local_deployed_files:
 - .agents/skills/api-package
@@ -978,12 +978,12 @@ local_deployed_file_hashes:
   .agents/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .agents/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .agents/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .agents/skills/fork/SKILL.md: sha256:63558e7b2bb91328d0df35ee7fe3d995773b6bdfd6e5bc166d1dad698ef652fd
-  .agents/skills/keys/SKILL.md: sha256:25716f0306d667eb8afb7da2f6ce9a50d465ec059e3a30eb370b967dc497dc99
-  .agents/skills/keys/references/.env.ci: sha256:a4812dda504e9130d23719e18a098c4a19c7df4c278c4a909c5ab70f7a008982
+  .agents/skills/fork/SKILL.md: sha256:4766ca857af274a7ad452a7e35e57883b100b46c10590c57c1f319cf9f12d07f
+  .agents/skills/keys/SKILL.md: sha256:0178544c106cc11d41ea420a5527617392981c438aa77bc53a63212fc56f1b17
+  .agents/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .agents/skills/sync/SKILL.md: sha256:895906819ef93119b8290460b53bc33a52364ef7172a5f8a4fac9d9490a112e5
   .agents/skills/todo/SKILL.md: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
-  .agents/skills/todo/references/skills.md: sha256:e3144dd51d28d04e287c49e728b0c0a9a7bfdcbb940d78cf3aa8f94b4a9b1fc7
+  .agents/skills/todo/references/skills.md: sha256:5adb2bce2bf8adb5a926cda666a08829d4189110a7e6b8b7a44b3fc51ce644ec
   .agents/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
   .agents/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
   .agents/skills/ui-component/references/csf.md: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
@@ -1007,12 +1007,12 @@ local_deployed_file_hashes:
   .claude/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .claude/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .claude/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .claude/skills/fork/SKILL.md: sha256:63558e7b2bb91328d0df35ee7fe3d995773b6bdfd6e5bc166d1dad698ef652fd
-  .claude/skills/keys/SKILL.md: sha256:25716f0306d667eb8afb7da2f6ce9a50d465ec059e3a30eb370b967dc497dc99
-  .claude/skills/keys/references/.env.ci: sha256:a4812dda504e9130d23719e18a098c4a19c7df4c278c4a909c5ab70f7a008982
+  .claude/skills/fork/SKILL.md: sha256:4766ca857af274a7ad452a7e35e57883b100b46c10590c57c1f319cf9f12d07f
+  .claude/skills/keys/SKILL.md: sha256:0178544c106cc11d41ea420a5527617392981c438aa77bc53a63212fc56f1b17
+  .claude/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .claude/skills/sync/SKILL.md: sha256:895906819ef93119b8290460b53bc33a52364ef7172a5f8a4fac9d9490a112e5
   .claude/skills/todo/SKILL.md: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
-  .claude/skills/todo/references/skills.md: sha256:e3144dd51d28d04e287c49e728b0c0a9a7bfdcbb940d78cf3aa8f94b4a9b1fc7
+  .claude/skills/todo/references/skills.md: sha256:5adb2bce2bf8adb5a926cda666a08829d4189110a7e6b8b7a44b3fc51ce644ec
   .claude/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
   .claude/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
   .claude/skills/ui-component/references/csf.md: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080

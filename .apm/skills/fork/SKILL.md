@@ -114,7 +114,9 @@ steps and never follow from invoking this skill alone.
    `funding`. A repository owner in a new URL does not automatically establish
    the package author or copyright holder.
 
-   Confirm the requested project URL for `origin`. For an extension, also
+   Confirm the requested project URL for `origin`. For an independent new
+   project, when no project name is supplied, use the current repository root
+   directory's basename as the project name. For an extension, also
    confirm the chosen upstream URL for `base`. If the user explicitly supplies
    a new project URL, always update or add `origin` locally, even when the
    hosted destination cannot be reached. For an independent new project, the
@@ -178,17 +180,18 @@ steps and never follow from invoking this skill alone.
      workflow and its manual dispatch entry point unless the user explicitly
      requests that manual execution also be disabled. Do not delete the
      Bitbucket mirror jobs or their configuration.
-   - For an independent new project, reset inherited CI dotenv state as part
-     of identity migration; the new project must not retain the original
-     project's encrypted CI tokens. Do not open, copy, inspect, or rewrite the
-     existing `.env.ci`. Hand the reset to the [keys skill](../keys/SKILL.md)
-     or an approved user-controlled secure process so it can remove the old
-     file and create a new `.env.ci` containing only the documented key names
-     with blank values. Do not invent key names or include private keys,
-     encrypted values, or copied ciphertext in the replacement. If the secure
-     process is unavailable, leave the existing file untouched and report the
-     fork's security reset as incomplete. An extension follows its established
-     project secret policy and is not reset by this rule alone.
+   - For an independent new project, use the [keys skill](../keys/SKILL.md)
+     full-reset mode by default: the new project must not retain the original
+     project's encrypted CI tokens. Without opening, copying, or inspecting
+     the existing `.env.ci`, replace each explicitly selected target with the
+     blank [CI dotenv template](../keys/references/.env.ci). This non-secret
+     template replacement is part of fork identity migration. Hand encryption
+     to the secure process described by the keys skill and report it as
+     pending when that process is unavailable. If the user explicitly wants
+     existing CI values preserved, select the keys skill's data-retaining
+     migration instead; do not replace those targets with templates. An
+     extension follows its established project secret policy and is not reset
+     by this rule alone.
    - In content-cleanup mode, remove only the approved demo paths. Preserve
      protected paths and shared tooling. Update workspace manifests, lockfiles,
      task configuration, documentation, and references in existing workflow or
@@ -275,15 +278,20 @@ steps and never follow from invoking this skill alone.
     extension was selected, verify that current-project upstream references
     use the selected `base` and future-extension synchronization references use
     the new `origin`. Verify that the Bitbucket synchronization workflow has no
-    active automatic trigger. Recheck
+    active automatic trigger. Record whether the secure process reported
+    successful or pending encryption for the repository-root and applicable
+    workspace `.env.ci` files; do not inspect those files to perform this
+    check. If encryption is pending, report the fork's CI setup as incomplete
+    rather than claiming it is ready. Recheck
     `.env.defaults` only for non-secret defaults; do not inspect any other
     environment file. Run remaining repository checks that are available and
     report checks that cannot run until project setup is complete.
 
 11. **Hand off without bootstrap.** Report the selected mode, preserved or
     removed paths, identity fields updated or removed, `origin` or `base`
-    additions or updates, history-reset result, intentional upstream
-    references, remaining unresolved decisions, and validation results. Do not
+    additions or updates, CI template replacement and encryption status,
+    history-reset result, intentional upstream references, remaining
+    unresolved decisions, and validation results. Do not
     run the [bootstrap
     skill](../bootstrap/SKILL.md); the repository is ready for a future,
     separately defined setup workflow.
