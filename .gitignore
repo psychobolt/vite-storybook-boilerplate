@@ -1,6 +1,6 @@
 # workspace
 node_modules
-apm_modules/
+apm_modules
 .turbo
 .vercel
 .vscode/settings.json

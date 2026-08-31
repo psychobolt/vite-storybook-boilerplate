@@ -69,8 +69,6 @@ jobs:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
         run: yarn install
-      - name: Lint
-        run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Install APM
         if: matrix.os == 'ubuntu-latest'
         uses: microsoft/apm-action@d723bb64ed70c135bbaf87d126b721dd2dae0439 # v1
@@ -92,6 +90,8 @@ jobs:
         run: apm install --frozen
       - name: Audit agent setup
         run: apm audit --ci --no-cache
+      - name: Lint
+        run: yarn turbo run //#lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
 
   diff:
     name: List Updated Packages
