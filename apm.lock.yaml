@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-31T16:20:43.589511+00:00'
+generated_at: '2026-09-01T22:25:16.708654+00:00'
 apm_version: 0.28.0
 dependencies:
 - repo_url: vercel-labs/skills
@@ -137,7 +137,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:98e4f0818f3b26ab19c08faa842a8df6f6744a1e0bf94115fe61045b935b71e4
+  content_hash: sha256:7a59261dcb3e3512f2fb49c4d1e3c9ddeb2e5f6d43d526b485daad9777909205
 - kind: project-relative
   target: agents
   value: .agents/skills/keys
@@ -398,7 +398,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:51d527ab8147ffb2feb34dddd9593534c9a1dceffaf963a551c4077911302b14
+  content_hash: sha256:43e1982c69baa0a58ca2a57d6db68aec9bd50a4f7d2653ffff0b856a71b305fe
 - kind: project-relative
   target: claude
   value: .claude/skills/api-package
@@ -533,7 +533,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:98e4f0818f3b26ab19c08faa842a8df6f6744a1e0bf94115fe61045b935b71e4
+  content_hash: sha256:7a59261dcb3e3512f2fb49c4d1e3c9ddeb2e5f6d43d526b485daad9777909205
 - kind: project-relative
   target: claude
   value: .claude/skills/keys
@@ -812,7 +812,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:2aebfc5586b45f4591641eb3cead95836958150453a795105e1b7e480d3a5c9e
+  content_hash: sha256:efaadc6a8efb71a92985d988a68affbba570bee41ea67c8c46003210abb047b6
 - kind: project-relative
   target: cursor
   value: .cursor/rules/agent-guidance.mdc
@@ -830,11 +830,38 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a252164664d318b6075e2d3c1a1b0166c55cf25a2922137e9bff94607911bf5b
+  content_hash: sha256:b6e5448d7a2af0b7c96906e03c9f2ae4077a59fd6543a01104c1087e9d1a0bfa
+- kind: uri
+  target: mcp
+  value: next-devtools-mcp
+  runtime: claude
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
 - kind: uri
   target: mcp
   value: react-ui:local
   runtime: claude
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: svelte-mcp
+  runtime: claude
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: next-devtools-mcp
+  runtime: codex
   scope: project
   owners:
   - .
@@ -851,8 +878,44 @@ deployments:
   content_hash: null
 - kind: uri
   target: mcp
+  value: svelte-mcp
+  runtime: codex
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: next-devtools-mcp
+  runtime: copilot
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
   value: react-ui:local
   runtime: copilot
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: svelte-mcp
+  runtime: copilot
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: next-devtools-mcp
+  runtime: cursor
   scope: project
   owners:
   - .
@@ -867,23 +930,60 @@ deployments:
   - .
   active_owner: .
   content_hash: null
+- kind: uri
+  target: mcp
+  value: svelte-mcp
+  runtime: cursor
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
 mcp_servers:
+- next-devtools-mcp
 - react-ui:local
+- svelte-mcp
 mcp_configs:
+  next-devtools-mcp:
+    name: next-devtools-mcp
+    transport: stdio
+    args:
+    - workspace
+    - next-app
+    - next-devtools-mcp
+    registry: false
+    command: yarn
   react-ui:local:
     name: react-ui:local
     transport: http
     registry: false
-    url: https://localhost:6007/mcp
+    url: http://localhost:6007/mcp
+  svelte-mcp:
+    name: svelte-mcp
+    transport: stdio
+    args:
+    - workspace
+    - svelte-app
+    - svelte-mcp
+    registry: false
+    command: yarn
 mcp_target_servers:
   claude:
+  - next-devtools-mcp
   - react-ui:local
+  - svelte-mcp
   codex:
+  - next-devtools-mcp
   - react-ui:local
+  - svelte-mcp
   copilot:
+  - next-devtools-mcp
   - react-ui:local
+  - svelte-mcp
   cursor:
+  - next-devtools-mcp
   - react-ui:local
+  - svelte-mcp
 local_deployed_files:
 - .agents/skills/api-package
 - .agents/skills/api-package/SKILL.md
@@ -978,7 +1078,7 @@ local_deployed_file_hashes:
   .agents/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .agents/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .agents/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .agents/skills/fork/SKILL.md: sha256:98e4f0818f3b26ab19c08faa842a8df6f6744a1e0bf94115fe61045b935b71e4
+  .agents/skills/fork/SKILL.md: sha256:7a59261dcb3e3512f2fb49c4d1e3c9ddeb2e5f6d43d526b485daad9777909205
   .agents/skills/keys/SKILL.md: sha256:032ad2ed4b224bb4467fa56e56bfc7c9dff33a28acf31afc612048e560fcf03e
   .agents/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .agents/skills/sync/SKILL.md: sha256:895906819ef93119b8290460b53bc33a52364ef7172a5f8a4fac9d9490a112e5
@@ -1000,14 +1100,14 @@ local_deployed_file_hashes:
   .agents/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
   .agents/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
   .claude/rules/agent-guidance.md: sha256:e4b46efa8b7aa03a2299a119875a9ed69f3cded168a9c1e7b46f44675c3c0991
-  .claude/rules/javascript-typescript.md: sha256:51d527ab8147ffb2feb34dddd9593534c9a1dceffaf963a551c4077911302b14
+  .claude/rules/javascript-typescript.md: sha256:43e1982c69baa0a58ca2a57d6db68aec9bd50a4f7d2653ffff0b856a71b305fe
   .claude/skills/api-package/SKILL.md: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
   .claude/skills/app-component/SKILL.md: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
   .claude/skills/app-package/SKILL.md: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
   .claude/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .claude/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .claude/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .claude/skills/fork/SKILL.md: sha256:98e4f0818f3b26ab19c08faa842a8df6f6744a1e0bf94115fe61045b935b71e4
+  .claude/skills/fork/SKILL.md: sha256:7a59261dcb3e3512f2fb49c4d1e3c9ddeb2e5f6d43d526b485daad9777909205
   .claude/skills/keys/SKILL.md: sha256:032ad2ed4b224bb4467fa56e56bfc7c9dff33a28acf31afc612048e560fcf03e
   .claude/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .claude/skills/sync/SKILL.md: sha256:895906819ef93119b8290460b53bc33a52364ef7172a5f8a4fac9d9490a112e5
@@ -1029,6 +1129,6 @@ local_deployed_file_hashes:
   .claude/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
   .claude/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
   .cursor/rules/agent-guidance.mdc: sha256:30938a2d8e248180ff28f0053ed531a7fcc7b174717ef30a8e5ff3801c38ed56
-  .cursor/rules/javascript-typescript.mdc: sha256:a252164664d318b6075e2d3c1a1b0166c55cf25a2922137e9bff94607911bf5b
+  .cursor/rules/javascript-typescript.mdc: sha256:b6e5448d7a2af0b7c96906e03c9f2ae4077a59fd6543a01104c1087e9d1a0bfa
   .github/instructions/agent-guidance.instructions.md: sha256:1a533a93336ca4c6a71cc00067e60d82316abd564783e1db56ebbddac626369f
-  .github/instructions/javascript-typescript.instructions.md: sha256:2aebfc5586b45f4591641eb3cead95836958150453a795105e1b7e480d3a5c9e
+  .github/instructions/javascript-typescript.instructions.md: sha256:efaadc6a8efb71a92985d988a68affbba570bee41ea67c8c46003210abb047b6

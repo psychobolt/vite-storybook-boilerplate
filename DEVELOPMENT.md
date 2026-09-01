@@ -13,7 +13,8 @@
 7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
 8. Copy `.vscode/settings.default.json` to `.vscode/settings.json`
 9. Reopen the project as in step 5.
-10. Run command `yarn trust-cert` in your project directory to trust the development certificate.
+10. Run command `yarn cert --install` in your project directory to trust the development certificate.
+11. Create a local `.env` file in the project. Add variable: `NODE_EXTRA_CA_CERTS=<absolute/path/to/project>/cert/dev-cert.pem`
 
 #### Troubleshooting
 

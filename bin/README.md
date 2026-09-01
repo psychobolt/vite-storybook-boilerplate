@@ -61,16 +61,21 @@ yarn run-script bin/hash.ts sha256 "hello world"
 yarn run-script bin/hash.ts hello_world # use default algorithm - 'sha1'
 ```
 
-## Trust Certificate
+## Certificate Trust
 
-`trust-cert.ts` ([Source](trust-cert.ts))
+`cert.ts` ([Source](cert.ts))
 
-Adds `cert/dev-cert.pem` to the platform certificate trust store. On macOS,
-the certificate is added to the System keychain so Chrome can use the trust.
+Installs or removes `cert/<name>.pem` from the platform certificate trust
+store. On macOS, the certificate is added to or removed from the System
+keychain so Chrome can use the trust. The default name is `dev-cert`.
 
 ```sh
-yarn trust-cert
+yarn cert --install [name]
+yarn cert --remove [name]
 ```
+
+The optional certificate name defaults to `dev-cert` and resolves to
+`cert/<name>.pem`.
 
 ## Dotenv Arguments
 

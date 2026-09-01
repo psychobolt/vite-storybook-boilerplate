@@ -10,18 +10,18 @@
     "apply-versions": "yarn run-script bin/apply-versions.ts",
     "bootstrap": "yarn workspace stylelint-config turbo build --log-order=stream && yarn run-script bin/bootstrap.ts",
     "build": "yarn turbo run build",
+    "cert": "yarn run-script bin/cert.ts",
     "dev": "yarn turbo run dev",
     "format": "yarn g:format",
     "g:dotenv": "cd $INIT_CWD && dotenvx",
-    "g:dotenv-args": "node \"$PROJECT_CWD/bin/dotenv-args.js\"",
+    "g:dotenv-args": "node $PROJECT_CWD/bin/dotenv-args.js",
     "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv get --ignore=MISSING_KEY $(yarn g:dotenv-args)",
     "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q $(yarn g:dotenv-args)",
     "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" -- node --enable-source-maps --experimental-transform-types --disable-warning=ExperimentalWarning -r $(yarn g:swc-register-path)",
     "g:swc-register-path": "yarn node -p \"require.resolve('@swc-node/register')\"",
     "postinstall": "husky",
     "lint": "yarn g:prettier --check . && yarn g:lint",
-    "run-script": "yarn g:run-script",
-    "trust-cert": "yarn run-script bin/trust-cert.ts"
+    "run-script": "yarn g:run-script"
   },
   "resolutions": {
     "@storybook/test-runner/playwright": "*",
