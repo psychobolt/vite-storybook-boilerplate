@@ -18,6 +18,7 @@
 		"@sveltejs/adapter-auto": "7.0.1",
 		"@sveltejs/adapter-vercel": "6.3.4",
 		"@sveltejs/kit": "2.70.3",
+		"@sveltejs/mcp": "0.1.26",
 		"@sveltejs/vite-plugin-svelte": "7.3.0",
 		"@types/eslint": "9.6.1",
 		"@types/eslint-config-prettier": "6.11.3",

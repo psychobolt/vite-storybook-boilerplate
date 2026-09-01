@@ -8,13 +8,16 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
 - Organize imports by ownership and runtime role; this is an import
   organization convention, not a replacement for Prettier.
 - For ordinary imports, use these groups in order:
-  1. Node built-ins such as `node:fs` and `node:path`, when applicable.
-  2. The target framework packages.
-  3. Official plugins, adapters, and integrations for that framework.
-  4. Other external packages.
-  5. Workspace packages and configured absolute aliases.
-  6. Relative imports, with parent paths before same-directory paths when both
-     are present.
+  1. **Node runtime.** Group Node built-ins such as `node:fs` and `node:path`,
+     when applicable.
+  2. **Framework runtime.** Group the target framework packages.
+  3. **Framework integrations.** Group official plugins, adapters, and
+     integrations for that framework.
+  4. **External packages.** Group other external packages.
+  5. **Workspace packages.** Group workspace packages and configured absolute
+     aliases.
+  6. **Relative modules.** Group relative imports, with parent paths before
+     same-directory paths when both are present.
 - Keep a framework and its official integrations together. Do not sort a
   framework plugin as an unrelated external package merely because its name
   is alphabetically later.
@@ -47,12 +50,13 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   type behavior.
 - Prefer a library's public type for typed overrides. For configuration
   overrides, `satisfies Partial<LibraryConfig>` can provide validation and
-  autocomplete without an assertion. When a composed value is exported from
-  a typed module or compiled to declarations, explicitly type the exported
-  value with its public type so consumers retain useful autocomplete.
+  autocomplete without an assertion.
 - Do not cast generic `unknown` configuration values merely to satisfy the
   compiler. Prefer a public library type, `satisfies`, narrowing, or runtime
   validation when the value is genuinely untrusted.
+- When a composed value is exported from a typed module or compiled to
+  declarations, explicitly type the exported value with its public type so
+  consumers retain useful autocomplete.
 
 ## Local expressions and scope
 
@@ -70,6 +74,18 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   for one-off logic. Retain a closure when it provides necessary encapsulation,
   deferred execution, or deliberate scope isolation, and do not refactor an
   existing closure solely to apply this preference.
+
+## Conditions and booleans
+
+- Use direct truthy or falsy conditions for values already typed as booleans or
+  optional values, such as `if (enabled)` and `if (!enabled)`, instead of
+  redundant comparisons with `true` or `false`.
+- Normalize or validate unknown and union-typed input before relying on its
+  truthiness. Keep a strict comparison when the input contract requires the
+  exact boolean value; do not introduce coercion merely to shorten a condition.
+- Once related values are known booleans, compare the booleans directly when
+  expressing a relationship such as mutual exclusivity. Do not replace that
+  comparison with less-readable truthiness expressions.
 
 ## Configuration composition
 

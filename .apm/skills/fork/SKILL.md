@@ -196,11 +196,19 @@ is the default.
      protected paths and shared tooling. Update workspace manifests, lockfiles,
      task configuration, documentation, and references in existing workflow or
      automation files as required by the deletion.
-   - Preserve workflow, automation, and coverage configuration files. Update
-     them instead of deleting them because an example was removed. Consolidate
-     inapplicable package or workspace jobs into one commented example so they
-     cannot execute. Preserve the fork workflow-sync CI itself; update its
-     references according to Step 9 and update removed paths as required.
+   - Preserve workflow, automation, and coverage configuration files unless the
+     provider-specific cleanup in Step 9 applies. Update them instead of
+     deleting them because an example was removed. When cleanup leaves no
+     application or package workspaces, retain one complete neutral example
+     job in each affected reusable workflow. The example must preserve the
+     workflow's actual `uses`, `with`, `permissions`, and `secrets` shape,
+     replace workspace names and paths with placeholders such as
+     `example-app` or `example-package`, and use an always-false condition
+     (or the repository's equivalent disabled-job form) so it cannot execute.
+     Do not replace the job body with explanatory prose alone; the example is
+     the configuration pattern for adding a future workspace. Preserve the
+     fork workflow-sync CI itself; update its references according to Step 9
+     and update removed paths as required.
    - Remove an `apps/` or `packages/` container only after the approved cleanup
      leaves it empty; never delete a non-empty container as a shortcut.
 
@@ -211,16 +219,13 @@ is the default.
    invoking the [keys skill](../keys/SKILL.md) or any other workspace-dependent
    command.
 
-8. **Apply environment changes.** For new or reset targets, follow the [keys
-   skill](../keys/SKILL.md) full-reset procedure. It selects the targets,
-   writes root targets empty and workspace or package targets from their
-   matching authored templates, then encrypts all selected targets for an
-   environment suffix in one command using the shared repository-root `-fk`
-   path. Do not substitute blank workspace files for a required template. If
-   an extension leaves the root target unchanged, encrypt only the new target
-   with that same root key path. If no target is created or reset, run no
-   encryption. If existing values must be retained, use the keys skill's
-   data-retaining migration and hand it to the approved secure process; do not
+8. **Apply environment changes.** Use the [keys skill](../keys/SKILL.md) for
+   target selection and its full-reset or data-retaining procedure. It owns the
+   root encryption, public-key-carrying workspace clone, template stitching,
+   and trailing-blank-line handling. Do not encrypt workspace or package
+   targets or create workspace-local key sources. If no target is created or
+   reset, run no encryption. If existing values must be retained, hand the
+   keys skill's data-retaining migration to its approved secure process; do not
    replace those targets with templates.
 
 9. **Normalize documentation and workflow references.** Replace stale project
@@ -229,6 +234,12 @@ is the default.
    values. Do not rewrite license notices, copyright lines, or attribution
    text merely to update project identity. Use the confirmed project URL for
    consumer-facing project links.
+
+   Determine the provider from the confirmed `origin` URL. If it is not
+   GitHub, remove the repository's Codecov configuration and all badge markup
+   from README files. Preserve ordinary README links and prose. If it is
+   GitHub, retain or normalize existing badges and Codecov configuration when
+   the repository supports them; never invent missing project identifiers.
 
    For generic workflow or automation examples, remove hard-coded references to
    the original project and use the repository's project context, resolved
@@ -317,9 +328,10 @@ is the default.
     the new `origin`. Verify that the Bitbucket synchronization workflow has no
     active automatic trigger. Record the command result for a full-reset
     encryption path, or the secure process result for a data-retaining path,
-    for the selected root and workspace environment targets; do not inspect
-    those files to perform this check. For a full reset, report encryption as
-    pending only when the approved command failed or could not run. Do not
+    for the selected root target. Report workspace and package template
+    creation separately; do not inspect environment files to perform this
+    check. For a full reset, report root encryption as pending only when the
+    approved command failed or could not run. Do not
     claim the fork's CI setup is ready while required encryption remains
     incomplete. Recheck
     `.env.defaults` only for non-secret defaults; do not inspect any other

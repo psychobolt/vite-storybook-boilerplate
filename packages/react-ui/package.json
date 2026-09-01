@@ -52,11 +52,11 @@
     "build-storybook": "yarn g:storybook build --stats-json",
     "chromatic": "yarn g:chromatic",
     "coverage": "yarn test run --coverage",
-    "dev": "yarn watch & yarn g:storybook-dev -p $(yarn g:dotenv-get PORT) --https --ssl-ca $PROJECT_CWD/cert/dev-cert.pem --ssl-cert $PROJECT_CWD/cert/dev-cert.pem --ssl-key $PROJECT_CWD/cert/dev-key.pem",
+    "dev": "yarn watch & yarn g:storybook-dev -p $(yarn g:dotenv-get PORT)",
     "format": "yarn g:format",
     "lint": "yarn g:prettier --check . && yarn g:lint --runner stylelint --runner eslint",
     "prepack": "turbo run build",
-    "start": "yarn g:dotenv-run -- yarn g:http-server storybook-static --tls --cert $PROJECT_CWD/cert/dev-cert.pem --key $PROJECT_CWD/cert/dev-key.pem",
+    "start": "yarn g:dotenv-run -- yarn g:http-server storybook-static",
     "test": "yarn g:vitest",
     "watch": "yarn build-src -w --mode development & yarn watch-dts",
     "watch-dts": "tsc -p tsconfig.dts.json -w & tsc-paths -p tsconfig.dts.json -w"
