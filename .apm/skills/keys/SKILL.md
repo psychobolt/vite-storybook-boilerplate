@@ -17,25 +17,31 @@ encryption.
 
 ## Procedure
 
-1. **Identify the non-secret scope.** Determine from the request, package
-   documentation, scripts, and `.env.defaults` whether encrypted environment
-   handling is required. Record exact root and workspace target paths; do not
-   discover them by reading environment files or applying a broad glob. For a
-   newly required workspace or package target, resolve its matching template
-   under this skill's `references/` directory. A full-reset root target is
-   intentionally empty. If a required template is missing, stop and ask
-   rather than inventing values or copying another template. Retained or
-   existing values always use the secure-process path; full-reset encryption
-   follows Step 5.
+1. **Identify and classify the non-secret scope.** Determine from the request,
+   package documentation, scripts, and `.env.defaults` whether encrypted
+   environment handling is required. Record exact root and workspace target
+   paths; do not discover them by reading environment files or applying a
+   broad glob. Classify each selected target before writing it:
+
+   - the repository-root `.env.<environment>` target is intentionally empty;
+   - a newly required workspace or package target uses its matching authored
+     template under this skill's `references/` directory, preserving every
+     placeholder exactly (for example, `CHROMATIC_PROJECT_TOKEN=""` in the
+     Storybook CI template).
+
+   Never apply the root-empty rule to a workspace or package target, and never
+   replace a required template with a blank file or invented values. If a
+   required template is missing, stop and ask rather than copying another
+   template. Retained or existing values always use the secure-process path;
+   full-reset encryption follows Step 5.
+
 2. **Select the migration mode.** Use a full reset for a new independent
    project or an extension when the selected workflow establishes new targets
    or explicitly resets existing targets and inherited encrypted values must
-   not be retained. Replace each explicitly selected root
-   `.env.<environment>` target with an empty file, and replace each explicitly
-   selected workspace `.env.<environment>` target with its matching authored
-   template, without reading the previous files. Do not create a workspace
-   target from a template unless the workflow establishes that target. Then
-   encrypt the targets as described in Step 5. For a newly created package
+   not be retained. Write the selected targets according to the classification
+   in Step 1, without reading the previous files. Do not create a workspace
+   target unless the workflow establishes that target. Then encrypt the
+   targets as described in Step 5. For a newly created package
    whose workflow requires an environment target, write its matching template
    and encrypt it with the repository-root key; do not create a package-local
    key source. Use a data-retaining migration when an extension or other
