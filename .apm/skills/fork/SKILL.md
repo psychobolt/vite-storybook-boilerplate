@@ -204,8 +204,9 @@ is the default.
      leaves it empty; never delete a non-empty container as a shortcut.
 
 7. **Refresh workspace tooling.** After Step 6 changes workspace manifests,
-   package names, workspace registration, lockfiles, or package paths, follow
-   the root [workspace refresh](../../../AGENTS.md#workspace-refresh) before
+   package names, workspace registration, lockfiles, or package paths, always
+   complete the root [workspace refresh](../../../AGENTS.md#workspace-refresh),
+   including for metadata-only changes or unchanged dependency ranges, before
    invoking the [keys skill](../keys/SKILL.md) or any other workspace-dependent
    command.
 

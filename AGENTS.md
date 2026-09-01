@@ -141,14 +141,15 @@ and lockfiles.
 ### Workspace refresh
 
 After changing workspace manifests, package names, workspace registration,
-lockfiles, or package paths, inspect `git status` and the relevant diff. Use the
-repository and workspace linker configuration to determine the affected scope:
-run `yarn install` from the repository root only when a PnP workspace or its
-dependency graph changed, and run `yarn bootstrap` for affected non-PnP
-workspaces. If both scopes are affected, run `yarn install` before
-`yarn bootstrap`. Inspect `git status` and the relevant diff again after each
-command; bootstrap may update generated files. If a required command fails,
-stop before dependent commands and report the failure.
+lockfiles, or package paths, inspect `git status` and the relevant diff. Always
+complete the refresh; do not skip it because the edit is metadata-only or
+dependency ranges are unchanged. Use the repository and workspace linker
+configuration to determine the affected scope: run `yarn install` from the
+repository root for affected PnP workspaces, and run `yarn bootstrap` for
+affected non-PnP workspaces. If both scopes are affected, run `yarn install`
+before `yarn bootstrap`. Inspect `git status` and the relevant diff again after
+each command; bootstrap may update generated files. If a required command
+fails, stop before dependent commands and report the failure.
 
 ### Shared package procedure
 

@@ -137,7 +137,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:da663b804778c03cceb7a8f27d6dc04d93bf3e3c74b3b32232cc788e8207f03f
+  content_hash: sha256:8d9e4f28d56e1bd536968bbbe09e3d7e5db6dc30add2c1af487aae3d03931d63
 - kind: project-relative
   target: agents
   value: .agents/skills/keys
@@ -533,7 +533,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:da663b804778c03cceb7a8f27d6dc04d93bf3e3c74b3b32232cc788e8207f03f
+  content_hash: sha256:8d9e4f28d56e1bd536968bbbe09e3d7e5db6dc30add2c1af487aae3d03931d63
 - kind: project-relative
   target: claude
   value: .claude/skills/keys
@@ -978,7 +978,7 @@ local_deployed_file_hashes:
   .agents/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .agents/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .agents/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .agents/skills/fork/SKILL.md: sha256:da663b804778c03cceb7a8f27d6dc04d93bf3e3c74b3b32232cc788e8207f03f
+  .agents/skills/fork/SKILL.md: sha256:8d9e4f28d56e1bd536968bbbe09e3d7e5db6dc30add2c1af487aae3d03931d63
   .agents/skills/keys/SKILL.md: sha256:5eece938078e8b6ece8ea3e6f8e7b2860147e0e2d4b42b87d527313e781f0dcb
   .agents/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .agents/skills/sync/SKILL.md: sha256:895906819ef93119b8290460b53bc33a52364ef7172a5f8a4fac9d9490a112e5
@@ -1007,7 +1007,7 @@ local_deployed_file_hashes:
   .claude/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .claude/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .claude/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .claude/skills/fork/SKILL.md: sha256:da663b804778c03cceb7a8f27d6dc04d93bf3e3c74b3b32232cc788e8207f03f
+  .claude/skills/fork/SKILL.md: sha256:8d9e4f28d56e1bd536968bbbe09e3d7e5db6dc30add2c1af487aae3d03931d63
   .claude/skills/keys/SKILL.md: sha256:5eece938078e8b6ece8ea3e6f8e7b2860147e0e2d4b42b87d527313e781f0dcb
   .claude/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .claude/skills/sync/SKILL.md: sha256:895906819ef93119b8290460b53bc33a52364ef7172a5f8a4fac9d9490a112e5
