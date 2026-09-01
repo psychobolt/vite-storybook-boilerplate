@@ -66,55 +66,58 @@ encryption.
    cannot safely access the required key or environment files. Do not fall
    back to the ignored root `.env`, a workspace `.env.*`, inherited
    environment variables, or a shell command run by the agent.
-5. **Run the approved encryption path.** For a full reset, after the agent
-   writes the empty root target and any matching workspace templates, it may
-   encrypt the repository-root `.env.<environment>` target first, then each
-   applicable workspace `.env.<environment>` target.
-   Use the repository's `g:dotenv` wrapper. Encrypt each root target first so
-   the root command can create or establish the repository key. After root
-   encryption succeeds, encrypt every applicable workspace or package target
-   with the repository-root `.env.keys` through `-fk`. Never encrypt a
-   workspace or package target without `-fk`. Do not create or encrypt a
-   workspace target unless the package documentation explicitly requires that
-   environment target. If an extension leaves the root target unchanged and
-   only adds a new workspace or package target, do not run root encryption;
-   encrypt only the new target with the established root key through `-fk`.
-   Run encryption only for environment files created or reset by the current
-   workflow. If all existing environment files are left unchanged, skip
-   encryption. If the secure process reports multiple private-key
-   entries, do not merge them, convert them to comma-separated values, or edit
-   the key file through the agent; resolve the key set in that secure process.
-   When a new
-   environment file is required, resolve its matching template from this
-   skill; do not duplicate template paths or command rules in the calling
-   workflow.
-   If an existing root key must be replaced, a secure process must
-   retire it before the root encryption command. For a data-retaining
-   migration, the user-controlled secure process must validate the active root
-   key against every applicable workspace, decrypt the targets before
-   retiring the old key source, encrypt the root target without overloads to
-   create the replacement root key, then encrypt each workspace target with
-   that root key without exposing values. The `-f` input selects the file being
-   encrypted. Never point `-fk` at a workspace-local key source. The full-reset
-   commands are:
+5. **Run one encryption pass.** For a full reset, collect every selected
+   target for the same environment suffix before invoking dotenvx. Run one
+   `encrypt` command with one repository-root `-fk` path and one `-f` option per
+   root, workspace, or package target. The `-fk` path identifies the shared
+   `.env.keys` file that dotenvx may create or update; it is not another
+   environment input and does not justify a second encryption pass. Never run
+   root and workspace encryption as separate commands, and never rerun
+   `encrypt` after a partial or ambiguous result without a secure process first
+   resolving the key file. A full reset may use:
 
    ```sh
-   yarn g:dotenv encrypt -f /path/to/repository/.env.environment
-   yarn g:dotenv encrypt -fk /path/to/repository/.env.keys -f /path/to/workspace/.env.environment
+   yarn g:dotenv encrypt \
+     -fk /path/to/repository/.env.keys \
+     -f /path/to/repository/.env.environment \
+     -f /path/to/workspace/.env.environment \
+     -f /path/to/package/.env.environment
    ```
 
-   For a newly created package whose workflow requires an environment target,
-   use the repository-root key directly:
+   For a package-only enrollment, use one command with the new target and the
+   established repository-root `-fk` path. Do not create or encrypt a target
+   unless the calling workflow establishes it. If no target is created or
+   reset, run no encryption. If the secure process reports multiple private-
+   key entries, do not merge them, convert them to comma-separated values, or
+   edit the key file through the agent; resolve the key set in that secure
+   process.
+
+   Dotenvx may add its sample `HELLO` key when encrypting an empty target.
+   After the single encryption command succeeds, remove that known sample from
+   the affected targets with one non-secret `del` command listing the same
+   `-f` paths. For example:
 
    ```sh
-   yarn g:dotenv encrypt -fk /path/to/repository/.env.keys -f /path/to/package/.env.environment
+   yarn g:dotenv del HELLO \
+     -f <root-target> \
+     -f <workspace-target>
    ```
 
-   Run these commands only for empty or templated targets written during the
-   current full-reset or package-scaffolding operation, without overload files
-   or additional `.env` inputs. Use the command exit status and non-secret
-   output to determine whether the operation succeeded; do not read `.env.keys`
-   or command output that contains private key values.
+   Do not replace it with a value and do not run `encrypt` again.
+   Use the command exit status and non-secret output to determine whether both
+   commands succeeded; do not read `.env.keys` or command output that contains
+   private key values. When a new environment file is required, resolve its
+   matching template from this skill; do not duplicate template paths or
+   command rules in the calling workflow.
+
+   If an existing root key must be replaced, a secure process must retire it
+   before the single encryption command. For a data-retaining migration, the
+   user-controlled secure process must validate the active root key against
+   every applicable workspace, decrypt the targets before retiring the old key
+   source, encrypt all recovered targets in one pass with the replacement root
+   `-fk` path, and remove any generated `HELLO` sample without exposing values.
+   The `-f` options select the files being encrypted. Never point `-fk` at a
+   workspace-local key source.
 
    For data-retaining migration, the corresponding secure decrypt operation
    uses the same root key source and target-file selection, for example:

@@ -72,14 +72,15 @@ is the default.
    name, URL, workspace directory name, existing synchronization documentation,
    and configured remotes are supporting signals, not proof by themselves. In
    either case, the resulting project is the canonical `origin` and may become
-   the base for future extensions. For an independent new project, retain the
-   original source only as local Git state when needed (for example, a local
-   `base` remote or fetched ref); do not preserve it as a tracked documentation
-   or workflow reference. For an extension, retain and normalize the intended
-   upstream relationship, including a documented `base` reference, when that
-   relationship is part of the project's workflow. If the relationship is
-   ambiguous, preserve files and ask whether the project is independent or an
-   extension and which local or documented upstream relationship is intended.
+   the base for future extensions. Always configure the resolved original
+   source as the local-only `base` remote; never publish it and never use it as
+   `origin`. For an independent new project, remove the original source and
+   `base` from tracked documentation and workflow references while retaining
+   the `base` remote for local synchronization. For an extension, retain and
+   normalize the intended upstream relationship in tracked synchronization
+   guidance as well. If the relationship is ambiguous, preserve files and ask
+   whether the project is independent or an extension and which local or
+   documented upstream relationship is intended.
 
    Determine separately from the user's current instruction whether it asks to
    clear or reset Git history, or to add or update `origin` or `base`. If the
@@ -98,7 +99,9 @@ is the default.
    - `repository`, `homepage`, `bugs`, `funding`, `description`, `license`,
      and other identity properties that actually exist;
    - hard-coded project URLs or owner names in ordinary workflow examples,
-     service configuration, badges, and automation;
+     service configuration, badges, and automation, including workflow
+     conditions, actor or bot allowlists, repository-owner expressions,
+     synchronization refs, and package or workspace paths;
    - intentional upstream references used to synchronize from the base
      repository.
 
@@ -126,18 +129,16 @@ is the default.
    attribution material unless the user explicitly requests it or a clearly
    established legal requirement requires it.
 
-   Confirm the requested project URL for `origin`. For an independent new
+   Confirm the requested project URL for `origin` and the resolved original
+   source URL for the local-only `base` remote. For an independent new
    project, when no project name is supplied, use the current repository root
    directory's basename as the project name. For an extension, also
-   confirm the chosen upstream URL for `base`. If the user explicitly supplies
+   confirm that the original source is the chosen upstream URL for `base`. If
+   the user explicitly supplies
    a new project URL, always update or add `origin` locally, regardless of
-   hosted destination availability. For an independent new project, the
-   original source may remain as a local `base` remote when needed for local
-   reference only, but do not add or retain that source in tracked
-   documentation or workflows. For an extension, configure the confirmed
-   upstream URL as `base` when the project workflow requires it; do not use the
-   upstream URL to create `origin`. If no project URL is available, ask for it
-   before adding or changing `origin`.
+   hosted destination availability. Add or update `base` locally in either
+   mode, and do not use the original source to create `origin`. If no project
+   URL is available, ask for it before adding or changing `origin`.
    If normalized `origin` and `base` URLs are identical, treat that as a
    remote-role collision. Do not infer a fork, history reset, or cleanup from
    the collision; report it and ask which project and upstream roles are
@@ -212,13 +213,13 @@ is the default.
 
 8. **Apply environment changes.** For new or reset targets, follow the [keys
    skill](../keys/SKILL.md) full-reset procedure. It selects the targets,
-   writes empty root targets or matching workspace templates, encrypts root
-   targets first, and encrypts workspace targets with `-fk` pointing to the
-   repository-root key. If an extension leaves the root target unchanged,
-   encrypt each new workspace or package target with `-fk`. If no target is
-   created or reset, run no encryption. If existing values must be retained,
-   use the keys skill's data-retaining migration and hand it to the approved
-   secure process; do not replace those targets with templates.
+   writes empty root targets or matching workspace templates, and encrypts all
+   selected targets for an environment suffix in one command using the shared
+   repository-root `-fk` path. If an extension leaves the root target
+   unchanged, encrypt only the new target with that same root key path. If no
+   target is created or reset, run no encryption. If existing values must be
+   retained, use the keys skill's data-retaining migration and hand it to the
+   approved secure process; do not replace those targets with templates.
 
 9. **Normalize documentation and workflow references.** Replace stale project
    identity in ordinary documentation, badges, manifests, project-owned
@@ -248,37 +249,51 @@ is the default.
    Do not use broad text substitution. Update each occurrence according to
    whether it is new-project identity, upstream synchronization guidance,
    generic tooling documentation, or an external reference that should remain.
+   Repeat the identity scan after editing. Every match for the original owner,
+   repository, package, URL, bot, actor, or path must be updated, removed, or
+   explicitly classified as preserved attribution or local-only Git metadata.
+   Inspect workflow conditions and automation expressions as well as visible
+   names and URLs; do not treat a general text scan as complete until those
+   references have been classified.
 
 10. **Migrate history only after the required preflight.** Process this step
     only when the user's current instruction explicitly requests a history
     reset. Complete Procedure 1 and the remaining identity and local remote
-    configuration checks before replacing history. If a remote exists but its
-    current state cannot be checked, stop before replacing history. Do not
-    silently discard local commits that are ahead of a remote. Preserve the
-    validated working tree and create the new history from it with an
-    orphan-history workflow. Do not create a recovery branch or temporary
-    recovery reference; the explicit history-reset request determines that the
-    existing history is disposable. Replace the requested branch only after
-    confirming the new commit contains the retained files and no unresolved
-    changes. Do not infer history replacement from ordinary fork cleanup. The
-    absence of a merge base only indicates unrelated histories; it does not
-    authorize history replacement. Resolve shallow or incomplete history and
-    use the `sync` workflow for history integration. If the current history is
-    already unrelated or appears previously reset, preserve it and report that
-    state when the user did not request another history change. Do not rewrite
-    unrelated branches or push the result.
+    configuration checks before replacing history. A reset does not require
+    hosted reachability: record any local tracking ref and do not stop solely
+    because the new `origin` is unpublished. Do not silently discard local
+    commits that are ahead of a remote unless the user explicitly requested the
+    reset. Preserve the validated working tree and create the new history from
+    it with an orphan-history workflow. Before
+    orphaning the requested branch, detach it from any old upstream with:
+    `git branch --unset-upstream <branch>`. After the new commit is validated,
+    remove only the stale local remote-tracking ref for that branch if it still
+    points to the discarded origin history. Never remove `base/*` refs. This
+    prevents the reset branch from appearing diverged from an unpublished or
+    historical `origin`; do not fetch or compare it against that stale history.
+    Do not
+    create a recovery branch or temporary recovery reference; the explicit
+    history-reset request determines that the existing history is disposable.
+    Replace the requested branch only after confirming the new commit contains
+    the retained files and no unresolved changes. Do not infer history
+    replacement from ordinary fork cleanup. The absence of a merge base only
+    indicates unrelated histories; it does not authorize history replacement.
+    Resolve shallow or incomplete history and use the `sync` workflow for
+    history integration. If the current history is already unrelated or
+    appears previously reset, preserve it and report that state when the user
+    did not request another history change. Do not rewrite unrelated branches
+    or push the result.
 
 11. **Check remotes and original references.** Normalize SSH and HTTPS forms,
     host aliases, case, and a trailing `.git` before comparing URLs. Verify that
-    the confirmed project URL is configured as `origin`. For an extension,
-    verify the selected upstream URL is configured as `base` when the workflow
-    requires it. For an independent new project, a retained original `base`
-    remote is local-only and must not be treated as a tracked documentation or
-    workflow reference. Report remotes that still point to the old project when
-    they were not intentionally retained. Do not remove or rewrite a remote
-    that the user did not authorize. Hosted reachability is not part of this
-    check; configuring the local remote is sufficient because this skill never
-    publishes it.
+    the confirmed project URL is configured as `origin` and the resolved
+    original source is configured as the local-only `base` remote in either
+    mode. For an independent new project, that `base` remote must not be
+    treated as a tracked documentation or workflow reference. Report remotes
+    that still point to a different old project when they were not intentionally
+    retained. Do not remove or rewrite a remote that the user did not authorize.
+    Hosted reachability is not part of this check; configuring the local remotes
+    is sufficient because this skill never publishes them.
     If remotes are unavailable, report that the comparison was documentation
     only; Step 2 handles fallback resolution. Do not test hosted authentication
     or publish a remote as part of this skill.
