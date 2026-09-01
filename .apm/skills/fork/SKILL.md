@@ -213,13 +213,15 @@ is the default.
 
 8. **Apply environment changes.** For new or reset targets, follow the [keys
    skill](../keys/SKILL.md) full-reset procedure. It selects the targets,
-   writes empty root targets or matching workspace templates, and encrypts all
-   selected targets for an environment suffix in one command using the shared
-   repository-root `-fk` path. If an extension leaves the root target
-   unchanged, encrypt only the new target with that same root key path. If no
-   target is created or reset, run no encryption. If existing values must be
-   retained, use the keys skill's data-retaining migration and hand it to the
-   approved secure process; do not replace those targets with templates.
+   writes root targets empty and workspace or package targets from their
+   matching authored templates, then encrypts all selected targets for an
+   environment suffix in one command using the shared repository-root `-fk`
+   path. Do not substitute blank workspace files for a required template. If
+   an extension leaves the root target unchanged, encrypt only the new target
+   with that same root key path. If no target is created or reset, run no
+   encryption. If existing values must be retained, use the keys skill's
+   data-retaining migration and hand it to the approved secure process; do not
+   replace those targets with templates.
 
 9. **Normalize documentation and workflow references.** Replace stale project
    identity in ordinary documentation, badges, manifests, project-owned
