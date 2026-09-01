@@ -1,18 +1,14 @@
-import { existsSync } from 'node:fs';
-
-const {
-  DOTENV_PRIVATE_KEY_CI,
-  INIT_CWD = process.cwd(),
-  PROJECT_CWD = process.cwd()
-} = process.env;
+const { INIT_CWD = process.cwd(), PROJECT_CWD = process.cwd() } = process.env;
 
 const file = (directory, name) => `${directory}/${name}`;
-const envKeysFile = file(PROJECT_CWD, '.env.keys');
+const environmentFiles = Object.keys(process.env)
+  .filter((name) => name.startsWith('DOTENV_PRIVATE_KEY_'))
+  .map((name) => name.slice('DOTENV_PRIVATE_KEY_'.length).toLowerCase())
+  .filter(Boolean)
+  .sort();
 const args = [
   '--ignore=MISSING_ENV_FILE',
   '--ignore=MISSING_PRIVATE_KEY',
-  '-fk',
-  PROJECT_CWD,
   '-f',
   file(PROJECT_CWD, '.env.defaults'),
   '-f',
@@ -21,8 +17,8 @@ const args = [
   file(INIT_CWD, '.env.defaults')
 ];
 
-if (DOTENV_PRIVATE_KEY_CI || existsSync(envKeysFile)) {
-  args.push('-f', file(INIT_CWD, '.env.ci'));
+for (const environment of environmentFiles) {
+  args.push('-f', file(INIT_CWD, `.env.${environment}`));
 }
 
 args.push('-f', file(INIT_CWD, '.env'), '--overload');
