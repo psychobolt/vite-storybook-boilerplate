@@ -38,11 +38,15 @@ operational details.
   independent fork identity migration or a package-scaffolding workflow
   governed by the keys skill, the agent may replace an inherited root `.env.*`
   target with an empty file or create a newly required workspace `.env.*`
-  target from its matching authored template. It may run the keys skill's
-  approved template-encryption commands, plus removal of dotenvx's known
-  non-secret `HELLO` sample key, only against those newly written targets. Do
-  not read the replaced files, generated `.env.keys`, or command output that
-  contains private key values. Do not create or overwrite any other
+  target from its matching authored template. After the root target is
+  encrypted, a workspace target may be cloned from it to carry the public key.
+  Remove the clone's trailing blank line, preserve its normal final newline,
+  and then stitch in the matching template; it remains unencrypted. It may
+  run the keys skill's approved template-encryption commands, plus removal of
+  dotenvx's known non-secret `HELLO` sample key, only against the newly written
+  root target. Do not read the replaced files,
+  generated `.env.keys`, or command output that contains private key values.
+  Do not create or overwrite any other
   secret-bearing environment file from agent tools.
 - Use the [keys skill](.apm/skills/keys/SKILL.md) for any operation that requires
   dotenv encryption, decryption, key validation, full reset, or data-retaining
