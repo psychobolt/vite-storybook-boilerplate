@@ -24,9 +24,11 @@ Repository-specific agent workflows are authored in the [.apm/skills/](.apm/skil
 
 ### Fork
 
-Ideally the [fork skill](.apm/skills/fork/SKILL.md) is used when establishing the early project intrastructure. Execute this only once at the beginning of the project's conception.
+Ideally the [fork skill](.apm/skills/fork/SKILL.md) is used when establishing the early project intrastructure.
 
-#### New project identity
+#### New Project Identity (with history reset)
+
+Execute this only once at the beginning of the project's conception.
 
 ```text
 Use the fork skill to prepare this repository as an independent project with a
@@ -42,7 +44,9 @@ Keep the original source as the local-only `base` remote and do not publish
 remotes.
 ```
 
-#### Project extension
+#### Project Extension (with existing history)
+
+Execute this only once at the beginning of the project's conception.
 
 ```text
 Use the fork skill to prepare this repository as an extension of an existing
@@ -55,7 +59,9 @@ Keep the original source as the local-only `base` remote and retain its sync
 guidance. Do not publish remotes.
 ```
 
-#### Approved cleanup
+#### Workspaces Removal
+
+Can be run anytime after initial project conception.
 
 ```text
 Use the fork skill to review and apply cleanup to these paths:
@@ -64,8 +70,7 @@ Requested paths:
 - <path>
 - <path>
 
-Preserve history. Confirm the exact deletion set before removing anything and
-update references and workspace configuration for approved deletions.
+Confirm the exact deletion set before removing anything.
 ```
 
 ## Syncing With Original Fork
