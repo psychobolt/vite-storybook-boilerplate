@@ -20,8 +20,6 @@ jobs:
     environment: ${{ (contains(fromJson('["main", "next"]'), inputs.ref_name || github.ref_name) || startsWith(inputs.ref_name || github.ref_name, 'release-')) && (inputs.ref_name || github.ref_name) || null }}
     env:
       REF_NAME: ${{ inputs.ref_name || github.ref_name }}
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_TELEMETRY_DISABLED: 1
       YARN_ENABLE_HARDENED_MODE: 0
     steps:

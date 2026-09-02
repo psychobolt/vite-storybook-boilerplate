@@ -49,8 +49,6 @@ jobs:
       contents: write
     env:
       APPLY_STRATEGY: ${{ startsWith(github.head_ref, 'issue/') && 'patch' || 'minor' }}
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_TELEMETRY_DISABLED: 1
       YARN_ENABLE_HARDENED_MODE: 0
     steps:
