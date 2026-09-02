@@ -5249,9 +5249,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.24.4":
-  version: 0.24.4
-  resolution: "@storybook/test-runner@npm:0.24.4"
+"@storybook/test-runner@npm:0.24.5":
+  version: 0.24.5
+  resolution: "@storybook/test-runner@npm:0.24.5"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -5275,10 +5275,10 @@ __metadata:
     rimraf: "npm:^3.0.2"
     uuid: "npm:^8.3.2"
   peerDependencies:
-    storybook: ^0.0.0-0 || ^10.0.0 || ^10.0.0-0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0
+    storybook: ^0.0.0-0 || ^10.0.0 || ^10.0.0-0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0 || ^11.0.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/103b7ec66023c727b621dfafeef5951c4fadba370376af4b92204b0b010e92a559dbe77d3044fd1f01eec03488a84b521664726bdb7dc20a1dc12bcf25376210
+  checksum: 10c0/beff40bc18ad216da8cf4be65dfa4342c64f7e726a5a08ca9e7c482bdaa08426b9ef618ed0d2bf2144ba1fceb88a130cbaf59a969f238212156377188add14d7
   languageName: node
   linkType: hard
 
@@ -8544,7 +8544,7 @@ __metadata:
     "@storybook/addon-vitest": "npm:10.5.10"
     "@storybook/builder-vite": "npm:10.5.10"
     "@storybook/global": "npm:5.0.0"
-    "@storybook/test-runner": "npm:0.24.4"
+    "@storybook/test-runner": "npm:0.24.5"
     "@types/eslint": "npm:9.6.1"
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/lodash": "npm:4.17.25"
