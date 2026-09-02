@@ -70,9 +70,9 @@ commands.
    have a common ancestor. Report the selected mode before creating branches:
 
    - **Related history:** a merge base exists. Use the normal merge workflow
-     in step 6; do not squash.
+     in step 7; do not squash.
    - **Unrelated history:** no merge base exists. Use the local integration
-     workflow in step 7 and squash only when importing its combined changes
+     workflow in step 8 and squash only when importing its combined changes
      into the selected target branch.
 
    If the result is ambiguous because a ref is shallow, missing, or otherwise
@@ -94,7 +94,31 @@ commands.
    diff against `origin/main` and choose the target before creating it.
    Report the selected target branch before recreating it.
 
-6. **Synchronize related histories.** When a merge base exists:
+6. **Inventory deletions before merging.** Before creating the selected target
+   branch or merging the base ref, record path deletions and possible
+   reintroductions. For related histories, use the merge base and inspect both
+   sides with commands equivalent to:
+
+   ```sh
+   git diff --name-status --find-renames < merge-base > origin/main
+   git diff --name-status --find-renames < merge-base > base/main
+   ```
+
+   Treat a path deleted by the project side (`origin/main`) as intentional
+   project cleanup unless the current request or project contract explicitly
+   reintroduces it. Treat a base-side deletion as an incoming change that still
+   requires review against the current project contract. Mark any base-side
+   addition or modification that restores a project-deleted path for conflict
+   review.
+
+   For unrelated histories, there is no reliable merge-base deletion history.
+   Compare the tracked path sets with `git ls-tree -r --name-only origin/main`
+   and `git ls-tree -r --name-only base/main`; treat paths present only in the
+   base ref as possible stale additions, not proven deletions, and review them
+   before accepting them into `base-main`. Carry this inventory into the merge
+   review and do not silently restore a path that the project has removed.
+
+7. **Synchronize related histories.** When a merge base exists:
 
    1. Move off any existing selected target branch without losing work, delete
       the confirmed local target branch, and create it from `origin/main`.
@@ -106,7 +130,7 @@ commands.
       prefix or format. Do not create an artificial commit when the merge is
       already a fast-forward.
 
-7. **Synchronize unrelated histories.** When no merge base exists:
+8. **Synchronize unrelated histories.** When no merge base exists:
 
    1. If `base-main` does not exist, create it from `origin/main`, then merge
       `base/main` into it with `--allow-unrelated-histories`. If it already
@@ -126,7 +150,7 @@ commands.
       the synchronization. Do not copy the individual `base-main` commits into
       the target branch.
 
-8. **Review conflicts by intent.** For every conflict, read both sides and
+9. **Review conflicts by intent.** For every conflict, read both sides and
    their surrounding diffs before editing. Do not resolve conflicts by
    blanket `ours` or `theirs` selection. Prefer project-side (`origin/main`)
    documentation content when the two sides conflict without a clear reason;
@@ -136,26 +160,35 @@ commands.
    changes where appropriate. Recheck protected infrastructure and local agent
    guidance after conflict resolution.
 
+   When the merge reports a `deleted by us` path, read the deletion inventory
+   and confirm that the project-side deletion is intentional. To preserve that
+   deletion, remove the path from the merge result with `git rm -- <path>`;
+   do not reconstruct a deletion from a parsed status pipeline or accept the
+   base-side version automatically. Review `deleted by them` paths against the
+   current project contract before deciding whether to retain or remove them.
+   For base-only paths identified during unrelated-history review, remove
+   stale additions before committing the integration.
+
    For a forked project, scan conflict-resolved eligible files for original
    repository or author identity that was unintentionally reintroduced. Keep
    the documented synchronization section and other explicitly intentional
    upstream references; do not remove generic tooling references.
 
-9. **Validate the result.** On the checked-out target branch, confirm:
+10. **Validate the result.** On the checked-out target branch, confirm:
 
-   - `git status --short` is clean and there are no unresolved conflicts.
-   - `git diff --check` passes.
-   - the target branch is based on `origin/main` and contains the intended
-     `base/main` changes.
-   - In unrelated-history mode, both `origin/main` and `base/main` are
-     ancestors of local `base-main`, while the target branch contains only the
-     intended single import commit beyond `origin/main`.
-   - The changed documentation, manifests, workflows, and protected paths do
-     not contain accidental stale identity references.
-   - The relevant log and diff summaries match the selected mode.
+- `git status --short` is clean and there are no unresolved conflicts.
+- `git diff --check` passes.
+- the target branch is based on `origin/main` and contains the intended
+  `base/main` changes.
+- In unrelated-history mode, both `origin/main` and `base/main` are
+  ancestors of local `base-main`, while the target branch contains only the
+  intended single import commit beyond `origin/main`.
+- The changed documentation, manifests, workflows, and protected paths do
+  not contain accidental stale identity references.
+- The relevant log and diff summaries match the selected mode.
 
-   Report any check that cannot run rather than treating a partial check as
-   completion.
+Report any check that cannot run rather than treating a partial check as
+completion.
 
 ## Stop conditions
 

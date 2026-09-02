@@ -22,6 +22,52 @@ Follow [Vercel's guide](https://vercel.com/docs/getting-started-with-vercel) on 
 
 Repository-specific agent workflows are authored in the [.apm/skills/](.apm/skills/) directory and referenced in the root [AGENTS](AGENTS.md#workflow-skills) markdown file. In most cases, the skills can be found automatically by the LLM agent after APM deployment. They can also be installed manually with [APM](DEVELOPMENT.md#setup-agent-package-manager-recommended).
 
+### Fork
+
+Ideally the [fork skill](.apm/skills/fork/SKILL.md) is used when establishing the early project intrastructure. Execute this only once at the beginning of the project's conception.
+
+#### New project identity
+
+```text
+Use the fork skill to prepare this repository as an independent project with a
+new identity.
+
+Project name: <project-name, or use the current directory name>
+Project URL for origin: <project-url>
+Author and copyright holder: <value, or retain the existing value>
+License: <value, or retain the existing value>
+History: reset the existing Git history after completing the fork preflight.
+
+Keep the original source as the local-only `base` remote and do not publish
+remotes.
+```
+
+#### Project extension
+
+```text
+Use the fork skill to prepare this repository as an extension of an existing
+project.
+
+Project URL for origin: <project-url>
+History: preserve the existing Git history; do not reset it.
+
+Keep the original source as the local-only `base` remote and retain its sync
+guidance. Do not publish remotes.
+```
+
+#### Approved cleanup
+
+```text
+Use the fork skill to review and apply cleanup to these paths:
+
+Requested paths:
+- <path>
+- <path>
+
+Preserve history. Confirm the exact deletion set before removing anything and
+update references and workspace configuration for approved deletions.
+```
+
 ## Syncing With Original Fork
 
 Occasionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
