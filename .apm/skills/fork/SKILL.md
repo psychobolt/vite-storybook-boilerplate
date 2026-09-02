@@ -117,10 +117,14 @@ identity migration is the default.
    `funding`. A repository owner in a new URL does not automatically establish
    the package author or copyright holder. Preserve a user-supplied license
    value exactly; do not normalize `Proprietary` to `UNLICENSED` unless the
-   user explicitly requests that value. For an independent new project,
-   retain only the selected active license; do not append the original
-   project's license as a second active license. Preserve existing upstream
-   copyright notices and attribution text in place and unchanged by default.
+   user explicitly requests that value. Treat license metadata and the
+   project-owned license text as separate changes. For a recognized standard
+   license, derive the canonical text and metadata from the requested license.
+   For a custom or proprietary license, use an established repository template
+   when one exists; otherwise stop and ask before inventing terms.
+   Do not treat retained upstream license text as the new project's license or
+   append it as a second active license. Preserve existing upstream copyright
+   notices and attribution text in place and unchanged by default.
    Do not create, move, rewrite, or relink a `NOTICE` file or other
    attribution material unless the user explicitly requests it or a clearly
    established legal requirement requires it.

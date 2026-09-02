@@ -37,7 +37,7 @@ new identity.
 Project name: <project-name, or use the current directory name>
 Project URL for origin: <project-url>
 Author and copyright holder: <value, or retain the existing value>
-License: <value, or retain the existing value>
+License: <requested license value, or retain the existing value>
 History: reset the existing Git history after completing the fork preflight.
 
 Keep the original source as the local-only `base` remote and do not publish
