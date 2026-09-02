@@ -5,9 +5,8 @@ description: Migrate a cloned repository to a new project identity, optionally r
 
 # Fork
 
-Prepare a repository for independent development without invoking the
-unfinished bootstrap workflow. For a fresh clone or fork, identity migration
-is the default.
+Prepare a repository for independent development. For a fresh clone or fork,
+identity migration is the default.
 
 ## Protected scope
 
@@ -22,21 +21,18 @@ is the default.
 - Follow the root [environment-file boundary](../../../AGENTS.md#environment-file-boundary)
   for all environment-file and process-environment handling. Use the [keys
   skill](../keys/SKILL.md) for any encrypted environment operation.
+- Keep this workflow local. Do not create hosted forks, verify provider
+  authentication, or publish remotes. A user-provided project URL is enough to
+  configure `origin` locally; do not test hosted reachability or authentication.
 
 ## Procedure
 
-1. **Verify Git identity and keep the workflow local.** Before beginning fork
+1. **Verify Git identity.** Before beginning fork
    inventory or changing files, determine the effective Git `user.name` and
    `user.email` from Git configuration. If either value is missing, stop and ask
    the user to configure the Git author identity. Do not infer it from package
    metadata, remote ownership, or repository documentation, and do not change
    Git configuration unless the user explicitly requests that change.
-
-   This skill does not create hosted forks, verify provider authentication, or
-   publish remotes. A user-provided project URL is sufficient to configure
-   `origin` locally. Do not test hosted reachability or authentication; fork
-   does not publish remotes, and hosted destination availability is not a
-   local fork issue.
 
 2. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
    workspace configuration, and repository workflow documentation. Inspect the
@@ -175,9 +171,9 @@ is the default.
 
 6. **Apply the non-secret changes.**
    - In identity-migration mode, preserve all applications, packages, demos,
-     shared infrastructure, workflows, and automation files. Update manifests,
-     lockfiles, documentation, scripts, badges, and configuration to the new
-     project identity.
+     shared infrastructure, workflows, and automation files. Apply only the
+     confirmed non-secret structural or metadata changes; Procedure 9 owns
+     identity updates in documentation and workflow references.
    - Comment out active scheduled cron timing by default, except for a
      workflow whose purpose is certificate renewal. Preserve the certificate
      renewal schedule so certificates are not allowed to expire. For other
@@ -269,35 +265,7 @@ is the default.
    names and URLs; do not treat a general text scan as complete until those
    references have been classified.
 
-10. **Migrate history only after the required preflight.** Process this step
-    only when the user's current instruction explicitly requests a history
-    reset. Complete Procedure 1 and the remaining identity and local remote
-    configuration checks before replacing history. A reset does not require
-    hosted reachability: record any local tracking ref and do not stop solely
-    because the new `origin` is unpublished. Do not silently discard local
-    commits that are ahead of a remote unless the user explicitly requested the
-    reset. Preserve the validated working tree and create the new history from
-    it with an orphan-history workflow. Before
-    orphaning the requested branch, detach it from any old upstream with:
-    `git branch --unset-upstream <branch>`. After the new commit is validated,
-    remove only the stale local remote-tracking ref for that branch if it still
-    points to the discarded origin history. Never remove `base/*` refs. This
-    prevents the reset branch from appearing diverged from an unpublished or
-    historical `origin`; do not fetch or compare it against that stale history.
-    Do not
-    create a recovery branch or temporary recovery reference; the explicit
-    history-reset request determines that the existing history is disposable.
-    Replace the requested branch only after confirming the new commit contains
-    the retained files and no unresolved changes. Do not infer history
-    replacement from ordinary fork cleanup. The absence of a merge base only
-    indicates unrelated histories; it does not authorize history replacement.
-    Resolve shallow or incomplete history and use the `sync` workflow for
-    history integration. If the current history is already unrelated or
-    appears previously reset, preserve it and report that state when the user
-    did not request another history change. Do not rewrite unrelated branches
-    or push the result.
-
-11. **Check remotes and original references.** Normalize SSH and HTTPS forms,
+10. **Check remotes and original references.** Normalize SSH and HTTPS forms,
     host aliases, case, and a trailing `.git` before comparing URLs. Verify that
     the confirmed project URL is configured as `origin` and the resolved
     original source is configured as the local-only `base` remote in either
@@ -305,11 +273,34 @@ is the default.
     treated as a tracked documentation or workflow reference. Report remotes
     that still point to a different old project when they were not intentionally
     retained. Do not remove or rewrite a remote that the user did not authorize.
-    Hosted reachability is not part of this check; configuring the local remotes
-    is sufficient because this skill never publishes them.
     If remotes are unavailable, report that the comparison was documentation
-    only; Step 2 handles fallback resolution. Do not test hosted authentication
-    or publish a remote as part of this skill.
+    only; Procedure 2 handles fallback resolution.
+
+11. **Migrate history only after the required preflight.** Process this step
+    only when Procedure 3 confirms that the user's current instruction
+    explicitly requests a history reset. Complete Procedures 1-10 before
+    replacing history. A reset does not require hosted reachability: record any
+    local tracking ref and do not stop solely because the new `origin` is
+    unpublished. Do not silently discard local commits that are ahead of a
+    remote unless the user explicitly requested the reset. Preserve the
+    validated working tree and create the new history from it with an
+    orphan-history workflow. Before orphaning the requested branch, detach it
+    from any old upstream with: `git branch --unset-upstream <branch>`. After
+    the new commit is validated, remove only the stale local remote-tracking
+    ref for that branch if it still points to the discarded origin history.
+    Never remove `base/*` refs. This prevents the reset branch from appearing
+    diverged from an unpublished or historical `origin`; do not fetch or
+    compare it against that stale history. Do not create a recovery branch or
+    temporary recovery reference; the explicit history-reset request
+    determines that the existing history is disposable. Replace the requested
+    branch only after confirming the new commit contains the retained files and
+    no unresolved changes. Do not infer history replacement from ordinary fork
+    cleanup. The absence of a merge base only indicates unrelated histories; it
+    does not authorize history replacement. Resolve shallow or incomplete
+    history and use the `sync` workflow for history integration. If the current
+    history is already unrelated or appears previously reset, preserve it and
+    report that state when the user did not request another history change. Do
+    not rewrite unrelated branches or push the result.
 
 12. **Validate the prepared repository.** Format changed files with the
     repository's formatter and run `git diff --check`. Verify that protected
