@@ -39,9 +39,6 @@ Project URL for origin: <project-url>
 Author and copyright holder: <value, or retain the existing value>
 License: <requested license value, or retain the existing value>
 History: reset the existing Git history after completing the fork preflight.
-
-Keep the original source as the local-only `base` remote and do not publish
-remotes.
 ```
 
 #### Project Extension (with existing history)
@@ -54,9 +51,6 @@ project.
 
 Project URL for origin: <project-url>
 History: preserve the existing Git history; do not reset it.
-
-Keep the original source as the local-only `base` remote and retain its sync
-guidance. Do not publish remotes.
 ```
 
 #### Workspaces Removal

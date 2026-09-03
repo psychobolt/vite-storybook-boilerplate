@@ -54,7 +54,7 @@ identity migration is the default.
    are not authoritative project identity and do not by themselves authorize
    identity changes, remote changes, cleanup, or history replacement.
 
-3. **Select the operation mode and upstream relationship.** Classify the
+3. **Select the operation mode and synchronization intent.** Classify the
    repository as fresh or otherwise unmigrated, or as already having its
    project identity and required remote setup established. Use identity
    migration for a fresh or unmigrated repository and preserve all files during
@@ -63,20 +63,21 @@ identity migration is the default.
    deletion set, but do not remove it in the review pass. Changing the
    repository history alone does not establish this state.
 
-   Determine whether the new project is independent or an extension of an
-   existing project. Use the user's instruction first; the destination project
-   name, URL, workspace directory name, existing synchronization documentation,
-   and configured remotes are supporting signals, not proof by themselves. In
-   either case, the resulting project is the canonical `origin` and may become
-   the base for future extensions. Always configure the resolved original
-   source as the local-only `base` remote; never publish it and never use it as
-   `origin`. For an independent new project, remove the original source and
-   `base` from tracked documentation and workflow references while retaining
-   the `base` remote for local synchronization. For an extension, retain and
-   normalize the intended upstream relationship in tracked synchronization
-   guidance as well. If the relationship is ambiguous, preserve files and ask
-   whether the project is independent or an extension and which local or
-   documented upstream relationship is intended.
+   Determine project identity from the user's instruction. Independent versus
+   extension describes ownership, while synchronization describes whether the
+   project receives upstream updates, provides downstream extension guidance,
+   or both. Unless the user or established documentation says otherwise, use
+   upstream synchronization plus downstream extension guidance for a new
+   identity, and preserve the existing synchronization relationship plus
+   upstream updates for an extension. These are defaults for interpreting the
+   repository, not permission to create or rewrite synchronization workflows
+   without inspecting their current role. Explicit user instructions take
+   precedence, followed by established documentation and then these defaults.
+   Always configure the resolved original source as the local-only `base`
+   remote; this local remote requirement does not decide what tracked
+   documentation should say. Preserve existing synchronization documentation
+   when its role is established, and report any unresolved role rather than
+   silently changing it.
 
    Determine separately from the user's current instruction whether it asks to
    clear or reset Git history, or to add or update `origin` or `base`. If the
@@ -130,11 +131,9 @@ identity migration is the default.
    established legal requirement requires it.
 
    Confirm the requested project URL for `origin` and the resolved original
-   source URL for the local-only `base` remote. For an independent new
-   project, when no project name is supplied, use the current repository root
-   directory's basename as the project name. For an extension, also
-   confirm that the original source is the chosen upstream URL for `base`. If
-   the user explicitly supplies
+   source URL for the local-only `base` remote. When no project name is
+   supplied, use the current repository root directory's basename as the
+   project name. If the user explicitly supplies
    a new project URL, always update or add `origin` locally, regardless of
    hosted destination availability. Add or update `base` locally in either
    mode, and do not use the original source to create `origin`. If no project
@@ -251,20 +250,14 @@ identity migration is the default.
    For generic workflow or automation examples, remove hard-coded references to
    the original project and use the repository's project context, resolved
    remote names, branch inputs, or other repository-neutral expressions.
-   For either an independent project or an extension, identify the resulting
-   `origin` as the canonical project. When a new project URL is supplied,
-   inspect every synchronization workflow and document and classify each as
-   either current-project upstream synchronization or future extension
-   guidance. For an independent new project, remove the original source and
-   `base` reference from tracked documentation, workflows, and automation; the
-   original source is retained only through local Git state. Update
-   future-extension workflows and documentation so they use the new `origin`
-   as their base reference. For an extension, retain the original source as
-   `base` for current-project upstream synchronization when that relationship
-   is intended, while future-extension guidance uses the new `origin` as its
-   base. If one file serves both purposes, parameterize or document the two
-   references rather than leaving the roles ambiguous. Make the distinction
-   clear between project and base references.
+   When a new project URL is supplied, inspect synchronization workflows and
+   documentation and classify each according to the explicit request,
+   established role, or the operation-mode default from Procedure 3:
+   upstream synchronization, downstream extension guidance, both, or neither.
+   Update only stale or explicitly requested roles. Do not rename a
+   synchronization section or replace `base` with `origin` solely because the
+   project is independent or an extension. If the role remains unresolved,
+   preserve the existing documentation and report the ambiguity.
 
    Do not use broad text substitution. Update each occurrence according to
    whether it is new-project identity, upstream synchronization guidance,
@@ -279,11 +272,12 @@ identity migration is the default.
 10. **Check remotes and original references.** Normalize SSH and HTTPS forms,
     host aliases, case, and a trailing `.git` before comparing URLs. Verify that
     the confirmed project URL is configured as `origin` and the resolved
-    original source is configured as the local-only `base` remote in either
-    mode. For an independent new project, that `base` remote must not be
-    treated as a tracked documentation or workflow reference. Report remotes
-    that still point to a different old project when they were not intentionally
-    retained. Do not remove or rewrite a remote that the user did not authorize.
+    original source is configured as the local-only `base` remote. Check
+    tracked synchronization references against the selected or preserved
+    synchronization intent; a local `base` remote may coexist with any
+    documented role. Report remotes that still point to a different old project
+    when they were not intentionally retained. Do not remove or rewrite a
+    remote that the user did not authorize.
     If remotes are unavailable, report that the comparison was documentation
     only; Procedure 2 handles fallback resolution.
 
@@ -321,13 +315,11 @@ identity migration is the default.
     files outside preserved upstream attribution. Check that existing upstream
     attribution was not changed or relocated unless explicitly authorized or
     legally required. Check that ordinary workflow examples no longer present
-    the old project as the current repository. When an
-    independent new project was selected, verify that no tracked documentation,
-    workflow, or automation retains the original source or `base` reference;
-    any retained original source must exist only in local Git state. When an
-    extension was selected, verify that current-project upstream references
-    use the selected `base` and future-extension synchronization references use
-    the new `origin`. Verify that the Bitbucket synchronization workflow has no
+    the old project as the current repository. Verify that tracked
+    synchronization documentation and workflows match the selected or
+    preserved synchronization intent; do not require an independent project to
+    remove a documented `base` relationship or rename a synchronization
+    section. Verify that the Bitbucket synchronization workflow has no
     active automatic trigger. Record the command result for a full-reset
     encryption path, or the secure process result for a data-retaining path,
     for the selected root target. Report workspace and package template
