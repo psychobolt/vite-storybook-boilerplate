@@ -117,12 +117,15 @@ identity migration is the default.
    `author`, copyright ownership, `repository`, `homepage`, `bugs`, and
    `funding`. A repository owner in a new URL does not automatically establish
    the package author or copyright holder. Preserve a user-supplied license
-   value exactly; do not normalize `Proprietary` to `UNLICENSED` unless the
-   user explicitly requests that value. Treat license metadata and the
-   project-owned license text as separate changes. For a recognized standard
-   license, derive the canonical text and metadata from the requested license.
-   For a custom or proprietary license, use an established repository template
-   when one exists; otherwise stop and ask before inventing terms.
+   value exactly when it is valid for the repository's package-manifest
+   validator. Treat license metadata and the project-owned license text as
+   separate changes. For a recognized standard license, derive the canonical
+   text and SPDX metadata from the requested license. For a custom or
+   proprietary license, use `SEE LICENSE IN <filename>` when an approved
+   project-owned license file contains the governing terms; use `UNLICENSED`
+   when the project grants no license. Do not write arbitrary labels such as
+   `Proprietary` into a manifest, and do not invent legal terms when no
+   approved license text exists.
    Do not treat retained upstream license text as the new project's license or
    append it as a second active license. Preserve existing upstream copyright
    notices and attribution text in place and unchanged by default.

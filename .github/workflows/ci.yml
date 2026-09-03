@@ -124,6 +124,15 @@ jobs:
           base: ${{ inputs.head_ref || (env.BASE_REF && 'base_branch') || '' }}
           ref: ${{ inputs.ref_name }}
           initial-fetch-depth: ${{ inputs.diff_count || 2 }}
+      - name: Resolve package diff base
+        id: diff_base
+        shell: bash
+        run: |
+          if git rev-parse --verify 'HEAD~1^{commit}' >/dev/null 2>&1; then
+            echo 'ref=HEAD~1' >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=$(git hash-object -t tree /dev/null)" >> "$GITHUB_OUTPUT"
+          fi
       - name: Install Turbo
         run: |
           TURBO_VERSION=$(jq -r .devDependencies.turbo package.json)
@@ -141,7 +150,7 @@ jobs:
         env:
           TURBO_TELEMETRY_DISABLED: 1
         with:
-          from: ${{ inputs.head_ref || (env.BASE_REF && 'base_branch') || 'HEAD~1' }}
+          from: ${{ inputs.head_ref || (env.BASE_REF && 'base_branch') || steps.diff_base.outputs.ref }}
 
   apps:
     needs: diff
