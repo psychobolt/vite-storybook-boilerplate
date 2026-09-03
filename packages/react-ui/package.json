@@ -4,7 +4,7 @@
   "description": "UI Components used for the svelte-app demo",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/psychobolt/vite-storybook-boilerplate.git",
+    "url": "git+https://github.com/psychobolt/vite-storybook-boilerplate",
     "directory": "packages/react-ui"
   },
   "license": "MIT",

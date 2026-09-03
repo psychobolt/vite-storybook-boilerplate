@@ -67,7 +67,7 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
       - name: Merge with base branch
         run: |
-          git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
+          git remote add base https://github.com/psychobolt/vite-storybook-boilerplate
           git fetch base main
           if [[ "${{ inputs.squash }}" == "true" ]]; then
             git merge base/main --allow-unrelated-histories --squash -X ours || true
