@@ -250,8 +250,8 @@ identity migration is the default.
 
    For generic workflow or automation examples, remove hard-coded references to
    the original project and use the repository's project context, resolved
-   remote names, branch inputs, or other repository-neutral expressions. For
-   either an independent project or an extension, identify the resulting
+   remote names, branch inputs, or other repository-neutral expressions.
+   For either an independent project or an extension, identify the resulting
    `origin` as the canonical project. When a new project URL is supplied,
    inspect every synchronization workflow and document and classify each as
    either current-project upstream synchronization or future extension
