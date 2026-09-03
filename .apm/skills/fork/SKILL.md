@@ -187,6 +187,11 @@ identity migration is the default.
      active entries would make the configuration invalid, comment out that
      scheduling block as a unit rather than deleting the workflow or disabling
      its other triggers.
+   - For a Renovate workflow whose confirmed `origin` uses GitHub, configure
+     its schedule for 7:00 AM in the user's stated or harness-provided IANA
+     timezone: use `0 7 * * *` with the workflow's `timezone` field. If no
+     user timezone is available, ask rather than defaulting. For other
+     providers, apply the default scheduled-workflow rule above.
    - Disable the automatic Bitbucket synchronization trigger by commenting out
      its push trigger or equivalent automatic trigger. Preserve the Bitbucket
      workflow and its manual dispatch entry point unless the user explicitly
@@ -235,11 +240,13 @@ identity migration is the default.
    text merely to update project identity. Use the confirmed project URL for
    consumer-facing project links.
 
-   Determine the provider from the confirmed `origin` URL. If it is not
-   GitHub, remove the repository's Codecov configuration and all badge markup
-   from README files. Preserve ordinary README links and prose. If it is
-   GitHub, retain or normalize existing badges and Codecov configuration when
-   the repository supports them; never invent missing project identifiers.
+   Determine the provider from the confirmed `origin` URL. If it uses GitHub,
+   retain or normalize existing documentation badges and Codecov configuration
+   when the repository supports them; never invent missing project
+   identifiers. For any other provider, remove all documentation badge markup
+   from README files, including CI, coverage, Codecov, and provider-specific
+   badges, and remove the repository's Codecov configuration. Preserve
+   ordinary README links and prose.
 
    For generic workflow or automation examples, remove hard-coded references to
    the original project and use the repository's project context, resolved
