@@ -1,14 +1,9 @@
 # GitHub Copilot Guidance
 
-[AGENTS.md](../AGENTS.md) is the authoritative, cross-tool source of agent
-guidance for this repository. Read it first, then read the nearest workspace
-`AGENTS.md` for directory-specific rules.
+[AGENTS.md](../AGENTS.md) is the authoritative, cross-tool source of guidance
+for this repository. Read it first, then read the nearest workspace
+`AGENTS.md`. It routes repository workflows to the relevant skills and
+file-scoped instructions.
 
-## Copilot specifics
-
-- Repository skills are authored under `.apm/skills/` and deployed by APM.
-
-## Maintaining this file
-
-Keep this file thin. Guidance that is not specific to GitHub Copilot belongs in
-`AGENTS.md`, a workspace `AGENTS.md`, or the relevant `.apm/skills/*/SKILL.md`.
+Keep this file as a thin GitHub Copilot entrypoint. Do not duplicate repository
+guidance here; update `AGENTS.md` or the routed source it identifies instead.
