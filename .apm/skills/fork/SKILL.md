@@ -313,9 +313,12 @@ identity migration is the default.
 12. **Validate the prepared repository.** Format changed files with the
     repository's formatter and run `git diff --check`. Verify that protected
     paths remain, approved removed workspaces are absent from workspace and task
-    configuration, manifests and lockfiles are valid, requested remotes point to
-    the confirmed URLs, and no stale old-project identity remains in eligible
-    files outside preserved upstream attribution. Check that existing upstream
+    configuration, manifests and lockfiles are valid, and every changed
+    `package.json` passes the repository's package-manifest validation,
+    including its license-field rule. Correct invalid license metadata before
+    handoff rather than reporting the fork complete. Verify that requested
+    remotes point to the confirmed URLs and no stale old-project identity
+    remains in eligible files outside preserved upstream attribution. Check that existing upstream
     attribution was not changed or relocated unless explicitly authorized or
     legally required. Check that ordinary workflow examples no longer present
     the old project as the current repository. Verify that tracked
