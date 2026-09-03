@@ -1,6 +1,6 @@
 # Vite Storybook Boilerplate
 
-[<img src="https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/branch/main/graph/badge.svg">](https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/tree/main) [<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/status.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/status.yml?query=branch%3Amain)
+[<img src="https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/branch/main/graph/badge.svg">](https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/src/main) [<img src="https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/status.yml/badge.svg">](https://github.com/psychobolt/vite-storybook-boilerplate/actions/workflows/status.yml?query=branch%3Amain)
 
 A modern starter plate for building front-end components
 
@@ -10,8 +10,8 @@ A modern starter plate for building front-end components
 - [Monorepo](https://monorepo.tools/) support ready
   - Utilizes Yarn's [default PnP strategy](https://yarnpkg.com/features/pnp) to hoist and map workspace dependencies
   - Speed up tasks and script runs with [SWC](https://swc.rs/), [Turborepo](https://turbo.build/repo) and [remote caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-  - [Workspace scripts](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/bin) for handling various workflows such as [release versioning](WORKFLOWS.md), [hybrid PnP and node_modules](https://yarnpkg.com/getting-started/recipes#hybrid-pnp--node_modules-mono-repo) support
-  - [Common configs and plugins](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/packages/commons) for your project needs: [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/), [Storybook](https://storybook.js.org), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://prettier.io/) and more...
+  - [Workspace scripts](https://bitbucket.org/psychobolt/vite-storybook-boilerplate/src/main/bin) for handling various workflows such as [release versioning](WORKFLOWS.md), [hybrid PnP and node_modules](https://yarnpkg.com/getting-started/recipes#hybrid-pnp--node_modules-mono-repo) support
+  - [Common configs and plugins](https://bitbucket.org/psychobolt/vite-storybook-boilerplate/src/main/packages/commons) for your project needs: [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/), [Storybook](https://storybook.js.org), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://prettier.io/) and more...
 - Extend and eval AI agent harnesses
   - Manage, share, and install agent packages and tools with [APM](https://microsoft.github.io/apm/) (Microsoft's Agent Package Manager)
   - Declare local knowledge and workflows using [AGENTS.md](https://agents.md/) and [skills](https://agentskills.io/)

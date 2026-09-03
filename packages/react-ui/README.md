@@ -2,11 +2,11 @@
 
 [<img src="https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/branch/main/graph/badge.svg?flag=react-ui&component-id=react-ui">](https://codecov.io/gh/psychobolt/vite-storybook-boilerplate/tree/main/packages/react-ui)
 
-UI Components used for the [next-app demo](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/apps/next-app).
+UI Components used for the [next-app demo](https://bitbucket.org/psychobolt/vite-storybook-boilerplate/src/main/apps/next-app).
 
 Powered by:
 
-- [html-ui](https://github.com/psychobolt/vite-storybook-boilerplate/tree/main/packages/html-ui)
+- [html-ui](https://bitbucket.org/psychobolt/vite-storybook-boilerplate/src/main/packages/html-ui)
 - [React](https://react.dev)
 - [Storybook React Docs](https://storybook.js.org/docs/writing-docs/introduction) with CSS Module support [typescript-plugin-css-modules](https://github.com/mrmckeb/typescript-plugin-css-modules)
 
