@@ -37,7 +37,7 @@ new identity.
 Project name: <project-name, or use the current directory name>
 Project URL for origin: <project-url>
 Author and copyright holder: <value, or retain the existing value>
-License: <requested license value, or retain the existing value>
+License: <requested license or terms, or retain the existing license>
 History: reset the existing Git history after completing the fork preflight.
 ```
 
