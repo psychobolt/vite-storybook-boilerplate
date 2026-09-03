@@ -137,7 +137,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f95785236ba21e2b34ea00e7da8df366e01c34bd67585fe61541fb0616bffca5
+  content_hash: sha256:4af98b4156d0c51c4edc6c3ca53a977def51c30fcd07b211542310dd1967d02e
 - kind: project-relative
   target: agents
   value: .agents/skills/keys
@@ -533,7 +533,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f95785236ba21e2b34ea00e7da8df366e01c34bd67585fe61541fb0616bffca5
+  content_hash: sha256:4af98b4156d0c51c4edc6c3ca53a977def51c30fcd07b211542310dd1967d02e
 - kind: project-relative
   target: claude
   value: .claude/skills/keys
@@ -1078,7 +1078,7 @@ local_deployed_file_hashes:
   .agents/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .agents/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .agents/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .agents/skills/fork/SKILL.md: sha256:f95785236ba21e2b34ea00e7da8df366e01c34bd67585fe61541fb0616bffca5
+  .agents/skills/fork/SKILL.md: sha256:4af98b4156d0c51c4edc6c3ca53a977def51c30fcd07b211542310dd1967d02e
   .agents/skills/keys/SKILL.md: sha256:032ad2ed4b224bb4467fa56e56bfc7c9dff33a28acf31afc612048e560fcf03e
   .agents/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .agents/skills/sync/SKILL.md: sha256:a6c0fc29365730ca0e11b091ce1a2d49bdef77c9ae210665679cb5a606bbb14b
@@ -1107,7 +1107,7 @@ local_deployed_file_hashes:
   .claude/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
   .claude/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
   .claude/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .claude/skills/fork/SKILL.md: sha256:f95785236ba21e2b34ea00e7da8df366e01c34bd67585fe61541fb0616bffca5
+  .claude/skills/fork/SKILL.md: sha256:4af98b4156d0c51c4edc6c3ca53a977def51c30fcd07b211542310dd1967d02e
   .claude/skills/keys/SKILL.md: sha256:032ad2ed4b224bb4467fa56e56bfc7c9dff33a28acf31afc612048e560fcf03e
   .claude/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
   .claude/skills/sync/SKILL.md: sha256:a6c0fc29365730ca0e11b091ce1a2d49bdef77c9ae210665679cb5a606bbb14b
