@@ -91,7 +91,7 @@
     "rolldown": "1.2.7",
     "sass": "1.104.0",
     "storybook": "10.6.0",
-    "stylelint": "17.14.1",
+    "stylelint": "17.15.0",
     "stylelint-config": "workspace:*",
     "turbo": "2.10.12",
     "type-fest": "5.9.0",
