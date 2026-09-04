@@ -43,7 +43,7 @@
     "commons": "workspace:*",
     "eslint": "10.10.0",
     "husky": "9.1.7",
-    "playwright": "1.62.1",
+    "playwright": "1.63.0",
     "renovate": "43.288.0",
     "semver": "7.8.5",
     "skills": "1.5.23",
