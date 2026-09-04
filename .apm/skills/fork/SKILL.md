@@ -48,7 +48,11 @@ identity migration is the default.
    unresolved original or upstream reference, use the root [base reference
    resolution](../../../AGENTS.md#base-reference-resolution); its order and
    fallback rules are authoritative. Never use a base reference as the
-   project's `origin`. Compare the workspace root directory name with the
+   project's `origin`. Before changing any remote, record the original source
+   URL separately from the requested project URL. If the current `origin`
+   points to the original source, preserve that URL as the `base` candidate
+   before changing `origin`; never derive `base` from the post-migration
+   `origin`. Compare the workspace root directory name with the
    resolved source repository name. A different directory name is evidence
    that the clone may be intended for a new project, but local directory names
    are not authoritative project identity and do not by themselves authorize
@@ -133,18 +137,26 @@ identity migration is the default.
    attribution material unless the user explicitly requests it or a clearly
    established legal requirement requires it.
 
-   Confirm the requested project URL for `origin` and the resolved original
-   source URL for the local-only `base` remote. When no project name is
-   supplied, use the current repository root directory's basename as the
-   project name. If the user explicitly supplies
-   a new project URL, always update or add `origin` locally, regardless of
-   hosted destination availability. Add or update `base` locally in either
-   mode, and do not use the original source to create `origin`. If no project
-   URL is available, ask for it before adding or changing `origin`.
-   If normalized `origin` and `base` URLs are identical, treat that as a
-   remote-role collision. Do not infer a fork, history reset, or cleanup from
-   the collision; report it and ask which project and upstream roles are
-   intended.
+   Resolve and validate the requested project URL for `origin` and the
+   original source URL for the local-only `base` remote before mutating either
+   remote. When no project name is supplied, use the current repository root
+   directory's basename as the project name. If the current `origin` points to
+   the original source, use the URL captured in Procedure 2 for `base` before
+   replacing `origin`. Otherwise resolve `base` from the documented or
+   configured original source using [base reference
+   resolution](../../../AGENTS.md#base-reference-resolution). Never derive
+   `base` from the requested project URL, the new `origin`, or a fallback that
+   merely repeats `origin`. If normalized `origin` and `base` URLs are
+   identical, stop and ask for a distinct original-source reference; do not
+   add or update either remote from the colliding values. Add or update the
+   local-only `base` remote first, then verify its configured URL. Do not
+   change documentation, manifests, workflows, or other identity-bearing
+   files until `base` has been added or successfully confirmed. If adding or
+   verifying `base` fails, stop before changing repository content. After
+   `base` is confirmed and the distinct project URL is resolved, explicitly
+   supplied project URLs may update or add `origin` locally, regardless of
+   hosted destination availability. If no project URL is available, ask for it
+   before changing `origin`.
    If the project `origin` is absent, empty, or has no published project ref,
    record that local remote setup is incomplete. Do not infer a history
    operation or hosted-publication requirement from that state; use the
@@ -269,7 +281,9 @@ identity migration is the default.
 10. **Check remotes and original references.** Normalize SSH and HTTPS forms,
     host aliases, case, and a trailing `.git` before comparing URLs. Verify that
     the confirmed project URL is configured as `origin` and the resolved
-    original source is configured as the local-only `base` remote. Check
+    original source is configured as the local-only `base` remote. Confirm
+    their normalized URLs are different; an equal `origin` and `base` is a
+    failed remote setup, not a valid fallback. Check
     tracked synchronization references against the selected or preserved
     synchronization intent; a local `base` remote may coexist with any
     documented role. Report remotes that still point to a different old project
