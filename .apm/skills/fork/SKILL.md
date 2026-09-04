@@ -180,18 +180,12 @@ identity migration is the default.
      shared infrastructure, workflows, and automation files. Apply only the
      confirmed non-secret structural or metadata changes; Procedure 9 owns
      identity updates in documentation and workflow references.
-   - Comment out active scheduled cron timing by default, except for a
-     workflow whose purpose is certificate renewal. Preserve the certificate
-     renewal schedule so certificates are not allowed to expire. For other
-     scheduled workflows, preserve the workflow or automation file, its jobs,
-     manual triggers, and other triggers; comment only the schedule timing
-     configuration. If leaving a `schedule` or equivalent parent with no
-     active entries would make the configuration invalid, comment out that
-     scheduling block as a unit rather than deleting the workflow or disabling
-     its other triggers.
+   - Disable workflow schedules by default. For non-Renovate scheduled
+     workflows, comment out the active schedule while preserving the workflow
+     and its jobs. Keep the workflow syntax valid when disabling the schedule.
    - For a Renovate workflow whose confirmed `origin` uses GitHub, configure
-     its schedule for 7:00 AM in the user's stated or harness-provided IANA
-     timezone: use `0 7 * * *` with the workflow's `timezone` field. If no
+     its schedule for 7:07 AM in the user's stated or harness-provided IANA
+     timezone: use `7 7 * * *` with the workflow's `timezone` field. If no
      user timezone is available, ask rather than defaulting. For other
      providers, apply the default scheduled-workflow rule above.
    - Disable the automatic Bitbucket synchronization trigger by commenting out

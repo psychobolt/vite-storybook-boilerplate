@@ -19,7 +19,7 @@ encryption.
 
 1. **Identify and classify the non-secret scope.** Determine from the request,
    package documentation, scripts, and `.env.defaults` whether encrypted
-   encrypted root-environment handling is required. Record exact root and
+   root-environment handling is required. Record exact root and
    workspace target paths; do not discover them by reading environment files or
    applying a broad glob. Classify each selected target before writing it:
 
@@ -71,7 +71,7 @@ encryption.
    to encrypting the empty root target written during the current fork,
    extension, or package-scaffolding operation; workspace and package template
    creation is plaintext and does not use dotenv encryption.
-   never request a private key in chat or ordinary tool input.
+   Never request a private key in chat or ordinary tool input.
 4. **Stop when no secure process exists.** If an approved secure process is not
    available for a data-retaining migration or a root target that is not newly
    written and empty, report that the workflow stopped because the agent cannot
