@@ -77,6 +77,8 @@ jobs:
       - name: Install APM (Windows)
         if: matrix.os == 'windows-latest'
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           $env:APM_INSTALL_DIR = Join-Path $env:RUNNER_TEMP 'apm\bin'
           irm https://aka.ms/apm-windows | iex
