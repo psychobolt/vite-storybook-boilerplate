@@ -1,5 +1,8 @@
 on:
   workflow_dispatch:
+    inputs:
+      ref_name:
+        type: string
   schedule:
     # The "*" (#42, asterisk) character has special semantics in YAML, so this
     # string has to be quoted.
@@ -13,5 +16,5 @@ jobs:
   next:
     uses: ./.github/workflows/sync.yml
     with:
-      ref_name: next
+      ref_name: ${{ inputs.ref_name || 'next' }}
     secrets: inherit
