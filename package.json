@@ -34,7 +34,7 @@
     "@dotenvx/dotenvx": "2.23.0",
     "@microsoft/agentrc": "2.0.1-91",
     "@swc-node/register": "1.12.1",
-    "@swc/core": "1.16.1",
+    "@swc/core": "1.16.2",
     "@types/node": "24.13.3",
     "@types/semver": "7.8.0",
     "@typescript-eslint/utils": "8.69.0",
