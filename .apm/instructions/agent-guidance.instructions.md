@@ -1,6 +1,6 @@
 ---
 description: Repository-local agent authoring conventions and cross-tool guidance.
-applyTo: '**/AGENTS.md,.apm/skills/**/*.md,.apm/instructions/**/*.md'
+applyTo: '**/AGENTS.md,**/CLAUDE.md,.github/copilot-instructions.md,.apm/skills/**/*.md,.apm/instructions/**/*.md,.apm/prompts/**/*.md'
 ---
 
 # Agent guidance structure

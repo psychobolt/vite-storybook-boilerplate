@@ -91,16 +91,14 @@ choice would materially affect the result.
 
 Use the [ui-package skill](.apm/skills/ui-package/SKILL.md) for UI-package
 scaffolding. Use the [ui-element skill](.apm/skills/ui-element/SKILL.md) for
-framework-neutral elements within a UI package, the [ui-composite
-skill](.apm/skills/ui-composite/SKILL.md) for framework-neutral composites
-within a UI package, and the [ui-component skill](.apm/skills/ui-component/SKILL.md) for
-framework-specific UI components within a UI package. The UI-package skill
-selects the appropriate implementation-unit procedure when scaffolding a UI
-package. Use the
+framework-neutral elements, the [ui-composite skill](.apm/skills/ui-composite/SKILL.md)
+for framework-neutral composites, and the [ui-component
+skill](.apm/skills/ui-component/SKILL.md) for framework-specific components
+within a UI package. The UI-package skill selects the appropriate
+implementation-unit procedure when scaffolding a UI package. Use the
 [app-package skill](.apm/skills/app-package/SKILL.md) for app-package
-scaffolding, the [api-package skill](.apm/skills/api-package/SKILL.md) for
-API-package scaffolding. Use the [todo skill](.apm/skills/todo/SKILL.md) to track skills and
-other work that are still in progress or awaiting an established workflow.
+scaffolding and the [api-package skill](.apm/skills/api-package/SKILL.md) for
+API-package scaffolding.
 
 ### Base reference resolution
 
@@ -230,8 +228,7 @@ status` and the relevant diff. Preserve changes that existed before the
 
 ## Workflow skills
 
-For CI failures, blocked pull requests, dependency-update checks, package
-scaffolding, or component creation, use the appropriate guidance under
+For a repository task covered by a skill, use the appropriate guidance under
 `.apm/skills/`.
 
 - Prefer workspace-managed CLI binaries. When a command is provided by a
@@ -270,12 +267,20 @@ scaffolding. That skill delegates implementation units to the matching
 [app-component skill](.apm/skills/app-component/SKILL.md) only for application-owned units inside
 an app package.
 
-When a skill, bundled reference, or relevant workflow dependency changes, use
-the [todo skill](.apm/skills/todo/SKILL.md) to update its testing register and reset
-the affected tally to `0`.
+When a skill, its bundled reference, linked instruction, or a dependency used
+by its workflow changes, use the [todo skill](.apm/skills/todo/SKILL.md) to
+update its testing register and reset the affected tally to `0`.
 
 ### Workflow and documentation guidance
 
+- Before changing authored AI guidance—any `AGENTS.md` or `CLAUDE.md`,
+  `.github/copilot-instructions.md`, `.apm/skills/`, `.apm/instructions/`, or
+  `.apm/prompts/`—apply the [agent-guidance
+  instruction](.apm/instructions/agent-guidance.instructions.md) as a required
+  gate. Read the full applicable hierarchy, summarize the targets and relevant
+  sections, identify canonical owners and conflicts, and review the changed
+  diffs and cross-links after editing. `WORKFLOWS.md` is human-maintained and
+  outside this AI guidance gate. Do not edit from an isolated excerpt.
 - Before editing a file, apply any matching file-scoped instructions authored
   under `.apm/instructions/` and deployed by APM. These instructions supplement
   the active skill and nearest `AGENTS.md`; they do not replace them. If the
