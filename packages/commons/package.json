@@ -86,7 +86,7 @@
     "sass": "1.104.0",
     "storybook": "10.6.0",
     "stylelint": "17.15.0",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "vite": "8.2.2",
     "vitest": "5.0.0"
   }
