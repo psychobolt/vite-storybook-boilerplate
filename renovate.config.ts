@@ -2,7 +2,8 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type {
   AllConfig,
-  RenovateConfig
+  RenovateConfig,
+  PackageRuleInputConfig
 } from 'renovate/dist/config/types.d.ts';
 import getWorkspaces, {
   type Workspace
@@ -74,10 +75,14 @@ const postPackageTasks: PostPackageTasks = [
 
 const config: Omit<AllConfig, 'packageRules'> & {
   packageRules: PackageRule[];
-  nvm: {};
+  apm: PackageRuleInputConfig;
+  nvm: PackageRuleInputConfig;
 } = {
   extends: ['config:best-practices', ':prHourlyLimitNone'],
   ignorePresets: ['security:minimumReleaseAgeNpm'],
+  apm: {
+    enabled: true
+  },
   nvm: {
     enabled: false
   },
