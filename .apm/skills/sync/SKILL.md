@@ -27,9 +27,12 @@ commands.
 - Treat `origin/main` as the project branch and `base/main` as the upstream
   base branch. Do not assume that a remote named `base` exists.
 - `base-main` is a persistent local integration branch for unrelated histories.
-  Keep its merge point so later synchronizations can merge the latest
-  `origin/main` and `base/main` incrementally. Never push it or recreate it
-  merely to start a new sync.
+  Keep its merge point so later synchronizations can merge only the latest
+  fetched `origin/main` and `base/main` incrementally. Do not merge local
+  `main`, a target branch, the working tree, or other unpublished commits into
+  it. Create it from `origin/main` when it does not exist; otherwise keep it
+  and integrate the latest fetched refs. Never delete and recreate it merely to
+  start a new sync, and never push it.
 - Recreate the selected local `dev/patch` or `dev/upgrade` branch from
   `origin/main` for each sync. If the local branch exists, delete it only after
   confirming the worktree is clean and the branch is not carrying unreviewed
@@ -136,7 +139,11 @@ commands.
       merge and retain a merge commit when Git requires one. Use the
       repository's established commit-subject convention; do not invent a
       prefix or format. Do not create an artificial commit when the merge is
-      already a fast-forward.
+      already a fast-forward. Before completing the merge, compare the result
+      with `origin/main` for the project-side paths inventoried in Step 6 and
+      apply the conflict-intent rule in Step 9: a compatible or superseding
+      base change may replace an origin change, while a divergent origin
+      change must remain intact.
 
 8. **Synchronize unrelated histories.** When no merge base exists:
 
@@ -147,29 +154,45 @@ commands.
       `origin/main` first and then `base/main`; resolve all conflicts and
       commit each integration using the repository's established commit-subject
       convention. Preserve the current project-side changes inventoried in
-      Step 6 while incorporating compatible base-side additions. Never push or
-      recreate `base-main` merely to begin a new sync.
+      Step 6 while incorporating compatible base-side additions. Use only the
+      fetched remote-tracking refs as integration inputs; do not substitute a
+      local `main`, target branch, working tree, or unpublished commit. Create
+      `base-main` only when it is absent; otherwise preserve and update its
+      existing integration history. Never delete and recreate it merely to
+      begin a new sync, and never push it. Before creating the target branch,
+      review the net integration against the project baseline with
+      `git diff --name-status origin/main base-main`. For every project-side
+      path inventoried in Step 6, inspect the result against both refs and
+      apply the conflict-intent rule in Step 9. A compatible or superseding
+      base change may replace the origin version; a divergent origin change
+      must remain intact. A conflict-free merge is not sufficient evidence
+      that the correct version was selected.
    2. Move to a detached `origin/main` state, delete any existing local
       target branch, and create the selected target branch from `origin/main`.
-   3. Squash the changes from `base-main` into the selected target branch, stage the
-      reviewed result, and create exactly one import commit. Before committing,
-      inspect recent subjects with `git log` and the repository's workflow
+   3. Squash the reviewed net changes from `base-main` into the selected target
+      branch, stage the reviewed result, and create exactly one import commit.
+      Use the `origin/main` baseline and the Step 6 review; do not replace the
+      target tree with an unreviewed base-side tree or copy individual
+      `base-main` commits into the target branch. Before committing, inspect
+      recent subjects with `git log` and the repository's workflow
       documentation, then use the established repository convention. If no
       clear convention exists, use a concise standard subject that describes
-      the synchronization. Do not copy the individual `base-main` commits into
-      the target branch.
+      the synchronization.
 
 9. **Review conflicts by intent.** For every conflict, read both sides and
    their surrounding diffs before editing. Do not resolve conflicts by
-   blanket `ours` or `theirs` selection. Preserve the project-side
-   (`origin/main`) changes inventoried in Step 6, including post-fork identity,
-   workflow, documentation, and cleanup updates. When an upstream change
-   overlaps one of those updates, apply only its compatible non-overlapping
-   behavior and reapply the intentional project-side result. For files without
-   an origin-side change, preserve an intentional base-side restructure and
-   use the current project contract to resolve remaining differences. Recheck
-   protected infrastructure and local agent guidance after conflict
-   resolution.
+   blanket `ours` or `theirs` selection. Compare overlapping changes by
+   intent, not by path alone. When the base change has the same purpose or is
+   a compatible, clearly superseding implementation, accept the base result
+   even when it replaces the earlier origin version. When the changes have
+   divergent purposes, preserve the project-side (`origin/main`) behavior,
+   including post-fork identity, workflow, documentation, and cleanup updates,
+   and manually combine compatible base behavior. If the intent is unclear,
+   perform a line-level review rather than choosing a side wholesale. For
+   files without an origin-side change, preserve an intentional base-side
+   restructure and use the current project contract to resolve remaining
+   differences. Recheck protected infrastructure and local agent guidance
+   after conflict resolution.
 
    When the merge reports a `deleted by us` path, read the deletion inventory
    and confirm that the project-side deletion is intentional. To preserve that
@@ -194,6 +217,9 @@ commands.
 - In unrelated-history mode, both `origin/main` and `base/main` are
   ancestors of local `base-main`, while the target branch contains only the
   intended single import commit beyond `origin/main`.
+- Any new `base-main` integration in this run uses only the resolved fetched
+  `origin` and `base` refs; local branches and unpublished work are not direct
+  integration inputs.
 - The changed documentation, manifests, workflows, and protected paths do
   not contain accidental stale identity references.
 - The relevant log and diff summaries match the selected mode.
