@@ -94,29 +94,37 @@ commands.
    diff against `origin/main` and choose the target before creating it.
    Report the selected target branch before recreating it.
 
-6. **Inventory deletions before merging.** Before creating the selected target
-   branch or merging the base ref, record path deletions and possible
-   reintroductions. For related histories, use the merge base and inspect both
-   sides with commands equivalent to:
+6. **Inventory project-side changes before merging.** Before creating the
+   selected target branch or merging the base ref, record all project-side
+   changes since the merge base, including intentional post-fork identity,
+   documentation, workflow, cleanup, package, and path changes. Treat the
+   current `origin/main` tree as the project's intentional state. For related
+   histories, use the merge base and inspect both sides with commands
+   equivalent to:
 
    ```sh
    git diff --name-status --find-renames < merge-base > origin/main
    git diff --name-status --find-renames < merge-base > base/main
    ```
 
-   Treat a path deleted by the project side (`origin/main`) as intentional
-   project cleanup unless the current request or project contract explicitly
-   reintroduces it. Treat a base-side deletion as an incoming change that still
-   requires review against the current project contract. Mark any base-side
-   addition or modification that restores a project-deleted path for conflict
-   review.
+   Treat changes made by the project side (`origin/main`) as intentional
+   project updates unless the current request explicitly changes them. This
+   includes changes introduced by an earlier fork or cleanup workflow. Treat a
+   path deleted by the project side as intentional cleanup unless the current
+   request or project contract explicitly reintroduces it. Treat a base-side
+   deletion as an incoming change that still requires review against the
+   current project contract. Mark any base-side addition or modification that
+   overlaps a project-side change, restores a project-deleted path, or replaces
+   a project workflow or documentation update for conflict review.
 
-   For unrelated histories, there is no reliable merge-base deletion history.
-   Compare the tracked path sets with `git ls-tree -r --name-only origin/main`
-   and `git ls-tree -r --name-only base/main`; treat paths present only in the
-   base ref as possible stale additions, not proven deletions, and review them
-   before accepting them into `base-main`. Carry this inventory into the merge
-   review and do not silently restore a path that the project has removed.
+   For unrelated histories, there is no reliable merge-base change history.
+   Treat the current `origin/main` tree as the project baseline. Compare the
+   tracked path sets with `git ls-tree -r --name-only origin/main` and
+   `git ls-tree -r --name-only base/main`; treat paths present only in the base
+   ref as possible upstream additions, not automatic replacements for current
+   project files. Review them before accepting them into `base-main`, and do
+   not silently restore a path or replace a workflow or documentation update
+   that exists on the project side.
 
 7. **Synchronize related histories.** When a merge base exists:
 
@@ -138,8 +146,9 @@ commands.
       `base/main` into it normally, preserving its prior merge point. Merge
       `origin/main` first and then `base/main`; resolve all conflicts and
       commit each integration using the repository's established commit-subject
-      convention. Never push or recreate `base-main` merely to begin a new
-      sync.
+      convention. Preserve the current project-side changes inventoried in
+      Step 6 while incorporating compatible base-side additions. Never push or
+      recreate `base-main` merely to begin a new sync.
    2. Move to a detached `origin/main` state, delete any existing local
       target branch, and create the selected target branch from `origin/main`.
    3. Squash the changes from `base-main` into the selected target branch, stage the
@@ -152,13 +161,15 @@ commands.
 
 9. **Review conflicts by intent.** For every conflict, read both sides and
    their surrounding diffs before editing. Do not resolve conflicts by
-   blanket `ours` or `theirs` selection. Prefer project-side (`origin/main`)
-   documentation content when the two sides conflict without a clear reason;
-   preserve an intentional base-side restructure and reapply project-side
-   substantive edits on top of it. For non-documentation files, retain the
-   behavior that matches the current project contract, combining non-overlapping
-   changes where appropriate. Recheck protected infrastructure and local agent
-   guidance after conflict resolution.
+   blanket `ours` or `theirs` selection. Preserve the project-side
+   (`origin/main`) changes inventoried in Step 6, including post-fork identity,
+   workflow, documentation, and cleanup updates. When an upstream change
+   overlaps one of those updates, apply only its compatible non-overlapping
+   behavior and reapply the intentional project-side result. For files without
+   an origin-side change, preserve an intentional base-side restructure and
+   use the current project contract to resolve remaining differences. Recheck
+   protected infrastructure and local agent guidance after conflict
+   resolution.
 
    When the merge reports a `deleted by us` path, read the deletion inventory
    and confirm that the project-side deletion is intentional. To preserve that
