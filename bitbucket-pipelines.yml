@@ -628,5 +628,5 @@ pipelines:
                 ./bin/generate-cert.sh
 
               git add "$cert_path" "$key_path"
-              git commit -m 'chore(cert): renew development certificate'
+              git commit -m '[DEV] Renew Development Certificate'
               git push
