@@ -34,9 +34,12 @@ commands.
   and integrate the latest fetched refs. Never delete and recreate it merely to
   start a new sync, and never push it.
 - Recreate the selected local `dev/patch` or `dev/upgrade` branch from
-  `origin/main` for each sync. If the local branch exists, delete it only after
-  confirming the worktree is clean and the branch is not carrying unreviewed
-  work. The requested workflow authorizes replacing this local branch.
+  `origin/main` for each sync only when it has no unpublished user or
+  unreviewed commits. If the local target contains such commits, preserve the
+  branch and add the sync result on top; never delete or reset it to recreate
+  the target. The absence of a remote target ref alone does not prove that the
+  local branch is disposable; inspect its graph and distinguish prior sync
+  commits from user work.
 - This workflow is local-only. Never push `dev/patch`, `dev/upgrade`, or
   `base-main`; publishing a prepared branch is a separate explicitly requested
   operation.
@@ -47,9 +50,12 @@ commands.
 1. **Inspect the repository state.** Read the linked root and workflow
    guidance. Record the current branch, `git status --short`, remotes, local
    branches, and existing `origin/main`, `base/main`, `base-main`, and
-   `dev/patch` and `dev/upgrade` refs. Stop if the worktree contains changes,
-   unresolved conflicts, or untracked files that are not explicitly part of
-   this sync.
+   `dev/patch` and `dev/upgrade` refs. For the selected target, compare the
+   local branch with its remote-tracking branch, when present, and record any
+   unpublished or unreviewed commits. If no remote-tracking target exists,
+   inspect the target history and prior sync commits instead of assuming it is
+   disposable. Stop if the worktree contains changes, unresolved conflicts, or
+   untracked files that are not explicitly part of this sync.
 2. **Resolve remotes and branch refs.** Check `git remote` first. If `base`
    exists, inspect its fetch URL and preserve it. If it does not exist, use the
    repository documentation and its remote-setup or synchronization guidance
@@ -62,7 +68,13 @@ commands.
    If it yields no usable source, stop. If a configured URL conflicts with
    documented identity, report the discrepancy and ask before changing it. Use
    the resolved branch names in place of the `origin/main` and `base/main`
-   examples used below.
+   examples used below. Before adding, updating, or fetching either remote,
+   perform a read-only access check for each resolved remote and branch, such
+   as `git ls-remote <url> <branch>`. Check `origin` and `base` separately;
+   do not assume that their credentials, accounts, or provider access are
+   shared. If either check fails, stop before changing Git state and ask the
+   user to resolve access outside the workflow. Do not expose credentials or
+   include credential-bearing URLs or command output in the handoff.
 3. **Refresh remote refs.** Fetch the resolved project remote with pruning and
    fetch the resolved base remote. Do not use a pull that can create an
    unreviewed merge on the project branch. Stop if either remote or either
@@ -120,6 +132,17 @@ commands.
    overlaps a project-side change, restores a project-deleted path, or replaces
    a project workflow or documentation update for conflict review.
 
+   Maintain a per-file reconciliation table for every overlapping path,
+   including workflows, manifests, documentation, and generated metadata:
+
+   | Path | Origin change | Base change | Decision | Reason and final result |
+   | ---- | ------------- | ----------- | -------- | ----------------------- |
+
+   Use `base overwrite` for the same-purpose or clearly superseding base
+   change, `origin retained` for divergent project behavior, `combined` for
+   compatible line-level changes, and `regenerated` for generated metadata.
+   Leave a path `unresolved` until its final content and reason are decided.
+
    For unrelated histories, there is no reliable merge-base change history.
    Treat the current `origin/main` tree as the project baseline. Compare the
    tracked path sets with `git ls-tree -r --name-only origin/main` and
@@ -132,9 +155,15 @@ commands.
 7. **Synchronize related histories.** When a merge base exists:
 
    1. Move off any existing selected target branch without losing work, delete
-      the confirmed local target branch, and create it from `origin/main`.
-   2. Merge `base/main` into the target branch with the normal Git merge. Preserve
-      the complete history; do not use `--squash`.
+      the confirmed local target branch, and create it from `origin/main` only
+      when that target has no unpublished commits. If it has unpublished user
+      commits, keep the target branch and integrate the sync on top of it;
+      never delete or reset it.
+   2. When the target was recreated from `origin/main`, merge `base/main` into
+      it with the normal Git merge. When unpublished user commits required the
+      target to be preserved, merge the latest `origin/main` first when it is
+      not already an ancestor, then merge `base/main`; preserve the complete
+      history and do not use `--squash`.
    3. Resolve conflicts using the conflict review rules below. Complete the
       merge and retain a merge commit when Git requires one. Use the
       repository's established commit-subject convention; do not invent a
@@ -143,7 +172,8 @@ commands.
       with `origin/main` for the project-side paths inventoried in Step 6 and
       apply the conflict-intent rule in Step 9: a compatible or superseding
       base change may replace an origin change, while a divergent origin
-      change must remain intact.
+      change must remain intact. Complete the reconciliation table and do not
+      commit while any overlapping path remains unresolved.
 
 8. **Synchronize unrelated histories.** When no merge base exists:
 
@@ -166,9 +196,18 @@ commands.
       apply the conflict-intent rule in Step 9. A compatible or superseding
       base change may replace the origin version; a divergent origin change
       must remain intact. A conflict-free merge is not sufficient evidence
-      that the correct version was selected.
-   2. Move to a detached `origin/main` state, delete any existing local
-      target branch, and create the selected target branch from `origin/main`.
+      that the correct version was selected. Before creating the target branch,
+      complete the reconciliation table and audit the net integration from the
+      saved pre-sync target baseline to `base-main` with
+      `git diff --name-status <target-before-sync> base-main`. This is the
+      final `HEAD..base-main` audit before the target moves on. Classify every
+      omitted base change as `intentional`, `compatible-but-retained`, or
+      `unresolved`; stop before the squash if any item is unresolved.
+   2. If the selected target has no unpublished commits, move to a detached
+      `origin/main` state, delete the existing local target branch, and create
+      the selected target branch from `origin/main`. If it has unpublished
+      commits, keep its current branch instead; do not delete or reset it. The
+      squash must be added on top of the preserved user commits.
    3. Squash the reviewed net changes from `base-main` into the selected target
       branch, stage the reviewed result, and create exactly one import commit.
       Use the `origin/main` baseline and the Step 6 review; do not replace the
@@ -208,18 +247,40 @@ commands.
    the documented synchronization section and other explicitly intentional
    upstream references; do not remove generic tooling references.
 
+   Before each merge, squash, or integration commit, compare the current
+   branch identity and `HEAD` with the latest expected checkpoint for that
+   operation. Refresh the checkpoint after every intentional branch switch or
+   integration commit. If either value changes unexpectedly, stop without
+   committing and repeat the affected inspection and reconciliation. Do not
+   assume an external commit, reset, or branch switch is part of this sync.
+
+   Treat generated metadata separately from authored source. Never hand-merge
+   `apm.lock.yaml` hashes or deployed skill copies. Resolve authored `.apm/`
+   files first, then regenerate with `apm install` and verify with
+   `apm audit --ci`. After manifest or workspace changes, run the applicable
+   Yarn refresh from the root guidance and review all generated lockfile or
+   workspace changes before committing. Do not hide tool-generated changes in
+   an automatic stash; preserve unrelated changes and stop if generated churn
+   cannot be explained by the reconciled source.
+
 10. **Validate the result.** On the checked-out target branch, confirm:
 
 - `git status --short` is clean and there are no unresolved conflicts.
 - `git diff --check` passes.
 - the target branch is based on `origin/main` and contains the intended
-  `base/main` changes.
+  `base/main` changes, or preserves its unpublished user commits with those
+  synchronization changes added on top.
 - In unrelated-history mode, both `origin/main` and `base/main` are
   ancestors of local `base-main`, while the target branch contains only the
-  intended single import commit beyond `origin/main`.
+  intended single import commit beyond `origin/main` when it had no unpublished
+  commits. Otherwise, the target's unpublished commits remain and exactly one
+  sync commit is added on top.
 - Any new `base-main` integration in this run uses only the resolved fetched
   `origin` and `base` refs; local branches and unpublished work are not direct
   integration inputs.
+- The per-file reconciliation table is complete, and every omitted base change
+  is classified as intentional or compatible-but-retained; unresolved items
+  block completion.
 - The changed documentation, manifests, workflows, and protected paths do
   not contain accidental stale identity references.
 - The relevant log and diff summaries match the selected mode.
@@ -233,6 +294,8 @@ Stop before changing branches or remotes when:
 
 - the worktree is dirty, has unresolved conflicts, or contains unreviewed
   untracked files;
+- read-only access to either resolved remote or branch fails, including when
+  separate credentials or accounts are required for `origin` and `base`;
 - the required project or base remote/ref cannot be resolved after
   documentation-based discovery;
 - a required project or base URL is absent from both Git metadata and
@@ -242,12 +305,15 @@ Stop before changing branches or remotes when:
   or identity decision;
 - deleting a local branch would discard work not covered by this workflow;
 - an existing `base-main` contains unexpected local work or its integration
-  history cannot be understood safely.
+  history cannot be understood safely;
+- the branch or `HEAD` changes during reconciliation, or generated metadata
+  cannot be regenerated and explained after authored conflicts are resolved.
 
 ## Handoff
 
 Summarize the selected history mode, target branch, base remote, fetched refs,
 conflict decisions, merge or squash commit, validation results, and whether the
-persistent local-only `base-main` branch was created or updated. Confirm that
-no push occurred, no `base-main` push occurred, and the selected target branch
-is checked out.
+persistent local-only `base-main` branch was created or updated. Include the
+per-file reconciliation table, omitted-change classifications, and whether
+unpublished target commits were preserved. Confirm that no push occurred, no
+`base-main` push occurred, and the selected target branch is checked out.
