@@ -1,25 +1,7 @@
 lockfile_version: '1'
-generated_at: '2026-09-08T15:40:34.071127+00:00'
+generated_at: '2026-09-08T15:58:06.401917+00:00'
 apm_version: 0.30.0
-dependencies:
-- repo_url: vercel-labs/skills
-  name: skills
-  host: github.com
-  resolved_commit: 435076e78988e1e6ec40d00b0b1d76bdbbc5419a
-  resolved_ref: v1.5.23
-  version: unknown
-  package_type: skill_bundle
-  deployed_files:
-  - .agents/skills/find-skills
-  - .agents/skills/find-skills/SKILL.md
-  - .claude/skills/find-skills
-  - .claude/skills/find-skills/SKILL.md
-  deployed_file_hashes:
-    .agents/skills/find-skills/SKILL.md: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
-    .claude/skills/find-skills/SKILL.md: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
-  content_hash: sha256:7530862c97988f22ac8b8117e104a829bce5692c5869e467c027471243ccb201
-  skill_subset:
-  - find-skills
+dependencies: []
 deployments:
 - kind: project-relative
   target: claude
@@ -138,24 +120,6 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-- kind: project-relative
-  target: claude
-  value: .claude/skills/find-skills
-  runtime: null
-  scope: project
-  owners:
-  - vercel-labs/skills
-  active_owner: vercel-labs/skills
-  content_hash: null
-- kind: project-relative
-  target: claude
-  value: .claude/skills/find-skills/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - vercel-labs/skills
-  active_owner: vercel-labs/skills
-  content_hash: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
 - kind: project-relative
   target: claude
   value: .claude/skills/fork
@@ -417,24 +381,6 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
-- kind: project-relative
-  target: codex
-  value: .agents/skills/find-skills
-  runtime: null
-  scope: project
-  owners:
-  - vercel-labs/skills
-  active_owner: vercel-labs/skills
-  content_hash: null
-- kind: project-relative
-  target: codex
-  value: .agents/skills/find-skills/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - vercel-labs/skills
-  active_owner: vercel-labs/skills
-  content_hash: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
 - kind: project-relative
   target: copilot
   value: .github/instructions/agent-guidance.instructions.md
