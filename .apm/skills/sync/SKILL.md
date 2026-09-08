@@ -165,12 +165,11 @@ commands.
       not already an ancestor, then merge `base/main`; preserve the complete
       history and do not use `--squash`.
    3. Resolve conflicts using the conflict review rules below. Complete the
-      merge and retain a merge commit when Git requires one. Use the
-      repository's established commit-subject convention; do not invent a
-      prefix or format. Do not create an artificial commit when the merge is
-      already a fast-forward. Before completing the merge, compare the result
-      with `origin/main` for the project-side paths inventoried in Step 6 and
-      apply the conflict-intent rule in Step 9: a compatible or superseding
+      merge and retain a merge commit when Git requires one. Apply the
+      commit-subject rule in Step 9. Do not create an artificial commit when the
+      merge is already a fast-forward. Before completing the merge, compare the
+      result with `origin/main` for the project-side paths inventoried in Step 6
+      and apply the conflict-intent rule in Step 9: a compatible or superseding
       base change may replace an origin change, while a divergent origin
       change must remain intact. Complete the reconciliation table and do not
       commit while any overlapping path remains unresolved.
@@ -182,8 +181,8 @@ commands.
       exists, keep the branch and merge the latest `origin/main` and
       `base/main` into it normally, preserving its prior merge point. Merge
       `origin/main` first and then `base/main`; resolve all conflicts and
-      commit each integration using the repository's established commit-subject
-      convention. Preserve the current project-side changes inventoried in
+      commit each integration using the commit-subject rule in Step 9. Preserve
+      the current project-side changes inventoried in
       Step 6 while incorporating compatible base-side additions. Use only the
       fetched remote-tracking refs as integration inputs; do not substitute a
       local `main`, target branch, working tree, or unpublished commit. Create
@@ -213,10 +212,7 @@ commands.
       Use the `origin/main` baseline and the Step 6 review; do not replace the
       target tree with an unreviewed base-side tree or copy individual
       `base-main` commits into the target branch. Before committing, inspect
-      recent subjects with `git log` and the repository's workflow
-      documentation, then use the established repository convention. If no
-      clear convention exists, use a concise standard subject that describes
-      the synchronization.
+      the commit-subject rule in Step 9.
 
 9. **Review conflicts by intent.** For every conflict, read both sides and
    their surrounding diffs before editing. Do not resolve conflicts by
@@ -253,6 +249,15 @@ commands.
    integration commit. If either value changes unexpectedly, stop without
    committing and repeat the affected inspection and reconciliation. Do not
    assume an external commit, reset, or branch switch is part of this sync.
+
+   For any commit this procedure creates, inspect the active provider's
+   workflow or pipeline for comparable automated commit subjects and confirm
+   the pattern against recent repository subjects. Follow that provider and
+   repository convention, including meaningful markers and capitalization; do
+   not borrow a format from another provider or invent a project-specific
+   prefix. Treat a generic example in human workflow documentation as
+   secondary to the provider's actual convention. If no comparable convention
+   exists, use a concise standard subject that describes the synchronization.
 
    Treat generated metadata separately from authored source. Never hand-merge
    `apm.lock.yaml` hashes or deployed skill copies. Resolve authored `.apm/`
