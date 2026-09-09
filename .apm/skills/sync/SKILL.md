@@ -43,6 +43,10 @@ commands.
 - This workflow is local-only. Never push `dev/patch`, `dev/upgrade`, or
   `base-main`; publishing a prepared branch is a separate explicitly requested
   operation.
+- Do not create merge, integration, or import commits automatically. Use
+  `--no-commit` for every merge and leave the reconciled result pending for
+  user review. Create a commit only after the user explicitly approves
+  continuation.
 - Do not rewrite `main`, delete the `base` remote, or modify unrelated branches.
 
 ## Procedure
@@ -152,8 +156,27 @@ commands.
    explicitly lowered or narrowed the dependency relative to that baseline,
    unless the request changes it. Otherwise, prefer a compatible upstream
    upgrade while retaining the project's identity fields and unrelated
-   metadata. Record the field-level decision in the reconciliation table; do
-   not resolve the entire manifest from one side.
+   metadata. Before accepting an upgrade, inspect `peerDependencies` and
+   related workspace manifests for compatible peer ranges and coupled runtime
+   or type packages. When `peerDependenciesMeta` is present, use
+   `optional: true` only to understand whether consumers may omit the peer; it
+   does not change the peer's version range. If the base adds that optional
+   marker, do not remove a current dependency solely for that reason. When the
+   same package appears in `dependencies` or `devDependencies` and
+   `peerDependencies`, use the peer range for consumer compatibility and
+   preserve the local entry unless its usage or package contract changes. Do
+   not accept an isolated upgrade that violates a peer range or leaves related
+   packages on incompatible majors; preserve the project set or update the
+   complete compatible set from the base. Record the field-level decision in
+   the reconciliation table; do not resolve the entire manifest from one side.
+
+   Treat dependency removal as a separate decision. Never remove a dependency
+   from the project manifest solely because the base removed it or made its
+   peer optional. Before accepting a removal, search the project source,
+   configuration, scripts, tests, stories, package entrypoints, peer contract,
+   and package-tooling conventions for usage or intentional retention. If the
+   evidence is inconclusive, preserve the project dependency and record the
+   reason in the reconciliation table.
 
    For unrelated histories, there is no reliable merge-base change history.
    Treat the current `origin/main` tree as the project baseline. Compare the
@@ -172,59 +195,63 @@ commands.
       commits, keep the target branch and integrate the sync on top of it;
       never delete or reset it.
    2. When the target was recreated from `origin/main`, merge `base/main` into
-      it with the normal Git merge. When unpublished user commits required the
-      target to be preserved, merge the latest `origin/main` first when it is
-      not already an ancestor, then merge `base/main`; preserve the complete
-      history and do not use `--squash`.
-   3. Resolve conflicts using the conflict review rules below. Complete the
-      merge and retain a merge commit when Git requires one. Apply the
-      commit-subject rule in Step 9. Do not create an artificial commit when the
-      merge is already a fast-forward. Before completing the merge, compare the
+      it with `--no-commit`. When unpublished user commits required the target
+      to be preserved, merge the latest `origin/main` first when it is not
+      already an ancestor, then merge `base/main`; preserve the complete
+      history and do not use `--squash`. A fast-forward may advance the ref
+      without creating a commit, but do not continue to a commit automatically.
+   3. Resolve conflicts using the conflict review rules below. Compare the
       result with `origin/main` for the project-side paths inventoried in Step 6
       and apply the conflict-intent rule in Step 9: a compatible or superseding
       base change may replace an origin change, while a divergent origin
       change must remain intact. Complete the reconciliation table and do not
-      commit while any overlapping path remains unresolved.
+      commit while any overlapping path remains unresolved. Leave the merge
+      pending for user review and stop before creating a merge commit.
 
 8. **Synchronize unrelated histories.** When no merge base exists:
 
    1. If `base-main` does not exist, create it from `origin/main`, then merge
-      `base/main` into it with `--allow-unrelated-histories`. If it already
-      exists, keep the branch and merge the latest `origin/main` and
-      `base/main` into it normally, preserving its prior merge point. Merge
-      `origin/main` first and then `base/main`; resolve all conflicts and
-      commit each integration using the commit-subject rule in Step 9. Preserve
-      the current project-side changes inventoried in
-      Step 6 while incorporating compatible base-side additions. Use only the
-      fetched remote-tracking refs as integration inputs; do not substitute a
-      local `main`, target branch, working tree, or unpublished commit. Create
-      `base-main` only when it is absent; otherwise preserve and update its
-      existing integration history. Never delete and recreate it merely to
-      begin a new sync, and never push it. Before creating the target branch,
-      review the net integration against the project baseline with
-      `git diff --name-status origin/main base-main`. For every project-side
-      path inventoried in Step 6, inspect the result against both refs and
-      apply the conflict-intent rule in Step 9. A compatible or superseding
-      base change may replace the origin version; a divergent origin change
-      must remain intact. A conflict-free merge is not sufficient evidence
-      that the correct version was selected. Before creating the target branch,
-      complete the reconciliation table and audit the net integration from the
-      saved pre-sync target baseline to `base-main` with
-      `git diff --name-status <target-before-sync> base-main`. This is the
+      `base/main` into it with `--allow-unrelated-histories --no-commit`. If it
+      already exists, keep the branch and merge the latest `origin/main` and
+      `base/main` into it with `--no-commit`, preserving its prior merge point.
+      Merge `origin/main` first and then `base/main`; resolve conflicts but do
+      not commit either integration automatically. Preserve the current
+      project-side changes inventoried in Step 6 while incorporating compatible
+      base-side additions. Use only the fetched remote-tracking refs as
+      integration inputs; do not substitute a local `main`, target branch,
+      working tree, or unpublished commit. Create `base-main` only when it is
+      absent; otherwise preserve and update its existing integration history.
+      Never delete and recreate it merely to begin a new sync, and never push
+      it. Before creating the target branch, review the net integration against
+      the project baseline with `git diff --name-status origin/main base-main`.
+      For every project-side path inventoried in Step 6, inspect the result
+      against both refs and apply the conflict-intent rule in Step 9. A
+      compatible or superseding base change may replace the origin version; a
+      divergent origin change must remain intact. A conflict-free merge is not
+      sufficient evidence that the correct version was selected. Before
+      creating the target branch, complete the reconciliation table and audit
+      the net integration from the saved pre-sync target baseline to `base-main`
+      with `git diff --name-status <target-before-sync> base-main`. This is the
       final `HEAD..base-main` audit before the target moves on. Classify every
       omitted base change as `intentional`, `compatible-but-retained`, or
-      `unresolved`; stop before the squash if any item is unresolved.
-   2. If the selected target has no unpublished commits, move to a detached
-      `origin/main` state, delete the existing local target branch, and create
-      the selected target branch from `origin/main`. If it has unpublished
-      commits, keep its current branch instead; do not delete or reset it. The
-      squash must be added on top of the preserved user commits.
-   3. Squash the reviewed net changes from `base-main` into the selected target
-      branch, stage the reviewed result, and create exactly one import commit.
-      Use the `origin/main` baseline and the Step 6 review; do not replace the
-      target tree with an unreviewed base-side tree or copy individual
-      `base-main` commits into the target branch. Before committing, inspect
-      the commit-subject rule in Step 9.
+      `unresolved`; stop with the pending integration if any item is unresolved
+      or awaiting user review.
+   2. After the user approves the pending integration and its approved
+      integration commit exists, if the selected target has no unpublished
+      commits, move to a detached `origin/main` state, delete the existing
+      local target branch, and create the selected target branch from
+      `origin/main`. If it has unpublished commits, keep its current branch
+      instead; do not delete or reset it. The squash must be added on top of
+      the preserved user commits.
+   3. After the user approves the reviewed `base-main` integration and its
+      approved integration commit exists, squash the reviewed net changes from
+      `base-main` into the selected target branch.
+      Leave the reviewed result staged and uncommitted for a second user review;
+      do not create the import commit automatically. Use the `origin/main`
+      baseline and the Step 6 review; do not replace the target tree with an
+      unreviewed base-side tree or copy individual `base-main` commits into the
+      target branch. If the user later approves the import commit, apply the
+      commit-subject rule in Step 9.
 
 9. **Review conflicts by intent.** For every conflict, read both sides and
    their surrounding diffs before editing. Do not resolve conflicts by
@@ -255,14 +282,16 @@ commands.
    the documented synchronization section and other explicitly intentional
    upstream references; do not remove generic tooling references.
 
-   Before each merge, squash, or integration commit, compare the current
+   Before each merge or squash, compare the current
    branch identity and `HEAD` with the latest expected checkpoint for that
-   operation. Refresh the checkpoint after every intentional branch switch or
-   integration commit. If either value changes unexpectedly, stop without
-   committing and repeat the affected inspection and reconciliation. Do not
-   assume an external commit, reset, or branch switch is part of this sync.
+   operation. Use `--no-commit` for every merge and leave squash results
+   staged but uncommitted. Refresh the checkpoint after every intentional
+   branch switch or user-approved commit. If either value changes unexpectedly,
+   stop without committing and repeat the affected inspection and
+   reconciliation. Do not assume an external commit, reset, or branch switch
+   is part of this sync.
 
-   For any commit this procedure creates, inspect the active provider's
+   If the user explicitly approves a commit, inspect the active provider's
    workflow or pipeline for comparable automated commit subjects and confirm
    the pattern against recent repository subjects. Follow that provider and
    repository convention, including meaningful markers and capitalization; do
@@ -280,18 +309,20 @@ commands.
    an automatic stash; preserve unrelated changes and stop if generated churn
    cannot be explained by the reconciled source.
 
-10. **Validate the result.** On the checked-out target branch, confirm:
+10. **Validate the result.** On the checked-out branch, confirm:
 
-- `git status --short` is clean and there are no unresolved conflicts.
+- `git status --short` contains only the expected pending merge or staged
+  squash result, or is clean when the operation was a fast-forward or made no
+  changes; there are no unrelated changes or unresolved conflicts.
 - `git diff --check` passes.
-- the target branch is based on `origin/main` and contains the intended
-  `base/main` changes, or preserves its unpublished user commits with those
-  synchronization changes added on top.
+- the selected target branch, when created, is based on `origin/main` and
+  contains the intended `base/main` changes, or preserves its unpublished user
+  commits with those synchronization changes added on top.
 - In unrelated-history mode, both `origin/main` and `base/main` are
   ancestors of local `base-main`, while the target branch contains only the
-  intended single import commit beyond `origin/main` when it had no unpublished
-  commits. Otherwise, the target's unpublished commits remain and exactly one
-  sync commit is added on top.
+  reviewed pending import beyond `origin/main` when it had no unpublished
+  commits. Otherwise, the target's unpublished commits remain and the reviewed
+  synchronization changes are pending on top.
 - Any new `base-main` integration in this run uses only the resolved fetched
   `origin` and `base` refs; local branches and unpublished work are not direct
   integration inputs.
@@ -301,6 +332,8 @@ commands.
 - The changed documentation, manifests, workflows, and protected paths do
   not contain accidental stale identity references.
 - The relevant log and diff summaries match the selected mode.
+- No merge, integration, or import commit was created without explicit user
+  approval.
 
 Report any check that cannot run rather than treating a partial check as
 completion.
@@ -329,8 +362,9 @@ Stop before changing branches or remotes when:
 ## Handoff
 
 Summarize the selected history mode, target branch, base remote, fetched refs,
-conflict decisions, merge or squash commit, validation results, and whether the
-persistent local-only `base-main` branch was created or updated. Include the
-per-file reconciliation table, omitted-change classifications, and whether
-unpublished target commits were preserved. Confirm that no push occurred, no
-`base-main` push occurred, and the selected target branch is checked out.
+conflict decisions, pending merge or staged squash state, validation results,
+and whether the persistent local-only `base-main` branch was created or
+updated. Include the per-file reconciliation table, omitted-change
+classifications, and whether unpublished target commits were preserved. Confirm
+that no commit or push occurred without approval, no `base-main` push occurred,
+and identify the branch with the pending review state.
