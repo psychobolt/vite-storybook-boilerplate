@@ -244,7 +244,7 @@ pipelines:
             - *env
             - export PACKAGE_NAME=vite-storybook-boilerplate
             - *setup
-            - curl -sSL https://aka.ms/apm-unix | sh
+            - curl -sSL https://aka.ms/apm-unix | sh -s -- --prefix /usr/local
             - apm install --frozen
             - apm audit --ci --no-cache
             - *lint
