@@ -143,6 +143,18 @@ commands.
    compatible line-level changes, and `regenerated` for generated metadata.
    Leave a path `unresolved` until its final content and reason are decided.
 
+   Reconcile dependency and version fields in manifests separately from
+   project identity and other metadata. Compare each project's dependency
+   value with its prior baseline (the merge base for related histories, or the
+   relevant project history for unrelated histories) and with the base value.
+   An existing pin alone is not evidence of an intentional downgrade. Compare
+   it with the prior project value: retain it only when the project side
+   explicitly lowered or narrowed the dependency relative to that baseline,
+   unless the request changes it. Otherwise, prefer a compatible upstream
+   upgrade while retaining the project's identity fields and unrelated
+   metadata. Record the field-level decision in the reconciliation table; do
+   not resolve the entire manifest from one side.
+
    For unrelated histories, there is no reliable merge-base change history.
    Treat the current `origin/main` tree as the project baseline. Compare the
    tracked path sets with `git ls-tree -r --name-only origin/main` and
