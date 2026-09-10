@@ -141,6 +141,21 @@ type is erased or remains internal to the package.
 Use the repository's documented package-manager workflow to update manifests
 and lockfiles.
 
+### Non-PnP workspace integration
+
+For a package intentionally excluded from Plug'n'Play (PnP):
+
+- Add its workspace path to the root `.yarnrc.yml` `pnpIgnorePatterns`.
+- Keep each workspace package reference in the manifest section required by
+  the package contract—`dependencies`, `devDependencies`,
+  `peerDependencies`, or `optionalDependencies`—and preserve its
+  `workspace:` protocol or explicit version metadata. Do not replace that
+  package dependency entry with a portal.
+- Add a relative `portal:` resolution in the non-PnP workspace's
+  `resolutions` for each workspace package that it must resolve through the
+  non-PnP linker. Keep those paths synchronized when workspace packages move
+  or are renamed.
+
 ### Workspace refresh
 
 After changing workspace manifests, package names, workspace registration,
@@ -156,7 +171,7 @@ fails, stop before dependent commands and report the failure.
 
 ### Shared package procedure
 
-Apply this procedure when scaffolding an app, API, or UI package:
+Apply this procedure when scaffolding or updating an app, API, or UI package:
 
 1. **Inspect reference context.** Read the nearest `AGENTS.md`, README, and
    relevant package configuration.
@@ -164,6 +179,11 @@ Apply this procedure when scaffolding an app, API, or UI package:
    reference's `package.json`, workspace/task configuration, `.env.defaults`,
    package workflow, and usage documentation for its contract. Do not open
    secret-bearing environment files or inspect process environment variables.
+   Before changing a package command or utility, inspect its nearest README,
+   development, and usage documentation plus comparable package docs. Update
+   each document that describes the changed contract, preserve intentional
+   package-specific differences, and scan for stale names, paths, commands, or
+   examples.
 2. **Confirm the package contract.** Confirm the package boundary, runtime,
    public entrypoint, required libraries, and validation approach before
    creating files. Ask when a material choice is unspecified.
@@ -179,8 +199,10 @@ Apply this procedure when scaffolding an app, API, or UI package:
    integration scripts;
    do not omit an existing script without a reason. Apply the root [package
    dependency contract](#package-dependency-contract) when adding or changing
-   dependencies. Apply the [workspace refresh](#workspace-refresh) after these
-   changes and before any workspace-dependent command.
+   dependencies. For a non-PnP workspace, apply the [non-PnP workspace
+   integration](#non-pnp-workspace-integration) whenever the package is
+   created or updated. Apply the [workspace refresh](#workspace-refresh)
+   after these changes and before any workspace-dependent command.
 5. **Normalize metadata and environment.** Normalize copied names and paths in
    manifests, source entrypoints, READMEs, CI, and supported service
    configuration. When a package requires an encrypted `.env.*`, use the

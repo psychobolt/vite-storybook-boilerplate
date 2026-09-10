@@ -71,7 +71,7 @@ yarn g:prettier [options]             # Runs prettier format tool
 
 ##### Additional Scripts
 
-See [bin/](bin/)
+See [bin/](bin/README.md)
 
 #### Workspace Scope
 

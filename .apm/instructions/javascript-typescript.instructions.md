@@ -39,6 +39,39 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   convention across framework-specific configuration without checking the
   target framework and package setup.
 
+## Node APIs and asynchronous control flow
+
+- Prefer a Node API's native promise-based variant, such as `node:fs/promises`
+  or `node:timers/promises`, when the workflow is asynchronous. Use
+  `async`/`await` and preserve the API's error behavior.
+- When only a conventional error-first callback API exists, prefer
+  `node:util`'s `promisify` over a hand-written Promise wrapper. Keep a manual
+  wrapper when the API has non-standard callback results, event or lifecycle
+  semantics, required `this` binding, or another behavior that `promisify`
+  cannot preserve.
+- Do not convert an existing callback API during an unrelated change unless
+  the promise-based form is required for correctness or consistency with the
+  surrounding workflow.
+
+## Property access and destructuring
+
+- When a locally resolved object supplies several values, destructure the
+  needed properties at the narrowest useful scope instead of repeating member
+  access. Keep imported API namespaces explicit, such as `path.join`, so the
+  source module remains clear.
+- Retain member access for one-off or dynamic properties, mutation, fluent APIs,
+  required object identity or `this` binding, or when it makes the relationship
+  to the owning object clearer.
+
+## Dependency placement
+
+- Follow the root package dependency contract and the target workspace's
+  existing organization. Place a library in `devDependencies` when it is used
+  only by authoring, build, test, lint, formatting, or other development
+  tooling and is absent from built runtime output and emitted declarations.
+  Otherwise classify it according to the package's runtime and consumer
+  contract. Do not move an existing dependency during an unrelated change.
+
 ## Type safety
 
 - Avoid `as` type assertions when the type can be expressed through inference,

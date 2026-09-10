@@ -6,10 +6,6 @@
     {
       "matchPackageNames": ["actions/node-versions"],
       "allowedVersions": "< 25"
-    },
-    {
-      "matchPackageNames": ["open-cli"],
-      "allowedVersions": "< 9"
     }
   ]
 }

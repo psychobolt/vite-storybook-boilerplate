@@ -5,6 +5,7 @@
   "bin": {
     "lint": "esm/bin/lint.js",
     "ls-workspaces": "esm/bin/ls-workspaces.js",
+    "open-url": "esm/bin/open.js",
     "tsc-paths": "esm/bin/tsc-paths.js"
   },
   "scripts": {
@@ -25,6 +26,7 @@
     "g:test-storybook": "cd $INIT_CWD && yarn g:run-script $(yarn g:test-storybook-path) --url $(yarn g:dotenv-get SB_URL)",
     "g:test-storybook-path": "yarn bin test-storybook",
     "g:vitest": "cd $INIT_CWD && yarn g:run-script $(yarn bin vitest)",
+    "g:wait-on": "cd $INIT_CWD && wait-on",
     "lint": "yarn g:prettier --check --config esm/prettier.config.js . && yarn g:lint"
   },
   "dependencies": {
@@ -48,6 +50,7 @@
     "lint-staged": "17.5.1",
     "lodash": "4.18.1",
     "neostandard": "0.13.0",
+    "open": "11.0.2",
     "pnp-sass-importer": "2.0.0",
     "postcss": "8.5.28",
     "postcss-pseudo-classes": "0.4.0",
@@ -60,6 +63,7 @@
     "turbo": "2.10.12",
     "type-fest": "5.9.0",
     "vite-tsconfig-paths": "6.1.1",
+    "wait-on": "9.1.0",
     "yaml": "2.9.0"
   },
   "devDependencies": {
@@ -70,6 +74,7 @@
     "@storybook/global": "5.0.0",
     "@types/glob-to-regexp": "0.4.4",
     "@types/node": "24.13.4",
+    "@types/wait-on": "5.3.4",
     "@typescript-eslint/utils": "8.70.0",
     "chromatic": "18.8.0",
     "eslint": "10.10.0",
