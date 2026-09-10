@@ -4,9 +4,12 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "dev": "next dev --experimental-https --experimental-https-key $HTTPS_KEY_PATH --experimental-https-cert $HTTPS_CERT_PATH -p $PORT & open-cli $APP_URL --background",
+    "test": "start http://localhost:3000 || open http://localhost:3000",
+    "dev": "next dev --experimental-https --experimental-https-key $(yarn dotenv-get HTTPS_KEY_PATH) --experimental-https-cert $(yarn dotenv-get HTTPS_CERT_PATH) -p $(yarn dotenv-get PORT) & open-cli $(yarn dotenv-get APP_URL) --background",
     "dotenv-args": "node ../../bin/dotenv-args.js",
-    "run-script": "dotenvx run -q $(yarn dotenv-args) -- node --enable-source-maps --experimental-strip-types --disable-warning=ExperimentalWarning",
+    "dotenv-get": "dotenvx get --ignore=MISSING_KEY $(yarn dotenv-args)",
+    "dotenv-run": "dotenvx run -q $(yarn dotenv-args)",
+    "run-script": "yarn dotenv-run -- node --enable-source-maps --experimental-strip-types --disable-warning=ExperimentalWarning",
     "format": "prettier --ignore-path ../../.gitignore --ignore-path ./.gitignore --write .",
     "lint": "eslint --flag unstable_native_nodejs_ts_config .",
     "start": "yarn run-script bin/start.ts"
@@ -27,7 +30,7 @@
     "html-ui": "workspace:*",
     "next": "16.3.4",
     "next-devtools-mcp": "0.4.0",
-    "open-cli": "9.0.0",
+    "open-cli": "8.0.0",
     "prettier": "3.9.6",
     "prettier-plugin-packagejson": "3.0.2",
     "prettier-plugin-sh": "0.19.0",
