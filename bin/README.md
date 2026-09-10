@@ -66,8 +66,7 @@ yarn run-script bin/hash.ts hello_world # use default algorithm - 'sha1'
 `cert.ts` ([Source](cert.ts))
 
 Installs or removes `cert/<name>.pem` from the platform certificate trust
-store. On macOS, the certificate is added to or removed from the System
-keychain so Chrome can use the trust. The default name is `dev-cert`.
+store. The default name is `dev-cert`.
 
 ```sh
 yarn cert --install [name]

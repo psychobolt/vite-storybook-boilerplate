@@ -5,6 +5,7 @@ apm_modules/
 .vercel/
 .vscode/settings.json
 storybook-static/
+out/
 build/
 dist/
 cjs/

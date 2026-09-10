@@ -1,6 +1,6 @@
 # Commons
 
-Local workspace for sharing configs and scripts...
+Package for sharing common configs, plugins, and scripts...
 
 ## Setup
 
@@ -460,3 +460,7 @@ story({
 ##### Node Importers
 
 Add your importers to [node-sass-importers.cts](node-sass-importers.cts) and import the script (e.g. `const sassOptions = { importers: require('common/cjs/node-sass-importers.cjs') };`) as part of your tool config. You also create your own importers. See API [docs](https://sass-lang.com/documentation/js-api/).
+
+### Scripts
+
+See [bin/](bin/README.md)

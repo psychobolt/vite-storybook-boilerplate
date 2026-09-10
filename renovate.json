@@ -8,10 +8,6 @@
       "versionCompatibility": "^(?<version>[^-]+)(?<compatibility>-.*)?$",
       "versioning": "node",
       "allowedVersions": "< 25"
-    },
-    {
-      "matchPackageNames": ["open-cli"],
-      "allowedVersions": "< 9"
     }
   ]
 }
