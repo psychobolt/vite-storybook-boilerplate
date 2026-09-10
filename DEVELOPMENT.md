@@ -119,8 +119,9 @@ apm install --mcp <workspace-mcp> --transport http --url <url>
 ### Using environment files
 
 ```sh
-yarn [workspace <workspace-name>] g:dotenv help                    # Print usage
-yarn [workspace <workspace-name>] g:dotenv-get MY_VARIABLE         # Print a environment variable value
+yarn [workspace <workspace-name>] node -p "process.env.MY_VARIABLE"  # Only applicable to root projects with .yarnrc.yml
+yarn [workspace <workspace-name>] g:dotenv help                      # Print usage
+yarn [workspace <workspace-name>] g:dotenv-get MY_VARIABLE           # Print a environment variable value derived from workspace's .env.defaults, .env.ci, .env (if accessible)
 yarn [workspace <workspace-name>] g:dotenv-run -- <my-script-or-bin> # Loads envronment variables with your script or bin
 ```
 
