@@ -5,7 +5,7 @@
   "scripts": {
     "build": "yarn g:rimraf esm/ && yarn tsc --project tsconfig.esm.json",
     "format": "yarn g:format",
-    "lint": "yarn g:prettier --check . && yarn g:lint"
+    "lint": "yarn g:prettier --check $(echo \"${@:-.}\") && yarn g:lint \"$@\""
   },
   "dependencies": {
     "flat": "6.0.1",
