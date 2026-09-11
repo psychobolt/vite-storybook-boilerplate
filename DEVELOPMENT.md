@@ -96,7 +96,7 @@ You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turb
 
 Running only root tasks with turbo requires a specific filter or prefix to the turbo command e.g. `turbo --filter=.` or `//#turbo`
 
-You can also pass in specific arguments into the task e.g. `yarn workspace commons turbo run <lint|format> -- vite.config.ts turbo.json # formats or lint specific files`
+You can also pass in specific arguments into the task e.g. `yarn [workspace <workspace-name>] turbo run <lint|format> -- vite.config.ts turbo.json # format or lint specific files`
 
 See Turbo's docs for more [usages](https://turbo.build/repo/docs/reference/command-line-reference).
 

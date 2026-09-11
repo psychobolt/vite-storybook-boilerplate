@@ -39,7 +39,8 @@ const dedupeCommand =
   'yarn dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}';
 
 const workspaceDedupeCommands = workspaces.map(
-  ({ location }) => `cd ${location} && ${dedupeCommand}`
+  ({ location }) =>
+    `yarn ${location} dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}`
 );
 
 const dedupeCommands = [dedupeCommand, ...workspaceDedupeCommands];
@@ -53,7 +54,8 @@ const dedupeRule: PostUpgradeTaskRule = {
   }
 };
 
-const bootstrapCommand = 'YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap';
+const bootstrapCommand =
+  'env YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap';
 
 const bootstrapRule: PostUpgradeTaskRule = {
   matchFileNames: [
