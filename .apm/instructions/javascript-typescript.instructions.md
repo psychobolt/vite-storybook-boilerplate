@@ -62,6 +62,9 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
 - Retain member access for one-off or dynamic properties, mutation, fluent APIs,
   required object identity or `this` binding, or when it makes the relationship
   to the owning object clearer.
+- For parsed options or configuration objects, prefer destructuring a field
+  when it is used more than once. For example, prefer `const { _ } = args` over
+  repeating `args._`.
 
 ## Dependency placement
 
@@ -91,7 +94,7 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   declarations, explicitly type the exported value with its public type so
   consumers retain useful autocomplete.
 
-## Local expressions and scope
+## Local expressions, reuse, and scope
 
 - Inline a local variable's initializer when that variable is read only once
   and has no type-specific purpose when writing new code. Keep a named
@@ -101,6 +104,16 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   them solely to inline their expressions. For new code, prefer
   `return format(value)` over `const formatted = format(value); return formatted`,
   but retain a single-use variable when its cast is needed for type correctness.
+- When a parsed option or configuration value is passed to multiple consumers,
+  normalize the shared input once into a named local before constructing
+  dependent values. Do not introduce one-use locals solely to name different
+  fallback expressions; inline each fallback at its consumer when readable.
+  Keep a named value when it is reused, requires a type or narrowing purpose,
+  controls evaluation, or materially improves readability.
+- For a known array or string, use a named boolean such as
+  `const hasTargets = targets.length > 0` when the emptiness check is reused
+  or an inline condition would obscure intent. A direct length check is fine
+  for a simple one-off condition.
 - Avoid immediately invoked function expressions and closure-based initializers
   when direct control flow or a named helper expresses the logic clearly. Use a
   named function for reusable or testable logic, or a block-scoped assignment

@@ -28,7 +28,7 @@
     "g:test-storybook-path": "yarn bin test-storybook",
     "g:vitest": "cd $INIT_CWD && yarn g:run-script $(yarn bin vitest)",
     "g:wait-on": "cd $INIT_CWD && wait-on",
-    "lint": "yarn g:prettier --check --config esm/prettier.config.js . && yarn g:lint"
+    "lint": "yarn g:prettier --check --config esm/prettier.config.js $(echo \"${@:-.}\") && yarn g:lint \"$@\""
   },
   "dependencies": {
     "@chromatic-com/storybook": "5.3.1",

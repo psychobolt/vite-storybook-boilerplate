@@ -50,7 +50,7 @@ See [information](https://yarnpkg.com/cli) on commands for Yarn.
 
 > Each project level has their own set of scripts. Please see documentation in workspace directories (`apps/*` or `packages/*`).
 
-#### Main Project
+#### At Root
 
 ```sh
 yarn node ./path/to/script.js       # Run a js script file
@@ -63,17 +63,17 @@ yarn agentrc readiness # Run this to eval AI codebase eadiness
 apm audit              # If you are making changes to agents, run this to ensure there is no harness drift
 
 # Global tasks that can be hoisted to any workspace scope
-yarn g:run-script ./path/to/script.ts # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:run-script ./path/to/script.ts"
-yarn g:lint --runner eslint           # Lint js files with eslint
-yarn g:lint --runner stylelint        # Lint [s]css files with stylelint
-yarn g:prettier [options]             # Runs prettier format tool
+yarn g:run-script ./path/to/script.ts     # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:run-script ./path/to/script.ts"
+yarn g:lint --runner eslint [...files]    # Lint js files with eslint
+yarn g:lint --runner stylelint [...files] # Lint [s]css files with stylelint
+yarn g:prettier [options] [...files]      # Runs prettier format tool
 ```
 
 ##### Additional Scripts
 
 See [bin/](bin/README.md)
 
-#### Workspace Scope
+#### At Workspace Scope
 
 ```sh
 #cd (packages|apps)/<workspace-name> # optional if not using yarn workspace command, otherwise you'll run task on all workspaces
@@ -94,7 +94,9 @@ yarn [workspace <workspace-name>] turbo run coverage # Collect code coverage (al
 
 You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turbo run format --filter=react-ui --filter=html-ui --filter=apps/**`.
 
-You can also pass in specific arguments into the task e.g. `yarn workspace commons turbo run format -- vite.config.ts turbo.json # formats specific files`
+Running only root tasks with turbo requires a specific filter or prefix to the turbo command e.g. `turbo --filter=.` or `//#turbo`
+
+You can also pass in specific arguments into the task e.g. `yarn workspace commons turbo run <lint|format> -- vite.config.ts turbo.json # formats or lint specific files`
 
 See Turbo's docs for more [usages](https://turbo.build/repo/docs/reference/command-line-reference).
 

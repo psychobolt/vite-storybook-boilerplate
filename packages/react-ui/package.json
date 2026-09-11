@@ -54,7 +54,7 @@
     "coverage": "yarn test run --coverage",
     "dev": "yarn watch & yarn g:storybook-dev -p $(yarn g:dotenv-get PORT)",
     "format": "yarn g:format",
-    "lint": "yarn g:prettier --check . && yarn g:lint --runner stylelint --runner eslint",
+    "lint": "yarn g:prettier --check $(echo \"${@:-.}\") && yarn g:lint --runner stylelint --runner eslint \"$@\"",
     "prepack": "turbo run build",
     "start": "yarn g:dotenv-run -- yarn g:http-server storybook-static",
     "test": "yarn g:vitest",

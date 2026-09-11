@@ -38,16 +38,22 @@ const lockfiles = ['**/yarn.lock'];
 const dedupeCommand =
   'yarn dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}';
 
+const workspaceDedupeCommands = workspaces.map(
+  ({ location }) => `cd ${location} && ${dedupeCommand}`
+);
+
+const dedupeCommands = [dedupeCommand, ...workspaceDedupeCommands];
+
 const dedupeRule: PostUpgradeTaskRule = {
   matchManagers: ['npm'],
   postUpgradeTasks: {
-    commands: [dedupeCommand],
+    commands: dedupeCommands,
     fileFilters: lockfiles,
     executionMode: 'branch'
   }
 };
 
-const bootstrapCommand = 'yarn bootstrap';
+const bootstrapCommand = 'YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap';
 
 const bootstrapRule: PostUpgradeTaskRule = {
   matchFileNames: [
@@ -56,7 +62,7 @@ const bootstrapRule: PostUpgradeTaskRule = {
     ...workspaces.map(({ location }) => join(location, 'package.json'))
   ],
   postUpgradeTasks: {
-    commands: [dedupeCommand, bootstrapCommand],
+    commands: [bootstrapCommand, ...dedupeCommands],
     fileFilters: lockfiles,
     executionMode: 'branch'
   }
@@ -66,7 +72,7 @@ const postPackageTasks: PostPackageTasks = [
   {
     matchPackageNames: ['prettier**'],
     postUpgradeTasks: {
-      commands: [dedupeCommand, bootstrapCommand, 'yarn turbo run format'],
+      commands: [bootstrapCommand, ...dedupeCommands, 'yarn turbo run format'],
       fileFilters: [...lockfiles, '**/*'],
       executionMode: 'branch'
     }

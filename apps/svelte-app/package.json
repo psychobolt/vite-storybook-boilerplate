@@ -8,7 +8,7 @@
 		"check:watch": "yarn check --watch",
 		"dev": "vite dev --open",
 		"format": "yarn g:format",
-		"lint": "yarn g:prettier --check . && yarn check && lint --runner stylelint --runner eslint",
+		"lint": "yarn g:prettier --check $(echo \"${@:-.}\") && yarn check && lint --runner stylelint --runner eslint \"$@\"",
 		"start": "vite preview"
 	},
 	"devDependencies": {

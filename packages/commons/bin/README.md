@@ -98,11 +98,11 @@ A suite that executes and outputs the results from supported runners ([ESLint](u
 
 ```sh
 # For integrated workspace
-yarn g:run-script $PROJECT_CWD/bin/lint.ts [options]
+yarn g:run-script $PROJECT_CWD/bin/lint.ts [options] [files...]
 # Or
-yarn lint [options]
+yarn lint [options] [files...]
 # Or
-npm lint [options]
+npm lint [options] [files...]
 ```
 
 ### Options
