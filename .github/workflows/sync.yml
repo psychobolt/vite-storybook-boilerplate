@@ -6,15 +6,17 @@ on:
       ref_name:
         type: string
         default: main
-      squash:
-        type: boolean
+      base_url:
+        type: string
+        default: ''
   workflow_dispatch:
     inputs:
       ref_name:
         type: string
         default: main
-      squash:
-        type: boolean
+      base_url:
+        type: string
+        default: ''
 
 concurrency:
   group: sync-${{ inputs.ref_name}}
@@ -67,15 +69,35 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
       - name: Merge with base branch
         run: |
-          git remote add base https://github.com/psychobolt/vite-storybook-boilerplate
+          git remote add base "${{ inputs.base_url || format('{0}/{1}', github.server_url, github.repository) }}"
           git fetch base main
-          if [[ "${{ inputs.squash }}" == "true" ]]; then
-            git merge base/main --allow-unrelated-histories --squash -X ours || true
+          merge_status=0
+          if git merge-base HEAD base/main >/dev/null 2>&1; then
+            git merge base/main --no-commit --ff || merge_status=$?
           else
-            git merge base/main --allow-unrelated-histories --no-commit --ff -X ours || true
+            git merge base/main --allow-unrelated-histories --squash || merge_status=$?
           fi
-      - name: Prune deleted files
-        run: git status | grep 'deleted by us' | awk '{print $4}' | (xargs git rm || true)
+          deleted_paths=$(git status | awk '/deleted by us/ {print $4}')
+          if [[ -n "$deleted_paths" ]]; then
+            printf '%s\n' "$deleted_paths" | xargs -r git rm --
+          fi
+          conflicts=$(git diff --name-only --diff-filter=U)
+          if [[ -n "$conflicts" ]]; then
+            echo "::error::The sync merge left unresolved conflicts:"
+            printf '%s\n' "$conflicts"
+            exit 1
+          fi
+          if [[ "$merge_status" -ne 0 && -z "$deleted_paths" ]]; then
+            unexpected_deleted_paths=$(git status --short | awk 'substr($0, 1, 2) ~ /D/ {print substr($0, 4)}')
+            echo "::error::The sync merge failed (status $merge_status)."
+            if [[ -n "$unexpected_deleted_paths" ]]; then
+              echo "::error::Unexpected deleted files requiring review:"
+              printf '%s\n' "$unexpected_deleted_paths"
+            else
+              echo "::error::Inspect the merge output above for the cause."
+            fi
+            exit "$merge_status"
+          fi
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@2238fae6eb9a9936f92356f54cb3660200d105e7 # v2.5.1
         with:
@@ -85,6 +107,10 @@ jobs:
           yarn install
           yarn bootstrap
       - name: Amend Merge
-        run: git diff-index --quiet HEAD || (git add . && git commit --no-edit) || true
+        run: |
+          if ! git diff-index --quiet HEAD; then
+            git add .
+            git commit --no-edit
+          fi
       - name: Update ${{ inputs.ref_name }} branch
         run: git push origin
