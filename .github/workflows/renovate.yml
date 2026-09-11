@@ -68,7 +68,6 @@ jobs:
           RENOVATE_BASE_DIR: ${{ env.DOCKER_USER_HOME }}
           RENOVATE_PRINT_CONFIG: true
           LOG_LEVEL: debug
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
         with:
           configurationFile: renovate.config.json
           token: ${{ steps.get_token.outputs.token }}
