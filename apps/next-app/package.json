@@ -12,7 +12,8 @@
     "lint": "yarn run-script $(yarn bin lint) --runner eslint",
     "open-url": "yarn run-script $(yarn bin open-url)",
     "run-script": "yarn dotenv-run -- node --enable-source-maps --experimental-strip-types --preserve-symlinks --preserve-symlinks-main --disable-warning=ExperimentalWarning",
-    "start": "yarn run-script bin/start.ts & yarn open-url $(yarn dotenv-get APP_URL)"
+    "start": "yarn run-script bin/start.ts & yarn open-url $(yarn dotenv-get APP_URL)",
+    "turbo": "turbo --ui=tui"
   },
   "resolutions": {
     "commons": "portal:../../packages/commons",
