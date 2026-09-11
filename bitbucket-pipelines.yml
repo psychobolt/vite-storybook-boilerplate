@@ -557,7 +557,6 @@ pipelines:
             - export RENOVATE_PLATFORM=bitbucket
             - export RENOVATE_CONFIG_FILE=renovate.config.json
             - export RENOVATE_REPOSITORIES=${BITBUCKET_REPO_FULL_NAME}
-            - export YARN_ENABLE_IMMUTABLE_INSTALLS=false
             - renovate
     cert:
       - variables:
