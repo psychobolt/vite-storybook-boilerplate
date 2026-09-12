@@ -1273,24 +1273,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.24.0":
-  version: 2.24.0
-  resolution: "@dotenvx/dotenvx@npm:2.24.0"
+"@dotenvx/dotenvx@npm:2.24.1":
+  version: 2.24.1
+  resolution: "@dotenvx/dotenvx@npm:2.24.1"
   dependencies:
-    "@dotenvx/primitives": "npm:^2.2.0"
+    "@dotenvx/primitives": "npm:^3.0.2"
     "@dotenvx/tooling": "npm:^1.0.3"
     yocto-spinner: "npm:^1.2.1"
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/9b5d53de68b5e1fb1d828b81b94e810a5a1f20b4a4757f41ca3216d42ea5c49721c25c7cd451bd3191914977ce522d8fa54b4655ee4a8192c64a6f8b3b034d2c
+  checksum: 10c0/802f794a3f5fe25c8344f0610a5ca40469f56a33505f975148ad97e68a5dc0d594e5ac23a97c444e2262d8efe0c08b8b8b67c6cc073e59046fa10ddb5bd3fe8d
   languageName: node
   linkType: hard
 
-"@dotenvx/primitives@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "@dotenvx/primitives@npm:2.2.0"
-  checksum: 10c0/44d65dcddcdc3df66fd6fba4259de795dd9db113fe623f9ad1cf348c5657140842ef7551dff40132192e71a10f925c5a0f2f219d8d97470a3b743cc237bb4cbb
+"@dotenvx/primitives@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@dotenvx/primitives@npm:3.0.2"
+  checksum: 10c0/1c716c6b47622c0841f83c9f6dfebed6acf147986a4a14fa41369f41273c26b80a42b91d883c1a069a5737b0a5218c2a90386ad9965d0ba18d140d6ea08c6d8c
   languageName: node
   linkType: hard
 
@@ -15704,7 +15704,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.24.0"
+    "@dotenvx/dotenvx": "npm:2.24.1"
     "@types/node": "npm:24.13.4"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
@@ -21214,7 +21214,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.24.0"
+    "@dotenvx/dotenvx": "npm:2.24.1"
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.2"
