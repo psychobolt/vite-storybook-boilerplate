@@ -5,8 +5,10 @@ description: Synchronize a project branch with base/main while preserving shared
 
 # Sync
 
-Synchronize the project with the documented project and base branch refs and
-prepare a selected `dev/patch` or `dev/upgrade` branch from the project ref.
+Synchronize the project with the documented project and base branch refs on an
+existing local branch. Use an explicitly selected local branch when provided;
+otherwise use the current local branch. Branch names do not determine whether
+the branch can be synchronized.
 This repository currently uses `origin/main` and `base/main` as examples; treat
 those as resolved refs, not universal branch names. Choose the
 history-preserving workflow from the actual Git ancestry: use a normal merge
@@ -33,16 +35,13 @@ commands.
   it. Create it from `origin/main` when it does not exist; otherwise keep it
   and integrate the latest fetched refs. Never delete and recreate it merely to
   start a new sync, and never push it.
-- Recreate the selected local `dev/patch` or `dev/upgrade` branch from
-  `origin/main` for each sync only when it has no unpublished user or
-  unreviewed commits. If the local target contains such commits, preserve the
-  branch and add the sync result on top; never delete or reset it to recreate
-  the target. The absence of a remote target ref alone does not prove that the
-  local branch is disposable; inspect its graph and distinguish prior sync
-  commits from user work.
-- This workflow is local-only. Never push `dev/patch`, `dev/upgrade`, or
-  `base-main`; publishing a prepared branch is a separate explicitly requested
-  operation.
+- Any existing local branch is a valid target, including `main`, a feature
+  branch, or a development branch. Preserve its current commits and apply the
+  sync on top; never delete, reset, or recreate the target. The absence of a
+  remote target ref does not prove that a branch is disposable; inspect its
+  graph and distinguish prior sync commits from user work.
+- This workflow is local-only. Never push the selected target or `base-main`;
+  publishing a prepared branch is a separate explicitly requested operation.
 - Every sync run is prepare-only for the user-facing target by default. Do not
   create target merge or import commits automatically. Use `--no-commit` for
   target merges and leave the reconciled target result pending for user review.
@@ -52,7 +51,7 @@ commands.
   conflicts, or prepare a target does not authorize a target `git commit`; only
   a separate user instruction that explicitly requests that target commit may
   authorize it.
-- Do not rewrite `main`, delete the `base` remote, or modify unrelated branches.
+- Do not delete the `base` remote or modify unrelated branches.
 
 ## Procedure
 
@@ -102,26 +101,16 @@ commands.
    If the result is ambiguous because a ref is shallow, missing, or otherwise
    incomplete, stop and resolve that condition instead of guessing.
 
-5. **Choose the sync branch.** Use an explicitly requested sync type when one
-   is provided. Otherwise inspect the scope of the incoming changes and choose:
+5. **Choose the sync branch.** Use an explicitly requested existing local
+   branch when one is provided; otherwise use the current local branch. Do not
+   create, delete, reset, or recreate a target as part of selection. Do not use
+   `base-main` as the target; it is reserved for unrelated-history integration.
+   Report the selected target branch before changing it.
 
-   - `dev/patch` for a focused, backward-compatible maintenance update with a
-     narrow set of files or packages and no broad architecture, tooling,
-     version, or public-contract change.
-   - `dev/upgrade` for a broad infrastructure, tooling, package, dependency,
-     version, public API, or other contract change, or whenever the scope is
-     unclear.
-
-   For related histories, inspect the diff and commit range between
-   `origin/main` and `base/main` and choose the target now. For unrelated
-   histories, make the local `base-main` integration first, then inspect its
-   diff against `origin/main` and choose the target before creating it.
-   Report the selected target branch before recreating it.
-
-6. **Inventory project-side changes before merging.** Before creating the
-   selected target branch or merging the base ref, record all project-side
-   changes since the merge base, including intentional post-fork identity,
-   documentation, workflow, cleanup, package, and path changes. Treat the
+6. **Inventory project-side changes before merging.** Before merging the base
+   ref into the selected target, record all project-side changes since the merge
+   base, including intentional post-fork identity, documentation, workflow,
+   cleanup, package, and path changes. Treat the
    current `origin/main` tree as the project's intentional state. For related
    histories, use the merge base and inspect both sides with commands
    equivalent to:
@@ -202,17 +191,13 @@ commands.
 
 7. **Synchronize related histories.** When a merge base exists:
 
-   1. Move off any existing selected target branch without losing work, delete
-      the confirmed local target branch, and create it from `origin/main` only
-      when that target has no unpublished commits. If it has unpublished user
-      commits, keep the target branch and integrate the sync on top of it;
-      never delete or reset it.
-   2. When the target was recreated from `origin/main`, merge `base/main` into
-      it with `--no-commit`. When unpublished user commits required the target
-      to be preserved, merge the latest `origin/main` first when it is not
-      already an ancestor, then merge `base/main`; preserve the complete
-      history and do not use `--squash`. A fast-forward may advance the ref
-      without creating a commit, but do not continue to a commit automatically.
+   1. Keep the selected target checked out and preserve it without deleting,
+      resetting, or recreating it.
+   2. If the latest `origin/main` is not already an ancestor of the target,
+      merge it with `--no-commit`, then merge `base/main` with `--no-commit`.
+      Preserve the complete history and do not use `--squash`. A fast-forward
+      may advance the ref without creating a commit, but do not continue to a
+      commit automatically.
    3. Resolve conflicts using the conflict review rules below. Compare the
       result with `origin/main` for the project-side paths inventoried in Step 6
       and apply the conflict-intent rule in Step 9: a compatible or superseding
@@ -236,15 +221,15 @@ commands.
       existing integration history. Never delete and recreate it merely to
       begin a new sync, and never push it. After reconciliation and validation
       are complete, finalize the local `base-main` integration commit without
-      pausing for separate user approval. Before creating the target branch,
-      review the net integration against the project baseline with
+      pausing for separate user approval. Before applying it to the selected
+      target, review the net integration against the project baseline with
       `git diff --name-status origin/main base-main`.
       For every project-side path inventoried in Step 6, inspect the result
       against both refs and apply the conflict-intent rule in Step 9. A
       compatible or superseding base change may replace the origin version; a
       divergent origin change must remain intact. A conflict-free merge is not
       sufficient evidence that the correct version was selected. Before
-      creating the target branch, complete the reconciliation table and audit
+      applying it to the selected target, complete the reconciliation table and audit
       the net integration from the saved pre-sync target baseline to `base-main`
       with `git diff --name-status <target-before-sync> base-main`. This is the
       final `HEAD..base-main` audit before the target moves on. Classify every
@@ -252,13 +237,10 @@ commands.
       `unresolved`; stop with the pending integration if any item is unresolved
       or awaiting user review.
    2. After the local `base-main` integration commit exists, leave that
-      internal branch and continue on the selected target. If the selected
-      target has no unpublished commits, move to a detached `origin/main`
-      state, delete the existing local target branch, and create the selected
-      target branch from `origin/main`. If it has unpublished commits, keep its
-      current branch instead; do not delete or reset it. The squash must be
-      added on top of the preserved user commits. Do not finish the workflow
-      with `base-main` checked out.
+      internal branch and continue on the selected target. Keep the target's
+      current branch and commits in place; do not delete, reset, or recreate
+      it. The squash must be added on top of the preserved user commits. Do not
+      finish the workflow with `base-main` checked out.
    3. After the reviewed `base-main` integration commit exists, squash the
       reviewed net changes from `base-main` into the selected target branch.
       Leave the reviewed result staged and uncommitted for a second user review;
@@ -331,14 +313,12 @@ commands.
   squash result, or is clean when the operation was a fast-forward or made no
   changes; there are no unrelated changes or unresolved conflicts.
 - `git diff --check` passes.
-- the selected target branch, when created, is based on `origin/main` and
-  contains the intended `base/main` changes, or preserves its unpublished user
-  commits with those synchronization changes added on top.
+- the selected local target preserves its existing commits and has the pending
+  synchronization applied on top.
 - In unrelated-history mode, both `origin/main` and `base/main` are
-  ancestors of local `base-main`, while the target branch contains only the
-  reviewed pending import beyond `origin/main` when it had no unpublished
-  commits. Otherwise, the target's unpublished commits remain and the reviewed
-  synchronization changes are pending on top.
+  ancestors of local `base-main`, while the selected target preserves its
+  existing commits and has only the reviewed pending synchronization applied on
+  top.
 - Any new `base-main` integration in this run uses only the resolved fetched
   `origin` and `base` refs; local branches and unpublished work are not direct
   integration inputs.
