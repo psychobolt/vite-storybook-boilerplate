@@ -43,10 +43,15 @@ commands.
 - This workflow is local-only. Never push `dev/patch`, `dev/upgrade`, or
   `base-main`; publishing a prepared branch is a separate explicitly requested
   operation.
-- Do not create merge, integration, or import commits automatically. Use
-  `--no-commit` for every merge and leave the reconciled result pending for
-  user review. Create a commit only after the user explicitly approves
-  continuation.
+- Every sync run is prepare-only for the user-facing target by default. Do not
+  create target merge or import commits automatically. Use `--no-commit` for
+  target merges and leave the reconciled target result pending for user review.
+  The unrelated-history `base-main` integration is an internal exception: once
+  it is reconciled and validated, finalize its local integration commit without
+  pausing for a separate user review. Approval to sync, continue, resolve
+  conflicts, or prepare a target does not authorize a target `git commit`; only
+  a separate user instruction that explicitly requests that target commit may
+  authorize it.
 - Do not rewrite `main`, delete the `base` remote, or modify unrelated branches.
 
 ## Procedure
@@ -136,6 +141,14 @@ commands.
    overlaps a project-side change, restores a project-deleted path, or replaces
    a project workflow or documentation update for conflict review.
 
+   For workflow and automation files, compare trigger and job enablement as
+   separate behavior. Preserve an origin-side disabled trigger or job as
+   intentional project behavior; do not re-enable it solely because the base
+   ref enables it. Re-enable it only when the current request or established
+   project contract requires that change. This includes scheduled, push,
+   mirroring, deployment, and other external automation behavior. Record the
+   enablement decision in the reconciliation table.
+
    Maintain a per-file reconciliation table for every overlapping path,
    including workflows, manifests, documentation, and generated metadata:
 
@@ -214,16 +227,18 @@ commands.
       `base/main` into it with `--allow-unrelated-histories --no-commit`. If it
       already exists, keep the branch and merge the latest `origin/main` and
       `base/main` into it with `--no-commit`, preserving its prior merge point.
-      Merge `origin/main` first and then `base/main`; resolve conflicts but do
-      not commit either integration automatically. Preserve the current
-      project-side changes inventoried in Step 6 while incorporating compatible
-      base-side additions. Use only the fetched remote-tracking refs as
-      integration inputs; do not substitute a local `main`, target branch,
-      working tree, or unpublished commit. Create `base-main` only when it is
-      absent; otherwise preserve and update its existing integration history.
-      Never delete and recreate it merely to begin a new sync, and never push
-      it. Before creating the target branch, review the net integration against
-      the project baseline with `git diff --name-status origin/main base-main`.
+      Merge `origin/main` first and then `base/main`; resolve conflicts and
+      preserve the current project-side changes inventoried in Step 6 while
+      incorporating compatible base-side additions. Use only the fetched
+      remote-tracking refs as integration inputs; do not substitute a local
+      `main`, target branch, working tree, or unpublished commit. Create
+      `base-main` only when it is absent; otherwise preserve and update its
+      existing integration history. Never delete and recreate it merely to
+      begin a new sync, and never push it. After reconciliation and validation
+      are complete, finalize the local `base-main` integration commit without
+      pausing for separate user approval. Before creating the target branch,
+      review the net integration against the project baseline with
+      `git diff --name-status origin/main base-main`.
       For every project-side path inventoried in Step 6, inspect the result
       against both refs and apply the conflict-intent rule in Step 9. A
       compatible or superseding base change may replace the origin version; a
@@ -236,16 +251,16 @@ commands.
       omitted base change as `intentional`, `compatible-but-retained`, or
       `unresolved`; stop with the pending integration if any item is unresolved
       or awaiting user review.
-   2. After the user approves the pending integration and its approved
-      integration commit exists, if the selected target has no unpublished
-      commits, move to a detached `origin/main` state, delete the existing
-      local target branch, and create the selected target branch from
-      `origin/main`. If it has unpublished commits, keep its current branch
-      instead; do not delete or reset it. The squash must be added on top of
-      the preserved user commits.
-   3. After the user approves the reviewed `base-main` integration and its
-      approved integration commit exists, squash the reviewed net changes from
-      `base-main` into the selected target branch.
+   2. After the local `base-main` integration commit exists, leave that
+      internal branch and continue on the selected target. If the selected
+      target has no unpublished commits, move to a detached `origin/main`
+      state, delete the existing local target branch, and create the selected
+      target branch from `origin/main`. If it has unpublished commits, keep its
+      current branch instead; do not delete or reset it. The squash must be
+      added on top of the preserved user commits. Do not finish the workflow
+      with `base-main` checked out.
+   3. After the reviewed `base-main` integration commit exists, squash the
+      reviewed net changes from `base-main` into the selected target branch.
       Leave the reviewed result staged and uncommitted for a second user review;
       do not create the import commit automatically. Use the `origin/main`
       baseline and the Step 6 review; do not replace the target tree with an
@@ -286,19 +301,20 @@ commands.
    branch identity and `HEAD` with the latest expected checkpoint for that
    operation. Use `--no-commit` for every merge and leave squash results
    staged but uncommitted. Refresh the checkpoint after every intentional
-   branch switch or user-approved commit. If either value changes unexpectedly,
-   stop without committing and repeat the affected inspection and
-   reconciliation. Do not assume an external commit, reset, or branch switch
-   is part of this sync.
+   branch switch or separately authorized commit. If either value changes
+   unexpectedly, stop without committing and repeat the affected inspection
+   and reconciliation. Do not assume an external commit, reset, or branch
+   switch is part of this sync.
 
-   If the user explicitly approves a commit, inspect the active provider's
-   workflow or pipeline for comparable automated commit subjects and confirm
-   the pattern against recent repository subjects. Follow that provider and
-   repository convention, including meaningful markers and capitalization; do
-   not borrow a format from another provider or invent a project-specific
-   prefix. Treat a generic example in human workflow documentation as
-   secondary to the provider's actual convention. If no comparable convention
-   exists, use a concise standard subject that describes the synchronization.
+   When creating the internal `base-main` integration commit or a target commit
+   explicitly authorized by the user, inspect the active provider's workflow
+   or pipeline for comparable automated commit subjects and confirm the pattern
+   against recent repository subjects. Follow that provider and repository
+   convention, including meaningful markers and capitalization; do not borrow
+   a format from another provider or invent a project-specific prefix. Treat a
+   generic example in human workflow documentation as secondary to the
+   provider's actual convention. If no comparable convention exists, use a
+   concise standard subject that describes the synchronization.
 
    Treat generated metadata separately from authored source. Never hand-merge
    `apm.lock.yaml` hashes or deployed skill copies. Resolve authored `.apm/`
@@ -331,9 +347,14 @@ commands.
   block completion.
 - The changed documentation, manifests, workflows, and protected paths do
   not contain accidental stale identity references.
+- Workflow and automation changes do not re-enable an origin-side disabled
+  trigger or job unless that change was explicitly requested or required by
+  the established project contract.
 - The relevant log and diff summaries match the selected mode.
-- No merge, integration, or import commit was created without explicit user
-  approval.
+- No target merge or import commit was created without a separate, explicit
+  user instruction to create that target commit. Any local `base-main`
+  integration commit was created only after reconciliation and validation and
+  was not pushed.
 
 Report any check that cannot run rather than treating a partial check as
 completion.
@@ -366,5 +387,7 @@ conflict decisions, pending merge or staged squash state, validation results,
 and whether the persistent local-only `base-main` branch was created or
 updated. Include the per-file reconciliation table, omitted-change
 classifications, and whether unpublished target commits were preserved. Confirm
-that no commit or push occurred without approval, no `base-main` push occurred,
-and identify the branch with the pending review state.
+that no target commit or push occurred without a separate explicit commit or
+push instruction, any `base-main` integration commit was local-only, no
+`base-main` push occurred, and identify the branch with the pending review
+state.
