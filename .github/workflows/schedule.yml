@@ -1,8 +1,13 @@
 on:
+  workflow_dispatch:
+    inputs:
+      ref_name:
+        type: string
   schedule:
     # The "*" (#42, asterisk) character has special semantics in YAML, so this
     # string has to be quoted.
-    - cron: '0 0 * * 0' # Every Sunday at midnight UTC
+    - cron: '7 7 * * *'
+      timezone: America/Los_Angeles
 
 permissions:
   contents: read
@@ -11,5 +16,5 @@ jobs:
   next:
     uses: ./.github/workflows/sync.yml
     with:
-      ref_name: next
+      ref_name: ${{ inputs.ref_name || 'next' }}
     secrets: inherit

@@ -17,8 +17,6 @@ on:
         type: string
 
 env:
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
   TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
   TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
   TURBO_TELEMETRY_DISABLED: 1
@@ -102,7 +100,7 @@ jobs:
         run: >-
           yarn dlx concurrently -k -s first -n "SB,TEST"
           "yarn ${{ inputs.path }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }} -- --silent"
-          "yarn dlx wait-on $(yarn ${{ inputs.path }} g:dotenv-get SB_URL | tail -n1) -l && yarn ${{ inputs.path }} coverage"
+          "yarn g:wait-on $(yarn ${{ inputs.path }} g:dotenv-get SB_URL | tail -n1) -l && yarn ${{ inputs.path }} coverage"
       - name: Run Coverage
         if: inputs.test-runner == 'vitest'
         run: yarn ${{ inputs.path }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }}

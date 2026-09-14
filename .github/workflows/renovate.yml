@@ -4,7 +4,8 @@ on:
   schedule:
     # The "*" (#42, asterisk) character has special semantics in YAML, so this
     # string has to be quoted.
-    - cron: '0/10 * * * *' # Every 10 minutes
+    - cron: '2/10 * * * *' # Every 10 minutes
+      timezone: America/Los_Angeles
 
 permissions:
   contents: read
@@ -62,13 +63,12 @@ jobs:
       - name: Build renovate config
         run: yarn run-script renovate.config.ts > renovate.config.json
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@5402b206248e5a8c8427a15102702eb9c1793efc # v46.2.4
+        uses: renovatebot/github-action@dcfba84a42d1b5d5e49bf131b1bf53511851a123 # v46.3.1
         env:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           RENOVATE_BASE_DIR: ${{ env.DOCKER_USER_HOME }}
           RENOVATE_PRINT_CONFIG: true
           LOG_LEVEL: debug
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
         with:
           configurationFile: renovate.config.json
           token: ${{ steps.get_token.outputs.token }}

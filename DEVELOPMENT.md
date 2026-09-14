@@ -13,7 +13,8 @@
 7. Follow Yarn's [Editor SDKs guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) (step 3) to set VSCode's TypeScript version to workspace's
 8. Copy `.vscode/settings.default.json` to `.vscode/settings.json`
 9. Reopen the project as in step 5.
-10. Run command `yarn trust-cert` in your project directory to trust the development certificate.
+10. Run command `yarn cert --install` in your project directory to trust the development certificate.
+11. Create a local `.env` file in the project. Add variable: `NODE_EXTRA_CA_CERTS=<absolute/path/to/project>/cert/dev-cert.pem`
 
 #### Troubleshooting
 
@@ -49,7 +50,7 @@ See [information](https://yarnpkg.com/cli) on commands for Yarn.
 
 > Each project level has their own set of scripts. Please see documentation in workspace directories (`apps/*` or `packages/*`).
 
-#### Main Project
+#### At Root
 
 ```sh
 yarn node ./path/to/script.js       # Run a js script file
@@ -62,17 +63,17 @@ yarn agentrc readiness # Run this to eval AI codebase eadiness
 apm audit              # If you are making changes to agents, run this to ensure there is no harness drift
 
 # Global tasks that can be hoisted to any workspace scope
-yarn g:run-script ./path/to/script.ts # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:run-script ./path/to/script.ts"
-yarn g:lint --runner eslint           # Lint js files with eslint
-yarn g:lint --runner stylelint        # Lint [s]css files with stylelint
-yarn g:prettier [options]             # Runs prettier format tool
+yarn g:run-script ./path/to/script.ts     # Reusable scripts that can be included in a workspace script e.g. "lint": "yarn g:run-script ./path/to/script.ts"
+yarn g:lint --runner eslint [...files]    # Lint js files with eslint
+yarn g:lint --runner stylelint [...files] # Lint [s]css files with stylelint
+yarn g:prettier [options] [...files]      # Runs prettier format tool
 ```
 
 ##### Additional Scripts
 
-See [bin/](bin/)
+See [bin/](bin/README.md)
 
-#### Workspace Scope
+#### At Workspace Scope
 
 ```sh
 #cd (packages|apps)/<workspace-name> # optional if not using yarn workspace command, otherwise you'll run task on all workspaces
@@ -93,7 +94,9 @@ yarn [workspace <workspace-name>] turbo run coverage # Collect code coverage (al
 
 You can also run multiple workspaces with Turbo's filter option. e.g. `yarn turbo run format --filter=react-ui --filter=html-ui --filter=apps/**`.
 
-You can also pass in specific arguments into the task e.g. `yarn workspace commons turbo run format -- vite.config.ts turbo.json # formats specific files`
+Running only root tasks with turbo requires a specific filter or prefix to the turbo command e.g. `turbo --filter=.` or `//#turbo`
+
+You can also pass in specific arguments into the task e.g. `yarn [workspace <workspace-name>] turbo run <lint|format> -- vite.config.ts turbo.json # format or lint specific files`
 
 See Turbo's docs for more [usages](https://turbo.build/repo/docs/reference/command-line-reference).
 
@@ -118,8 +121,9 @@ apm install --mcp <workspace-mcp> --transport http --url <url>
 ### Using environment files
 
 ```sh
-yarn [workspace <workspace-name>] g:dotenv help                    # Print usage
-yarn [workspace <workspace-name>] g:dotenv-get MY_VARIABLE         # Print a environment variable value
+yarn [workspace <workspace-name>] node -p "process.env.MY_VARIABLE"  # Only applicable to root projects with .yarnrc.yml
+yarn [workspace <workspace-name>] g:dotenv help                      # Print usage
+yarn [workspace <workspace-name>] g:dotenv-get MY_VARIABLE           # Print a environment variable value derived from workspace's .env.defaults, .env.ci, .env (if accessible)
 yarn [workspace <workspace-name>] g:dotenv-run -- <my-script-or-bin> # Loads envronment variables with your script or bin
 ```
 
@@ -128,8 +132,7 @@ See [documentation](https://dotenvx.com/docs) for usage.
 ### Best Practices
 
 - Keep personal secrets in a vault and local overrides in a `.env` file.
-- Keep shared secrets in a `.env.*` file.
-- Before committing shared secrets, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to store private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) in your team vault or CI environment after committing respective environment files.
+- If committing shared secrets in a `.env.*` file, utilize `dotenvx` to [encrypt](https://dotenvx.com/docs/quickstart#add-encryption) values e.g. (`yarn [workspace workspace-name] g:dotenv set <VARIABLE> <my-private-key> -f .env.<environment>`). Make sure to store private encryption keys (prefixed by `DOTENV_PRIVATE_KEY_`) in your team vault or CI environment after committing respective environment files. The shared project key source is the repository-root `.env.keys` file.
 
 ## [Workflows](WORKFLOWS.md)
 

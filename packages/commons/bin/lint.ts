@@ -11,6 +11,8 @@ const spec: Spec = {
 };
 
 const args: Result<typeof spec> = arg(spec);
+const { _ } = args;
+const hasFiles = _.length > 0;
 
 try {
   const runners = new Set(args['--runner'] ?? ['eslint']);
@@ -26,9 +28,11 @@ try {
   formatters.add('default');
 
   const results = {
-    eslint: runners.has('eslint') ? await eslint(['.'], formatters) : [],
+    eslint: runners.has('eslint')
+      ? await eslint(hasFiles ? _ : ['.'], formatters)
+      : [],
     stylelint: runners.has('stylelint')
-      ? await stylelint(['**/*.{sc,c}ss'], formatters)
+      ? await stylelint(hasFiles ? _ : ['**/*.{sc,c}ss'], formatters)
       : []
   };
 

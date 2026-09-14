@@ -2,7 +2,8 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type {
   AllConfig,
-  RenovateConfig
+  RenovateConfig,
+  PackageRuleInputConfig
 } from 'renovate/dist/config/types.d.ts';
 import getWorkspaces, {
   type Workspace
@@ -37,16 +38,24 @@ const lockfiles = ['**/yarn.lock'];
 const dedupeCommand =
   'yarn dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}';
 
+const workspaceDedupeCommands = workspaces.map(
+  ({ location }) =>
+    `yarn ${location} dedupe {{#each (distinct (lookupArray upgrades "packageName"))}}{{{.}}} {{/each}}`
+);
+
+const dedupeCommands = [dedupeCommand, ...workspaceDedupeCommands];
+
 const dedupeRule: PostUpgradeTaskRule = {
   matchManagers: ['npm'],
   postUpgradeTasks: {
-    commands: [dedupeCommand],
+    commands: dedupeCommands,
     fileFilters: lockfiles,
     executionMode: 'branch'
   }
 };
 
-const bootstrapCommand = 'yarn bootstrap';
+const bootstrapCommand =
+  'env YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap';
 
 const bootstrapRule: PostUpgradeTaskRule = {
   matchFileNames: [
@@ -55,7 +64,7 @@ const bootstrapRule: PostUpgradeTaskRule = {
     ...workspaces.map(({ location }) => join(location, 'package.json'))
   ],
   postUpgradeTasks: {
-    commands: [dedupeCommand, bootstrapCommand],
+    commands: [bootstrapCommand, ...dedupeCommands],
     fileFilters: lockfiles,
     executionMode: 'branch'
   }
@@ -65,7 +74,7 @@ const postPackageTasks: PostPackageTasks = [
   {
     matchPackageNames: ['prettier**'],
     postUpgradeTasks: {
-      commands: [dedupeCommand, bootstrapCommand, 'yarn turbo run format'],
+      commands: [bootstrapCommand, ...dedupeCommands, 'yarn turbo run format'],
       fileFilters: [...lockfiles, '**/*'],
       executionMode: 'branch'
     }
@@ -74,10 +83,14 @@ const postPackageTasks: PostPackageTasks = [
 
 const config: Omit<AllConfig, 'packageRules'> & {
   packageRules: PackageRule[];
-  nvm: {};
+  apm: PackageRuleInputConfig;
+  nvm: PackageRuleInputConfig;
 } = {
   extends: ['config:best-practices', ':prHourlyLimitNone'],
   ignorePresets: ['security:minimumReleaseAgeNpm'],
+  apm: {
+    enabled: true
+  },
   nvm: {
     enabled: false
   },

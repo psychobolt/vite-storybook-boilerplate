@@ -72,6 +72,24 @@ E.g.
 { "[workspaceName1]": "[semVer1]", "[workspaceName2]": "[semVer2]" }
 ```
 
+## Open URL
+
+`open.ts` ([Source](open.ts))
+
+Waits for an HTTP(S) URL to return a successful response before opening it in
+the system's default browser.
+
+```sh
+yarn open https://localhost:3000
+yarn open https://localhost:3000 --strict-ssl
+```
+
+`--strict-ssl` enables certificate validation while waiting for the URL. It is
+disabled by default so local self-signed development certificates work.
+
+Each HTTP request times out after 5 seconds, and the script stops waiting after
+30 seconds if the URL never becomes available.
+
 ## Lint
 
 `lint.ts` ([Source](lint.ts))
@@ -80,11 +98,11 @@ A suite that executes and outputs the results from supported runners ([ESLint](u
 
 ```sh
 # For integrated workspace
-yarn g:run-script $PROJECT_CWD/bin/lint.ts [options]
+yarn g:run-script $PROJECT_CWD/bin/lint.ts [options] [files...]
 # Or
-yarn lint [options]
+yarn lint [options] [files...]
 # Or
-npm lint [options]
+npm lint [options] [files...]
 ```
 
 ### Options

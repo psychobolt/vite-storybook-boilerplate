@@ -25,8 +25,6 @@ jobs:
     environment: ${{ github.ref_name }}
     env:
       base_ref: ${{ inputs.base_ref_sha || github.ref_name }}
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_TELEMETRY_DISABLED: 1
     steps:
       - name: Get token

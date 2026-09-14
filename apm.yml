@@ -8,12 +8,25 @@ targets:
 includes: auto
 dependencies:
   require_pinned_constraint: true
-  apm:
-    - git: vercel-labs/skills#v1.5.23
-      skills:
-        - find-skills
+  apm: []
   mcp:
     - name: react-ui:local
       registry: false
       transport: http
-      url: https://localhost:6007/mcp
+      url: http://localhost:6007/mcp
+    - name: next-devtools-mcp
+      registry: false
+      transport: stdio
+      command: yarn
+      args:
+        - workspace
+        - next-app
+        - next-devtools-mcp
+    - name: svelte-mcp
+      registry: false
+      transport: stdio
+      command: yarn
+      args:
+        - workspace
+        - svelte-app
+        - svelte-mcp

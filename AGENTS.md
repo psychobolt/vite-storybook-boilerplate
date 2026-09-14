@@ -19,21 +19,39 @@ operational details.
 ## Environment-file boundary
 
 - Treat every environment file as write-only for agent workflows except the
-  workspace's `.env.defaults`, which is the only environment file agents may
-  read for non-secret development defaults such as ports. Never read, search,
-  parse, diff, or otherwise inspect `.env`, `.env.ci`, or any other environment
-  file.
+  workspace's `.env.defaults`, which agents may read for non-secret
+  development defaults such as ports. An explicitly authored, tracked static
+  environment template at `.apm/skills/keys/references/.env.*` may also be
+  read as documentation. This path-specific exception applies only to those
+  authored static templates; do not treat them as access to live environment
+  files. Never
+  read, search, parse, diff, or otherwise inspect `.env`, any workspace-local
+  `.env.<environment>`, `.env.keys`, or any other live or secret-bearing
+  environment file. The `.env.defaults` exception above remains limited to
+  non-secret development defaults.
 - Never inspect process environment variables or pass secret-bearing
   environment values to a tool. An ignored file or encrypted file is still
   inaccessible to the agent under this policy.
 - Only create or update an environment file when the user explicitly requests
   the change and the content is non-secret, whether supplied directly for
-  writing or generated without reading existing environment values. Do not
-  overwrite or rotate existing secret-bearing files from agent tools.
+  writing or generated without reading existing environment values. During an
+  independent fork identity migration or a package-scaffolding workflow
+  governed by the keys skill, the agent may replace an inherited root `.env.*`
+  target with an empty file or create a newly required workspace `.env.*`
+  target from its matching authored template. After the root target is
+  encrypted, a workspace target may be cloned from it to carry the public key.
+  Remove the clone's trailing blank line, preserve its normal final newline,
+  and then stitch in the matching template; it remains unencrypted. It may
+  run the keys skill's approved template-encryption commands, plus removal of
+  dotenvx's known non-secret `HELLO` sample key, only against the newly written
+  root target. Do not read the replaced files,
+  generated `.env.keys`, or command output that contains private key values.
+  Do not create or overwrite any other
+  secret-bearing environment file from agent tools.
 - Use the [keys skill](.apm/skills/keys/SKILL.md) for any operation that requires
-  dotenv encryption, decryption, key validation, rotation, or existing secret
-  values. If a secure user-controlled process is unavailable, stop and explain
-  the boundary.
+  dotenv encryption, decryption, key validation, full reset, or data-retaining
+  key migration. If a secure user-controlled process is unavailable for a
+  data-retaining migration, stop and explain the boundary.
 
 ## Architecture
 
@@ -73,16 +91,14 @@ choice would materially affect the result.
 
 Use the [ui-package skill](.apm/skills/ui-package/SKILL.md) for UI-package
 scaffolding. Use the [ui-element skill](.apm/skills/ui-element/SKILL.md) for
-framework-neutral elements within a UI package, the [ui-composite
-skill](.apm/skills/ui-composite/SKILL.md) for framework-neutral composites
-within a UI package, and the [ui-component skill](.apm/skills/ui-component/SKILL.md) for
-framework-specific UI components within a UI package. The UI-package skill
-selects the appropriate implementation-unit procedure when scaffolding a UI
-package. Use the
+framework-neutral elements, the [ui-composite skill](.apm/skills/ui-composite/SKILL.md)
+for framework-neutral composites, and the [ui-component
+skill](.apm/skills/ui-component/SKILL.md) for framework-specific components
+within a UI package. The UI-package skill selects the appropriate
+implementation-unit procedure when scaffolding a UI package. Use the
 [app-package skill](.apm/skills/app-package/SKILL.md) for app-package
-scaffolding, the [api-package skill](.apm/skills/api-package/SKILL.md) for
-API-package scaffolding. Use the [todo skill](.apm/skills/todo/SKILL.md) to track skills and
-other work that are still in progress or awaiting an established workflow.
+scaffolding and the [api-package skill](.apm/skills/api-package/SKILL.md) for
+API-package scaffolding.
 
 ### Base reference resolution
 
@@ -125,9 +141,37 @@ type is erased or remains internal to the package.
 Use the repository's documented package-manager workflow to update manifests
 and lockfiles.
 
+### Non-PnP workspace integration
+
+For a package intentionally excluded from Plug'n'Play (PnP):
+
+- Add its workspace path to the root `.yarnrc.yml` `pnpIgnorePatterns`.
+- Keep each workspace package reference in the manifest section required by
+  the package contract—`dependencies`, `devDependencies`,
+  `peerDependencies`, or `optionalDependencies`—and preserve its
+  `workspace:` protocol or explicit version metadata. Do not replace that
+  package dependency entry with a portal.
+- Add a relative `portal:` resolution in the non-PnP workspace's
+  `resolutions` for each workspace package that it must resolve through the
+  non-PnP linker. Keep those paths synchronized when workspace packages move
+  or are renamed.
+
+### Workspace refresh
+
+After changing workspace manifests, package names, workspace registration,
+lockfiles, or package paths, inspect `git status` and the relevant diff. Always
+complete the refresh; do not skip it because the edit is metadata-only or
+dependency ranges are unchanged. Use the repository and workspace linker
+configuration to determine the affected scope: run `yarn install` from the
+repository root for affected PnP workspaces, and run `yarn bootstrap` for
+affected non-PnP workspaces. If both scopes are affected, run `yarn install`
+before `yarn bootstrap`. Inspect `git status` and the relevant diff again after
+each command; bootstrap may update generated files. If a required command
+fails, stop before dependent commands and report the failure.
+
 ### Shared package procedure
 
-Apply this procedure when scaffolding an app, API, or UI package:
+Apply this procedure when scaffolding or updating an app, API, or UI package:
 
 1. **Inspect reference context.** Read the nearest `AGENTS.md`, README, and
    relevant package configuration.
@@ -135,6 +179,11 @@ Apply this procedure when scaffolding an app, API, or UI package:
    reference's `package.json`, workspace/task configuration, `.env.defaults`,
    package workflow, and usage documentation for its contract. Do not open
    secret-bearing environment files or inspect process environment variables.
+   Before changing a package command or utility, inspect its nearest README,
+   development, and usage documentation plus comparable package docs. Update
+   each document that describes the changed contract, preserve intentional
+   package-specific differences, and scan for stale names, paths, commands, or
+   examples.
 2. **Confirm the package contract.** Confirm the package boundary, runtime,
    public entrypoint, required libraries, and validation approach before
    creating files. Ask when a material choice is unspecified.
@@ -150,14 +199,21 @@ Apply this procedure when scaffolding an app, API, or UI package:
    integration scripts;
    do not omit an existing script without a reason. Apply the root [package
    dependency contract](#package-dependency-contract) when adding or changing
-   dependencies.
+   dependencies. For a non-PnP workspace, apply the [non-PnP workspace
+   integration](#non-pnp-workspace-integration) whenever the package is
+   created or updated. Apply the [workspace refresh](#workspace-refresh)
+   after these changes and before any workspace-dependent command.
 5. **Normalize metadata and environment.** Normalize copied names and paths in
    manifests, source entrypoints, READMEs, CI, and supported service
-   configuration. When a package requires an encrypted `.env.ci`, use the
-   [keys skill](.apm/skills/keys/SKILL.md) to hand the operation to an approved
-   user-controlled secure process. Agents must not read, write, or invoke
-   commands that load `.env` or `.env.ci` files, private keys, or secret-bearing
-   environment variables. Keep the project private key outside the
+   configuration. When a package requires an encrypted `.env.*`, use the
+   [keys skill](.apm/skills/keys/SKILL.md) to resolve its matching template,
+   target scope, and encryption path. For a newly created package, use the
+   keys skill's package-enrollment path only when the package documentation
+   establishes that target. Existing environment files and data-retaining
+   migrations must use an approved user-controlled secure process. Agents must
+   not read live environment files, private keys, or secret-bearing environment
+   variables, or invoke commands that load them outside the keys skill's
+   documented new-target exception. Keep the project private key outside the
    agent-accessible workspace and never copy secret values between workspaces.
 6. **Assign ports and derive outputs.** Assign a distinct development port by
    inspecting each workspace's `.env.defaults` and choosing the next available
@@ -194,8 +250,7 @@ status` and the relevant diff. Preserve changes that existed before the
 
 ## Workflow skills
 
-For CI failures, blocked pull requests, dependency-update checks, package
-scaffolding, or component creation, use the appropriate guidance under
+For a repository task covered by a skill, use the appropriate guidance under
 `.apm/skills/`.
 
 - Prefer workspace-managed CLI binaries. When a command is provided by a
@@ -210,7 +265,7 @@ scaffolding, or component creation, use the appropriate guidance under
   skills.
 
 Run the [keys skill](.apm/skills/keys/SKILL.md)
-before workflows that create or rotate repository dotenv encryption keys. The
+before workflows that create, reset, or re-encrypt repository dotenv files. The
 [app-component skill](.apm/skills/app-component/SKILL.md) is for creating or
 extending application-owned elements, composites, or components within an app
 package. The
@@ -234,12 +289,20 @@ scaffolding. That skill delegates implementation units to the matching
 [app-component skill](.apm/skills/app-component/SKILL.md) only for application-owned units inside
 an app package.
 
-When a skill, bundled reference, or relevant workflow dependency changes, use
-the [todo skill](.apm/skills/todo/SKILL.md) to update its testing register and reset
-the affected tally to `0`.
+When a skill, its bundled reference, linked instruction, or a dependency used
+by its workflow changes, use the [todo skill](.apm/skills/todo/SKILL.md) to
+update its testing register and reset the affected tally to `0`.
 
 ### Workflow and documentation guidance
 
+- Before changing authored AI guidance—any `AGENTS.md` or `CLAUDE.md`,
+  `.github/copilot-instructions.md`, `.apm/skills/`, `.apm/instructions/`, or
+  `.apm/prompts/`—apply the [agent-guidance
+  instruction](.apm/instructions/agent-guidance.instructions.md) as a required
+  gate. Read the full applicable hierarchy, summarize the targets and relevant
+  sections, identify canonical owners and conflicts, and review the changed
+  diffs and cross-links after editing. `WORKFLOWS.md` is human-maintained and
+  outside this AI guidance gate. Do not edit from an isolated excerpt.
 - Before editing a file, apply any matching file-scoped instructions authored
   under `.apm/instructions/` and deployed by APM. These instructions supplement
   the active skill and nearest `AGENTS.md`; they do not replace them. If the
@@ -283,3 +346,12 @@ instruction files in generated target directories.
   the configured agent targets. Do not manually edit generated target
   directories. If APM is unavailable, report that deployment could not be
   synchronized.
+- At the start of every agent workflow, verify that the configured harness
+  deployments contain the current authored skills and file-scoped instructions
+  from `.apm/` by running `apm audit --ci`. If the audit reports any missing or
+  stale deployment, run `apm install --frozen` from the repository root and
+  rerun `apm audit --ci` before relying on repository-local guidance. If frozen
+  installation reports that `apm.yml` and `apm.lock.yaml` are out of sync,
+  reconcile the authored APM changes with plain `apm install`, then rerun the
+  audit. Treat a passing `apm audit --ci` as deployment verification; file
+  presence alone is insufficient.

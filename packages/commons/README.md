@@ -1,6 +1,6 @@
 # Commons
 
-Local workspace for sharing configs and scripts...
+Package for sharing common configs, plugins, and scripts...
 
 ## Setup
 
@@ -9,6 +9,14 @@ yarn [workspace workspace-name] add -DE commons
 ```
 
 ### Configs
+
+The following examples asssume `package.json` is enabled with ES Module support:
+
+```json
+{
+  "type": "module"
+}
+```
 
 #### Vite
 
@@ -124,12 +132,14 @@ export default defineConfig((env) =>
 
 #### Lint Staged
 
-See [source](lint-staged.base.config.ts)
+See [source](lint-staged.config.ts)
 
-/your/project/lint-staged.config.js
+/your/project/lint-staged.config.ts
 
 ```js
-export { default } from 'commons/esm/lint-staged.base.config.js';
+import { resolveConfig } from 'commons/esm/lint-staged.config.js';
+
+export default resolveConfig(import.meta.dirname)({});
 ```
 
 Or
@@ -460,3 +470,7 @@ story({
 ##### Node Importers
 
 Add your importers to [node-sass-importers.cts](node-sass-importers.cts) and import the script (e.g. `const sassOptions = { importers: require('common/cjs/node-sass-importers.cjs') };`) as part of your tool config. You also create your own importers. See API [docs](https://sass-lang.com/documentation/js-api/).
+
+### Scripts
+
+See [bin/](bin/README.md)
