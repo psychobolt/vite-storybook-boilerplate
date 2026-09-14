@@ -4,7 +4,8 @@ on:
   schedule:
     # The "*" (#42, asterisk) character has special semantics in YAML, so this
     # string has to be quoted.
-    - cron: '0/10 * * * *' # Every 10 minutes
+    - cron: '2/10 * * * *' # Every 10 minutes
+      timezone: America/Los_Angeles
 
 permissions:
   contents: read
