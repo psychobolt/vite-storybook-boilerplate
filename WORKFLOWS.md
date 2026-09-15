@@ -18,6 +18,24 @@ Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up en
 
 Follow [Vercel's guide](https://vercel.com/docs/getting-started-with-vercel) on setting up your deployments to Vercel's dashboard.
 
+## Syncing With Base Project (git)
+
+Occasionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
+
+```sh
+git remote add base https://github.com/psychobolt/vite-storybook-boilerplate
+```
+
+Anytime there are new updates, run:
+
+```sh
+git fetch base
+git merge base/main [--squash]
+git add .                                # after resolving any conflicts
+git commit -m "upgrading infrastructure" # your comment
+git push
+```
+
 ## Agent Skills
 
 Repository-specific agent workflows are authored in the [.apm/skills/](.apm/skills/) directory and referenced in the root [AGENTS](AGENTS.md#workflow-skills) markdown file. In most cases, the skills can be found automatically by the LLM agent after APM deployment. They can also be installed manually with [APM](DEVELOPMENT.md#setup-agent-package-manager-recommended).
@@ -78,28 +96,18 @@ git stash                   # or git add . && git commit -m "[DEV] Patch"
 git checkout -b dev/upgrade # or dev/patch
 ```
 
-Then instruct the agent to sync across projects using the local skill, e.g:
+Then ensure the `base` url added or current e.g `git remote base get-url`. If there is no remote `base`, you can add it manually or change url from the [sync workflow](#syncing-with-base-project-git). Note: The agent will add a new base based on the sync workflow if none exists.
+
+If the base skills has been recently updated, you may want to perform a remote synchronization of the skills first:
+
+```
+There is a updated sync skill within the base project. It is within the .apm/skills folder. Read it along with all linked references including all documentation from the base. After, read all documentation from the project. Provide all points of conflicts and verify that you have enough information to resolve them. If there is enough information to resolve conflicts, proceed with the sync workflow.
+```
+
+Otherwise, you can use the local skill directly:
 
 ```text
-I've created a new local branch. Sync changes from base/main. Do not publish any changes.
+Sync changes from base/main.
 ```
 
-Once complete, you may verify changes before proceeding e.g. `git merge --continue`.
-
-## Syncing With Base Project (git)
-
-Occasionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
-
-```sh
-git remote add base https://github.com/psychobolt/vite-storybook-boilerplate
-```
-
-Anytime there are new updates, run:
-
-```sh
-git fetch base
-git merge base/main [--squash]
-git add .                                # after resolving any conflicts
-git commit -m "upgrading infrastructure" # your comment
-git push
-```
+Once complete, you may verify changes before proceeding with commit e.g. `git merge --continue` or `git add . && git commit -m "upgrading infrastructure"`.
