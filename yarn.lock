@@ -5820,44 +5820,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turbo/darwin-64@npm:2.10.12":
-  version: 2.10.12
-  resolution: "@turbo/darwin-64@npm:2.10.12"
+"@turbo/darwin-64@npm:2.10.13":
+  version: 2.10.13
+  resolution: "@turbo/darwin-64@npm:2.10.13"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/darwin-arm64@npm:2.10.12":
-  version: 2.10.12
-  resolution: "@turbo/darwin-arm64@npm:2.10.12"
+"@turbo/darwin-arm64@npm:2.10.13":
+  version: 2.10.13
+  resolution: "@turbo/darwin-arm64@npm:2.10.13"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@turbo/linux-64@npm:2.10.12":
-  version: 2.10.12
-  resolution: "@turbo/linux-64@npm:2.10.12"
+"@turbo/linux-64@npm:2.10.13":
+  version: 2.10.13
+  resolution: "@turbo/linux-64@npm:2.10.13"
   conditions: (os=android | os=linux) & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/linux-arm64@npm:2.10.12":
-  version: 2.10.12
-  resolution: "@turbo/linux-arm64@npm:2.10.12"
+"@turbo/linux-arm64@npm:2.10.13":
+  version: 2.10.13
+  resolution: "@turbo/linux-arm64@npm:2.10.13"
   conditions: (os=android | os=linux) & cpu=arm64
   languageName: node
   linkType: hard
 
-"@turbo/windows-64@npm:2.10.12":
-  version: 2.10.12
-  resolution: "@turbo/windows-64@npm:2.10.12"
+"@turbo/windows-64@npm:2.10.13":
+  version: 2.10.13
+  resolution: "@turbo/windows-64@npm:2.10.13"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/windows-arm64@npm:2.10.12":
-  version: 2.10.12
-  resolution: "@turbo/windows-arm64@npm:2.10.12"
+"@turbo/windows-arm64@npm:2.10.13":
+  version: 2.10.13
+  resolution: "@turbo/windows-arm64@npm:2.10.13"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -8617,7 +8617,7 @@ __metadata:
     storybook-zeplin: "npm:4.0.1"
     stylelint: "npm:17.15.0"
     ts-enum-util: "npm:4.1.0"
-    turbo: "npm:2.10.12"
+    turbo: "npm:2.10.13"
     type-fest: "npm:5.9.0"
     typescript: "npm:6.0.3"
     vite: "npm:8.3.0"
@@ -12105,7 +12105,7 @@ __metadata:
     storybook: "npm:10.6.0"
     stylelint: "npm:17.15.0"
     stylelint-config: "workspace:*"
-    turbo: "npm:2.10.12"
+    turbo: "npm:2.10.13"
     type-fest: "npm:5.9.0"
     typescript: "npm:6.0.3"
     typescript-plugin-css-modules: "npm:5.2.0"
@@ -15711,7 +15711,7 @@ __metadata:
     react-dom: "npm:19.3.0"
     react-ui: "workspace:*"
     styled-jsx: "npm:5.1.7"
-    turbo: "npm:2.10.12"
+    turbo: "npm:2.10.13"
     typescript: "npm:6.0.3"
   languageName: unknown
   linkType: soft
@@ -17681,7 +17681,7 @@ __metadata:
     storybook: "npm:10.6.0"
     stylelint: "npm:17.15.0"
     stylelint-config: "workspace:*"
-    turbo: "npm:2.10.12"
+    turbo: "npm:2.10.13"
     type-fest: "npm:5.9.0"
     typescript: "npm:6.0.3"
     typescript-plugin-css-modules: "npm:5.2.0"
@@ -19676,7 +19676,7 @@ __metadata:
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
     stylelint-order: "npm:8.1.1"
-    turbo: "npm:2.10.12"
+    turbo: "npm:2.10.13"
     typescript: "npm:6.0.3"
   peerDependencies:
     stylelint: "*"
@@ -19870,7 +19870,7 @@ __metadata:
     svelte-check: "npm:4.7.6"
     svelte-eslint-parser: "npm:1.8.1"
     svelte-language-server: "npm:0.18.4"
-    turbo: "npm:2.10.12"
+    turbo: "npm:2.10.13"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.70.0"
     vite: "npm:8.3.0"
@@ -20336,16 +20336,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:2.10.12":
-  version: 2.10.12
-  resolution: "turbo@npm:2.10.12"
+"turbo@npm:2.10.13":
+  version: 2.10.13
+  resolution: "turbo@npm:2.10.13"
   dependencies:
-    "@turbo/darwin-64": "npm:2.10.12"
-    "@turbo/darwin-arm64": "npm:2.10.12"
-    "@turbo/linux-64": "npm:2.10.12"
-    "@turbo/linux-arm64": "npm:2.10.12"
-    "@turbo/windows-64": "npm:2.10.12"
-    "@turbo/windows-arm64": "npm:2.10.12"
+    "@turbo/darwin-64": "npm:2.10.13"
+    "@turbo/darwin-arm64": "npm:2.10.13"
+    "@turbo/linux-64": "npm:2.10.13"
+    "@turbo/linux-arm64": "npm:2.10.13"
+    "@turbo/windows-64": "npm:2.10.13"
+    "@turbo/windows-arm64": "npm:2.10.13"
   dependenciesMeta:
     "@turbo/darwin-64":
       optional: true
@@ -20361,7 +20361,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10c0/bc912180b8c00f88be0672223c6cf8b61e05f113a93574d3bcb7343f9391ee03c115afc4468c76c4dfcbd9ee4a6564b025762dad9aefe53a91e02ff62613d9be
+  checksum: 10c0/5dfc6bcdd94da180a70a20b6b223b879da1175f93007c62670084f983e21ebccb27b65d92a04ddc02c0b46385aa65e87858c20172dc5a0338584c5c9bb5f0901
   languageName: node
   linkType: hard
 
@@ -21217,7 +21217,7 @@ __metadata:
     semver: "npm:7.8.5"
     skills: "npm:1.5.26"
     svelte-language-server: "npm:0.18.4"
-    turbo: "npm:2.10.12"
+    turbo: "npm:2.10.13"
     typescript: "npm:6.0.3"
   languageName: unknown
   linkType: soft
