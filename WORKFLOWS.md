@@ -48,7 +48,7 @@ Ideally the [fork skill](.apm/skills/fork/SKILL.md) is used when establishing th
 
 Execute this only once at the beginning of the project's conception.
 
-```text
+```
 Prepare this repository as an independent fork with a new identity.
 
 Project name: <project-name, or use the current directory name>
@@ -62,7 +62,7 @@ History: reset the existing Git history after completing the fork preflight.
 
 Execute this only once at the beginning of the project's conception.
 
-```text
+```
 Prepare this repository as an extension of an existing project.
 
 Project URL for origin: <project-url>
@@ -73,7 +73,7 @@ History: preserve the existing Git history; do not reset it.
 
 Can be run anytime after initial project conception.
 
-```text
+```
 Review and apply cleanup to these paths:
 
 Requested paths:
@@ -106,7 +106,7 @@ There is a updated sync skill within the base project. It is within the .apm/ski
 
 Otherwise, you can use the local skill directly:
 
-```text
+```
 Sync changes from base/main.
 ```
 
