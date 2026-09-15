@@ -265,6 +265,13 @@ commands.
    differences. Recheck protected infrastructure and local agent guidance
    after conflict resolution.
 
+   Preserve intentional `origin/main` ordering of documentation sections,
+   configuration blocks, imports, and declarations when integrating base
+   changes. An order-only base change is not a reason to reorder the target;
+   place compatible base additions within the origin structure. Follow the
+   repository's formatter and import-order rules when they require a different
+   placement, and preserve any ordering that is semantically significant.
+
    When the merge reports a `deleted by us` path, read the deletion inventory
    and confirm that the project-side deletion is intentional. To preserve that
    deletion, remove the path from the merge result with `git rm -- <path>`;
