@@ -33,7 +33,7 @@
     "html-ui": "workspace:*",
     "next": "16.3.5",
     "next-devtools-mcp": "0.4.0",
-    "prettier": "3.9.7",
+    "prettier": "3.9.8",
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-packagejson": "3.0.2",
     "prettier-plugin-sh": "0.19.0",
