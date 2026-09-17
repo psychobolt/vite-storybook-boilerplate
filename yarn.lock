@@ -1252,17 +1252,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.26.1":
-  version: 2.26.1
-  resolution: "@dotenvx/dotenvx@npm:2.26.1"
+"@dotenvx/dotenvx@npm:2.28.0":
+  version: 2.28.0
+  resolution: "@dotenvx/dotenvx@npm:2.28.0"
   dependencies:
     "@dotenvx/primitives": "npm:^3.0.2"
     "@dotenvx/tooling": "npm:^1.0.3"
+    global-agent: "npm:^3.0.0"
+    node-forge: "npm:^1.4.0"
+    undici: "npm:^6.28.1"
     yocto-spinner: "npm:^1.2.1"
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/ce41b25e014a6196a524fba8ff9b79d7c130f8108f547e5524933bdac028729c0ad067ea94d41a55512d40b184bfccc2c117e5750f7774a34fd9ec028fa3a86c
+  checksum: 10c0/280e5634c02c1b05b4a56b4b728898decb953f2403075bab3fd6c1855bf9e628f4427c18ffda49efeebcc486d2943f1a9e82b0a8055e47ebcb3e32a8f39340a7
   languageName: node
   linkType: hard
 
@@ -11588,7 +11591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"global-agent@npm:3.0.0":
+"global-agent@npm:3.0.0, global-agent@npm:^3.0.0":
   version: 3.0.0
   resolution: "global-agent@npm:3.0.0"
   dependencies:
@@ -15690,7 +15693,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.26.1"
+    "@dotenvx/dotenvx": "npm:2.28.0"
     "@types/node": "npm:24.13.5"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
@@ -15841,6 +15844,13 @@ __metadata:
     fetch-blob: "npm:^3.1.4"
     formdata-polyfill: "npm:^4.0.10"
   checksum: 10c0/f3d5e56190562221398c9f5750198b34cf6113aa304e34ee97c94fd300ec578b25b2c2906edba922050fce983338fde0d5d34fcb0fc3336ade5bd0e429ad7538
+  languageName: node
+  linkType: hard
+
+"node-forge@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "node-forge@npm:1.4.0"
+  checksum: 10c0/67330a5f1f95257a4c8a93b7d555abe87b5f15e350123aa396c97a21a8ca94f9c6549008eb2c73668a91e0d7e3a905785acbd8f8bd0751c29401292011f8f8e1
   languageName: node
   linkType: hard
 
@@ -20690,6 +20700,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici@npm:^6.28.1":
+  version: 6.28.1
+  resolution: "undici@npm:6.28.1"
+  checksum: 10c0/9c7c277da83972f4f506d564b1d627e3e78aadf866915eab768d96fc70daeae8ff7d87d0cdb32403ae1afdf3aef0f11715e0847d66910fda62822c33c5a7e674
+  languageName: node
+  linkType: hard
+
 "undici@npm:^7.18.2":
   version: 7.29.1
   resolution: "undici@npm:7.29.1"
@@ -21200,7 +21217,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.26.1"
+    "@dotenvx/dotenvx": "npm:2.28.0"
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.2"
