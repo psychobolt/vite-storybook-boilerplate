@@ -62,7 +62,7 @@
     "storybook-zeplin": "4.0.1",
     "ts-enum-util": "4.1.0",
     "turbo": "2.10.13",
-    "type-fest": "5.9.0",
+    "type-fest": "5.10.0",
     "vite-tsconfig-paths": "6.1.1",
     "wait-on": "9.1.0",
     "yaml": "2.9.1"
