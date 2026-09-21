@@ -91,7 +91,7 @@ definitions:
         fi
         [ ${REPORT_STATUS:-0} = 0 ] && true || exit $REPORT_STATUS
     - script: &release |
-        if [[ -z "REF_NAME" ]]; then
+        if [[ -z "$REF_NAME" ]]; then
           REF_NAME="$BITBUCKET_BRANCH"
         fi
 
