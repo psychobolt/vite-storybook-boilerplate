@@ -1252,11 +1252,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.29.0":
-  version: 2.29.0
-  resolution: "@dotenvx/dotenvx@npm:2.29.0"
+"@dotenvx/dotenvx@npm:2.30.0":
+  version: 2.30.0
+  resolution: "@dotenvx/dotenvx@npm:2.30.0"
   dependencies:
-    "@dotenvx/primitives": "npm:^3.0.2"
+    "@dotenvx/primitives": "npm:^3.0.3"
     "@dotenvx/tooling": "npm:^1.0.3"
     global-agent: "npm:^3.0.0"
     node-forge: "npm:^1.4.0"
@@ -1265,14 +1265,14 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/37eaefe2024b1ef921256367fc37589a7d808a50acf2d4f1b2c07f8aabaa2cb798ed4661dcbd256ad1a2113c32a1f9cae79263948c95c66e7057b24239b0dcad
+  checksum: 10c0/066328f91cec89f3291d630e77e90fe8c79f4072fcafdbbe341f898b18bb31cccda7bfeebec2e5c4d434c3e7ad8b8025d29e461cb8603c9c6c1557de1c83352f
   languageName: node
   linkType: hard
 
-"@dotenvx/primitives@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "@dotenvx/primitives@npm:3.0.2"
-  checksum: 10c0/1c716c6b47622c0841f83c9f6dfebed6acf147986a4a14fa41369f41273c26b80a42b91d883c1a069a5737b0a5218c2a90386ad9965d0ba18d140d6ea08c6d8c
+"@dotenvx/primitives@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@dotenvx/primitives@npm:3.0.3"
+  checksum: 10c0/b65aab7dd90e2b1d1098e8913080f7c8b40e43c8564841bbe1113597d53847b16b914c8a84cf33f1c3178369f1657c4b46893b811bb0b1b93aa6b7d0e43cc315
   languageName: node
   linkType: hard
 
@@ -15715,7 +15715,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.29.0"
+    "@dotenvx/dotenvx": "npm:2.30.0"
     "@types/node": "npm:24.13.6"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
@@ -21238,7 +21238,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.29.0"
+    "@dotenvx/dotenvx": "npm:2.30.0"
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.2"
