@@ -74,7 +74,7 @@
     "@storybook/addon-vitest": "10.6.0",
     "@storybook/global": "5.0.0",
     "@types/glob-to-regexp": "0.4.4",
-    "@types/node": "24.13.6",
+    "@types/node": "24.19.0",
     "@types/wait-on": "5.3.4",
     "@typescript-eslint/utils": "8.70.1",
     "chromatic": "18.9.5",
