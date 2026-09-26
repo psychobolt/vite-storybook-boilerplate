@@ -6177,12 +6177,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.13.6":
-  version: 24.13.6
-  resolution: "@types/node@npm:24.13.6"
+"@types/node@npm:24.19.0":
+  version: 24.19.0
+  resolution: "@types/node@npm:24.19.0"
   dependencies:
-    undici-types: "npm:~7.18.0"
-  checksum: 10c0/b6302b2ede891e3a583a6e9c75390e8bc0fb8a99ea81c61ed029c244426550f1508ebae4ba1acf32840fb22a7df461f1e87b449043a8f906240b31a090866c1a
+    undici-types: "npm:>=7.24.0 <7.24.7"
+  checksum: 10c0/f38afca05eb323a01243aa06a4cb8e69ef3423e1115e4464a211c6556156c024bb80fadeb7e3691802a247e7e653b70bad8c528b291153e4f48fccecc6159735
   languageName: node
   linkType: hard
 
@@ -8584,7 +8584,7 @@ __metadata:
     "@types/eslint": "npm:9.6.1"
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/lodash": "npm:4.17.25"
-    "@types/node": "npm:24.13.6"
+    "@types/node": "npm:24.19.0"
     "@types/react": "npm:19.3.0"
     "@types/wait-on": "npm:5.3.4"
     "@typescript-eslint/utils": "npm:8.70.1"
@@ -15716,7 +15716,7 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@dotenvx/dotenvx": "npm:2.30.0"
-    "@types/node": "npm:24.13.6"
+    "@types/node": "npm:24.19.0"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
     "@types/react-dom": "npm:19.3.0"
@@ -19866,7 +19866,7 @@ __metadata:
     "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
-    "@types/node": "npm:24.13.6"
+    "@types/node": "npm:24.19.0"
     "@typescript-eslint/utils": "npm:8.70.1"
     commons: "workspace:*"
     eslint: "npm:10.11.0"
@@ -20679,17 +20679,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici-types@npm:>=7.24.0 <7.24.7":
+  version: 7.24.6
+  resolution: "undici-types@npm:7.24.6"
+  checksum: 10c0/d9cd8befb643ac904615c280a095ba4240531f6bb4a5e75a22a7483630ca8d3f1016d2ab6ace6ceda1f63b3a2db2fe037fafe121d6917a0187573aa548ff78ca
+  languageName: node
+  linkType: hard
+
 "undici-types@npm:~6.21.0":
   version: 6.21.0
   resolution: "undici-types@npm:6.21.0"
   checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
-  languageName: node
-  linkType: hard
-
-"undici-types@npm:~7.18.0":
-  version: 7.18.2
-  resolution: "undici-types@npm:7.18.2"
-  checksum: 10c0/85a79189113a238959d7a647368e4f7c5559c3a404ebdb8fc4488145ce9426fcd82252a844a302798dfc0e37e6fb178ff481ed03bc4caf634c5757d9ef43521d
   languageName: node
   linkType: hard
 
@@ -21221,7 +21221,7 @@ __metadata:
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.2"
-    "@types/node": "npm:24.13.6"
+    "@types/node": "npm:24.19.0"
     "@types/semver": "npm:7.8.0"
     "@typescript-eslint/utils": "npm:8.70.1"
     "@yarnpkg/sdks": "npm:3.3.1"
