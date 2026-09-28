@@ -8598,7 +8598,7 @@ __metadata:
     eslint: "npm:10.11.0"
     eslint-plugin-jsonc: "npm:3.4.2"
     eslint-plugin-mdx: "npm:3.8.1"
-    eslint-plugin-package-json: "npm:1.10.0"
+    eslint-plugin-package-json: "npm:1.10.1"
     eslint-plugin-storybook: "npm:10.6.0"
     glob-to-regexp: "npm:0.4.1"
     http-server: "npm:14.1.1"
@@ -10181,9 +10181,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-package-json@npm:1.10.0":
-  version: 1.10.0
-  resolution: "eslint-plugin-package-json@npm:1.10.0"
+"eslint-plugin-package-json@npm:1.10.1":
+  version: 1.10.1
+  resolution: "eslint-plugin-package-json@npm:1.10.1"
   dependencies:
     "@altano/repository-tools": "npm:^2.0.1"
     "@types/estree": "npm:^1.0.0"
@@ -10203,7 +10203,7 @@ __metadata:
   peerDependenciesMeta:
     "@eslint/json":
       optional: true
-  checksum: 10c0/6f4a56354348b2befd4235f6d1c2c29e65e0da4d59c69c39843c851df972767a7b3138f5c889f269826ee3302897c8a81817e7359e86a5427efe2c66378ed9e8
+  checksum: 10c0/983f6894de70252fdf686f231381346c08b9f2a8029813e810afefb23ba1111f746af26f04895cda8801f54e08f0a80d5bbd46e64b203fce8836c52b66e9c14b
   languageName: node
   linkType: hard
 
