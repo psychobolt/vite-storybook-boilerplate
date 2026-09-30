@@ -21,7 +21,7 @@
     "react-ui": "portal:../../packages/react-ui"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "2.31.1",
+    "@dotenvx/dotenvx": "2.32.2",
     "@types/node": "24.19.0",
     "@types/prop-types": "15.7.15",
     "@types/react": "19.3.0",
