@@ -1252,9 +1252,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.31.1":
-  version: 2.31.1
-  resolution: "@dotenvx/dotenvx@npm:2.31.1"
+"@dotenvx/dotenvx@npm:2.32.2":
+  version: 2.32.2
+  resolution: "@dotenvx/dotenvx@npm:2.32.2"
   dependencies:
     "@dotenvx/primitives": "npm:^3.0.3"
     "@dotenvx/tooling": "npm:^1.0.3"
@@ -1265,7 +1265,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/fb03099a2fbe8e132b69bb643aacebfc0407f588e5f09ef18f0ca125d7757bc0a49bbd110901ecd4fa06123c6d5032754aaf8b3e3e12ff89fb963301ec94f4b8
+  checksum: 10c0/a62ecba7104617e81a5d0cd2c0249c65e034782099b289b2d929f0d19dd0a6b16e74f4b43fed7a2e7a59bd02f2486cb2334cbea439c05913598dc7f76492a333
   languageName: node
   linkType: hard
 
@@ -15715,7 +15715,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.31.1"
+    "@dotenvx/dotenvx": "npm:2.32.2"
     "@types/node": "npm:24.19.0"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
@@ -21217,7 +21217,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.31.1"
+    "@dotenvx/dotenvx": "npm:2.32.2"
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.12"
