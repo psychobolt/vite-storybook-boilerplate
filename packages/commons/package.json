@@ -33,7 +33,7 @@
   "dependencies": {
     "@chromatic-com/storybook": "5.4.0",
     "@storybook/builder-vite": "10.6.1",
-    "@storybook/test-runner": "0.24.5",
+    "@storybook/test-runner": "0.26.0",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4.17.25",
     "@types/react": "19.3.0",
