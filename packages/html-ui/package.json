@@ -56,7 +56,7 @@
     "rollup-plugin-no-emit": "1.3.0",
     "sass": "1.105.1",
     "storybook": "10.6.1",
-    "stylelint": "17.15.0",
+    "stylelint": "17.16.0",
     "stylelint-config": "workspace:*",
     "turbo": "2.11.6",
     "type-fest": "5.10.0",
