@@ -31,7 +31,7 @@
     "lint": "yarn g:prettier --check --config esm/prettier.config.js $(echo \"${@:-.}\") && yarn g:lint \"$@\""
   },
   "dependencies": {
-    "@chromatic-com/storybook": "5.3.1",
+    "@chromatic-com/storybook": "5.4.0",
     "@storybook/builder-vite": "10.6.1",
     "@storybook/test-runner": "0.24.5",
     "@types/eslint": "9.6.1",
