@@ -433,9 +433,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.32.3":
-  version: 2.32.3
-  resolution: "@dotenvx/dotenvx@npm:2.32.3"
+"@dotenvx/dotenvx@npm:2.32.4":
+  version: 2.32.4
+  resolution: "@dotenvx/dotenvx@npm:2.32.4"
   dependencies:
     "@dotenvx/primitives": "npm:^3.0.3"
     "@dotenvx/tooling": "npm:^1.0.3"
@@ -446,7 +446,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/8ff1feddade732c7594a57703ec47f657cfc041021112c26271bb9f89ff3f52fc011b39c8dd6f4490a4181103342e9941adfb07f354d9af481b246d457a70dbe
+  checksum: 10c0/fc2433a397f7c438fb1ce1343f0bef4877597d27a5de1a2403fbbc2a3fa051f4bc9bad9740f3371f28efa5b235affdbc0f07c54da25708d8fda5b1570e061c7f
   languageName: node
   linkType: hard
 
@@ -8966,7 +8966,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.32.3"
+    "@dotenvx/dotenvx": "npm:2.32.4"
     "@types/node": "npm:24.19.0"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
