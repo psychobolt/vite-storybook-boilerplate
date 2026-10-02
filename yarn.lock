@@ -5392,15 +5392,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:6.3.4":
-  version: 6.3.4
-  resolution: "@sveltejs/adapter-vercel@npm:6.3.4"
+"@sveltejs/adapter-vercel@npm:7.0.0":
+  version: 7.0.0
+  resolution: "@sveltejs/adapter-vercel@npm:7.0.0"
   dependencies:
-    "@vercel/nft": "npm:^1.3.2"
-    esbuild: "npm:^0.28.1"
+    "@vercel/nft": "npm:^1.10.2"
   peerDependencies:
-    "@sveltejs/kit": ^2.4.0
-  checksum: 10c0/8253b44e64dceb76bfcc203eeb765630224b3ca2588c67b2bc218da287ab04ca806fa62b7bc6fceb53b8194cc53fe95ce20cd580e34096ea581a3284b3e5add5
+    "@sveltejs/kit": ^3.0.0-next.0
+  checksum: 10c0/18a44a8366e75195e312eb9a4f9a117f4d6ed4b9dfb1d0928f8b09c37a59212005dae508adead1eb1bd4b38a92cc72a687943ee420406d7aa1f7571d32e09059
   languageName: node
   linkType: hard
 
@@ -6658,7 +6657,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:1.11.0, @vercel/nft@npm:^1.3.2":
+"@vercel/nft@npm:1.11.0, @vercel/nft@npm:^1.10.2":
   version: 1.11.0
   resolution: "@vercel/nft@npm:1.11.0"
   dependencies:
@@ -9779,7 +9778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0 || ^0.28.0, esbuild@npm:^0.28.1":
+"esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0 || ^0.28.0":
   version: 0.28.2
   resolution: "esbuild@npm:0.28.2"
   dependencies:
@@ -19860,7 +19859,7 @@ __metadata:
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"
     "@sveltejs/adapter-auto": "npm:8.0.0"
-    "@sveltejs/adapter-vercel": "npm:6.3.4"
+    "@sveltejs/adapter-vercel": "npm:7.0.0"
     "@sveltejs/kit": "npm:2.70.3"
     "@sveltejs/mcp": "npm:0.1.26"
     "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
