@@ -1252,27 +1252,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.32.4":
-  version: 2.32.4
-  resolution: "@dotenvx/dotenvx@npm:2.32.4"
+"@dotenvx/dotenvx@npm:2.33.0":
+  version: 2.33.0
+  resolution: "@dotenvx/dotenvx@npm:2.33.0"
   dependencies:
-    "@dotenvx/primitives": "npm:^3.0.3"
+    "@dotenvx/primitives": "npm:^3.1.0"
     "@dotenvx/tooling": "npm:^1.0.3"
     global-agent: "npm:^3.0.0"
-    node-forge: "npm:^1.4.0"
     undici: "npm:^6.28.1"
     yocto-spinner: "npm:^1.2.1"
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/fc2433a397f7c438fb1ce1343f0bef4877597d27a5de1a2403fbbc2a3fa051f4bc9bad9740f3371f28efa5b235affdbc0f07c54da25708d8fda5b1570e061c7f
+  checksum: 10c0/79a7ba27795c72c7c202e4251d8a088cdac08d65eb4b9070673341392a94799adff69151d4c0cbdbb8ed020c444de42e6f854b7bec872040776a38d2a25c1712
   languageName: node
   linkType: hard
 
-"@dotenvx/primitives@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "@dotenvx/primitives@npm:3.0.3"
-  checksum: 10c0/b65aab7dd90e2b1d1098e8913080f7c8b40e43c8564841bbe1113597d53847b16b914c8a84cf33f1c3178369f1657c4b46893b811bb0b1b93aa6b7d0e43cc315
+"@dotenvx/primitives@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@dotenvx/primitives@npm:3.1.0"
+  checksum: 10c0/d4ead0348ad1f3f673de53a82052cd4397d3ce0a094edfdcc86756d5ca96e8ed536a0dc5831dfa2039fa877642b4a5ee2ebe05da3b94d55805ac20c128460a20
   languageName: node
   linkType: hard
 
@@ -15724,7 +15723,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.32.4"
+    "@dotenvx/dotenvx": "npm:2.33.0"
     "@types/node": "npm:24.19.1"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
@@ -15875,13 +15874,6 @@ __metadata:
     fetch-blob: "npm:^3.1.4"
     formdata-polyfill: "npm:^4.0.10"
   checksum: 10c0/f3d5e56190562221398c9f5750198b34cf6113aa304e34ee97c94fd300ec578b25b2c2906edba922050fce983338fde0d5d34fcb0fc3336ade5bd0e429ad7538
-  languageName: node
-  linkType: hard
-
-"node-forge@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "node-forge@npm:1.4.0"
-  checksum: 10c0/67330a5f1f95257a4c8a93b7d555abe87b5f15e350123aa396c97a21a8ca94f9c6549008eb2c73668a91e0d7e3a905785acbd8f8bd0751c29401292011f8f8e1
   languageName: node
   linkType: hard
 
@@ -21233,7 +21225,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.32.4"
+    "@dotenvx/dotenvx": "npm:2.33.0"
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.13"
