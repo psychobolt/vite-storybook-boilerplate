@@ -88,7 +88,7 @@
     "react": "19.3.0",
     "react-docgen-typescript": "2.4.0",
     "react-dom": "19.3.0",
-    "rolldown": "1.2.12",
+    "rolldown": "1.2.13",
     "sass": "1.105.1",
     "storybook": "10.6.1",
     "stylelint": "17.16.0",
