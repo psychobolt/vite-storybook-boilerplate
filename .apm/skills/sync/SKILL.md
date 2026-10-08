@@ -130,6 +130,15 @@ commands.
    overlaps a project-side change, restores a project-deleted path, or replaces
    a project workflow or documentation update for conflict review.
 
+   Apply documentation reference consistency when base renames, moves, or
+   removes a documented section, heading, anchor, path, or command. Identify
+   the canonical base form, then search both trees and all tracked Markdown for
+   references to the old form. Update only references that should follow it,
+   preserve project-specific documentation content, and include every changed
+   documentation path in the reconciliation table. Before validation, rescan
+   tracked Markdown for stale references and verify that each changed internal
+   link resolves to an existing local heading or file.
+
    For workflow and automation files, compare trigger and job enablement as
    separate behavior. Preserve an origin-side disabled trigger or job as
    intentional project behavior; do not re-enable it solely because the base
@@ -179,6 +188,17 @@ commands.
    and package-tooling conventions for usage or intentional retention. If the
    evidence is inconclusive, preserve the project dependency and record the
    reason in the reconciliation table.
+
+   Treat a rename, relocation, or duplicate tooling path as an ownership
+   change, not as an isolated file addition. For each affected path, identify
+   the authoritative implementation, every consumer, the source globs that
+   validate it, and the workspace manifest that owns its dependencies. If the
+   origin source remains, keep the dependencies required by that source even
+   when base adds a corresponding implementation under another workspace.
+   Accept a dependency relocation only after the source, consumers,
+   configuration, validation coverage, and manifest ownership have all moved or
+   been updated consistently. Otherwise retain the origin implementation and
+   dependency set, or leave the relocation unresolved.
 
    For unrelated histories, there is no reliable merge-base change history.
    Treat the current `origin/main` tree as the project baseline. Compare the
@@ -332,6 +352,14 @@ commands.
 - The per-file reconciliation table is complete, and every omitted base change
   is classified as intentional or compatible-but-retained; unresolved items
   block completion.
+- Any relocated or duplicated source has one intentional owner, all consumers
+  resolve that owner, and each retained source is covered by its workspace
+  manifest and validation commands. Run the relevant root and workspace checks
+  when a source path, source glob, or dependency owner changes; do not treat a
+  failure as pre-existing unless the same check failed before this sync.
+- Changed documentation links resolve to existing local headings or files, and
+  no stale base title, anchor, path, or command remains unless its retention is
+  recorded as intentional.
 - The changed documentation, manifests, workflows, and protected paths do
   not contain accidental stale identity references.
 - Workflow and automation changes do not re-enable an origin-side disabled

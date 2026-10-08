@@ -2,7 +2,7 @@
 
 ## Functions
 
-`functions.ts` ([Source](functionts.ts))
+`functions.ts` ([Source](functions.ts))
 
 ### General Exit Codes
 
@@ -11,6 +11,14 @@ The following are constants that can be imported to script files. It is best in 
 - `EXIT_SUCCESS` - The script has no errors
 - `EXIT_INVALID_USAGE` - For general or usage errors
 - `EXIT_INVALID_ARGUMENTS` - For specific errors with passed arguments
+
+### `readFileFromCwd`
+
+```ts
+const contents = await readFileFromCwd('../../cert/dev-cert.pem', options);
+```
+
+Reads a file path relative to the current working directory with Node's [readFile](https://nodejs.org/api/fs.html#fspromisesreadfilepath-options) options.
 
 ### `$`
 
@@ -23,7 +31,7 @@ Analogous to running a sub process, denoted similarly as [shell substitution](ht
 ### `hash`
 
 ```ts
-const string = hash(algorihtm, data, options);
+const hashString = hash(algorihtm, data, options);
 ```
 
 Generate a hashed string using built-in crypto library available in Node v20.12.0+. Refer to [docs](https://nodejs.org/api/crypto.html#cryptohashalgorithm-data-options) for usage.

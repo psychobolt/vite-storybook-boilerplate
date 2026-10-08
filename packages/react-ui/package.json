@@ -56,7 +56,7 @@
     "format": "yarn g:format",
     "lint": "yarn g:prettier --check $(echo \"${@:-.}\") && yarn g:lint --runner stylelint --runner eslint \"$@\"",
     "prepack": "turbo run build",
-    "start": "yarn g:dotenv-run -- yarn g:http-server storybook-static",
+    "start": "yarn g:dotenv-run -- yarn http-server storybook-static --cors \"$@\" & yarn g:dotenv-run -- yarn view",
     "test": "yarn g:vitest",
     "watch": "yarn build-src -w --mode development & yarn watch-dts",
     "watch-dts": "tsc -p tsconfig.dts.json -w & tsc-paths -p tsconfig.dts.json -w"

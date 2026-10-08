@@ -59,6 +59,7 @@ export default defineConfig([
 			'node_modules/',
 			'.svelte-kit/',
 			'.turbo/',
+			'.wrangler/',
 			'*.cjs',
 			'.env',
 			'.env.*',

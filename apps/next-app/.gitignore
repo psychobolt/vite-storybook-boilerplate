@@ -1,2 +1,4 @@
-.next
+.next/
+.vinext/
+.wrangler/
 next-env.d.ts
