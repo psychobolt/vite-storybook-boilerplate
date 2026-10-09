@@ -6791,12 +6791,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.19.1":
-  version: 24.19.1
-  resolution: "@types/node@npm:24.19.1"
+"@types/node@npm:24.19.2":
+  version: 24.19.2
+  resolution: "@types/node@npm:24.19.2"
   dependencies:
     undici-types: "npm:>=7.24.0 <7.24.7"
-  checksum: 10c0/789822cc68a0e0b632fd0a9fa53411e33541f03c18dc19942ed38161c369bf0b013917b4c6c760688bd2d09d940c827a601add118dfa04fe35a285535b2a8596
+  checksum: 10c0/b51a7f8854007ad579dffdd0633d8addbfeb2c97cceb380f2eba0ed163638ec52e17565385a6cc04d54ac4ff99c70c64aee68a4ca45b6128c035e828794e29c5
   languageName: node
   linkType: hard
 
@@ -9280,7 +9280,7 @@ __metadata:
     "@types/eslint": "npm:9.6.1"
     "@types/glob-to-regexp": "npm:0.4.4"
     "@types/lodash": "npm:4.17.25"
-    "@types/node": "npm:24.19.1"
+    "@types/node": "npm:24.19.2"
     "@types/react": "npm:19.3.0"
     "@types/wait-on": "npm:5.3.4"
     "@typescript-eslint/utils": "npm:8.71.1"
@@ -16656,7 +16656,7 @@ __metadata:
   dependencies:
     "@cloudflare/vite-plugin": "npm:1.62.4"
     "@dotenvx/dotenvx": "npm:2.34.2"
-    "@types/node": "npm:24.19.1"
+    "@types/node": "npm:24.19.2"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
     "@types/react-dom": "npm:19.3.0"
@@ -20987,7 +20987,7 @@ __metadata:
     "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
-    "@types/node": "npm:24.19.1"
+    "@types/node": "npm:24.19.2"
     "@typescript-eslint/utils": "npm:8.71.1"
     commons: "workspace:*"
     eslint: "npm:10.12.0"
@@ -22429,7 +22429,7 @@ __metadata:
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.13"
-    "@types/node": "npm:24.19.1"
+    "@types/node": "npm:24.19.2"
     "@types/semver": "npm:7.8.0"
     "@typescript-eslint/utils": "npm:8.71.1"
     "@yarnpkg/sdks": "npm:3.3.1"
