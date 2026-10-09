@@ -11,8 +11,6 @@ on:
         type: string
       filter:
         type: string
-      test-runner:
-        type: string
       release:
         type: string
 
@@ -93,21 +91,11 @@ jobs:
       - name: Install Playwright
         run: yarn playwright install --with-deps chromium
       - name: Run Coverage
-        if: inputs.test-runner != 'vitest'
-        env:
-          # Workaround for https://github.com/facebook/jest/issues/8536
-          TEMP: ${{ runner.temp }}
-        run: >-
-          yarn dlx concurrently -k -s first -n "SB,TEST"
-          "yarn ${{ inputs.path }} turbo run start --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }} -- --silent"
-          "yarn g:wait-on $(yarn ${{ inputs.path }} g:dotenv-get SB_URL | tail -n1) -l && yarn ${{ inputs.path }} coverage"
-      - name: Run Coverage
-        if: inputs.test-runner == 'vitest'
         run: yarn ${{ inputs.path }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }}
       - name: Upload Coverage Reports
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
         with:
-          files: ${{ inputs.path }}/coverage/${{ inputs.test-runner == 'vitest' &&  'coverage-final.json' || 'storybook/coverage-storybook.json'}}
+          files: ${{ inputs.path }}/coverage/coverage-final.json
           flags: ${{ inputs.workspace }}
           fail_ci_if_error: true
           handle_no_reports_found: true

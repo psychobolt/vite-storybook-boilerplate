@@ -9,7 +9,8 @@
       "outputs": ["dist/**", "esm/**"]
     },
     "test": {
-      "outputs": ["test-reports/junit.xml"]
+      "cache": false,
+      "interactive": true
     },
     "coverage": {
       "outputs": ["test-reports/junit.xml", "coverage/**"]

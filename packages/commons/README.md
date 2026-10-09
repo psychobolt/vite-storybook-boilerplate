@@ -378,33 +378,6 @@ story({
 
 ##### [Addons](.storybook/addons/README.md)
 
-##### Test Runner
-
-1. Create your own config:
-
-   See [source](.storybook/test-runner-jest.config.ts)
-
-   /your/project/.storybook/test-runner-jest.config.ts
-
-   ```ts
-   import commonConfig from 'commons/esm/.storybook/test-runner-jest.config.js';
-
-   export default {
-     ...commonConfig
-     // your overrides
-   };
-   ```
-
-2. Add scripts to /your/project/package.json
-
-   ```json
-   {
-     "scripts": {
-       "test": "yarn g:test-storybook --index-json"
-     }
-   }
-   ```
-
 ##### Vitest
 
 1. Add a [Vitest](#vite-1) root config.
