@@ -37,4 +37,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-For other platforms, the production is built with [vinext](https://vinext.dev). See [Cloudflare's Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/) for an alternative solution.
+For other providers, vinext can build through [Nitro's Vite integration](https://nitro.build/docs/vite). Cloudflare builds use [Cloudflare's Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/).
