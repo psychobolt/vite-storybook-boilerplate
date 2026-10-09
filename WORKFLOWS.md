@@ -16,7 +16,11 @@ Follow one of the [CI guides](https://turbo.build/repo/docs/ci) on setting up en
 
 ### Vercel
 
-Follow [Vercel's guide](https://vercel.com/docs/getting-started-with-vercel) on setting up your deployments to Vercel's dashboard.
+Follow [Vercel's guide](https://vercel.com/docs/getting-started-with-vercel) on setting up your deployments to Vercel's dashboard. You can also set up [cron jobs](https://vercel.com/docs/cron-jobs) that trigger specific workflows ([limited](https://vercel.com/docs/cron-jobs/usage-and-pricing)).
+
+### Cloudflare
+
+See Cloudflare's [Workers guide](https://developers.cloudflare.com/workers/) on setting up deployments. You can also set up [cron jobs](https://developers.cloudflare.com/workers/configuration/cron-triggers/) that trigger specific workflows on a more frequent set period ([limited](https://developers.cloudflare.com/workers/platform/limits/)).
 
 ## Syncing With Base Project (git)
 

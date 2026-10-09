@@ -3,7 +3,8 @@
 	"extends": ["//"],
 	"tasks": {
 		"build": {
-			"outputs": [".svelte-kit/**", ".vercel/**"]
+			"env": ["DEPLOY_TARGET"],
+			"outputs": [".svelte-kit/**", ".vercel/**", ".wrangler/deploy/**"]
 		},
 		"start": {
 			"cache": false,

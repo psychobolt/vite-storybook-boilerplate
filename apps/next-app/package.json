@@ -3,17 +3,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
-    "dev": "next dev --experimental-https --experimental-https-key $(yarn dotenv-get HTTPS_KEY_PATH) --experimental-https-cert $(yarn dotenv-get HTTPS_CERT_PATH) -p $(yarn dotenv-get PORT) & yarn open-url $(yarn dotenv-get APP_URL)",
+    "build": "next build && vite build",
+    "dev": "next dev --experimental-https --experimental-https-key $(yarn dotenv-get HTTPS_KEY_PATH) --experimental-https-cert $(yarn dotenv-get HTTPS_CERT_PATH) -p $(yarn dotenv-get PORT) & yarn view $(yarn dotenv-get APP_URL)",
     "dotenv-args": "node ../../bin/dotenv-args.js",
     "dotenv-get": "dotenvx get --ignore=MISSING_KEY $(yarn dotenv-args)",
     "dotenv-run": "dotenvx run -q $(yarn dotenv-args)",
-    "format": "yarn run-script $(yarn bin prettier) --ignore-path ../../.gitignore --ignore-path ./.gitignore --write .",
+    "format": "yarn run-script $(yarn bin prettier) --ignore-path ../../.gitignore --ignore-path ../../packages/commons/.prettierignore --ignore-path ./.gitignore  --ignore-path ./.prettierignore --write .",
     "lint": "yarn run-script $(yarn bin lint) --runner eslint",
-    "open-url": "yarn run-script $(yarn bin open-url)",
     "run-script": "yarn dotenv-run -- node --enable-source-maps --experimental-strip-types --preserve-symlinks --preserve-symlinks-main --disable-warning=ExperimentalWarning",
-    "start": "yarn run-script bin/start.ts & yarn open-url $(yarn dotenv-get APP_URL)",
-    "turbo": "turbo --ui=tui"
+    "start": "yarn run-script bin/start.ts & yarn view $(yarn dotenv-get APP_URL)",
+    "turbo": "turbo --ui=tui",
+    "view": "yarn run-script $(yarn bin view)"
   },
   "resolutions": {
     "commons": "portal:../../packages/commons",
@@ -21,18 +21,21 @@
     "react-ui": "portal:../../packages/react-ui"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "1.62.4",
     "@dotenvx/dotenvx": "2.34.2",
     "@types/node": "24.19.1",
     "@types/prop-types": "15.7.15",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vercel/nft": "1.11.0",
+    "@vitejs/plugin-react": "6.1.1",
     "commons": "workspace:*",
     "eslint": "10.12.0",
     "eslint-config-next": "16.4.0",
     "html-ui": "workspace:*",
     "next": "16.4.0",
     "next-devtools-mcp": "0.4.0",
+    "nitro": "3.0.260903-beta",
     "prettier": "3.9.9",
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-packagejson": "3.0.2",
@@ -43,7 +46,10 @@
     "react-ui": "workspace:*",
     "styled-jsx": "5.1.7",
     "turbo": "2.11.7",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vinext": "1.0.1",
+    "vite": "8.3.2",
+    "wrangler": "4.146.0"
   },
   "packageManager": "yarn@4.18.0"
 }

@@ -1,34 +1,41 @@
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import type { Adapter } from '@sveltejs/kit';
 import { sveltekit } from '@sveltejs/kit/vite';
+import cloudflare from '@sveltejs/adapter-cloudflare';
+import vercel from '@sveltejs/adapter-vercel';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 
-const port = Number(process.env.PORT ?? 5173);
-const appUrl = process.env.APP_URL ?? `https://localhost:${port}`;
-const certificatePath = resolve(
-	process.cwd(),
-	process.env.HTTPS_CERT_PATH ?? '../../cert/dev-cert.pem'
-);
-const keyPath = resolve(process.cwd(), process.env.HTTPS_KEY_PATH ?? '../../cert/dev-key.pem');
+import { readFileFromCwd } from 'commons/esm/bin/utils/functions.js';
+
+const adapters: Record<string, () => Adapter> = {
+	vercel,
+	cloudflare
+};
+const port = process.env.PORT ? Number(process.env.PORT) : undefined;
+const keyPath = process.env.HTTPS_KEY_PATH ?? '';
+const certificatePath = process.env.HTTPS_CERT_PATH ?? '';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [sveltekit({ adapter: adapters[process.env.DEPLOY_TARGET ?? '']?.() })],
 	css: {
 		modules: {
 			localsConvention: 'camelCase'
 		}
 	},
 	server: {
-		origin: appUrl,
+		origin: process.env.APP_URL,
 		port,
-		https: {
-			key: readFileSync(keyPath),
-			cert: readFileSync(certificatePath)
-		},
+		...(keyPath || certificatePath
+			? {
+					https: {
+						key: await readFileFromCwd(keyPath),
+						cert: await readFileFromCwd(certificatePath)
+					}
+				}
+			: {}),
 		fs: {
 			allow: [
 				searchForWorkspaceRoot(process.cwd()),
-				process.env.YARN_GLOBAL_FOLDER ?? resolve('../../.temp/.yarn')
+				...(process.env.YARN_GLOBAL_FOLDER ? [process.env.YARN_GLOBAL_FOLDER] : [])
 			]
 		}
 	},

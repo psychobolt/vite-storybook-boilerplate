@@ -61,7 +61,11 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   source module remains clear.
 - Retain member access for one-off or dynamic properties, mutation, fluent APIs,
   required object identity or `this` binding, or when it makes the relationship
-  to the owning object clearer.
+  to the owning object clearer. If destructuring a property would collide with
+  a local binding, keep it on the source object or in a rest object and access
+  it by its original key (for example, `options.handler`) instead of inventing
+  a renamed alias. When a local name is available, derive it from that key
+  (for example, `const handler = options.handler || defaultHandler`).
 - For parsed options or configuration objects, prefer destructuring a field
   when it is used more than once. For example, prefer `const { _ } = args` over
   repeating `args._`.
@@ -90,36 +94,64 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
 - Do not cast generic `unknown` configuration values merely to satisfy the
   compiler. Prefer a public library type, `satisfies`, narrowing, or runtime
   validation when the value is genuinely untrusted.
-- When a composed value is exported from a typed module or compiled to
-  declarations, explicitly type the exported value with its public type so
-  consumers retain useful autocomplete.
+- Prefer inferred function return types when TypeScript can infer the intended
+  useful type. Add an explicit return type when inference is insufficient, a
+  recursive function requires it, or it is needed to enforce a deliberate
+  public contract; do not annotate a return just to repeat what the
+  implementation already determines.
+- For exported composed configuration values, use an explicit public type when
+  needed to preserve the intended declaration and consumer autocomplete.
 
-## Local expressions, reuse, and scope
+## Local expressions, functions, reuse, and scope
 
 - Inline a local variable's initializer when that variable is read only once
   and has no type-specific purpose when writing new code. Keep a named
   variable when its value is reused or when its explicit type annotation,
-  assertion, narrowing, or other tool-compatibility purpose is required.
-  Existing variables may be intentional readability aids; do not refactor
-  them solely to inline their expressions. For new code, prefer
+  assertion, narrowing, or other tool-compatibility purpose is required, or it
+  normalizes a predicate for a compound condition.
+  Do not retain a single-use variable solely because its name seems more
+  readable; add a readability-oriented local only when the user explicitly
+  requests that style. Existing variables may be intentional readability aids;
+  do not refactor them solely to inline their expressions. For new code, prefer
   `return format(value)` over `const formatted = format(value); return formatted`,
   but retain a single-use variable when its cast is needed for type correctness.
+- For function- or module-local variables and type definitions, omit
+  qualifiers already clear from the scope when the shorter name remains
+  unambiguous. For example, use `Options` instead of `ServerOptions` in a
+  server-specific module, or `options` instead of `serverOptions` when it is
+  the only option set in scope. Keep qualifiers when names cross module or
+  package boundaries, multiple concepts could be confused, or the name is part
+  of a public API.
 - When a parsed option or configuration value is passed to multiple consumers,
   normalize the shared input once into a named local before constructing
   dependent values. Do not introduce one-use locals solely to name different
-  fallback expressions; inline each fallback at its consumer when readable.
+  fallback expressions; inline each fallback at its consumer.
   Keep a named value when it is reused, requires a type or narrowing purpose,
-  controls evaluation, or materially improves readability.
+  controls evaluation, or is required by tooling.
+- Prefer defaults in function parameters or destructuring declarations over
+  follow-up fallback assignments or one-use fallback variables when behavior
+  is unchanged. Preserve intentional distinctions between omitted,
+  `undefined`, and `null` inputs.
 - For a known array or string, use a named boolean such as
   `const hasTargets = targets.length > 0` when the emptiness check is reused
   or an inline condition would obscure intent. A direct length check is fine
   for a simple one-off condition.
-- Avoid immediately invoked function expressions and closure-based initializers
-  when direct control flow or a named helper expresses the logic clearly. Use a
-  named function for reusable or testable logic, or a block-scoped assignment
-  for one-off logic. Retain a closure when it provides necessary encapsulation,
-  deferred execution, or deliberate scope isolation, and do not refactor an
-  existing closure solely to apply this preference.
+- Prefer direct control flow over immediately invoked function expressions,
+  closure-based initializers, and one-use local wrappers or helpers. In
+  executable ESM entrypoints, prefer top-level `await` for startup operations
+  when it simplifies the flow and removes an unnecessary async wrapper; do not
+  change the module format just to enable it. Call existing Node, library, or
+  workspace APIs directly for linear operations. Keep `await` inside a
+  function when the asynchronous work belongs to that function, callback, or
+  lifecycle. Do not introduce a one-use wrapper or helper merely to forward
+  arguments, rename an API operation, or group inline logic. Keep a local
+  function when it is reused, recursive, required by a callback or event
+  contract, or provides a necessary lifecycle, cleanup, or error boundary.
+  When logic is intended for other scripts, move it to an appropriate module
+  and export it instead of hiding a reusable API in one entrypoint. Retain a
+  closure when it provides necessary encapsulation, deferred execution, or
+  deliberate scope isolation, and do not refactor an existing function or
+  closure solely to apply this preference.
 
 ## Conditions and booleans
 
@@ -129,12 +161,22 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
 - Normalize or validate unknown and union-typed input before relying on its
   truthiness. Keep a strict comparison when the input contract requires the
   exact boolean value; do not introduce coercion merely to shorten a condition.
-- Once related values are known booleans, compare the booleans directly when
-  expressing a relationship such as mutual exclusivity. Do not replace that
-  comparison with less-readable truthiness expressions.
+- For compound conditions, normalize non-boolean inputs or distinct checks
+  into named boolean predicates before combining them. Express the final
+  condition using those predicates and compare them directly for relationships
+  such as mutual exclusivity. Keep simple one-off checks inline.
 
-## Configuration composition
+## Configuration defaults and composition
 
+- Before adding a fallback for a configuration value, check the target
+  workspace's `.env.defaults`, its established environment-loading path, and
+  the library's documented default behavior. Rely on those defaults instead
+  of duplicating them in source code. If the value is not configured and the
+  library has no default, preserve it as unset; do not invent a hardcoded
+  fallback unless the requested contract requires one. When the value is
+  required, fail fast rather than continuing with invalid configuration.
+  Prefer the library's native validation and error; do not catch or wrap it
+  merely to restate the same failure.
 - When extending a third-party configuration factory, preserve its defaults.
   Merge nested overrides with the library's documented merge utility or with
   explicit object composition; do not replace nested configuration accidentally.

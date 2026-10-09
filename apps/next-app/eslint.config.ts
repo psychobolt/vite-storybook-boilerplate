@@ -19,7 +19,15 @@ const eslintConfig = defineConfig([
       react: { version: '19' } // Avoids auto-detection crash. See https://github.com/vercel/next.js/issues/89764
     }
   },
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts'])
+  globalIgnores([
+    '.next/**',
+    '.vinext/**',
+    '.wrangler/**',
+    'dist/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts'
+  ])
 ]);
 
 export default eslintConfig;
