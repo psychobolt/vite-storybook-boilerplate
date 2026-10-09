@@ -23,7 +23,7 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.62.4",
     "@dotenvx/dotenvx": "2.34.2",
-    "@types/node": "24.19.1",
+    "@types/node": "24.19.2",
     "@types/prop-types": "15.7.15",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
