@@ -1353,33 +1353,51 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.33.0":
-  version: 2.33.0
-  resolution: "@dotenvx/dotenvx@npm:2.33.0"
+"@dotenvx/dotenvx@npm:2.34.2":
+  version: 2.34.2
+  resolution: "@dotenvx/dotenvx@npm:2.34.2"
   dependencies:
-    "@dotenvx/primitives": "npm:^3.1.0"
-    "@dotenvx/tooling": "npm:^1.0.3"
-    global-agent: "npm:^3.0.0"
+    "@dotenvx/primitives": "npm:^3.3.0"
+    "@dotenvx/providers": "npm:^0.3.5"
+    "@dotenvx/tooling": "npm:^1.0.5"
     undici: "npm:^6.28.1"
+    write-file-atomic: "npm:^5.0.1"
     yocto-spinner: "npm:^1.2.1"
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/79a7ba27795c72c7c202e4251d8a088cdac08d65eb4b9070673341392a94799adff69151d4c0cbdbb8ed020c444de42e6f854b7bec872040776a38d2a25c1712
+  checksum: 10c0/2ee727776a51194b02ff6204cb7e5d95c713b57f48aa0bbc3a2158ea6b0dc31200bc17a881c317352b18d775683b25bcfadbc6046e2eb61ed599c9169fea401b
   languageName: node
   linkType: hard
 
-"@dotenvx/primitives@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@dotenvx/primitives@npm:3.1.0"
-  checksum: 10c0/d4ead0348ad1f3f673de53a82052cd4397d3ce0a094edfdcc86756d5ca96e8ed536a0dc5831dfa2039fa877642b4a5ee2ebe05da3b94d55805ac20c128460a20
+"@dotenvx/primitives@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "@dotenvx/primitives@npm:3.3.0"
+  checksum: 10c0/2316dd2372a754e0381eb4f616abeb9afad3c35e880a5a7463f5b96c348a75a34d72c59488a9310c7511e4ec99b6d384befe60c9fcd016842736c9641ee2de29
   languageName: node
   linkType: hard
 
-"@dotenvx/tooling@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@dotenvx/tooling@npm:1.0.3"
-  checksum: 10c0/30ef129090715b69184f6489f2affba7e08c700913407edd6ccd27e989c5335b4434bf7ec8a955773ced37ec1e5d1ef4ca9cdc711cad091d00655b652bfc45ff
+"@dotenvx/providers@npm:^0.3.5":
+  version: 0.3.5
+  resolution: "@dotenvx/providers@npm:0.3.5"
+  dependencies:
+    "@dotenvx/primitives": "npm:^3.3.0"
+    "@dotenvx/tooling": "npm:^1.0.4"
+  checksum: 10c0/35ffb7a3dc0756c87ac7788e9733443cbf768f19d360f00e3704981066f2092ecea8388e3c877b4e7f15e8d4d070dd6403b770da6802d06ebcccbbf34318f436
+  languageName: node
+  linkType: hard
+
+"@dotenvx/tooling@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@dotenvx/tooling@npm:1.0.4"
+  checksum: 10c0/6101a18ca522017e54cb6ad8c8123700976f488700df294727b7593d3d9d546a3026afbb53b0e0c510a0f813089ea4dad585519da2e1decd30ae9e0d9ebf3d5b
+  languageName: node
+  linkType: hard
+
+"@dotenvx/tooling@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@dotenvx/tooling@npm:1.0.5"
+  checksum: 10c0/ac6b4693354fa9768216087239ed2ad895c5f8cc15d07076fe7d20238ad7b276d78ed9d8b2916a6fbbbede3b12eb15e2734fb1d5413e4cbe8719c2702cf3bd58
   languageName: node
   linkType: hard
 
@@ -11102,9 +11120,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-svelte@npm:3.23.0":
-  version: 3.23.0
-  resolution: "eslint-plugin-svelte@npm:3.23.0"
+"eslint-plugin-svelte@npm:3.23.1":
+  version: 3.23.1
+  resolution: "eslint-plugin-svelte@npm:3.23.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.6.1"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -11122,7 +11140,7 @@ __metadata:
   peerDependenciesMeta:
     svelte:
       optional: true
-  checksum: 10c0/ad88b6833ab6cc469a7e3a062413811aab85e974510a64dd238ab0f18cfd527173be11f3f5c832dc94bbfe6351fda8d301dbc0e6f49282819cb4a83ec71ac170
+  checksum: 10c0/a2d6f407e50f3d353385b738a992bb31cb9ee7f73727c75bdb58362cf1ba97e4ff6cf0851205338577aabc6bfb027de6a789224e599b87a2a3714102c3556933
   languageName: node
   linkType: hard
 
@@ -12441,7 +12459,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"global-agent@npm:3.0.0, global-agent@npm:^3.0.0":
+"global-agent@npm:3.0.0":
   version: 3.0.0
   resolution: "global-agent@npm:3.0.0"
   dependencies:
@@ -16563,7 +16581,7 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@cloudflare/vite-plugin": "npm:1.62.4"
-    "@dotenvx/dotenvx": "npm:2.33.0"
+    "@dotenvx/dotenvx": "npm:2.34.2"
     "@types/node": "npm:24.19.1"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
@@ -20839,7 +20857,7 @@ __metadata:
     commons: "workspace:*"
     eslint: "npm:10.12.0"
     eslint-config-prettier: "npm:10.1.8"
-    eslint-plugin-svelte: "npm:3.23.0"
+    eslint-plugin-svelte: "npm:3.23.1"
     globals: "npm:17.13.0"
     html-ui: "workspace:*"
     postcss: "npm:8.5.29"
@@ -20854,7 +20872,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:17.0.0"
     svelte: "npm:5.57.2"
     svelte-check: "npm:4.7.6"
-    svelte-eslint-parser: "npm:1.8.1"
+    svelte-eslint-parser: "npm:1.9.0"
     svelte-language-server: "npm:0.18.4"
     turbo: "npm:2.11.7"
     typescript: "npm:6.0.3"
@@ -20883,9 +20901,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-eslint-parser@npm:1.8.1, svelte-eslint-parser@npm:^1.7.0":
-  version: 1.8.1
-  resolution: "svelte-eslint-parser@npm:1.8.1"
+"svelte-eslint-parser@npm:1.9.0, svelte-eslint-parser@npm:^1.7.0":
+  version: 1.9.0
+  resolution: "svelte-eslint-parser@npm:1.9.0"
   dependencies:
     eslint-scope: "npm:^8.2.0"
     eslint-visitor-keys: "npm:^4.0.0"
@@ -20899,7 +20917,7 @@ __metadata:
   peerDependenciesMeta:
     svelte:
       optional: true
-  checksum: 10c0/1273a69482b198e885bac2f32600a31ff313150141ca99bf59aa06ab89e266718eabbcce835c95b6d4f14cab441541a5df7e82d5d6ccb3ff717e68b4b10cf9eb
+  checksum: 10c0/fcafd99e212f3db9d4c40bc1406123ad1c6125f8293770d5cfa47c64daa8930ef7b12c1014f6adcf30d387e1bfee6f2b0b7b53d480ccb5ed89ca069a564ff33a
   languageName: node
   linkType: hard
 
@@ -22265,7 +22283,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.33.0"
+    "@dotenvx/dotenvx": "npm:2.34.2"
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.13"
