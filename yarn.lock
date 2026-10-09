@@ -10293,9 +10293,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-svelte@npm:3.23.0":
-  version: 3.23.0
-  resolution: "eslint-plugin-svelte@npm:3.23.0"
+"eslint-plugin-svelte@npm:3.23.1":
+  version: 3.23.1
+  resolution: "eslint-plugin-svelte@npm:3.23.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.6.1"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -10313,7 +10313,7 @@ __metadata:
   peerDependenciesMeta:
     svelte:
       optional: true
-  checksum: 10c0/ad88b6833ab6cc469a7e3a062413811aab85e974510a64dd238ab0f18cfd527173be11f3f5c832dc94bbfe6351fda8d301dbc0e6f49282819cb4a83ec71ac170
+  checksum: 10c0/a2d6f407e50f3d353385b738a992bb31cb9ee7f73727c75bdb58362cf1ba97e4ff6cf0851205338577aabc6bfb027de6a789224e599b87a2a3714102c3556933
   languageName: node
   linkType: hard
 
@@ -19907,7 +19907,7 @@ __metadata:
     commons: "workspace:*"
     eslint: "npm:10.12.0"
     eslint-config-prettier: "npm:10.1.8"
-    eslint-plugin-svelte: "npm:3.23.0"
+    eslint-plugin-svelte: "npm:3.23.1"
     globals: "npm:17.13.0"
     html-ui: "workspace:*"
     postcss: "npm:8.5.29"
