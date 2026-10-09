@@ -115,7 +115,6 @@ jobs:
         if: matrix.os == 'ubuntu-latest' && (inputs.deploy_target == '' || inputs.deploy_target == 'vercel')
         env:
           DEPLOY_TARGET: vercel
-          YARN_NM_HOISTING_LIMITS: dependencies
         run: |
           vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
           vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
