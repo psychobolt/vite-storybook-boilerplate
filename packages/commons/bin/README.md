@@ -72,23 +72,78 @@ E.g.
 { "[workspaceName1]": "[semVer1]", "[workspaceName2]": "[semVer2]" }
 ```
 
-## Open URL
+## View
 
-`open.ts` ([Source](open.ts))
+`view.ts` ([Source](view.ts))
 
-Waits for an HTTP(S) URL to return a successful response before opening it in
-the system's default browser.
+Waits for a resource with [`wait-on`](https://github.com/jeffbski/wait-on), then
+opens it with the [`open` library](https://github.com/sindresorhus/open). In CI,
+the command only waits for the resource.
 
 ```sh
-yarn open https://localhost:3000
-yarn open https://localhost:3000 --strict-ssl
+yarn view [target] [options]
 ```
 
-`--strict-ssl` enables certificate validation while waiting for the URL. It is
-disabled by default so local self-signed development certificates work.
+### Options
 
-Each HTTP request times out after 5 seconds, and the script stops waiting after
-30 seconds if the URL never becomes available.
+#### Target
+
+The resource to wait for and open. `wait-on` uses the resource prefix to select
+its type and treats unprefixed targets as files. Without a target, the script
+uses `http://127.0.0.1:${process.env.PORT ?? 80}`.
+
+#### Strict SSL
+
+```sh
+--strict-ssl
+```
+
+Enable certificate validation while waiting for an HTTP(S) URL. It is disabled
+by default so local self-signed development certificates work.
+
+## HTTP Server
+
+`http-server.ts` ([Source](http-server.ts)) exports `startServer` for starting an HTTP or
+HTTPS server from a request handler. The `http-server` command serves a
+directory and supports credentialed CORS for loopback origins.
+
+HTTPS is enabled automatically when both `HTTPS_CERT_PATH` and `HTTPS_KEY_PATH`
+are set. Set both paths or omit both; an incomplete configuration or a missing
+file fails when the server starts. Otherwise, the server uses HTTP.
+
+```sh
+yarn http-server [directory] [options]
+```
+
+### Options
+
+#### Directory
+
+Directory to serve. Defaults to the current working directory.
+
+#### Port
+
+```sh
+--port [port] # shorthand (-p)
+```
+
+Port to listen on. Defaults to `process.env.PORT` or `8080`.
+
+#### CORS
+
+```sh
+--cors
+```
+
+Allow local development apps running on other ports to access this server.
+
+#### Silent
+
+```sh
+--silent # shorthand (-s)
+```
+
+Suppress server logs.
 
 ## Lint
 

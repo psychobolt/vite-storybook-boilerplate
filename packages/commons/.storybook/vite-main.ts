@@ -125,7 +125,7 @@ export default {
       disableAutoDocs: true
     }
   },
-  refs: (_, { configType }) =>
+  refs: () =>
     storybookPackages.reduce<Refs>((refs, { name, path }) => {
       const config = require(join(path, 'chromatic.config.json'));
       const [, appId] = config.projectId?.split(':') ?? [];
@@ -134,7 +134,7 @@ export default {
         cwd: path
       }).trim();
       const url =
-        gitHash && appId && configType === 'PRODUCTION'
+        process.env.CI && appId
           ? `https://${gitHash}--${appId}.chromatic.com`
           : localhost;
       if (!url) return refs;

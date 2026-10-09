@@ -1,9 +1,16 @@
 import { type ExecOptions, exec } from 'node:child_process';
 import { type BinaryToTextEncoding, createHash } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
 export const EXIT_SUCCESS = 0;
 export const EXIT_INVALID_USAGE = 1;
 export const EXIT_INVALID_ARGUMENTS = 2;
+
+type ReadFileOptions = Parameters<typeof readFile>[1];
+
+export const readFileFromCwd = (path: string, options: ReadFileOptions = {}) =>
+  readFile(resolve(process.cwd(), path), options);
 
 export interface StdioExecOptions extends ExecOptions {
   silent?: boolean;
