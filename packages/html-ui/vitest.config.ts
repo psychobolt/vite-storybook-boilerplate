@@ -7,6 +7,9 @@ export default defineConfig(
     commonConfig,
     defineConfig({
       test: {
+        coverage: {
+          include: ['src/**/*.{ts,tsx}']
+        },
         projects: ['.storybook/vitest.config.ts'],
         passWithNoTests: true
       }

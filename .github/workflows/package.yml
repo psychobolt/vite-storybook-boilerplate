@@ -93,6 +93,7 @@ jobs:
       - name: Run Coverage
         run: yarn ${{ inputs.path }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }}
       - name: Upload Coverage Reports
+        if: matrix.os == 'ubuntu-latest'
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
         with:
           files: ${{ inputs.path }}/coverage/coverage-final.json
