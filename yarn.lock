@@ -6454,27 +6454,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:6.1.1":
-  version: 6.1.1
-  resolution: "@vitejs/plugin-react@npm:6.1.1"
-  dependencies:
-    "@rolldown/pluginutils": "npm:^1.0.1"
-  peerDependencies:
-    "@rolldown/plugin-babel": ^0.1.7 || ^0.2.0
-    babel-plugin-react-compiler: ^1.0.0
-    oxc-transform-react: ^0.145.0
-    vite: ^8.0.0
-  peerDependenciesMeta:
-    "@rolldown/plugin-babel":
-      optional: true
-    babel-plugin-react-compiler:
-      optional: true
-    oxc-transform-react:
-      optional: true
-  checksum: 10c0/4599b37ee19ebee289782b177642e3002afa9b74cb57a2c0e2a601053c7ebb47f9ef178ab605ff1217de1d23069948a8d366447bfac0d9fb2f17afee5368acd0
-  languageName: node
-  linkType: hard
-
 "@vitejs/plugin-react@npm:6.1.2":
   version: 6.1.2
   resolution: "@vitejs/plugin-react@npm:6.1.2"
@@ -14286,7 +14265,7 @@ __metadata:
     "@types/react": "npm:19.3.0"
     "@types/react-dom": "npm:19.3.0"
     "@vercel/nft": "npm:1.11.0"
-    "@vitejs/plugin-react": "npm:6.1.1"
+    "@vitejs/plugin-react": "npm:6.1.2"
     commons: "workspace:*"
     eslint: "npm:10.12.0"
     eslint-config-next: "npm:16.4.0"
@@ -14306,7 +14285,7 @@ __metadata:
     turbo: "npm:2.11.7"
     typescript: "npm:6.0.3"
     vinext: "npm:1.1.0"
-    vite: "npm:8.3.2"
+    vite: "npm:8.3.4"
     wrangler: "npm:4.149.0"
   languageName: unknown
   linkType: soft
@@ -15674,7 +15653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.29, postcss@npm:^8.0.0, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.26, postcss@npm:^8.5.28, postcss@npm:^8.5.29, postcss@npm:^8.5.8":
+"postcss@npm:8.5.29, postcss@npm:^8.0.0, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.26, postcss@npm:^8.5.29, postcss@npm:^8.5.8":
   version: 8.5.29
   resolution: "postcss@npm:8.5.29"
   dependencies:
@@ -16690,7 +16669,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rolldown@npm:1.2.13, rolldown@npm:^1.2.7, rolldown@npm:~1.2.11, rolldown@npm:~1.2.12":
+"rolldown@npm:1.2.13, rolldown@npm:^1.2.7, rolldown@npm:~1.2.12":
   version: 1.2.13
   resolution: "rolldown@npm:1.2.13"
   dependencies:
@@ -19664,63 +19643,6 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10c0/63d7351fa21580fb646f0b594c64e97a56cdf15c55a57372a7adefe6287995fa7384cb5ddca14695ff7dca738ba00e0a3352fc24df711d9c501c5576f40f0867
-  languageName: node
-  linkType: hard
-
-"vite@npm:8.3.2":
-  version: 8.3.2
-  resolution: "vite@npm:8.3.2"
-  dependencies:
-    fsevents: "npm:~2.3.3"
-    lightningcss: "npm:^1.33.0"
-    picomatch: "npm:^4.0.7"
-    postcss: "npm:^8.5.28"
-    rolldown: "npm:~1.2.11"
-    tinyglobby: "npm:^0.2.17"
-  peerDependencies:
-    "@types/node": ^20.19.0 || >=22.12.0
-    "@vitejs/devtools": ^0.7.1
-    esbuild: ^0.27.0 || ^0.28.0
-    jiti: ">=1.21.0"
-    less: ^4.0.0
-    sass: ^1.70.0
-    sass-embedded: ^1.70.0
-    stylus: ">=0.54.8"
-    sugarss: ^5.0.0
-    terser: ^5.16.0
-    tsx: ^4.8.1
-    yaml: ^2.4.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    "@vitejs/devtools":
-      optional: true
-    esbuild:
-      optional: true
-    jiti:
-      optional: true
-    less:
-      optional: true
-    sass:
-      optional: true
-    sass-embedded:
-      optional: true
-    stylus:
-      optional: true
-    sugarss:
-      optional: true
-    terser:
-      optional: true
-    tsx:
-      optional: true
-    yaml:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: 10c0/bc2dc5b9077624686a0e4ddfdbfca9d35bf97a32c53966bf1cdd7f355a8f2c488c0422d1b02328a959cfd06b490f98c7e24938f8a251a1039adf2219f2da552e
   languageName: node
   linkType: hard
 
