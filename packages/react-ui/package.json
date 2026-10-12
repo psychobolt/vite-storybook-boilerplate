@@ -90,7 +90,7 @@
     "react-dom": "19.3.0",
     "rolldown": "1.2.13",
     "sass": "1.105.1",
-    "storybook": "10.6.1",
+    "storybook": "10.6.2",
     "stylelint": "17.16.0",
     "stylelint-config": "workspace:*",
     "turbo": "2.11.7",
