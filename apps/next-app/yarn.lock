@@ -218,9 +218,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:5.4.0":
-  version: 5.4.0
-  resolution: "@chromatic-com/storybook@npm:5.4.0"
+"@chromatic-com/storybook@npm:5.5.0":
+  version: 5.5.0
+  resolution: "@chromatic-com/storybook@npm:5.5.0"
   dependencies:
     "@neoconfetti/react": "npm:^1.0.0"
     chromatic: "npm:^18.0.1"
@@ -228,7 +228,7 @@ __metadata:
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0 || ^11.0.0-0
-  checksum: 10c0/43fcd30e819546906ffb47ea5675bc02b2dd53913d83d53c31e4b8d5224e53ad6dd9a526bddd8e83df1e2ad36542b682ed7599a413d345cdf9781b8b178ac806
+  checksum: 10c0/ea2a68ebcfc8542a87d71f783917919207c43b66490e42534adfeb70e1a3d72d66ce912c274107932cce551d212d0d4e434075de75add620a02fc82ee0513913
   languageName: node
   linkType: hard
 
@@ -3702,7 +3702,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "commons@portal:../../packages/commons::locator=next-app%40workspace%3A."
   dependencies:
-    "@chromatic-com/storybook": "npm:5.4.0"
+    "@chromatic-com/storybook": "npm:5.5.0"
     "@storybook/builder-vite": "npm:10.6.1"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4.17.26"
