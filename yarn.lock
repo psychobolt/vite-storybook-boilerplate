@@ -1016,22 +1016,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/vite-plugin@npm:1.63.1":
-  version: 1.63.1
-  resolution: "@cloudflare/vite-plugin@npm:1.63.1"
+"@cloudflare/vite-plugin@npm:1.63.2":
+  version: 1.63.2
+  resolution: "@cloudflare/vite-plugin@npm:1.63.2"
   dependencies:
     "@cloudflare/unenv-preset": "npm:2.16.2"
-    miniflare: "npm:5.20261006.1-alpha"
+    miniflare: "npm:5.20261006.2-beta"
     unenv: "npm:2.0.0-rc.24"
     workerd: "npm:1.20261006.1"
-    wrangler: "npm:4.149.0"
+    wrangler: "npm:4.150.0"
     ws: "npm:8.21.0"
   peerDependencies:
     vite: ^6.1.0 || ^7.0.0 || ^8.0.0
-    wrangler: ^4.149.0
+    wrangler: ^4.150.0
   bin:
     cf-vite: bin/cf-vite
-  checksum: 10c0/f5e2d26a6908c7e8790f3af53f79edac4c73266e41d6f39d1e85e7a5cb5b09067d42137edc300ae2be92410e838579035949941a66066a5b89539e6e16041c4e
+  checksum: 10c0/5fbcf9c5fa1d6018f4887f5e48e122d903cbad69bd229ce306fa096de083c3f42248ac26fce88f649a267051fdf107572eb370dbb746ab183497c74c6cd3fd8c
   languageName: node
   linkType: hard
 
@@ -13939,20 +13939,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"miniflare@npm:5.20261006.1-alpha":
-  version: 5.20261006.1-alpha
-  resolution: "miniflare@npm:5.20261006.1-alpha"
-  dependencies:
-    "@cspotcode/source-map-support": "npm:0.8.1"
-    sharp: "npm:0.35.5"
-    undici: "npm:7.29.1"
-    workerd: "npm:1.20261006.1"
-    ws: "npm:8.21.0"
-    youch: "npm:4.1.0-beta.10"
-  checksum: 10c0/deae685b61130d1cc0c84e9ad9b446de45e2bad2e404af87c9256b8ad9328e2e5cb3dfdd40b0bb092f4347e3909b9b3047762472f21cd7b413a066059dc6d796
-  languageName: node
-  linkType: hard
-
 "miniflare@npm:5.20261006.2-beta":
   version: 5.20261006.2-beta
   resolution: "miniflare@npm:5.20261006.2-beta"
@@ -14281,7 +14267,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@cloudflare/vite-plugin": "npm:1.63.1"
+    "@cloudflare/vite-plugin": "npm:1.63.2"
     "@dotenvx/dotenvx": "npm:2.34.2"
     "@types/node": "npm:24.19.2"
     "@types/prop-types": "npm:15.7.15"
@@ -20069,35 +20055,6 @@ __metadata:
   bin:
     workerd: bin/workerd
   checksum: 10c0/49b7c09a606e5c66d4b16d5044ba382d3db88f9a76a8cbab239488e26a7adc05cd79c3d6280cab30b6fe317c349798bc927945dbe85556041aef78202221ddd8
-  languageName: node
-  linkType: hard
-
-"wrangler@npm:4.149.0":
-  version: 4.149.0
-  resolution: "wrangler@npm:4.149.0"
-  dependencies:
-    "@cloudflare/kv-asset-handler": "npm:0.5.0"
-    "@cloudflare/unenv-preset": "npm:2.16.2"
-    blake3-wasm: "npm:2.1.5"
-    esbuild: "npm:0.28.2"
-    fsevents: "npm:2.3.3"
-    miniflare: "npm:5.20261006.1-alpha"
-    path-to-regexp: "npm:6.3.0"
-    unenv: "npm:2.0.0-rc.24"
-    workerd: "npm:1.20261006.1"
-  peerDependencies:
-    "@cloudflare/workers-types": ^5.20261006.1
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@cloudflare/workers-types":
-      optional: true
-  bin:
-    cf-wrangler: bin/cf-wrangler.js
-    wrangler: bin/wrangler.js
-    wrangler2: bin/wrangler.js
-  checksum: 10c0/e32efd74e150fb9ad53143bb9456c16c6ba81f5c5a0ac679191f84ecbdc9c8f42073600d9842552fee21530f05f3c6441a28e45023fabcdaa3d598a7f5978c73
   languageName: node
   linkType: hard
 
