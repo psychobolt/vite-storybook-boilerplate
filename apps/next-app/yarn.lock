@@ -315,9 +315,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.34.2":
-  version: 2.34.2
-  resolution: "@dotenvx/dotenvx@npm:2.34.2"
+"@dotenvx/dotenvx@npm:2.35.0":
+  version: 2.35.0
+  resolution: "@dotenvx/dotenvx@npm:2.35.0"
   dependencies:
     "@dotenvx/primitives": "npm:^3.3.0"
     "@dotenvx/providers": "npm:^0.3.5"
@@ -328,7 +328,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/2ee727776a51194b02ff6204cb7e5d95c713b57f48aa0bbc3a2158ea6b0dc31200bc17a881c317352b18d775683b25bcfadbc6046e2eb61ed599c9169fea401b
+  checksum: 10c0/033f61a40a926c02543b016f96d817ae40c6ac32b9bd544e8752f96c08a5a28645ef2b451dca7dd2f096793ecd4abed24a0a2f1c16e9f8945314392f21776ed6
   languageName: node
   linkType: hard
 
@@ -7525,7 +7525,7 @@ __metadata:
   resolution: "next-app@workspace:."
   dependencies:
     "@cloudflare/vite-plugin": "npm:1.63.2"
-    "@dotenvx/dotenvx": "npm:2.34.2"
+    "@dotenvx/dotenvx": "npm:2.35.0"
     "@types/node": "npm:24.19.2"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
