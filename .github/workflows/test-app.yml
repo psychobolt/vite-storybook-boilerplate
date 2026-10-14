@@ -94,7 +94,7 @@ jobs:
         run: git fetch --depth=1 origin ${{ inputs.base_ref }}:base_branch
       - name: Install Vercel Tools
         if: matrix.os == 'ubuntu-latest'
-        run: npm install -g turbo-ignore
+        run: npm install -g vercel turbo-ignore
       - name: Run turbo-ignore
         id: deploy
         if: matrix.os == 'ubuntu-latest'
