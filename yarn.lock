@@ -1076,10 +1076,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/workers-types@npm:^5.20260813.1":
-  version: 5.20261009.1
-  resolution: "@cloudflare/workers-types@npm:5.20261009.1"
-  checksum: 10c0/094d114992c4c5dcb58113d56a3402783b87bd3909e7162ca02f9244a1655001bf2065316ea62d7dec7515eb0d63ba0685bdfd113331b8398459c84a6df5ae67
+"@cloudflare/workers-types@npm:^5.20260925.1":
+  version: 5.20261014.1
+  resolution: "@cloudflare/workers-types@npm:5.20261014.1"
+  checksum: 10c0/ad5f5a4a9f4d5bcfc18bc1ef8d86d2490d9e3301cd3cb3f0804b3a122082becc46bef28465208731a1a8ee54362b328cb505cf3c58610305acd347d19e211258
   languageName: node
   linkType: hard
 
@@ -1158,9 +1158,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.35.0":
-  version: 2.35.0
-  resolution: "@dotenvx/dotenvx@npm:2.35.0"
+"@dotenvx/dotenvx@npm:2.36.0":
+  version: 2.36.0
+  resolution: "@dotenvx/dotenvx@npm:2.36.0"
   dependencies:
     "@dotenvx/primitives": "npm:^3.3.0"
     "@dotenvx/providers": "npm:^0.3.5"
@@ -1171,7 +1171,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/033f61a40a926c02543b016f96d817ae40c6ac32b9bd544e8752f96c08a5a28645ef2b451dca7dd2f096793ecd4abed24a0a2f1c16e9f8945314392f21776ed6
+  checksum: 10c0/8d818bb6cc03523dc69ee5ea7a76c093a977df5f6d069c2e415dccee93fdcee0d4c1cfb21f1cbc3d334642d196033c34139ebe3c753310eb429b7621bb587c66
   languageName: node
   linkType: hard
 
@@ -4934,16 +4934,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-cloudflare@npm:8.0.0":
-  version: 8.0.0
-  resolution: "@sveltejs/adapter-cloudflare@npm:8.0.0"
+"@sveltejs/adapter-cloudflare@npm:8.0.1":
+  version: 8.0.1
+  resolution: "@sveltejs/adapter-cloudflare@npm:8.0.1"
   dependencies:
-    "@cloudflare/workers-types": "npm:^5.20260813.1"
+    "@cloudflare/workers-types": "npm:^5.20260925.1"
     "@rolldown/pluginutils": "npm:^1.0.1"
   peerDependencies:
     "@sveltejs/kit": ^3.0.0-next.0
     wrangler: ^4.118.0
-  checksum: 10c0/f59ee952d97535ac6ae0bc3aa8dc4a1a64ba011a4b1c81748f8eb51764a5148dc1bb524d4fc55d152142d95780f045ebb0d8a4e40b0aecfb3ce4337332dc5eb6
+  checksum: 10c0/074f14b8e7c53da1fc94e9e8f0c502a03f5180cf9d70b67c5ef51f2beb9fc5930ff246bcdd16a23607819e94ba2bcacced611eaa7527037bfb59bd706142c196
   languageName: node
   linkType: hard
 
@@ -14025,7 +14025,7 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@cloudflare/vite-plugin": "npm:1.64.0"
-    "@dotenvx/dotenvx": "npm:2.35.0"
+    "@dotenvx/dotenvx": "npm:2.36.0"
     "@types/node": "npm:24.19.2"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
@@ -17887,7 +17887,7 @@ __metadata:
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"
-    "@sveltejs/adapter-cloudflare": "npm:8.0.0"
+    "@sveltejs/adapter-cloudflare": "npm:8.0.1"
     "@sveltejs/adapter-vercel": "npm:6.3.4"
     "@sveltejs/kit": "npm:3.0.1"
     "@sveltejs/mcp": "npm:0.1.26"
@@ -19224,7 +19224,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.35.0"
+    "@dotenvx/dotenvx": "npm:2.36.0"
     "@microsoft/agentrc": "npm:2.0.1-91"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.18"
