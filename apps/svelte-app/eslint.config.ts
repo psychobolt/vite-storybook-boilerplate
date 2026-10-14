@@ -1,17 +1,19 @@
 import eslint from '@eslint/js';
 import { defineConfig } from 'eslint/config';
-import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginSvelte from 'eslint-plugin-svelte';
 import svelteParser from 'svelte-eslint-parser';
 import tseslint from 'typescript-eslint';
 import globals from 'globals';
 
+import commonConfig from 'commons/esm/eslint.config.js';
+
+const tsFiles = ['src/**/*.ts'];
+const svelteFiles = ['**/*.svelte'];
+
 export default defineConfig([
+	...commonConfig,
 	{
-		extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
-		plugins: {
-			'@typescript-eslint': tseslint.plugin
-		},
+		files: [...tsFiles, ...svelteFiles],
 		languageOptions: {
 			parser: tseslint.parser,
 			parserOptions: {
@@ -28,13 +30,16 @@ export default defineConfig([
 		}
 	},
 	{
-		files: ['**/*.svelte'],
+		files: svelteFiles,
+		extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
+		plugins: {
+			'@typescript-eslint': tseslint.plugin
+		},
 		languageOptions: {
 			parser: svelteParser,
 			parserOptions: {
 				parser: tseslint.parser,
-				project: true,
-				tsconfigRootDir: process.env.PROJECT_CWD,
+				projectService: true,
 				warnOnUnsupportedTypeScriptVersion: false
 			}
 		},
@@ -42,31 +47,14 @@ export default defineConfig([
 			'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_$' }]
 		}
 	},
-	...[
-		...eslintPluginSvelte.configs['flat/recommended'],
-		...eslintPluginSvelte.configs['flat/prettier']
-	].map(({ rules, ...rest }) => ({
-		// Workaround since svelte-eslint's typings are mismatched with ts-eslint's
-		rules: {
-			...rules
-		},
-		...rest
-	})),
-	eslintConfigPrettier,
+	eslintPluginSvelte.configs.recommended,
+	eslintPluginSvelte.configs.prettier,
 	{
-		ignores: [
-			'.DS_Store/',
-			'node_modules/',
-			'.svelte-kit/',
-			'.turbo/',
-			'.wrangler/',
-			'*.cjs',
-			'.env',
-			'.env.*',
-			'!.env.example',
-			// Ignore files YARN
-			'.yarn',
-			'yarn.lock'
-		]
+		rules: {
+			'package-json/valid-devDependencies': 0
+		}
+	},
+	{
+		ignores: ['.svelte-kit/', '.vercel/', '.wrangler/']
 	}
 ]);

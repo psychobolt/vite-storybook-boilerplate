@@ -3,9 +3,9 @@
 
 	let count = 0;
 
-	const displayed_count = spring();
-	$: displayed_count.set(count);
-	$: offset = modulo($displayed_count, 1);
+	const displayedCount = spring();
+	$: displayedCount.set(count);
+	$: offset = modulo($displayedCount, 1);
 
 	function modulo(n: number, m: number) {
 		// handle negative numbers
@@ -22,8 +22,8 @@
 
 	<div class="counter-viewport">
 		<div class="counter-digits" style="transform: translate(0, {100 * offset}%)">
-			<strong class="hidden" aria-hidden="true">{Math.floor($displayed_count + 1)}</strong>
-			<strong>{Math.floor($displayed_count)}</strong>
+			<strong class="hidden" aria-hidden="true">{Math.floor($displayedCount + 1)}</strong>
+			<strong>{Math.floor($displayedCount)}</strong>
 		</div>
 	</div>
 
