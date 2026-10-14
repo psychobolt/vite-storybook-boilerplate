@@ -11,7 +11,7 @@
 		"check:watch": "yarn check --watch",
 		"dev": "vite dev --open",
 		"format": "yarn g:format",
-		"postinstall": "yarn sync",
+		"postinstall": "yarn turbo run sync",
 		"lint": "yarn g:prettier --check $(echo \"${@:-.}\") && yarn check && lint --runner stylelint --runner eslint \"$@\"",
 		"start": "vite preview --open",
 		"sync": "svelte-kit sync"
