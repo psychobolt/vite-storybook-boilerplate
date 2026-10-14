@@ -10,6 +10,10 @@
 			"cache": false,
 			"persistent": true,
 			"dependsOn": ["build"]
+		},
+		"sync": {
+			"dependsOn": ["commons#build"],
+			"outputs": [".svelte-kit/**", "node_modules/$app/**"]
 		}
 	}
 }

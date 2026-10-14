@@ -89,9 +89,6 @@ jobs:
         run: yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
-      - name: Run Build
-        if: matrix.os == 'windows-latest'
-        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Fetch base branch
         if: matrix.os == 'ubuntu-latest' && inputs.base_ref != ''
         run: git fetch --depth=1 origin ${{ inputs.base_ref }}:base_branch
@@ -111,13 +108,15 @@ jobs:
           else
             echo "ignore=false" >> $GITHUB_OUTPUT
           fi
-      - name: Build with Vercel
+      - name: Run Build
+        if: matrix.os == 'windows-latest'
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+      - name: Build for Vercel
         if: matrix.os == 'ubuntu-latest' && (inputs.deploy_target == '' || inputs.deploy_target == 'vercel')
         env:
           DEPLOY_TARGET: vercel
         run: |
-          vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
-          vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
+          yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Deploy to Vercel
         id: vercel
         if: matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false' && (inputs.deploy_target == '' || inputs.deploy_target == 'vercel')
