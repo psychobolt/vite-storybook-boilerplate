@@ -5,6 +5,12 @@ __metadata:
   version: 10
   cacheKey: 10c0
 
+"$app@link:./node_modules/$app::locator=svelte-app%40workspace%3Aapps%2Fsvelte-app":
+  version: 0.0.0-use.local
+  resolution: "$app@link:./node_modules/$app::locator=svelte-app%40workspace%3Aapps%2Fsvelte-app"
+  languageName: node
+  linkType: soft
+
 "@adobe/css-tools@npm:^4.4.0":
   version: 4.5.0
   resolution: "@adobe/css-tools@npm:4.5.0"
@@ -17877,6 +17883,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-app@workspace:apps/svelte-app"
   dependencies:
+    $app: "link:./node_modules/$app"
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"

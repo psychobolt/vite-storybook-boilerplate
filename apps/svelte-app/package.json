@@ -2,16 +2,22 @@
 	"name": "svelte-app",
 	"private": true,
 	"type": "module",
+	"imports": {
+		"#lib/*": "./src/lib/*"
+	},
 	"scripts": {
 		"build": "vite build",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check": "yarn sync && svelte-check",
 		"check:watch": "yarn check --watch",
 		"dev": "vite dev --open",
 		"format": "yarn g:format",
+		"postinstall": "yarn sync",
 		"lint": "yarn g:prettier --check $(echo \"${@:-.}\") && yarn check && lint --runner stylelint --runner eslint \"$@\"",
-		"start": "vite preview --open"
+		"start": "vite preview --open",
+		"sync": "svelte-kit sync"
 	},
 	"devDependencies": {
+		"$app": "link:./node_modules/$app",
 		"@eslint/js": "10.0.1",
 		"@fontsource/fira-mono": "5.3.0",
 		"@neoconfetti/svelte": "2.2.2",
