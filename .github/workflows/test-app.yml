@@ -150,8 +150,6 @@ jobs:
           else
             echo "ignore=false" >> $GITHUB_OUTPUT
           fi
-      - name: Run Build
-        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Build for Vercel
         env:
           DEPLOY_TARGET: vercel
