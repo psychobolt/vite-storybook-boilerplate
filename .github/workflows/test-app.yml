@@ -19,6 +19,9 @@ on:
         default: ''
   workflow_dispatch:
     inputs:
+      force:
+        type: boolean
+        default: false
       deploy_target:
         required: true
         type: choice
@@ -38,9 +41,6 @@ on:
 
 permissions:
   contents: read
-  deployments: write
-  issues: write
-  pull-requests: write
 
 jobs:
   test:
@@ -109,40 +109,40 @@ jobs:
             echo "ignore=false" >> $GITHUB_OUTPUT
           fi
       - name: Run Build
-        if: matrix.os == 'windows-latest'
         run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Build for Vercel
-        if: matrix.os == 'ubuntu-latest' && (inputs.deploy_target == '' || inputs.deploy_target == 'vercel')
         env:
           DEPLOY_TARGET: vercel
         run: |
-          yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+          vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
+          vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
         id: vercel
-        if: matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false' && (inputs.deploy_target == '' || inputs.deploy_target == 'vercel')
+        if: >-
+          matrix.os == 'ubuntu-latest' &&
+          (steps.deploy.outputs.ignore == 'false' || inputs.force) &&
+          (inputs.deploy_target == '' || inputs.deploy_target == 'vercel')
         continue-on-error: ${{ inputs.deploy_target == '' }}
-        uses: BetaHuhn/deploy-to-vercel-action@9893d875c782e1b4995a9399e8c4d660c33849c3 # v1
-        with:
-          GITHUB_TOKEN: ${{ github.token }}
-          GITHUB_DEPLOYMENT_ENV: ${{ format('{0} ({1})', inputs.workspace, env.REF_NAME == 'main' && 'Production' || 'Preview') }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          PRODUCTION: ${{ env.REF_NAME == 'main' }}
-          FORCE: true
-          PREBUILT: true
+        env:
+          DEPLOY_TARGET: vercel
+        run: |
+          vercel deploy --yes --force ${{ env.REF_NAME == 'main' && '--prod' || '' }} \
+            --token="$VERCEL_TOKEN" \
+            --meta githubDeployment=1 \
+            --meta githubCommitRef="$REF_NAME"
+            --prebuilt
       - name: Build for Cloudflare
         id: cloudflare_build
-        if: >-
-          matrix.os == 'ubuntu-latest' && steps.deploy.outputs.ignore == 'false' &&
-          (inputs.deploy_target == 'cloudflare' || (inputs.deploy_target == '' && steps.vercel.outcome == 'failure'))
         env:
           DEPLOY_TARGET: cloudflare
         run: |
           yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Deploy to Cloudflare
         id: cloudflare
-        if: matrix.os == 'ubuntu-latest' && steps.cloudflare_build.outcome == 'success' && steps.deploy.outputs.ignore == 'false'
+        if: >-
+          matrix.os == 'ubuntu-latest' &&
+          (steps.deploy.outputs.ignore == 'false' || inputs.force) &&
+          (inputs.deploy_target == 'cloudflare' || (inputs.deploy_target == '' && steps.vercel.outcome == 'failure'))
         working-directory: ${{ inputs.path }}
         env:
           DEPLOY_TARGET: cloudflare
