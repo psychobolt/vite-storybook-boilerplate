@@ -14049,7 +14049,7 @@ __metadata:
     styled-jsx: "npm:5.1.7"
     turbo: "npm:2.11.8"
     typescript: "npm:6.0.3"
-    vinext: "npm:1.2.0"
+    vinext: "npm:1.2.1"
     vite: "npm:8.3.4"
     wrangler: "npm:4.151.0"
   languageName: unknown
@@ -19138,9 +19138,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vinext@npm:1.2.0":
-  version: 1.2.0
-  resolution: "vinext@npm:1.2.0"
+"vinext@npm:1.2.1":
+  version: 1.2.1
+  resolution: "vinext@npm:1.2.1"
   dependencies:
     "@unpic/react": "npm:^1.0.2"
     "@vercel/og": "npm:1.0.3"
@@ -19153,9 +19153,9 @@ __metadata:
     "@mdx-js/rollup": ^3.0.0
     "@vitejs/plugin-react": ^5.1.4 || ^6.0.0
     "@vitejs/plugin-rsc": ^0.5.37
-    react: ^19.2.6
-    react-dom: ^19.2.6
-    react-server-dom-webpack: ^19.2.6
+    react: ^19.3.1
+    react-dom: ^19.3.1
+    react-server-dom-webpack: ^19.3.1
     vite: ^8.0.0
   peerDependenciesMeta:
     "@mdx-js/rollup":
@@ -19166,7 +19166,7 @@ __metadata:
       optional: true
   bin:
     vinext: dist/cli.js
-  checksum: 10c0/1980420149cb25b6d2eafee1683864489c47d53ac8a234ec5a6c38c429ad8192ba04bdf219d83f67d44c16ded0621db094019fbd3ddfc5eb5fe942bfe3581147
+  checksum: 10c0/c5e57bbc2f9dccfe079a758375000073c523bb57b3da597aee9440d27ee03ecc95565bb5b07ae468a071f16ee9b0f44b1a58fd885bb4fab0416914ec04051cad
   languageName: node
   linkType: hard
 
