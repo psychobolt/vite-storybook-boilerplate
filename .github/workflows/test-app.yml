@@ -52,6 +52,51 @@ jobs:
     timeout-minutes: 25
     environment: ${{ inputs.workspace }}
     env:
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
+      TURBO_TELEMETRY_DISABLED: 1
+      TURBO_GLOBAL_WARNING_DISABLED: 1
+      YARN_ENABLE_HARDENED_MODE: 0
+    steps:
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ inputs.ref_name || github.ref }}
+          fetch-depth: 2
+      - name: Set Yarn global folder
+        env:
+          YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
+        run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
+        shell: bash
+      - name: Setup Node.js environment
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+          cache-dependency-path: '**/yarn.lock'
+      - name: Start Turbo Cache Server
+        uses: rharkor/caching-for-turbo@2238fae6eb9a9936f92356f54cb3660200d105e7 # v2.5.1
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Bootstrap
+        if: inputs.pnp == false
+        run: yarn bootstrap
+      - name: Run Lint
+        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+      - name: Run Build
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+  vercel:
+    name: Vercel
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    environment: ${{ inputs.workspace }}
+    outputs:
+      ignore: ${{ steps.deploy.outputs.ignore }}
+      deployment_outcome: ${{ steps.vercel.outcome }}
+    env:
       REF_NAME: ${{ inputs.ref_name || github.head_ref || github.ref_name }}
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
@@ -87,16 +132,13 @@ jobs:
       - name: Bootstrap
         if: inputs.pnp == false
         run: yarn bootstrap
-      - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Fetch base branch
-        if: matrix.os == 'ubuntu-latest' && inputs.base_ref != ''
+        if: inputs.base_ref != ''
         run: git fetch --depth=1 origin ${{ inputs.base_ref }}:base_branch
       - name: Install Vercel
         run: npm install -g vercel
       - name: Run turbo-ignore
         id: deploy
-        if: matrix.os == 'ubuntu-latest'
         run: |
           npm install -g turbo-ignore
           set +e
@@ -114,12 +156,11 @@ jobs:
         env:
           DEPLOY_TARGET: vercel
         run: |
-          vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token ${{ secrets.VERCEL_TOKEN }}
-          vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token ${{ secrets.VERCEL_TOKEN }}
+          vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token="$VERCEL_TOKEN"
+          vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token="$VERCEL_TOKEN"
       - name: Deploy to Vercel
         id: vercel
         if: >-
-          matrix.os == 'ubuntu-latest' &&
           (steps.deploy.outputs.ignore == 'false' || inputs.force) &&
           (inputs.deploy_target == '' || inputs.deploy_target == 'vercel')
         continue-on-error: ${{ inputs.deploy_target == '' }}
@@ -129,8 +170,46 @@ jobs:
           vercel deploy --yes --force ${{ env.REF_NAME == 'main' && '--prod' || '' }} \
             --token="$VERCEL_TOKEN" \
             --meta githubDeployment=1 \
-            --meta githubCommitRef="$REF_NAME"
+            --meta githubCommitRef="$REF_NAME" \
             --prebuilt
+  cloudflare:
+    name: Cloudflare
+    needs: vercel
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    environment: ${{ inputs.workspace }}
+    env:
+      REF_NAME: ${{ inputs.ref_name || github.head_ref || github.ref_name }}
+      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
+      TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
+      TURBO_TELEMETRY_DISABLED: 1
+      TURBO_GLOBAL_WARNING_DISABLED: 1
+      YARN_ENABLE_HARDENED_MODE: 0
+    steps:
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ inputs.ref_name || github.ref }}
+      - name: Set Yarn global folder
+        env:
+          YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
+        run: echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
+        shell: bash
+      - name: Setup Node.js environment
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+          cache-dependency-path: '**/yarn.lock'
+      - name: Start Turbo Cache Server
+        uses: rharkor/caching-for-turbo@2238fae6eb9a9936f92356f54cb3660200d105e7 # v2.5.1
+        with:
+          cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Bootstrap
+        if: inputs.pnp == false
+        run: yarn bootstrap
       - name: Build for Cloudflare
         id: cloudflare_build
         env:
@@ -140,9 +219,8 @@ jobs:
       - name: Deploy to Cloudflare
         id: cloudflare
         if: >-
-          matrix.os == 'ubuntu-latest' &&
-          (steps.deploy.outputs.ignore == 'false' || inputs.force) &&
-          (inputs.deploy_target == 'cloudflare' || (inputs.deploy_target == '' && steps.vercel.outcome == 'failure'))
+          (needs.vercel.outputs.ignore == 'false' || inputs.force) &&
+          (inputs.deploy_target == 'cloudflare' || (inputs.deploy_target == '' && needs.vercel.outputs.deployment_outcome == 'failure'))
         working-directory: ${{ inputs.path }}
         env:
           DEPLOY_TARGET: cloudflare
