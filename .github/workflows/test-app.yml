@@ -43,8 +43,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    name: Run Tests
+  lint:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -85,10 +84,7 @@ jobs:
         run: yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
-      - name: Run Build
-        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
   vercel:
-    name: Vercel
     needs: test
     runs-on: ubuntu-latest
     timeout-minutes: 7
@@ -150,6 +146,8 @@ jobs:
           else
             echo "ignore=false" >> $GITHUB_OUTPUT
           fi
+      - name: Run Build
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Build for Vercel
         env:
           DEPLOY_TARGET: vercel
@@ -171,7 +169,6 @@ jobs:
             --meta githubCommitRef="$REF_NAME" \
             --prebuilt
   cloudflare:
-    name: Cloudflare
     needs: vercel
     runs-on: ubuntu-latest
     timeout-minutes: 7
@@ -208,6 +205,8 @@ jobs:
       - name: Bootstrap
         if: inputs.pnp == false
         run: yarn bootstrap
+      - name: Run Build
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Build for Cloudflare
         id: cloudflare_build
         env:
