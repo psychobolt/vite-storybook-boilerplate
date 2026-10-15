@@ -85,7 +85,7 @@ jobs:
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
   vercel:
-    needs: test
+    needs: lint
     runs-on: ubuntu-latest
     timeout-minutes: 7
     environment: ${{ inputs.workspace }}
