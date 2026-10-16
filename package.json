@@ -45,7 +45,7 @@
     "renovate": "43.288.0",
     "semver": "7.8.5",
     "skills": "1.7.2",
-    "svelte-language-server": "0.18.4",
+    "svelte-language-server": "0.18.5",
     "turbo": "2.11.8",
     "typescript": "6.0.3"
   },
