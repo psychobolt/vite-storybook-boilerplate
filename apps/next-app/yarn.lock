@@ -315,12 +315,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.36.0":
-  version: 2.36.0
-  resolution: "@dotenvx/dotenvx@npm:2.36.0"
+"@dotenvx/dotenvx@npm:2.37.0":
+  version: 2.37.0
+  resolution: "@dotenvx/dotenvx@npm:2.37.0"
   dependencies:
-    "@dotenvx/primitives": "npm:^3.3.0"
-    "@dotenvx/providers": "npm:^0.3.5"
+    "@dotenvx/primitives": "npm:^3.3.1"
+    "@dotenvx/providers": "npm:^0.3.8"
     "@dotenvx/tooling": "npm:^1.0.5"
     undici: "npm:^6.28.1"
     write-file-atomic: "npm:^5.0.1"
@@ -328,24 +328,24 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/8d818bb6cc03523dc69ee5ea7a76c093a977df5f6d069c2e415dccee93fdcee0d4c1cfb21f1cbc3d334642d196033c34139ebe3c753310eb429b7621bb587c66
+  checksum: 10c0/7069c04c44b1310eac335b44489c2dfd7060f2164285d9efa67ee79790fa59819c5ce6108296262937dd80a024b0093f5563590f7fa378d159f52456f181870f
   languageName: node
   linkType: hard
 
-"@dotenvx/primitives@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "@dotenvx/primitives@npm:3.3.0"
-  checksum: 10c0/2316dd2372a754e0381eb4f616abeb9afad3c35e880a5a7463f5b96c348a75a34d72c59488a9310c7511e4ec99b6d384befe60c9fcd016842736c9641ee2de29
+"@dotenvx/primitives@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "@dotenvx/primitives@npm:3.3.1"
+  checksum: 10c0/d9909f466f54ae0662a61f91d210ad55b3dd6acb7be44d2e0e459edd0d2a41ea2a311a2d4cde4b0932866c738b14fdaa73780bc5679a11832483a69d1d1b6ca9
   languageName: node
   linkType: hard
 
-"@dotenvx/providers@npm:^0.3.5":
-  version: 0.3.5
-  resolution: "@dotenvx/providers@npm:0.3.5"
+"@dotenvx/providers@npm:^0.3.8":
+  version: 0.3.8
+  resolution: "@dotenvx/providers@npm:0.3.8"
   dependencies:
-    "@dotenvx/primitives": "npm:^3.3.0"
+    "@dotenvx/primitives": "npm:^3.3.1"
     "@dotenvx/tooling": "npm:^1.0.4"
-  checksum: 10c0/35ffb7a3dc0756c87ac7788e9733443cbf768f19d360f00e3704981066f2092ecea8388e3c877b4e7f15e8d4d070dd6403b770da6802d06ebcccbbf34318f436
+  checksum: 10c0/f5cb28e01e7af678ac34e622732ee647e0e5b66fae31e1c919f3abcfbc7126489e08e7dba61d88250990587cdaf9464653c219ea9c69179c4df0624b8ce77069
   languageName: node
   linkType: hard
 
@@ -7287,7 +7287,7 @@ __metadata:
   resolution: "next-app@workspace:."
   dependencies:
     "@cloudflare/vite-plugin": "npm:1.64.0"
-    "@dotenvx/dotenvx": "npm:2.36.0"
+    "@dotenvx/dotenvx": "npm:2.37.0"
     "@types/node": "npm:24.19.2"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
