@@ -29,7 +29,7 @@
     "vite-plugin-sass-glob-import@npm:6.0.3": "patch:vite-plugin-sass-glob-import@npm%3A6.0.3#~/.yarn/patches/vite-plugin-sass-glob-import-npm-6.0.3-718e64ce42.patch"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "2.36.0",
+    "@dotenvx/dotenvx": "2.37.0",
     "@microsoft/agentrc": "2.0.1-92",
     "@swc-node/register": "1.12.1",
     "@swc/core": "1.16.18",
