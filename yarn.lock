@@ -15499,7 +15499,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:4.1.1":
+"prettier-plugin-svelte4@npm:prettier-plugin-svelte@^4.0.0, prettier-plugin-svelte@npm:4.1.1":
   version: 4.1.1
   resolution: "prettier-plugin-svelte@npm:4.1.1"
   peerDependencies:
@@ -17928,7 +17928,7 @@ __metadata:
     svelte: "npm:5.57.2"
     svelte-check: "npm:4.7.7"
     svelte-eslint-parser: "npm:1.9.0"
-    svelte-language-server: "npm:0.18.4"
+    svelte-language-server: "npm:0.18.5"
     turbo: "npm:2.11.8"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.71.2"
@@ -17976,9 +17976,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-language-server@npm:0.18.4":
-  version: 0.18.4
-  resolution: "svelte-language-server@npm:0.18.4"
+"svelte-language-server@npm:0.18.5":
+  version: 0.18.5
+  resolution: "svelte-language-server@npm:0.18.5"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     "@sveltejs/load-config": "npm:^0.2.3"
@@ -17990,10 +17990,11 @@ __metadata:
     globrex: "npm:^0.1.2"
     prettier: "npm:~3.3.3"
     prettier-plugin-svelte: "npm:^3.5.0"
+    prettier-plugin-svelte4: "npm:prettier-plugin-svelte@^4.0.0"
     svelte: "npm:^4.2.19"
-    svelte2tsx: "npm:~0.7.61"
+    svelte2tsx: "npm:~0.7.62"
     typescript-auto-import-cache: "npm:^0.3.6"
-    vscode-css-languageservice: "npm:~6.3.5"
+    vscode-css-languageservice: "npm:~6.3.10"
     vscode-html-languageservice: "npm:~5.4.0"
     vscode-languageserver: "npm:9.0.1"
     vscode-languageserver-protocol: "npm:3.17.5"
@@ -18003,20 +18004,20 @@ __metadata:
     typescript: ^5.9.2 || ^6.0.2
   bin:
     svelteserver: bin/server.js
-  checksum: 10c0/ade7a88684f0c76aca77c24aa62a5fd578c090c1753f2b4958005fe3a0d53a47cdebfbd68c4d08d76abe532e5d78e3f828fc1437fe1d8e3c11af666181d90efb
+  checksum: 10c0/4abee8f40b68671ff7873fd364bcfd51caa5228b6688a5e8b110210de4f7caa95a7788d95d08b01ecb517c688c6e3dcdedfb096abd7a1f92bfe38c67998ce0c1
   languageName: node
   linkType: hard
 
-"svelte2tsx@npm:~0.7.61":
-  version: 0.7.61
-  resolution: "svelte2tsx@npm:0.7.61"
+"svelte2tsx@npm:~0.7.62":
+  version: 0.7.62
+  resolution: "svelte2tsx@npm:0.7.62"
   dependencies:
     dedent-js: "npm:^1.0.1"
     scule: "npm:^1.3.0"
   peerDependencies:
     svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
     typescript: ^4.9.4 || ^5.0.0 || ^6.0.0
-  checksum: 10c0/4aca1e93cc497b7808e2ff1cca99b7f5eebdbed40a95d45b0c7c67ba5364244b8e2710e49441a63eff0518693df8ca44ddb92f38595808004e8eff9eab908768
+  checksum: 10c0/b53f6ea3fcfaad5bc03031774451b69ad047949ced79090adbfd50b5deb86ae85bfaff6f04cf2db20b8e7c713004bd4e3bfa5796aab86484ff598aed7b8a2f9b
   languageName: node
   linkType: hard
 
@@ -19253,7 +19254,7 @@ __metadata:
     renovate: "npm:43.288.0"
     semver: "npm:7.8.5"
     skills: "npm:1.7.2"
-    svelte-language-server: "npm:0.18.4"
+    svelte-language-server: "npm:0.18.5"
     turbo: "npm:2.11.8"
     typescript: "npm:6.0.3"
   languageName: unknown
@@ -19402,7 +19403,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vscode-css-languageservice@npm:~6.3.5":
+"vscode-css-languageservice@npm:~6.3.10":
   version: 6.3.10
   resolution: "vscode-css-languageservice@npm:6.3.10"
   dependencies:
