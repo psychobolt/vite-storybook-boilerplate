@@ -13,7 +13,6 @@ This addon extends the [Component Story Format](https://github.com/ComponentDriv
 
 ```ts
 // Setup for .storybook/main.ts
-import type { Meta } from '@storybook/web-components-vite';
 import { mergeConfig, defineConfig } from 'vite';
 import {
   vitePluginStorybookVariants,

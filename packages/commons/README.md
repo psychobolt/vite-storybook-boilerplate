@@ -83,10 +83,10 @@ export default defineConfig((env) =>
    import { defineConfig } from 'eslint/config';
    import commonConfig from 'commons/esm/eslint.config.js';
 
-   export default defineConfig([
-     ...commonConfig
+   export default defineConfig(
+     commonConfig
      // your overrides
-   ]);
+   );
    ```
 
 2. Add scripts to /your/project/package.json

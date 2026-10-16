@@ -43,7 +43,7 @@ permissions:
   contents: read
 
 jobs:
-  lint:
+  test:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -84,15 +84,20 @@ jobs:
         run: yarn bootstrap
       - name: Run Lint
         run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+      - name: Run Build
+        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
   vercel:
-    needs: lint
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 7
     environment: ${{ inputs.workspace }}
     outputs:
       ignore: ${{ steps.deploy.outputs.ignore }}
-      deployment_outcome: ${{ steps.vercel.outcome }}
+      deployment_outcome: ${{ matrix.os == 'ubuntu-latest' && steps.vercel.outcome || '' }}
     env:
+      DEPLOY_TARGET: vercel
       REF_NAME: ${{ inputs.ref_name || github.head_ref || github.ref_name }}
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
@@ -129,11 +134,12 @@ jobs:
         if: inputs.pnp == false
         run: yarn bootstrap
       - name: Fetch base branch
-        if: inputs.base_ref != ''
+        if: matrix.os == 'ubuntu-latest' && inputs.base_ref != ''
         run: git fetch --depth=1 origin ${{ inputs.base_ref }}:base_branch
       - name: Install Vercel
         run: npm install -g vercel
       - name: Run turbo-ignore
+        if: matrix.os == 'ubuntu-latest'
         id: deploy
         run: |
           npm install -g turbo-ignore
@@ -149,19 +155,17 @@ jobs:
       - name: Run Build
         run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
       - name: Build for Vercel
-        env:
-          DEPLOY_TARGET: vercel
+        shell: bash
         run: |
           vercel pull --environment=${{ env.REF_NAME == 'main' && 'production' || 'preview' }} --yes --token="$VERCEL_TOKEN"
           vercel build ${{ env.REF_NAME == 'main' && '--prod' || '' }} --token="$VERCEL_TOKEN"
       - name: Deploy to Vercel
         id: vercel
         if: >-
+          matrix.os == 'ubuntu-latest' &&
           (steps.deploy.outputs.ignore == 'false' || inputs.force) &&
           (inputs.deploy_target == '' || inputs.deploy_target == 'vercel')
         continue-on-error: ${{ inputs.deploy_target == '' }}
-        env:
-          DEPLOY_TARGET: vercel
         run: |
           vercel deploy --yes --force ${{ env.REF_NAME == 'main' && '--prod' || '' }} \
             --token="$VERCEL_TOKEN" \
@@ -170,10 +174,14 @@ jobs:
             --prebuilt
   cloudflare:
     needs: vercel
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 7
     environment: ${{ inputs.workspace }}
     env:
+      DEPLOY_TARGET: cloudflare
       REF_NAME: ${{ inputs.ref_name || github.head_ref || github.ref_name }}
       TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
@@ -205,22 +213,16 @@ jobs:
       - name: Bootstrap
         if: inputs.pnp == false
         run: yarn bootstrap
-      - name: Run Build
-        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
-      - name: Build for Cloudflare
-        id: cloudflare_build
-        env:
-          DEPLOY_TARGET: cloudflare
+      - name: Build
         run: |
           yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
-      - name: Deploy to Cloudflare
-        id: cloudflare
+      - name: Deploy
         if: >-
+          matrix.os == 'ubuntu-latest' &&
           (needs.vercel.outputs.ignore == 'false' || inputs.force) &&
           (inputs.deploy_target == 'cloudflare' || (inputs.deploy_target == '' && needs.vercel.outputs.deployment_outcome == 'failure'))
         working-directory: ${{ inputs.path }}
         env:
-          DEPLOY_TARGET: cloudflare
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: yarn wrangler ${{ env.REF_NAME == 'main' && 'deploy' || 'preview' }}
