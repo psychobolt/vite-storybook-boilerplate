@@ -18,6 +18,10 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
      aliases.
   6. **Relative modules.** Group relative imports, with parent paths before
      same-directory paths when both are present.
+- Keep Node built-ins, framework, integration, external, and workspace package
+  imports in one contiguous block without blank lines between those ownership
+  groups. Place workspace package imports such as `commons` last in that block,
+  before local module imports.
 - Keep a framework and its official integrations together. Do not sort a
   framework plugin as an unrelated external package merely because its name
   is alphabetically later.
@@ -63,8 +67,8 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   required object identity or `this` binding, or when it makes the relationship
   to the owning object clearer. If destructuring a property would collide with
   a local binding, keep it on the source object or in a rest object and access
-  it by its original key (for example, `options.handler`) instead of inventing
-  a renamed alias. When a local name is available, derive it from that key
+  it by its original key (for example, `options.handler`) to avoid an
+  unnecessary alias. When a local name is available, derive it from that key
   (for example, `const handler = options.handler || defaultHandler`).
 - For parsed options or configuration objects, prefer destructuring a field
   when it is used more than once. For example, prefer `const { _ } = args` over
@@ -121,7 +125,10 @@ applyTo: '**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}'
   server-specific module, or `options` instead of `serverOptions` when it is
   the only option set in scope. Keep qualifiers when names cross module or
   package boundaries, multiple concepts could be confused, or the name is part
-  of a public API.
+  of a public API. When a separate local binding needs an alias solely to
+  avoid a name collision, prefix the original name with `_`, such as
+  `handler: _handler` or `import { handler as _handler }`, instead of inventing
+  a different name.
 - When a parsed option or configuration value is passed to multiple consumers,
   normalize the shared input once into a named local before constructing
   dependent values. Do not introduce one-use locals solely to name different

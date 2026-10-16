@@ -1,10 +1,11 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
+import { resolve } from 'node:path';
+import { defineConfig, globalIgnores, includeIgnoreFile } from 'eslint/config';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import typescript from 'eslint-config-next/typescript';
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...typescript,
+const eslintConfig = defineConfig(
+  nextVitals,
+  typescript,
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -19,6 +20,13 @@ const eslintConfig = defineConfig([
       react: { version: '19' } // Avoids auto-detection crash. See https://github.com/vercel/next.js/issues/89764
     }
   },
+  includeIgnoreFile(
+    [
+      resolve(import.meta.dirname, '../../.gitignore'),
+      resolve(import.meta.dirname, '.gitignore')
+    ],
+    { gitignoreResolution: true }
+  ),
   globalIgnores([
     '.next/**',
     '.vinext/**',
@@ -28,6 +36,6 @@ const eslintConfig = defineConfig([
     'build/**',
     'next-env.d.ts'
   ])
-]);
+);
 
 export default eslintConfig;

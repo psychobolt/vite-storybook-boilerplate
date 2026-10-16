@@ -1,5 +1,3 @@
-declare module 'prettier-config-standard';
-
 declare module 'postcss-pseudo-classes' {
   import type { PluginCreator } from 'postcss';
 
