@@ -24,7 +24,7 @@ type Config = Exclude<
 >;
 
 export default defineConfig(
-  ...(configs as Config[]),
+  configs as Config[],
   {
     rules: {
       'storybook/prefer-pascal-case': 0

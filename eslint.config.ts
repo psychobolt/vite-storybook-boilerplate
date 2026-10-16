@@ -1,9 +1,7 @@
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import commonConfig from 'commons/esm/eslint.config.js';
 
-export default defineConfig([
-  ...commonConfig,
-  {
-    ignores: ['apps/', 'packages/', 'apm_modules/']
-  }
-]);
+export default defineConfig(
+  commonConfig,
+  globalIgnores(['apps/', 'packages/'])
+);

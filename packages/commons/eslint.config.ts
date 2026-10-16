@@ -1,33 +1,39 @@
-/// <reference path="./modules.d.ts" preserve="true" />
-import { defineConfig } from 'eslint/config';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  defineConfig,
+  globalIgnores,
+  includeIgnoreFile as _includeIgnoreFile
+} from 'eslint/config';
 import * as mdx from 'eslint-plugin-mdx';
 import json from 'eslint-plugin-jsonc';
 import packageJson from 'eslint-plugin-package-json';
 import neostandard from 'neostandard';
 
+const gitignoreUrl = import.meta.resolve('commons/.gitignore');
+const jsFiles = ['**/*.{js,jsx,cjs,mjs}'];
 const tsFiles = ['**/*.{ts,tsx}'];
 const tsCodeBlocks = ['**/*.{md,mdx}'].map(
   (pattern) => `${pattern}/*.{ts,tsx}`
 );
 
+function includeIgnoreFile(path: string) {
+  return existsSync(path)
+    ? _includeIgnoreFile(path, { gitignoreResolution: true })
+    : [];
+}
+
 export default defineConfig(
-  ...neostandard({
-    files: ['**/*.{cj,j}s', '**/*.jsx'],
+  neostandard({
+    files: jsFiles,
+    ignores: ['!**/*.md/**'],
     noStyle: true,
     ts: true
   }),
   {
     files: tsFiles,
-    languageOptions: {
-      parserOptions: {
-        tsconfigRootDir: process.cwd(),
-        warnOnUnsupportedTypeScriptVersion: false
-      }
-    }
-  },
-  {
-    files: tsFiles,
-    ignores: tsCodeBlocks,
+    ignores: tsCodeBlocks, // project service does not support virtual files
     languageOptions: {
       parserOptions: {
         projectService: true,
@@ -42,7 +48,12 @@ export default defineConfig(
           allowNullableString: true,
           allowAny: true
         }
-      ],
+      ]
+    }
+  },
+  {
+    files: [...jsFiles, ...tsFiles, ...tsCodeBlocks],
+    rules: {
       yoda: ['error', 'never', { exceptRange: true }]
     }
   },
@@ -56,9 +67,9 @@ export default defineConfig(
     }
   },
   mdx.flatCodeBlocks,
-  ...json.configs['recommended-with-json'],
-  ...json.configs['recommended-with-jsonc'],
-  ...json.configs['recommended-with-json5'],
+  json.configs['recommended-with-json'],
+  json.configs['recommended-with-jsonc'],
+  json.configs['recommended-with-json5'],
   {
     files: ['**/tsconfig.json', '**/tsconfig.*.json'],
     plugins: {
@@ -68,7 +79,7 @@ export default defineConfig(
       'jsonc/no-comments': 0
     }
   },
-  ...json.configs.prettier,
+  json.configs.prettier,
   packageJson.configs.recommended,
   {
     settings: {
@@ -77,25 +88,8 @@ export default defineConfig(
       }
     }
   },
-  {
-    ignores: [
-      '.github/**/*.md',
-      '.turbo/',
-      '.yarn/**/*',
-      '!.yarn/plugins/*',
-      'dist/',
-      'esm/',
-      'cjs/',
-      'coverage/',
-      'node_modules/',
-      'storybook-static/',
-      'temp/',
-      'tmp/',
-      '.temp/',
-      '.tmp',
-      '.pnp.cjs',
-      '.pnp.loader.mjs',
-      'vite.config.*.timestamp-*'
-    ]
-  }
+  includeIgnoreFile(fileURLToPath(new URL('../../.gitignore', gitignoreUrl))),
+  includeIgnoreFile(fileURLToPath(gitignoreUrl)),
+  includeIgnoreFile(join(process.cwd(), '.gitignore')),
+  globalIgnores(['.github/**/*.md', '.yarn/**/*', '!.yarn/plugins/*'])
 );
