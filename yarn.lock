@@ -5063,16 +5063,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/mcp@npm:0.1.26":
-  version: 0.1.26
-  resolution: "@sveltejs/mcp@npm:0.1.26"
+"@sveltejs/mcp@npm:0.1.27":
+  version: 0.1.27
+  resolution: "@sveltejs/mcp@npm:0.1.27"
   dependencies:
     eslint: "npm:^9.36.0"
     sade: "npm:1.8.1"
-    tmcp: "npm:1.20.0-next.1"
+    tmcp: "npm:^1.20.0"
   bin:
     svelte-mcp: dist/index.mjs
-  checksum: 10c0/56788bc0643f55f6f640503172512c30ec0ef1aeca792f802a5148928c3ea9a59bf90fc4b2c5557fc75ed86e8433f3720ed2c2dbfe9d61d6c4794c052a82121e
+  checksum: 10c0/1d063028ad9f3ae882b0701cd2e9c8124afe0d28e724d3b9e4afdafb1438804b0a06e59fca020538cb450f05b08cddd8b2c022bffe8b4f222578577db6478e10
   languageName: node
   linkType: hard
 
@@ -17931,7 +17931,7 @@ __metadata:
     "@sveltejs/adapter-cloudflare": "npm:8.0.1"
     "@sveltejs/adapter-vercel": "npm:7.0.1"
     "@sveltejs/kit": "npm:3.1.0"
-    "@sveltejs/mcp": "npm:0.1.26"
+    "@sveltejs/mcp": "npm:0.1.27"
     "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
@@ -18223,16 +18223,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmcp@npm:1.20.0-next.1":
-  version: 1.20.0-next.1
-  resolution: "tmcp@npm:1.20.0-next.1"
+"tmcp@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "tmcp@npm:1.20.0"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     json-rpc-2.0: "npm:^1.7.1"
     sqids: "npm:^0.3.0"
     uri-template-matcher: "npm:^1.1.1"
     valibot: "npm:^1.1.0"
-  checksum: 10c0/f0bf78fe6c680da4a40f9a429513a415b8a2edcdc033895c6311be93ac16e42ab57ff2d0fff4454cf1be6a8ac07f0b7d8cc54bdf98f050ac0a6379f1874a71b1
+  checksum: 10c0/712f5d0a8c33ab9856638f0bd4ebaf40b2d3f4ddf6f8a651d1fe1c1708f17fb226e5abed5eadf44b5162855b8e2de8862232f00825c0c3b92450243784aaa345
   languageName: node
   linkType: hard
 
