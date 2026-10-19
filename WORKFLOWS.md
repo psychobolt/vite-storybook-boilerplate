@@ -28,6 +28,10 @@ Occasionally it may be good to keep up to date with the latest enhancements of `
 
 ```sh
 git remote add base https://github.com/psychobolt/vite-storybook-boilerplate
+# or
+# git remote add base git@ssh.github.com:psychobolt/vite-storybook-boilerplate # requires SSH key
+# or
+# git remote add base git@ssh.github.com:443/psychobolt/vite-storybook-boilerplate # requires SSH key
 ```
 
 Anytime there are new updates, run:

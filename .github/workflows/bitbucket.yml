@@ -53,7 +53,6 @@ jobs:
             ${{ secrets.BITBUCKET_HOST_KEY }}
           config: |
             Host ssh.bitbucket.org
-            User ${{ secrets.BITBUCKET_USER }}
             IdentityFile ~/.ssh/bitbucket
       - name: Configure bitbucket upstream
         run: git remote add bitbucket ${{ secrets.BITBUCKET_REPO }}
