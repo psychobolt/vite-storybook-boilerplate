@@ -1094,12 +1094,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:2.38.0":
-  version: 2.38.0
-  resolution: "@dotenvx/dotenvx@npm:2.38.0"
+"@dotenvx/dotenvx@npm:2.38.1":
+  version: 2.38.1
+  resolution: "@dotenvx/dotenvx@npm:2.38.1"
   dependencies:
     "@dotenvx/primitives": "npm:^3.3.1"
-    "@dotenvx/providers": "npm:^0.3.8"
+    "@dotenvx/providers": "npm:^0.3.11"
     "@dotenvx/tooling": "npm:^1.0.5"
     undici: "npm:^6.28.1"
     write-file-atomic: "npm:^5.0.1"
@@ -1107,7 +1107,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     dx: src/cli/dotenvx.js
-  checksum: 10c0/0fabace4d7a659df68e79391a9f60a9e7149f66de783b96f4dbcc641b24f3dc2afa00e38dd12d91688935b357e4366102b007cfcfc531071b93c16716bdf24c7
+  checksum: 10c0/7be8cb3a68629fd5e45b8312b5c7a6d67c6582622892c3d04f51d0628085bd52056b54511fec09c3683d275356e4e2b415717ddf23b7b7760ffcce6066a60ef8
   languageName: node
   linkType: hard
 
@@ -1118,13 +1118,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/providers@npm:^0.3.8":
-  version: 0.3.8
-  resolution: "@dotenvx/providers@npm:0.3.8"
+"@dotenvx/providers@npm:^0.3.11":
+  version: 0.3.11
+  resolution: "@dotenvx/providers@npm:0.3.11"
   dependencies:
     "@dotenvx/primitives": "npm:^3.3.1"
     "@dotenvx/tooling": "npm:^1.0.4"
-  checksum: 10c0/f5cb28e01e7af678ac34e622732ee647e0e5b66fae31e1c919f3abcfbc7126489e08e7dba61d88250990587cdaf9464653c219ea9c69179c4df0624b8ce77069
+  checksum: 10c0/5d9dbf784de5c6836d9abedc248235801c2f019688c311a6e4090abb8b7f035f891aca3d04c1073626c07c0a8b8f6744d3e43548605fb231503cdd9a9e6f3d1f
   languageName: node
   linkType: hard
 
@@ -14041,7 +14041,7 @@ __metadata:
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
     "@cloudflare/vite-plugin": "npm:1.64.0"
-    "@dotenvx/dotenvx": "npm:2.38.0"
+    "@dotenvx/dotenvx": "npm:2.38.1"
     "@types/node": "npm:24.19.2"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.0"
@@ -19248,7 +19248,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:2.38.0"
+    "@dotenvx/dotenvx": "npm:2.38.1"
     "@microsoft/agentrc": "npm:2.0.1-93"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.18"
