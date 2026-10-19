@@ -2,7 +2,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type {
   AllConfig,
-  RenovateConfig,
+  PackageRule,
   PackageRuleInputConfig
 } from 'renovate/dist/config/types.d.ts';
 import getWorkspaces from 'commons/esm/bin/ls-workspaces.js';
@@ -13,19 +13,7 @@ const workspaces = await getWorkspaces({
 
 type RequiredKeys<T, K extends keyof T> = Required<Pick<T, K>> & Omit<T, K>;
 
-type PostUpgradeTask = RequiredKeys<
-  NonNullable<RenovateConfig['postUpgradeTasks']>,
-  'commands' | 'fileFilters'
->;
-
-type PostUpgradeTaskRule = Omit<
-  NonNullable<RenovateConfig['packageRules']>[number],
-  'postUpgradeTasks'
-> & { postUpgradeTasks: PostUpgradeTask };
-
-type PostPackageTasks = Array<
-  RequiredKeys<PostUpgradeTaskRule, 'postUpgradeTasks'>
->;
+type PostPackageTasks = Array<RequiredKeys<PackageRule, 'postUpgradeTasks'>>;
 
 const lockfiles = ['**/yarn.lock'];
 
@@ -39,7 +27,7 @@ const workspaceDedupeCommands = workspaces.map(
 
 const dedupeCommands = [dedupeCommand, ...workspaceDedupeCommands];
 
-const dedupeRule: PostUpgradeTaskRule = {
+const dedupeRule: PackageRule = {
   matchManagers: ['npm'],
   postUpgradeTasks: {
     commands: dedupeCommands,
@@ -51,7 +39,7 @@ const dedupeRule: PostUpgradeTaskRule = {
 const bootstrapCommand =
   'env YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap';
 
-const bootstrapRule: PostUpgradeTaskRule = {
+const bootstrapRule: PackageRule = {
   matchFileNames: [
     'packages/commons/package.json',
     'packages/stylelint-config/package.json',
