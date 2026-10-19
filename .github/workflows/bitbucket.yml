@@ -52,7 +52,7 @@ jobs:
           known_hosts: |
             ${{ secrets.BITBUCKET_HOST_KEY }}
           config: |
-            Host bitbucket.org
+            Host ssh.bitbucket.org
             User ${{ secrets.BITBUCKET_USER }}
             IdentityFile ~/.ssh/bitbucket
       - name: Configure bitbucket upstream

@@ -5,19 +5,13 @@ import type {
   RenovateConfig,
   PackageRuleInputConfig
 } from 'renovate/dist/config/types.d.ts';
-import getWorkspaces, {
-  type Workspace
-} from 'commons/esm/bin/ls-workspaces.js';
+import getWorkspaces from 'commons/esm/bin/ls-workspaces.js';
 
-const workspaces: Workspace[] = await getWorkspaces({
+const workspaces = await getWorkspaces({
   nodeLinker: ['node-modules', 'pnpm']
 });
 
 type RequiredKeys<T, K extends keyof T> = Required<Pick<T, K>> & Omit<T, K>;
-
-type PackageRule = NonNullable<RenovateConfig['packageRules']>[number] & {
-  minimumGroupSize?: number;
-};
 
 type PostUpgradeTask = RequiredKeys<
   NonNullable<RenovateConfig['postUpgradeTasks']>,
@@ -78,11 +72,22 @@ const postPackageTasks: PostPackageTasks = [
       fileFilters: [...lockfiles, '**/*'],
       executionMode: 'branch'
     }
-  }
+  },
+  ...[dedupeRule, bootstrapRule].map((rule) => ({
+    ...rule,
+    matchPackageNames: ['/[/-]mcp$/'],
+    postUpgradeTasks: {
+      ...rule.postUpgradeTasks,
+      commands: [...rule.postUpgradeTasks.commands, 'apm install'],
+      fileFilters: [...rule.postUpgradeTasks.fileFilters, 'apm.lock.yaml'],
+      installTools: {
+        apm: {}
+      }
+    }
+  }))
 ];
 
-const config: Omit<AllConfig, 'packageRules'> & {
-  packageRules: PackageRule[];
+const config: AllConfig & {
   apm: PackageRuleInputConfig;
   nvm: PackageRuleInputConfig;
 } = {
@@ -97,18 +102,7 @@ const config: Omit<AllConfig, 'packageRules'> & {
   automerge: true,
   allowedCommands: ['^.+$'],
   baseBranchPatterns: ['main'],
-  packageRules: [
-    {
-      matchPackageNames: ['renovate*'],
-      matchBaseBranches: ['main'],
-      matchUpdateTypes: ['major'],
-      groupName: 'Renovate',
-      minimumGroupSize: 2
-    },
-    dedupeRule,
-    bootstrapRule,
-    ...postPackageTasks
-  ]
+  packageRules: [dedupeRule, bootstrapRule, ...postPackageTasks]
 };
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

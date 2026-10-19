@@ -61,7 +61,10 @@ jobs:
       - name: Bootstrap
         run: yarn bootstrap
       - name: Build renovate config
-        run: yarn run-script renovate.config.ts > renovate.config.json
+        id: renovate_config
+        run: |
+          yarn run-script renovate.config.ts > renovate.config.json
+          yarn node -p "'version=' + require('renovate/package.json').version" >> "$GITHUB_OUTPUT"
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@a63d9a7bc606f7336fd20b47f2f32259a35e6213 # v46.3.9
         env:
@@ -71,6 +74,7 @@ jobs:
           LOG_LEVEL: debug
         with:
           configurationFile: renovate.config.json
+          renovate-version: ${{ steps.renovate_config.outputs.version }}
           token: ${{ steps.get_token.outputs.token }}
           docker-user: ${{ env.DOCKER_USER }}
           docker-volumes: |
