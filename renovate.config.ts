@@ -72,19 +72,7 @@ const postPackageTasks: PostPackageTasks = [
       fileFilters: [...lockfiles, '**/*'],
       executionMode: 'branch'
     }
-  },
-  ...[dedupeRule, bootstrapRule].map((rule) => ({
-    ...rule,
-    matchPackageNames: ['/[/-]mcp$/'],
-    postUpgradeTasks: {
-      ...rule.postUpgradeTasks,
-      commands: [...rule.postUpgradeTasks.commands, 'apm install'],
-      fileFilters: [...rule.postUpgradeTasks.fileFilters, 'apm.lock.yaml'],
-      installTools: {
-        apm: {}
-      }
-    }
-  }))
+  }
 ];
 
 const config: AllConfig & {
