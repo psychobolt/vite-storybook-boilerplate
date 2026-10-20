@@ -57,7 +57,7 @@
     "react-dom": "19.3.1",
     "sirv": "3.0.2",
     "storybook-multilevel-sort": "2.1.0",
-    "storybook-zeplin": "4.0.1",
+    "storybook-zeplin": "4.1.0",
     "ts-enum-util": "4.1.0",
     "turbo": "2.11.9",
     "type-fest": "5.10.0",
