@@ -218,17 +218,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:5.5.1":
-  version: 5.5.1
-  resolution: "@chromatic-com/storybook@npm:5.5.1"
+"@chromatic-com/storybook@npm:5.6.0":
+  version: 5.6.0
+  resolution: "@chromatic-com/storybook@npm:5.6.0"
   dependencies:
     "@neoconfetti/react": "npm:^1.0.0"
-    chromatic: "npm:^18.0.1"
+    chromatic: "npm:^18.12.1"
     jsonfile: "npm:^6.1.0"
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0 || ^11.0.0-0
-  checksum: 10c0/aedf057a761357b680d81f2af12336b221aad218fba43db5ab68fa0ae1305570af85212a15045f30489b37dcf1d57c9fb49851c499619aeb11b25b9ad7cf1821
+  checksum: 10c0/abeb82b552aad64dba4cf915c3b3f2404e8e0246e14f74075193a35aa669e88fd96658fab39baca68d103952a3a6409e378986715a336a24f62084c75041b085
   languageName: node
   linkType: hard
 
@@ -3424,9 +3424,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^18.0.1":
-  version: 18.9.4
-  resolution: "chromatic@npm:18.9.4"
+"chromatic@npm:^18.12.1":
+  version: 18.13.0
+  resolution: "chromatic@npm:18.13.0"
   dependencies:
     semver: "npm:^7.3.5"
   peerDependencies:
@@ -3449,7 +3449,7 @@ __metadata:
     chroma: dist/bin.cjs
     chromatic: dist/bin.cjs
     chromatic-cli: dist/bin.cjs
-  checksum: 10c0/b4790642d1f0f921128bd33d2dc043aa37f725e1e73c335a4639eca1faae889a6f5aedae03eef32b65165cfb36a4ce472022e411b46c7acf6beb8abd813aade1
+  checksum: 10c0/141f481d6d0ac2cdaf32a92de44a197d4c21230a2e7a7f36f489f0a176407e68a638faf2a5dc94e26926dab933e7c760c947e7cc37bbf7a4ceed1cba9ea759cd
   languageName: node
   linkType: hard
 
@@ -3523,7 +3523,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "commons@portal:../../packages/commons::locator=next-app%40workspace%3A."
   dependencies:
-    "@chromatic-com/storybook": "npm:5.5.1"
+    "@chromatic-com/storybook": "npm:5.6.0"
     "@storybook/builder-vite": "npm:10.6.3"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4.17.26"
