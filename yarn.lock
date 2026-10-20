@@ -4780,24 +4780,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:10.6.2":
-  version: 10.6.2
-  resolution: "@storybook/addon-docs@npm:10.6.2"
+"@storybook/addon-docs@npm:10.6.3":
+  version: 10.6.3
+  resolution: "@storybook/addon-docs@npm:10.6.3"
   dependencies:
     "@mdx-js/react": "npm:^3.0.0"
     "@storybook/icons": "npm:^2.0.2"
-    "@storybook/react-dom-shim": "npm:10.6.2"
+    "@storybook/react-dom-shim": "npm:10.6.3"
     react: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     react-dom: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     ts-dedent: "npm:^2.0.0"
     unplugin: "npm:^2.3.5"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.6.2
+    storybook: ^10.6.3
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/0eee4371cc083dc67a28f2c87d1e991a8370dc3f356cea9910d4f2e38c7e1a15529875ea62668e80229b8d1aa717f6da794f6a203f443c15476ccb9ea1d867e4
+  checksum: 10c0/75762cfc898cf581a3702fc46a3facd675640ef52896040bce016c30492a78684aa8579c9b0e231029262c5e82b0067796ecf32d620ff77deffb933f1b619f28
   languageName: node
   linkType: hard
 
@@ -4875,24 +4875,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
   checksum: 10c0/73614dbb3e9c4756a6838525a6c78f85b24a5a09782512a39f24fe5a435992d6af92591ce18ac7a9a08c14aec10c08b158f68126aa29125058e01169c827bed6
-  languageName: node
-  linkType: hard
-
-"@storybook/react-dom-shim@npm:10.6.2":
-  version: 10.6.2
-  resolution: "@storybook/react-dom-shim@npm:10.6.2"
-  peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    "@types/react-dom": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.6.2
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-    "@types/react-dom":
-      optional: true
-  checksum: 10c0/cf0d9670674d54cc4e1db5285239fe7eb93998a01f23499326e61ba40ca7b12b64dda8e18fbefdf69b072ebb6591355d804aa16a625594af3cb3469bad5ac7b6
   languageName: node
   linkType: hard
 
@@ -7918,7 +7900,7 @@ __metadata:
   resolution: "commons@workspace:packages/commons"
   dependencies:
     "@chromatic-com/storybook": "npm:5.5.1"
-    "@storybook/addon-docs": "npm:10.6.2"
+    "@storybook/addon-docs": "npm:10.6.3"
     "@storybook/addon-links": "npm:10.6.3"
     "@storybook/addon-onboarding": "npm:10.6.3"
     "@storybook/addon-vitest": "npm:10.6.3"
@@ -11219,7 +11201,7 @@ __metadata:
   dependencies:
     "@fortawesome/fontawesome-free": "npm:7.3.1"
     "@open-wc/lit-helpers": "npm:0.7.0"
-    "@storybook/addon-docs": "npm:10.6.2"
+    "@storybook/addon-docs": "npm:10.6.3"
     "@storybook/addon-vitest": "npm:10.6.3"
     "@storybook/web-components-vite": "npm:10.6.3"
     "@types/react-syntax-highlighter": "npm:15.5.13"
@@ -15913,7 +15895,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:8.0.7"
     "@rolldown/plugin-babel": "npm:0.2.4"
-    "@storybook/addon-docs": "npm:10.6.2"
+    "@storybook/addon-docs": "npm:10.6.3"
     "@storybook/addon-vitest": "npm:10.6.3"
     "@storybook/react": "npm:10.6.3"
     "@storybook/react-vite": "npm:10.6.3"
