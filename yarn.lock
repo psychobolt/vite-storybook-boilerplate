@@ -4308,9 +4308,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.135.4":
-  version: 13.135.4
-  resolution: "@renovatebot/base-image@npm:13.135.4"
+"@renovatebot/base-image@npm:13.135.5":
+  version: 13.135.5
+  resolution: "@renovatebot/base-image@npm:13.135.5"
   dependencies:
     "@containerbase/base": "npm:14.44.3"
   peerDependencies:
@@ -4318,7 +4318,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10c0/659fe79006b21ff8e2bd75e7f09cb60083c14b5eaf961413658466d64ba896929859c09a94616af2ef926c3d91f2d32d3c81006f21439f2cd11f409aba2641e0
+  checksum: 10c0/e10da4f6e0c2d817e8c8f957643eb854bd7d8a3312569cb461188dc661365ff40e03d50ca60589c212a13119108961e9d8891573d96d5d689bb2ca099dfadcea
   languageName: node
   linkType: hard
 
@@ -16134,9 +16134,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.172.0":
-  version: 44.172.0
-  resolution: "renovate@npm:44.172.0"
+"renovate@npm:44.172.1":
+  version: 44.172.1
+  resolution: "renovate@npm:44.172.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16169,7 +16169,7 @@ __metadata:
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.0"
-    "@renovatebot/base-image": "npm:13.135.4"
+    "@renovatebot/base-image": "npm:13.135.5"
     "@renovatebot/detect-tools": "npm:4.0.23"
     "@renovatebot/good-enough-parser": "npm:2.0.1"
     "@renovatebot/osv-offline": "npm:3.0.12"
@@ -16270,7 +16270,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/f8a720815982aa2a9d24bb91ae62b8ceafbeca1701b5e8d17450337357bd541c60837f5a99b746c914663cee9b2d7b411ebcd4f73cc64714fd90628225c6bcee
+  checksum: 10c0/6056bcf50db8a7ecc006da07f56f9fd1d4fd0a1cc0c690c0f9be99cc7565e35a6ab440f22e1460325a39f9ea300b9476465afba498f3555f5cee61d2724c9a00
   languageName: node
   linkType: hard
 
@@ -19267,7 +19267,7 @@ __metadata:
     eslint: "npm:10.13.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.64.1"
-    renovate: "npm:44.172.0"
+    renovate: "npm:44.172.1"
     semver: "npm:7.8.5"
     skills: "npm:1.7.4"
     svelte-language-server: "npm:0.18.5"
