@@ -10845,9 +10845,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-auth-library@npm:11.2.0":
-  version: 11.2.0
-  resolution: "google-auth-library@npm:11.2.0"
+"google-auth-library@npm:11.3.0":
+  version: 11.3.0
+  resolution: "google-auth-library@npm:11.3.0"
   dependencies:
     base64-js: "npm:^1.3.0"
     ecdsa-sig-formatter: "npm:^1.0.11"
@@ -10855,7 +10855,7 @@ __metadata:
     gcp-metadata: "npm:^9.0.0"
     google-logging-utils: "npm:^2.0.0"
     jws: "npm:^4.0.0"
-  checksum: 10c0/c816c32c1c1704bce73e636e37981eb6a0608114bd697b8731db9835ef9b036fd6f7bc8b262f54b8e63cadca19ff17664bbab080b8a176cf2c54e21457de909c
+  checksum: 10c0/56d7140f04d06f67c24f9e17750345f362b407c3c9df91df59df81c3fb03ff41defc7c7a1a52087a1bff420e91402fc6685092276e2513ed5b0f9af73b4c9717
   languageName: node
   linkType: hard
 
@@ -16134,9 +16134,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.171.7":
-  version: 44.171.7
-  resolution: "renovate@npm:44.171.7"
+"renovate@npm:44.171.8":
+  version: 44.171.8
+  resolution: "renovate@npm:44.171.8"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16210,7 +16210,7 @@ __metadata:
     github-url-from-git: "npm:1.5.0"
     glob: "npm:13.0.6"
     global-agent: "npm:3.0.0"
-    google-auth-library: "npm:11.2.0"
+    google-auth-library: "npm:11.3.0"
     got: "npm:16.0.0"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.10"
@@ -16270,7 +16270,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/e7b1e07d54094013724e85765f1cbb7e680b3d2d20b98221961ce75c73f2dc66acff40ad8a9c07fac82a5d456fb7285854f6ce9c6edc1706754a87e16e724695
+  checksum: 10c0/14d8d7d5b26f60fe73a98b9e69393b2e604f6841dd4ee79b03012139ddb8df76ba3df759c767682b233444766915c2ba6954265eb1f592431d55bfbda0ecc4d1
   languageName: node
   linkType: hard
 
@@ -19267,7 +19267,7 @@ __metadata:
     eslint: "npm:10.13.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.64.1"
-    renovate: "npm:44.171.7"
+    renovate: "npm:44.171.8"
     semver: "npm:7.8.5"
     skills: "npm:1.7.4"
     svelte-language-server: "npm:0.18.5"
