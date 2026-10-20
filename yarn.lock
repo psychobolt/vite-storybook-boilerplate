@@ -7949,7 +7949,7 @@ __metadata:
     sirv: "npm:3.0.2"
     storybook: "npm:10.6.3"
     storybook-multilevel-sort: "npm:2.1.0"
-    storybook-zeplin: "npm:4.0.1"
+    storybook-zeplin: "npm:4.1.0"
     stylelint: "npm:17.16.0"
     ts-enum-util: "npm:4.1.0"
     turbo: "npm:2.11.9"
@@ -17363,9 +17363,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-zeplin@npm:4.0.1":
-  version: 4.0.1
-  resolution: "storybook-zeplin@npm:4.0.1"
+"storybook-zeplin@npm:4.1.0":
+  version: 4.1.0
+  resolution: "storybook-zeplin@npm:4.1.0"
   dependencies:
     "@storybook/icons": "npm:^2.0.1"
     "@zeplin/sdk": "npm:^1.9.0"
@@ -17373,8 +17373,8 @@ __metadata:
   peerDependencies:
     react: ">=18"
     react-dom: ">=18"
-    storybook: ^10.0.0
-  checksum: 10c0/f43b9cac03b8084454720d4b0e48deb860188a37bfb48b67fc06e7663bcb506881dc2d3fe73dae99bf6910fe707b433daf37f64aacde0f3401173a4a4378133e
+    storybook: ^10.0.0 || ^11.0.0-0
+  checksum: 10c0/2e88d327387be168663f1eaa0bcf0d0457248a14b960d0ebdd7f30d7be61c151a0b5a87680da6b7ca7b375b99efcad38ca3c70f4e7004c067ec20d7c8810add6
   languageName: node
   linkType: hard
 
