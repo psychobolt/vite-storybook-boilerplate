@@ -103,5 +103,5 @@ const immutable =
   ).trim() === 'true';
 
 if (!process.env.CI || !immutable) {
-  await $('FORCE_COLOR=1 yarn workspaces foreach -A run setup');
+  await $('yarn workspaces foreach -A run setup');
 }
