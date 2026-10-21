@@ -245,8 +245,13 @@ status` and the relevant diff. Preserve changes that existed before the
   usage documentation. Otherwise preserve them.
 - Keep each workspace aligned with its type and nearest local guidance rather
   than applying UI, app, or API conventions interchangeably.
-- Follow the repository and workspace configuration rather than introducing new
-  conventions.
+- Follow repository and workspace configuration and conventions. Before
+  recommending or implementing a change, verify its assumptions against
+  current source and relevant authoritative documentation. Prefer configured
+  values and supported public APIs over hardcoded assumptions or internal APIs.
+  Account for documented variations in workspaces, providers, and versions;
+  state material compatibility limits. Keep the solution proportional to
+  established requirements rather than adding speculative abstractions.
 
 ## Workflow skills
 
