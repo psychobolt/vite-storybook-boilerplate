@@ -41,7 +41,7 @@
     "autoprefixer": "10.6.1",
     "chokidar": "6.0.0",
     "cors": "2.8.6",
-    "eslint-plugin-mdx": "3.8.1",
+    "eslint-plugin-mdx": "3.8.2",
     "eslint-plugin-storybook": "10.6.3",
     "glob-to-regexp": "0.4.1",
     "jiti": "2.7.0",
