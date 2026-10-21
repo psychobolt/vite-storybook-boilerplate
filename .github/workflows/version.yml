@@ -92,9 +92,7 @@ jobs:
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
-        run: |
-          yarn install
-          yarn bootstrap
+        run: yarn install
       - name: Remove existing version strategies
         run: rm -rf .yarn/versions || true
       - name: Immediately bump versions

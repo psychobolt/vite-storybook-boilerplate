@@ -6,7 +6,10 @@ Collection of scripts, executables, and any runtimes for workspace or infrastruc
 
 `bootstrap.ts` ([Source](bootstrap.ts))
 
-Installs workspaces that do not support `pnp` linker
+Is automatically executed to setup workspaces on `yarn install`.
+
+In CI, workspace `setup` scripts are skipped when Yarn's resolved
+`enableImmutableInstalls` setting is enabled.
 
 ```
 yarn bootstrap
