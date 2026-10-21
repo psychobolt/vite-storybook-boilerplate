@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { join } from 'node:path';
-import { type ExecOptions, execSync } from 'node:child_process';
+import { type ExecOptions } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { $ } from 'commons/esm/bin/utils/functions.js';
 
@@ -34,7 +34,13 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
   console.log(`Verify workspaces using ${linker} linker...`);
 
   for (const workspace of workspaces) {
-    const options = { cwd: workspace.location };
+    const options = {
+      cwd: workspace.location,
+      env: {
+        ...process.env,
+        YARN_AFTER_INSTALL: ''
+      }
+    };
     const run = () => {
       console.log(`Verifying ${workspace.name}...`);
       return install(options);
@@ -56,10 +62,12 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
             `file://${process.env.YARN_GLOBAL_FOLDER}/cache`
           );
           if (
-            execSync(
-              'yarn config get enableGlobalCache',
-              options
-            ).toString() === 'false'
+            (
+              await $('yarn config get enableGlobalCache', {
+                ...options,
+                silent: true
+              })
+            ).trim() === 'false'
           ) {
             fs.renameSync(cacheFolder, sharedCacheFolder);
           } else {
@@ -87,4 +95,13 @@ for await (const [linker, workspaces] of getWorkspacesByLinker()) {
       }
     }
   }
+}
+
+const immutable =
+  (
+    await $('yarn config get enableImmutableInstalls', { silent: true })
+  ).trim() === 'true';
+
+if (!process.env.CI || !immutable) {
+  await $('FORCE_COLOR=1 yarn workspaces foreach -A run setup');
 }

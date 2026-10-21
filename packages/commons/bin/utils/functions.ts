@@ -1,4 +1,4 @@
-import { type ExecOptions, exec } from 'node:child_process';
+import { type ExecOptions, exec, spawn } from 'node:child_process';
 import { type BinaryToTextEncoding, createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -22,24 +22,51 @@ export const $ = (
 ) => {
   const error = new Error();
   return new Promise<string>((resolve, reject) => {
-    const childProcess = exec(command, options, (e, stdout, stderr) => {
-      if (e) {
-        error.message = e.message;
-        if (silent) {
-          e.message = (stderr ?? stdout).toString();
+    if (silent) {
+      exec(command, options, (e, stdout, stderr) => {
+        if (e) {
+          error.message = e.message;
+          e.message = stderr.toString() || stdout.toString() || e.message;
           error.cause = e;
+          reject(error);
+        } else {
+          resolve(stdout.toString());
         }
-        reject(error);
+      });
+      return;
+    }
+
+    const env = { ...(options.env ?? process.env) };
+    const { NODE_DISABLE_COLORS, NO_COLOR, FORCE_COLOR } = env;
+    if (
+      [NODE_DISABLE_COLORS, NO_COLOR, FORCE_COLOR].every(
+        (value) => value !== undefined
+      ) &&
+      process.stdout.isTTY &&
+      process.stdout.hasColors()
+    ) {
+      env.FORCE_COLOR = '1';
+    }
+
+    const childProcess = spawn(command, {
+      ...options,
+      env,
+      shell: options.shell ?? true,
+      stdio: 'inherit'
+    });
+    childProcess.once('error', (e) => {
+      error.message = e.message;
+      error.cause = e;
+      reject(error);
+    });
+    childProcess.once('close', (code, signal) => {
+      if (code === 0) {
+        resolve('');
       } else {
-        resolve(stdout.toString());
+        error.message = `Command failed: ${command} (${signal ?? code})`;
+        reject(Object.assign(error, { code, signal }));
       }
     });
-    if (!silent) {
-      const options = { end: false };
-      childProcess.stdin?.pipe(process.stdin, options);
-      childProcess.stdout?.pipe(process.stdout, options);
-      childProcess.stderr?.pipe(process.stderr, options);
-    }
   });
 };
 

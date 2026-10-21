@@ -7,7 +7,7 @@
 	},
 	"scripts": {
 		"build": "vite build",
-		"check": "yarn sync && svelte-check",
+		"check": "svelte-check",
 		"check:watch": "yarn check --watch",
 		"dev": "vite dev --open",
 		"format": "yarn g:format",

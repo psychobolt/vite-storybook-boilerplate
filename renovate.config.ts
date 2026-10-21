@@ -1,4 +1,3 @@
-import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type {
   AllConfig,
@@ -27,26 +26,13 @@ const workspaceDedupeCommands = workspaces.map(
 
 const dedupeCommands = [dedupeCommand, ...workspaceDedupeCommands];
 
-const dedupeRule: PackageRule = {
+const installCommand =
+  'env YARN_ENABLE_IMMUTABLE_INSTALLS=false YARN_AFTER_INSTALL="" yarn install';
+
+const npmRule: PackageRule = {
   matchManagers: ['npm'],
   postUpgradeTasks: {
-    commands: dedupeCommands,
-    fileFilters: lockfiles,
-    executionMode: 'branch'
-  }
-};
-
-const bootstrapCommand =
-  'env YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn bootstrap';
-
-const bootstrapRule: PackageRule = {
-  matchFileNames: [
-    'packages/commons/package.json',
-    'packages/stylelint-config/package.json',
-    ...workspaces.map(({ location }) => join(location, 'package.json'))
-  ],
-  postUpgradeTasks: {
-    commands: [bootstrapCommand, ...dedupeCommands],
+    commands: [installCommand, ...dedupeCommands],
     fileFilters: lockfiles,
     executionMode: 'branch'
   }
@@ -56,7 +42,7 @@ const postPackageTasks: PostPackageTasks = [
   {
     matchPackageNames: ['prettier**'],
     postUpgradeTasks: {
-      commands: [bootstrapCommand, ...dedupeCommands, 'yarn turbo run format'],
+      commands: [installCommand, ...dedupeCommands, 'yarn turbo run format'],
       fileFilters: [...lockfiles, '**/*'],
       executionMode: 'branch'
     }
@@ -78,7 +64,7 @@ const config: AllConfig & {
   automerge: true,
   allowedCommands: ['^.+$'],
   baseBranchPatterns: ['main'],
-  packageRules: [dedupeRule, bootstrapRule, ...postPackageTasks]
+  packageRules: [npmRule, ...postPackageTasks]
 };
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

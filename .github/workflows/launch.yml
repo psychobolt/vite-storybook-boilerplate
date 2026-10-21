@@ -68,9 +68,7 @@ jobs:
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
-        run: |
-          yarn install
-          yarn bootstrap
+        run: yarn install
       - name: 'Create and publish release: ${{ vars.RELEASE_TAG }}'
         uses: ./.github/actions/release
         with:
