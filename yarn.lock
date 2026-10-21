@@ -6838,7 +6838,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"argparse@npm:^3.0.0, argparse@npm:^3.0.3":
+"argparse@npm:^3.0.3":
   version: 3.0.3
   resolution: "argparse@npm:3.0.3"
   checksum: 10c0/8d715f1c4bb0aa14a8b8ee749d6ab6f12d380caba33139d527cac79988af152cfd160f152c3964c76c7ea473f1899bd0989bd1e9cfdba22e68f50b6a4b5c9d0d
@@ -8815,7 +8815,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:^8.0.0":
+"entities@npm:^8.0.0, entities@npm:^8.1.0":
   version: 8.1.0
   resolution: "entities@npm:8.1.0"
   checksum: 10c0/da0bf22912c19d2a4707783e1b905d3f6a977e93e0655a8d2c526455eb3996f668f9f2e4c2a07af8d6927d232c41b6e929a7044df0236c7bf6e9c38e070e3719
@@ -12609,7 +12609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"linkify-it@npm:^6.0.0":
+"linkify-it@npm:^6.1.0":
   version: 6.1.0
   resolution: "linkify-it@npm:6.1.0"
   dependencies:
@@ -12883,19 +12883,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it@npm:15.0.2":
-  version: 15.0.2
-  resolution: "markdown-it@npm:15.0.2"
+"markdown-it@npm:15.0.3":
+  version: 15.0.3
+  resolution: "markdown-it@npm:15.0.3"
   dependencies:
-    argparse: "npm:^3.0.0"
-    entities: "npm:^8.0.0"
-    linkify-it: "npm:^6.0.0"
+    argparse: "npm:^3.0.3"
+    entities: "npm:^8.1.0"
+    linkify-it: "npm:^6.1.0"
     mdurl: "npm:^2.1.0"
     punycode.js: "npm:^2.3.1"
     uc.micro: "npm:^3.0.0"
   bin:
     markdown-it: bin/markdown-it.mjs
-  checksum: 10c0/a06c47578157bcb01fc161951254158d41386f5f7dc09d335453568c9a95bc58f7099fad235d5be92d8b29fe8672b25c9b809313b64df0eacebdda804c68ca09
+  checksum: 10c0/49e23f7c3b66bceaf4f411854db971eb103db16bdff5643861d5effd2f9b41b64fdeb1d9c43052d3cc7506df4f32ee58d6d5b21631a9abbe53de3c0e30480fd2
   languageName: node
   linkType: hard
 
@@ -16136,9 +16136,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.176.0":
-  version: 44.176.0
-  resolution: "renovate@npm:44.176.0"
+"renovate@npm:44.176.1":
+  version: 44.176.1
+  resolution: "renovate@npm:44.176.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16225,7 +16225,7 @@ __metadata:
     jsonc-weaver: "npm:0.3.1"
     klona: "npm:2.0.6"
     luxon: "npm:3.7.2"
-    markdown-it: "npm:15.0.2"
+    markdown-it: "npm:15.0.3"
     markdown-table: "npm:3.0.4"
     minimatch: "npm:10.2.6"
     moo: "npm:0.5.3"
@@ -16272,7 +16272,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/cbf447618cf7c7bd2ed5368d06a4e56775e2abb9f2b6a5f5dcc23740df0395890783ddf1f24adaba6ee89e04d81d1a4997d3fe1dd23443da582f3b7a90a9c663
+  checksum: 10c0/a1cb0b4b73e9a0d34d111c8d2475d0ed0f49f7af112a29256f3426bf206b81170acb605be09741ec6231039140968debf1022fd07f2402b15da2ee67ca56f155
   languageName: node
   linkType: hard
 
@@ -19269,7 +19269,7 @@ __metadata:
     eslint: "npm:10.13.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.64.1"
-    renovate: "npm:44.176.0"
+    renovate: "npm:44.176.1"
     semver: "npm:7.8.5"
     skills: "npm:1.7.4"
     svelte-language-server: "npm:0.18.5"
