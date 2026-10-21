@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "apply-versions": "yarn run-script bin/apply-versions.ts",
-    "bootstrap": "yarn workspace stylelint-config turbo build --log-order=stream && yarn run-script bin/bootstrap.ts",
+    "bootstrap": "yarn run-script bin/bootstrap.ts",
     "build": "yarn turbo run build",
     "cert": "yarn run-script bin/cert.ts",
     "dev": "yarn turbo run dev",
@@ -19,9 +19,9 @@
     "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q $(yarn g:dotenv-args)",
     "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" -- node --enable-source-maps --experimental-transform-types --disable-warning=ExperimentalWarning -r $(yarn g:swc-register-path)",
     "g:swc-register-path": "yarn node -p \"require.resolve('@swc-node/register')\"",
-    "postinstall": "husky",
     "lint": "yarn g:prettier --check $(echo \"${@:-.}\") && yarn g:lint \"$@\"",
-    "run-script": "yarn g:run-script"
+    "run-script": "yarn g:run-script",
+    "setup": "husky"
   },
   "resolutions": {
     "pnp-sass-importer@npm:2.0.0": "patch:pnp-sass-importer@npm%3A2.0.0#~/.yarn/patches/pnp-sass-importer-npm-2.0.0-ab79efb9df.patch",
