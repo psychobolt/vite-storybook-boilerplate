@@ -3356,14 +3356,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/resource-detector-github@npm:0.32.0":
-  version: 0.32.0
-  resolution: "@opentelemetry/resource-detector-github@npm:0.32.0"
+"@opentelemetry/resource-detector-github@npm:0.33.0":
+  version: 0.33.0
+  resolution: "@opentelemetry/resource-detector-github@npm:0.33.0"
   dependencies:
     "@opentelemetry/resources": "npm:^2.0.0"
   peerDependencies:
     "@opentelemetry/api": ^1.0.0
-  checksum: 10c0/6b57aa3e2d2ace82e566e214c659b5ea49fec097271aec7458d66984aa2c99f6bcb1c5e0fbe0752fd59e579775c2f6880e716ad6081688b6402ff2015cf6c682
+  checksum: 10c0/e8b8d6a86545935720df685b0491c783b8fb8deb84dc4c2e5f9c52558882204882054e1e8309606929e2a86742098f71e67d2e5d8c4737dcd672b5eb1afc5bfc
   languageName: node
   linkType: hard
 
@@ -16163,9 +16163,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.178.1":
-  version: 44.178.1
-  resolution: "renovate@npm:44.178.1"
+"renovate@npm:44.178.2":
+  version: 44.178.2
+  resolution: "renovate@npm:44.178.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16190,7 +16190,7 @@ __metadata:
     "@opentelemetry/resource-detector-aws": "npm:2.23.0"
     "@opentelemetry/resource-detector-azure": "npm:0.31.0"
     "@opentelemetry/resource-detector-gcp": "npm:0.58.0"
-    "@opentelemetry/resource-detector-github": "npm:0.32.0"
+    "@opentelemetry/resource-detector-github": "npm:0.33.0"
     "@opentelemetry/resources": "npm:2.12.0"
     "@opentelemetry/sdk-trace-base": "npm:2.12.0"
     "@opentelemetry/sdk-trace-node": "npm:2.12.0"
@@ -16299,7 +16299,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/f7fb4836c745c5ed926b0172c1d4aaf1f45a1334f177edd046354086d55908c5333aa3b3a2bfc33e7b5271f681eec0b53a4cbd4fef892583c7feed84b14d95a3
+  checksum: 10c0/3f2275b9d18151b92f17ec9d5812629ea36751ef48db2a43acfdc3f3e9ae50ee09620f1e5e9bb1a1bf3f5f80c8ab47a68f8d5609f9a34be68a8a1e102cac2222
   languageName: node
   linkType: hard
 
@@ -19313,7 +19313,7 @@ __metadata:
     eslint: "npm:10.13.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.64.1"
-    renovate: "npm:44.178.1"
+    renovate: "npm:44.178.2"
     semver: "npm:7.8.5"
     skills: "npm:1.7.4"
     svelte-language-server: "npm:0.18.5"
