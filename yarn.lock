@@ -8641,7 +8641,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.3.1, dotenv@npm:^16.4.2":
+"dotenv@npm:^16.3.1, dotenv@npm:^16.6.1":
   version: 16.6.1
   resolution: "dotenv@npm:16.6.1"
   checksum: 10c0/15ce56608326ea0d1d9414a5c8ee6dcf0fffc79d2c16422b4ac2268e7e2d76ff5a572d37ffe747c377de12005f14b3cc22361e79fc7f1061cce81f77d2c973dc
@@ -11211,7 +11211,7 @@ __metadata:
     turbo: "npm:2.11.10"
     type-fest: "npm:5.10.0"
     typescript: "npm:6.0.3"
-    typescript-plugin-css-modules: "npm:5.2.0"
+    typescript-plugin-css-modules: "npm:5.3.0"
     vite: "npm:8.3.5"
     vite-plugin-sass-glob-import: "npm:6.0.3"
     vitest: "npm:5.0.5"
@@ -12400,7 +12400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less@npm:^4.2.0":
+"less@npm:^4.9.1":
   version: 4.9.1
   resolution: "less@npm:4.9.1"
   dependencies:
@@ -15333,7 +15333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-modules-extract-imports@npm:^3.0.0":
+"postcss-modules-extract-imports@npm:^3.1.0":
   version: 3.1.0
   resolution: "postcss-modules-extract-imports@npm:3.1.0"
   peerDependencies:
@@ -15342,7 +15342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-modules-local-by-default@npm:^4.0.4":
+"postcss-modules-local-by-default@npm:^4.2.0":
   version: 4.2.0
   resolution: "postcss-modules-local-by-default@npm:4.2.0"
   dependencies:
@@ -15355,7 +15355,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-modules-scope@npm:^3.1.1":
+"postcss-modules-scope@npm:^3.2.1":
   version: 3.2.1
   resolution: "postcss-modules-scope@npm:3.2.1"
   dependencies:
@@ -15437,7 +15437,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.31, postcss@npm:^8.0.0, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.26, postcss@npm:^8.5.28, postcss@npm:^8.5.30":
+"postcss@npm:8.5.31, postcss@npm:^8.0.0, postcss@npm:^8.4.49, postcss@npm:^8.5.26, postcss@npm:^8.5.28, postcss@npm:^8.5.30, postcss@npm:^8.5.31":
   version: 8.5.31
   resolution: "postcss@npm:8.5.31"
   dependencies:
@@ -15921,7 +15921,7 @@ __metadata:
     turbo: "npm:2.11.10"
     type-fest: "npm:5.10.0"
     typescript: "npm:6.0.3"
-    typescript-plugin-css-modules: "npm:5.2.0"
+    typescript-plugin-css-modules: "npm:5.3.0"
     vite: "npm:8.3.5"
     vitest: "npm:5.0.5"
   peerDependencies:
@@ -16677,7 +16677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.106.1, sass@npm:^1.70.0, sass@npm:^1.77.8":
+"sass@npm:1.106.1, sass@npm:^1.106.1, sass@npm:^1.77.8":
   version: 1.106.1
   resolution: "sass@npm:1.106.1"
   dependencies:
@@ -17192,7 +17192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-js@npm:>=0.6.2 <2.0.0, source-map-js@npm:^1.0.1, source-map-js@npm:^1.0.2, source-map-js@npm:^1.2.1":
+"source-map-js@npm:>=0.6.2 <2.0.0, source-map-js@npm:^1.0.1, source-map-js@npm:^1.2.1":
   version: 1.2.1
   resolution: "source-map-js@npm:1.2.1"
   checksum: 10c0/7bda1fc4c197e3c6ff17de1b8b2c20e60af81b63a52cb32ec5a5d67a20a7d42651e2cb34ebe93833c5a2a084377e17455854fee3e21e7925c64a51b6a52b0faf
@@ -18566,24 +18566,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-plugin-css-modules@npm:5.2.0":
-  version: 5.2.0
-  resolution: "typescript-plugin-css-modules@npm:5.2.0"
+"typescript-plugin-css-modules@npm:5.3.0":
+  version: 5.3.0
+  resolution: "typescript-plugin-css-modules@npm:5.3.0"
   dependencies:
     "@types/postcss-modules-local-by-default": "npm:^4.0.2"
     "@types/postcss-modules-scope": "npm:^3.0.4"
-    dotenv: "npm:^16.4.2"
+    dotenv: "npm:^16.6.1"
     icss-utils: "npm:^5.1.0"
-    less: "npm:^4.2.0"
+    less: "npm:^4.9.1"
     lodash.camelcase: "npm:^4.3.0"
-    postcss: "npm:^8.4.35"
+    postcss: "npm:^8.5.31"
     postcss-load-config: "npm:^3.1.4"
-    postcss-modules-extract-imports: "npm:^3.0.0"
-    postcss-modules-local-by-default: "npm:^4.0.4"
-    postcss-modules-scope: "npm:^3.1.1"
+    postcss-modules-extract-imports: "npm:^3.1.0"
+    postcss-modules-local-by-default: "npm:^4.2.0"
+    postcss-modules-scope: "npm:^3.2.1"
     reserved-words: "npm:^0.1.2"
-    sass: "npm:^1.70.0"
-    source-map-js: "npm:^1.0.2"
+    sass: "npm:^1.106.1"
+    source-map-js: "npm:^1.2.2"
     stylus: "npm:^0.62.0"
     tsconfig-paths: "npm:^4.2.0"
   peerDependencies:
@@ -18591,36 +18591,7 @@ __metadata:
   dependenciesMeta:
     stylus:
       optional: true
-  checksum: 10c0/7cd024f7145c0a29d9b78f2fb49c42cdf1747b50a43391f9993132ba42a727266f9b544fd868d905d5352e0a8676a19ae7a9aa56d516cc819c3ab39d66aa25e4
-  languageName: node
-  linkType: hard
-
-"typescript-plugin-css-modules@patch:typescript-plugin-css-modules@npm%3A5.2.0#~/.yarn/patches/typescript-plugin-css-modules-npm-5.2.0-2a105149d7.patch":
-  version: 5.2.0
-  resolution: "typescript-plugin-css-modules@patch:typescript-plugin-css-modules@npm%3A5.2.0#~/.yarn/patches/typescript-plugin-css-modules-npm-5.2.0-2a105149d7.patch::version=5.2.0&hash=123fea"
-  dependencies:
-    "@types/postcss-modules-local-by-default": "npm:^4.0.2"
-    "@types/postcss-modules-scope": "npm:^3.0.4"
-    dotenv: "npm:^16.4.2"
-    icss-utils: "npm:^5.1.0"
-    less: "npm:^4.2.0"
-    lodash.camelcase: "npm:^4.3.0"
-    postcss: "npm:^8.4.35"
-    postcss-load-config: "npm:^3.1.4"
-    postcss-modules-extract-imports: "npm:^3.0.0"
-    postcss-modules-local-by-default: "npm:^4.0.4"
-    postcss-modules-scope: "npm:^3.1.1"
-    reserved-words: "npm:^0.1.2"
-    sass: "npm:^1.70.0"
-    source-map-js: "npm:^1.0.2"
-    stylus: "npm:^0.62.0"
-    tsconfig-paths: "npm:^4.2.0"
-  peerDependencies:
-    typescript: ">=4.0.0"
-  dependenciesMeta:
-    stylus:
-      optional: true
-  checksum: 10c0/3312f3065471276819154fd9b539570108863734b5b172a4d56491aa43a51c92c41a1abd259e678e52c47c68509922070213b29f8c0a9641eb446b9e21436b42
+  checksum: 10c0/0b0e67ee67d796102a80d0b20eaa6b2fd0f52feb99fc2b8995b5ac3e7f9f8dfead7b246160f717886b02750506dff19dfb6d5aaca479e54eef465e3cfc9f1b99
   languageName: node
   linkType: hard
 
