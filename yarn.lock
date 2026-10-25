@@ -6275,10 +6275,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vinext/types@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@vinext/types@npm:1.0.1"
-  checksum: 10c0/94877d945c94ad01e93a47af2ac45fa274e735d9b8f883d5f696f6f51bc7b1f515a0e25fb921f58f545bf5e7603e3c797e8d3ea6906090f34b4a691f9a4fe89c
+"@vinext/types@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@vinext/types@npm:1.0.2"
+  checksum: 10c0/90c7badc1e8c43c95b936e629a876e43c63def3bed8cd9e627fa23e7a94a7d5867be3c86e0e24275757fa0f0c0e2c1eb1e1fba6f09500375b0a37338f8ce8004
   languageName: node
   linkType: hard
 
@@ -14066,7 +14066,7 @@ __metadata:
     styled-jsx: "npm:5.1.7"
     turbo: "npm:2.11.10"
     typescript: "npm:6.0.3"
-    vinext: "npm:1.3.0"
+    vinext: "npm:1.3.1"
     vite: "npm:8.3.5"
     wrangler: "npm:4.152.0"
   languageName: unknown
@@ -19134,13 +19134,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vinext@npm:1.3.0":
-  version: 1.3.0
-  resolution: "vinext@npm:1.3.0"
+"vinext@npm:1.3.1":
+  version: 1.3.1
+  resolution: "vinext@npm:1.3.1"
   dependencies:
     "@unpic/react": "npm:^1.0.2"
     "@vercel/og": "npm:1.0.3"
-    "@vinext/types": "npm:^1.0.1"
+    "@vinext/types": "npm:^1.0.2"
     ipaddr.js: "npm:^2.1.0"
     magic-string: "npm:^0.30.21"
     vite-plugin-commonjs: "npm:^0.10.4"
@@ -19162,7 +19162,7 @@ __metadata:
       optional: true
   bin:
     vinext: dist/cli.js
-  checksum: 10c0/39e563867114c0863403a085074aa0405dbc3468de807e9fd1e323988f7c5c9a3b6d3f441f1f7404b3a493b2b3a37cc9cfd33c89b8e3818fcbb804b0854ffc50
+  checksum: 10c0/fecbf02ed0bed31cc0dd5746608aef851adfa3a03756bd62637c8a042ed9d743cbd6e25cfc18b1b0190865cc2e3419f9776e846f99665e3bbcca5396b75ec74f
   languageName: node
   linkType: hard
 
