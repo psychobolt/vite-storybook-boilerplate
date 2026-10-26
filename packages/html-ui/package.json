@@ -38,7 +38,7 @@
   "devDependencies": {
     "@fortawesome/fontawesome-free": "7.3.1",
     "@open-wc/lit-helpers": "0.7.0",
-    "@storybook/addon-docs": "10.6.3",
+    "@storybook/addon-docs": "10.6.4",
     "@storybook/addon-vitest": "10.6.4",
     "@storybook/web-components-vite": "10.6.4",
     "@types/react-syntax-highlighter": "15.5.13",
