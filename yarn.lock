@@ -4375,10 +4375,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/pgp@npm:2.0.3":
-  version: 2.0.3
-  resolution: "@renovatebot/pgp@npm:2.0.3"
-  checksum: 10c0/30ba70cb07f7b4f8a07734da7aa0eccf97e6062bce21f2945c993d55b24d864d39335b77a07413061f2f71fc516db2b8030143e2759ff0cba45613b3cfe12ee0
+"@renovatebot/pgp@npm:2.0.4":
+  version: 2.0.4
+  resolution: "@renovatebot/pgp@npm:2.0.4"
+  checksum: 10c0/3f2af000b8ff7073f40d4a5c01a63e560198d66d8bc972acd29cc89a6341737d5a218f573ee6cd67b4a93b5aedb78cf8b6f2e77a01fdc94e5474435251b80eac
   languageName: node
   linkType: hard
 
@@ -16128,9 +16128,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.181.12":
-  version: 44.181.12
-  resolution: "renovate@npm:44.181.12"
+"renovate@npm:44.182.1":
+  version: 44.182.1
+  resolution: "renovate@npm:44.182.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16168,7 +16168,7 @@ __metadata:
     "@renovatebot/good-enough-parser": "npm:2.0.1"
     "@renovatebot/osv-offline": "npm:3.0.12"
     "@renovatebot/pep440": "npm:5.0.1"
-    "@renovatebot/pgp": "npm:2.0.3"
+    "@renovatebot/pgp": "npm:2.0.4"
     "@renovatebot/ruby-semver": "npm:5.0.0"
     "@sindresorhus/is": "npm:8.1.0"
     "@yarnpkg/core": "npm:4.9.1"
@@ -16264,7 +16264,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/dc4297ddbc0a9f7907bc489419cf3c47e67b138641ed60667f042bb41390f38ae23d2f7d109939cf807fd21ffbdbcab4b2ccad92e6ec239baa84b86faccbaa40
+  checksum: 10c0/047b15c5e30b2dec842acf971c2cacaaabba9295a89040d195856dc318e3ec30228d3d0c0514a63f8b6076c2a12cecf8ba6a06eec28f12d9eae2f24895724e5b
   languageName: node
   linkType: hard
 
@@ -19232,7 +19232,7 @@ __metadata:
     eslint: "npm:10.13.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.64.1"
-    renovate: "npm:44.181.12"
+    renovate: "npm:44.182.1"
     semver: "npm:7.8.5"
     skills: "npm:1.7.4"
     svelte-language-server: "npm:0.18.5"
