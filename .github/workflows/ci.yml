@@ -106,6 +106,9 @@ jobs:
       TURBO_GLOBAL_WARNING_DISABLED: 1
     outputs:
       package_names: ${{ steps.changes.outputs.package_names }}
+      apps: ${{ steps.filter.outputs.apps }}
+      commons: ${{ steps.filter.outputs.commons }}
+      packages: ${{ steps.filter.outputs.packages }}
       release: ${{ steps.filter.outputs.release }}
     steps:
       - name: Check out code
@@ -127,6 +130,17 @@ jobs:
           filters: |
             release:
               - '.yarn/versions/**'
+            apps:
+              - '.github/workflows/ci.yml'
+              - '.github/workflows/apps.yml'
+              - '.github/workflows/test-app.yml'
+            commons:
+              - '.github/workflows/ci.yml'
+              - '.github/workflows/test-commons.yml'
+            packages:
+              - '.github/workflows/ci.yml'
+              - '.github/workflows/packages.yml'
+              - '.github/workflows/package.yml'
           base: ${{ inputs.head_ref || (env.BASE_REF && 'base_branch') || '' }}
           ref: ${{ inputs.ref_name }}
           initial-fetch-depth: ${{ inputs.diff_count || 2 }}
@@ -171,6 +185,25 @@ jobs:
       ref_name: ${{ inputs.ref_name }}
       base_ref: ${{ inputs.base_ref || github.base_ref }}
       package_names: ${{ needs.diff.outputs.package_names }}
+      force: ${{ needs.diff.outputs.apps == 'true' }}
+
+  commons:
+    needs: diff
+    if: needs.diff.outputs.commons == 'true' || contains(fromJSON(needs.diff.outputs.package_names), 'commons')
+    uses: ./.github/workflows/test-commons.yml
+    secrets: inherit
+    with:
+      ref_name: ${{ inputs.ref_name }}
+      workspace: commons
+
+  stylelint-config:
+    needs: diff
+    if: needs.diff.outputs.commons == 'true' || contains(fromJSON(needs.diff.outputs.package_names), 'stylelint-config')
+    uses: ./.github/workflows/test-commons.yml
+    secrets: inherit
+    with:
+      ref_name: ${{ inputs.ref_name }}
+      workspace: stylelint-config
 
   packages:
     needs: diff
@@ -184,12 +217,12 @@ jobs:
     secrets: inherit
     with:
       ref: ${{ inputs.ref }}
-      ref_name: ${{ inputs.ref_name }}
       package_names: ${{ needs.diff.outputs.package_names }}
+      force: ${{ needs.diff.outputs.packages == 'true' }}
       release: ${{ needs.diff.outputs.release }}
 
   release:
-    needs: [diff, test, apps, packages]
+    needs: [diff, test, apps, commons, stylelint-config, packages]
     if: always() && !contains(needs.*.result, 'cancelled') && !contains(needs.*.result, 'failure') && contains(needs.*.outputs.release, 'true')
     uses: ./.github/workflows/release.yml
     permissions:

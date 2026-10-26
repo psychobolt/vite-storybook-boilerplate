@@ -5,11 +5,11 @@ on:
     inputs:
       ref:
         type: string
-      ref_name:
-        type: string
       package_names:
         type: string
         required: true
+      force:
+        type: boolean
       release:
         type: string
     outputs:
@@ -17,22 +17,6 @@ on:
         value: 'true'
 
 jobs:
-  commons:
-    uses: ./.github/workflows/test-commons.yml
-    if: contains(fromJSON(inputs.package_names), 'commons')
-    with:
-      ref_name: ${{ inputs.ref_name }}
-      workspace: commons
-    secrets: inherit
-
-  stylelint-config:
-    uses: './.github/workflows/test-commons.yml'
-    if: contains(fromJSON(inputs.package_names), 'stylelint-config')
-    with:
-      ref_name: ${{ inputs.ref_name }}
-      workspace: stylelint-config
-    secrets: inherit
-
   html-ui:
     uses: ./.github/workflows/package.yml
     permissions: &package_permissions
@@ -41,7 +25,7 @@ jobs:
       issues: write
       packages: write
       pull-requests: write
-    if: contains(fromJSON(inputs.package_names), 'html-ui')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'html-ui')
     with:
       ref: ${{ inputs.ref }}
       workspace: html-ui
@@ -50,7 +34,7 @@ jobs:
     secrets: inherit
 
   react-ui:
-    if: contains(fromJSON(inputs.package_names), 'react-ui')
+    if: inputs.force || contains(fromJSON(inputs.package_names), 'react-ui')
     uses: ./.github/workflows/package.yml
     permissions: *package_permissions
     with:

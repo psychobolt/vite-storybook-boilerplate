@@ -29,6 +29,7 @@ jobs:
     env:
       DOCKER_USER: root
       DOCKER_USER_HOME: /home/ubuntu
+      YARN_AFTER_INSTALL: ''
     steps:
       - name: Get token
         id: get_token
@@ -61,6 +62,7 @@ jobs:
       - name: Build renovate config
         id: renovate_config
         run: |
+          yarn workspace commons turbo run build
           yarn run-script renovate.config.ts > renovate.config.json
           yarn node -p "'version=' + require('renovate/package.json').version" >> "$GITHUB_OUTPUT"
       - name: Self-hosted Renovate
