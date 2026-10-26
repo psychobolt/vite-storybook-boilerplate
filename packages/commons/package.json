@@ -66,7 +66,7 @@
     "yaml": "2.9.1"
   },
   "devDependencies": {
-    "@storybook/addon-docs": "10.6.3",
+    "@storybook/addon-docs": "10.6.4",
     "@storybook/addon-links": "10.6.4",
     "@storybook/addon-onboarding": "10.6.4",
     "@storybook/addon-vitest": "10.6.4",
