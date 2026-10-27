@@ -148,10 +148,6 @@ export default {
       };
     }, {}),
   viteFinal(config, { configType }) {
-    if (configType === 'DEVELOPMENT') {
-      process.env.VITE_COVERAGE = 'false';
-    }
-
     let finalConfig = mergeConfig(
       config,
       defineConfig({
@@ -172,16 +168,6 @@ export default {
         },
         css: {
           postcss: postcssConfig
-        },
-        build: {
-          minify: false,
-          cssMinify: configType !== 'DEVELOPMENT',
-          rolldownOptions: {
-            checks: {
-              // TODO optimize build
-              invalidAnnotation: process.env.VITE_COVERAGE === 'false'
-            }
-          }
         }
       })
     );
