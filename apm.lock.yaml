@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-10-19T18:04:42.366439+00:00'
+generated_at: '2026-10-27T16:51:42.863962+00:00'
 apm_version: 0.30.0
 dependencies: []
 deployments:
@@ -11,7 +11,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f102939b90e036e0246ac8571835a8c0780854f5ee2d4b8862f7703872b427df
+  content_hash: sha256:94756be26bcb3d82b9373a2811f21298382d59358f0b16d964de5fa93aef8235
 - kind: project-relative
   target: claude
   value: .claude/rules/javascript-typescript.md
@@ -749,7 +749,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b7c99fb018db7111da19c2d9ff3ff468fdbbf2389c7487acbb3ea9517e13565e
+  content_hash: sha256:30e415ba54b4abea445d636af867e02ecfa4f3622923747a7fded75096c8e651
 - kind: project-relative
   target: copilot
   value: .github/instructions/javascript-typescript.instructions.md
@@ -767,7 +767,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:de76f7878acc735ef44ed0a96feb681f49a42ecc47bcc344e92da45d48eca2c1
+  content_hash: sha256:d0956077f603ee06b4482375266584bf4662d57ac14281619034e8afa77192e5
 - kind: project-relative
   target: cursor
   value: .cursor/rules/javascript-typescript.mdc
@@ -1045,7 +1045,7 @@ local_deployed_file_hashes:
   .agents/skills/ui-package/references/routing.md: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
   .agents/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
   .agents/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
-  .claude/rules/agent-guidance.md: sha256:f102939b90e036e0246ac8571835a8c0780854f5ee2d4b8862f7703872b427df
+  .claude/rules/agent-guidance.md: sha256:94756be26bcb3d82b9373a2811f21298382d59358f0b16d964de5fa93aef8235
   .claude/rules/javascript-typescript.md: sha256:7345fadaace031afbc82b4ceb9a39052838bedf4e697bf5c2a5410f8d1d828f2
   .claude/skills/api-package/SKILL.md: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
   .claude/skills/app-component/SKILL.md: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
@@ -1074,7 +1074,7 @@ local_deployed_file_hashes:
   .claude/skills/ui-package/references/routing.md: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
   .claude/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
   .claude/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
-  .cursor/rules/agent-guidance.mdc: sha256:de76f7878acc735ef44ed0a96feb681f49a42ecc47bcc344e92da45d48eca2c1
+  .cursor/rules/agent-guidance.mdc: sha256:d0956077f603ee06b4482375266584bf4662d57ac14281619034e8afa77192e5
   .cursor/rules/javascript-typescript.mdc: sha256:9d82098d51043e57cfd455802b8491d3f4f4117b7321ed527d1adadb101aeb04
-  .github/instructions/agent-guidance.instructions.md: sha256:b7c99fb018db7111da19c2d9ff3ff468fdbbf2389c7487acbb3ea9517e13565e
+  .github/instructions/agent-guidance.instructions.md: sha256:30e415ba54b4abea445d636af867e02ecfa4f3622923747a7fded75096c8e651
   .github/instructions/javascript-typescript.instructions.md: sha256:17da30ceff190d4629f86a90d91b55187da676147708d6257012437cf82d282c
