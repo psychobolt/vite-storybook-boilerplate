@@ -5,6 +5,12 @@ applyTo: '**/AGENTS.md,**/CLAUDE.md,.github/copilot-instructions.md,.apm/skills/
 
 # Agent guidance structure
 
+## Formatting
+
+- Introduce each standalone list with a descriptive section or subsection
+  heading. A short contextual paragraph may follow the heading before the
+  list. This applies to bulleted, numbered, and other lists; nested lists use
+  their enclosing heading and parent item.
 - Use numbered steps for ordered actions, beginning each step with a short
   bold intent. Apply this format to skill procedures and other ordered
   sequences in `AGENTS.md` or references.
