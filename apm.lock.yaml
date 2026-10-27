@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-10-27T16:51:42.863962+00:00'
+generated_at: '2026-10-27T17:07:31.232113+00:00'
 apm_version: 0.30.0
 dependencies: []
 deployments:
@@ -182,7 +182,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:24ff4ed5d3d2b455c8759aebc1ba3936dbd18722a49c106f5cf552e040123e31
+  content_hash: sha256:078983bc42f04458283ce7cad171266a2ce84cd5d3e18397d20c2234698ec405
 - kind: project-relative
   target: claude
   value: .claude/skills/todo
@@ -209,7 +209,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:5adb2bce2bf8adb5a926cda666a08829d4189110a7e6b8b7a44b3fc51ce644ec
+  content_hash: sha256:233973e1b81adfb27e2729c58091f7bca060871eaf8fdc0409249343b75d87e4
 - kind: project-relative
   target: claude
   value: .claude/skills/todo/references/work.md
@@ -542,7 +542,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:24ff4ed5d3d2b455c8759aebc1ba3936dbd18722a49c106f5cf552e040123e31
+  content_hash: sha256:078983bc42f04458283ce7cad171266a2ce84cd5d3e18397d20c2234698ec405
 - kind: project-relative
   target: codex
   value: .agents/skills/todo
@@ -569,7 +569,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:5adb2bce2bf8adb5a926cda666a08829d4189110a7e6b8b7a44b3fc51ce644ec
+  content_hash: sha256:233973e1b81adfb27e2729c58091f7bca060871eaf8fdc0409249343b75d87e4
 - kind: project-relative
   target: codex
   value: .agents/skills/todo/references/work.md
@@ -1027,9 +1027,9 @@ local_deployed_file_hashes:
   .agents/skills/fork/SKILL.md: sha256:b95fc6fce79d4437da9ac8dca3bbffa61a42257c5460a0ef5d1f45927224bab8
   .agents/skills/keys/SKILL.md: sha256:1eafa4e0e005f4375ad360ca7953d8bd85817ae271da21ffe9ebef5c67f134fe
   .agents/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
-  .agents/skills/sync/SKILL.md: sha256:24ff4ed5d3d2b455c8759aebc1ba3936dbd18722a49c106f5cf552e040123e31
+  .agents/skills/sync/SKILL.md: sha256:078983bc42f04458283ce7cad171266a2ce84cd5d3e18397d20c2234698ec405
   .agents/skills/todo/SKILL.md: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
-  .agents/skills/todo/references/skills.md: sha256:5adb2bce2bf8adb5a926cda666a08829d4189110a7e6b8b7a44b3fc51ce644ec
+  .agents/skills/todo/references/skills.md: sha256:233973e1b81adfb27e2729c58091f7bca060871eaf8fdc0409249343b75d87e4
   .agents/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
   .agents/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
   .agents/skills/ui-component/references/csf.md: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
@@ -1056,9 +1056,9 @@ local_deployed_file_hashes:
   .claude/skills/fork/SKILL.md: sha256:b95fc6fce79d4437da9ac8dca3bbffa61a42257c5460a0ef5d1f45927224bab8
   .claude/skills/keys/SKILL.md: sha256:1eafa4e0e005f4375ad360ca7953d8bd85817ae271da21ffe9ebef5c67f134fe
   .claude/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
-  .claude/skills/sync/SKILL.md: sha256:24ff4ed5d3d2b455c8759aebc1ba3936dbd18722a49c106f5cf552e040123e31
+  .claude/skills/sync/SKILL.md: sha256:078983bc42f04458283ce7cad171266a2ce84cd5d3e18397d20c2234698ec405
   .claude/skills/todo/SKILL.md: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
-  .claude/skills/todo/references/skills.md: sha256:5adb2bce2bf8adb5a926cda666a08829d4189110a7e6b8b7a44b3fc51ce644ec
+  .claude/skills/todo/references/skills.md: sha256:233973e1b81adfb27e2729c58091f7bca060871eaf8fdc0409249343b75d87e4
   .claude/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
   .claude/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
   .claude/skills/ui-component/references/csf.md: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
