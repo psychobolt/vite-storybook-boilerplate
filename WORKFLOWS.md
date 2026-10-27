@@ -106,13 +106,7 @@ git checkout -b dev/upgrade # or dev/patch
 
 Then ensure the `base` url added or current e.g `git remote base get-url`. If there is no remote `base`, you can add it manually or change url from the [sync workflow](#syncing-with-base-project-git). Note: The agent will add a new base based on the sync workflow if none exists.
 
-If the base skills has been recently updated, you may want to perform a remote synchronization of the skills first:
-
-```
-There is a updated sync skill within the base project. It is within the .apm/skills folder. Read it along with all linked references including all documentation from the base. After, read all documentation from the project. Provide all points of conflicts and verify that you have enough information to resolve them. If there is enough information to resolve conflicts, proceed with the sync workflow.
-```
-
-Otherwise, you can use the local skill directly:
+Prompt the agent to peform a new sync:
 
 ```
 Sync changes from base/main.

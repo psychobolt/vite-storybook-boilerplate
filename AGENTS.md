@@ -281,7 +281,9 @@ identity migration or explicitly confirmed content cleanup, with optional
 history and remote migration, without invoking the unfinished bootstrap
 workflow.
 The [sync skill](.apm/skills/sync/SKILL.md) synchronizes `origin/main` with
-`base/main`, including unrelated-history integration when required.
+`base/main`, including unrelated-history integration when required. When
+performing a base-project sync, use the sync skill's preflight to discover and
+read updated guidance from the resolved base.
 Use the [todo skill](.apm/skills/todo/SKILL.md) to track placeholder or otherwise
 unestablished skills and setup work. Treat the checked-out branch's
 CI configuration as authoritative.

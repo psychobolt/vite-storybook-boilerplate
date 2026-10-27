@@ -17,7 +17,7 @@ and one squashed commit when the histories are unrelated.
 
 Read the root [agent guidance](../../../AGENTS.md), the repository's
 [workflow documentation](../../../WORKFLOWS.md), and the
-[original-fork synchronization guidance](../../../WORKFLOWS.md#syncing-with-original-fork)
+[base-project synchronization guidance](../../../WORKFLOWS.md#syncing-with-base-project-git)
 before changing Git state. Follow the root [base reference
 resolution](../../../AGENTS.md#base-reference-resolution) when the documented
 base remote or branch cannot be used. Follow the root guidance for preserving
@@ -83,12 +83,38 @@ commands.
    shared. If either check fails, stop before changing Git state and ask the
    user to resolve access outside the workflow. Do not expose credentials or
    include credential-bearing URLs or command output in the handoff.
-3. **Refresh remote refs.** Fetch the resolved project remote with pruning and
-   fetch the resolved base remote. Do not use a pull that can create an
-   unreviewed merge on the project branch. Stop if either remote or either
-   resolved branch ref is unavailable. If the repository is shallow, resolve
-   its history depth before deciding whether the histories are unrelated; do
-   not classify a shallow boundary as unrelated history.
+3. **Refresh refs and discover updated guidance.** Fetch the resolved project
+   remote with pruning and fetch the resolved base remote. Do not use a pull
+   that can create an unreviewed merge on the project branch. Stop if either
+   remote or resolved branch ref is unavailable. If the repository is shallow,
+   resolve its history depth before deciding whether the histories are
+   unrelated; do not classify a shallow boundary as unrelated history.
+
+   Before planning a merge, inspect the fetched base's authored
+   `.apm/skills/sync/SKILL.md` and compare it and its linked resources with the
+   project's authored equivalents. Check references even when the entrypoint
+   is unchanged; a passing local APM audit does not establish upstream
+   freshness. Read Git-tree files at the fetched base commit, for example
+   with `git show <base-ref>:<path>`, without checking out or installing the
+   base guidance over the project files. If the base has no sync skill, report
+   that and use the project's procedure.
+
+   Read the base sync skill in full and follow its links to references,
+   instructions, other skills used by the workflow, and documentation in that
+   same base snapshot. Then read the corresponding project guidance and
+   documentation for the sync and affected workspaces. Use applicable newer
+   base procedures in preference to stale local copies. Content differences
+   alone do not prove that project guidance is obsolete: preserve explicit
+   user instructions and intentional project constraints, and reconcile any
+   conflicting requirements before execution.
+
+   Record the selected guidance paths and base commit, and include guidance
+   conflicts and their resolutions in the reconciliation table. Explain
+   whether the available evidence resolves each conflict. Continue the sync
+   when it does; ask only about unresolved decisions that affect the result.
+   Resume from the verified preflight state under the selected procedure,
+   reusing this base snapshot rather than recursively repeating discovery.
+
 4. **Classify the histories.** Test whether `origin/main` and `base/main`
    have a common ancestor. Report the selected mode before creating branches:
 
@@ -397,12 +423,13 @@ Stop before changing branches or remotes when:
 
 ## Handoff
 
-Summarize the selected history mode, target branch, base remote, fetched refs,
-conflict decisions, pending merge or staged squash state, validation results,
-and whether the persistent local-only `base-main` branch was created or
-updated. Include the per-file reconciliation table, omitted-change
-classifications, and whether unpublished target commits were preserved. Confirm
-that no target commit or push occurred without a separate explicit commit or
-push instruction, any `base-main` integration commit was local-only, no
+Summarize the selected guidance source and base commit, history mode, target
+branch, base remote, fetched refs, conflict decisions, pending merge or staged
+squash state, validation results, and whether the persistent local-only
+`base-main` branch was created or updated. Include the per-file reconciliation
+table, omitted-change classifications, and whether unpublished target commits
+were preserved. Confirm that no target commit or push occurred without a
+separate explicit commit or push instruction, any `base-main` integration
+commit was local-only, no
 `base-main` push occurred, and identify the branch with the pending review
 state.
