@@ -7,11 +7,10 @@ definitions:
         files:
           - yarn.lock
       path: .temp/.yarn/berry/cache
-    node-modules:
+    next-app:
       key:
         files:
           - apps/next-app/yarn.lock
-          - yarnrc.yml
       path: apps/next-app/node_modules
     unplugged:
       key:
@@ -47,17 +46,17 @@ definitions:
         export YARN_GLOBAL_FOLDER=.temp/.yarn/berry
         echo "YARN_GLOBAL_FOLDER=$YARN_GLOBAL_FOLDER" >> .env
     - script: &setup |
-        nvm install
+        nvm install $NODE_VERSION
         corepack enable
         yarn install
     - script: &lint |
         set +e
         if [ "$WORKSPACE" ]; then
           yarn $WORKSPACE turbo run lint -- -f bitbucket
-          export REPORT_STATUS=$?
+          REPORT_STATUS=$?
         else
           yarn turbo run //#lint -- -f bitbucket
-          export REPORT_STATUS=$?
+          REPORT_STATUS=$?
         fi
         set -e
     - script: &test |
@@ -66,7 +65,7 @@ definitions:
         set -o pipefail
         npx concurrently -k -s first -n "SB,TEST" "yarn $WORKSPACE turbo run start -- --silent" "npx wait-on $(yarn $WORKSPACE g:dotenv-get SB_URL | tail -n1) && yarn $WORKSPACE coverage"
     - script: &chromatic |
-        if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release/* ]]; then
+        if [[ "$BITBUCKET_BRANCH" == main || "$BITBUCKET_BRANCH" == release* ]]; then
           yarn $WORKSPACE turbo run build-storybook
           yarn $WORKSPACE chromatic --auto-accept-changes --zip
         else
@@ -79,7 +78,7 @@ definitions:
           --header 'Content-Type: application/json' \
           --data @${WORKSPACE:-.}/bitbucket-report.json \
           --fail-with-body
-        export ANNOTATIONS_FILE="${WORKSPACE:-.}/bitbucket-annotations.json"
+        ANNOTATIONS_FILE="${WORKSPACE:-.}/bitbucket-annotations.json"
         if [[ $(cat ${ANNOTATIONS_FILE} | jq 'length') > 0 ]]; then
           curl --request POST \
             --url "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_FULL_NAME}/commit/${BITBUCKET_COMMIT}/reports/${PACKAGE_NAME}/annotations/" \
@@ -96,16 +95,16 @@ definitions:
         fi
 
         if [ "$RELEASE_TAGS" ]; then
-          RELEASE_TAG=$( echo "$RELEASE_TAGS" | jq -r --arg keyvar "$REF_NAME" --arg tag "$RELEASE_TAG" '.[$keyvar] // $tag' )
+          RELEASE_TAG=$( echo "$RELEASE_TAGS" | jq -r --arg keyvar "$BITBUCKET_BRANCH" --arg tag "$RELEASE_TAG" '.[$keyvar] // $tag' )
         fi
 
         if [ "$RELEASE_TAG" == "{branch}" ]; then
           RELEASE_TAG="$REF_NAME"
         fi
 
-        export RELEASE_TAG=$(echo "$RELEASE_TAG" | sed 's/\//_/g')
+        RELEASE_TAG=$(echo "$RELEASE_TAG" | sed 's/\//_/g')
 
-        BASE_REF="HEAD"
+        export BASE_REF="HEAD"
         if [[ "$STABLE" = true && "$BASE_REF_NAME" ]]; then
           BASE_REF="$BASE_REF_NAME"
         elif [[ "$REF_NAME" == issue/cherry-pick-* || "$REF_NAME" == patch/cherry-pick-* || "$REF_NAME" == feature/cherry-pick-* || "$REF_NAME" == minor/cherry-pick-* || "$REF_NAME" == prepare/cherry-pick-* ]]; then
@@ -123,39 +122,55 @@ definitions:
           echo BASE_REF="$BASE_REF" >> .env
         fi
 
-        export SEMVER=$(yarn apply-versions --strategy $STRATEGY)
+        SEMVER=$(yarn apply-versions --strategy $RELEASE_STRATEGY)
         if [[ "$SEMVER" != "{}" ]]; then
           echo $SEMVER
           yarn build
         fi
 
-        if [[ "$STRATEGY" != "build" ]]; then
+        if [[ "$RELEASE_STRATEGY" != "build" ]]; then
           message="[skip ci] [DEV] Stable release"
-          if [[ "$STRATEGY" == "launch" ]]; then
+          if [[ "$RELEASE_STRATEGY" == "launch" ]]; then
             message="[DEV] Launch release"
           fi
           git add .
           git commit -m "$message" || true
         fi
 
-        if [[ "$SEMVER" != "{}" ]]; then
-          if [ "$RELEASE_TAG" ]; then
-            if [[ "$REF_NAME" == main || "$REF_NAME" == release/* ]]; then
-              git tag -d "$RELEASE_TAG" || true
-              git push origin --delete "$RELEASE_TAG" || true
-              git tag "$RELEASE_TAG" -am "$SEMVER"
-              git push origin "$RELEASE_TAG"
+        if [ "$RELEASE_TAG" ]; then
+          AUTO_RELEASE_TAG=false
+          if [[ "$SEMVER" != "{}" ]] && {
+            [[ "$REF_NAME" == main || "$REF_NAME" == release* ]] ||
+              { [[ -n "$RELEASE_TAGS" ]] && jq -e --arg keyvar "$REF_NAME" 'has($keyvar)' <<< "$RELEASE_TAGS" > /dev/null; };
+          }; then
+            AUTO_RELEASE_TAG=true
+          fi
 
-              echo $SEMVER | jq -c 'to_entries | .[]' | while read entry; do
-                name=$(echo $entry | jq -r '.key')
-                version=$(echo $entry | jq -r '.value')
-                npm unpublish $name@$version
-              done
+          if [[ "$RELEASE_STRATEGY" == launch || "$AUTO_RELEASE_TAG" == true ]]; then
+            if git show-ref -q --verify "refs/tags/$RELEASE_TAG"; then
+              git tag -d "$RELEASE_TAG"
+              git push -d origin "$RELEASE_TAG"
+            fi
+            git tag "$RELEASE_TAG" -am "$SEMVER"
+            if [[ "$RELEASE_STRATEGY" == launch ]]; then
+              git push --atomic origin "$REF_NAME" "$RELEASE_TAG"
+            else
+              git push origin "$RELEASE_TAG"
             fi
           fi
-          yarn workspaces foreach -A --no-private --dry-run npm publish --tolerate-republish ${RELEASE_TAG:+--tag $RELEASE_TAG}
+
+          if [[ "$AUTO_RELEASE_TAG" == true && "$NPM_PUBLISH" == "true" ]]; then
+            echo "$SEMVER" | jq -c 'to_entries | .[]' | while read entry; do
+              name=$(echo $entry | jq -r '.key')
+              version=$(echo $entry | jq -r '.value')
+              npm unpublish $name@$version
+            done
+          fi
         fi
 
+        if [[ "$SEMVER" != "{}" && "$NPM_PUBLISH" == "true" ]]; then
+          yarn workspaces foreach -A --no-private npm publish --tolerate-republish ${RELEASE_TAG:+--tag $RELEASE_TAG}
+        fi
 pipelines:
   default:
     - step: &publish
@@ -165,7 +180,7 @@ pipelines:
         script:
           - echo "Publishing..."
   branches:
-    '{main,release/*}':
+    '{main,release*}':
       - parallel:
           - step: &code-report
               name: Code Report
@@ -189,22 +204,22 @@ pipelines:
           size: 2x
           caches:
             - yarn
-            - node-modules
+            - next-app
             - unplugged
           clone:
             enabled: true
             depth: 75
           script:
-            - '[[ "$BITBUCKET_PR_DESTINATION_BRANCH" != release/* ]] && exit 0 || true'
+            - '[[ "$BITBUCKET_PR_DESTINATION_BRANCH" != release* ]] && exit 0 || true'
             - *env
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
             - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
-            - nvm install
+            - nvm install $NODE_VERSION
             - corepack enable
             - |
               set +e
               yarn version check
-              export REPORT_STATUS=$?
+              REPORT_STATUS=$?
               set -e
             - '[ $REPORT_STATUS = 0 ] && exit 0 || true'
             - >-
@@ -217,7 +232,6 @@ pipelines:
             - git fetch --depth=1 origin $BITBUCKET_PR_DESTINATION_BRANCH
             - echo "BASE_REF=origin/$BITBUCKET_PR_DESTINATION_BRANCH" >> .env
             - yarn install
-            - yarn bootstrap
             - rm -rf .yarn/versions || true
             - export SEMVER=$( yarn apply-versions --strategy $APPLY_STRATEGY )
             - git stash
@@ -243,6 +257,7 @@ pipelines:
           script:
             - *env
             - export PACKAGE_NAME=vite-storybook-boilerplate
+            - export YARN_AFTER_INSTALL=''
             - *setup
             - curl -sSL https://aka.ms/apm-unix | sh -s -- --prefix /usr/local
             - apm install --frozen
@@ -264,8 +279,9 @@ pipelines:
                 - yarn
               script:
                 - *env
-                - export WORKSPACE=packages/commons
-                - export PACKAGE_NAME=commons
+                - WORKSPACE=packages/commons
+                - PACKAGE_NAME=commons
+                - export YARN_AFTER_INSTALL=''
                 - *setup
                 - *lint
                 - *test
@@ -286,8 +302,9 @@ pipelines:
                 - yarn
               script:
                 - *env
-                - export WORKSPACE=packages/stylelint-config
-                - export PACKAGE_NAME=stylelint-config
+                - WORKSPACE=packages/stylelint-config
+                - PACKAGE_NAME=stylelint-config
+                - export YARN_AFTER_INSTALL=''
                 - *setup
                 - *lint
                 - *test
@@ -305,8 +322,9 @@ pipelines:
               condition: *html-ui-changed
               script:
                 - *env
-                - export WORKSPACE=packages/html-ui
-                - export PACKAGE_NAME=html-ui
+                - WORKSPACE=packages/html-ui
+                - PACKAGE_NAME=html-ui
+                - export YARN_AFTER_INSTALL=''
                 - *setup
                 - yarn playwright install --with-deps chromium
                 - *lint
@@ -325,8 +343,9 @@ pipelines:
               condition: *react-ui-changed
               script:
                 - *env
-                - export WORKSPACE=packages/react-ui
-                - export PACKAGE_NAME=react-ui
+                - WORKSPACE=packages/react-ui
+                - PACKAGE_NAME=react-ui
+                - export YARN_AFTER_INSTALL=''
                 - *setup
                 - yarn playwright install --with-deps chromium
                 - *lint
@@ -338,7 +357,7 @@ pipelines:
               size: 2x
               caches:
                 - yarn
-                - node-modules
+                - next-app
               condition:
                 changesets:
                   includePaths:
@@ -349,10 +368,9 @@ pipelines:
                     - apps/next-app/**
               script:
                 - *env
-                - export WORKSPACE=apps/next-app
-                - export PACKAGE_NAME=next-app
+                - WORKSPACE=apps/next-app
+                - PACKAGE_NAME=next-app
                 - yarn install
-                - yarn bootstrap
                 - yarn $WORKSPACE turbo run lint
           - step:
               name: Lint and Test Svelte App
@@ -372,8 +390,8 @@ pipelines:
                     - apps/svelte-app/**
               script:
                 - *env
-                - export WORKSPACE=apps/svelte-app
-                - export PACKAGE_NAME=svelte-app
+                - WORKSPACE=apps/svelte-app
+                - PACKAGE_NAME=svelte-app
                 - *setup
                 - *lint
                 - *test
@@ -389,8 +407,9 @@ pipelines:
           condition: *html-ui-changed
           script:
             - *env
-            - export WORKSPACE=packages/html-ui
-            - export PACKAGE_NAME=html-ui
+            - WORKSPACE=packages/html-ui
+            - PACKAGE_NAME=html-ui
+            - export YARN_AFTER_INSTALL=''
             - *setup
             - *chromatic
       - step:
@@ -403,8 +422,9 @@ pipelines:
           condition: *react-ui-changed
           script:
             - *env
-            - export WORKSPACE=packages/react-ui
-            - export PACKAGE_NAME=react-ui
+            - WORKSPACE=packages/react-ui
+            - PACKAGE_NAME=react-ui
+            - export YARN_AFTER_INSTALL=''
             - *setup
             - *chromatic
     release:
@@ -415,11 +435,11 @@ pipelines:
           size: 2x
           caches:
             - yarn
-            - node-modules
+            - next-app
             - unplugged
           clone:
             enabled: true
-            depth: 75
+            depth: full
           condition:
             changesets:
               includePaths:
@@ -429,18 +449,17 @@ pipelines:
           script:
             - *env
             - >-
-              export STABLE=$( [[ "$BITBUCKET_BRANCH" == release/* ]] && echo
+              STABLE=$( [[ "$BITBUCKET_BRANCH" == release* ]] && echo
               "true" || echo "false" )
             - >-
-              export STRATEGY=$( [ "$STABLE" = true ] &&   echo "stable" || echo
-              "build" )
+              RELEASE_STRATEGY=$( [ "$STABLE" = true ] && echo "stable" || echo
+                "build" )
             - *git-auth
             - |
               if [ "$STABLE" = true ]; then
                 git fetch --depth=50 origin "$BASE_REF_NAME:$BASE_REF_NAME"
               fi
             - *setup
-            - yarn bootstrap
             - *release
             - '[ "$STABLE" = true ] && git push || true'
     launch:
@@ -448,6 +467,14 @@ pipelines:
           - name: REF_NAME
             description: The branch name you wish to create for the release
             default: release/
+          - name: NEXT_VERSION
+            description: The version strategy for the current (e.g. development) branch
+            default: env_VERSION_STRATEGY
+            allowed-values:
+              - env_VERSION_STRATEGY
+              - patch
+              - minor
+              - major
       - step:
           name: Create new releases
           image: atlassian/default-image:5@sha256:71fab98cf1691e17ca5dd59b5ce8356110a3f18854f58a729c220eca36a83e3d
@@ -455,24 +482,33 @@ pipelines:
           size: 2x
           caches:
             - yarn
-            - node-modules
+            - next-app
             - unplugged
           clone:
             enabled: true
             depth: full
           script:
             - *env
-            - export STABLE=true
-            - export STRATEGY=launch
-            - export BASE_REF_NAME=$(git branch --show-current)
+            - STABLE=true
+            - RELEASE_STRATEGY=launch
+            - BASE_REF_NAME=$(git branch --show-current)
             - *git-auth
             - *setup
-            - yarn bootstrap
             - *release
-            - git tag "$RELEASE_TAG" -am "$SEMVER" || true
-            - git push --atomic origin $BITBUCKET_BRANCH "$RELEASE_TAG"
             - git checkout -b $REF_NAME
             - git push --set-upstream origin $REF_NAME
+            - |
+              if [[ "$NEXT_VERSION" == "env_VERSION_STRATEGY" ]]; then
+                NEXT_VERSION=$VERSION_STRATEGY
+              fi
+            - |
+              if [[ "$NEXT_VERSION" != "none" ]]; then
+                git checkout $BASE_REF_NAME
+                yarn workspaces foreach -A --no-private version --deferred $NEXT_VERSION
+                git add .
+                git commit -m "[DEV] Add Version Strategy"
+                git push
+              fi
     prepare:
       - variables:
           - name: COMMITS
@@ -498,10 +534,10 @@ pipelines:
           script:
             - *env
             - *git-auth
-            - export BASE_REF_NAME=$(git branch --show-current)
+            - BASE_REF_NAME=$(git branch --show-current)
             - |
               source ./bin/git-ls-unmerged.sh
-              export SHORT=$OUTPUT
+              SHORT=$OUTPUT
             - export BASE_REF=${REF_NAME}cherry-pick-${SHORT}
             - '[ ! $REF ] && exit 1 || true'
             - git fetch --depth=2 origin $REF
@@ -548,7 +584,7 @@ pipelines:
             - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
             - set +e
             - . ~/.nvm/nvm.sh
-            - export REPORT_STATUS=$?
+            - REPORT_STATUS=$?
             - set -e
             - '[ $REPORT_STATUS != 0 ] && exit $REPORT_STATUS || true'
             - *setup
@@ -557,6 +593,7 @@ pipelines:
             - export RENOVATE_PLATFORM=bitbucket
             - export RENOVATE_CONFIG_FILE=renovate.config.json
             - export RENOVATE_REPOSITORIES=${BITBUCKET_REPO_FULL_NAME}
+            - export YARN_ENABLE_IMMUTABLE_INSTALLS=false
             - renovate
     cert:
       - variables:
