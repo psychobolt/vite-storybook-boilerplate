@@ -81,7 +81,7 @@
     "commons": "workspace:*",
     "eslint": "10.13.0",
     "eslint-plugin-react-hooks": "7.1.1",
-    "glob": "14.0.1",
+    "glob": "14.0.3",
     "html-ui": "workspace:*",
     "lodash": "4.18.1",
     "prop-types": "15.8.1",
