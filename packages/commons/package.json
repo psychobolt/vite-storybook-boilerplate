@@ -76,7 +76,7 @@
     "@types/node": "26.6.6",
     "@types/wait-on": "5.3.4",
     "@typescript-eslint/utils": "8.72.1",
-    "chromatic": "18.13.3",
+    "chromatic": "18.13.4",
     "eslint": "10.13.0",
     "eslint-plugin-jsonc": "3.4.2",
     "eslint-plugin-package-json": "1.12.0",
