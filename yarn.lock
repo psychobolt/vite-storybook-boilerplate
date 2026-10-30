@@ -4997,16 +4997,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-cloudflare@npm:8.0.1":
-  version: 8.0.1
-  resolution: "@sveltejs/adapter-cloudflare@npm:8.0.1"
+"@sveltejs/adapter-cloudflare@npm:8.0.2":
+  version: 8.0.2
+  resolution: "@sveltejs/adapter-cloudflare@npm:8.0.2"
   dependencies:
     "@cloudflare/workers-types": "npm:^5.20260925.1"
     "@rolldown/pluginutils": "npm:^1.0.1"
   peerDependencies:
     "@sveltejs/kit": ^3.0.0-next.0
     wrangler: ^4.118.0
-  checksum: 10c0/074f14b8e7c53da1fc94e9e8f0c502a03f5180cf9d70b67c5ef51f2beb9fc5930ff246bcdd16a23607819e94ba2bcacced611eaa7527037bfb59bd706142c196
+  checksum: 10c0/9af552070657ee85cc8a7b0dce075abed0c40d08301dc30cb2deb4fbab9fd8407b600065f3719a15f4ea5922ea6b2e30274f4d38d55504a33705289145a61450
   languageName: node
   linkType: hard
 
@@ -17943,7 +17943,7 @@ __metadata:
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"
-    "@sveltejs/adapter-cloudflare": "npm:8.0.1"
+    "@sveltejs/adapter-cloudflare": "npm:8.0.2"
     "@sveltejs/adapter-vercel": "npm:7.0.1"
     "@sveltejs/kit": "npm:3.1.0"
     "@sveltejs/mcp": "npm:0.1.28"
