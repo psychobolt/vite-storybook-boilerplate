@@ -107,7 +107,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
   deploy:
     name: Deploy
-    timeout-minutes: 7
+    timeout-minutes: 8
     runs-on: ubuntu-latest
     environment: '${{ inputs.workspace }}/ubuntu-latest'
     env:

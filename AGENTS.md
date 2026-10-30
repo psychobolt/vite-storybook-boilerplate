@@ -242,7 +242,10 @@ status` and the relevant diff. Preserve changes that existed before the
 - Treat root and nested README, development, workflow, and usage documents as
   human-facing documentation. Read them for context and update them when the
   requested package or workflow requires synchronized public install, API, or
-  usage documentation. Otherwise preserve them.
+  usage documentation. Otherwise preserve them. When correcting names, URLs,
+  paths, or commands, preserve surrounding wording and section order; adjust
+  grammar only as required by the correction. Add explanations or rephrase
+  prose only when requested or necessary for accuracy.
 - Keep each workspace aligned with its type and nearest local guidance rather
   than applying UI, app, or API conventions interchangeably.
 - Follow repository and workspace configuration and conventions. Before
