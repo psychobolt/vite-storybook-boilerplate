@@ -2547,9 +2547,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/agentrc@npm:2.0.1-95":
-  version: 2.0.1-95
-  resolution: "@microsoft/agentrc@npm:2.0.1-95"
+"@microsoft/agentrc@npm:2.0.1-96":
+  version: 2.0.1-96
+  resolution: "@microsoft/agentrc@npm:2.0.1-96"
   dependencies:
     "@github/copilot-sdk": "npm:0.2.0"
     "@inquirer/prompts": "npm:^8.2.1"
@@ -2562,7 +2562,7 @@ __metadata:
     simple-git: "npm:^3.33.0"
   bin:
     agentrc: dist/index.js
-  checksum: 10c0/23f640b98f0a8ff7802eb0f1faa8f71307ee85d340fa0b442aa37bdadd93273a35c1aa8c9eebf7c0f62065cb2c48cdc3480c08cd9b20ac1cd34758a07f1a994f
+  checksum: 10c0/f8f54b8937f05e4e22517ec741acdf24abc2cbcb6327a95fba44552e3b89a571a37b2ce2a1784065ab47790d8cf5e8be705881ec590825b13566caf0ddaa6cfd
   languageName: node
   linkType: hard
 
@@ -19252,7 +19252,7 @@ __metadata:
   resolution: "vite-storybook-boilerplate@workspace:."
   dependencies:
     "@dotenvx/dotenvx": "npm:2.38.2"
-    "@microsoft/agentrc": "npm:2.0.1-95"
+    "@microsoft/agentrc": "npm:2.0.1-96"
     "@swc-node/register": "npm:1.12.1"
     "@swc/core": "npm:1.16.20"
     "@types/node": "npm:26.6.6"
