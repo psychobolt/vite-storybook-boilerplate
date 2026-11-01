@@ -7926,7 +7926,7 @@ __metadata:
     postcss-scss: "npm:4.0.9"
     prettier: "npm:3.9.10"
     prettier-config-standard: "npm:7.0.0"
-    prettier-plugin-packagejson: "npm:3.0.3"
+    prettier-plugin-packagejson: "npm:3.1.0"
     prettier-plugin-sh: "npm:0.20.2"
     react: "npm:19.3.1"
     react-dom: "npm:19.3.1"
@@ -14092,7 +14092,7 @@ __metadata:
     nitro: "npm:3.0.260903-beta"
     prettier: "npm:3.9.10"
     prettier-config-standard: "npm:7.0.0"
-    prettier-plugin-packagejson: "npm:3.0.3"
+    prettier-plugin-packagejson: "npm:3.1.0"
     prettier-plugin-sh: "npm:0.20.2"
     prop-types: "npm:15.8.1"
     react: "npm:19.3.1"
@@ -15532,9 +15532,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-packagejson@npm:3.0.3":
-  version: 3.0.3
-  resolution: "prettier-plugin-packagejson@npm:3.0.3"
+"prettier-plugin-packagejson@npm:3.1.0":
+  version: 3.1.0
+  resolution: "prettier-plugin-packagejson@npm:3.1.0"
   dependencies:
     sort-package-json: "npm:^4.0.0"
   peerDependencies:
@@ -15542,7 +15542,7 @@ __metadata:
   peerDependenciesMeta:
     prettier:
       optional: true
-  checksum: 10c0/28e390256c029f28dae3c6428381e86ec0b4f05b91d14137dc1ed323f38f2fee65c4c351d22a1d58795624a36e9f5d1b9343e7d17c480c29d7975299bfbfeef4
+  checksum: 10c0/bbeb653d7520506b48b3dfb87cc95683f288a814c7b7fb09259ef5df245ee7af9489c8e91a63d56140c59c69318fe979c8974dc49cb01e27fd59a15b83897942
   languageName: node
   linkType: hard
 
@@ -17983,7 +17983,7 @@ __metadata:
     postcss: "npm:8.5.32"
     postcss-scss: "npm:4.0.9"
     prettier: "npm:3.9.10"
-    prettier-plugin-packagejson: "npm:3.0.3"
+    prettier-plugin-packagejson: "npm:3.1.0"
     prettier-plugin-sh: "npm:0.20.2"
     prettier-plugin-svelte: "npm:4.1.1"
     sass: "npm:1.107.1"
