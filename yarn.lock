@@ -7855,7 +7855,7 @@ __metadata:
     eslint: "npm:10.14.0"
     eslint-plugin-jsonc: "npm:3.4.2"
     eslint-plugin-mdx: "npm:3.9.1"
-    eslint-plugin-package-json: "npm:1.12.0"
+    eslint-plugin-package-json: "npm:1.13.0"
     eslint-plugin-storybook: "npm:10.6.5"
     glob-to-regexp: "npm:0.4.1"
     jiti: "npm:2.7.0"
@@ -9418,9 +9418,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-package-json@npm:1.12.0":
-  version: 1.12.0
-  resolution: "eslint-plugin-package-json@npm:1.12.0"
+"eslint-plugin-package-json@npm:1.13.0":
+  version: 1.13.0
+  resolution: "eslint-plugin-package-json@npm:1.13.0"
   dependencies:
     "@altano/repository-tools": "npm:^2.0.1"
     "@types/estree": "npm:^1.0.0"
@@ -9440,7 +9440,7 @@ __metadata:
   peerDependenciesMeta:
     "@eslint/json":
       optional: true
-  checksum: 10c0/39d3f346db1028c1458d5393adde5c470291fd55a8720635736ebeb3800d8615c7892cbc87fcfb6bca93a63ba02b5b91cc5b640d3f2a914131740db3b83f5a52
+  checksum: 10c0/4043fecd007d924100efc54c7eef266ceaf42206733c2f168af448cb64c5b1f915326c244c1b6434722d4d2328fb44f7001575fe7a7896694ab14bddc57ac065
   languageName: node
   linkType: hard
 
@@ -14045,7 +14045,7 @@ __metadata:
     styled-jsx: "npm:5.1.7"
     turbo: "npm:2.11.10"
     typescript: "npm:6.0.3"
-    vinext: "npm:1.4.0"
+    vinext: "npm:1.4.1"
     vite: "npm:8.3.5"
     wrangler: "npm:4.156.0"
   languageName: unknown
@@ -19132,9 +19132,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vinext@npm:1.4.0":
-  version: 1.4.0
-  resolution: "vinext@npm:1.4.0"
+"vinext@npm:1.4.1":
+  version: 1.4.1
+  resolution: "vinext@npm:1.4.1"
   dependencies:
     "@unpic/react": "npm:^1.0.2"
     "@vercel/og": "npm:1.0.3"
@@ -19160,7 +19160,7 @@ __metadata:
       optional: true
   bin:
     vinext: dist/cli.js
-  checksum: 10c0/c7ff1193a5845d5ca38d9a772795cfd2d441ee84e0eca4e5a4211d3608f9a1516ed4de55b329d2fdef2aa7f5bf4f2cb90e5e9da05e1bd2d203a688afaa73f91f
+  checksum: 10c0/1302564d08f2d5d3201f1258568eed73da462d35cfe1d34b254865022f949eb3913a4a76b571c5a0651610d2576e547cbda559fe15821fe50c85a07a0852f108
   languageName: node
   linkType: hard
 
