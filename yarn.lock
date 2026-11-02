@@ -4323,10 +4323,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/ruby-semver@npm:5.0.0":
-  version: 5.0.0
-  resolution: "@renovatebot/ruby-semver@npm:5.0.0"
-  checksum: 10c0/97f28f94f495958fed60ec338c73d6ffe329d021777ed7b6b48e1697b6f4bf130ce8db9c19486733ee126cdf571f981ccd5aeb6adf139d3208b1c941fa0fdec0
+"@renovatebot/ruby-semver@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@renovatebot/ruby-semver@npm:6.0.0"
+  checksum: 10c0/e00ebbbff22a7dc9968bc583e04f65b56ce826ca09f035779d514b4206310379782aaeffdbe830750377328a6c232578481f56138b46824b714bc80e2a42c969
   languageName: node
   linkType: hard
 
@@ -16112,9 +16112,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.202.0":
-  version: 44.202.0
-  resolution: "renovate@npm:44.202.0"
+"renovate@npm:44.202.1":
+  version: 44.202.1
+  resolution: "renovate@npm:44.202.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16153,7 +16153,7 @@ __metadata:
     "@renovatebot/osv-offline": "npm:4.5.7"
     "@renovatebot/pep440": "npm:6.0.0"
     "@renovatebot/pgp": "npm:2.0.4"
-    "@renovatebot/ruby-semver": "npm:5.0.0"
+    "@renovatebot/ruby-semver": "npm:6.0.0"
     "@sindresorhus/is": "npm:8.1.0"
     "@yarnpkg/core": "npm:4.9.1"
     "@yarnpkg/parsers": "npm:3.1.0"
@@ -16248,7 +16248,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/78ffdfd646ced943113368f18110809523c4adfb6726e7a39df2f3e93f347f18dea64c2640120462fdd037e1c8ca49d2ff80a3eaa1f93c1e315a864e451fcf95
+  checksum: 10c0/2d47ae534ddd885c10eae8ab4fdbd18f99ff7327a7f370ee04b41e3dd2f028934ac24018606916f2bf9c89685b633d6ca2bb13baecf14ce11083433ff3c6123b
   languageName: node
   linkType: hard
 
@@ -19216,7 +19216,7 @@ __metadata:
     eslint: "npm:10.14.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.64.1"
-    renovate: "npm:44.202.0"
+    renovate: "npm:44.202.1"
     semver: "npm:7.8.5"
     skills: "npm:1.7.4"
     svelte-language-server: "npm:0.18.6"
