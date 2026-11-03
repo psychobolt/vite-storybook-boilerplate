@@ -9559,27 +9559,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-svelte@npm:3.23.1":
-  version: 3.23.1
-  resolution: "eslint-plugin-svelte@npm:3.23.1"
+"eslint-plugin-svelte@npm:3.24.0":
+  version: 3.24.0
+  resolution: "eslint-plugin-svelte@npm:3.24.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.6.1"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
     esutils: "npm:^2.0.3"
     globals: "npm:^16.0.0"
     known-css-properties: "npm:^0.37.0"
-    postcss: "npm:^8.4.49"
+    postcss: "npm:^8.5.10"
     postcss-load-config: "npm:^3.1.4"
     postcss-safe-parser: "npm:^7.0.0"
     semver: "npm:^7.6.3"
-    svelte-eslint-parser: "npm:^1.7.0"
+    svelte-eslint-parser: "npm:^1.10.1"
   peerDependencies:
     eslint: ^8.57.1 || ^9.0.0 || ^10.0.0
     svelte: ^3.37.0 || ^4.0.0 || ^5.0.0
   peerDependenciesMeta:
     svelte:
       optional: true
-  checksum: 10c0/a2d6f407e50f3d353385b738a992bb31cb9ee7f73727c75bdb58362cf1ba97e4ff6cf0851205338577aabc6bfb027de6a789224e599b87a2a3714102c3556933
+  checksum: 10c0/d56073900e9c7cbd02aaef8d628fdae4f26d62e0c031e5462b91c68e8635d85115888110d02ef33f859b710bd45ec157947d08ea1103bc3b53726084677c48ae
   languageName: node
   linkType: hard
 
@@ -15475,7 +15475,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.32, postcss@npm:^8.0.0, postcss@npm:^8.4.49, postcss@npm:^8.5.26, postcss@npm:^8.5.28, postcss@npm:^8.5.30, postcss@npm:^8.5.31":
+"postcss@npm:8.5.32, postcss@npm:^8.0.0, postcss@npm:^8.4.49, postcss@npm:^8.5.10, postcss@npm:^8.5.26, postcss@npm:^8.5.28, postcss@npm:^8.5.30, postcss@npm:^8.5.31":
   version: 8.5.32
   resolution: "postcss@npm:8.5.32"
   dependencies:
@@ -17979,7 +17979,7 @@ __metadata:
     commons: "workspace:*"
     eslint: "npm:10.14.0"
     eslint-config-prettier: "npm:10.1.8"
-    eslint-plugin-svelte: "npm:3.23.1"
+    eslint-plugin-svelte: "npm:3.24.0"
     globals: "npm:17.14.0"
     html-ui: "workspace:*"
     postcss: "npm:8.5.32"
@@ -18023,7 +18023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-eslint-parser@npm:1.10.1, svelte-eslint-parser@npm:^1.7.0":
+"svelte-eslint-parser@npm:1.10.1, svelte-eslint-parser@npm:^1.10.1":
   version: 1.10.1
   resolution: "svelte-eslint-parser@npm:1.10.1"
   dependencies:
