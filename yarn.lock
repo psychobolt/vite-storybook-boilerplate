@@ -5050,16 +5050,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/mcp@npm:0.1.28":
-  version: 0.1.28
-  resolution: "@sveltejs/mcp@npm:0.1.28"
+"@sveltejs/mcp@npm:0.1.29":
+  version: 0.1.29
+  resolution: "@sveltejs/mcp@npm:0.1.29"
   dependencies:
     eslint: "npm:^9.36.0"
     sade: "npm:1.8.1"
     tmcp: "npm:^1.20.0"
   bin:
     svelte-mcp: dist/index.mjs
-  checksum: 10c0/2463759d7b13c331e3bca35c730973f3786790c7383bfba2a8e56224fb2e1c07546df9c3d431af01e53c02a17593e963cd721b48054b3486c689e1e95c78ff7d
+  checksum: 10c0/1cffa115150779f2000576d20baa516380a308b8668a19a7bb1a68fdf4312211021c767cb1a7df418f612260ddffaba1a9cb0e62214565317d241f6782b909dd
   languageName: node
   linkType: hard
 
@@ -17970,7 +17970,7 @@ __metadata:
     "@sveltejs/adapter-cloudflare": "npm:8.0.2"
     "@sveltejs/adapter-vercel": "npm:7.0.2"
     "@sveltejs/kit": "npm:3.1.1"
-    "@sveltejs/mcp": "npm:0.1.28"
+    "@sveltejs/mcp": "npm:0.1.29"
     "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint-config-prettier": "npm:6.11.3"
