@@ -17697,6 +17697,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stylelint-config@workspace:packages/stylelint-config"
   dependencies:
+    "@types/node": "npm:26.6.6"
     arg: "npm:5.0.2"
     commons: "workspace:*"
     eslint: "npm:10.14.0"
