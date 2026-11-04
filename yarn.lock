@@ -3474,7 +3474,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/semantic-conventions@npm:1.43.0, @opentelemetry/semantic-conventions@npm:^1.27.0, @opentelemetry/semantic-conventions@npm:^1.29.0, @opentelemetry/semantic-conventions@npm:^1.37.0, @opentelemetry/semantic-conventions@npm:^1.41.1":
+"@opentelemetry/semantic-conventions@npm:1.44.0":
+  version: 1.44.0
+  resolution: "@opentelemetry/semantic-conventions@npm:1.44.0"
+  checksum: 10c0/38ce72dfe254e16177903cc42475eecdfd312d20487133a84d1ab8d97c452acabb186e0069ddcd9a8ba1f65d76535dfec670ce059ef4265f8f29fc395b0db5f0
+  languageName: node
+  linkType: hard
+
+"@opentelemetry/semantic-conventions@npm:^1.27.0, @opentelemetry/semantic-conventions@npm:^1.29.0, @opentelemetry/semantic-conventions@npm:^1.37.0, @opentelemetry/semantic-conventions@npm:^1.41.1":
   version: 1.43.0
   resolution: "@opentelemetry/semantic-conventions@npm:1.43.0"
   checksum: 10c0/ea4b4b07c9414b0c5e7ce7349f608cb2572d16922d96077fb0882b59f173ec9b94aada74896bd5dd4aeb1759924503bd5a34b6dc2847a84c36f71626a0578ec4
@@ -4334,9 +4341,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/base-image@npm:13.160.0":
-  version: 13.160.0
-  resolution: "@renovatebot/base-image@npm:13.160.0"
+"@renovatebot/base-image@npm:13.160.1":
+  version: 13.160.1
+  resolution: "@renovatebot/base-image@npm:13.160.1"
   dependencies:
     "@containerbase/base": "npm:14.66.0"
   peerDependencies:
@@ -4344,7 +4351,7 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 10c0/3421dd983a3f0e2ae9339fe0e0466dbc01dbf3e111ed8e6767009edc4b52a87f6c93644ba9f94f0fbf63538d57801b950e9e2e6e78a8b33c77b85176c83fc54d
+  checksum: 10c0/ccd592ad94fab67269537662872442da2c4fa828f516c47f600c7abc4a287014f1ad55bc054e77f0b2c57fbef9fb72d96e7f162f353bc8837a3aa5eec8f1b425
   languageName: node
   linkType: hard
 
@@ -16081,9 +16088,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.216.0":
-  version: 44.216.0
-  resolution: "renovate@npm:44.216.0"
+"renovate@npm:44.216.2":
+  version: 44.216.2
+  resolution: "renovate@npm:44.216.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16112,11 +16119,11 @@ __metadata:
     "@opentelemetry/resource-detector-github": "npm:0.34.0"
     "@opentelemetry/resources": "npm:3.0.0"
     "@opentelemetry/sdk-trace": "npm:3.0.0"
-    "@opentelemetry/semantic-conventions": "npm:1.43.0"
+    "@opentelemetry/semantic-conventions": "npm:1.44.0"
     "@pnpm/parse-overrides": "npm:1001.0.4"
     "@qnighy/marshal": "npm:0.1.3"
     "@redis/client": "npm:6.3.0"
-    "@renovatebot/base-image": "npm:13.160.0"
+    "@renovatebot/base-image": "npm:13.160.1"
     "@renovatebot/detect-tools": "npm:5.0.0"
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.10"
@@ -16217,7 +16224,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/c76a2ef0c60e7297239412c7b01ec0de2cf7e5571161d029fe92871037c47fddf4b052541d0022cc6536cb3e3141edbc5a572502710a9339faca7f5fb4a4f668
+  checksum: 10c0/ed27bc803f6434b333012f4d0bf8f4a956004f19d28eb5b9f84250055be07dd1cba48eece4a5099c984c60e02e7fbc90e1f3d2802cbb2f50383c88b78d7d9794
   languageName: node
   linkType: hard
 
@@ -19133,7 +19140,7 @@ __metadata:
     eslint: "npm:10.14.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.64.1"
-    renovate: "npm:44.216.0"
+    renovate: "npm:44.216.2"
     semver: "npm:7.8.6"
     skills: "npm:1.7.6"
     svelte-language-server: "npm:0.18.6"
