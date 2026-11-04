@@ -16,7 +16,7 @@ Create a `stylelint.config.js` file at your workspace root. e.g.
 /** @type {import('stylelint').Config} */
 export default {
   extends: [
-    '<relative>/<path>/<to>/stylelint-config/esm/stylelint-foobar.config'
+    '<relative>/<path>/<to>/stylelint-config/esm/stylelint-foobar.config.js'
   ]
 };
 ```
