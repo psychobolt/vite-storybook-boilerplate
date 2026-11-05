@@ -10483,14 +10483,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gaxios@npm:^8.3.0":
-  version: 8.3.1
-  resolution: "gaxios@npm:8.3.1"
+"gaxios@npm:^8.3.1":
+  version: 8.3.2
+  resolution: "gaxios@npm:8.3.2"
   dependencies:
     extend: "npm:^3.0.2"
     https-proxy-agent: "npm:^7.0.1"
     node-fetch: "npm:^3.3.2"
-  checksum: 10c0/d375fa88b4a53aebba40256b4e159797eaf239a90bffdc1d97cd252c6fd1efe19eb879f1400b1ed0eb9d2de459c4464ca218994077ec7260ff8057e0eba44830
+  checksum: 10c0/112ba770aed72a4fc794b869beb57f9a88d76ceb33329ad16c48224793600a8bd31b6dcafee9ab28272113dd384fd03a6991e9913a89b7bb90e0b6b56829e4bb
   languageName: node
   linkType: hard
 
@@ -10505,14 +10505,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gcp-metadata@npm:^9.0.0":
-  version: 9.2.1
-  resolution: "gcp-metadata@npm:9.2.1"
+"gcp-metadata@npm:^9.2.1":
+  version: 9.2.3
+  resolution: "gcp-metadata@npm:9.2.3"
   dependencies:
-    gaxios: "npm:^8.3.0"
-    google-logging-utils: "npm:^2.0.0"
+    gaxios: "npm:^8.3.1"
+    google-logging-utils: "npm:^2.1.0"
     json-bigint: "npm:^1.0.0"
-  checksum: 10c0/9e7c7cf3bc794822e08238365f89e1c0091fc15a06bf6d216e9e1b5ca12e09bc1b15801c6892a2f546fd35fb36fabaf7a3077cc4502691919cfe8fa454cbce64
+  checksum: 10c0/86c4fc28edd923ddd7c3a05b986cda1f395a12a9c090bb8d5e094f8330fca48c3a2b34f40c69752effdb72f05f8cf28e52dcba05052d57472302abb0abdade84
   languageName: node
   linkType: hard
 
@@ -10803,17 +10803,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-auth-library@npm:11.3.1":
-  version: 11.3.1
-  resolution: "google-auth-library@npm:11.3.1"
+"google-auth-library@npm:11.3.2":
+  version: 11.3.2
+  resolution: "google-auth-library@npm:11.3.2"
   dependencies:
     base64-js: "npm:^1.3.0"
     ecdsa-sig-formatter: "npm:^1.0.11"
-    gaxios: "npm:^8.3.0"
-    gcp-metadata: "npm:^9.0.0"
-    google-logging-utils: "npm:^2.0.0"
+    gaxios: "npm:^8.3.1"
+    gcp-metadata: "npm:^9.2.1"
+    google-logging-utils: "npm:^2.1.0"
     jws: "npm:^4.0.0"
-  checksum: 10c0/db72e7977fdb965312c5fc4696451f500e548607e413cac4a63e3c5ce37097e3c387cf43a1eb35ad8dbbbc4934b37370ffa0eda8a07dbe8e446c6b057a1af983
+  checksum: 10c0/f049a897fbe77eda10e640b7ae4804aab611b9618d33e47080925f32a348b98d352a7932f147c14f0aaf1567583acadb692d8bf863e267201bb5d3e86a61409f
   languageName: node
   linkType: hard
 
@@ -10824,10 +10824,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-logging-utils@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "google-logging-utils@npm:2.1.0"
-  checksum: 10c0/be018c896cf3ae6521d365a569ce448347aa8b7e15b78f8a734ad182345af251d13a3974115748e679195bbc1dfa02ab4e6dd5433502829ab420656138048080
+"google-logging-utils@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "google-logging-utils@npm:2.1.1"
+  checksum: 10c0/53653292f82c064097ebc99015d7901b47c8ca9918d2077ba26fe831af6be8535707896ba47e15d419388b25f8c795bdd8a24cb45f5b9542c1cb2e61c21933bc
   languageName: node
   linkType: hard
 
@@ -16088,9 +16088,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.216.2":
-  version: 44.216.2
-  resolution: "renovate@npm:44.216.2"
+"renovate@npm:44.216.3":
+  version: 44.216.3
+  resolution: "renovate@npm:44.216.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16164,7 +16164,7 @@ __metadata:
     github-url-from-git: "npm:1.5.0"
     glob: "npm:13.0.6"
     global-agent: "npm:3.0.0"
-    google-auth-library: "npm:11.3.1"
+    google-auth-library: "npm:11.3.2"
     got: "npm:16.1.0"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.10"
@@ -16224,7 +16224,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/ed27bc803f6434b333012f4d0bf8f4a956004f19d28eb5b9f84250055be07dd1cba48eece4a5099c984c60e02e7fbc90e1f3d2802cbb2f50383c88b78d7d9794
+  checksum: 10c0/3faac0f3b520d53fe73addb67da297aec1afc49d49952269a9df3dc04b6694f8b6e5287fb2edeab0c402fcfd333a80eee5517e50ec2569cf351f80d59df756a1
   languageName: node
   linkType: hard
 
@@ -19140,7 +19140,7 @@ __metadata:
     eslint: "npm:10.14.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.64.1"
-    renovate: "npm:44.216.2"
+    renovate: "npm:44.216.3"
     semver: "npm:7.8.6"
     skills: "npm:1.7.6"
     svelte-language-server: "npm:0.18.6"
