@@ -138,6 +138,15 @@ Treat a type-only import as a consumer dependency when it appears in emitted
 declarations. Classify it as a regular dependency or peer dependency according
 to the package's public contract; keep it in `devDependencies` only when the
 type is erased or remains internal to the package.
+
+When a `resolutions` fix targets a transitive dependency rather than a declared
+direct dependency, identify its actual parent in the resolved dependency graph
+and use a parent-qualified selector, such as `parent/child`, instead of a bare
+child package name. Follow [Yarn's resolution selector
+syntax](https://yarnpkg.com/configuration/manifest#resolutions), adding a parent
+version qualifier when needed to target the intended dependency edge, and
+verify the resolved result.
+
 Use the repository's documented package-manager workflow to update manifests
 and lockfiles.
 
