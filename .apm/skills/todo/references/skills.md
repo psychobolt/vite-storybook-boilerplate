@@ -37,7 +37,7 @@ validation and partial runs do not count.
 | `ci`           |    0 | Diagnose representative CI-provider and dependency-update failures.                                                             |
 | `keys`         |    0 | Test secure handoff, fail-closed access, approval, full reset, data-retaining migration, and recovery without exposing secrets. |
 | `fork`         |    0 | Run identity migration and approved cleanup, including Git preflight, local remotes, optional history reset, and validation.    |
-| `sync`         |    0 | Discover base guidance, preserve project constraints, and sync both history modes with only required artifact regeneration.     |
+| `sync`         |    0 | Test guidance discovery, both history modes, scoped regeneration, and graph consolidation with justified retained duplicates.   |
 
 ## Stable skills
 

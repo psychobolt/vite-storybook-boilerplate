@@ -188,6 +188,8 @@ commands.
    project identity and other metadata. Compare each project's dependency
    value with its prior baseline (the merge base for related histories, or the
    relevant project history for unrelated histories) and with the base value.
+   A lockfile resolution alone is not an intentional project pin; require
+   evidence from manifests, project history, or explicit guidance.
    An existing pin alone is not evidence of an intentional downgrade. Compare
    it with the prior project value: retain it only when the project side
    explicitly lowered or narrowed the dependency relative to that baseline,
@@ -365,7 +367,29 @@ commands.
    in an automatic stash; preserve unrelated changes and stop if generated
    churn cannot be explained by the reconciled source.
 
-10. **Validate the result.** On the checked-out branch, confirm:
+10. **Validate the result.** When dependency inputs or lockfiles change,
+    compare affected package resolutions across the saved project baseline,
+    fetched base, and regenerated final lockfiles. Check every independently
+    managed workspace lockfile. Investigate duplicate versions introduced or
+    retained by sync even when installation succeeds: inspect dependency
+    owners, declared ranges, peer requirements and contexts, and coupled
+    packages together, such as React and React DOM.
+
+    Distinguish duplicates required by incompatible ranges or peer contexts
+    from avoidable duplicates where one compatible resolution satisfies all
+    consumers. Preserve compatible base consolidation unless a documented
+    project constraint prevents it. Record retained duplicates and their
+    justification in the reconciliation table; unexplained graph differences
+    block completion.
+
+    Run targeted checks for affected packages without persisting changes,
+    such as `yarn dedupe --check react react-dom`, in each relevant independent
+    Yarn project. Correct avoidable duplicates through targeted Yarn commands,
+    review their effects, then perform the required workspace refresh and
+    relevant validation, including repeating the graph checks. Avoid unrelated
+    dependency churn; installation success alone does not validate the graph.
+
+    On the checked-out branch, confirm:
 
 - `git status --short` contains only the expected pending merge or staged
   squash result, or is clean when the operation was a fast-forward or made no
