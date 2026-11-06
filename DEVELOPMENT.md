@@ -102,7 +102,7 @@ See Turbo's docs for more [usages](https://turbo.build/repo/docs/reference/comma
 
 ## Managing Dependencies
 
-This project supports continious upgrades with [Renovate Bot](https://docs.renovatebot.com/) and provides a default [global and repository config](https://docs.renovatebot.com/config-overview/). See [renovate.config.cjs](renovate.config.cjs) and [renovate.json](renovate.json) respectively. It is recommended to setup and allow permissions based on your repository [platform](https://docs.renovatebot.com/modules/platform/).
+This project supports continious upgrades with [Renovate Bot](https://docs.renovatebot.com/) and provides a default [global and repository config](https://docs.renovatebot.com/config-overview/). See [renovate.config.ts](renovate.config.ts) and [renovate.json](renovate.json) respectively. It is recommended to setup and allow permissions based on your repository [platform](https://docs.renovatebot.com/modules/platform/).
 
 ### Adding Dependencies
 
