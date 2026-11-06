@@ -356,9 +356,14 @@ commands.
    files first, then regenerate with `apm install` and verify with
    `apm audit --ci`. After manifest or workspace changes, run the applicable
    Yarn refresh from the root guidance and review all generated lockfile or
-   workspace changes before committing. Do not hide tool-generated changes in
-   an automatic stash; preserve unrelated changes and stop if generated churn
-   cannot be explained by the reconciled source.
+   workspace changes before committing. Limit additional regeneration to
+   artifacts required by the reconciled changes and documented validation;
+   do not perform optional setup or unrelated upgrades during sync. Run editor
+   SDK generation only when requested or required by a specific merged change,
+   preserving the project's configured editor targets rather than selecting
+   an editor merely because it is supported. Do not hide tool-generated changes
+   in an automatic stash; preserve unrelated changes and stop if generated
+   churn cannot be explained by the reconciled source.
 
 10. **Validate the result.** On the checked-out branch, confirm:
 
