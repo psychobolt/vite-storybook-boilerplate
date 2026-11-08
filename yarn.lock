@@ -8095,7 +8095,7 @@ __metadata:
     cors: "npm:2.8.6"
     eslint: "npm:10.14.0"
     eslint-plugin-jsonc: "npm:3.4.2"
-    eslint-plugin-mdx: "npm:3.9.1"
+    eslint-plugin-mdx: "npm:3.9.2"
     eslint-plugin-package-json: "npm:1.14.0"
     eslint-plugin-storybook: "npm:10.6.6"
     glob-to-regexp: "npm:0.4.1"
@@ -9469,9 +9469,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-mdx@npm:^3.9.1":
-  version: 3.9.1
-  resolution: "eslint-mdx@npm:3.9.1"
+"eslint-mdx@npm:^3.9.2":
+  version: 3.9.2
+  resolution: "eslint-mdx@npm:3.9.2"
   dependencies:
     acorn: "npm:^8.19.0"
     acorn-jsx: "npm:^5.3.2"
@@ -9499,7 +9499,7 @@ __metadata:
       optional: true
     remark-lint-file-extension:
       optional: true
-  checksum: 10c0/450bc0dfe56f934a204d45135d91bc3115b84171a60b1c0c2aa454f855f0b8cfabb6bd4f349bd38ccc1b37e468778015d62c9e3d08c16223a99c913ecc8d4f22
+  checksum: 10c0/0e76af1b3d819e7bbd23df6330a01c3e9419c96964854cf813392f297a0780172e50dd177e9c031abcc750635d47078170b0388de631d843c860efdf3eecc288
   languageName: node
   linkType: hard
 
@@ -9601,11 +9601,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mdx@npm:3.9.1":
-  version: 3.9.1
-  resolution: "eslint-plugin-mdx@npm:3.9.1"
+"eslint-plugin-mdx@npm:3.9.2":
+  version: 3.9.2
+  resolution: "eslint-plugin-mdx@npm:3.9.2"
   dependencies:
-    eslint-mdx: "npm:^3.9.1"
+    eslint-mdx: "npm:^3.9.2"
     mdast-util-mdx: "npm:^3.0.0"
     prettier-linter-helpers: "npm:^1.0.1"
     remark-mdx: "npm:^3.1.1"
@@ -9615,7 +9615,7 @@ __metadata:
     vfile: "npm:^6.0.3"
   peerDependencies:
     eslint: ">=8.0.0"
-  checksum: 10c0/2f3d075269f866f53713f390b6cea0c27ebf90a2f9fab460cd776769876e6eac6ce463ad363ae9ed6f70402231688726bbd091630b9221307a6e03beec22191e
+  checksum: 10c0/ab8c4d62b38e4bb89ec23bce395da41627fa93c88599b76fc11f0da7835b414ce3d5b15df266e6a73018bb876258c427326cbecc44b84bc57e2a6b22ef381a95
   languageName: node
   linkType: hard
 
