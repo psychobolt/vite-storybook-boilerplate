@@ -10046,9 +10046,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:10.1.1":
-  version: 10.1.1
-  resolution: "execa@npm:10.1.1"
+"execa@npm:10.2.1":
+  version: 10.2.1
+  resolution: "execa@npm:10.2.1"
   dependencies:
     "@sindresorhus/merge-streams": "npm:^4.0.0"
     figures: "npm:^6.1.0"
@@ -10062,7 +10062,7 @@ __metadata:
     strip-final-newline: "npm:^4.0.0"
     which-command: "npm:^0.1.0"
     yoctocolors: "npm:^2.2.0"
-  checksum: 10c0/6f9efc13c0142a7136f02affa605383e464581dff35dc3386c4f480a06e04a4541232b48e0564fd7fc25a52aa65a2f1a57a0f4669188887a3d0d34ecb7a1eb5b
+  checksum: 10c0/56024ace832edaa08562e73b9746f57751b6d9f458be5640b86b53e10a7cc2cc878a79e92ff22791ae04a3d61421e73096c86595559231a2225f40fcdcb9f5ea
   languageName: node
   linkType: hard
 
@@ -16251,9 +16251,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.224.0":
-  version: 44.224.0
-  resolution: "renovate@npm:44.224.0"
+"renovate@npm:44.224.1":
+  version: 44.224.1
+  resolution: "renovate@npm:44.224.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16319,7 +16319,7 @@ __metadata:
     emoji-regex: "npm:10.6.0"
     emojibase: "npm:17.0.0"
     emojibase-regex: "npm:17.0.0"
-    execa: "npm:10.1.1"
+    execa: "npm:10.2.1"
     find-packages: "npm:10.0.4"
     find-up: "npm:8.0.0"
     fs-extra: "npm:11.4.1"
@@ -16387,7 +16387,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/4e208e3f69e52bfb615faf2fda50ecd6d9f2cbd7383adb0b2e839663b6d7ae9cdfcb378b2c67ae3492f077b540a41876fe46e5bfe81ef28668323dbdcc6205df
+  checksum: 10c0/f19c3cf0ee1de12a5bf70632f44bce2548da3a26d11faa599d9d799aad6f6f3f43babb14228570a80455d758f3eaebc1f9afe043471d0b8af8f849303c6dc318
   languageName: node
   linkType: hard
 
@@ -19364,7 +19364,7 @@ __metadata:
     eslint: "npm:10.14.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.65.0"
-    renovate: "npm:44.224.0"
+    renovate: "npm:44.224.1"
     semver: "npm:7.8.6"
     skills: "npm:1.7.6"
     svelte-language-server: "npm:0.18.6"
