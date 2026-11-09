@@ -46,3 +46,22 @@ jobs:
             fi
           done
           echo "All jobs passed or were skipped."
+
+  auto-approve:
+    needs: finish
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Get token
+        id: get_token
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+      - name: Auto Approve Bot PRs
+        if: github.event.pull_request.user.login == format('{0}[bot]', steps.get_token.outputs.app-slug)
+        uses: hmarr/auto-approve-action@05a696a09d381a5a0d142c755f7eacbb19eb6525 # v4
+        with:
+          github-token: ${{ secrets.GH_OWNER_TOKEN }}
+          pull-request-number: ${{ github.event.pull_request.number }}

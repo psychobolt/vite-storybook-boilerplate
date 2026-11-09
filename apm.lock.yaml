@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-11-06T23:27:13.031953+00:00'
+generated_at: '2026-11-09T18:36:09.549030+00:00'
 apm_version: 0.30.0
 dependencies: []
 deployments:
@@ -11,7 +11,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:94756be26bcb3d82b9373a2811f21298382d59358f0b16d964de5fa93aef8235
+  content_hash: sha256:f969603e3f88b2f91fe6ec42428f0d45ef46b5e0940d69b871edf4d511e4e757
 - kind: project-relative
   target: claude
   value: .claude/rules/javascript-typescript.md
@@ -20,7 +20,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7345fadaace031afbc82b4ceb9a39052838bedf4e697bf5c2a5410f8d1d828f2
+  content_hash: sha256:4a2cf30cb098e211f55e4c9ad23407f5588a1bee9884e867479cd03b257692a4
 - kind: project-relative
   target: claude
   value: .claude/skills/api-package
@@ -38,7 +38,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
+  content_hash: sha256:9bb037bafeb8f83b1f7e57a1c019e61a4d9eb3573b325f2346360de9ccf380ad
 - kind: project-relative
   target: claude
   value: .claude/skills/app-component
@@ -56,7 +56,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
+  content_hash: sha256:d7db6d005ee79ac0e760b46421f8a81488a500985c4c381929299e462ab9d02a
 - kind: project-relative
   target: claude
   value: .claude/skills/app-package
@@ -74,7 +74,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
+  content_hash: sha256:d668cacbe71758140c6bf6f29508c1ca28fefe3d4ad74e5ce574daef46583f9d
 - kind: project-relative
   target: claude
   value: .claude/skills/app-package/references/routing.md
@@ -83,7 +83,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
+  content_hash: sha256:e634e5ddd61b525d32cc6fe8bf266479a5ef8db3c8a1d31af7f3aae31a3448d3
 - kind: project-relative
   target: claude
   value: .claude/skills/bootstrap
@@ -101,7 +101,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
+  content_hash: sha256:a416458093eee1e37379897bb7f3ff9aa89207b443649a439937a0274c120309
 - kind: project-relative
   target: claude
   value: .claude/skills/ci
@@ -119,7 +119,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
+  content_hash: sha256:37c4c738f23f70491c8bd15eb89b1b051b04f677071891070395bf7851f5cf6f
 - kind: project-relative
   target: claude
   value: .claude/skills/fork
@@ -137,7 +137,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b95fc6fce79d4437da9ac8dca3bbffa61a42257c5460a0ef5d1f45927224bab8
+  content_hash: sha256:2dbeda4bdc07e4313f814d5e0189b62ec8538875aac1c15bcec6c56616989f0d
 - kind: project-relative
   target: claude
   value: .claude/skills/keys
@@ -155,7 +155,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:1eafa4e0e005f4375ad360ca7953d8bd85817ae271da21ffe9ebef5c67f134fe
+  content_hash: sha256:7ccf5b744b814592abe00ac8afe8424a997714f948db1db620890ca662ca9364
 - kind: project-relative
   target: claude
   value: .claude/skills/keys/references/.env.ci
@@ -182,7 +182,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a993e1d6c8d97a8ecfa123d3a268d098efaa6337ac123371d377d43b0aa8a908
+  content_hash: sha256:2a6171e96d5c5eb261a326f30cf016016eb0b3d157eba779f91bc59cfc8eaafb
 - kind: project-relative
   target: claude
   value: .claude/skills/todo
@@ -200,7 +200,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
+  content_hash: sha256:66b26be4d2d704986fe1d6594457ddf783a9a6c3d5ee367474136798959256b9
 - kind: project-relative
   target: claude
   value: .claude/skills/todo/references/skills.md
@@ -209,7 +209,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:549962d169931fc0553a33c91372507c201444daf2c4eeb41560b52d7c33fedf
+  content_hash: sha256:be75e99a0e834812a338317ada810d8ef2839686f1bcf2054ce148bf9d30782f
 - kind: project-relative
   target: claude
   value: .claude/skills/todo/references/work.md
@@ -218,7 +218,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
+  content_hash: sha256:b83cfc25ca1d70b7dbb689511ec54355753f32fe80d435587a9e48e039a9d9eb
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-component
@@ -236,7 +236,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
+  content_hash: sha256:0ac48e2d43b880f954cf94097b1ec641099f2e31008b693ed758055c2fd1892b
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-component/references/csf.md
@@ -245,7 +245,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
+  content_hash: sha256:69406a6d20824ef0c5b4226cbf494ec0b0c05af7e3d15660ceb6fde274586ad8
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-component/references/styles.md
@@ -254,7 +254,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:20cfa33471e6b098ce753b05df70149bc30baa389aa79413b10c6b1a6704ec80
+  content_hash: sha256:5bdfb56a8ecbe1857c9c4fe73ec5c85533b4dbfedc17a22d531b814b46118450
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-composite
@@ -272,7 +272,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:32eac80119fd8380f1f091b591e399d7b3f4ac7eb1514dad277d109e85342782
+  content_hash: sha256:d888dc0800ceef0644f7805ba3a7c947c741a0b9d3d5f5de48a14b1a65d74bc1
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-composite/references/csf.md
@@ -281,7 +281,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:54bf891868b2115cdeef7c464ee850f2c8c213b7a5c75c8aeba8f466e6409c65
+  content_hash: sha256:684faeb2cb8a9724cd277d44d71101a93372f9f582052ea2d8ddaadf5e7c84ea
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-composite/references/styles.md
@@ -290,7 +290,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:19c8623a36887825a487f26ff8a63a3515588a3b4c66580f171f205d2c029ed4
+  content_hash: sha256:1d8f03dc1d24964e1580f0fa6315d8cc1633098c7303ab910d95c39fd9be94b6
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-element
@@ -308,7 +308,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
+  content_hash: sha256:4ae29786e31853907ff81c5321fcf8443884878de918fee0c5dd7e6b9756cf52
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-element/references/csf.md
@@ -317,7 +317,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
+  content_hash: sha256:186706467947e89b34636d3ae626bccb598de0223c80d9493b2b569e06aa28ae
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-element/references/styles.md
@@ -326,7 +326,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
+  content_hash: sha256:ddd4c999cd17864532dcc0ce839f774fe48d9ec58054e9686d5b042fb5e01ddd
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-package
@@ -344,7 +344,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:41cf3bb4d7cf085514229705776bd4f7b36d7d4ac85966ee84b84265024ef1c0
+  content_hash: sha256:bff3dd2225835c722964a13bef77b98af3dbd53b6976984199550e88c06b378a
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-package/references/csf.md
@@ -353,7 +353,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
+  content_hash: sha256:50ca3a5ec3e563dd031bf9d7ea624d8b8589a028f0e5bb24b9f4a3be2ef9d606
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-package/references/routing.md
@@ -362,7 +362,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
+  content_hash: sha256:eb72b2d6613386d66a810213f3a90b7867bd223f3ab9e25d961c8e7ab9e1c87f
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-package/references/storybook.md
@@ -371,7 +371,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
+  content_hash: sha256:d5ce2204bc0f3d792da3229beb6028f4d4ad3be105fac4069201ae6b044561dc
 - kind: project-relative
   target: claude
   value: .claude/skills/ui-package/references/styles.md
@@ -380,7 +380,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
+  content_hash: sha256:5f9203be4da7c0fa3dd1a01264169fc719ccfecdce20312183fa90456fb9220a
 - kind: project-relative
   target: codex
   value: .agents/skills/api-package
@@ -398,7 +398,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
+  content_hash: sha256:9bb037bafeb8f83b1f7e57a1c019e61a4d9eb3573b325f2346360de9ccf380ad
 - kind: project-relative
   target: codex
   value: .agents/skills/app-component
@@ -416,7 +416,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
+  content_hash: sha256:d7db6d005ee79ac0e760b46421f8a81488a500985c4c381929299e462ab9d02a
 - kind: project-relative
   target: codex
   value: .agents/skills/app-package
@@ -434,7 +434,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
+  content_hash: sha256:d668cacbe71758140c6bf6f29508c1ca28fefe3d4ad74e5ce574daef46583f9d
 - kind: project-relative
   target: codex
   value: .agents/skills/app-package/references/routing.md
@@ -443,7 +443,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
+  content_hash: sha256:e634e5ddd61b525d32cc6fe8bf266479a5ef8db3c8a1d31af7f3aae31a3448d3
 - kind: project-relative
   target: codex
   value: .agents/skills/bootstrap
@@ -461,7 +461,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
+  content_hash: sha256:a416458093eee1e37379897bb7f3ff9aa89207b443649a439937a0274c120309
 - kind: project-relative
   target: codex
   value: .agents/skills/ci
@@ -479,7 +479,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
+  content_hash: sha256:37c4c738f23f70491c8bd15eb89b1b051b04f677071891070395bf7851f5cf6f
 - kind: project-relative
   target: codex
   value: .agents/skills/fork
@@ -497,7 +497,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b95fc6fce79d4437da9ac8dca3bbffa61a42257c5460a0ef5d1f45927224bab8
+  content_hash: sha256:2dbeda4bdc07e4313f814d5e0189b62ec8538875aac1c15bcec6c56616989f0d
 - kind: project-relative
   target: codex
   value: .agents/skills/keys
@@ -515,7 +515,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:1eafa4e0e005f4375ad360ca7953d8bd85817ae271da21ffe9ebef5c67f134fe
+  content_hash: sha256:7ccf5b744b814592abe00ac8afe8424a997714f948db1db620890ca662ca9364
 - kind: project-relative
   target: codex
   value: .agents/skills/keys/references/.env.ci
@@ -542,7 +542,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a993e1d6c8d97a8ecfa123d3a268d098efaa6337ac123371d377d43b0aa8a908
+  content_hash: sha256:2a6171e96d5c5eb261a326f30cf016016eb0b3d157eba779f91bc59cfc8eaafb
 - kind: project-relative
   target: codex
   value: .agents/skills/todo
@@ -560,7 +560,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
+  content_hash: sha256:66b26be4d2d704986fe1d6594457ddf783a9a6c3d5ee367474136798959256b9
 - kind: project-relative
   target: codex
   value: .agents/skills/todo/references/skills.md
@@ -569,7 +569,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:549962d169931fc0553a33c91372507c201444daf2c4eeb41560b52d7c33fedf
+  content_hash: sha256:be75e99a0e834812a338317ada810d8ef2839686f1bcf2054ce148bf9d30782f
 - kind: project-relative
   target: codex
   value: .agents/skills/todo/references/work.md
@@ -578,7 +578,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
+  content_hash: sha256:b83cfc25ca1d70b7dbb689511ec54355753f32fe80d435587a9e48e039a9d9eb
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-component
@@ -596,7 +596,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
+  content_hash: sha256:0ac48e2d43b880f954cf94097b1ec641099f2e31008b693ed758055c2fd1892b
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-component/references/csf.md
@@ -605,7 +605,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
+  content_hash: sha256:69406a6d20824ef0c5b4226cbf494ec0b0c05af7e3d15660ceb6fde274586ad8
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-component/references/styles.md
@@ -614,7 +614,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:20cfa33471e6b098ce753b05df70149bc30baa389aa79413b10c6b1a6704ec80
+  content_hash: sha256:5bdfb56a8ecbe1857c9c4fe73ec5c85533b4dbfedc17a22d531b814b46118450
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-composite
@@ -632,7 +632,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:32eac80119fd8380f1f091b591e399d7b3f4ac7eb1514dad277d109e85342782
+  content_hash: sha256:d888dc0800ceef0644f7805ba3a7c947c741a0b9d3d5f5de48a14b1a65d74bc1
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-composite/references/csf.md
@@ -641,7 +641,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:54bf891868b2115cdeef7c464ee850f2c8c213b7a5c75c8aeba8f466e6409c65
+  content_hash: sha256:684faeb2cb8a9724cd277d44d71101a93372f9f582052ea2d8ddaadf5e7c84ea
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-composite/references/styles.md
@@ -650,7 +650,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:19c8623a36887825a487f26ff8a63a3515588a3b4c66580f171f205d2c029ed4
+  content_hash: sha256:1d8f03dc1d24964e1580f0fa6315d8cc1633098c7303ab910d95c39fd9be94b6
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-element
@@ -668,7 +668,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
+  content_hash: sha256:4ae29786e31853907ff81c5321fcf8443884878de918fee0c5dd7e6b9756cf52
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-element/references/csf.md
@@ -677,7 +677,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
+  content_hash: sha256:186706467947e89b34636d3ae626bccb598de0223c80d9493b2b569e06aa28ae
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-element/references/styles.md
@@ -686,7 +686,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
+  content_hash: sha256:ddd4c999cd17864532dcc0ce839f774fe48d9ec58054e9686d5b042fb5e01ddd
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-package
@@ -704,7 +704,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:41cf3bb4d7cf085514229705776bd4f7b36d7d4ac85966ee84b84265024ef1c0
+  content_hash: sha256:bff3dd2225835c722964a13bef77b98af3dbd53b6976984199550e88c06b378a
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-package/references/csf.md
@@ -713,7 +713,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
+  content_hash: sha256:50ca3a5ec3e563dd031bf9d7ea624d8b8589a028f0e5bb24b9f4a3be2ef9d606
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-package/references/routing.md
@@ -722,7 +722,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
+  content_hash: sha256:eb72b2d6613386d66a810213f3a90b7867bd223f3ab9e25d961c8e7ab9e1c87f
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-package/references/storybook.md
@@ -731,7 +731,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
+  content_hash: sha256:d5ce2204bc0f3d792da3229beb6028f4d4ad3be105fac4069201ae6b044561dc
 - kind: project-relative
   target: codex
   value: .agents/skills/ui-package/references/styles.md
@@ -740,7 +740,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
+  content_hash: sha256:5f9203be4da7c0fa3dd1a01264169fc719ccfecdce20312183fa90456fb9220a
 - kind: project-relative
   target: copilot
   value: .github/instructions/agent-guidance.instructions.md
@@ -749,7 +749,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:30e415ba54b4abea445d636af867e02ecfa4f3622923747a7fded75096c8e651
+  content_hash: sha256:d7d40f3781a9c7d20b017f84fbdde4a0e9cdc5abb605054d53ff4e733bc8dff9
 - kind: project-relative
   target: copilot
   value: .github/instructions/javascript-typescript.instructions.md
@@ -758,7 +758,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:17da30ceff190d4629f86a90d91b55187da676147708d6257012437cf82d282c
+  content_hash: sha256:71ffa78efe11faf37bfcf0d9b7240155f2d626008cf555ea1059788276e239d4
 - kind: project-relative
   target: cursor
   value: .cursor/rules/agent-guidance.mdc
@@ -767,7 +767,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:d0956077f603ee06b4482375266584bf4662d57ac14281619034e8afa77192e5
+  content_hash: sha256:17f9d0bf10253a6063ceab0e8fbfbb1537af82f45f0e720bc4b0d12af0a64cfa
 - kind: project-relative
   target: cursor
   value: .cursor/rules/javascript-typescript.mdc
@@ -776,7 +776,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:9d82098d51043e57cfd455802b8491d3f4f4117b7321ed527d1adadb101aeb04
+  content_hash: sha256:e206bf77d617d031621be006ec5abe0608fe06d0851597976692e72c3ebb99d1
 - kind: uri
   target: mcp
   value: next-devtools-mcp
@@ -1018,63 +1018,63 @@ local_deployed_files:
 - .github/instructions/agent-guidance.instructions.md
 - .github/instructions/javascript-typescript.instructions.md
 local_deployed_file_hashes:
-  .agents/skills/api-package/SKILL.md: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
-  .agents/skills/app-component/SKILL.md: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
-  .agents/skills/app-package/SKILL.md: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
-  .agents/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
-  .agents/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
-  .agents/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .agents/skills/fork/SKILL.md: sha256:b95fc6fce79d4437da9ac8dca3bbffa61a42257c5460a0ef5d1f45927224bab8
-  .agents/skills/keys/SKILL.md: sha256:1eafa4e0e005f4375ad360ca7953d8bd85817ae271da21ffe9ebef5c67f134fe
+  .agents/skills/api-package/SKILL.md: sha256:9bb037bafeb8f83b1f7e57a1c019e61a4d9eb3573b325f2346360de9ccf380ad
+  .agents/skills/app-component/SKILL.md: sha256:d7db6d005ee79ac0e760b46421f8a81488a500985c4c381929299e462ab9d02a
+  .agents/skills/app-package/SKILL.md: sha256:d668cacbe71758140c6bf6f29508c1ca28fefe3d4ad74e5ce574daef46583f9d
+  .agents/skills/app-package/references/routing.md: sha256:e634e5ddd61b525d32cc6fe8bf266479a5ef8db3c8a1d31af7f3aae31a3448d3
+  .agents/skills/bootstrap/SKILL.md: sha256:a416458093eee1e37379897bb7f3ff9aa89207b443649a439937a0274c120309
+  .agents/skills/ci/SKILL.md: sha256:37c4c738f23f70491c8bd15eb89b1b051b04f677071891070395bf7851f5cf6f
+  .agents/skills/fork/SKILL.md: sha256:2dbeda4bdc07e4313f814d5e0189b62ec8538875aac1c15bcec6c56616989f0d
+  .agents/skills/keys/SKILL.md: sha256:7ccf5b744b814592abe00ac8afe8424a997714f948db1db620890ca662ca9364
   .agents/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
-  .agents/skills/sync/SKILL.md: sha256:a993e1d6c8d97a8ecfa123d3a268d098efaa6337ac123371d377d43b0aa8a908
-  .agents/skills/todo/SKILL.md: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
-  .agents/skills/todo/references/skills.md: sha256:549962d169931fc0553a33c91372507c201444daf2c4eeb41560b52d7c33fedf
-  .agents/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
-  .agents/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
-  .agents/skills/ui-component/references/csf.md: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
-  .agents/skills/ui-component/references/styles.md: sha256:20cfa33471e6b098ce753b05df70149bc30baa389aa79413b10c6b1a6704ec80
-  .agents/skills/ui-composite/SKILL.md: sha256:32eac80119fd8380f1f091b591e399d7b3f4ac7eb1514dad277d109e85342782
-  .agents/skills/ui-composite/references/csf.md: sha256:54bf891868b2115cdeef7c464ee850f2c8c213b7a5c75c8aeba8f466e6409c65
-  .agents/skills/ui-composite/references/styles.md: sha256:19c8623a36887825a487f26ff8a63a3515588a3b4c66580f171f205d2c029ed4
-  .agents/skills/ui-element/SKILL.md: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
-  .agents/skills/ui-element/references/csf.md: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
-  .agents/skills/ui-element/references/styles.md: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
-  .agents/skills/ui-package/SKILL.md: sha256:41cf3bb4d7cf085514229705776bd4f7b36d7d4ac85966ee84b84265024ef1c0
-  .agents/skills/ui-package/references/csf.md: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
-  .agents/skills/ui-package/references/routing.md: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
-  .agents/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
-  .agents/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
-  .claude/rules/agent-guidance.md: sha256:94756be26bcb3d82b9373a2811f21298382d59358f0b16d964de5fa93aef8235
-  .claude/rules/javascript-typescript.md: sha256:7345fadaace031afbc82b4ceb9a39052838bedf4e697bf5c2a5410f8d1d828f2
-  .claude/skills/api-package/SKILL.md: sha256:ad26ddae3c18878bb5a45314b705ba74a17d7c26dcba5ca93eec38820f6571a8
-  .claude/skills/app-component/SKILL.md: sha256:a171fee0df02c863ca4f6227347b2c921c9d826b7a79a105a15c8a88438b3e27
-  .claude/skills/app-package/SKILL.md: sha256:98625fcb0271ef7c7812baad6235dbe16552721ae07fbe49c0d4f3ecd718b53a
-  .claude/skills/app-package/references/routing.md: sha256:fa26fe4fc3422a1e8790a9176935e25c763aec9f526148ec24afd1bcc74b3714
-  .claude/skills/bootstrap/SKILL.md: sha256:6ccd86e14c15493b8ad57fe3fd48326b69f955adceffbe1727b530440f39c344
-  .claude/skills/ci/SKILL.md: sha256:64abe4e6f5faf8f6250c99bca36064c33ff5e7ef886c760e0ef12925a33f62a9
-  .claude/skills/fork/SKILL.md: sha256:b95fc6fce79d4437da9ac8dca3bbffa61a42257c5460a0ef5d1f45927224bab8
-  .claude/skills/keys/SKILL.md: sha256:1eafa4e0e005f4375ad360ca7953d8bd85817ae271da21ffe9ebef5c67f134fe
+  .agents/skills/sync/SKILL.md: sha256:2a6171e96d5c5eb261a326f30cf016016eb0b3d157eba779f91bc59cfc8eaafb
+  .agents/skills/todo/SKILL.md: sha256:66b26be4d2d704986fe1d6594457ddf783a9a6c3d5ee367474136798959256b9
+  .agents/skills/todo/references/skills.md: sha256:be75e99a0e834812a338317ada810d8ef2839686f1bcf2054ce148bf9d30782f
+  .agents/skills/todo/references/work.md: sha256:b83cfc25ca1d70b7dbb689511ec54355753f32fe80d435587a9e48e039a9d9eb
+  .agents/skills/ui-component/SKILL.md: sha256:0ac48e2d43b880f954cf94097b1ec641099f2e31008b693ed758055c2fd1892b
+  .agents/skills/ui-component/references/csf.md: sha256:69406a6d20824ef0c5b4226cbf494ec0b0c05af7e3d15660ceb6fde274586ad8
+  .agents/skills/ui-component/references/styles.md: sha256:5bdfb56a8ecbe1857c9c4fe73ec5c85533b4dbfedc17a22d531b814b46118450
+  .agents/skills/ui-composite/SKILL.md: sha256:d888dc0800ceef0644f7805ba3a7c947c741a0b9d3d5f5de48a14b1a65d74bc1
+  .agents/skills/ui-composite/references/csf.md: sha256:684faeb2cb8a9724cd277d44d71101a93372f9f582052ea2d8ddaadf5e7c84ea
+  .agents/skills/ui-composite/references/styles.md: sha256:1d8f03dc1d24964e1580f0fa6315d8cc1633098c7303ab910d95c39fd9be94b6
+  .agents/skills/ui-element/SKILL.md: sha256:4ae29786e31853907ff81c5321fcf8443884878de918fee0c5dd7e6b9756cf52
+  .agents/skills/ui-element/references/csf.md: sha256:186706467947e89b34636d3ae626bccb598de0223c80d9493b2b569e06aa28ae
+  .agents/skills/ui-element/references/styles.md: sha256:ddd4c999cd17864532dcc0ce839f774fe48d9ec58054e9686d5b042fb5e01ddd
+  .agents/skills/ui-package/SKILL.md: sha256:bff3dd2225835c722964a13bef77b98af3dbd53b6976984199550e88c06b378a
+  .agents/skills/ui-package/references/csf.md: sha256:50ca3a5ec3e563dd031bf9d7ea624d8b8589a028f0e5bb24b9f4a3be2ef9d606
+  .agents/skills/ui-package/references/routing.md: sha256:eb72b2d6613386d66a810213f3a90b7867bd223f3ab9e25d961c8e7ab9e1c87f
+  .agents/skills/ui-package/references/storybook.md: sha256:d5ce2204bc0f3d792da3229beb6028f4d4ad3be105fac4069201ae6b044561dc
+  .agents/skills/ui-package/references/styles.md: sha256:5f9203be4da7c0fa3dd1a01264169fc719ccfecdce20312183fa90456fb9220a
+  .claude/rules/agent-guidance.md: sha256:f969603e3f88b2f91fe6ec42428f0d45ef46b5e0940d69b871edf4d511e4e757
+  .claude/rules/javascript-typescript.md: sha256:4a2cf30cb098e211f55e4c9ad23407f5588a1bee9884e867479cd03b257692a4
+  .claude/skills/api-package/SKILL.md: sha256:9bb037bafeb8f83b1f7e57a1c019e61a4d9eb3573b325f2346360de9ccf380ad
+  .claude/skills/app-component/SKILL.md: sha256:d7db6d005ee79ac0e760b46421f8a81488a500985c4c381929299e462ab9d02a
+  .claude/skills/app-package/SKILL.md: sha256:d668cacbe71758140c6bf6f29508c1ca28fefe3d4ad74e5ce574daef46583f9d
+  .claude/skills/app-package/references/routing.md: sha256:e634e5ddd61b525d32cc6fe8bf266479a5ef8db3c8a1d31af7f3aae31a3448d3
+  .claude/skills/bootstrap/SKILL.md: sha256:a416458093eee1e37379897bb7f3ff9aa89207b443649a439937a0274c120309
+  .claude/skills/ci/SKILL.md: sha256:37c4c738f23f70491c8bd15eb89b1b051b04f677071891070395bf7851f5cf6f
+  .claude/skills/fork/SKILL.md: sha256:2dbeda4bdc07e4313f814d5e0189b62ec8538875aac1c15bcec6c56616989f0d
+  .claude/skills/keys/SKILL.md: sha256:7ccf5b744b814592abe00ac8afe8424a997714f948db1db620890ca662ca9364
   .claude/skills/keys/references/.env.ci: sha256:3093065d0cda361f7092b2ca86e67d3d0e4996bc4548f78bd41d6c1315e3e4c0
-  .claude/skills/sync/SKILL.md: sha256:a993e1d6c8d97a8ecfa123d3a268d098efaa6337ac123371d377d43b0aa8a908
-  .claude/skills/todo/SKILL.md: sha256:b3ce0e5e21b57b9703c491d2e207e900c6b1e7f88813f33c8c34e4da39d50b49
-  .claude/skills/todo/references/skills.md: sha256:549962d169931fc0553a33c91372507c201444daf2c4eeb41560b52d7c33fedf
-  .claude/skills/todo/references/work.md: sha256:a1d914f382c891139f6ba1e7abc61bb14996855f07d7bd826e32f8f4679f7617
-  .claude/skills/ui-component/SKILL.md: sha256:e55e488cdb1a03e37e9c4bfbaf5325a93e3c317e44066dc36ea068520510bf05
-  .claude/skills/ui-component/references/csf.md: sha256:88c6b2ae65979fac5948d8ae40c2ca9a423b9c5899b2842a9a32f34896570080
-  .claude/skills/ui-component/references/styles.md: sha256:20cfa33471e6b098ce753b05df70149bc30baa389aa79413b10c6b1a6704ec80
-  .claude/skills/ui-composite/SKILL.md: sha256:32eac80119fd8380f1f091b591e399d7b3f4ac7eb1514dad277d109e85342782
-  .claude/skills/ui-composite/references/csf.md: sha256:54bf891868b2115cdeef7c464ee850f2c8c213b7a5c75c8aeba8f466e6409c65
-  .claude/skills/ui-composite/references/styles.md: sha256:19c8623a36887825a487f26ff8a63a3515588a3b4c66580f171f205d2c029ed4
-  .claude/skills/ui-element/SKILL.md: sha256:63521e6c7e4a26b942fb3437f494ad428ed3d0377914d1c3cd305a5028f50cc4
-  .claude/skills/ui-element/references/csf.md: sha256:eb6f2db68f614174e5f4b73c3f3aaead6ab50e93c3157c85f2dfbe2681e15dd9
-  .claude/skills/ui-element/references/styles.md: sha256:b96543f634dd1024c1bf3b9dd1cc0b9b440587f801df777d3ce4292913353b24
-  .claude/skills/ui-package/SKILL.md: sha256:41cf3bb4d7cf085514229705776bd4f7b36d7d4ac85966ee84b84265024ef1c0
-  .claude/skills/ui-package/references/csf.md: sha256:305234b7ac236c8241a8ee2affe145edeceb4ff8ae8bfb39b4ed01d05f48f9ff
-  .claude/skills/ui-package/references/routing.md: sha256:a87401df57c985408b8c07b9c19031e653814c316f96071e3bfd47198965bce6
-  .claude/skills/ui-package/references/storybook.md: sha256:f2e38abebd0fa5e92eed68881403dd7acf01e5884ea1add59c6662465d32f118
-  .claude/skills/ui-package/references/styles.md: sha256:af675c0b6209c60b0e99f233e899256c264bfcfdd28d9645be0343cec06f1a90
-  .cursor/rules/agent-guidance.mdc: sha256:d0956077f603ee06b4482375266584bf4662d57ac14281619034e8afa77192e5
-  .cursor/rules/javascript-typescript.mdc: sha256:9d82098d51043e57cfd455802b8491d3f4f4117b7321ed527d1adadb101aeb04
-  .github/instructions/agent-guidance.instructions.md: sha256:30e415ba54b4abea445d636af867e02ecfa4f3622923747a7fded75096c8e651
-  .github/instructions/javascript-typescript.instructions.md: sha256:17da30ceff190d4629f86a90d91b55187da676147708d6257012437cf82d282c
+  .claude/skills/sync/SKILL.md: sha256:2a6171e96d5c5eb261a326f30cf016016eb0b3d157eba779f91bc59cfc8eaafb
+  .claude/skills/todo/SKILL.md: sha256:66b26be4d2d704986fe1d6594457ddf783a9a6c3d5ee367474136798959256b9
+  .claude/skills/todo/references/skills.md: sha256:be75e99a0e834812a338317ada810d8ef2839686f1bcf2054ce148bf9d30782f
+  .claude/skills/todo/references/work.md: sha256:b83cfc25ca1d70b7dbb689511ec54355753f32fe80d435587a9e48e039a9d9eb
+  .claude/skills/ui-component/SKILL.md: sha256:0ac48e2d43b880f954cf94097b1ec641099f2e31008b693ed758055c2fd1892b
+  .claude/skills/ui-component/references/csf.md: sha256:69406a6d20824ef0c5b4226cbf494ec0b0c05af7e3d15660ceb6fde274586ad8
+  .claude/skills/ui-component/references/styles.md: sha256:5bdfb56a8ecbe1857c9c4fe73ec5c85533b4dbfedc17a22d531b814b46118450
+  .claude/skills/ui-composite/SKILL.md: sha256:d888dc0800ceef0644f7805ba3a7c947c741a0b9d3d5f5de48a14b1a65d74bc1
+  .claude/skills/ui-composite/references/csf.md: sha256:684faeb2cb8a9724cd277d44d71101a93372f9f582052ea2d8ddaadf5e7c84ea
+  .claude/skills/ui-composite/references/styles.md: sha256:1d8f03dc1d24964e1580f0fa6315d8cc1633098c7303ab910d95c39fd9be94b6
+  .claude/skills/ui-element/SKILL.md: sha256:4ae29786e31853907ff81c5321fcf8443884878de918fee0c5dd7e6b9756cf52
+  .claude/skills/ui-element/references/csf.md: sha256:186706467947e89b34636d3ae626bccb598de0223c80d9493b2b569e06aa28ae
+  .claude/skills/ui-element/references/styles.md: sha256:ddd4c999cd17864532dcc0ce839f774fe48d9ec58054e9686d5b042fb5e01ddd
+  .claude/skills/ui-package/SKILL.md: sha256:bff3dd2225835c722964a13bef77b98af3dbd53b6976984199550e88c06b378a
+  .claude/skills/ui-package/references/csf.md: sha256:50ca3a5ec3e563dd031bf9d7ea624d8b8589a028f0e5bb24b9f4a3be2ef9d606
+  .claude/skills/ui-package/references/routing.md: sha256:eb72b2d6613386d66a810213f3a90b7867bd223f3ab9e25d961c8e7ab9e1c87f
+  .claude/skills/ui-package/references/storybook.md: sha256:d5ce2204bc0f3d792da3229beb6028f4d4ad3be105fac4069201ae6b044561dc
+  .claude/skills/ui-package/references/styles.md: sha256:5f9203be4da7c0fa3dd1a01264169fc719ccfecdce20312183fa90456fb9220a
+  .cursor/rules/agent-guidance.mdc: sha256:17f9d0bf10253a6063ceab0e8fbfbb1537af82f45f0e720bc4b0d12af0a64cfa
+  .cursor/rules/javascript-typescript.mdc: sha256:e206bf77d617d031621be006ec5abe0608fe06d0851597976692e72c3ebb99d1
+  .github/instructions/agent-guidance.instructions.md: sha256:d7d40f3781a9c7d20b017f84fbdde4a0e9cdc5abb605054d53ff4e733bc8dff9
+  .github/instructions/javascript-typescript.instructions.md: sha256:71ffa78efe11faf37bfcf0d9b7240155f2d626008cf555ea1059788276e239d4

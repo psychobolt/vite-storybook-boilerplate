@@ -5,352 +5,77 @@ description: Migrate a cloned repository to a new project identity, optionally r
 
 # Fork
 
-Prepare a repository for independent development. For a fresh clone or fork,
-identity migration is the default.
+Prepare a repository for independent development. For a fresh clone or fork, identity migration is the default.
 
 ## Protected scope
 
-- Preserve every path protected by the root [repository shape
-  guidance](../../../AGENTS.md#repository-shape); do not duplicate or override
-  that protected-path list here.
-- Preserve root package-manager, workspace, shared configuration, agent
-  guidance, and skill infrastructure unless the user explicitly includes it in
-  the cleanup scope.
-- Do not delete a workspace from `apps/` or `packages/` based on its name alone.
-  Inventory candidates and obtain confirmation of the exact deletion scope.
-- Follow the root [environment-file boundary](../../../AGENTS.md#environment-file-boundary)
-  for all environment-file and process-environment handling. Use the [keys
-  skill](../keys/SKILL.md) for any encrypted environment operation.
-- Keep this workflow local. Do not create hosted forks, verify provider
-  authentication, or publish remotes. A user-provided project URL is enough to
-  configure `origin` locally; do not test hosted reachability or authentication.
+- Preserve every path protected by the root [repository shape guidance](../../../AGENTS.md#repository-shape); do not duplicate or override that protected-path list here.
+- Preserve root package-manager, workspace, shared configuration, agent guidance, and skill infrastructure unless the user explicitly includes it in the cleanup scope.
+- Do not delete a workspace from `apps/` or `packages/` based on its name alone. Inventory candidates and obtain confirmation of the exact deletion scope.
+- Follow the root [environment-file boundary](../../../AGENTS.md#environment-file-boundary) for all environment-file and process-environment handling. Use the [keys skill](../keys/SKILL.md) for any encrypted environment operation.
+- Keep this workflow local. Do not create hosted forks, verify provider authentication, or publish remotes. A user-provided project URL is enough to configure `origin` locally; do not test hosted reachability or authentication.
 
 ## Procedure
 
-1. **Verify Git identity.** Before beginning fork
-   inventory or changing files, determine the effective Git `user.name` and
-   `user.email` from Git configuration. If either value is missing, stop and ask
-   the user to configure the Git author identity. Do not infer it from package
-   metadata, remote ownership, or repository documentation, and do not change
-   Git configuration unless the user explicitly requests that change.
+1. **Verify Git identity.** Before beginning fork inventory or changing files, determine the effective Git `user.name` and `user.email` from Git configuration. If either value is missing, stop and ask the user to configure the Git author identity. Do not infer it from package metadata, remote ownership, or repository documentation, and do not change Git configuration unless the user explicitly requests that change.
 
-2. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and
-   workspace configuration, and repository workflow documentation. Inspect the
-   worktree and preserve unrelated changes. Record the current branch, remotes,
-   workspace list, protected paths, and candidate demo paths without changing
-   working files. If the current branch tracks a remote, refresh its relevant
-   ref and determine whether the local history is ahead, behind, or current.
-   If no remote is configured or the repository has no commit, classify it as
-   an unpublished fresh repository; there is no history to synchronize. Do not
-   merge the upstream repository during fork preparation. If no Git remotes are
-   configured, use repository documentation and local repository metadata to
-   distinguish the project repository from the upstream repository. For any
-   unresolved original or upstream reference, use the root [base reference
-   resolution](../../../AGENTS.md#base-reference-resolution); its order and
-   fallback rules are authoritative. Never use a base reference as the
-   project's `origin`. Before changing any remote, record the original source
-   URL separately from the requested project URL. If the current `origin`
-   points to the original source, preserve that URL as the `base` candidate
-   before changing `origin`; never derive `base` from the post-migration
-   `origin`. Compare the workspace root directory name with the
-   resolved source repository name. A different directory name is evidence
-   that the clone may be intended for a new project, but local directory names
-   are not authoritative project identity and do not by themselves authorize
-   identity changes, remote changes, cleanup, or history replacement.
+2. **Inspect the fork context.** Read the nearest `AGENTS.md`, package and workspace configuration, and repository workflow documentation. Inspect the worktree and preserve unrelated changes. Record the current branch, remotes, workspace list, protected paths, and candidate demo paths without changing working files. If the current branch tracks a remote, refresh its relevant ref and determine whether the local history is ahead, behind, or current. If no remote is configured or the repository has no commit, classify it as an unpublished fresh repository; there is no history to synchronize. Do not merge the upstream repository during fork preparation. If no Git remotes are configured, use repository documentation and local repository metadata to distinguish the project repository from the upstream repository. For any unresolved original or upstream reference, use the root [base reference resolution](../../../AGENTS.md#base-reference-resolution); its order and fallback rules are authoritative. Never use a base reference as the project's `origin`. Before changing any remote, record the original source URL separately from the requested project URL. If the current `origin` points to the original source, preserve that URL as the `base` candidate before changing `origin`; never derive `base` from the post-migration `origin`. Compare the workspace root directory name with the resolved source repository name. A different directory name is evidence that the clone may be intended for a new project, but local directory names are not authoritative project identity and do not by themselves authorize identity changes, remote changes, cleanup, or history replacement.
 
-3. **Select the operation mode and synchronization intent.** Classify the
-   repository as fresh or otherwise unmigrated, or as already having its
-   project identity and required remote setup established. Use identity
-   migration for a fresh or unmigrated repository and preserve all files during
-   that pass. For an established repository, a later invocation may enter
-   cleanup review: inventory likely demo content and present the exact
-   deletion set, but do not remove it in the review pass. Changing the
-   repository history alone does not establish this state.
+3. **Select the operation mode and synchronization intent.** Classify the repository as fresh or otherwise unmigrated, or as already having its project identity and required remote setup established. Use identity migration for a fresh or unmigrated repository and preserve all files during that pass. For an established repository, a later invocation may enter cleanup review: inventory likely demo content and present the exact deletion set, but do not remove it in the review pass. Changing the repository history alone does not establish this state.
 
-   Determine project identity from the user's instruction. Independent versus
-   extension describes ownership, while synchronization describes whether the
-   project receives upstream updates, provides downstream extension guidance,
-   or both. Unless the user or established documentation says otherwise, use
-   upstream synchronization plus downstream extension guidance for a new
-   identity, and preserve the existing synchronization relationship plus
-   upstream updates for an extension. These are defaults for interpreting the
-   repository, not permission to create or rewrite synchronization workflows
-   without inspecting their current role. Explicit user instructions take
-   precedence, followed by established documentation and then these defaults.
-   Always configure the resolved original source as the local-only `base`
-   remote; this local remote requirement does not decide what tracked
-   documentation should say. Preserve existing synchronization documentation
-   when its role is established, and report any unresolved role rather than
-   silently changing it.
+   Determine project identity from the user's instruction. Independent versus extension describes ownership, while synchronization describes whether the project receives upstream updates, provides downstream extension guidance, or both. Unless the user or established documentation says otherwise, use upstream synchronization plus downstream extension guidance for a new identity, and preserve the existing synchronization relationship plus upstream updates for an extension. These are defaults for interpreting the repository, not permission to create or rewrite synchronization workflows without inspecting their current role. Explicit user instructions take precedence, followed by established documentation and then these defaults. Always configure the resolved original source as the local-only `base` remote; this local remote requirement does not decide what tracked documentation should say. Preserve existing synchronization documentation when its role is established, and report any unresolved role rather than silently changing it.
 
-   Determine separately from the user's current instruction whether it asks to
-   clear or reset Git history, or to add or update `origin` or `base`. If the
-   user has not stated whether existing history should be preserved or reset,
-   stop and ask for that history disposition before applying the identity
-   migration. Do not infer preservation or reset from an unpublished `origin`,
-   an unrelated history, or the absence of a merge base.
+   Determine separately from the user's current instruction whether it asks to clear or reset Git history, or to add or update `origin` or `base`. If the user has not stated whether existing history should be preserved or reset, stop and ask for that history disposition before applying the identity migration. Do not infer preservation or reset from an unpublished `origin`, an unrelated history, or the absence of a merge base.
 
-4. **Inventory the original identity.** Search eligible tracked and source
-   files, including manifests, lockfiles, licenses, READMEs, development and
-   workflow documentation, CI and automation configuration, scripts, badges,
-   and agent guidance, for:
+4. **Inventory the original identity.** Search eligible tracked and source files, including manifests, lockfiles, licenses, READMEs, development and workflow documentation, CI and automation configuration, scripts, badges, and agent guidance, for:
 
-   - the original repository name, owner, URL, package names, author and
-     copyright holder;
-   - `repository`, `homepage`, `bugs`, `funding`, `description`, `license`,
-     and other identity properties that actually exist;
-   - hard-coded project URLs or owner names in ordinary workflow examples,
-     service configuration, badges, and automation, including workflow
-     conditions, actor or bot allowlists, repository-owner expressions,
-     synchronization refs, and package or workspace paths;
-   - intentional upstream references used to synchronize from the base
-     repository.
+   - the original repository name, owner, URL, package names, author and copyright holder;
+   - `repository`, `homepage`, `bugs`, `funding`, `description`, `license`, and other identity properties that actually exist;
+   - hard-coded project URLs or owner names in ordinary workflow examples, service configuration, badges, and automation, including workflow conditions, actor or bot allowlists, repository-owner expressions, synchronization refs, and package or workspace paths;
+   - intentional upstream references used to synchronize from the base repository.
 
-   Exclude secret-bearing environment files, generated output, dependencies,
-   and Git internals from content scans. Keep generic tooling names such as
-   Storybook, Vite, Yarn, and shared package names unless they are specifically
-   part of the old project identity. Inspect Git remotes with `git remote -v`
-   or `git remote get-url --all <remote>` when available and record their URLs
-   as Git metadata, not repository content.
+   Exclude secret-bearing environment files, generated output, dependencies, and Git internals from content scans. Keep generic tooling names such as Storybook, Vite, Yarn, and shared package names unless they are specifically part of the old project identity. Inspect Git remotes with `git remote -v` or `git remote get-url --all <remote>` when available and record their URLs as Git metadata, not repository content.
 
-5. **Confirm identity and scope.** Apply replacement values explicitly given
-   by the user. Ask only for values or decisions that remain material and
-   unresolved. When an identity property exists, explicitly decide whether to
-   retain it with a replacement value or remove it; do not silently remove an
-   existing property. This includes `name`, `description`, `license`,
-   `author`, copyright ownership, `repository`, `homepage`, `bugs`, and
-   `funding`. A repository owner in a new URL does not automatically establish
-   the package author or copyright holder. Preserve a user-supplied license
-   value exactly when it is valid for the repository's package-manifest
-   validator. Treat license metadata and the project-owned license text as
-   separate changes. For a recognized standard license, derive the canonical
-   text and SPDX metadata from the requested license. For a custom or
-   proprietary license, use `SEE LICENSE IN <filename>` when an approved
-   project-owned license file contains the governing terms; use `UNLICENSED`
-   when the project grants no license. Do not write arbitrary labels such as
-   `Proprietary` into a manifest, and do not invent legal terms when no
-   approved license text exists.
-   Do not treat retained upstream license text as the new project's license or
-   append it as a second active license. Preserve existing upstream copyright
-   notices and attribution text in place and unchanged by default.
-   Do not create, move, rewrite, or relink a `NOTICE` file or other
-   attribution material unless the user explicitly requests it or a clearly
-   established legal requirement requires it.
+5. **Confirm identity and scope.** Apply replacement values explicitly given by the user. Ask only for values or decisions that remain material and unresolved. When an identity property exists, explicitly decide whether to retain it with a replacement value or remove it; do not silently remove an existing property. This includes `name`, `description`, `license`, `author`, copyright ownership, `repository`, `homepage`, `bugs`, and `funding`. A repository owner in a new URL does not automatically establish the package author or copyright holder. Preserve a user-supplied license value exactly when it is valid for the repository's package-manifest validator. Treat license metadata and the project-owned license text as separate changes. For a recognized standard license, derive the canonical text and SPDX metadata from the requested license. For a custom or proprietary license, use `SEE LICENSE IN <filename>` when an approved project-owned license file contains the governing terms; use `UNLICENSED` when the project grants no license. Do not write arbitrary labels such as `Proprietary` into a manifest, and do not invent legal terms when no approved license text exists. Do not treat retained upstream license text as the new project's license or append it as a second active license. Preserve existing upstream copyright notices and attribution text in place and unchanged by default. Do not create, move, rewrite, or relink a `NOTICE` file or other attribution material unless the user explicitly requests it or a clearly established legal requirement requires it.
 
-   Resolve and validate the requested project URL for `origin` and the
-   original source URL for the local-only `base` remote before mutating either
-   remote. When no project name is supplied, use the current repository root
-   directory's basename as the project name. If the current `origin` points to
-   the original source, use the URL captured in Procedure 2 for `base` before
-   replacing `origin`. Otherwise resolve `base` from the documented or
-   configured original source using [base reference
-   resolution](../../../AGENTS.md#base-reference-resolution). Never derive
-   `base` from the requested project URL, the new `origin`, or a fallback that
-   merely repeats `origin`. If normalized `origin` and `base` URLs are
-   identical, stop and ask for a distinct original-source reference; do not
-   add or update either remote from the colliding values. Add or update the
-   local-only `base` remote first, then verify its configured URL. Do not
-   change documentation, manifests, workflows, or other identity-bearing
-   files until `base` has been added or successfully confirmed. If adding or
-   verifying `base` fails, stop before changing repository content. After
-   `base` is confirmed and the distinct project URL is resolved, explicitly
-   supplied project URLs may update or add `origin` locally, regardless of
-   hosted destination availability. If no project URL is available, ask for it
-   before changing `origin`.
-   If the project `origin` is absent, empty, or has no published project ref,
-   record that local remote setup is incomplete. Do not infer a history
-   operation or hosted-publication requirement from that state; use the
-   explicit history disposition above.
-   If a required URL or branch cannot be discovered from repository
-   documentation or Git metadata, ask before changing remotes.
+   Resolve and validate the requested project URL for `origin` and the original source URL for the local-only `base` remote before mutating either remote. When no project name is supplied, use the current repository root directory's basename as the project name. If the current `origin` points to the original source, use the URL captured in Procedure 2 for `base` before replacing `origin`. Otherwise resolve `base` from the documented or configured original source using [base reference resolution](../../../AGENTS.md#base-reference-resolution). Never derive `base` from the requested project URL, the new `origin`, or a fallback that merely repeats `origin`. If normalized `origin` and `base` URLs are identical, stop and ask for a distinct original-source reference; do not add or update either remote from the colliding values. Add or update the local-only `base` remote first, then verify its configured URL. Do not change documentation, manifests, workflows, or other identity-bearing files until `base` has been added or successfully confirmed. If adding or verifying `base` fails, stop before changing repository content. After `base` is confirmed and the distinct project URL is resolved, explicitly supplied project URLs may update or add `origin` locally, regardless of hosted destination availability. If no project URL is available, ask for it before changing `origin`. If the project `origin` is absent, empty, or has no published project ref, record that local remote setup is incomplete. Do not infer a history operation or hosted-publication requirement from that state; use the explicit history disposition above. If a required URL or branch cannot be discovered from repository documentation or Git metadata, ask before changing remotes.
 
-   Stop before deletion, history replacement, or unresolved identity changes
-   when the required decision is missing. A user response approving the
-   proposed deletion set is the required cleanup decision; do not infer it from
-   the initial fork invocation or from the fact that the repository is no
-   longer on the original history.
+   Stop before deletion, history replacement, or unresolved identity changes when the required decision is missing. A user response approving the proposed deletion set is the required cleanup decision; do not infer it from the initial fork invocation or from the fact that the repository is no longer on the original history.
 
-   If the invocation supplies no fork parameters or leaves the next operation
-   unresolved, do not finish with an inventory report that merely says no
-   changes were made. Present the discovered context and ask the user to
-   choose a next step:
+   If the invocation supplies no fork parameters or leaves the next operation unresolved, do not finish with an inventory report that merely says no changes were made. Present the discovered context and ask the user to choose a next step:
 
-   - choose whether to preserve or reset the existing Git history, then
-     establish a new project identity, including the destination project URL
-     and identity-field decisions;
-   - prepare the repository as an extension, including its intended `origin`,
-     upstream `base`, and synchronization relationship;
-   - review candidate demo content and approve an exact cleanup set, without
-     deleting anything during the review; or
+   - choose whether to preserve or reset the existing Git history, then establish a new project identity, including the destination project URL and identity-field decisions;
+   - prepare the repository as an extension, including its intended `origin`, upstream `base`, and synchronization relationship;
+   - review candidate demo content and approve an exact cleanup set, without deleting anything during the review; or
    - exit without changes.
 
-   Do not change files, remotes, branches, or history until the selected
-   operation and any required values are clear.
+   Do not change files, remotes, branches, or history until the selected operation and any required values are clear.
 
 6. **Apply the non-secret changes.**
-   - In identity-migration mode, preserve all applications, packages, demos,
-     shared infrastructure, workflows, and automation files. Apply only the
-     confirmed non-secret structural or metadata changes; Procedure 9 owns
-     identity updates in documentation and workflow references.
-   - Disable workflow schedules by default. For non-Renovate scheduled
-     workflows, comment out the active schedule while preserving the workflow
-     and its jobs. Keep the workflow syntax valid when disabling the schedule.
-   - For a Renovate workflow whose confirmed `origin` uses GitHub, configure
-     its schedule for 7:07 AM in the user's stated or harness-provided IANA
-     timezone: use `7 7 * * *` with the workflow's `timezone` field. If no
-     user timezone is available, ask rather than defaulting. For other
-     providers, apply the default scheduled-workflow rule above.
-   - Disable the automatic Bitbucket synchronization trigger by commenting out
-     its push trigger or equivalent automatic trigger. Preserve the Bitbucket
-     workflow and its manual dispatch entry point unless the user explicitly
-     requests that manual execution also be disabled. Do not delete the
-     Bitbucket mirror jobs or their configuration.
-   - In content-cleanup mode, remove only the approved demo paths. Preserve
-     protected paths and shared tooling. Update workspace manifests, lockfiles,
-     task configuration, documentation, and references in existing workflow or
-     automation files as required by the deletion.
-   - Preserve workflow, automation, and coverage configuration files unless the
-     provider-specific cleanup in Step 9 applies. Update them instead of
-     deleting them because an example was removed. When cleanup leaves no
-     application or package workspaces, retain one complete neutral example
-     job in each affected reusable workflow. The example must preserve the
-     workflow's actual `uses`, `with`, `permissions`, and `secrets` shape,
-     replace workspace names and paths with placeholders such as
-     `example-app` or `example-package`, and use an always-false condition
-     (or the repository's equivalent disabled-job form) so it cannot execute.
-     Do not replace the job body with explanatory prose alone; the example is
-     the configuration pattern for adding a future workspace. Preserve the
-     fork workflow-sync CI itself; update its references according to Step 9
-     and update removed paths as required.
-   - Remove an `apps/` or `packages/` container only after the approved cleanup
-     leaves it empty; never delete a non-empty container as a shortcut.
+   - In identity-migration mode, preserve all applications, packages, demos, shared infrastructure, workflows, and automation files. Apply only the confirmed non-secret structural or metadata changes; Procedure 9 owns identity updates in documentation and workflow references.
+   - Disable workflow schedules by default. For non-Renovate scheduled workflows, comment out the active schedule while preserving the workflow and its jobs. Keep the workflow syntax valid when disabling the schedule.
+   - For a Renovate workflow whose confirmed `origin` uses GitHub, configure its schedule for 7:07 AM in the user's stated or harness-provided IANA timezone: use `7 7 * * *` with the workflow's `timezone` field. If no user timezone is available, ask rather than defaulting. For other providers, apply the default scheduled-workflow rule above.
+   - Disable the automatic Bitbucket synchronization trigger by commenting out its push trigger or equivalent automatic trigger. Preserve the Bitbucket workflow and its manual dispatch entry point unless the user explicitly requests that manual execution also be disabled. Do not delete the Bitbucket mirror jobs or their configuration.
+   - In content-cleanup mode, remove only the approved demo paths. Preserve protected paths and shared tooling. Update workspace manifests, lockfiles, task configuration, documentation, and references in existing workflow or automation files as required by the deletion.
+   - Preserve workflow, automation, and coverage configuration files unless the provider-specific cleanup in Step 9 applies. Update them instead of deleting them because an example was removed. When cleanup leaves no application or package workspaces, retain one complete neutral example job in each affected reusable workflow. The example must preserve the workflow's actual `uses`, `with`, `permissions`, and `secrets` shape, replace workspace names and paths with placeholders such as `example-app` or `example-package`, and use an always-false condition (or the repository's equivalent disabled-job form) so it cannot execute. Do not replace the job body with explanatory prose alone; the example is the configuration pattern for adding a future workspace. Preserve the fork workflow-sync CI itself; update its references according to Step 9 and update removed paths as required.
+   - Remove an `apps/` or `packages/` container only after the approved cleanup leaves it empty; never delete a non-empty container as a shortcut.
 
-7. **Refresh workspace tooling.** After Step 6 changes workspace manifests,
-   package names, workspace registration, lockfiles, or package paths, always
-   complete the root [workspace refresh](../../../AGENTS.md#workspace-refresh),
-   including for metadata-only changes or unchanged dependency ranges, before
-   invoking the [keys skill](../keys/SKILL.md) or any other workspace-dependent
-   command.
+7. **Refresh workspace tooling.** After Step 6 changes workspace manifests, package names, workspace registration, lockfiles, or package paths, always complete the root [workspace refresh](../../../AGENTS.md#workspace-refresh), including for metadata-only changes or unchanged dependency ranges, before invoking the [keys skill](../keys/SKILL.md) or any other workspace-dependent command.
 
-8. **Apply environment changes.** Use the [keys skill](../keys/SKILL.md) for
-   target selection and its full-reset or data-retaining procedure. It owns the
-   root encryption, public-key-carrying workspace clone, template stitching,
-   and trailing-blank-line handling. Do not encrypt workspace or package
-   targets or create workspace-local key sources. If no target is created or
-   reset, run no encryption. If existing values must be retained, hand the
-   keys skill's data-retaining migration to its approved secure process; do not
-   replace those targets with templates.
+8. **Apply environment changes.** Use the [keys skill](../keys/SKILL.md) for target selection and its full-reset or data-retaining procedure. It owns the root encryption, public-key-carrying workspace clone, template stitching, and trailing-blank-line handling. Do not encrypt workspace or package targets or create workspace-local key sources. If no target is created or reset, run no encryption. If existing values must be retained, hand the keys skill's data-retaining migration to its approved secure process; do not replace those targets with templates.
 
-9. **Normalize documentation and workflow references.** Replace stale project
-   identity in ordinary documentation, badges, manifests, project-owned
-   license metadata, scripts, CI, and automation with the confirmed new
-   values. Do not rewrite license notices, copyright lines, or attribution
-   text merely to update project identity. Use the confirmed project URL for
-   consumer-facing project links.
+9. **Normalize documentation and workflow references.** Replace stale project identity in ordinary documentation, badges, manifests, project-owned license metadata, scripts, CI, and automation with the confirmed new values. Do not rewrite license notices, copyright lines, or attribution text merely to update project identity. Use the confirmed project URL for consumer-facing project links.
 
-   Determine the provider from the confirmed `origin` URL. If it uses GitHub,
-   retain or normalize existing documentation badges and Codecov configuration
-   when the repository supports them; never invent missing project
-   identifiers. For any other provider, remove all documentation badge markup
-   from README files, including CI, coverage, Codecov, and provider-specific
-   badges, and remove the repository's Codecov configuration. Preserve
-   ordinary README links and prose.
+   Determine the provider from the confirmed `origin` URL. If it uses GitHub, retain or normalize existing documentation badges and Codecov configuration when the repository supports them; never invent missing project identifiers. For any other provider, remove all documentation badge markup from README files, including CI, coverage, Codecov, and provider-specific badges, and remove the repository's Codecov configuration. Preserve ordinary README links and prose.
 
-   For generic workflow or automation examples, remove hard-coded references to
-   the original project and use the repository's project context, resolved
-   remote names, branch inputs, or other repository-neutral expressions.
-   When a new project URL is supplied, inspect synchronization workflows and
-   documentation and classify each according to the explicit request,
-   established role, or the operation-mode default from Procedure 3:
-   upstream synchronization, downstream extension guidance, both, or neither.
-   Update only stale or explicitly requested roles. Do not rename a
-   synchronization section or replace `base` with `origin` solely because the
-   project is independent or an extension. If the role remains unresolved,
-   preserve the existing documentation and report the ambiguity.
+   For generic workflow or automation examples, remove hard-coded references to the original project and use the repository's project context, resolved remote names, branch inputs, or other repository-neutral expressions. When a new project URL is supplied, inspect synchronization workflows and documentation and classify each according to the explicit request, established role, or the operation-mode default from Procedure 3: upstream synchronization, downstream extension guidance, both, or neither. Update only stale or explicitly requested roles. Do not rename a synchronization section or replace `base` with `origin` solely because the project is independent or an extension. If the role remains unresolved, preserve the existing documentation and report the ambiguity.
 
-   Do not use broad text substitution. Update each occurrence according to
-   whether it is new-project identity, upstream synchronization guidance,
-   generic tooling documentation, or an external reference that should remain.
-   Repeat the identity scan after editing. Every match for the original owner,
-   repository, package, URL, bot, actor, or path must be updated, removed, or
-   explicitly classified as preserved attribution or local-only Git metadata.
-   Inspect workflow conditions and automation expressions as well as visible
-   names and URLs; do not treat a general text scan as complete until those
-   references have been classified.
+   Do not use broad text substitution. Update each occurrence according to whether it is new-project identity, upstream synchronization guidance, generic tooling documentation, or an external reference that should remain. Repeat the identity scan after editing. Every match for the original owner, repository, package, URL, bot, actor, or path must be updated, removed, or explicitly classified as preserved attribution or local-only Git metadata. Inspect workflow conditions and automation expressions as well as visible names and URLs; do not treat a general text scan as complete until those references have been classified.
 
-10. **Check remotes and original references.** Normalize SSH and HTTPS forms,
-    host aliases, case, and a trailing `.git` before comparing URLs. Verify that
-    the confirmed project URL is configured as `origin` and the resolved
-    original source is configured as the local-only `base` remote. Confirm
-    their normalized URLs are different; an equal `origin` and `base` is a
-    failed remote setup, not a valid fallback. Check
-    tracked synchronization references against the selected or preserved
-    synchronization intent; a local `base` remote may coexist with any
-    documented role. Report remotes that still point to a different old project
-    when they were not intentionally retained. Do not remove or rewrite a
-    remote that the user did not authorize.
-    If remotes are unavailable, report that the comparison was documentation
-    only; Procedure 2 handles fallback resolution.
+10. **Check remotes and original references.** Normalize SSH and HTTPS forms, host aliases, case, and a trailing `.git` before comparing URLs. Verify that the confirmed project URL is configured as `origin` and the resolved original source is configured as the local-only `base` remote. Confirm their normalized URLs are different; an equal `origin` and `base` is a failed remote setup, not a valid fallback. Check tracked synchronization references against the selected or preserved synchronization intent; a local `base` remote may coexist with any documented role. Report remotes that still point to a different old project when they were not intentionally retained. Do not remove or rewrite a remote that the user did not authorize. If remotes are unavailable, report that the comparison was documentation only; Procedure 2 handles fallback resolution.
 
-11. **Migrate history only after the required preflight.** Process this step
-    only when Procedure 3 confirms that the user's current instruction
-    explicitly requests a history reset. Complete Procedures 1-10 before
-    replacing history. A reset does not require hosted reachability: record any
-    local tracking ref and do not stop solely because the new `origin` is
-    unpublished. Do not silently discard local commits that are ahead of a
-    remote unless the user explicitly requested the reset. Preserve the
-    validated working tree and create the new history from it with an
-    orphan-history workflow. Before orphaning the requested branch, detach it
-    from any old upstream with: `git branch --unset-upstream <branch>`. After
-    the new commit is validated, remove only the stale local remote-tracking
-    ref for that branch if it still points to the discarded origin history.
-    Never remove `base/*` refs. This prevents the reset branch from appearing
-    diverged from an unpublished or historical `origin`; do not fetch or
-    compare it against that stale history. Do not create a recovery branch or
-    temporary recovery reference; the explicit history-reset request
-    determines that the existing history is disposable. Replace the requested
-    branch only after confirming the new commit contains the retained files and
-    no unresolved changes. Do not infer history replacement from ordinary fork
-    cleanup. The absence of a merge base only indicates unrelated histories; it
-    does not authorize history replacement. Resolve shallow or incomplete
-    history and use the `sync` workflow for history integration. If the current
-    history is already unrelated or appears previously reset, preserve it and
-    report that state when the user did not request another history change. Do
-    not rewrite unrelated branches or push the result.
+11. **Migrate history only after the required preflight.** Process this step only when Procedure 3 confirms that the user's current instruction explicitly requests a history reset. Complete Procedures 1-10 before replacing history. A reset does not require hosted reachability: record any local tracking ref and do not stop solely because the new `origin` is unpublished. Do not silently discard local commits that are ahead of a remote unless the user explicitly requested the reset. Preserve the validated working tree and create the new history from it with an orphan-history workflow. Before orphaning the requested branch, detach it from any old upstream with: `git branch --unset-upstream <branch>`. After the new commit is validated, remove only the stale local remote-tracking ref for that branch if it still points to the discarded origin history. Never remove `base/*` refs. This prevents the reset branch from appearing diverged from an unpublished or historical `origin`; do not fetch or compare it against that stale history. Do not create a recovery branch or temporary recovery reference; the explicit history-reset request determines that the existing history is disposable. Replace the requested branch only after confirming the new commit contains the retained files and no unresolved changes. Do not infer history replacement from ordinary fork cleanup. The absence of a merge base only indicates unrelated histories; it does not authorize history replacement. Resolve shallow or incomplete history and use the `sync` workflow for history integration. If the current history is already unrelated or appears previously reset, preserve it and report that state when the user did not request another history change. Do not rewrite unrelated branches or push the result.
 
-12. **Validate the prepared repository.** Format changed files with the
-    repository's formatter and run `git diff --check`. Verify that protected
-    paths remain, approved removed workspaces are absent from workspace and task
-    configuration, manifests and lockfiles are valid, and every changed
-    `package.json` passes the repository's package-manifest validation,
-    including its license-field rule. Correct invalid license metadata before
-    handoff rather than reporting the fork complete. Verify that requested
-    remotes point to the confirmed URLs and no stale old-project identity
-    remains in eligible files outside preserved upstream attribution. Check that existing upstream
-    attribution was not changed or relocated unless explicitly authorized or
-    legally required. Check that ordinary workflow examples no longer present
-    the old project as the current repository. Verify that tracked
-    synchronization documentation and workflows match the selected or
-    preserved synchronization intent; do not require an independent project to
-    remove a documented `base` relationship or rename a synchronization
-    section. Verify that the Bitbucket synchronization workflow has no
-    active automatic trigger. Record the command result for a full-reset
-    encryption path, or the secure process result for a data-retaining path,
-    for the selected root target. Report workspace and package template
-    creation separately; do not inspect environment files to perform this
-    check. For a full reset, report root encryption as pending only when the
-    approved command failed or could not run. Do not
-    claim the fork's CI setup is ready while required encryption remains
-    incomplete. Recheck
-    `.env.defaults` only for non-secret defaults; do not inspect any other
-    environment file. Run remaining repository checks that are available and
-    report checks that cannot run until project setup is complete.
+12. **Validate the prepared repository.** Format changed files with the repository's formatter and run `git diff --check`. Verify that protected paths remain, approved removed workspaces are absent from workspace and task configuration, manifests and lockfiles are valid, and every changed `package.json` passes the repository's package-manifest validation, including its license-field rule. Correct invalid license metadata before handoff rather than reporting the fork complete. Verify that requested remotes point to the confirmed URLs and no stale old-project identity remains in eligible files outside preserved upstream attribution. Check that existing upstream attribution was not changed or relocated unless explicitly authorized or legally required. Check that ordinary workflow examples no longer present the old project as the current repository. Verify that tracked synchronization documentation and workflows match the selected or preserved synchronization intent; do not require an independent project to remove a documented `base` relationship or rename a synchronization section. Verify that the Bitbucket synchronization workflow has no active automatic trigger. Record the command result for a full-reset encryption path, or the secure process result for a data-retaining path, for the selected root target. Report workspace and package template creation separately; do not inspect environment files to perform this check. For a full reset, report root encryption as pending only when the approved command failed or could not run. Do not claim the fork's CI setup is ready while required encryption remains incomplete. Recheck `.env.defaults` only for non-secret defaults; do not inspect any other environment file. Run remaining repository checks that are available and report checks that cannot run until project setup is complete.
 
-13. **Hand off without bootstrap.** Report the selected mode, preserved or
-    removed paths, identity fields updated or removed, `origin` or `base`
-    additions or updates, CI template replacement and encryption status,
-    history-reset result, intentional upstream references, remaining
-    unresolved decisions, and validation results. Do not
-    run the [bootstrap
-    skill](../bootstrap/SKILL.md); the repository is ready for a future,
-    separately defined setup workflow.
+13. **Hand off without bootstrap.** Report the selected mode, preserved or removed paths, identity fields updated or removed, `origin` or `base` additions or updates, CI template replacement and encryption status, history-reset result, intentional upstream references, remaining unresolved decisions, and validation results. Do not run the [bootstrap skill](../bootstrap/SKILL.md); the repository is ready for a future, separately defined setup workflow.
