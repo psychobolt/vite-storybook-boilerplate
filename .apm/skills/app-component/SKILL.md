@@ -9,13 +9,9 @@ Placeholder for the future application-component workflow.
 
 ## Scope
 
-Application components may compose reusable UI and API packages with
-application-specific behavior. Before implementing this skill, define how app
-components differ from reusable UI components, including state ownership, data
-access, styling, routing, accessibility, stories, tests, and exports.
+Application components may compose reusable UI and API packages with application-specific behavior. Before implementing this skill, define how app components differ from reusable UI components, including state ownership, data access, styling, routing, accessibility, stories, tests, and exports.
 
 ## Handoff
 
 - Read the nearest `AGENTS.md` until this skill is established.
-- Use the [UI component skill](../ui-component/SKILL.md) only when the component
-  is intended to be reusable outside the application.
+- Use the [UI component skill](../ui-component/SKILL.md) only when the component is intended to be reusable outside the application.

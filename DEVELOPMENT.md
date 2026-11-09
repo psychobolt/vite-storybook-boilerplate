@@ -26,6 +26,9 @@ Certain harnesses and agent tools may not detect agent plugins, context, and pro
 
 1. Install [APM](https://microsoft.github.io/apm). See the _**quickstart**_ guide to install onto your local environment
 2. Run `apm install` to install and deploy all agent packages
+3. Restart all agent harnesses in order for them to auto-detect the root project and its workspace skills
+
+Besides the provided skill descriptions, additional details can be found under [workflows](WORKFLOWS.md#agent-skills).
 
 ### Setup Remote Cache (Optional)
 

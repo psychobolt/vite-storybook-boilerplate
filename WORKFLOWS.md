@@ -46,13 +46,31 @@ git push
 
 ## Agent Skills
 
-Repository-specific agent workflows are authored in the [.apm/skills/](.apm/skills/) directory and referenced in the root [AGENTS](AGENTS.md#workflow-skills) markdown file. In most cases, the skills can be found automatically by the LLM agent after APM deployment. They can also be installed manually with [APM](DEVELOPMENT.md#setup-agent-package-manager-recommended).
+Repository-specific agent workflows are authored in the [.apm/skills/](.apm/skills/) directory and referenced in the root [AGENTS](AGENTS.md#workflow-skills) markdown file. In most cases, the skills can be found automatically by the LLM agent after APM deployment. They can be deployed with [APM](DEVELOPMENT.md#setup-agent-package-manager-recommended). Once the skills are deployed, you may have the agent provide details before asking them to perform tasks e.g.
 
-### Fork
+```
+> Can you provide me what does the "ui-element" skill do?
+
+The ui-element skill guides creating or extending framework-neutral UI elements inside a base UI package...
+
+An element is the smallest resusable design...
+
+The skill directs the agent to:
+  - Confirm the HTML/template contract...
+  - Perserve native HTML behavior and accessibility...
+  - Add Storybook stories, variants, and application pseudo-states...
+  - Export implementation and styles...
+  - Format, lint, test...
+  ...
+```
+
+### Project Skills
+
+#### Fork
 
 Ideally the [fork skill](.apm/skills/fork/SKILL.md) is used when establishing the early project identity after cloning the base project.
 
-#### New Project Identity (with history reset)
+##### New Project Identity (with history reset)
 
 Execute this only once at the beginning of the project's conception.
 
@@ -66,7 +84,7 @@ License: <requested license or terms, or retain the existing license>
 History: reset the existing Git history after completing the fork preflight.
 ```
 
-#### Project Extension (with existing history)
+##### Project Extension (with existing history)
 
 Execute this only once at the beginning of the project's conception.
 
@@ -77,7 +95,7 @@ Project URL for origin: <project-url>
 History: preserve the existing Git history; do not reset it.
 ```
 
-#### Workspaces Removal
+##### Workspaces Removal
 
 Can be run anytime after initial project conception.
 
@@ -91,7 +109,7 @@ Requested paths:
 Confirm the exact deletion set before removing anything.
 ```
 
-### Sync
+#### Sync
 
 This skill performs a merge between the base upstream git project (base/\*\*) and the current (origin/main). The agent will determine what changes to be kept, merged, or overwritten during conflict resolution. Then it will rebase to your local branch.
 
