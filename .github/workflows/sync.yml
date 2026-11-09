@@ -67,48 +67,65 @@ jobs:
           node-version-file: .nvmrc
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
-      - name: Merge with base branch
-        run: |
-          git remote add base "${{ inputs.base_url || format('{0}/{1}', github.server_url, github.repository) }}"
-          git fetch base main
-          merge_status=0
-          if git merge-base HEAD base/main >/dev/null 2>&1; then
-            git merge base/main --no-commit --ff || merge_status=$?
-          else
-            git merge base/main --allow-unrelated-histories --squash || merge_status=$?
-          fi
-          deleted_paths=$(git status | awk '/deleted by us/ {print $4}')
-          if [[ -n "$deleted_paths" ]]; then
-            printf '%s\n' "$deleted_paths" | xargs -r git rm --
-          fi
-          conflicts=$(git diff --name-only --diff-filter=U)
-          if [[ -n "$conflicts" ]]; then
-            echo "::error::The sync merge left unresolved conflicts:"
-            printf '%s\n' "$conflicts"
-            exit 1
-          fi
-          if [[ "$merge_status" -ne 0 && -z "$deleted_paths" ]]; then
-            unexpected_deleted_paths=$(git status --short | awk 'substr($0, 1, 2) ~ /D/ {print substr($0, 4)}')
-            echo "::error::The sync merge failed (status $merge_status)."
-            if [[ -n "$unexpected_deleted_paths" ]]; then
-              echo "::error::Unexpected deleted files requiring review:"
-              printf '%s\n' "$unexpected_deleted_paths"
-            else
-              echo "::error::Inspect the merge output above for the cause."
-            fi
-            exit "$merge_status"
-          fi
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@760158c05c47e7a764f78e9a22ca3b5a6ed8c52e # v2.5.2
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
-      - name: Install dependencies
-        run: yarn install
-      - name: Amend Merge
+      - name: Sync and update ${{ inputs.ref_name }} branch
+        env:
+          SYNC_REF: ${{ inputs.ref_name }}
+          BASE_URL: ${{ inputs.base_url || format('{0}/{1}', github.server_url, github.repository) }}
         run: |
-          if ! git diff-index --quiet HEAD; then
-            git add .
-            git commit --no-edit
-          fi
-      - name: Update ${{ inputs.ref_name }} branch
-        run: git push origin
+          git remote add base "$BASE_URL"
+          for attempt in 1 2; do
+            branch_start=$(git rev-parse HEAD)
+            git fetch base main
+            merge_status=0
+            if git merge-base HEAD base/main >/dev/null 2>&1; then
+              git merge base/main --no-commit --ff || merge_status=$?
+            else
+              git merge base/main --allow-unrelated-histories --squash || merge_status=$?
+            fi
+            deleted_paths=$(git status | awk '/deleted by us/ {print $4}')
+            if [[ -n "$deleted_paths" ]]; then
+              printf '%s\n' "$deleted_paths" | xargs -r git rm --
+            fi
+            conflicts=$(git diff --name-only --diff-filter=U)
+            if [[ -n "$conflicts" ]]; then
+              echo "::error::The sync merge left unresolved conflicts:"
+              printf '%s\n' "$conflicts"
+              exit 1
+            fi
+            if [[ "$merge_status" -ne 0 && -z "$deleted_paths" ]]; then
+              unexpected_deleted_paths=$(git status --short | awk 'substr($0, 1, 2) ~ /D/ {print substr($0, 4)}')
+              echo "::error::The sync merge failed (status $merge_status)."
+              if [[ -n "$unexpected_deleted_paths" ]]; then
+                echo "::error::Unexpected deleted files requiring review:"
+                printf '%s\n' "$unexpected_deleted_paths"
+              else
+                echo "::error::Inspect the merge output above for the cause."
+              fi
+              exit "$merge_status"
+            fi
+            yarn install
+            if ! git diff-index --quiet HEAD; then
+              git add .
+              git commit --no-edit
+            fi
+            push_status=0
+            push_output=$(git push --porcelain origin "HEAD:refs/heads/$SYNC_REF" 2>&1) || push_status=$?
+            printf '%s\n' "$push_output"
+            if [[ "$push_status" -eq 0 ]]; then
+              break
+            fi
+            if [[ "$attempt" -eq 2 ]] || ! grep -Eq '\[rejected\].*\((fetch first|non-fast-forward)\)' <<< "$push_output"; then
+              exit "$push_status"
+            fi
+            git fetch origin "+refs/heads/$SYNC_REF:refs/remotes/origin/$SYNC_REF"
+            if [[ "$(git rev-parse "origin/$SYNC_REF")" == "$branch_start" ]]; then
+              exit "$push_status"
+            fi
+            # Rebuild the sync from the new branch tip instead of force-pushing stale results.
+            echo "::notice::The remote branch changed during sync; retrying once immediately."
+            git checkout -B "$SYNC_REF" "origin/$SYNC_REF"
+          done
