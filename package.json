@@ -17,7 +17,7 @@
     "g:dotenv-args": "node $PROJECT_CWD/bin/dotenv-args.js",
     "g:dotenv-get": "cd $INIT_CWD && yarn g:dotenv get --ignore=MISSING_KEY $(yarn g:dotenv-args)",
     "g:dotenv-run": "cd $INIT_CWD && yarn g:dotenv run -q $(yarn g:dotenv-args)",
-    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" -- node --enable-source-maps --experimental-transform-types --disable-warning=ExperimentalWarning -r $(yarn g:swc-register-path)",
+    "g:run-script": "cd $INIT_CWD && yarn g:dotenv-run --env=\"TS_NODE_PROJECT=$INIT_CWD/tsconfig.json\" -- node --enable-source-maps --disable-warning=ExperimentalWarning -r $(yarn g:swc-register-path)",
     "g:swc-register-path": "yarn node -p \"require.resolve('@swc-node/register')\"",
     "lint": "yarn g:prettier --check $(echo \"${@:-.}\") && yarn g:lint \"$@\"",
     "run-script": "yarn g:run-script",
