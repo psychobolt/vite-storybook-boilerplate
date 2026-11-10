@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "2.38.2",
-    "@microsoft/agentrc": "2.0.1-98",
+    "@microsoft/agentrc": "2.0.1-99",
     "@swc-node/register": "1.12.1",
     "@swc/core": "1.16.22",
     "@types/node": "26.6.6",
