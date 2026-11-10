@@ -47,7 +47,7 @@
     "styled-jsx": "5.1.7",
     "turbo": "2.11.10",
     "typescript": "6.0.3",
-    "vinext": "1.4.4",
+    "vinext": "1.4.5",
     "vite": "8.3.7",
     "wrangler": "4.160.0"
   },
