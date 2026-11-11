@@ -135,7 +135,7 @@ jobs:
     needs: sync
     if: inputs.mirror || (github.event_name == 'push' && vars.FORK_REF_NAME)
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 2
     permissions: {}
     steps:
       - name: Get token
@@ -159,7 +159,7 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.get_token.outputs.token }}
           ref: ${{ env.REF_NAME }}
-      - name: Load mirror environment
+      - name: Load environment variables
         id: dotenv
         if: env.DOTENV_PRIVATE_KEY_CI && hashFiles('.env.ci') != ''
         uses: andreijiroh-dev/dotenvx-action@0ac31ac01536b0ed0f3ce29a833b47894c96d6ba # main
@@ -168,25 +168,25 @@ jobs:
         with:
           path: .env.ci
           key: ${{ env.DOTENV_PRIVATE_KEY_CI }}
-      - name: Check mirror environment decryption
+      - name: Validate decryption
         if: steps.dotenv.outputs.DOTENV_DECRYPTION_FAILURE == 'true'
         run: |
-          echo "::error::Mirror environment decryption failed."
+          echo "::error::Unable to load environment variables."
           exit 1
       - name: Install SSH key
         uses: shimataro/ssh-key-action@87a8f067114a8ce263df83e9ed5c849953548bc3 # v2.8.1
         with:
           key: ${{ steps.dotenv.outputs.MIRROR_SSH_KEY || secrets.MIRROR_SSH_KEY }}
           known_hosts: ${{ steps.dotenv.outputs.MIRROR_HOST_KEY || secrets.MIRROR_HOST_KEY }}
-      - name: Configure mirror upstream
+      - name: Configure upstream
         env:
           MIRROR_REPO: ${{ steps.dotenv.outputs.MIRROR_REPO || secrets.MIRROR_REPO }}
         run: git remote add mirror "$MIRROR_REPO"
-      - name: Fetch mirror upstream
+      - name: Fetch upstream
         run: git fetch mirror main
-      - name: Switch to mirror/main
+      - name: Switch to main
         run: git checkout -B mirror-main mirror/main
-      - name: Merge synchronized branch into mirror/main
+      - name: Merge synchronized branch into main
         run: git merge "origin/$REF_NAME"
-      - name: Push to mirror upstream
+      - name: Push to upstream
         run: git push -u mirror mirror-main:main
