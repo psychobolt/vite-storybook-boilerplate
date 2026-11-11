@@ -27,11 +27,11 @@ See Cloudflare's [Workers guide](https://developers.cloudflare.com/workers/) on 
 Occasionally it may be good to keep up to date with the latest enhancements of `vite-storybook-boilerplate`. You can add new remote to merge with:
 
 ```sh
-git remote add base https://github.com/psychobolt/vite-storybook-boilerplate
+git remote add base https://github.com/psychobolt/vite-storybook-boilerplate.git
 # or
-# git remote add base git@ssh.github.com:psychobolt/vite-storybook-boilerplate # requires SSH key
+# git remote add base git@github.com:psychobolt/vite-storybook-boilerplate.git # requires SSH key
 # or
-# git remote add base git@ssh.github.com:443/psychobolt/vite-storybook-boilerplate # requires SSH key
+# git remote add base ssh://git@ssh.github.com:443/psychobolt/vite-storybook-boilerplate.git # requires SSH key
 ```
 
 Anytime there are new updates, run:
