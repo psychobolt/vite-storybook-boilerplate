@@ -62,7 +62,7 @@
     "watch-dts": "tsc -p tsconfig.dts.json -w & tsc-paths -p tsconfig.dts.json -w"
   },
   "devDependencies": {
-    "@babel/core": "8.1.0",
+    "@babel/core": "8.1.2",
     "@rolldown/plugin-babel": "0.3.1",
     "@storybook/addon-docs": "10.6.7",
     "@storybook/addon-vitest": "10.6.7",
