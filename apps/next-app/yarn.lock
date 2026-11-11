@@ -3495,7 +3495,7 @@ __metadata:
     autoprefixer: "npm:10.6.2"
     chokidar: "npm:6.0.0"
     cors: "npm:2.8.6"
-    eslint-plugin-mdx: "npm:3.9.4"
+    eslint-plugin-mdx: "npm:3.9.5"
     eslint-plugin-storybook: "npm:10.6.7"
     glob-to-regexp: "npm:0.4.1"
     jiti: "npm:2.7.0"
@@ -4401,9 +4401,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-mdx@npm:^3.9.4":
-  version: 3.9.4
-  resolution: "eslint-mdx@npm:3.9.4"
+"eslint-mdx@npm:^3.9.5":
+  version: 3.9.5
+  resolution: "eslint-mdx@npm:3.9.5"
   dependencies:
     acorn: "npm:^8.19.0"
     acorn-jsx: "npm:^5.3.2"
@@ -4431,7 +4431,7 @@ __metadata:
       optional: true
     remark-lint-file-extension:
       optional: true
-  checksum: 10c0/93c199996cafbf06fa9af543de76e79e33bfdc89f7ccf8635cedfc85268e8311bc00ef2d74478cbdd4a15fbda8b7a76396b17a759fd226442d8724868c1ac231
+  checksum: 10c0/2340d91b917e998823318b279833804d8fe50afc3634fd406f5a3f4f1c7dfe4d43893364bb58c4812ca903287e5cda3bed8bc24a2ac72b5d83707545a042e900
   languageName: node
   linkType: hard
 
@@ -4514,11 +4514,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mdx@npm:3.9.4":
-  version: 3.9.4
-  resolution: "eslint-plugin-mdx@npm:3.9.4"
+"eslint-plugin-mdx@npm:3.9.5":
+  version: 3.9.5
+  resolution: "eslint-plugin-mdx@npm:3.9.5"
   dependencies:
-    eslint-mdx: "npm:^3.9.4"
+    eslint-mdx: "npm:^3.9.5"
     mdast-util-mdx: "npm:^3.0.0"
     prettier-linter-helpers: "npm:^1.0.1"
     remark-mdx: "npm:^3.1.1"
@@ -4528,7 +4528,7 @@ __metadata:
     vfile: "npm:^6.0.3"
   peerDependencies:
     eslint: ">=8.0.0"
-  checksum: 10c0/3994aa4423f19ea030a7218a403b72355af7061d6571e6a14b35ba853e13728678802d17ed7f0896792c1df38e6f8bece63c11208691869c3289e1fce5b2da6f
+  checksum: 10c0/a9e2c46c5696f1bddcc1e6e19e372bc95c900fd8f3e1d05dfc3245068cefa16f687e4abddacefef6f11b25d1932c0d910e4a31c0944910a1412c71caedf001ed
   languageName: node
   linkType: hard
 
