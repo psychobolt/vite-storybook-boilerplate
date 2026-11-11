@@ -1,1 +1,1 @@
-yarn workspace commons turbo run build && yarn g:lint-staged
+yarn g:dotenv-run --env="TURBO_PRINT_VERSION_DISABLED=1" -- yarn workspace commons turbo run build && yarn g:lint-staged

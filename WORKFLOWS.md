@@ -130,4 +130,4 @@ Prompt the agent to peform a new sync:
 Sync changes from base/main.
 ```
 
-Once complete, you may verify changes before proceeding with commit e.g. `git merge --continue` or `git add . && git commit -m "upgrading infrastructure"`.
+Once complete, review the prepared changes before committing them using the repository's commit convention.
