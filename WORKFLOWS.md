@@ -39,8 +39,8 @@ Anytime there are new updates, run:
 ```sh
 git fetch base
 git merge base/main [--squash]
-git add .                                # after resolving any conflicts
-git commit -m "upgrading infrastructure" # your comment
+git add .            # after resolving any conflicts
+git commit -m "sync" # your comment
 git push
 ```
 
@@ -118,8 +118,8 @@ This skill performs a merge between the base upstream git project (base/\*\*) an
 Before you begin, make sure you are on a clean branch. Preferrably your changes stashed or already committed (and not pushed):
 
 ```sh
-git stash                   # or git add . && git commit -m "[DEV] Patch"
-git checkout -b dev/upgrade # or dev/patch
+git stash # or git add . && git commit -m "sync"
+git checkout -b dev/sync
 ```
 
 Then ensure the `base` url added or current e.g `git remote base get-url`. If there is no remote `base`, you can add it manually or change url from the [sync workflow](#syncing-with-base-project-git). Note: The agent will add a new base based on the sync workflow if none exists.
