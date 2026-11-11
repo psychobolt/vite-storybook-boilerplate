@@ -135,7 +135,7 @@ jobs:
     needs: sync
     if: inputs.mirror || (github.event_name == 'push' && vars.FORK_REF_NAME)
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 4
     permissions: {}
     steps:
       - name: Get token
