@@ -4457,10 +4457,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/pgp@npm:2.0.4":
-  version: 2.0.4
-  resolution: "@renovatebot/pgp@npm:2.0.4"
-  checksum: 10c0/3f2af000b8ff7073f40d4a5c01a63e560198d66d8bc972acd29cc89a6341737d5a218f573ee6cd67b4a93b5aedb78cf8b6f2e77a01fdc94e5474435251b80eac
+"@renovatebot/pgp@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@renovatebot/pgp@npm:2.0.5"
+  checksum: 10c0/44f776807b152da70395a4f2f2de2f04dad87d19d1c5a6f1ae29d1321dd564d54a3280f24eb7aa151de5815fb5cde9121110a0c107c49381080ebd9c127d3c5f
   languageName: node
   linkType: hard
 
@@ -16280,9 +16280,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.230.0":
-  version: 44.230.0
-  resolution: "renovate@npm:44.230.0"
+"renovate@npm:44.231.0":
+  version: 44.231.0
+  resolution: "renovate@npm:44.231.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16320,7 +16320,7 @@ __metadata:
     "@renovatebot/good-enough-parser": "npm:4.0.3"
     "@renovatebot/osv-offline": "npm:4.5.10"
     "@renovatebot/pep440": "npm:6.0.0"
-    "@renovatebot/pgp": "npm:2.0.4"
+    "@renovatebot/pgp": "npm:2.0.5"
     "@renovatebot/ruby-semver": "npm:6.0.0"
     "@sindresorhus/is": "npm:8.1.0"
     "@yarnpkg/core": "npm:4.9.1"
@@ -16416,7 +16416,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/0e9eac9c20e00fc7b45353469b274ca46b3c9188c77f5180c45c8821446a67a7ea2cde5671f32788acad06d030880e29bce698f1acbed3be1b23e70c3db9759f
+  checksum: 10c0/d7ce3c320d8c29282caea75e2ae1b58f953c57b108946edf808e90061d867ecf4c3ba2f880f04d7db7f1af8e87fd20100b228d2d0b9c21a6d529eb7ab9f8b37f
   languageName: node
   linkType: hard
 
@@ -19385,7 +19385,7 @@ __metadata:
     eslint: "npm:10.14.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.65.0"
-    renovate: "npm:44.230.0"
+    renovate: "npm:44.231.0"
     semver: "npm:7.8.6"
     skills: "npm:1.8.1"
     svelte-language-server: "npm:0.18.6"
