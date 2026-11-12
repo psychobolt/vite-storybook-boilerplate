@@ -900,9 +900,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/vite-plugin@npm:1.69.0":
-  version: 1.69.0
-  resolution: "@cloudflare/vite-plugin@npm:1.69.0"
+"@cloudflare/vite-plugin@npm:1.69.1":
+  version: 1.69.1
+  resolution: "@cloudflare/vite-plugin@npm:1.69.1"
   dependencies:
     "@cloudflare/unenv-preset": "npm:2.16.2"
     miniflare: "npm:5.20261110.0-beta"
@@ -912,7 +912,7 @@ __metadata:
   peerDependencies:
     vite: ^6.1.0 || ^7.0.0 || ^8.0.0
     wrangler: ^4.160.0
-  checksum: 10c0/02966fa840c9fff639edb1d7aaee8a62234524e238810388fab0070f894b4c0a4e58db20d04f448e672520708e7b42d8a19fcc5ecbfb88ef9545a9797c248dd5
+  checksum: 10c0/7f7168509228d82b74a189a4187d985c679e111dfecbd501c3207c997287e7e65b48becdc85d2112d22a761510c2222468574e8d584cef33bd60176c11a0eff8
   languageName: node
   linkType: hard
 
@@ -14096,7 +14096,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next-app"
   dependencies:
-    "@cloudflare/vite-plugin": "npm:1.69.0"
+    "@cloudflare/vite-plugin": "npm:1.69.1"
     "@dotenvx/dotenvx": "npm:2.38.2"
     "@types/node": "npm:26.6.6"
     "@types/prop-types": "npm:15.7.15"
