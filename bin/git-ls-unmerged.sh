@@ -5,19 +5,20 @@ REF=""
 OUTPUT=""
 COUNT=""
 
-eval "arr=($COMMITS)"
+read -r -a arr <<< "${COMMITS//$'\n'/ }"
 for commit in "${arr[@]}"; do
-  git fetch --depth=1 origin $commit -q
+  git fetch --depth=1 --quiet -- origin "$commit" || return
+  git merge-base --is-ancestor -- "$commit" "${BASE_REF:-origin/main}" && continue || {
+    merge_base_status=$?
+    [[ "$merge_base_status" -eq 1 ]] || return "$merge_base_status"
+  }
   commit=$(
-    git merge-base --is-ancestor $commit ${BASE_REF:-"origin/main"} \
-      || (git log ${BASE_REF:-"origin/main"} --grep $commit --pretty=format:'%H' && echo $commit) \
-      || echo $commit
-  )
-  if [ ! -z "$commit" ]; then
-    REF+="$commit "
-    OUTPUT+="$(git rev-parse --short $commit) "
-    COUNT=$((COUNT + 1))
-  fi
+    git log --grep="$commit" --pretty=format:'%H' --end-of-options "${BASE_REF:-origin/main}" && echo "$commit"
+  ) || return
+  REF+="$commit "
+  OUTPUT+="$(git rev-parse --short "$commit") "
+  COUNT=$((COUNT + 1))
 done
 
-OUTPUT=$(echo $OUTPUT | xargs | tr -s " " -)
+OUTPUT=${OUTPUT% }
+OUTPUT=${OUTPUT// /-}
