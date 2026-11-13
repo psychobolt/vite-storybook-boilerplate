@@ -9,6 +9,9 @@ on:
       ref_name:
         type: string
         required: true
+      target_branch:
+        type: string
+        default: ''
       base_url:
         type: string
         default: ''
@@ -17,7 +20,7 @@ on:
         default: false
 
 concurrency:
-  group: sync-${{ inputs.ref_name || vars.FORK_REF_NAME }}
+  group: sync-${{ inputs.target_branch || inputs.ref_name || vars.FORK_REF_NAME }}
   cancel-in-progress: true
 
 env:
@@ -59,6 +62,18 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.get_token.outputs.token }}
           ref: ${{ env.REF_NAME }}
+      - name: Prepare target branch
+        if: inputs.target_branch
+        env:
+          TARGET_BRANCH: ${{ inputs.target_branch }}
+        run: |
+          git check-ref-format "refs/heads/$TARGET_BRANCH"
+          target_ref=$(git ls-remote --heads origin "refs/heads/$TARGET_BRANCH")
+          if [[ -n "$target_ref" ]]; then
+            echo "::error::The target branch already exists: $TARGET_BRANCH"
+            exit 1
+          fi
+          git switch -c "$TARGET_BRANCH"
       - name: Set Yarn global folder
         env:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
@@ -73,11 +88,16 @@ jobs:
         uses: rharkor/caching-for-turbo@760158c05c47e7a764f78e9a22ca3b5a6ed8c52e # v2.5.2
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
-      - name: Sync and update ${{ env.REF_NAME }} branch
+      - name: Sync and update ${{ inputs.target_branch || env.REF_NAME }} branch
         env:
+          TARGET_BRANCH: ${{ inputs.target_branch }}
           BASE_URL: ${{ inputs.base_url || format('{0}/{1}', github.server_url, github.repository) }}
         run: |
           git remote add base "$BASE_URL"
+          push_options=()
+          if [[ -n "$TARGET_BRANCH" ]]; then
+            push_options+=("--force-with-lease=refs/heads/$TARGET_BRANCH:")
+          fi
           for attempt in 1 2; do
             branch_start=$(git rev-parse HEAD)
             git fetch base main
@@ -114,12 +134,12 @@ jobs:
               git commit --no-edit
             fi
             push_status=0
-            push_output=$(git push --porcelain origin "HEAD:refs/heads/$REF_NAME" 2>&1) || push_status=$?
+            push_output=$(git push --porcelain "${push_options[@]}" origin "HEAD:refs/heads/${TARGET_BRANCH:-$REF_NAME}" 2>&1) || push_status=$?
             printf '%s\n' "$push_output"
             if [[ "$push_status" -eq 0 ]]; then
               break
             fi
-            if [[ "$attempt" -eq 2 ]] || ! grep -Eq '\[rejected\].*\((fetch first|non-fast-forward)\)' <<< "$push_output"; then
+            if [[ -n "$TARGET_BRANCH" || "$attempt" -eq 2 ]] || ! grep -Eq '\[rejected\].*\((fetch first|non-fast-forward)\)' <<< "$push_output"; then
               exit "$push_status"
             fi
             git fetch origin "+refs/heads/$REF_NAME:refs/remotes/origin/$REF_NAME"
@@ -133,7 +153,7 @@ jobs:
 
   mirror:
     needs: sync
-    if: inputs.mirror || (github.event_name == 'push' && vars.FORK_REF_NAME)
+    if: ${{ !inputs.target_branch && (inputs.mirror || (github.event_name == 'push' && vars.FORK_REF_NAME)) }}
     runs-on: ubuntu-latest
     timeout-minutes: 2
     permissions: {}

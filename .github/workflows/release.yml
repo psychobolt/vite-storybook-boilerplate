@@ -45,7 +45,9 @@ jobs:
           ref: ${{ inputs.ref_name || github.ref }}
       - name: Fetch ${{ vars.BASE_REF_NAME }}
         if: startsWith(env.REF_NAME, 'release-')
-        run: git fetch --depth=50 origin ${{ vars.BASE_REF_NAME }}:${{ vars.BASE_REF_NAME }}
+        env:
+          BASE_REF_NAME: ${{ vars.BASE_REF_NAME }}
+        run: git fetch --depth=50 -- origin "$BASE_REF_NAME:$BASE_REF_NAME"
       - name: Set Yarn global folder
         env:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry
@@ -57,7 +59,9 @@ jobs:
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
       - name: Override BASE_REF variable
-        run: echo "BASE_REF=${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.head_ref || 'HEAD~1' }}" >> .env
+        env:
+          BASE_REF: ${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.head_ref || 'HEAD~1' }}
+        run: echo "BASE_REF=$BASE_REF" >> .env
       - name: Start Turbo Cache Server
         uses: rharkor/caching-for-turbo@760158c05c47e7a764f78e9a22ca3b5a6ed8c52e # v2.5.2
         with:

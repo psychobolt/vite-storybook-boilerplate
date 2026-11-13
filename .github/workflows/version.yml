@@ -22,7 +22,7 @@ jobs:
     permissions: {}
     steps:
       - name: Get release tag
-        run: echo 'tag=${{ env.RELEASE_TAG }}' >> $GITHUB_OUTPUT
+        run: echo "tag=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
   check-version:
     needs: check-release
     if: needs.check-release.outputs.tag != ''
@@ -34,7 +34,9 @@ jobs:
         with:
           fetch-depth: 50
       - name: Fetch ${{ github.base_ref }}
-        run: git fetch --depth=1 origin ${{ github.base_ref }}:base_branch
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: git fetch --depth=1 -- origin "$BASE_REF:base_branch"
       - name: Override BASE_REF variable
         run: echo "BASE_REF=base_branch" >> .env
       - name: Check versions
@@ -74,7 +76,9 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ steps.get_token.outputs.token }}
       - name: Fetch ${{ github.base_ref }}
-        run: git fetch --depth=1 origin ${{ github.base_ref }}:base_branch
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: git fetch --depth=1 -- origin "$BASE_REF:base_branch"
       - name: Set Yarn global folder
         env:
           YARN_GLOBAL_FOLDER: ${{ runner.temp }}/.yarn/berry

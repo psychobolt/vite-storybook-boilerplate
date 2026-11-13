@@ -56,6 +56,7 @@ jobs:
       TURBO_TELEMETRY_DISABLED: 1
       TURBO_GLOBAL_WARNING_DISABLED: 1
       YARN_ENABLE_HARDENED_MODE: 0
+      WORKSPACE: ${{ inputs.workspace }}
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -80,9 +81,11 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run Lint
-        run: yarn workspace ${{ inputs.workspace }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: yarn workspace "$WORKSPACE" turbo run lint --env-mode="$TURBO_ENV_MODE" --verbosity="$TURBO_VERBOSITY"
+        shell: bash
       - name: Run Build
-        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: yarn workspace "$WORKSPACE" turbo run build --env-mode="$TURBO_ENV_MODE" --verbosity="$TURBO_VERBOSITY"
+        shell: bash
   vercel:
     strategy:
       matrix:
@@ -104,6 +107,7 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       YARN_ENABLE_HARDENED_MODE: 0
+      WORKSPACE: ${{ inputs.workspace }}
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -129,7 +133,9 @@ jobs:
         run: yarn install
       - name: Fetch base branch
         if: matrix.os == 'ubuntu-latest' && inputs.base_ref != ''
-        run: git fetch --depth=1 origin ${{ inputs.base_ref }}:base_branch
+        env:
+          BASE_REF: ${{ inputs.base_ref }}
+        run: git fetch --depth=1 -- origin "$BASE_REF:base_branch"
       - name: Install Vercel
         run: npm install -g vercel
       - name: Run turbo-ignore
@@ -138,7 +144,7 @@ jobs:
         run: |
           npm install -g turbo-ignore
           set +e
-          yarn workspace ${{ inputs.workspace }} exec turbo-ignore --fallback=${{ (inputs.base_ref && 'base_branch') || 'HEAD~1' }}
+          yarn workspace "$WORKSPACE" exec turbo-ignore --fallback=${{ (inputs.base_ref && 'base_branch') || 'HEAD~1' }}
           exit_code=$?
           set -e
           if [ $exit_code -eq 0 ]; then 
@@ -147,7 +153,8 @@ jobs:
             echo "ignore=false" >> $GITHUB_OUTPUT
           fi
       - name: Run Build
-        run: yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: yarn workspace "$WORKSPACE" turbo run build --env-mode="$TURBO_ENV_MODE" --verbosity="$TURBO_VERBOSITY"
+        shell: bash
       - name: Build for Vercel
         shell: bash
         run: |
@@ -182,6 +189,7 @@ jobs:
       TURBO_TELEMETRY_DISABLED: 1
       TURBO_GLOBAL_WARNING_DISABLED: 1
       YARN_ENABLE_HARDENED_MODE: 0
+      WORKSPACE: ${{ inputs.workspace }}
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -205,8 +213,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build
-        run: |
-          yarn workspace ${{ inputs.workspace }} turbo run build --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }}
+        run: yarn workspace "$WORKSPACE" turbo run build --env-mode="$TURBO_ENV_MODE" --verbosity="$TURBO_VERBOSITY"
+        shell: bash
       - name: Deploy
         if: >-
           matrix.os == 'ubuntu-latest' &&

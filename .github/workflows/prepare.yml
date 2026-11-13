@@ -49,6 +49,7 @@ jobs:
       ref_name: ${{ env.REF_NAME }}
     env:
       REF_NAME: cherry-pick-${{ needs.unmerged_commits.outputs.short }}
+      COMMITS: ${{ needs.unmerged_commits.outputs.ref }}
     steps:
       - name: Configure git
         run: |
@@ -57,13 +58,17 @@ jobs:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Fetch commits
-        run: git fetch --depth=2 origin ${{ needs.unmerged_commits.outputs.ref }}
+        run: |
+          read -r -a commits <<< "$COMMITS"
+          git fetch --depth=2 -- origin "${commits[@]}"
       - name: Cherry pick
-        run: git cherry-pick -x ${{ needs.unmerged_commits.outputs.ref }}
+        run: |
+          read -r -a commits <<< "$COMMITS"
+          git cherry-pick -x "${commits[@]}"
       - name: Branch
-        run: git checkout -b ${{ env.REF_NAME }}
+        run: git checkout -b "$REF_NAME"
       - name: Push
-        run: git push -u origin ${{ env.REF_NAME }}
+        run: git push -u origin "$REF_NAME"
 
   ci:
     needs: [unmerged_commits, create_branch]
@@ -86,6 +91,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions: {}
+    env:
+      REF_NAME: ${{ needs.create_branch.outputs.ref_name }}
     steps:
       - name: Get token
         id: get_token
@@ -107,10 +114,10 @@ jobs:
         with:
           token: ${{ steps.get_token.outputs.token }}
       - name: Fetch branch
-        run: git fetch --depth=50 origin ${{ needs.create_branch.outputs.ref_name }}:${{ needs.create_branch.outputs.ref_name }}
+        run: git fetch --depth=50 -- origin "$REF_NAME:$REF_NAME"
       - name: Merge
-        run: git merge ${{ needs.create_branch.outputs.ref_name }}
+        run: git merge "$REF_NAME"
       - name: Push
         run: git push
       - name: Delete branch
-        run: git push -d origin ${{ needs.create_branch.outputs.ref_name }}
+        run: git push -d origin "$REF_NAME"

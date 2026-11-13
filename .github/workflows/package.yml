@@ -19,6 +19,8 @@ env:
   TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
   TURBO_TELEMETRY_DISABLED: 1
   YARN_ENABLE_HARDENED_MODE: 0
+  WORKSPACE_PATH: ${{ inputs.path }}
+  TURBO_FILTER: ${{ inputs.filter }}
 
 permissions:
   contents: read
@@ -58,7 +60,10 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run Lint
-        run: yarn ${{ inputs.path }} turbo run lint --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }}
+        shell: bash
+        run: |
+          read -r -a filter_args <<< "${TURBO_FILTER//$'\n'/ }"
+          yarn "$WORKSPACE_PATH" turbo run lint --env-mode="$TURBO_ENV_MODE" --verbosity="$TURBO_VERBOSITY" "${filter_args[@]}"
   test:
     name: Run Tests
     timeout-minutes: 15
@@ -95,7 +100,10 @@ jobs:
       - name: Install Playwright
         run: yarn playwright install --with-deps chromium
       - name: Run Coverage
-        run: yarn ${{ inputs.path }} turbo run coverage --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }}
+        shell: bash
+        run: |
+          read -r -a filter_args <<< "${TURBO_FILTER//$'\n'/ }"
+          yarn "$WORKSPACE_PATH" turbo run coverage --env-mode="$TURBO_ENV_MODE" --verbosity="$TURBO_VERBOSITY" "${filter_args[@]}"
       - name: Upload Coverage Reports
         if: matrix.os == 'ubuntu-latest'
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
@@ -136,8 +144,10 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run Chromatic
-        run: >-
-          yarn ${{ inputs.path }} turbo run chromatic --env-mode=${{ env.TURBO_ENV_MODE }} --verbosity=${{ env.TURBO_VERBOSITY }} ${{ inputs.filter }}
+        shell: bash
+        run: |
+          read -r -a filter_args <<< "${TURBO_FILTER//$'\n'/ }"
+          yarn "$WORKSPACE_PATH" turbo run chromatic --env-mode="$TURBO_ENV_MODE" --verbosity="$TURBO_VERBOSITY" "${filter_args[@]}"
         env:
           DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
           CHROMATIC_BRANCH: ${{ inputs.ref || github.ref_name }}
