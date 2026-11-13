@@ -574,7 +574,7 @@ pipelines:
                 --fail-with-body
     renovate:
       - step:
-          image: renovate/renovate:latest@sha256:ed34b8e932ebdd735a6acf498afc599918a93c7125e2fea7f06ed71440067853
+          image: renovate/renovate:latest@sha256:f80455e144c085aa4b71ed4c0f89477675217de742464e09a09868c4917e8d10
           size: 2x
           caches:
             - yarn
