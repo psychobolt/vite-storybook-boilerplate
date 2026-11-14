@@ -41,7 +41,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     env:
-      TURBO_VERBOSITY: ${{ vars.TURBO_VERBOSITY || 0 }}
+      TURBO_LOG_VERBOSITY: ${{ vars.TURBO_LOG_VERBOSITY || 'warn' }}
       TURBO_ENV_MODE: ${{ vars.TURBO_ENV_MODE || 'strict' }}
       TURBO_TELEMETRY_DISABLED: 1
       YARN_AFTER_INSTALL: ''
@@ -92,8 +92,7 @@ jobs:
       - name: Audit agent setup
         run: apm audit --ci --no-cache
       - name: Lint
-        run: yarn turbo run //#lint --env-mode="$TURBO_ENV_MODE" --verbosity="$TURBO_VERBOSITY"
-        shell: bash
+        run: yarn turbo run //#lint
 
   diff:
     name: List Updated Packages
