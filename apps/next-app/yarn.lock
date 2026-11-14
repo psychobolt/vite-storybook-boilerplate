@@ -3498,6 +3498,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"collapse-white-space@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "collapse-white-space@npm:2.1.0"
+  checksum: 10c0/b2e2800f4ab261e62eb27a1fbe853378296e3a726d6695117ed033e82d61fb6abeae4ffc1465d5454499e237005de9cfc52c9562dc7ca4ac759b9a222ef14453
+  languageName: node
+  linkType: hard
+
 "color-convert@npm:^2.0.1":
   version: 2.0.1
   resolution: "color-convert@npm:2.0.1"
@@ -3546,7 +3553,7 @@ __metadata:
     autoprefixer: "npm:10.6.2"
     chokidar: "npm:6.0.0"
     cors: "npm:2.8.6"
-    eslint-plugin-mdx: "npm:3.9.5"
+    eslint-plugin-mdx: "npm:3.10.0"
     eslint-plugin-storybook: "npm:10.6.7"
     glob-to-regexp: "npm:0.4.1"
     jiti: "npm:2.7.0"
@@ -4452,9 +4459,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-mdx@npm:^3.9.5":
-  version: 3.9.5
-  resolution: "eslint-mdx@npm:3.9.5"
+"eslint-mdx@npm:^3.10.0":
+  version: 3.10.0
+  resolution: "eslint-mdx@npm:3.10.0"
   dependencies:
     acorn: "npm:^8.19.0"
     acorn-jsx: "npm:^5.3.2"
@@ -4476,13 +4483,10 @@ __metadata:
   peerDependencies:
     "@types/estree": ^1.0.10
     eslint: ">=8.0.0"
-    remark-lint-file-extension: "*"
   peerDependenciesMeta:
     "@types/estree":
       optional: true
-    remark-lint-file-extension:
-      optional: true
-  checksum: 10c0/2340d91b917e998823318b279833804d8fe50afc3634fd406f5a3f4f1c7dfe4d43893364bb58c4812ca903287e5cda3bed8bc24a2ac72b5d83707545a042e900
+  checksum: 10c0/d4db35ca734b40ee20d83222d16bf21895ca91bf798bfecd1194dde8540ae1310ef825dc26723e40831dfb63403a1c5a16bd9a631a2b89734637f619b1c6f6b4
   languageName: node
   linkType: hard
 
@@ -4565,21 +4569,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mdx@npm:3.9.5":
-  version: 3.9.5
-  resolution: "eslint-plugin-mdx@npm:3.9.5"
+"eslint-plugin-mdx@npm:3.10.0":
+  version: 3.10.0
+  resolution: "eslint-plugin-mdx@npm:3.10.0"
   dependencies:
-    eslint-mdx: "npm:^3.9.5"
+    collapse-white-space: "npm:^2.1.0"
+    eslint-mdx: "npm:^3.10.0"
     mdast-util-mdx: "npm:^3.0.0"
+    micromark-util-normalize-identifier: "npm:^2.0.1"
     prettier-linter-helpers: "npm:^1.0.1"
     remark-mdx: "npm:^3.1.1"
     remark-parse: "npm:^11.0.0"
-    remark-stringify: "npm:^11.0.0"
     unified: "npm:^11.0.5"
     vfile: "npm:^6.0.3"
   peerDependencies:
     eslint: ">=8.0.0"
-  checksum: 10c0/a9e2c46c5696f1bddcc1e6e19e372bc95c900fd8f3e1d05dfc3245068cefa16f687e4abddacefef6f11b25d1932c0d910e4a31c0944910a1412c71caedf001ed
+  checksum: 10c0/30168f5665c7816dd1bf36dd4923a90f02ef2bee53045cee701eb1af9085556415133fda60e482b051e3373a7d1d2b4532684a6275999702959cfbe89dd349f9
   languageName: node
   linkType: hard
 
@@ -7125,7 +7130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromark-util-normalize-identifier@npm:^2.0.0":
+"micromark-util-normalize-identifier@npm:^2.0.0, micromark-util-normalize-identifier@npm:^2.0.1":
   version: 2.0.1
   resolution: "micromark-util-normalize-identifier@npm:2.0.1"
   dependencies:
