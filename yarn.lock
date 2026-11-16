@@ -8088,7 +8088,7 @@ __metadata:
     cors: "npm:2.8.6"
     eslint: "npm:10.15.0"
     eslint-plugin-jsonc: "npm:3.4.2"
-    eslint-plugin-mdx: "npm:3.10.0"
+    eslint-plugin-mdx: "npm:3.10.1"
     eslint-plugin-package-json: "npm:1.14.0"
     eslint-plugin-storybook: "npm:10.6.7"
     glob-to-regexp: "npm:0.4.1"
@@ -9462,9 +9462,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-mdx@npm:^3.10.0":
-  version: 3.10.0
-  resolution: "eslint-mdx@npm:3.10.0"
+"eslint-mdx@npm:^3.10.1":
+  version: 3.10.1
+  resolution: "eslint-mdx@npm:3.10.1"
   dependencies:
     acorn: "npm:^8.19.0"
     acorn-jsx: "npm:^5.3.2"
@@ -9489,7 +9489,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/estree":
       optional: true
-  checksum: 10c0/d4db35ca734b40ee20d83222d16bf21895ca91bf798bfecd1194dde8540ae1310ef825dc26723e40831dfb63403a1c5a16bd9a631a2b89734637f619b1c6f6b4
+  checksum: 10c0/7e3dfe4c9100f2327e7101c2c9b4912dbaed0d02bf8b19f43854eb94b93dbd34ffc53cb456b7cdef5385cf771479577402b976652746e92c5cf7d0b2730ea6f5
   languageName: node
   linkType: hard
 
@@ -9591,12 +9591,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mdx@npm:3.10.0":
-  version: 3.10.0
-  resolution: "eslint-plugin-mdx@npm:3.10.0"
+"eslint-plugin-mdx@npm:3.10.1":
+  version: 3.10.1
+  resolution: "eslint-plugin-mdx@npm:3.10.1"
   dependencies:
     collapse-white-space: "npm:^2.1.0"
-    eslint-mdx: "npm:^3.10.0"
+    eslint-mdx: "npm:^3.10.1"
     mdast-util-mdx: "npm:^3.0.0"
     micromark-util-normalize-identifier: "npm:^2.0.1"
     prettier-linter-helpers: "npm:^1.0.1"
@@ -9606,7 +9606,7 @@ __metadata:
     vfile: "npm:^6.0.3"
   peerDependencies:
     eslint: ">=8.0.0"
-  checksum: 10c0/30168f5665c7816dd1bf36dd4923a90f02ef2bee53045cee701eb1af9085556415133fda60e482b051e3373a7d1d2b4532684a6275999702959cfbe89dd349f9
+  checksum: 10c0/b4e309d005bc05f5161ab2239d47dc53a07163434484b05ece3969b8c8cbb0edb07649fd40d95682904fcb0eee9774d5a7015ce29f2146ac0bd58d2e5761411b
   languageName: node
   linkType: hard
 
