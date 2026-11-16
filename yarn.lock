@@ -14025,7 +14025,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.29.0":
+"nan@npm:^2.30.0":
   version: 2.30.0
   resolution: "nan@npm:2.30.0"
   dependencies:
@@ -14350,7 +14350,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp@npm:^13.0.2":
+"node-gyp@npm:^13.1.0":
   version: 13.1.0
   resolution: "node-gyp@npm:13.1.0"
   dependencies:
@@ -15940,14 +15940,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2@npm:1.27.0":
-  version: 1.27.0
-  resolution: "re2@npm:1.27.0"
+"re2@npm:1.27.1":
+  version: 1.27.1
+  resolution: "re2@npm:1.27.1"
   dependencies:
     install-artifact-from-github: "npm:^1.8.1"
-    nan: "npm:^2.29.0"
-    node-gyp: "npm:^13.0.2"
-  checksum: 10c0/a61a4a26ffbba84365baf6ea00190be579a2e7600ab69319df05a155ae4f4b944e2d61216e4f0c43a73ea695b217573e2bac33692a7a856d1ef5d395a45b9479
+    nan: "npm:^2.30.0"
+    node-gyp: "npm:^13.1.0"
+  checksum: 10c0/9bb87c654cb2ee4f8a999306eedc9098599aaa248a61eabfd908707a846fc66133457dba6748e4471543aa8a196bb1f81341cbc2d35d2be52bf50d841629dcbf
   languageName: node
   linkType: hard
 
@@ -16275,9 +16275,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.239.1":
-  version: 44.239.1
-  resolution: "renovate@npm:44.239.1"
+"renovate@npm:44.239.2":
+  version: 44.239.2
+  resolution: "renovate@npm:44.239.2"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16380,7 +16380,7 @@ __metadata:
     prettier: "npm:3.9.10"
     protobufjs: "npm:8.8.1"
     punycode: "npm:2.3.1"
-    re2: "npm:1.27.0"
+    re2: "npm:1.27.1"
     remark: "npm:15.0.1"
     remark-gfm: "npm:4.0.1"
     remark-github: "npm:12.0.0"
@@ -16411,7 +16411,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/89296e030c67b900166c0b1f1a3ea3a4a97e4b213949b8521b9dd0854c1a4d3db3df727c271b49ae06e802d2b91528a3d0969c2f787ff295b932f1ddabc5872a
+  checksum: 10c0/1cecf77fd8c313039edb992f1774b9626030bdf782302963f95d62fb821456f4b41a5be28828a3c206b7619a4ddeefae9645308cf90934a61f35c5a7619f1819
   languageName: node
   linkType: hard
 
@@ -19371,7 +19371,7 @@ __metadata:
     eslint: "npm:10.15.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.65.1"
-    renovate: "npm:44.239.1"
+    renovate: "npm:44.239.2"
     semver: "npm:7.8.6"
     skills: "npm:1.8.1"
     svelte-language-server: "npm:0.18.6"
