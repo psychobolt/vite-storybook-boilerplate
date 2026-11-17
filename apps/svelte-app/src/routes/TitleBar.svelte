@@ -24,8 +24,10 @@
 			<span class="welcome">Welcome, <b>Guest</b>!</span>
 			<button
 				type="button"
-				class="storybook-button storybook-button--small storybook-button--secondary">Log out</button
+				class="storybook-button storybook-button--small storybook-button--secondary"
 			>
+				Log out
+			</button>
 		</div>
 	</div>
 </header>
