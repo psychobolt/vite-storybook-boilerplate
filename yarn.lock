@@ -5220,14 +5220,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:7.0.4":
-  version: 7.0.4
-  resolution: "@sveltejs/adapter-vercel@npm:7.0.4"
+"@sveltejs/adapter-vercel@npm:7.0.5":
+  version: 7.0.5
+  resolution: "@sveltejs/adapter-vercel@npm:7.0.5"
   dependencies:
     "@vercel/nft": "npm:^1.10.2"
   peerDependencies:
     "@sveltejs/kit": ^3.0.0-next.0
-  checksum: 10c0/700cd09ce3ae7bd5b1d634e0368a39529959a87b5d1cb64e333739f16f78e78fef801200594638d7bd462f34a0f6a9deb50600cc7469fd9c7e7dabd3fbae3657
+  checksum: 10c0/ccdf96b994fe0288a9bfc413af9261e5d1458a3bbc79cd7a1030781327e923f22728752b9f44981b7c3e330751d9ea98346c55b6ebdfc275838578ede0f8409c
   languageName: node
   linkType: hard
 
@@ -18239,7 +18239,7 @@ __metadata:
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"
     "@sveltejs/adapter-cloudflare": "npm:8.0.2"
-    "@sveltejs/adapter-vercel": "npm:7.0.4"
+    "@sveltejs/adapter-vercel": "npm:7.0.5"
     "@sveltejs/kit": "npm:3.3.1"
     "@sveltejs/mcp": "npm:0.1.31"
     "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
