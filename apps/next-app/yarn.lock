@@ -1858,15 +1858,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:10.6.7":
-  version: 10.6.7
-  resolution: "@storybook/builder-vite@npm:10.6.7"
+"@storybook/builder-vite@npm:10.6.8":
+  version: 10.6.8
+  resolution: "@storybook/builder-vite@npm:10.6.8"
   dependencies:
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^10.6.7
+    storybook: ^10.6.8
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10c0/7e3a155c1b30635767d0de3fc1d78838a6ddf609a8e4188072de9f0d7222689e8c78dbd40b1bca95ed7c9986b98238beaaa452c60c6b4f126e783e457ab3d560
+  checksum: 10c0/4e94d0af8de6832da209861e1d627be9798f7a33f93058dd2d153913d2eef841f8588f41898c30e6e7c120c327e2362b0cbb773e4a4b2b086d9a956014ee5a3d
   languageName: node
   linkType: hard
 
@@ -3672,7 +3672,7 @@ __metadata:
   resolution: "commons@portal:../../packages/commons::locator=next-app%40workspace%3A."
   dependencies:
     "@chromatic-com/storybook": "npm:5.6.0"
-    "@storybook/builder-vite": "npm:10.6.7"
+    "@storybook/builder-vite": "npm:10.6.8"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4.17.27"
     "@types/react": "npm:19.3.0"
@@ -3684,7 +3684,7 @@ __metadata:
     chokidar: "npm:6.0.0"
     cors: "npm:2.8.6"
     eslint-plugin-mdx: "npm:3.10.1"
-    eslint-plugin-storybook: "npm:10.6.7"
+    eslint-plugin-storybook: "npm:10.6.8"
     glob-to-regexp: "npm:0.4.1"
     jiti: "npm:2.7.0"
     lint-staged: "npm:17.6.1"
@@ -4819,15 +4819,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:10.6.7":
-  version: 10.6.7
-  resolution: "eslint-plugin-storybook@npm:10.6.7"
+"eslint-plugin-storybook@npm:10.6.8":
+  version: 10.6.8
+  resolution: "eslint-plugin-storybook@npm:10.6.8"
   dependencies:
     "@typescript-eslint/types": "npm:^8.60.0"
     "@typescript-eslint/utils": "npm:^8.60.0"
   peerDependencies:
     eslint: ">=8"
-  checksum: 10c0/617b70983c2b9dca5a4542ff2303b1343850ada889bb632f4761495ecf0c3d75debee9380652d1785e9a1733d448ad366c9484417e8055248e873d9b5b30bd65
+  checksum: 10c0/9c9408ecb4619d66b1e6b660e6da572ff3c01db5d60e37dbc779f091bc95ad26b2a898b104352e39c17138518ce18c675ea379ba36605f081ffdc64f6cd5698d
   languageName: node
   linkType: hard
 
