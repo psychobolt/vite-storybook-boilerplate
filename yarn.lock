@@ -936,7 +936,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/vite-plugin@npm:1.70.1":
+"@cloudflare/vite-plugin@npm:1.70.1, @cloudflare/vite-plugin@npm:^1.69.1":
   version: 1.70.1
   resolution: "@cloudflare/vite-plugin@npm:1.70.1"
   dependencies:
@@ -1019,13 +1019,6 @@ __metadata:
   version: 1.20261119.1
   resolution: "@cloudflare/workerd-windows-64@npm:1.20261119.1"
   conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@cloudflare/workers-types@npm:^5.20260925.1":
-  version: 5.20261014.1
-  resolution: "@cloudflare/workers-types@npm:5.20261014.1"
-  checksum: 10c0/ad5f5a4a9f4d5bcfc18bc1ef8d86d2490d9e3301cd3cb3f0804b3a122082becc46bef28465208731a1a8ee54362b328cb505cf3c58610305acd347d19e211258
   languageName: node
   linkType: hard
 
@@ -5236,16 +5229,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-cloudflare@npm:8.0.2":
-  version: 8.0.2
-  resolution: "@sveltejs/adapter-cloudflare@npm:8.0.2"
+"@sveltejs/adapter-cloudflare@npm:9.0.0":
+  version: 9.0.0
+  resolution: "@sveltejs/adapter-cloudflare@npm:9.0.0"
   dependencies:
-    "@cloudflare/workers-types": "npm:^5.20260925.1"
+    "@cloudflare/vite-plugin": "npm:^1.69.1"
     "@rolldown/pluginutils": "npm:^1.0.1"
   peerDependencies:
     "@sveltejs/kit": ^3.0.0-next.0
-    wrangler: ^4.118.0
-  checksum: 10c0/9af552070657ee85cc8a7b0dce075abed0c40d08301dc30cb2deb4fbab9fd8407b600065f3719a15f4ea5922ea6b2e30274f4d38d55504a33705289145a61450
+    wrangler: ^4.162.0
+  checksum: 10c0/2f55b43db12a5fff77cf1d5f41b3962ec37a6e783ee74b22d7c63ea4891762cb4cd59d6840d0c8605803cce0ebff0ec752a2271e58c5a8f74546ede727e9aad5
   languageName: node
   linkType: hard
 
@@ -18361,7 +18354,7 @@ __metadata:
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"
-    "@sveltejs/adapter-cloudflare": "npm:8.0.2"
+    "@sveltejs/adapter-cloudflare": "npm:9.0.0"
     "@sveltejs/adapter-vercel": "npm:7.0.5"
     "@sveltejs/kit": "npm:3.4.0"
     "@sveltejs/mcp": "npm:0.1.31"
