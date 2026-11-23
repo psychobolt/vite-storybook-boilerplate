@@ -4753,12 +4753,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@simple-git/argv-parser@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@simple-git/argv-parser@npm:2.0.1"
+"@simple-git/argv-parser@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@simple-git/argv-parser@npm:3.0.0"
   dependencies:
     "@simple-git/args-pathspec": "npm:^1.0.4"
-  checksum: 10c0/7d2cd9852139ca3b524dcd91f6a887fa505cfb68c8813d7b849005566147365bb1e34f5450411c494fbd714a80c123058e65dc2ffc0b41d059e30bdc98e12223
+  checksum: 10c0/eeb3896be64506a3fb5bbcddfc46a97bfdce12c96b4daf47bc8bc0e6c150c23512050a75a6732eeb2f7f4c4261e5e0fbb289ecdfadaa3daa5b8ea84de2fe116e
   languageName: node
   linkType: hard
 
@@ -7772,9 +7772,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:18.15.1, chromatic@npm:^18.12.1":
-  version: 18.15.1
-  resolution: "chromatic@npm:18.15.1"
+"chromatic@npm:18.15.2, chromatic@npm:^18.12.1":
+  version: 18.15.2
+  resolution: "chromatic@npm:18.15.2"
   dependencies:
     semver: "npm:^7.3.5"
   peerDependencies:
@@ -7797,7 +7797,7 @@ __metadata:
     chroma: dist/bin.cjs
     chromatic: dist/bin.cjs
     chromatic-cli: dist/bin.cjs
-  checksum: 10c0/90c18079e73da89fdbd5c14484ffb5c75ee2eabd31c5907b66d7bbc4a33ddc97b12e11919906d856dc098d3ded002932954de9c6448d9165ed3e5ad8e278cd62
+  checksum: 10c0/51bdcbffff55e8be4d48027894e5d652ee592f50a39848e2bcabe116f044a1e7291f99ad580bdb778a62d3cc6f5b9946a7887ff629994b301ede78d97f736584
   languageName: node
   linkType: hard
 
@@ -8069,7 +8069,7 @@ __metadata:
     arg: "npm:5.0.2"
     autoprefixer: "npm:10.7.0"
     chokidar: "npm:6.0.0"
-    chromatic: "npm:18.15.1"
+    chromatic: "npm:18.15.2"
     cors: "npm:2.8.6"
     eslint: "npm:10.15.0"
     eslint-plugin-jsonc: "npm:3.4.2"
@@ -8259,12 +8259,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cronstrue@npm:3.39.0":
-  version: 3.39.0
-  resolution: "cronstrue@npm:3.39.0"
+"cronstrue@npm:3.41.0":
+  version: 3.41.0
+  resolution: "cronstrue@npm:3.41.0"
   bin:
     cronstrue: bin/cli.js
-  checksum: 10c0/ff141bfea3c792cbf0e8b62a2d74089682f309eecaf18df3eea6f819d7c0ce2d700bbd8e1c189230debc9a226430c74ca0d9bca9330d7769dd3fb72e58c6148c
+  checksum: 10c0/bdf915915ff91c28795649c8d9349b3c65c0b44c04cd247cf0904be5ce2b1fd4086dc4e926bd56cbf03533e6eb749a17dee5ce29d9337bb52cb0d5f2bdbac54c
   languageName: node
   linkType: hard
 
@@ -16140,9 +16140,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.258.1":
-  version: 44.258.1
-  resolution: "renovate@npm:44.258.1"
+"renovate@npm:44.258.3":
+  version: 44.258.3
+  resolution: "renovate@npm:44.258.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16198,7 +16198,7 @@ __metadata:
     commander: "npm:15.0.0"
     common-tags: "npm:1.8.2"
     croner: "npm:10.0.1"
-    cronstrue: "npm:3.39.0"
+    cronstrue: "npm:3.41.0"
     deepmerge: "npm:4.3.1"
     dequal: "npm:2.0.3"
     detect-indent: "npm:7.0.2"
@@ -16255,7 +16255,7 @@ __metadata:
     semver-stable: "npm:3.0.0"
     semver-utils: "npm:1.1.4"
     shlex: "npm:3.0.0"
-    simple-git: "npm:4.0.2"
+    simple-git: "npm:4.1.0"
     slugify: "npm:1.6.9"
     source-map-support: "npm:0.5.21"
     strip-json-comments: "npm:5.1.0"
@@ -16276,7 +16276,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/2d6cf2d09499a31223bcb69c5e68ce9bdde0460f778afca0d00ede057048cc925cad29ac8ebcadec2ce33a791d820ed9e1415081f935b5352028dde2af3631b0
+  checksum: 10c0/d3e963475fdb09c6fc65e49a03051ef9877f86440f338af90236a4f8996412f4205571d802e6d5cb2455fd994acc7b96592bf52cb09d1d0391b4825a93aaa20f
   languageName: node
   linkType: hard
 
@@ -17133,16 +17133,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-git@npm:4.0.2":
-  version: 4.0.2
-  resolution: "simple-git@npm:4.0.2"
+"simple-git@npm:4.1.0":
+  version: 4.1.0
+  resolution: "simple-git@npm:4.1.0"
   dependencies:
     "@kwsites/file-exists": "npm:^1.1.1"
     "@kwsites/promise-deferred": "npm:^1.1.1"
     "@simple-git/args-pathspec": "npm:1.0.4"
-    "@simple-git/argv-parser": "npm:2.0.1"
+    "@simple-git/argv-parser": "npm:3.0.0"
     debug: "npm:^4.4.0"
-  checksum: 10c0/d028927258fa286d9d8e462f29ec6a37a32398acd7e53cef7fc81e70636c149d7359a542d1a4f8490b342d40d98e341c35c718734aec448fc24fdee88566e981
+  checksum: 10c0/7ec3938e8f668f0098a5a1a07dc6856e97564d4c570202a999b3de0d62a3619743b64c047bfadeb0440507ead7490d41f140938f72805bb4781ca4fdfd0f0719
   languageName: node
   linkType: hard
 
@@ -19215,7 +19215,7 @@ __metadata:
     eslint: "npm:10.15.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.65.1"
-    renovate: "npm:44.258.1"
+    renovate: "npm:44.258.3"
     semver: "npm:7.8.6"
     skills: "npm:1.9.0"
     svelte-language-server: "npm:0.18.6"
