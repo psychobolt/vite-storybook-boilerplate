@@ -63,7 +63,7 @@ jobs:
           BASE_REF: ${{ startsWith(env.REF_NAME, 'release-') && vars.BASE_REF_NAME || inputs.head_ref || 'HEAD~1' }}
         run: echo "BASE_REF=$BASE_REF" >> .env
       - name: Start Turbo Cache Server
-        uses: rharkor/caching-for-turbo@760158c05c47e7a764f78e9a22ca3b5a6ed8c52e # v2.5.2
+        uses: rharkor/caching-for-turbo@0a9834157e1332618829ad64144445db00061c35 # v2.5.3
         with:
           cache-prefix: ${{ vars.TURBO_CACHE_PREFIX }}
       - name: Install dependencies
