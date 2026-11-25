@@ -1992,15 +1992,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:10.6.8":
-  version: 10.6.8
-  resolution: "@storybook/builder-vite@npm:10.6.8"
+"@storybook/builder-vite@npm:10.6.9":
+  version: 10.6.9
+  resolution: "@storybook/builder-vite@npm:10.6.9"
   dependencies:
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^10.6.8
+    storybook: ^10.6.9
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10c0/4e94d0af8de6832da209861e1d627be9798f7a33f93058dd2d153913d2eef841f8588f41898c30e6e7c120c327e2362b0cbb773e4a4b2b086d9a956014ee5a3d
+  checksum: 10c0/50139838c18aade06e985340d130b2b1ee84d688e4130b053b35666cb33c80a22020dcc48f79d83f2db1f9156b2b885e925f941e8a27d8275aabeb3b6a3480a5
   languageName: node
   linkType: hard
 
@@ -3718,7 +3718,7 @@ __metadata:
   resolution: "commons@portal:../../packages/commons::locator=next-app%40workspace%3A."
   dependencies:
     "@chromatic-com/storybook": "npm:5.6.0"
-    "@storybook/builder-vite": "npm:10.6.8"
+    "@storybook/builder-vite": "npm:10.6.9"
     "@types/eslint": "npm:9.6.1"
     "@types/lodash": "npm:4.17.27"
     "@types/react": "npm:19.3.1"
@@ -3730,7 +3730,7 @@ __metadata:
     chokidar: "npm:6.0.0"
     cors: "npm:2.8.6"
     eslint-plugin-mdx: "npm:3.10.1"
-    eslint-plugin-storybook: "npm:10.6.8"
+    eslint-plugin-storybook: "npm:10.6.9"
     glob-to-regexp: "npm:0.4.1"
     jiti: "npm:2.7.0"
     lint-staged: "npm:17.6.2"
@@ -4842,15 +4842,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:10.6.8":
-  version: 10.6.8
-  resolution: "eslint-plugin-storybook@npm:10.6.8"
+"eslint-plugin-storybook@npm:10.6.9":
+  version: 10.6.9
+  resolution: "eslint-plugin-storybook@npm:10.6.9"
   dependencies:
     "@typescript-eslint/types": "npm:^8.60.0"
     "@typescript-eslint/utils": "npm:^8.60.0"
   peerDependencies:
     eslint: ">=8"
-  checksum: 10c0/9c9408ecb4619d66b1e6b660e6da572ff3c01db5d60e37dbc779f091bc95ad26b2a898b104352e39c17138518ce18c675ea379ba36605f081ffdc64f6cd5698d
+  checksum: 10c0/59452224d23b83af41c1ef01b215d501e159bacf5e7de97b46768328043f8bccbe636f9dd5f4496bda2f62e6c2036fd3ad4f8ce69b3f25d332be6cf77fd5526f
   languageName: node
   linkType: hard
 
