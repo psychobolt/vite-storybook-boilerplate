@@ -2610,9 +2610,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:1.11.13":
-  version: 1.11.13
-  resolution: "@vercel/nft@npm:1.11.13"
+"@vercel/nft@npm:1.11.14":
+  version: 1.11.14
+  resolution: "@vercel/nft@npm:1.11.14"
   dependencies:
     "@mapbox/node-pre-gyp": "npm:^2.0.0"
     "@rollup/pluginutils": "npm:^5.1.3"
@@ -2628,7 +2628,7 @@ __metadata:
     resolve-from: "npm:^5.0.0"
   bin:
     nft: out/cli.js
-  checksum: 10c0/dfed0f9eb276e9be46a735e56523ecf86bc0b9277119170ba1a2ff992e28255a18b261119dc2b9a06c690150756cb84fb9b42185c3d066be41dd27acc8db17ad
+  checksum: 10c0/57d6d0262b7907f22ea4558fe5413a3dd4fdd892ea9b71f8046a83e1a8f123824196bf07e31e989846c55d96c05b5762595eec4291d8b1913f034881fd0fb737
   languageName: node
   linkType: hard
 
@@ -7559,7 +7559,7 @@ __metadata:
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.3"
     "@types/react-dom": "npm:19.3.0"
-    "@vercel/nft": "npm:1.11.13"
+    "@vercel/nft": "npm:1.11.14"
     "@vitejs/plugin-react": "npm:6.3.0"
     commons: "workspace:*"
     eslint: "npm:10.15.0"
