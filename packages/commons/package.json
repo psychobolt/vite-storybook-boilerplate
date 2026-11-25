@@ -33,7 +33,7 @@
     "@storybook/builder-vite": "10.6.9",
     "@types/eslint": "9.6.1",
     "@types/lodash": "4.17.27",
-    "@types/react": "19.3.1",
+    "@types/react": "19.3.2",
     "@vitest/browser-playwright": "5.1.1",
     "@yarnpkg/core": "4.9.3",
     "@yarnpkg/fslib": "3.1.5",
