@@ -5092,9 +5092,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:3.4.0":
-  version: 3.4.0
-  resolution: "@sveltejs/kit@npm:3.4.0"
+"@sveltejs/kit@npm:3.4.1":
+  version: 3.4.1
+  resolution: "@sveltejs/kit@npm:3.4.1"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.31"
     "@rolldown/pluginutils": "npm:^1.0.1"
@@ -5118,7 +5118,7 @@ __metadata:
       optional: true
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/98bcc0269ea76cb26b2c41dfd7f232d935a77498d599f69d05626581bac02131127ff17c49b9756cd3b6ef83d6b213ee7089d3c796504e52e4abf9cd7c137e9d
+  checksum: 10c0/0c7941b1518fa1cf9d342e481b2a7f8cc8706ac42c74a982a2952d667c2e4e037d89c3aa86853e59b79322ec5a210ecaa1e011f64fecfde06458bf7bf2e94b56
   languageName: node
   linkType: hard
 
@@ -17878,7 +17878,7 @@ __metadata:
     "@neoconfetti/svelte": "npm:2.2.2"
     "@sveltejs/adapter-cloudflare": "npm:8.0.2"
     "@sveltejs/adapter-vercel": "npm:7.0.5"
-    "@sveltejs/kit": "npm:3.4.0"
+    "@sveltejs/kit": "npm:3.4.1"
     "@sveltejs/mcp": "npm:0.1.31"
     "@sveltejs/vite-plugin-svelte": "npm:7.3.2"
     "@types/eslint": "npm:9.6.1"
