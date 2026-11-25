@@ -16147,9 +16147,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:44.262.0":
-  version: 44.262.0
-  resolution: "renovate@npm:44.262.0"
+"renovate@npm:44.262.1":
+  version: 44.262.1
+  resolution: "renovate@npm:44.262.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16261,7 +16261,7 @@ __metadata:
     semver: "npm:7.8.6"
     semver-stable: "npm:3.0.0"
     semver-utils: "npm:1.1.4"
-    shlex: "npm:3.0.0"
+    shlex: "npm:3.0.1"
     simple-git: "npm:4.1.0"
     slugify: "npm:1.6.9"
     source-map-support: "npm:0.5.21"
@@ -16283,7 +16283,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/10ffa3bff66ab3030f2c312f44ed4be9cd594e68e4d3015aee77017b5954ea40be80cd2269da0524586a4315b39963f0f7eb106328f9ef08d44ea5219f1ee9dd
+  checksum: 10c0/cc9b58cdc3803bf6d7f944e99251a83e99b45c8033c10135532d058ba4013198779d711124661f76b7729f419c1443838d8c825997aa5b4d15c5818fffae69ce
   languageName: node
   linkType: hard
 
@@ -17071,10 +17071,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shlex@npm:3.0.0":
-  version: 3.0.0
-  resolution: "shlex@npm:3.0.0"
-  checksum: 10c0/7f3b450c4d31a2cd91ec0523abe8dc5b34f8aa1e79189f3ccd73c4517935f45dcac23a6ba475c8ad75cbd490039098fa074b34d3ddcb0182c10273c6e5b44988
+"shlex@npm:3.0.1":
+  version: 3.0.1
+  resolution: "shlex@npm:3.0.1"
+  checksum: 10c0/373f24f99cb07e424c05071504a210a94d402034593b3008b5ae62bf633b5c5752b9847398a3d1a79cc53d93a4838588fce33ae56a760a2dc19ef9dc0d3cce61
   languageName: node
   linkType: hard
 
@@ -19222,7 +19222,7 @@ __metadata:
     eslint: "npm:10.15.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.65.1"
-    renovate: "npm:44.262.0"
+    renovate: "npm:44.262.1"
     semver: "npm:7.8.6"
     skills: "npm:1.9.0"
     svelte-language-server: "npm:0.18.6"
