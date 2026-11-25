@@ -2238,12 +2238,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:26.6.7":
-  version: 26.6.7
-  resolution: "@types/node@npm:26.6.7"
+"@types/node@npm:*, @types/node@npm:26.6.8":
+  version: 26.6.8
+  resolution: "@types/node@npm:26.6.8"
   dependencies:
     undici-types: "npm:~8.9.0"
-  checksum: 10c0/54ffee68394be0df0f92405b6df75a2f75041bbbd5386fb88292c5e9947800c109baafbc73cbc75957d8238a9487245e4ed57fd91c3e19bda675f3039a403b4b
+  checksum: 10c0/ccdc0c820f6a7aff5cdf2ae475418ab53fdae7d88af5c336f2e9b5de2a82e0aea09c764e9af653aa1b0c6accb623b22c28f1d4753f84de69a115b67f394830dd
   languageName: node
   linkType: hard
 
@@ -7623,7 +7623,7 @@ __metadata:
   dependencies:
     "@cloudflare/vite-plugin": "npm:1.70.1"
     "@dotenvx/dotenvx": "npm:2.38.2"
-    "@types/node": "npm:26.6.7"
+    "@types/node": "npm:26.6.8"
     "@types/prop-types": "npm:15.7.15"
     "@types/react": "npm:19.3.1"
     "@types/react-dom": "npm:19.3.0"
