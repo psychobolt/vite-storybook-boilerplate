@@ -8605,10 +8605,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devalue@npm:^5.9.2, devalue@npm:^5.9.4":
+"devalue@npm:^5.9.4":
   version: 5.9.4
   resolution: "devalue@npm:5.9.4"
   checksum: 10c0/d621083acce13d7812418ed07d99f027f83ee00ba591a2d2eab4c9436e1491ebce7bc1a92aa4c1fb7903c31c0e3c0a3cdf8662bf31644742202e003c04c17e33
+  languageName: node
+  linkType: hard
+
+"devalue@npm:^6.0.4":
+  version: 6.0.4
+  resolution: "devalue@npm:6.0.4"
+  checksum: 10c0/40ce573b30946ea04b36b676efd4d2bb8b1f2cdab1bccfea962f34ad1c6619f00cb25f106d558eee1144de72bce4e5f25d8cbba0262534f0786de8dc2a1b7f56
   languageName: node
   linkType: hard
 
@@ -17894,7 +17901,7 @@ __metadata:
     stylelint: "npm:18.1.0"
     stylelint-config-prettier-scss: "npm:1.0.0"
     stylelint-config-standard-scss: "npm:18.0.0"
-    svelte: "npm:5.59.1"
+    svelte: "npm:5.59.2"
     svelte-check: "npm:4.7.8"
     svelte-eslint-parser: "npm:1.12.0"
     svelte-language-server: "npm:0.18.6"
@@ -17990,9 +17997,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.59.1":
-  version: 5.59.1
-  resolution: "svelte@npm:5.59.1"
+"svelte@npm:5.59.2":
+  version: 5.59.2
+  resolution: "svelte@npm:5.59.2"
   dependencies:
     "@jridgewell/remapping": "npm:^2.3.5"
     "@jridgewell/sourcemap-codec": "npm:^1.6.0"
@@ -18002,14 +18009,14 @@ __metadata:
     aria-query: "npm:5.3.1"
     axobject-query: "npm:^4.1.0"
     clsx: "npm:^2.1.1"
-    devalue: "npm:^5.9.2"
+    devalue: "npm:^6.0.4"
     esm-env: "npm:^1.2.1"
     esrap: "npm:^2.4.2"
     is-reference: "npm:^3.0.3"
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/ddf3cb3adcc653eb369c0d27ea2f59e8606e8ac8de6217ce7cdc28a283c2f793cb58bd776f06c26cbdbef758ae3ca256744328066f8f9c8a71ab9b3c8a0a5197
+  checksum: 10c0/afe0f65048f10b7b96136c9ab6b62c5500ce7ea22f70e69ff81aa45b84ec350dc0827a7ae572f92ea442f4e7b99b66f0068fe865a1964294cea3dcf68429c124
   languageName: node
   linkType: hard
 
