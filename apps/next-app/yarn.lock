@@ -7463,7 +7463,7 @@ __metadata:
     styled-jsx: "npm:5.1.7"
     turbo: "npm:2.11.13"
     typescript: "npm:6.0.3"
-    vinext: "npm:1.4.6"
+    vinext: "npm:1.4.7"
     vite: "npm:8.4.0"
     wrangler: "npm:4.168.0"
   languageName: unknown
@@ -10189,9 +10189,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vinext@npm:1.4.6":
-  version: 1.4.6
-  resolution: "vinext@npm:1.4.6"
+"vinext@npm:1.4.7":
+  version: 1.4.7
+  resolution: "vinext@npm:1.4.7"
   dependencies:
     "@unpic/react": "npm:^1.0.2"
     "@vercel/og": "npm:1.0.3"
@@ -10217,7 +10217,7 @@ __metadata:
       optional: true
   bin:
     vinext: dist/cli.js
-  checksum: 10c0/5a6da3d9fc25fd8d86963d5b42f97b92df6e99be7e6657a771e1bbb2b753285a2e23138bff1d71c9251195f1c2174a6199a979c2664083b920248b329d77ab87
+  checksum: 10c0/03a099915aecb187d8ca842b080c571217a24826735d6a833d29acb5c35ba75ddf50b49fc5d5b21975bddb260d9087b18b2892f6eff8b42fcbd6480bc9a217d6
   languageName: node
   linkType: hard
 
