@@ -10619,17 +10619,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:14.0.2":
-  version: 14.0.2
-  resolution: "glob@npm:14.0.2"
-  dependencies:
-    minimatch: "npm:^11.0.0"
-    minipass: "npm:^7.1.3"
-    path-scurry: "npm:^3.0.0"
-  checksum: 10c0/30e6d02930d281d1879048ac4631648491aa5e60d84fe4195b048f88545f341766a3e2ab05d0a9d59457bd8905720925d20a0491654feeb7fc68568177e8d8e4
-  languageName: node
-  linkType: hard
-
 "glob@npm:14.0.6, glob@npm:^14.0.3, glob@npm:^14.0.6":
   version: 14.0.6
   resolution: "glob@npm:14.0.6"
@@ -13620,7 +13609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^11.0.0, minimatch@npm:^11.0.1, minimatch@npm:^11.0.5":
+"minimatch@npm:^11.0.1, minimatch@npm:^11.0.5":
   version: 11.0.9
   resolution: "minimatch@npm:11.0.9"
   dependencies:
@@ -15935,9 +15924,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:45.0.0":
-  version: 45.0.0
-  resolution: "renovate@npm:45.0.0"
+"renovate@npm:45.0.1":
+  version: 45.0.1
+  resolution: "renovate@npm:45.0.1"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.1139.0"
     "@aws-sdk/client-ec2": "npm:3.1139.0"
@@ -16009,7 +15998,7 @@ __metadata:
     fs-extra: "npm:11.4.1"
     git-url-parse: "npm:16.1.0"
     github-url-from-git: "npm:1.5.0"
-    glob: "npm:14.0.2"
+    glob: "npm:14.0.6"
     global-agent: "npm:3.0.0"
     google-auth-library: "npm:11.3.4"
     got: "npm:16.2.0"
@@ -16071,7 +16060,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/7664319f58637ad49cc7dc727edaf3f02935433effd4529e0d3ec59a84816a6eb76d3d8fe5b187113e8a0f653f92c181d093dcab464c109732aac800dcc68c58
+  checksum: 10c0/57172609289ac189518edacf3da37987639426af984a74a141002b0b73ef93e13c8e4a5929b78b5e390b1e30a001a5867307d1ad13e71a779f3bfd3a0a220ee4
   languageName: node
   linkType: hard
 
@@ -18942,7 +18931,7 @@ __metadata:
     eslint: "npm:10.15.0"
     husky: "npm:9.1.7"
     playwright: "npm:1.65.1"
-    renovate: "npm:45.0.0"
+    renovate: "npm:45.0.1"
     semver: "npm:7.8.6"
     skills: "npm:1.9.0"
     svelte-language-server: "npm:0.18.6"
