@@ -45,7 +45,7 @@
     "playwright": "1.65.1",
     "renovate": "45.1.0",
     "semver": "7.8.6",
-    "skills": "1.9.0",
+    "skills": "1.9.1",
     "svelte-language-server": "0.18.6",
     "turbo": "2.11.13",
     "typescript": "6.0.3"
