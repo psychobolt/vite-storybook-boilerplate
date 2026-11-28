@@ -901,7 +901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/vite-plugin@npm:1.70.2":
+"@cloudflare/vite-plugin@npm:1.70.2, @cloudflare/vite-plugin@npm:^1.50.0":
   version: 1.70.2
   resolution: "@cloudflare/vite-plugin@npm:1.70.2"
   dependencies:
@@ -984,13 +984,6 @@ __metadata:
   version: 1.20261127.1
   resolution: "@cloudflare/workerd-windows-64@npm:1.20261127.1"
   conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@cloudflare/workers-types@npm:^5.20260925.1":
-  version: 5.20261123.1
-  resolution: "@cloudflare/workers-types@npm:5.20261123.1"
-  checksum: 10c0/e97f66d19a47d7d4f9d5e8e426074a6468175027f4b557c400baa587963bb917f15e5490d0e9d40618e4c6bf917cd20bf0fc94a3192d0aca72be9cc2f0183c54
   languageName: node
   linkType: hard
 
@@ -4941,16 +4934,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-cloudflare@npm:8.0.2":
-  version: 8.0.2
-  resolution: "@sveltejs/adapter-cloudflare@npm:8.0.2"
+"@sveltejs/adapter-cloudflare@npm:8.0.4":
+  version: 8.0.4
+  resolution: "@sveltejs/adapter-cloudflare@npm:8.0.4"
   dependencies:
-    "@cloudflare/workers-types": "npm:^5.20260925.1"
+    "@cloudflare/vite-plugin": "npm:^1.50.0"
     "@rolldown/pluginutils": "npm:^1.0.1"
+    magic-string: "npm:^1.4.1"
   peerDependencies:
     "@sveltejs/kit": ^3.0.0-next.0
     wrangler: ^4.118.0
-  checksum: 10c0/9af552070657ee85cc8a7b0dce075abed0c40d08301dc30cb2deb4fbab9fd8407b600065f3719a15f4ea5922ea6b2e30274f4d38d55504a33705289145a61450
+  checksum: 10c0/1f6d652ad4f7193830a605e285bff685a56762743004d2c477e0172ba8f624a36771f79d7cebcc79718ccdeb4fab230db8ddfbf74b015a86b3a6286c087c8cc2
   languageName: node
   linkType: hard
 
@@ -12760,7 +12754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^1.1.0, magic-string@npm:^1.2.3, magic-string@npm:^1.4.5":
+"magic-string@npm:^1.1.0, magic-string@npm:^1.2.3, magic-string@npm:^1.4.1, magic-string@npm:^1.4.5":
   version: 1.4.5
   resolution: "magic-string@npm:1.4.5"
   dependencies:
@@ -17730,7 +17724,7 @@ __metadata:
     "@eslint/js": "npm:10.0.1"
     "@fontsource/fira-mono": "npm:5.3.0"
     "@neoconfetti/svelte": "npm:2.2.2"
-    "@sveltejs/adapter-cloudflare": "npm:8.0.2"
+    "@sveltejs/adapter-cloudflare": "npm:8.0.4"
     "@sveltejs/adapter-vercel": "npm:7.0.5"
     "@sveltejs/kit": "npm:3.4.1"
     "@sveltejs/mcp": "npm:0.1.31"
