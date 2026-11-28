@@ -13969,7 +13969,7 @@ __metadata:
     eslint-config-next: "npm:16.4.6"
     html-ui: "workspace:*"
     next: "npm:16.4.6"
-    next-devtools-mcp: "npm:0.4.1"
+    next-devtools-mcp: "npm:0.4.2"
     nitro: "npm:3.0.260903-beta"
     prettier: "npm:3.10.1"
     prettier-config-standard: "npm:7.0.0"
@@ -13988,18 +13988,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"next-devtools-mcp@npm:0.4.1":
-  version: 0.4.1
-  resolution: "next-devtools-mcp@npm:0.4.1"
+"next-devtools-mcp@npm:0.4.2":
+  version: 0.4.2
+  resolution: "next-devtools-mcp@npm:0.4.2"
   dependencies:
     "@modelcontextprotocol/sdk": "npm:1.25.2"
     find-process: "npm:2.0.0"
     pid-port: "npm:2.0.0"
     undici: "npm:^7.18.2"
-    zod: "npm:3.25.76"
+    zod: "npm:4.6.7"
   bin:
     next-devtools-mcp: dist/index.js
-  checksum: 10c0/9366c512db7c513ac951b451c7b12c34b56a03f34041d1cd7a75f769fc466e11cca40d5446599bbf6bd6f5ee18b4b00703a180111c1e54721ead05debc629c77
+  checksum: 10c0/eb8b0249a34b4a1d954828095fca28bd5eb9d8b110fea19921198aa869f58cd554aa898fa713671d29ce0a3d28dae240cf1d18d40dcc0dffb4bd6cd3b86cb9e4
   languageName: node
   linkType: hard
 
@@ -19916,13 +19916,6 @@ __metadata:
   peerDependencies:
     zod: ^3.25.0 || ^4.0.0
   checksum: 10c0/0ccfec48c46de1be440b719cd02044d4abb89ed0e14c13e637cd55bf29102f67ccdba373f25def0fc7130e5f15025be4d557a7edcc95d5a3811599aade689e1b
-  languageName: node
-  linkType: hard
-
-"zod@npm:3.25.76":
-  version: 3.25.76
-  resolution: "zod@npm:3.25.76"
-  checksum: 10c0/5718ec35e3c40b600316c5b4c5e4976f7fee68151bc8f8d90ec18a469be9571f072e1bbaace10f1e85cf8892ea12d90821b200e980ab46916a6166a4260a983c
   languageName: node
   linkType: hard
 
