@@ -7947,7 +7947,7 @@ __metadata:
     stylelint: "npm:18.1.0"
     ts-enum-util: "npm:4.1.0"
     turbo: "npm:2.11.13"
-    type-fest: "npm:5.10.0"
+    type-fest: "npm:6.0.3"
     typescript: "npm:6.0.3"
     vite: "npm:8.4.0"
     vite-tsconfig-paths: "npm:6.1.1"
@@ -11178,7 +11178,7 @@ __metadata:
     stylelint: "npm:18.1.0"
     stylelint-config: "workspace:*"
     turbo: "npm:2.11.13"
-    type-fest: "npm:5.10.0"
+    type-fest: "npm:6.0.3"
     typescript: "npm:6.0.3"
     typescript-plugin-css-modules: "npm:5.3.1"
     vite: "npm:8.4.0"
@@ -15803,7 +15803,7 @@ __metadata:
     stylelint: "npm:18.1.0"
     stylelint-config: "workspace:*"
     turbo: "npm:2.11.13"
-    type-fest: "npm:5.10.0"
+    type-fest: "npm:6.0.3"
     typescript: "npm:6.0.3"
     typescript-plugin-css-modules: "npm:5.3.1"
     vite: "npm:8.4.0"
@@ -18217,12 +18217,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:5.10.0, type-fest@npm:^5.10.0, type-fest@npm:^5.5.0, type-fest@npm:^5.6.0":
-  version: 5.10.0
-  resolution: "type-fest@npm:5.10.0"
+"type-fest@npm:6.0.3":
+  version: 6.0.3
+  resolution: "type-fest@npm:6.0.3"
   dependencies:
     tagged-tag: "npm:^1.0.0"
-  checksum: 10c0/313c5d0e37a3f1cc82e942f3228f897623c8b54a63a8a95532d0c2c21ab200793caa70bd8904a83fd713eb28d87ba32468b09b345ef6efa25cecb345b467226f
+  checksum: 10c0/f02b2cf35ac3ed1ad23cb567d24da4275a30500dd47ceb84c529392834f5dfa84b75926b8db73a7f9e929335a16c5c65c27a0dce2c1ed9c331af4e265f0259b2
   languageName: node
   linkType: hard
 
@@ -18237,6 +18237,15 @@ __metadata:
   version: 3.13.1
   resolution: "type-fest@npm:3.13.1"
   checksum: 10c0/547d22186f73a8c04590b70dcf63baff390078c75ea8acd366bbd510fd0646e348bd1970e47ecf795b7cff0b41d26e9c475c1fedd6ef5c45c82075fbf916b629
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^5.10.0, type-fest@npm:^5.5.0, type-fest@npm:^5.6.0":
+  version: 5.10.0
+  resolution: "type-fest@npm:5.10.0"
+  dependencies:
+    tagged-tag: "npm:^1.0.0"
+  checksum: 10c0/313c5d0e37a3f1cc82e942f3228f897623c8b54a63a8a95532d0c2c21ab200793caa70bd8904a83fd713eb28d87ba32468b09b345ef6efa25cecb345b467226f
   languageName: node
   linkType: hard
 
